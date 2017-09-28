@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BayetechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="game_user" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="game_pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="game_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="iphone" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email_pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="answer_1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="answer_2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="answer_3" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ask_1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ask_2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ask_3" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="identity" Type="int" Nullable="false" />
+          <Property Name="id_pic" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="security" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="tname" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="bigint" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="admin" Type="tinyint" Nullable="false" />
+          <Property Name="loginip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="logintime" Type="int" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="agent" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BayetechModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BayetechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="GameUser" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GamePass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Iphone" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailPass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Answer1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Answer2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Answer3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ask1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ask2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ask3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Identity" Type="Int32" Nullable="false" />
+          <Property Name="IdPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Logid" />
+          </Key>
+          <Property Name="Logid" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin" Type="Byte" Nullable="false" />
+          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginTime" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BayetechEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BayetechModelStoreContainer" CdmEntityContainer="BayetechEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="BayetechModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="ItemId" ColumnName="itemid" />
+                <ScalarProperty Name="GameUser" ColumnName="game_user" />
+                <ScalarProperty Name="GamePass" ColumnName="game_pass" />
+                <ScalarProperty Name="GameName" ColumnName="game_name" />
+                <ScalarProperty Name="Iphone" ColumnName="iphone" />
+                <ScalarProperty Name="Email" ColumnName="email" />
+                <ScalarProperty Name="EmailPass" ColumnName="email_pass" />
+                <ScalarProperty Name="Answer1" ColumnName="answer_1" />
+                <ScalarProperty Name="Answer2" ColumnName="answer_2" />
+                <ScalarProperty Name="Answer3" ColumnName="answer_3" />
+                <ScalarProperty Name="Ask1" ColumnName="ask_1" />
+                <ScalarProperty Name="Ask2" ColumnName="ask_2" />
+                <ScalarProperty Name="Ask3" ColumnName="ask_3" />
+                <ScalarProperty Name="Identity" ColumnName="identity" />
+                <ScalarProperty Name="IdPic" ColumnName="id_pic" />
+                <ScalarProperty Name="Security" ColumnName="security" />
+                <ScalarProperty Name="Tname" ColumnName="tname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="BayetechModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Logid" ColumnName="logid" />
+                <ScalarProperty Name="UserName" ColumnName="username" />
+                <ScalarProperty Name="PassWord" ColumnName="password" />
+                <ScalarProperty Name="Admin" ColumnName="admin" />
+                <ScalarProperty Name="LoginIp" ColumnName="loginip" />
+                <ScalarProperty Name="LoginTime" ColumnName="logintime" />
+                <ScalarProperty Name="Message" ColumnName="message" />
+                <ScalarProperty Name="Agent" ColumnName="agent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
