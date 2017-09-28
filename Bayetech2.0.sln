@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.Service", "Bayetec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.Core", "Bayetech.Core\Bayetech.Core.csproj", "{4E2C8415-4C83-4096-B003-06B5ED5BB79B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.Web", "Bayetech.Web\Bayetech.Web.csproj", "{43950B69-5111-4A1D-9E43-041BD8E2A85B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{4E2C8415-4C83-4096-B003-06B5ED5BB79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E2C8415-4C83-4096-B003-06B5ED5BB79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E2C8415-4C83-4096-B003-06B5ED5BB79B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43950B69-5111-4A1D-9E43-041BD8E2A85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43950B69-5111-4A1D-9E43-041BD8E2A85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43950B69-5111-4A1D-9E43-041BD8E2A85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43950B69-5111-4A1D-9E43-041BD8E2A85B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
