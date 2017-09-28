@@ -17,6 +17,7 @@ namespace Bayetech.Service
         public void Print()
         {
             throw new NotImplementedException();
+            var aaaaa = 1;
         }
     }
 }
