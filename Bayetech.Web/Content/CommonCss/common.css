@@ -1,0 +1,122 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,dl,dt,dd,ul,ol,li,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,"microsoft yahei",\5b8b\4f53,sans-serif;}
+body{background:#FFF;color:#404040;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+em,i,b{font-style:normal;font-weight:400;}
+fieldset,img{border:0;}
+ul,ol,li{list-style:none;}
+button,input,select,textarea{font-size:100%;outline:none}
+textarea{resize:none;}
+table{border-collapse:collapse;border-spacing:0;}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.org {
+    color: #eb6100!important;
+}
+a:link, a:visited{text-decoration:none;outline:none;}
+a:hover{color:#06c;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+.clear{clear:both;display:block;height:0;overflow:hidden;font-size:0;}
+.hide{display:none;}
+img.err-product{background:url(http://pic.7881.com/7881/common/images/loading.gif) no-repeat 50% 50%;}
+.wrapper{width:990px;min-width:990px;margin:0 auto;}
+
+.l{float:left;}
+.r{float:right;}
+.mt10{margin-top:10px!important;}
+.mb10{margin-bottom:10px!important;}
+.ml10{margin-left:10px!important;}
+.w1190{width:1190px;margin:0 auto 10px;min-width:1190px;}
+.w990{width:990px;margin:0 auto;min-width:990px;}
+.w980{width:980px;margin:0 auto;min-width:980px;}
+.left{float: left;}
+.right{float: right;}
+
+/********** 通用顶部 top **********/
+.top-common-box {width:100%;min-width:1190px;height:35px;line-height:35px;font-family:\5b8b\4f53;border-bottom:#eee 1px solid;background:#fafafa;}
+.top-common {width:1190px;margin: 0 auto;}
+.top-common-left { float: left;}
+.top-common-left .not-log {margin-left: 10px;}
+.top-common-left .not-log span  {float:left;}
+.top-common-left .not-log a { color: #666; margin-right: 4px;}
+.top-common-left .not-log a:hover { color: #39f;}
+.top-common-left .not-log a.qq-log {margin-top: -1px; display: inline-block; width:74px; height: 23px; vertical-align: middle; line-height: 22px; text-align: center; border: #d8d8d8 1px solid;}
+.top-common-left .not-log a.qq-log em.icon-com { width: 15px; height: 13px; display: inline-block;*display: inline;*zoom:1; vertical-align: middle; margin-top: -4px; margin-right: 4px;}
+.top-common-left .not-log a.qq-log:hover { background:#fff;}
+.top-common-left .already-log a:hover { color: #666;}
+.top-common-left .already-log em { color: #e6e6e6; margin: 0 4px;}
+.message {width: 16px; height: 12px; background-position: 0 -32px; margin-top: -2px; margin-right: 6px;}
+.top-common-left .already-log a.on .message {background-position: 0 -64px;}
+.top-common-left .already-log a.on b { color: #eb6100;}
+.top-common-right { float: right;}
+.top-common-right ul li { float: left; padding: 0 10px 0 11px; margin-left: -1px; background: url(http://pic.7881.com/7881-2016/images/icon-com.png) right -128px no-repeat;}
+.top-common-right ul li.top-menu-item {padding:0; position: relative; z-index: 99;}
+.top-common-right ul li.top-menu-item.last-menu-item { background: none;}
+.top-common-right ul li.top-menu-item .menu-hd {display: block; padding: 0 10px 0 11px;}
+.top-common-right ul li.top-menu-item:hover .menu-hd { color:#666;margin-bottom: -1px;border-left:#eee 1px solid; border-right:#eee 1px solid; border-bottom: #fff 1px solid; padding: 0 9px 0 10px; background:#fff;}
+.top-common-right ul li.top-menu-item .menu-hd i { width: 9px; height: 5px; margin-left: 5px; margin-top: -1px; background-position: 0 -91px;}
+.top-common-right ul li.top-menu-item:hover .menu-hd i {background-position: 0 -113px;}
+.top-common-right ul li.top-menu-item .top-menu.middle-menu .top-menu-list { width: 93px;}
+.top-common-right ul li.top-menu-item .top-menu-list { display: none; position: absolute; min-width: 81px; padding-bottom: 6px; border:#eeeeee 1px solid; border-top:none; top:36px; left: 0; background: #fff;}
+.top-common-right ul li.top-menu-item:hover .top-menu-list { display: block;}
+.top-common-right ul li.top-menu-item .top-menu-list a {display: block; height: 26px; line-height: 26px; width: 100%; text-indent: 10px;}
+.top-common-right ul li.top-menu-item .top-menu-list a:hover { color: #eb6100; background: #f8f8f8;}
+
+.center { margin-left: auto; margin-right: auto; text-align: left; width: 980px; overflow: hidden;}
+.total-con {padding-top: 30px; border-top: 2px solid #3399fe;}
+.emailNote {width: 303px;height: 73px;border: 1px solid #ffdcb7;background: #fffdf3;margin-top: 6px;font-family: "宋体";position: relative;}
+.emailNote p {font-size: 13px;}
+.emailNoteTitle {color: #f4a00d;margin: 6px 0 2px 20px;}
+.emailNote p.emailContent {font-size: 12px;color: #666666;padding: 0 10px 0 20px;line-height: 20px;}
+.icon_email {display: block;float: left;width: 18px;height: 12px;background:url(http://pic.7881.com/sellertools2/css/images/icon-seller-manage.png) no-repeat -11px -69px;position: relative;top: 4px;margin-right: 10px;}
+
+
+/********** 通用底部 footer **********/
+.footer-content { background:#f8f8f8; width: 100%; min-width: 1190px; margin-top: 20px;}
+.footer-server-box { background: #3399ff; width: 100%; min-width: 1190px; height: 92px;}
+.footer-server { width: 1190px; margin: 0 auto; overflow: hidden;}
+.footer-server-dl { overflow: hidden; width: 1290px;}
+.footer-server dl { float: left; margin-right: 75px; margin-top: 15px;}
+.footer-server dl dt { float: left;}
+.footer-server dl dt em {font-size:64px ; color: #e6f3ff;}
+.footer-server dl dd { float: left; margin-left:18px;}
+.footer-server dl dd h2 { color: #fff; font-size: 18px; font-family: "microsoft yahei"; margin-top: 6px; margin-bottom: 2px;}
+.footer-server dl dd p { color: #1a5998;}
+.footer-nav { width: 1140px; margin: 38px auto 0 auto; padding-bottom: 22px; border-bottom:#e6e6e6 1px solid;}
+.footer-nav-dl { margin-left: -60px; float: left;}
+.footer-nav dl { float: left; width: 110px; margin-left: 60px;}
+.footer-nav dl dt { margin-bottom: 12px; font-size: 14px; font-weight: bold;}
+.footer-nav dl dd p { margin-bottom: 12px;}
+.wx-item.wx-item-first { margin-left: 0px;}
+.wx-item { float: right; margin-left: 50px; width: 122px; text-align: center; margin-top: -10px;}
+.wx-item img { border: #eee 1px solid;}
+.wx-item h2 { font-weight: bold; font-size: 14px;}
+.wx-item p { color: #aaa;}
+.footer-link { width: 1190px; margin: 0 auto; padding: 26px 0; text-align: center;}
+.footer-link em {color: #ccc; margin:0 14px;}
+.footer-link-a { width: 100%; text-align: center; margin-bottom: 14px;}
+.footer-link p { color: #aaa; margin-bottom: 18px;}
+.footer-link p i { font-family: "microsoft yahei";}
+.footer-link p a { color: #aaa;}
+.footer-link p a:hover { color: #666;}
+.footer-link-honor a { display: inline-block; *display: inline; *zoom:1; margin: 0 5px;}
+.footer-01 { margin-top: 40px; border-top: #3399ff 2px solid;}
+.footer-01 .footer-server { border-bottom: #eee 1px solid; padding-bottom: 22px;}
+.footer-01 .footer-server-box { background: #f8f8f8; height: 102px;}
+.footer-01 .footer-server dl dt em { color:#3399ff;}
+.footer-01 .footer-server dl dd h2 { color: #3399ff;}
+.footer-01 .footer-server dl dd p { color: #969696;}
+.footer-01 .footer-link p { margin-bottom: 0;}
+
+
+.nomilit{ font-size:15px; width:518px; border:1px solid #EDEDED; height:270px; line-height:26px; padding:95px 0 0 460px; background:url("http://pic.7881.com/7881/common/images/nolimit.jpg") no-repeat 200px 65px;}
+.qq-32 {display: inline-block; padding-left: 32px; background: url("http://pic.7881.com/7881/common/images/icon-qq-32.png") left center no-repeat;}
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5 { background: url("http://pic.7881.com/7881/common/images/btn-bg.png") no-repeat; display: inline-block; cursor: pointer;    border: none; text-align: center;}
+.btn-2 {width: 115px; height: 36px; color: #ffffff; line-height: 36px; background-position: 0 -24px; font-size: 14px; font-weight: bolder;}
+.btn-3 {width: 115px; height: 36px; color: #767676; line-height: 36px; background-position: 0 -60px; font-size: 14px; font-weight: bolder;}
+
+.Navigation .center { overflow: visible;}

@@ -1,0 +1,136 @@
+/*头部样式*/
+.header{color:#818181;height:105px;}
+.header .left{float:left;}
+.header .top_search{margin-top:10px;float:right;position:relative;z-index:9999;}
+.top_search .search{float:right;width:88px; text-align:center; background:#3983E8; display:inline-block; color:#fff; font-size:14px; font-weight:bold; position:relative; right:3px;}
+.top_search .search:hover{ color:#fff; background:#1b69d3}
+.s_blue_box .input{width:540px; padding-left:4px; float:left; border:0; line-height:28px; height:28px; font-size:12px}
+.top_search .hotsearch{ position:absolute; left:0; top:65px; float:left; padding-left:5px;color:#aaa;}
+.top_search .hotsearch a{color:#aaa;}
+.top_search .hotsearch a:hover{color:#f60;}
+.top_search .hotsearch dl dt,.top_search .hotsearch dl dd{ float:left; line-height:30px; padding-right:5px}
+.top_search .hotsearch dl dd{font-size:10px}
+.top_search .arrow{ position:absolute; z-index:10006; top:64px; left:28px;width:15px; height:8px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1446px no-repeat; display:none}
+.top_search .b_blue_box{ border:2px solid #3983E8;overflow:hidden; width:976px; position:absolute;top:70px;left:-342px; background:#fff; z-index:10001; display:none;box-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:left;}
+.main_con{ float:left; width:976px;overflow:hidden;}
+.box_title{ border-bottom:1px dashed #ddd; height:36px; line-height:36px; margin:0 12px;font-size:16px; font-family:"΢���ź�"; font-weight:bold}
+.box_title a{ color:#f90; font-size:14px; margin-left:10px}
+.top_search .close_btn{ display:none; text-indent:-2000em; overflow:hidden;width:20px; height:19px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1507px no-repeat; margin:4px 2px; position:absolute; z-index:999; top:78px; right:10px}
+.top_search .close_btn:hover{ background-position: 0 -1526px}
+.top .top_r dd a:hover{color:#F60;}
+
+.top_search{ width:720px; float:right; position:relative; z-index:9999}
+.t_search{ height:26px; line-height:29px; width:638px; float:left;}
+.t_search a{ width:90px; float:left; display:inline-block;text-align:center; color:#999}
+.t_search a.hover{ background:#3983E8; color:#fff; border-radius:3px 3px 0 0}
+.s_blue_box{ border:3px solid #3983E8; float:left; overflow:hidden; width:714px; color:#333}
+.selectbox ul{ float:left;}
+.selectbox li,.top_search .search{ height:30px; line-height:29px; float:left;}
+.selectbox li.g_name,.selectbox li.g_area,.selectbox li.g_service,.selectbox li.g_type,.selectbox li.g_run,.selectbox li.g_gameplatform{ float:left; width:100px; padding-right:16px; background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 102px -1456px no-repeat; cursor:pointer; text-indent:10px; /*overflow:hidden;white-space:nowrap; text-overflow:ellipsis;*/text-align:left;}
+.selectbox li.selected_position{ background-position:116px -1476px}
+.top_search .search{width:40px; height: 36px; text-indent:-99999px; display:block; position:absolute; right:0px; bottom:0px; z-index: 9; background:#3983e8 url(http://pic.7881.com/7881/market/images/search-icon.png) center center no-repeat;}
+.top_search .search:hover{ background:#1b69d3 url(http://pic.7881.com/7881/market/images/search-icon.png) center center no-repeat;}
+.s_blue_box .input{width:540px; padding-left:4px; float:left; border:0; line-height:30px; height:30px; font-size:12px}
+.top_search .hotsearch{ position:absolute; top:64px; left:0; padding-left:5px;color:#aaa;}
+.top_search .hotsearch a{color:#aaa;}
+.top_search .hotsearch a:hover{color:#f60;}
+.top_search .hotsearch dl{float:left;}
+.top_search .hotsearch dl dt,.top_search .hotsearch dl dd{ float:left; line-height:30px; padding-right:5px}/*float:left; line-height:30px; padding-right:3px*/
+.top_search .hotsearch dl dd{font-size:10px}
+.top_search .arrow{ position:absolute; z-index:10006; top:64px; left:53px;width:15px; height:8px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1446px no-repeat; display:none}
+.top_search .b_blue_box{ border:2px solid #3983E8;overflow:hidden; width:976px; position:absolute;top:70px;left:-260px; background:#fff; z-index:10001; display:none;box-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:left;}
+.main_con{ float:left; width:976px;overflow:hidden;}
+.box_title{ border-bottom:1px dashed #ddd; height:36px; line-height:36px; margin:0 12px;font-size:16px; font-family:"微软雅黑"; font-weight:bold}
+.box_title a{ color:#f90; font-size:14px; margin-left:10px}
+.top_search .close_btn{ display:none; text-indent:-2000em; overflow:hidden;width:20px; height:19px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1507px no-repeat; margin:4px 2px; position:absolute; z-index:999; top:78px; right:10px}
+.top_search .close_btn:hover{ background-position: 0 -1526px}
+.gamename_quicksearch{ padding:15px 12px; height:28px; overflow:hidden}
+.q_input{ width:180px; padding:3px; border:1px solid #ddd; height:18px; line-height:18px; margin-right:5px}
+
+.main_name_select{ border-bottom:1px solid #549AE9; height:34px; line-height:34px; padding-left:45px}
+.main_name_select a{border:1px solid #549AE9; font-size:14px; height:33px; margin-right:3px; width:108px; display:inline-block; background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1553px repeat-x; _border-bottom:0;text-align:center; color:#666}
+.main_name_select a.hover{border:1px solid #549AE9; border-bottom:0;font-size:14px; font-weight:bold; width:108px; display:inline-block; text-align:center; height:34px; background:#fff;}
+
+
+.main_letter_select{ height:30px; line-height:30px; padding:6px 0 2px 45px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1587px repeat-x}
+.main_letter_select a,.main_letter_select a.current{display:inline-block; padding:0 10px; margin:0 3px 0 0; text-align:center; font-family:Arial, Helvetica, sans-serif; overflow:hidden; vertical-align:middle}
+.main_letter_select a.current{ color:#fff;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) -20px -1627px no-repeat;}
+.main_letter_select a:hover{ text-decoration:none; color:#fff;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) -20px -1627px no-repeat;}
+#hotgame.current{color:#fff;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1627px no-repeat;}
+#hotgame:hover{color:#fff;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1627px no-repeat;}
+
+
+.con_list{ padding:10px 0 10px 45px; width:930px; overflow:hidden}
+.con_list dt{ float:left;width:145px; overflow:hidden; padding:5px 0 5px 4px; margin-right:4px;background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) 0 -1659px no-repeat; height:20px;white-space:nowrap; text-overflow:ellipsis}
+.con_list dt a{line-height:20px; padding:0 5px; overflow:hidden; display:inline-block;}
+.con_list dt a:hover{ background:#3983E8; color:#fff; text-decoration:none}
+
+.xii_row {cursor:pointer;}
+.xii_selected {background:#F3F5F8;}
+
+.selectbox .g_input label.placeholder{ position: relative;display: block; width: 212px; height: 30px;}
+.selectbox .g_input label.placeholder input { display: block; width: 192px; height:30px; line-height: 30px\9; border: none; padding:0 10px;}
+.selectbox .g_input label.placeholder span { position: absolute; left: 12px; color: #aaa; top: 0px; line-height: 29px; cursor: text; text-indent: 0;}
+.selectbox.mobile-game li { width: 72px; text-indent: 10px;background-position:74px -1456px;}
+.selectbox.mobile-game .g_input label.placeholder{ width: 148px;}
+.selectbox.mobile-game .g_input label.placeholder input { width: 132px; padding: 0 8px;}
+.selectbox.mobile-game .g_input label.placeholder span { left: 10px;}
+
+.btn {background: url("http://pic.7881.com/7881/common_7881/css/7881.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);border: medium none;color: #fff;cursor: pointer;display: inline-block;font-weight: bold;text-align: center;vertical-align: middle;}
+.btn-lBlue1 {background-position: left -126px;font-weight: normal;height: 26px;line-height: 26px;width: 80px;}
+.top,.header,.footer{ width:980px; margin:0 auto;}.border{ border:1px solid #ddd}/* --���--*/
+.top_box a:hover{text-decoration:underline;}
+.top_box{ width:100%; height:33px; background:url(http://pic.7881.com/7881/common_7881/images/global.png) repeat-x; position:relative; z-index:10008}
+.top_box a{color:#333;}
+.top{ height:33px;line-height:33px;}
+.top .top_l{float:left;height:33px;overflow:hidden}
+.top .top_r{float:right;}
+.top .top_l dt{ padding:10px 3px; float:left; height:14px; line-height:14px}
+.top .top_l dt a{color:#36c;}
+.top .top_l dt a:hover{color:#F60;}
+.top .qq a{ width:69px; height:25px; background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -132px -229px; display:block; margin:8px 0 0 10px}
+.top .top_r dt{float:left;}
+.top .top_r dt a{ padding:0 10px}
+.top .top_r dt a.green{color:#4dbf00;}
+.top .top_r dt a.orange{color:#F60;}
+.top_grayline{ font-size:14px; color:#ddd;}
+.top .top_r dd{ float:left; text-align:center;width:80px; padding-right:5px; background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -20px -177px;position:relative;}
+.top .top_r dd.wb{ width:83px}
+.top .top_r dd.subNav ul#hide_nav{display:none;} /* --��-��������--*/
+.top .top_r dd.subNav:hover{ background-position:-20px -144px}
+.top .top_r dd.subNav:hover ul#hide_nav{ width:89px; height:auto; display:block; position:absolute;background:#fff; right:-3px; top:33px; border:1px #e6e6e6 solid; border-top:none; padding:5px 0;box-shadow: 0px 0px 3px #ccc; -moz-opacity: 0.9;  opacity:.90;  filter: alpha(opacity=90);}
+.top .top_r dd.subNav ul#hide_nav li{ height:26px; line-height:26px;}
+.top .top_r dd.subNav ul#hide_nav li.xn{background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -156px -260px; padding-left:15px}
+.top .top_r dd.subNav ul#hide_nav li.tx{background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -156px -285px; padding-left:15px}
+/*导航样式*/
+.Navigation{height:40px; background:#3d86ea;}
+.Navigation .center { overflow: visible;}
+.Navigation .Part li a{}
+.Part{width:980px;margin:0 auto;height:40px;}
+.Part li{height:40px;float:left;}
+.Part li.All_sections{ width:170px;background:#fe9101; color:#FFF; font-size:15px; padding-left:10px;}
+.Part li.All_sections a{ width:170px; line-height:40px; background:#fe9101; padding:0; text-align:left; display:block}
+.Part li.All_sections a:hover{ text-decoration:underline; background:none;}
+.Part li a{font-family: Microsoft YaHei;font-size: 15px;line-height: normal;display:block; width:120px; height:30px; padding-top:10px; float:left;text-align:center; color:#FFF;border-right:#4e90ec solid 1px;}
+.Part li a:hover{ background:#1D62BF; color:#FFF}
+.syfb{ position: relative}
+.syfb img{ position: absolute; top: -5px; right: -10px;}
+/*尾部样式*/
+.footer{ height:210px;line-height:28px; text-align:center; padding-top:30px; background:#fff;}
+.footer .gray_a{color:#AAA;}
+.footer .advan{ width:980px; height:65px;margin-bottom:10px;background:url(http://pic.7881.com/7881/common_7881/images/global.png) repeat-x 0px -577px}
+.footer .advan ul{ width:978px; height:48px;border:1px solid #e7e3e4; background:#fff; padding-top:8px; text-indent:-9999px}
+.footer .advan li{ width:196px; height:39px; background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -12px -463px; float:left; border-right:1px solid #dfdfdf; padding:0 25px 0 0px; margin-left:25px; display:inline}
+.footer .advan li.s2{ background-position:-12px -505px;}.footer .advan li.s3{ background-position:-12px -548px;}.footer .advan li.s4{ background-position:-12px -590px; border:none; padding:0}
+.footer .link span{ color:#aaa; margin:0 10px 0 10px}
+.footer .link a{color:#333;}
+.footer .link a:hover{color:#F60;}
+.footer .honor{ padding:10px 0 0 107px; height:33px}
+.footer .honor li{ float:left; margin-right:5px;}
+.footer .honor li a{width:106px; height:33px; display:block; background:url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -16px -221px}
+.footer .honor li a.s2{ background-position:-16px -258px}
+.footer .honor li a.s3{ background-position:-16px -296px}
+.footer .honor li a.s4{ background-position:-16px -336px}
+.footer .honor li a.s5{ background-position:-16px -376px}
+.footer .honor li a.s6{ background-position:-16px -418px}
+

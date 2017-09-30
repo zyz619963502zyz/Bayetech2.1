@@ -1,0 +1,49 @@
+.tp-login{width:428px;z-index:999999;background:#ffffff;-moz-box-shadow:0px 0px 10px #828282;-webkit-box-shadow:0px 0px 10px #828282;box-shadow:0px 0px 10px #d4d4d4;border:#e1e5e8 1px solid;display:none;position:absolute;background:#fff;}
+.tp-login .tp-title{position:relative;width:428px; /*height: 42px;*/background:#e1e5e8;text-align:left;}
+.tp-login .tp-title span{color:#666666;margin-left:12px;line-height:38px;font-weight:bold;}
+.tp-login .tp-title b{display:block;right:0;top:0;line-height:38px;position:absolute;width:38px;text-align:center;height:38px;overflow:hidden;color:#626262;font-size:14px;cursor:pointer;font-family:Microsoft YaHei;}
+.tp-login .tp-con{text-align:center;padding:36px 35px 10px 35px;position:relative;background:#fff;}
+.tp-con .form li{padding:8px 0;position:relative;overflow:hidden;*zoom:1;}
+.input-cv{position:relative;padding-left:41px;height:42px;border:1px solid #b7b6b6;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login_bj2.png) no-repeat 10px -197px;}
+.tp-con .form li .input_login{width:314px;height:38px;border:0;line-height:38px;font-size:14px;color:#666; /* position: absolute; */z-index:3;position:relative;background:none;}
+.tp-con .form li .mm{background-position:10px -162px}
+.tp-con .form li .input-cv:hover,
+.tp-con li .input-cv:focus{-webkit-transition:all 0.5s;-moz-transition:all 0.5s;-o-transition:all 0.5s;transition:all 0.5s;border:1px solid #68acff;box-shadow:0 0 2px #68acff;}
+.tp-con .form li .login_but{width:100%;height:40px;background:#4098de;display:block;line-height:40px;font-size:14px;text-align:center;color:#fff;font-weight:bold;cursor:pointer;border-radius:3px 3px 3px 3px;}
+.tp-con .form li .login_but:hover{color:#fff;background:#3285c7;}
+.form li a.login_but{_color:#fff}
+.tp-con .form li .register_but{background-position:0 0;color:#ec6d34;border-left:1px solid #dadada;border-right:1px solid #dadada;}
+.tp-con .form li .captcha{width:95px;background:none;padding-left:8px;margin-right:20px;}
+.tp-con #focus li.prompt.tp-yzm label{left:10px;width:100%;}
+.tp-con #focus li.prompt.tp-yzm a{color:#06c;margin-left:85px;cursor:pointer;}
+.tp-con #focus li.prompt.tp-yzm a:hover{color:#f60;text-decoration:none;}
+.tp-con .form li span{margin:0 123px 0 7px}
+.tp-con .form li.xs{padding:0}
+#focus li.prompt{height:38px;line-height:38px;}
+#focus li.prompt label{position:absolute;float:left;left:42px;cursor:text;top:4px;height:36px;z-index:2;text-align:left;color:#666;line-height:36px;font-size:14px}
+#focus li.prompt .captcha2{position:absolute;left:110px;top:11px;}
+.tp-con .form li a{color:#666666;}
+.tp-con .form li a:hover{color:#3366cc;}
+.wm{float:left;}
+.lz{float:right;}
+.tp-con .form li.line{border-bottom:1px solid #e3e3e3;padding-bottom:10px;}
+.tp-con .form li.tp-hz p{color:#aaaaaa;margin-bottom:8px;}
+.tp-con .form li.tp-hz a{color:#aaaaaa;margin:0 3px;}
+.tp-con .form li.tp-hz a:hover{color:#3366cc;}
+.tp-con .form li.tp-hz i{display:inline-block;zoom:1;vertical-align:middle;}
+.tp-con .form li.tp-hz i.alipay{width:16px;height:16px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login-bj3.png) no-repeat -110px -216px;}
+.tp-con .form li.tp-hz i.qq{width:16px;height:17px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/Connect_logo_1.png) no-repeat;}
+.tp-con .form li.tp-hz i.q360{width:16px;height:17px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login-bj3.png) no-repeat -147px -216px;}
+.tp-con .form li.tp-hz i.yy{width:16px;height:18px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login-bj3.png) no-repeat -110px -190px;}
+.tp-con .form li.tp-hz i.ty{width:20px;height:17px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login-bj3.png) no-repeat -147px -190px;}
+.tp-con .form li.tp-tip{position:absolute;height:32px;width:356px;background:#fff6f0;border:#ff9c6b 1px solid;padding:0px;top:4px;line-height:30px;color:#666666;text-align:left;z-index:99;}
+.tp-con .form li.tp-tip label{position:absolute;float:left;left:12px;cursor:text;top:0px;height:36px;z-index:2;text-align:left;color:#666;line-height:30px;font-size:12px;}
+.tp-con .form li.tp-tip i{position:absolute;top:8px;left:8px;width:18px;height:16px;margin-right:3px;background:url(http://pic.7881.com/7881/common_7881/images/login-register/login-bj3.png) no-repeat 0px 0px;}
+.tp-con .form li.tp-wel{position:absolute;height:32px;width:356px;padding:0px;top:3px;line-height:34px;color:#aaaaaa;text-align:right;z-index:9;}
+#login-pop-cover{display:none;position:fixed;top:0px;left:0px;width:100%;z-index:99999;opacity:0.3;background:rgb(0,0,0);}
+
+/*.login-pop { border:1px solid #4098de; width: 346px;}
+.login-pop h1 { font-size: 14px; padding: 0 5px; background:  #4098de; height: 40px; line-height: 40px; color: #fff;}
+.login-pop form { width: 320px; margin: 0 auto; padding: 30px 0 0;}
+.login-pop .input { border:1px solid #4098de; padding: 0 19px; background: #f8f8f8;}
+.login-pop .input input { height: 48px; display: block; line-height: 48px; border:none; width: 100%; background: none;}*/

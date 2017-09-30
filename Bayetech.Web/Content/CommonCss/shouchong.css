@@ -1,0 +1,76 @@
+.hot-game{ position: relative}
+.hot-game img{ position: absolute; top: -5px; right: -10px;}
+.all-fist-ch{ background: url("http://pic.7881.com/7881-2016/images/shouchong/bodybg.jpg") no-repeat center top;}
+.banner-sure{ overflow: hidden; padding-top: 20px;}
+.banner-sure .slideBan{ width:700px; height:280px; overflow:hidden; position:relative; float: left;}
+.banner-sure .slideBan .hd{ height:15px; overflow:hidden; position:absolute; right:15px; bottom:5px; z-index:1; }
+.banner-sure .slideBan .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.banner-sure .slideBan .hd ul li{ float:left; margin-right:2px;  width:10px; height:10px; border-radius: 10px; margin-right: 5px; line-height:14px; text-align:center; background:#fff; opacity: 0.6; filter:alpha(opacity=60);  cursor:pointer; -moz-opacity:0.6;-khtml-opacity:0.6;}
+.banner-sure .slideBan .hd ul li.on{ background:#fff; opacity: 1; *filter:alpha(opacity=100);}
+.banner-sure .slideBan .bd{ position:relative; height:100%; z-index:0;   }
+.banner-sure .slideBan .bd li{ zoom:1; vertical-align:middle; }
+.banner-sure .sure-info{ width: 270px; height: 280px;background: url("http://pic.7881.com/7881-2016/images/shouchong/sure-info.jpg") no-repeat center top; float: right; position: relative;}
+.banner-sure .sure-info h3{ font-size: 22px; font-weight: normal; text-align: center; height: 60px; line-height: 60px;}
+.banner-sure .sure-info p{ font-weight: bold; font-size: 14px; text-align: center; font-family: simsun; color: #ff9900; margin-top: 50px;}
+.banner-sure .sure-search { position: relative; width: 220px; height: 46px; margin: 16px 0 0 15px;}
+.banner-sure .sure-info .xxqd{ width: 158px; height: 44px; line-height: 44px; font-family: simsun; background: none; border: 1px solid #3399ff; color: #999;  padding:0 50px 0 10px; font-size: 14px; vertical-align: middle; position: absolute; left: 0 top:0;}
+.banner-sure .sure-info .xxqd.inpt{ color: #333; font-weight: bold;}
+.banner-sure .sure-info .xxqd{outline:0;border:#3399ff 1px solid;-webkit-transition:box-shadow .5s;}
+.banner-sure .sure-info .xxqd:hover,.banner-sure .sure-info .xxqd:focus{border:1px solid #3399ff;box-shadow:inset 0 1px 5px rgba(0,0,0,.05),0 0 8px rgba(51,153,255,.6);-webkit-transition:box-shadow .5s;}
+.banner-sure .sure-info .sure-btn{ position: absolute; width: 40px; height: 44px; display: block; right: 1px; top: 1px; cursor: pointer;z-index: 9; background:url("http://pic.7881.com/7881-2016/images/shouchong/serch-fdj.png") no-repeat;}
+
+.game-list{ margin-top: 5px;}
+.game-list .title{font-size: 18px; height: 36px; line-height: 36px;}
+.game-list .game-class{ border-top: 1px solid #3d86ea;}
+.game-list .game-class .game-class-tit{ height: 45px; border-bottom: 3px solid #eee;border-left: 1px solid #eee; border-right: 1px solid #eee; padding: 0 15px; position: relative;}
+.game-list .game-class .game-class-tit b{left:15px;bottom:-2px;position:absolute;height:3px;overflow:hidden;width:90px;background:#ff7700;}
+.game-list .game-class .game-class-tit span{float:left; width:90px; height:45px; text-align: center;  font:normal bold 16px/45px SimHei;margin-right:15px; color: #ff7700;}
+.game-list .game-class .game-class-tit span a{ color: #ff7700;}
+.game-list .game-class .game-class-tit .letter{ float:left; width:780px;}
+.game-list .game-class .game-class-tit .letter li{ float:left; width:30px; height:45px; font:normal  normal 18px/45px Helvetica, Helvetica Neue, Arial; text-align:center;cursor:pointer;}
+.game-list .game-class .game-class-tit .letter li a{color:#333;}
+.game-list .game-class .game-class-tit .letter li:hover a{color:#ff7700;}
+.game-list .game-class .game-icon{border-left: 1px solid #eee; margin-bottom: 30px;}
+.game-list .game-class .game-icon ul{ overflow: hidden;}
+.game-list .game-class .game-icon li{ width: 194.8px; height: 206px; float: left; text-align: center; border-bottom: 1px solid #eee; border-right: 1px solid #eee;}
+.game-list .game-class .game-icon li:hover{ background: #fbfbfb;}
+.game-list .game-class .game-icon li img{ width: 120px; height: 120px; margin: 18px 0 8px 0;}
+.game-list .game-class .game-icon li p{width: 120px; font-size: 18px;margin-bottom: 5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; word-wrap: normal; padding: 0 37px;}
+.game-list .game-class .game-icon li span{ background: #e60012; padding: 3px 7px; color: #fff; font-size: 12px; font-weight: bold; }
+
+/*----弹窗样式----*/
+.tanchuang{}
+.tanchuang .layui-layer-title{ height: 50px; line-height: 50px; font-size: 18px; color: #666; background: #fbfbfb; cursor: pointer !important;}
+.tanchuang .nozige{ width: 480px; height:135px; background: #fff; text-align: center; line-height: 32px;}
+.tanchuang .nozige h3{ font-weight: normal; font-size: 20px; color: #ff7700; padding-top: 35px;}
+.tanchuang .nozige p{ font-size: 20px; margin-bottom: 35px;}
+.tanchuang .nozige a{ font-size: 14px; font-family: simsun; color: #888; background: #fbfbfb; border: 1px solid #eee; padding: 10px 35px; border-radius: 3px;}
+.tanchuang .nozige a:hover{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}
+.tanchuang .layui-layer-btn{ text-align: center;}
+.tanchuang .layui-layer-btn a{ font-size: 14px; font-family: simsun; color: #888; background: #fbfbfb; border: 1px solid #eee; padding: 5px 36px; border-radius: 3px; cursor: pointer;}
+.tanchuang .layui-layer-btn a:hover{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}
+
+.tanchuang .only-one{width: 620px; height: 320px; text-align: center;}
+.tanchuang .only-one .game-ch{width: 180px; height: 188px; margin:30px 0 30px 220px; cursor: pointer; background: #fbfbfb; border: 1px solid #eee;}
+.tanchuang .only-one .game-ch:hover{ border: 1px solid #3399ff;}
+.tanchuang .only-one .game-ch.chbg{ background: url(http://pic.7881.com/7881-2016/images/shouchong/chbg.jpg) no-repeat;}
+.tanchuang .only-one .game-ch.chbg:hover{ border: 1px solid #fff;}
+.tanchuang .only-one .game-ch img{ width: 100px; height: 100px; padding: 20px 0;}
+.tanchuang .only-one .game-ch p{width: 120px; font-size: 18px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; word-wrap: normal; padding: 0 30px;}
+.tanchuang .only-one  a{ font-size: 14px; font-family: simsun; color: #888; background: #fbfbfb; border: 1px solid #eee; padding: 10px 90px; border-radius: 3px;}
+.tanchuang .only-one  a:hover{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}
+.tanchuang .only-one  a.on{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}
+
+.tanchuang .so-many{text-align: center;}
+.tanchuang .so-many ul{ padding:0 16px; margin: 30px 0; overflow: hidden;width:591px; height: 400px; overflow-x: hidden; overflow-y: scroll;}
+.tanchuang .so-many ul li{ float: left; width: 180px; height: 188px; margin: 5px; cursor: pointer;}
+.tanchuang .so-many ul li:hover div{border: 1px solid #3399ff;}
+.tanchuang .so-many ul li div.chbg{ background: url(http://pic.7881.com/7881-2016/images/shouchong/chbg.jpg) no-repeat; border: none; width: 180px; height: 188px;}
+.tanchuang .so-many ul li div.chbg img{ padding: 21px 0 20px 0;}
+.tanchuang .so-many ul li div.chbg p{ padding:0 30px 0 31px;}
+.tanchuang .so-many ul li div{ width: 178px; height: 186px;background: #fbfbfb; border: 1px solid #eee;}
+.tanchuang .so-many ul li div img{ width: 100px; height: 100px; padding: 20px 0;}
+.tanchuang .so-many ul li div p{width: 120px; font-size: 18px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; word-wrap: normal; padding: 0 30px;}
+.tanchuang .so-many  a{ width: 210px; display: inline-block;*display: inline-block;*zoom: 1; margin-bottom: 30px; font-size: 14px; font-family: simsun; color: #888; background: #fbfbfb; border: 1px solid #eee; padding: 10px; border-radius: 3px;}
+.tanchuang .so-many  a:hover{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}
+.tanchuang .so-many  a.on{ background: #3399ff; border: 1px solid #3399ff; color: #fff;}

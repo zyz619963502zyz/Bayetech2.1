@@ -1,0 +1,287 @@
+::-webkit-input-placeholder{color:#aaa;font-size:12px;}
+:-moz-placeholderr{color:#aaa;font-size:12px;}
+::-moz-placeholder{color:#aaa;font-size:12px;}
+:-ms-input-placeholder{color:#aaa;font-size:12px;}
+.tab li{float:left;margin:0 2px 0 0px;}
+.tab li a,.tab li a span {display:block;_float:left;text-align:center;background:#f6f6f6;font-size:14px;line-height:32px;height:32px;cursor: pointer;}
+.tab li a{padding-right:20px;border:1px solid #dbdbdb;border-bottom:0 none;border-left:0 none;}
+.tab li a:hover{text-decoration:none;}
+.tab li a span {padding-left:20px;background:#f6f6f6;}
+.tab li.current {position: relative;margin-bottom:-1px;z-index:3;}
+.tab li.current a{background:#fff;line-height:33px;height:33px;}
+.tab li.current a span{background:#fff;line-height:33px;height:33px;color:#333;font-weight:bold;}
+.tabPure{border-bottom:2px solid #ff8443;}
+.tabPure li{margin:0;}
+.tabPure li a,.tabPure li a span{height:34px;line-height:34px;background:#fff;}
+.tabPure li.first a{border-left:1px solid #dbdbdb;}
+.tabPure li.current a,.tabPure li.current a span{height:34px;line-height:34px;background:#ff8443;color:#fff;border-color:#ff8443;}
+.blueHd{height:88px;background:url("http://pic.7881.com/7881/common_7881/images/repX.png") left -55px repeat-x;}
+.blueHd .W980{position:relative;height:88px;overflow:hidden;}
+.blueHd .W980 h1.logo{position:absolute;float:left;width:170px;height:52px;left:5px;top:25px;}
+.blueHd .W980 h1.logo a{display:block;width:170px;height:52px;}
+.blueHd .W980 figure{position:absolute;float:right;width:211px;height:69px;right:17px;top:20px;font-size:0;line-height:0;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") left top no-repeat;}
+.sj-bg,.sz-bg,.zi-bg { position:absolute;}
+.sj-bg { background:url("http://pic.7881.com/7881/common_7881/images/sj-bg.png") no-repeat; width:70px; height:73px; right:202px; top:88px;}
+.sz-bg { background:url("http://pic.7881.com/7881/common_7881/images/sz-bg.png") no-repeat; width:39px; height:49px; right:183px; top:88px;}
+.zi-bg { background:url("http://pic.7881.com/7881/common_7881/images/zi-bg.png") no-repeat; width:126px; height:42px; right:60px; top:24px; opacity:0;}
+.blueHd .W980 nav{position:absolute;float:left;left:177px;bottom:0;}
+.blueHd .W980 nav li{float:left;margin:0 5px;background:url("http://pic.7881.com/7881/common_7881/images/nav-sprite.png") right center no-repeat;}
+.blueHd .W980 nav li.last{background:none;}
+.blueHd .W980 nav li a,.blueHd .W980 nav li a span{float:left;display:inline-block;height:32px;line-height:32px;color:#fff;font-size:14px;white-space:nowrap;}
+.blueHd .W980 nav li a{padding-right:18px;}
+.blueHd .W980 nav li a span{padding-left:18px;margin-left:-5px;}
+.blueHd .W980 nav li.current a,.blueHd .W980 nav li.current a span,.blueHd .W980 nav li a:hover,.blueHd .W980 nav li a:hover span{background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") 0 0 no-repeat;color:#0167c0;}
+.blueHd .W980 nav li.current a,.blueHd .W980 nav li a:hover{background-position:right -74px;}
+.blueHd .W980 nav li.current a span,.blueHd .W980 nav li a:hover span{background-position:left -74px;}
+/*aside*/
+.mainWrap{padding:1px 0 0;overflow:hidden;}
+.sidebar{float:left;margin-left:-980px;width:178px;border-top:1px solid #ddebfd;overflow: hidden;}
+.sid-panel{padding-top:15px;font-size:14px;}
+.sid-panel li{position:relative;height:47px;width:155px;margin: -2px 0 0 11px;border-bottom:1px solid #c5e1ff;}
+.sid-panel li.last{border-bottom:0 none;height:48px;}
+.sid-panel li.first{border-top:0 none;}
+.sid-panel li a {display:block;font-size:16px;color:#3672c3;height:36px;outline:0 none;padding: 11px 0 0 15px;width: 154px;overflow:hidden;z-index:98; font-family:Microsoft YaHei;}
+.sid-panel li i.serve{width:26px;height:26px;margin:-3px 10px 0 0;background: url("http://pic.7881.com/7881/common_7881/images/serve.png") no-repeat;-webkit-backface-visibility:hidden;-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}
+.sid-panel li i.phone{background-position: left -1px;}
+.sid-panel li i.QQ{background-position: left -49px;}
+.sid-panel li i.onlineGame{background-position: left -97px;} 
+.sid-panel li i.mobileGame{background-position: left -146px;}
+.sid-panel li i.a7881{background-position: left -193px;}
+.sid-panel li i.sch-icon{background-position: left -236px;}
+.sid-panel li i.appstore{background-position: left -280px;}
+.sid-panel li i.sch-dai{background-position: left -319px;}
+
+.sid-panel li.current a,.sid-panel li a:hover{position:absolute;left:-2px;top:1px;background: url("http://pic.7881.com/7881/common_7881/images/recharge.png") left -114px no-repeat;text-decoration:none;}
+.sid-panel li a:hover i{top:9px;left:24px;-webkit-transform-origin:top center;-moz-transform-origin:top center;-ms-transform-origin:top center;-o-transform-origin:top center;transform-origin:top center;-webkit-animation-name:swing;-moz-animation-name:swing;-ms-animation-name:swing;-o-animation-name:swing;animation-name:swing}
+@-webkit-keyframes swing{20%,40%,60%,80%,100%{-webkit-transform-origin:top center}
+20%{-webkit-transform:rotate(15deg)}
+40%{-webkit-transform:rotate(-10deg)}
+60%{-webkit-transform:rotate(5deg)}
+80%{-webkit-transform:rotate(-5deg)}
+100%{-webkit-transform:rotate(0deg)}
+}
+@-moz-keyframes swing{20%{-moz-transform:rotate(15deg)}
+40%{-moz-transform:rotate(-10deg)}
+60%{-moz-transform:rotate(5deg)}
+80%{-moz-transform:rotate(-5deg)}
+100%{-moz-transform:rotate(0deg)}
+}
+@-ms-keyframes swing{20%{-ms-transform:rotate(15deg)}
+40%{-ms-transform:rotate(-10deg)}
+60%{-ms-transform:rotate(5deg)}
+80%{-ms-transform:rotate(-5deg)}
+100%{-ms-transform:rotate(0deg)}
+}
+@-o-keyframes swing{20%{-o-transform:rotate(15deg)}
+40%{-o-transform:rotate(-10deg)}
+60%{-o-transform:rotate(5deg)}
+80%{-o-transform:rotate(-5deg)}
+100%{-o-transform:rotate(0deg)}
+}
+@keyframes swing{20%{transform:rotate(15deg)}
+40%{transform:rotate(-10deg)}
+60%{transform:rotate(5deg)}
+80%{transform:rotate(-5deg)}
+100%{transform:rotate(0deg)}
+}
+/* content */
+.contentWarp{float: left;width: 100%;background: url("http://pic.7881.com/7881/common_7881/images/asideY.png") 0 0 repeat-y;}
+.contentWarpColumn {margin: 0 0 0 176px;}
+.contentWarpInside {padding:10px 0 0 25px;background: #fff;border-left:2px solid #bbdcff;min-height:460px;height: auto!important;height:460px;overflow: visible;}
+.contentWarp .head{position:relative;height:50px;border-bottom:3px solid #e7f4ff;}
+.contentWarp .head h3{position:absolute;top:15px;font-size:20px;color:#666;font:400 20px "Microsoft Yahei";}
+.contentWarp .head .link{position:absolute;right:8px;bottom:13px;}
+.contentWarp .head .link i.record{width:16px;height:16px;margin-right:5px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -184px -117px no-repeat;}
+.contentWarp .head .link a{color:#3d86ea;}
+.contentWarp .form-block{padding-top:20px;border-top:1px solid #cce5ff;}
+.form-block .form{float:left;width:574px;}
+.form-block .form li{line-height:30px;margin:5px 0;}
+.form-block .form li.tells{overflow:visible;}
+.form-block .form li label{width:149px;font-size:14px;color:#565656;line-height:30px;}
+.form-block .form li.label{padding-left:154px;padding-bottom:40px;}
+.form-block .form li .shadow{float:left;box-shadow:1px 1px 1px #e3e3e3;}
+.form-block .form li .phoneNums{position:relative;z-index:10;}
+.form-block .form li .input{display:inline;width:204px;height:32px;line-height:32px;font-size:14px;font-weight:400;border:1px solid #bfbfbf;color:#333;text-indent:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.1);}
+.form-block .form li .numLists{display:-moz-inline-stack;display:inline-block;zoom:1;*display:inline;vertical-align:middle;width:99px;height:36px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -1px -162px no-repeat;cursor:pointer;}
+
+.form-block .form li .qq{background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -1px -294px no-repeat;}
+.form-block .form li .listype{width:305px;text-indent:10px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") 0 -334px no-repeat;color:#337ee5;font-size:16px;font-weight:700;line-height:36px;}
+
+
+.form-block .form li.first{text-align:right;position:relative;z-index:12;overflow:visible;}
+.form-block .form li.first .bubble{display:none;position:absolute;left:150px;width:332px;border:1px solid #bfbfbf;background:#FFF;}
+.form-block .form li.first .bubble .title{width:332px;border-bottom:1px solid #bfbfbf;background:#ffffec;line-height:38px;overflow:hidden;}
+.form-block .form li.first .bubble .title strong{float:left;color:#333;font-size:14px;text-indent:15px;}
+.form-block .form li.first .bubble .title b{float:right;color:#666;padding-right:15px;cursor:pointer;font-weight:400;}
+.form-block .form li.first .bubble dl{padding:25px 0 15px;}
+.form-block .form li.first .bubble .b-con{padding-bottom:15px;}
+.form-block .form li.first .bubble dd{width:332px;margin-bottom:10px;line-height:30px;overflow:hidden;}
+.form-block .form li.first .bubble dd label{float:left;width:130px;text-align:right;color:#333;font-size:12px;}
+.form-block .form li.first .bubble dd input{float:left;width:150px;height:28px;border:1px solid #a0b4c5;text-indent:3px;}
+.form-block .form li.first .bubble .b-btn{padding:0 20px;width:292px;overflow:hidden;line-height:22px;}
+.form-block .form li.first .bubble .b-btn p{float:left;color:#666;background:none;font-weight:400;}
+.form-block .form li.first .bubble .b-btn a{float:right;width:60px;height:22px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") no-repeat -100px -294px;margin-right:0;color:#FFF;text-align:center;}
+.form-block .form li.first a{margin-right:40px;color:#666;}
+
+.form-block .form li .verify{display:none;position:absolute;right:110px;top:3px;font-size:12px;text-decoration:none;}
+.form-block .form li .vYes{color:#3d86ea;}
+.form-block .form li .verify i{margin-right:2px;width:11px;height:11px;}
+.form-block .form li .vYes i{background-position:-207px -115px;}
+.form-block .form li .historyNum{display:none;position:absolute;right:0;top:36px;width:98px;background:#fdffeb;border:1px solid #c4c4c4;border-top:0 none;box-shadow:1px 1px 1px #e3e3e3;font-family:Arial;color:#666;z-index:9999;}
+.form-block .form li .historyNum p{margin:0 6px;border-bottom:1px solid #bfbfbf;line-height:36px;cursor:pointer;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;word-wrap: normal;}
+.form-block .form li .historyNum p.last{border-bottom:0 none;}
+.form-block .form li .tellTipArea{display:none;position:absolute;left:0;top:-53px;width:205px;height:49px;line-height:49px;background:#fdffeb;border:1px solid #c4c4c4;}
+.form-block p.ft14{padding-left:20px;font-size:14px;margin-bottom:25px;}
+.form-block p.ft14 a{color:#3781e7;}
+.form-block .form-l{float:left;margin-bottom:30px;}
+.form-block .form-l .label{margin:20px 0 0 190px;}
+.form-block .info{margin:25px 0 0 100px;width:290px;height:278px;border:1px solid #e2e2e2;font-size:14px;box-shadow:1px 1px 1px #e3e3e3;}
+.form-block .info ul{padding-top:20px;}
+.form-block .info label{float:left;width:120px;text-align:right;color:#666;}
+.form-block .info span{float:left;width:170px;text-align:left;color:#3d86ea;font-weight:700;}
+.form-block .info li{line-height:40px;}
+
+.form-block .iphone-l{float:left; width:540px;}
+.form-block .iphone-l dl{width:540px;margin:0 auto;}
+.form-block .iphone-l dt.dt-hot{width:540px;height:34px;border:1px solid #bfbfbf;line-height:34px;background:url("http://pic.7881.com/7881/common_7881/images/title-rpt.png") repeat-x;position:relative;box-shadow:1px 1px 1px #e3e3e3;}
+.form-block .iphone-l dt.dt-hot span{margin-left:20px;float:left;font-weight:700;color:#006cff;font-size:14px;}
+.form-block .iphone-l dt.dt-hot span a{color:#006cff;}
+.form-block .iphone-l dt.dt-hot .list{float:right;margin-top:9px;margin-right:30px;}
+.form-block .iphone-l dt.dt-hot .list li{float:left;margin-right:1px;width:16px;height:16px;line-height:16px;text-align:center;font-family:tahoma;font-size:16px;color:#666; padding:1px 2px;}
+.form-block .iphone-l dt.dt-hot .list li.gray { cursor:default;}
+.form-block .iphone-l dt.dt-hot .list li.gray a { color:#aaaaaa; cursor:default;}
+.form-block .iphone-l dt.dt-hot .list li.gray a:hover { text-decoration:none;} 
+.form-block .iphone-l dt.dt-hot .list li a{color:#666;}
+.form-block .iphone-l dt.dt-hot .list li.on{background:#2184da;color:#FFF;}
+.iphone-l dt.dt-hot .list li.on a{color:#FFF;}
+.form-block .iphone-l dt.dt-hot .bubble{display:none;padding:13px 0;position:absolute;left:-1px;top:34px;width:540px;background:#fdffeb;border:1px solid #bfbfbf;box-shadow:1px 1px 1px #e3e3e3;}
+.form-block .iphone-l dt.dt-hot .bubble a{float:left;line-height:26px;width:120px;margin:0 30px;text-align:left;overflow:hidden;white-space:nowrap;}
+.form-block .iphone-l dt p{margin-top:10px;line-height:36px;width:540px;border:1px solid #f1ce82;background:#fffaee;font-size:14px;text-align:center;}
+.form-block .iphone-l dt p span{color:#ec6d34;font-weight:700;}
+.form-block .iphone-l dt p em{color:#407bbe;font-weight:700;}
+.form-block .iphone-l dt p i{color:#AAA;}
+.form-block .iphone-l dd.game-lists{width:540px;overflow:hidden;}
+.form-block .iphone-l dd.game-lists ul{margin-top:35px;padding-bottom:15px;}
+.form-block .iphone-l dd.game-lists li{float:left;width:85px;margin-left:40px;margin-bottom:15px;text-align:center;}
+.form-block .iphone-l dd.game-lists li a{display:block;}
+.form-block .iphone-l dd.game-lists li a p { margin-top:4px; color:#666; width:85px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;word-wrap: normal;}
+.form-block .iphone-l dd.game-lists li a:hover{ color:#666;}
+.form-block .iphone-l dd.game-lists li a.text{width:85px;color:#666;margin-top:10px;overflow:hidden;white-space:nowrap;}
+
+
+.form-block .iphone-l dd.fill-form{}
+.form-block .iphone-l dd.fill-form label{width:105px;}
+.form-block .iphone-l dd.fill-form label.facelabel{margin-right:15px;width:88px;}
+.form-block .iphone-l dd.fill-form li.fill-first{margin-top:30px;width:540px;overflow:hidden;}
+.form-block .iphone-l dd.fill-form .img{float:left;margin-left:120px;}
+.form-block .iphone-l dd.fill-form .pre-info{float:left;margin-left:10px;}
+.form-block .iphone-l dd.fill-form .pre-info strong{margin-top:15px;display:block;font-size:14px;color:#333;line-height:28px;}
+.form-block .iphone-l dd.fill-form .pre-info p{color:#aaa;}
+.form-block .iphone-l dd.fill-form .pre-info p a{color:#ff5400;}
+.form-block .iphone-l dd.fill-form input.ord-input{margin-right:5px;}
+.form-block .iphone-l dd.fill-form i{color:#ea4e17;font-size:14px;font-weight:700;font-family:simsun;}
+.form-block .iphone-l dd.fill-form li.label{padding-left:115px;}
+
+.form-block .form li input.ord-input{float:left;height:28px;width:200px;border:1px solid #a0b4c5; padding-left:8px;}
+.form-block .form li select{width:208px;height:28px;border:1px solid #a0b4c5;}
+.form-block .form li em.red{float:left;font-size:14px;margin-right:5px;margin-left:-5px;}
+
+.form-block .form li .lists{display:none;position:absolute;right:0;top:36px;width:283px;background:#fdffeb;border:1px solid #c4c4c4;border-top:0 none;box-shadow:1px 1px 1px #e3e3e3;font-family:Arial;color:#666;z-index:9999;padding:15px 0 15px 20px;}
+.form-block .form li .lists em{float:left;color:#666;width:80px;text-align:left;margin-right:14px;line-height:30px;cursor:pointer;white-space:nowrap;overflow:hidden;}
+
+.form-block .form li .tellTipArea h3{padding:0 12px;font-size:26px;font-family:Arial;color:#333;}
+.form li .faceValue {padding-top:3px;margin-top:-15px;width:321px;}
+.form li .faceValue li{white-space:nowrap;}
+.form li .faceValue span {float:right;position: absolute;top: 0;right: 0;width: 1px;height: 1px;overflow: hidden;}
+.form li .faceValue .facelabel {float: left;margin-right:15px;padding: 0;font:16px "Microsoft Yahei";color:#333;width:90px;height:34px;line-height:34px;border:1px solid #9fb3c4;text-align: center;cursor:pointer;}
+.form li .faceValue .selected{width:88px;height:32px;line-height:32px;border:2px solid #5294ed;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -221px 16px no-repeat;}
+.form li .faceValue li.third{clear:right;}
+.form-block .form li .point{font:300 24px Arial;color:#f60;}
+.form-block aside{float:right;width:202px;}
+.form-block aside .contact{width:202px;height:85px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") left -204px no-repeat;}
+.form-block aside .contact dl{padding:16px 0 0 18px;}
+.form-block aside .contact dl dt,.form-block aside .contact dl dd{line-height:26px;}
+.form-block aside .contact dl i{margin-right:5px;width:16px;height:16px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -215px -132px no-repeat;}
+.form-block aside .contact dl i.qq{background-position:-215px -132px;}
+.form-block aside .contact dl i.tel{background-position:-242px -132px;}
+button.btn{width:109px;height:36px;line-height:36px;text-align:center;color:#fff;font:400 16px "Microsoft Yahei";background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -109px -164px no-repeat;}
+.questionArea{position:relative;margin-top:20px;padding-top:15px;border-top:1px solid #d7eaff;}
+.questionArea .tit{position:absolute;top:-10px;left:0;font-size:12px;color:#666;font-weight:bold;width:60px;background:#fff;}
+.questionArea ul{margin-bottom:15px;}
+.questionArea ul li{float:left;display:inline;margin-right:30px;}
+.questionArea ul li.selected a{color:#ff8c22;}
+.showAnswer{position:relative;background:#f3fbff;border:1px solid #b9e3ff;color:#565656; padding:5px 10px 7px;}
+.showAnswer i{position:absolute;left:55px;top:-8px;width:13px;height:8px;background:url("http://pic.7881.com/7881/common_7881/images/recharge.png") -183px -141px no-repeat;}
+.showAnswer2 i{left:230px;}
+.showAnswer3 i{left:418px;}
+.showAnswer4 i{left:606px;}
+.eventArea{position:relative;bottom:0;height:76px;}
+.eventArea .rPic,.eventArea .rPic img{display:block;border:0 none;width:180px;height:76px;}
+.eventArea .lPic,.eventArea .lPic img{display:block;border:0 none;width:581px;height:76px;}
+.flyArea{width:48px;height:94px;cursor:pointer;position:fixed;left:50%;bottom:20px;margin-left:550px; display:none;}
+.checkArea{padding:15px 0 15px 60px;}
+.checkArea ul li{float:left;margin-right:20px;}
+.checkArea ul li .input,.checkArea ul li select{width:108px;}
+.btn62{width:62px;height:22px;line-height:22px;color:#fff;font-weight:normal;background:url(images/recharge.png) -226px -163px no-repeat;}
+.tablelist{clear:left;margin-top: 10px;background:#fff;width:100%;line-height:1.8;vertical-align: middle;}
+.tablelist tr.even td{ background-color:#fbfbfb;}
+.tablelist th{padding:7px 5px;background:#eee;text-align:center;vertical-align: middle;font-weight:normal;}
+.tablelist td{padding:9px 5px;background:#fff;vertical-align:middle;border:1px solid #e6e6e6;border-width:0 0 1px;color:#666;}
+
+.numbs { margin-left:115px; overflow: hidden;}
+.numbs a{display:inline-block; margin:0 5px 5px 0;_margin:0 5px 5px 0; padding:0 20px;  line-height:32px; border:1px solid #ddd; font-size:14px; position:relative; text-align:center;}
+.numbs a.numbs-disable{border:1px solid #e8e8e8; background:#f8f8f8; font-weight:bold;}
+.numbs a:hover,a.numbs-a{ border:2px solid #5194ef; color:#333; line-height:30px;  padding:0 19px;  text-decoration:none;  }
+.numbs a:hover em,a.numbs-a em{ display:inline-block; width:14px; height:14px; background:url(http://pic.7881.com/7881/market/images/cj/css/7881.icon.png) no-repeat -44px 0;  position:absolute; bottom:0; _bottom:-2px; right:0; }
+.numbs a.numbs-disable:hover{ height:32px; line-height:32px; padding:0 20px; border:1px solid #e8e8e8; background:#f8f8f8; font-weight:bold;}
+.numbs a.numbs-disable:hover em{display:none;}
+.numbs a strong{color:#f60;}
+
+.num-wrap { overflow:hidden; *zoom:1;}
+.num-wrap span { font-size:18px; color:#2a2927; font-weight:bolder; display:inline-block; border:#a2b4c2 1px solid; width:29px; height:28px; text-align:center; line-height:26px; float:left; background:#e5eff8; cursor:pointer;}
+.num-wrap span.del-btn { border-right:0;}
+.num-wrap span.del-off { color:#a0b0bf; cursor:default;}
+.num-wrap span.add-btn { border-left:0;}
+.num-wrap span.add-off { color:#a0b0bf; cursor:default;}
+.num-wrap em,.num-wrap b { color:#646464; font-weight:normal;}
+.num-wrap b { display:inline-block; width:46px; border:#a2b4c2 1px solid; height:28px; line-height:28px; text-align:center; float:left; font-family:微软雅黑;}
+.num-wrap em { margin-right:3px;  font-family:微软雅黑;}
+.num-wrap p { color:#666666;}
+
+.appstore-wrap li .faceValue { width:410px;}
+.appstore-wrap li .faceValue li label.facelabel { margin-right:5px;}
+.red-em { font-size:14px; color:#ff0000; font-family:"宋体";}
+.tips-span { float:left; color:#aaaaaa; margin-left:10px;}
+.form-block .form li .appstore-icon{background: url("http://pic.7881.com/7881/common_7881/images/recharge.png") -1px -374px no-repeat;}
+.tips-p { float:left; width:300px; margin-left:154px; color:#ff6600; display:none;}
+.sgsr-box{ padding:10px 0 0 145px;clear:both; margin-top:35px;}
+.sgsr{color:#36f;}
+.sgsr-content{font:normal normal 12px/18px SimSun; display:none;   }
+.sgsr-content span{display:block;width:396px; height:36px; border:2px solid #5194ef;}
+.sgsr-content span input{width:300px; height:36px; vertical-align:top; border:none; background:none; font: normal normal 14px/36px SimSun; color:#999;   padding:0 0 0 6px;}
+.sgsr-content span a{display:inline-block;width:90px; height:36px; background:#5194ef; text-align:center; font: normal bold 14px/36px SimSun;color:#fff;}
+.sgsr-content em,.sgsr-content i{display:inline-block; padding:5px 60px 5px 0;font:normal normal 12px/18px SimSun; line-height:20px; color:#f00;}
+.sgsr-content i{color:#093;}
+.fill_orders-add li input{ font-weight:bold; color:#666; font-size:14px;}
+.form-block .sch-wrap li select{float:left;margin-right:10px;width:100px;height:28px;border:1px solid #abadb3;}
+
+.form-block .sch-wrap li label { width:140px;}
+.sch-wrap li input.text{ width:200px;height:28px; line-height:28px; border:solid #A0B4C5 1px; padding-left:5px; margin-right:5px; float:left}
+.sch-wrap li input:hover.text,.sch-wrap li input:focus.text{background:#f3f5fc; border:solid #5194ef 1px;}
+.form li .orange24{ font-weight:normal; font-size:24px; font-family:Arial; color:#f60;}
+#num{ width:40px; height:26px; line-height:26px; border:1px solid #9fb5c5;  border-left:none; border-right:none; text-align:center;  float:left;}
+#add,#subtract{ width:28px; height:28px; float:left; border:1px solid #9fb5c5; background:#d5e1f8; cursor:pointer;}
+.numb-box font{ display:inline-block; text-indent:10px; height:30px; line-height:30px;}
+.numb-box div{  height:30px; overflow: hidden; padding:10px 0; width:100%; font-size:14px;  }
+.numb-box div strong{color:#f60; font-size:24px; font-weight:normal; font-family:Arial;}
+.form li .cutover li{position:relative;padding:0 15px;margin-right:5px;height:30px;line-height:30px;border:1px solid #A0B4C5;cursor:pointer;}
+.form li .cutover li.selected{border:2px solid #5194ef;height:28px;line-height:28px;}
+.form li .cutover li.selected i{position:absolute;float:right;right:0;bottom:0;width:14px;height:14px;background:url(http://pic.7881.com/7881/market/images/cj/css/7881.icon.png) -44px 0 no-repeat;}
+.sgsr-box{ padding:10px 0 0 145px;clear:both;}
+.sgsr{color:#36f;}
+.sgsr-content{font:normal normal 12px/18px SimSun; display:none;   }
+.sgsr-content span{display:block;width:396px; height:36px; border:2px solid #5194ef;}
+.sgsr-content span input{width:300px; height:36px; vertical-align:top; border:none; background:none; font: normal normal 14px/36px SimSun; color:#999;   padding:0 0 0 6px;}
+.sgsr-content span a{display:inline-block;width:90px; height:36px; background:#5194ef; text-align:center; font: normal bold 14px/36px SimSun;color:#fff;}
+.sgsr-content em,.sgsr-content i{display:inline-block; padding:5px 60px 5px 0;font:normal normal 12px/18px SimSun; line-height:20px; color:#f00;}
+.sgsr-content i{color:#093;}

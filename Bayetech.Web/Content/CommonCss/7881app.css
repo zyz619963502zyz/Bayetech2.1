@@ -1,0 +1,100 @@
+@charset "utf-8";
+/*  闈㈠寘灞? */
+.Part li a{ font-family:"Microsoft YaHei"; text-decoration:none;}
+.crumbs{width:980px; height:32px; margin:10px auto;}
+.crumbs .crumbs-address{ float:left; width:740px; height:32px; font:normal normal 12px/32px SimSum; color:#666;}
+.crumbs .crumbs-address a{display:inline-block; margin:0 5px; color:#3267cc;}
+.crumbs .crumbs-address span{display:inline-block; margin:0 5px;}
+.crumbs .crumbs-bt{float:left; width:240px; height:32px; overflow:hidden;}
+.crumbs .crumbs-bt span{display:inline-block;float:left; width:140px;height:16px;padding:8px 0; }
+.crumbs .crumbs-bt span a{color:#3267cc; line-height:16px;}
+.crumbs .crumbs-bt span a em{display:inline-block;float:left;width:16px;height:16px;background:url(http://pic.7881.com/7881/market/css/images/app_bg.png) no-repeat 0 -115px; margin:0 5px 0 0;}
+.crumbs .crumbs-bt a.releaseiw-bt{float:right;}
+
+/*  选项卡头部  */
+.game-box{width:980px; margin:0 auto; overflow:hidden;}
+.game-box .game-top{width:980px; height:46px; border-bottom:2px solid #ff6700; text-align:right;}
+.game-box .game-top ul {float:left; width:600px;}
+.game-box .game-top ul li{float:left; width:188px; margin:0 5px 0 0; height:45px; background:#fff; border:1px solid #ff6700; border-bottom:none;}
+.game-box .game-top ul li a{display:inline-block; width:188px; height:30px; padding:7px 0 8px 0; text-align:center; font:normal bold 16px/30px "microsoft yahei"; color:#ec6f34; }
+.game-box .game-top ul li a em{display:inline-block; vertical-align:middle; margin:0 10px 0 0 ;width:30px; height:30px;background:url(http://pic.7881.com/7881/market/css/images/app_bg.png) no-repeat}
+.game-box .game-top ul li a em.pc{ background-position: 0 0;}
+.game-box .game-top ul li a em.apple{ background-position: -30px 0;}
+.game-box .game-top ul li a em.android{ background-position: -60px 0;}
+.game-box .game-top ul li a:hover em.pc,.game-box .game-top ul li.game-hover a em.pc,.game-box .game-top ul li a:hover em.apple,.game-box .game-top ul li.game-hover a em.apple,.game-box .game-top ul li a:hover em.android,.game-box .game-top ul li.game-hover a em.android{url(./images/app_bg.png) no-repeat}
+.game-box .game-top ul li a:hover em.pc,.game-box .game-top ul li.game-hover a em.pc{  background-position: 0 -30px;}
+.game-box .game-top ul li a:hover em.apple,.game-box .game-top ul li.game-hover a em.apple{ background-position: -30px -30px;}
+.game-box .game-top ul li a:hover em.android,.game-box .game-top ul li.game-hover a em.android{ background-position: -60px -30px;}
+.game-box .game-top ul li a:hover,.game-box .game-top ul li.game-hover a{color:#fff; background:#ff6700;}
+
+/*  选项卡内容块  */
+.game-box .game-mid{ width:978px; min-height:300px; height:auto!important; height:300px;  border:1px solid #e5e5e5; border-top:none; background:#fff;}
+.game-box .game-mid .game{display:none; overflow:hidden;}
+.game-box .game-mid .game .gameTitle{position:relative;width:920px; padding:0 29px; height:45px; background:url(http://pic.7881.com/7881/market/css/images/app_bg.png) left -70px repeat-x;}
+.game-box .game-mid .game .gameTitle b{left:40px;bottom:0;position:absolute;height:3px;overflow:hidden;width:68px;background:#3d86ea;}
+.game-box .game-mid .game .gameTitle span{float:left; width:90px; height:45px;  font:normal bold 16px/45px SimHei;margin-right:15px;}
+.game-box .game-mid .game .gameTitle span a{color:#3c88e9;}
+.game-box .game-mid .game .gameTitle .letter{ float:left; width:780px;}
+.game-box .game-mid .game .gameTitle .letter li{ float:left; width:30px; height:45px; font:normal  normal 18px/45px Helvetica, Helvetica Neue, Arial; text-align:center;cursor:pointer;}
+.game-box .game-mid .game .gameTitle .letter li a{color:#333;}
+.game-box .game-mid .game .gameTitle .letter li a:hover{color:#3c88e9;}
+
+/*  APP游戏 */
+.appleGame{width:910px; padding:0 34px; overflow:hidden;}
+.appleGame ul{width:910px;padding:24px 0 0 0; overflow:hidden;}
+.appleGame ul li{float:left; width:120px; height:130px; padding:6px 5px; }
+.appleGame ul li a{display:inline-block; width:120px; height:130px;text-align:center;}
+.appleGame ul li a img{width:80px; height:80px;}
+.appleGame ul li a p{width:120px; height:40px; padding:10px 0 0 0; font:normal normal 12px/20px SimSum; color:#333;}
+.appleGame ul li a:hover p{color:#eb7038; text-decoration:underline;}
+
+/*  网络游戏  */
+.webGame{width:950px; padding:0 14px; overflow:hidden;}
+.webGame ul{width:950px; padding:22px 0; overflow:hidden;}
+.webGame ul li{float:left; width:172px; height:172px; padding:3px; border:1px solid #f3f3f3; margin:5px; _margin:4px;}
+.webGame ul li a{display:inline-block; width:172px; height:162px; padding:5px 0; text-align:center;}
+.webGame ul li a img{display:inline-block; width:170px; height:130px; }
+.webGame ul li a p{width:172px; height:32px; text-align:center;  font:normal normal 12px/32px SimSum; color:#3c88e9;}
+.webGame ul li a:hover p{color:#eb7038; text-decoration:underline;}
+.webGame ul li.on{ padding:0; border:4px solid #3c88e9;}
+
+/*  游戏名称  */
+.gameName{width:950px; padding:0 4px 0 24px; overflow:hidden;}
+.gameName ul{width:950px; padding:17px 0;}
+.gameName ul li{float:left; width:170px; height:40px; padding:0 10px;}
+.gameName ul li a{display:inline-block; height:40px; width:170px; font:normal normal 12px/40px SimSum; color:#333; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; font-size:14px; overflow:hidden; }
+.gameName ul li a:hover{ text-decoration:underline; color:#3c88e9;}
+
+
+/*  用户安全 */
+.pay-unsafe{width:980px; height:270px; margin:0 auto;}
+.pay-unsafe .pay-prompt-img{float:left; display:inline-block; width:320px; height:270px; padding:0 60px 0 40px;}
+.pay-unsafe .pay-prompt-img img{width:320px; height:270px;}
+.pay-unsafe .pay-txt{float:left; width:560px; height:270px;}
+.pay-unsafe .pay-txt h2{font:normal bold 24px/80px "Microsoft YaHei";}
+.pay-unsafe .pay-txt p{font:normal normal 12px/30px SimSum;}
+.pay-unsafe .pay-txt p a{color:#0366cc;}
+.pay-unsafe .pay-txt p a:hover{ text-decoration:underline;}
+
+.warp-box{width:100%; background:#f9f9f9; padding:0 0 20px 0; overflow:hidden;}
+
+/* 弹出框 */
+.tck-bg{position:absolute; z-index:999; top:0;left:0;filter:alpha(opacity=50); background:#666; opacity:0.5; -moz-opacity:0.5; height:99%; width:100%;}
+.beian_winBG {margin:-100px 0 0 -190px; position:absolute; left: 50%;  top:50%; height:200px;  z-index: 1000;}
+.tck-gamesy{width:350px; height:255px; border-radius:4px; background:#fff; border:none;}
+.tck-gamesy-title{padding:0 10px 0 20px; height:40px; line-height:40px; background:#ec6d34; color:#fff; text-align:right;}
+.tck-gamesy-title strong{font:normal bold 14px/40px SimSun; float:left;}
+.tck-gamesy-title a{color:#fff;}
+
+.tck-gamesy-content{width:350px;}
+.tck-gamesy-content dl{padding:10px 25px 10px 25px; float:left; }
+.tck-gamesy-content dl dd{width:300px; height:30px; padding:5px 0; float:left; text-align:left;}
+.tck-gamesy-content dl dd span{display:inline-block; width:120px; text-align:right; font:normal normal 12px/30px SimSun; color:#333;}
+.tck-gamesy-content dl dd span em{color:#f00;}
+.tck-gamesy-content dl dd input,.tck-gamesy-content dl dd select{width:158px; margin:0 2px; padding:0 3px; height:28px; line-height:28px; border:1px solid #dfdfdf; vertical-align:middle;}
+.tck-gamesy-content dl dd select{width:166px; height:30px; margin:0 2px;}
+.tck-gamesy-content dl dd input:hover,.tck-gamesy-content dl dd input:focus{ border:1px solid #5194ef; background:#f3f5fc}
+
+.tck-gamesy-content p{float:left; height:28px; padding:6px 0 6px 146px; text-align:left;}
+.tck-gamesy-content p a{display:inline-block; width:85px; height:28px; text-align:center;  color:#fff; line-height:28px; background:url(http://pic.7881.com/7881/common_7881/images/cash_ico.png) no-repeat 0 -371px;}
+.tck-gamesy-content span{width:100%; display:inline-block; text-align:center; line-height:24px; color:#999;}

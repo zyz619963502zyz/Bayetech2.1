@@ -1,0 +1,27 @@
+@charset "utf-8";
+.help_top{ float:right; width:380px;}
+.help_top li{ margin-top:20px;}
+.help_top li a{ display:block; float:right; width:114px; height:37px; line-height:37px; text-align:center; background:url(http://pic.ofcard.com/7881/market/images/help/top_2.png) no-repeat; color:#FFF; font-size:14px; margin-left:10px;}
+.help_top li a:hover{background:url(http://pic.ofcard.com/7881/market/images/help/top_1.png) no-repeat;}
+.help_top li a.xzzn{background:url(http://pic.ofcard.com/7881/market/images/help/top_1.png) no-repeat;}
+
+.help_left{ float:left; border:#dfdfdf solid 1px; width:180px;}
+.help_left h3{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/help/help_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
+.help_left ol{ height:30px; line-height:30px; text-indent:20px;font-weight:bold; background:url(http://pic.ofcard.com/7881/market/images/help/help_left_2.png) no-repeat;display:block;}
+.help_left li{height:30px;line-height:30px;text-indent: 12px;border-bottom:#efefef dotted 1px;display:block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;word-wrap: normal;padding-right: 12px;}
+.help_right{ width:790px; float:right;}
+.help_gg{ border:#dfdfdf solid 1px; margin-bottom:10px; overflow:hidden;}
+.help_gg h3{ border-bottom:#dfdfdf solid 1px; background:url(http://pic.ofcard.com/7881/market/images/help/help_right_1.png) repeat-x; line-height:30px; font-size:14px; padding-left:10px;}
+.help_gg ul{ padding:20px;overflow:hidden;}
+.help_gg ul li{ padding-bottom:10px; padding-top:10px;}
+.help_gg ul li.btl{border-bottom:#dfdfdf dashed 1px; font-weight:bold; color:#F30}
+.help_gg ul li.xwbt{border-bottom:#dfdfdf dotted 1px;}
+.help_gg ul li.xwmc{border-bottom:#dfdfdf dotted 1px; font-weight:bold; text-align:center; font-size:14px}
+.help_gg ul li.zb{ text-align:right}
+.help_gg ul ol{ width:170px; float:left; line-height:30px;}
+.help_gg ul ol.jz{ text-align:center; margin-right:15px;}
+
+.help_ss{ background:url(http://pic.ofcard.com/7881/market/images/help/ssbj.png) repeat-x; height:83px; margin-bottom:10px;border:#dfdfdf solid 2px;}
+.help_ss ul{ padding:15px;}
+.help_ss ul li{ margin-left:225px; margin-bottom:10px; overflow:hidden}
+.help_ss ul li.ssk{ width:500px;border:#dfdfdf solid 3px;}

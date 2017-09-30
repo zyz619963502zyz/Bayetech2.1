@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+.help_top{ float:right; width:380px;}
+.help_top li{ margin-top:20px;}
+.help_top li a{ display:block; float:right; width:114px; height:37px; line-height:37px; text-align:center; background:url(http://pic.ofcard.com/7881/market/images/help/top_2.png) no-repeat; color:#FFF; font-size:14px; margin-left:10px;}
+.help_top li a:hover{background:url(http://pic.ofcard.com/7881/market/images/help/top_1.png) no-repeat;}
+.help_top li a.xzzn{background:url(http://pic.ofcard.com/7881/market/images/help/top_1.png) no-repeat;}
+
+.help_left { float:left;  width:180px; text-align:left;border:#dfdfdf solid 1px; overflow:hidden}
+.help_left h1{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/help/help_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
+.help_left dl dt{height:30px; width:100%; line-height:30px;display:block;float:left;background:url(http://pic.ofcard.com/7881/market/images/help/help_left_ico.png) no-repeat; text-indent:34px; font-weight:bold; cursor:pointer}
+.help_left dl dt.current {background:url(http://pic.ofcard.com/7881/market/images/help/help_left_ico.png) no-repeat 0 -30px;}
+.help_left dl dd {line-height:30px;float:left;width:180px; float:left;text-indent:34px;}
+.help_left dl dd a{ width:180px; height:30px; display:block; }
+.help_left dl dd a:hover{ background:#e1ecf7; color:#3366cc; text-decoration:none}
+
+
+
+.help_right{ width:790px; float:right;}
+.help_gg{ border:#dfdfdf solid 1px; margin-bottom:10px; overflow:hidden;}
+.help_gg h1{ border-bottom:#dfdfdf solid 1px; background:url(http://pic.ofcard.com/7881/market/images/help/help_right_1.png) repeat-x; line-height:30px; font-size:14px; padding-left:10px;}
+.help_gg ul{ padding:20px;overflow:hidden;}
+.help_gg ul li{ padding-bottom:10px; padding-top:10px;}
+.help_gg ul li.btl{border-bottom:#dfdfdf dashed 1px; font-weight:bold; color:#F30}
+.help_gg ul li.xwbt{border-bottom:#dfdfdf dotted 1px;}
+.help_gg ul li.xwmc{border-bottom:#dfdfdf dotted 1px; font-weight:bold; text-align:center; font-size:14px}
+.help_gg ul li.zb{ text-align:right}
+.help_gg ul ol{ width:170px; float:left; line-height:30px;}
+.help_gg ul ol.jz{ text-align:center; margin-right:15px;}
+
+.help_ss{ background:url(http://pic.ofcard.com/7881/market/images/help/ssbj.png) repeat-x; height:83px; margin-bottom:10px;border:#dfdfdf solid 2px;}
+.help_ss ul{ padding:15px;}
+.help_ss ul li{ margin-left:225px; margin-bottom:10px; overflow:hidden}
+.help_ss ul li.ssk{ width:500px;border:#dfdfdf solid 3px;}
+
+.xxfl{ height:275px; font-family: "宋体"}
+.xxfl dl{ width:175px; height:210px; float:left; margin-top:20px;}
+.xxfl dl dt{ font-weight:bold; color:#404040; margin-bottom:12px; width:175px; height:10px;}
+.xxfl dl dd{ width:175px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/help/pic.gif) no-repeat 0 10px}
+.xxfl dl dd a{ color:#337ce2; margin-left:10px;}
+
