@@ -12,6 +12,7 @@ namespace Bayetech.Web
         [HttpGet]
         public void Start()
         {
+            //var pmp = (PM_Prdcert4Paper)JsonConvert.DeserializeObject(json["model"].ToString(), typeof(PM_Prdcert4Paper));
             var a = 1;
         }
     }
