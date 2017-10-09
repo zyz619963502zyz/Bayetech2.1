@@ -581,7 +581,6 @@
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
     <Content Include="Page\HomePage\HomePage.html" />
-    <Content Include="Page\Signin\signin.html" />
     <Content Include="Page\Sign\signin.html" />
     <Content Include="Scripts\AllScript\7881-2016.js" />
     <Content Include="Scripts\AllScript\7881.login.popup.js" />
@@ -690,6 +689,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Page\LoginRegister\" />
+    <Folder Include="Page\Signin\" />
     <Folder Include="Page\Use\" />
   </ItemGroup>
   <ItemGroup>

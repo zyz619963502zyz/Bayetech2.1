@@ -1,14 +1,13 @@
 ﻿//注册模板
 define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    var _url = "Query/Start";
+    var _url = "/api/Query/Start";
 
     //数据为左右整合数据
     var data = {
         //注册左边
         Leftobject: {
             Iphone: 18717708873,
-
             GamePass: 123456
         },
         //注册右边
@@ -44,7 +43,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
             return data;
         }
         ,created: function () {
-            common.getWebJson(_url,null, function () {
+            common.getWebJson(_url, null, function () {
 
             });
         },
