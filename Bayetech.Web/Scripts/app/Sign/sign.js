@@ -6,7 +6,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //左边模板
     var leftHtml = `<div class="regBoxLeft l" template="RegBoxLeft">
             <div class ="regMain">
-             <!--button v-on:click="SubMitSign">测试按钮</button-->
+           
 
                 <form id="registerForm" method="post" action="http://www.7881.com/user/doRegister.action" autocomplete="off">
                     <input type="hidden" id="userid" name="user.userid" />
@@ -115,20 +115,23 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         }
     });
 
-    new Vue({
-        el: '#LoginDiv',
-        data: function () {
-            return data;
-        },
-        created: function () {
-          
-        },
-        methods: {
-            SubMitSign: function () {
-                common.postWebJson(_url, this.data, function () {
-                    
-                });
+
+    $(document).ready(function () {
+        new Vue({
+            el: '#LoginDiv',
+            data: function () {
+                return data;
+            },
+            created: function () {
+
+            },
+            methods: {
+                SubMitSign: function () {
+                    common.postWebJson(_url, this.data, function () {
+
+                    });
+                }
             }
-        }
+        });
     });
 });
