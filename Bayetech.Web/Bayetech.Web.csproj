@@ -667,8 +667,6 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\require.min.js" />
     <Content Include="Scripts\resource.js" />
-    <Content Include="Scripts\text.js" />
-    <Content Include="Scripts\vue-router.js" />
     <Content Include="Scripts\vue.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Home\ceshi.html" />
