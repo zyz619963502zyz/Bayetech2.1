@@ -6,7 +6,8 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //左边模板
     var leftHtml = `<div class="regBoxLeft l" template="RegBoxLeft">
             <div class ="regMain">
-             <button v-on:click="SubMitSign">测试按钮</button>
+             <!--button v-on:click="SubMitSign">测试按钮</button-->
+
                 <form id="registerForm" method="post" action="http://www.7881.com/user/doRegister.action" autocomplete="off">
                     <input type="hidden" id="userid" name="user.userid" />
                     <input type="hidden" value="null" name="invite" />
@@ -14,8 +15,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                         <h1 class="l c3">手机号码注册</h1>
                     </div>
                          
-                    <!--左边模板子组件（可以这么用）-->
-                    <child-regboxleft v-bind: value="value"></child-regboxleft>
+                    <child-regboxleft v-bind:value="value"></child-regboxleft>
 
 
                     <a href="#" class ="regBtn"  id="mRegBtn">同意并注册</a>
@@ -23,6 +23,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                         <input type="checkbox" class="middle" checked="checked" onclick="return false;" /><label for="" class="">我已阅读并同意<a href="http://www.7881.com/reg.jsp" class="regAgreementLink" target="_blank">《7881服务协议》</a></label>
                     </div>
                 </form>
+
             </div>
         </div>`
 
@@ -31,15 +32,15 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                 <div class="comIptBox userIptBox">
                     <label for="" class="comIptIcon IptIconLeft">
                         <i class="iptIconInner iconfont"></i>
-                    </label><input type="text" id="tel" v-bind:value="value.Iphone" class="comIpt loginUserIpt" data-error="请输入手机号" data-normal="请输入手机号" maxlength="11" valid="false" regexp="^1[34578][0-9]{9}$" regexp_desc="手机号码格式不正确，请重新输入" ajaxvalidate="tel" /><label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont"></i></label>
+                    </label><input type="text" id="tel" v-bind:value="value.Iphone" class="comIpt loginUserIpt" data-error="请输入手机号" data-normal="请输入手机号" maxlength="11" valid="false" regexp="^1[34578][0-9]{9}$" regexp_desc="手机号码格式不正确,请重新输入" ajaxvalidate="tel" /><label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont"></i></label>
                     <!--<p class="placeholder">手机号码注册</p>-->
                     <em class="regDesc hide">请输入您的手机号</em>
                 </div>
                 <div class="checkCodeBox clearfix">
                     <div class="comIptBox comPureIptBox l">
-                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt" valid="false" data-error="请输入验证码" data-normal="按右图填写，不区分大小写" maxlength="4" ajaxvalidate="img_valid" />
+                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt" valid="false" data-error="请输入验证码" data-normal="按右图填写,不区分大小写" maxlength="4" ajaxvalidate="img_valid" />
                         <p class="placeholder codePlaceholder">验证码</p>
-                        <em class="regDesc hide">按右图填写，不区分大小写</em>
+                        <em class="regDesc hide">按右图填写,不区分大小写</em>
                     </div>
                     <div class="codeImgBox l middle"><img src="#" class="codeImg middle" alt="" /></div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
                 </div>
@@ -56,17 +57,17 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                     <label for="" class="comIptIcon IptIconLeft">
                         <i class="iptIconInner iconfont"></i>
                     </label>
-                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范，请重新输入！" data-error="请输入密码" data-normal="密码由6-20位字符组成，需同时包含字母和数字" />
+                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范,请重新输入！" data-error="请输入密码" data-normal="密码由6-20位字符组成,需同时包含字母和数字" />
                     <!--<p class="placeholder">请输入密码</p>-->
-                    <em class="regDesc hide">密码由6-20位字符组成，需同时包含字母和数字</em>
+                    <em class="regDesc hide">密码由6-20位字符组成,需同时包含字母和数字</em>
                 </div>
                 <div class="comIptBox">
                     <label for="" class="comIptIcon IptIconLeft">
                         <i class="iptIconInner iconfont"></i>
                     </label>
-                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范，请重新输入！" data-error="请输入确认密码" comp_desc="两次密码输入不一致，请重新输入" data-normal="密码由6-20位字符组成，需同时包含字母和数字" id="confirmPassword" compare="true" compareid="userPassword" />
+                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范,请重新输入！" data-error="请输入确认密码" comp_desc="两次密码输入不一致,请重新输入" data-normal="密码由6-20位字符组成,需同时包含字母和数字" id="confirmPassword" compare="true" compareid="userPassword" />
                     <!--<p class="placeholder">再确认一次密码</p>-->
-                    <em class="regDesc hide">密码由6-20位字符组成，需同时包含字母和数字</em>
+                    <em class="regDesc hide">密码由6-20位字符组成,需同时包含字母和数字</em>
                 </div>
             </div>`
 
