@@ -15,8 +15,8 @@ var componentfig = {
         'helpContent': 'app/HelpCenter/content',
         'helpCenter': 'app/HelpCenter/helpCenter',
         'SignModule': 'app/Sign/sign'
-    }
-
+    },
+    commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],
 };
 require.config(componentfig);
 
