@@ -35,3 +35,4 @@ require(['vue', 'jquery', 'vueRouter', 'common', 'head', 'foot', "helpCenter"], 
         components: { "v-view": component}
     }).$mount('#app');
 });
+
