@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -621,7 +622,7 @@
     <Content Include="Scripts\AllScript\store_base_info.js" />
     <Content Include="Scripts\AllScript\validateLogin.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
-    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
