@@ -2,7 +2,6 @@
  * Copyright © 2017 平台组 版权所有
  * Author: Zhaoyz
  * Description: 快速开发平台
- * Website：http://www.nfine.cn
 *********************************************************************************/
 
 using System.Configuration;
@@ -10,7 +9,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 
-namespace NFine.Data.Extensions
+namespace Bayetech.DAL
 {
     public class DbHelper
     {

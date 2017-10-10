@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using Bayetech.Service;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Web.Http;
 
 namespace Bayetech.Web
 {
     public class QueryController : ApiController
     {
-        [HttpGet]
-        public void Start()
+        ILoginSignService service = new LoginSignService();
+
+        [HttpPost]
+        public int Start(JObject json)
         {
-            //var pmp = (PM_Prdcert4Paper)JsonConvert.DeserializeObject(json["model"].ToString(), typeof(PM_Prdcert4Paper));
-            var a = 1;
+            try
+            {
+                return service.CreatAccount(json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

@@ -1,24 +1,21 @@
 ﻿//注册模板
 define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    var _url = "/Query/Start";
+    var _url = "/api/Query/Start";
 
     //左边模板
     var leftHtml = `<div class="regBoxLeft l" template="RegBoxLeft">
             <div class ="regMain">
-           
-
                 <form id="registerForm" method="post" action="http://www.7881.com/user/doRegister.action" autocomplete="off">
                     <input type="hidden" id="userid" name="user.userid" />
                     <input type="hidden" value="null" name="invite" />
                     <div class="loginTitle clearfix">
                         <h1 class="l c3">手机号码注册</h1>
                     </div>
-                         
                     <child-regboxleft v-bind:value="value"></child-regboxleft>
 
 
-                    <a href="#" class ="regBtn"  id="mRegBtn">同意并注册</a>
+                    <a href="#" @click.prevent="SubMitSign" class ="regBtn"  id="mRegBtn">同意并注册</a>
                     <div class="regAgreement">
                         <input type="checkbox" class="middle" checked="checked" onclick="return false;" /><label for="" class="">我已阅读并同意<a href="http://www.7881.com/reg.jsp" class="regAgreementLink" target="_blank">《7881服务协议》</a></label>
                     </div>
@@ -74,7 +71,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //右侧模板
     var rigthHtml = ` <div class="regBoxRight l" id="RegBoxRight">
             <h2>已有账号？</h2>
-            <a href="" class="rightLogBtn">立即登录</a>
+            <a href="#" class ="rightLogBtn">立即登录</a>
             <h3>使用第三方账号登录</h3>
             <ul class="rightOtherLogBox">
                 <li v-for="item in value"><a v-bind:href="item.url" class="clearfix"><i class="iconfont"></i><span>{{item.text}}</span></a></li>
@@ -100,7 +97,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //右边模板
     Vue.component('regboxright', {
         props: ['value'],
-        template: rigthHtml
+        template: rigthHtml 
     });
 
     //左边模板
@@ -110,7 +107,14 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         components: {
             'child-regboxleft': {
                 props: ['value'],
-                template: leftChildHtml
+                template: leftChildHtml               
+            }
+        },
+        methods: {
+            SubMitSign: function () {
+                common.postWebJson(_url, this.data, function () {
+
+                });
             }
         }
     });
@@ -124,13 +128,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
             },
             created: function () {
 
-            },
-            methods: {
-                SubMitSign: function () {
-                    common.postWebJson(_url, this.data, function () {
-
-                    });
-                }
             }
         });
     });

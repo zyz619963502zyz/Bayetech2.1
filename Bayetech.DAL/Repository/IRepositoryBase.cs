@@ -12,7 +12,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace NFine.Data
+namespace Bayetech.DAL
 {
     public interface IRepositoryBase : IDisposable
     {
