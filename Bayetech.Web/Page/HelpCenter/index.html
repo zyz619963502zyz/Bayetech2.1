@@ -9,9 +9,10 @@
     <link rel="stylesheet" type="text/css" href="../../Content/CommonCss/Public.css">
     <link rel="stylesheet" type="text/css" href="../../Content/CommonCss/helpcenter.css">
     <link rel="stylesheet" type="text/css" href="../../Content/CommonCss/help.css">
-    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/require.js" data-main="../../Scripts/app/app.js"></script>
+    <!--<script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/app/config.js"></script>
-    <script src="../../Scripts/app/HelpCenter/helpCenter.js"></script>
+    <script src="../../Scripts/app/HelpCenter/helpCenter.js"></script>-->
 </head>
 <body>
     <div id="app">
@@ -19,13 +20,14 @@
         <main-head></main-head>
         <!--头部结束-->
         <!--板块开始-->
-        <div class="center">
+        <!--<div class="center">
             <help-left></help-left>
             <div class="help_right">
                 <help-content></help-content>
                 <help-buttom></help-buttom>
             </div>
-        </div>
+        </div>-->
+        <v-view></v-view>
         <div class="clear"></div>
         <!--板块结束-->
         <!--底部开始-->
@@ -34,3 +36,4 @@
     </div>
 </body>
 </html>
+
