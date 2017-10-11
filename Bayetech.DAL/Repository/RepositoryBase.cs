@@ -18,7 +18,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace NFine.Data
+namespace Bayetech.DAL
 {
     /// <summary>
     /// 仓储实现
