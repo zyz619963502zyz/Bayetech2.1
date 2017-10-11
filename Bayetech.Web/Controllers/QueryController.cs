@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Bayetech.Web
 {
-    public class QueryController : ApiController
+    public class QueryController : ApiController 
     {
         //创建spring容器上下文
         IApplicationContext ctx = ContextRegistry.GetContext();

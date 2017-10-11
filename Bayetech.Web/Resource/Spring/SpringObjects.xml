@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net" xmlns:context="http://www.springframework.net/context" >
-
-  <object id="MyBatisDBEXCHANGEDataAccessor" type="Com.Centaline.Framework.Paladin.MyBatis.Repositories.MyBatisDataAccessor,Com.Centaline.Framework.Paladin.MyBatis">
-    <constructor-arg name="dbSource" value="Resource/MyBatis/SqlMap-DbExchange.config" />
-    <qualifier value="MyBatisDBEXCHANGEDataAccessor" />
-  </object>
   
   <object name="LoginSignService" type="Bayetech.Service.LoginSignService,Bayetech.Service"></object>
   
