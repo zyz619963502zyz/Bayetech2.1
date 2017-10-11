@@ -7,10 +7,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Bayetech.Web.Controllers
+namespace Bayetech.Web
 {
     public class BaseController : ApiController
     {
+        //创建spring容器上下文公共容器
         public static IApplicationContext ctx = ContextRegistry.GetContext();
     }
 }
