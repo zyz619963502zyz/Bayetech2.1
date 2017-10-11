@@ -15,12 +15,12 @@ namespace Bayetech.Service
         
         public int CreatAccount(JObject json)
         {
-            RepositoryBase RBase = new RepositoryBase();
-
-            using (BayetechEntities entity = new BayetechEntities())
+            using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json["model"].ToString(), typeof(Account));
-                return RBase.Insert(_account);
+                int count = db.Insert(_account);
+                db.Commit();
+                return count;
             }
         }
         public int CheckAccount(string account)
