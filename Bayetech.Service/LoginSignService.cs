@@ -12,7 +12,6 @@ namespace Bayetech.Service
 {
     public class LoginSignService : ILoginSignService
     {
-    
         public int CreatAccount(JObject json)
         {
             using (var db = new RepositoryBase().BeginTrans())
