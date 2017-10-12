@@ -15,7 +15,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                     <child-regboxleft v-bind:value="value"></child-regboxleft>
 
-
                     <a href="#" @click.prevent="SubMitSign" class ="regBtn"  id="mRegBtn">同意并注册</a>
                     <div class="regAgreement">
                         <input type="checkbox" class="middle" checked="checked" onclick="return false;" /><label for="" class="">我已阅读并同意<a href="http://www.7881.com/reg.jsp" class="regAgreementLink" target="_blank">《7881服务协议》</a></label>
