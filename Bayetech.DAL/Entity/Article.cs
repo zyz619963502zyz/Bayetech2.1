@@ -43,7 +43,5 @@ namespace Bayetech.DAL.Entity
         public string linkurl { get; set; }
         public string filepath { get; set; }
         public string note { get; set; }
-    
-        public virtual ArticleContent ArticleContent { get; set; }
     }
 }

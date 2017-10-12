@@ -136,10 +136,6 @@
           <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="Article" EntityType="BayetechModel.Article" />
           <EntitySet Name="ArticleContent" EntityType="BayetechModel.ArticleContent" />
-          <AssociationSet Name="ArticleContentArticle" Association="BayetechModel.ArticleContentArticle">
-            <End Role="ArticleContent" EntitySet="ArticleContent" />
-            <End Role="Article" EntitySet="Article" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -174,7 +170,6 @@
           <Property Name="linkurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="filepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="note" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ArticleContent" Relationship="BayetechModel.ArticleContentArticle" FromRole="Article" ToRole="ArticleContent" />
         </EntityType>
         <EntityType Name="ArticleContent">
           <Key>
@@ -183,12 +178,7 @@
           <Property Name="itemid" Type="Int64" Nullable="false" />
           <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="articleid" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Article" Relationship="BayetechModel.ArticleContentArticle" FromRole="ArticleContent" ToRole="Article" />
         </EntityType>
-        <Association Name="ArticleContentArticle">
-          <End Type="BayetechModel.ArticleContent" Role="ArticleContent" Multiplicity="1" />
-          <End Type="BayetechModel.Article" Role="Article" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
