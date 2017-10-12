@@ -4,5 +4,7 @@ namespace Bayetech.Service
 {
     public class ArticleService : ServiceBase<Article>
     {
+
+
     }
 }
