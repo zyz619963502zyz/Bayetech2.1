@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bayetech.Service.Interface;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,17 +8,20 @@ using System.Web.Mvc;
 
 namespace Bayetech.Web.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
-        // GET: Article
-        public ActionResult Index()
-        {
-            return View();
-        }
+        IArticleService service = ctx.GetObject("ArticleService") as IArticleService;
 
-        public JsonResult FindEntity()
+        public JObject FindEntity(object value)
         {
-
+            try
+            {
+                return service.FindEntity(value);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
