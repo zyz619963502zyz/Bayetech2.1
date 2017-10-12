@@ -246,6 +246,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -634,8 +635,9 @@
     <Content Include="Scripts\AllScript\store_base_info.js" />
     <Content Include="Scripts\AllScript\validateLogin.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
-    <Content Include="Scripts\app\config.js" />
+    <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
+    <Content Include="Scripts\app\entry.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />
@@ -706,6 +708,7 @@
     <Folder Include="Page\LoginRegister\" />
     <Folder Include="Page\Signin\" />
     <Folder Include="Page\Use\" />
+    <Folder Include="Views\Article\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resource\fonts\glyphicons-halflings-regular.woff" />

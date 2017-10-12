@@ -17,9 +17,9 @@ namespace Bayetech.DAL.Entity
         public long Logid { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
-        public byte Admin { get; set; }
+        public Nullable<byte> Admin { get; set; }
         public string LoginIp { get; set; }
-        public int LoginTime { get; set; }
+        public Nullable<int> LoginTime { get; set; }
         public string Message { get; set; }
         public string Agent { get; set; }
     }

@@ -5,7 +5,7 @@ var componentfig = {
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
     paths: {
         'vue': 'vue',
-        'vueRouter':'vue-router',
+        'vueRouter': 'vue-router',
         'jquery': 'jquery-1.10.2.min',
         'common': 'common',
         'head': 'app/Shared/head',
@@ -20,18 +20,16 @@ var componentfig = {
 };
 require.config(componentfig);
 
-////启动文件
-//require(['vue', 'jquery', 'common', 'head', 'foot', "helpCenter"], function (Vue, $, common, head, foot, helpCenter) {
-//    //路由配置
-//    let routeconfig = [{
-//        path: webUrl + 'Page/HelpCenter/index.html',
-//        component: helpCenter,
-//    }];
-//    var component = common.FindObjByProp(routeconfig, "path", window.document.location.pathname).component;
-//    Vue.component('main-head', head);
-//    Vue.component('main-foot', foot);
+//启动文件
+require(['vue', 'jquery', 'common'], function (Vue,$,common) {
+    //路由配置
+    var routeconfig = [{
+        path: webUrl + 'Page/HelpCenter/index.html',
+        name: "helpCenter",
+    }];
 
-//    let app = new Vue({
-//        components: { "v-view": component}
-//    }).$mount('#app');
-//});
+    //需要组件
+    let componentArr = ['vue', 'jquery', 'common', 'head', 'foot', 'helpCenter'];
+    let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
+    componentArr.push(component);
+});

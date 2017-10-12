@@ -55,6 +55,12 @@
     <Compile Include="Entity\Account.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Article.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ArticleContent.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Bayetech.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
