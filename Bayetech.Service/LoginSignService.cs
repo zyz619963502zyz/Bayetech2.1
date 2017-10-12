@@ -19,6 +19,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public bool CreatAccount(JObject json)
         {
+
             using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.ToString(), typeof(Account));
