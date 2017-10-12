@@ -7,6 +7,9 @@
       <Diagram DiagramId="911c4f5ead7446328f6415767f45b647" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="BayetechModel.Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Login" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayetechModel.Article" Width="1.5" PointX="3.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayetechModel.ArticleContent" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="BayetechModel.ArticleContentArticle" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
