@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 namespace Bayetech.DAL
 {
     public class DbHelper
-    {
+    {  
         private static string connstring = ConfigurationManager.ConnectionStrings["NFineDbContext"].ConnectionString;
         public static int ExecuteSqlCommand(string cmdText)
         {
