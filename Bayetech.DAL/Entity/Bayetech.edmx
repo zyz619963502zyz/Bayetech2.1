@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BayetechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BayetechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="id" />
@@ -29,25 +29,68 @@
           <Property Name="security" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="tname" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="bigint" Nullable="false" />
+          <Property Name="catid" Type="int" Nullable="false" />
+          <Property Name="areaid" Type="int" Nullable="false" />
+          <Property Name="level" Type="tinyint" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="style" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fee" Type="real" Nullable="false" />
+          <Property Name="subtitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="introduce" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="tag" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="pptword" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="copyfrom" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="fromurl" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="voteid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="hits" Type="int" Nullable="false" />
+          <Property Name="thumb" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="addtime" Type="int" Nullable="false" />
+          <Property Name="editor" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="edittime" Type="int" Nullable="false" />
+          <Property Name="ip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="template" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="islink" Type="tinyint" Nullable="false" />
+          <Property Name="linkurl" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="filepath" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ArticleContent">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="bigint" Nullable="false" />
+          <Property Name="articleid" Type="bigint" Nullable="false" />
+          <Property Name="content" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="logid" />
           </Key>
-          <Property Name="logid" Type="bigint" Nullable="false" />
+          <Property Name="logid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
-          <Property Name="admin" Type="tinyint" Nullable="false" />
-          <Property Name="loginip" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="logintime" Type="int" Nullable="false" />
-          <Property Name="message" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="agent" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="admin" Type="tinyint" />
+          <Property Name="loginip" Type="nvarchar" MaxLength="50" />
+          <Property Name="logintime" Type="int" />
+          <Property Name="message" Type="nvarchar" MaxLength="255" />
+          <Property Name="agent" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BayetechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -82,16 +125,60 @@
           <Property Name="Logid" Type="Int64" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PassWord" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Admin" Type="Byte" Nullable="false" />
-          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoginTime" Type="Int32" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin" Type="Byte" />
+          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="Int32" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="BayetechEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Article" EntityType="BayetechModel.Article" />
+          <EntitySet Name="ArticleContent" EntityType="BayetechModel.ArticleContent" />
         </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="Int64" Nullable="false" />
+          <Property Name="catid" Type="Int32" Nullable="false" />
+          <Property Name="areaid" Type="Int32" Nullable="false" />
+          <Property Name="level" Type="Byte" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="style" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fee" Type="Single" Nullable="false" />
+          <Property Name="subtitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="introduce" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="keyword" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pptword" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="copyfrom" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fromurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="voteid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hits" Type="Int32" Nullable="false" />
+          <Property Name="thumb" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="addtime" Type="Int32" Nullable="false" />
+          <Property Name="editor" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="Int32" Nullable="false" />
+          <Property Name="ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="template" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="islink" Type="Byte" Nullable="false" />
+          <Property Name="linkurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="filepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ArticleContent">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="Int64" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="articleid" Type="Int64" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -133,6 +220,50 @@
                 <ScalarProperty Name="LoginTime" ColumnName="logintime" />
                 <ScalarProperty Name="Message" ColumnName="message" />
                 <ScalarProperty Name="Agent" ColumnName="agent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Article">
+            <EntityTypeMapping TypeName="BayetechModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
+                <ScalarProperty Name="linkurl" ColumnName="linkurl" />
+                <ScalarProperty Name="islink" ColumnName="islink" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="template" ColumnName="template" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="editor" ColumnName="editor" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="thumb" ColumnName="thumb" />
+                <ScalarProperty Name="hits" ColumnName="hits" />
+                <ScalarProperty Name="voteid" ColumnName="voteid" />
+                <ScalarProperty Name="fromurl" ColumnName="fromurl" />
+                <ScalarProperty Name="copyfrom" ColumnName="copyfrom" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="pptword" ColumnName="pptword" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="subtitle" ColumnName="subtitle" />
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="areaid" ColumnName="areaid" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleContent">
+            <EntityTypeMapping TypeName="BayetechModel.ArticleContent">
+              <MappingFragment StoreEntitySet="ArticleContent">
+                <ScalarProperty Name="articleid" ColumnName="articleid" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

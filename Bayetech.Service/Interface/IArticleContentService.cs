@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service.Interface
 {
-     public interface IDemo
+    public interface IArticleContentService: IBaseService
     {
-        string Name { get; set; }
 
-        int Age { get; set; }
-
-        void Print();
     }
 }
