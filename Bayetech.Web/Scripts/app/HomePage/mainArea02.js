@@ -98,16 +98,14 @@ define("HomeTabBox", jsconfig.baseArr, function (vue, $, common) {
         ],
     };
 
-    var homeTabBox = {
-        name: "homeTabBox",
-        template: html,
-        data() {
-            return data;
-        },
-    };
 
-
-    Vue.component('AAAAA', homeTabBox);
+    Vue.component('mainAreaBox02', {
+    	name: "hometabox",
+    	template: html,
+    	data() {
+    		return data;
+    	},
+    });
 
     return homeTabBox;
 });
