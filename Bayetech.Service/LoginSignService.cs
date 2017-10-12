@@ -17,7 +17,7 @@ namespace Bayetech.Service
          
             using (var db = new RepositoryBase().BeginTrans())
             {
-                Account _account = (Account)JsonConvert.DeserializeObject(json["model"].ToString(), typeof(Account));
+                Account _account = (Account)JsonConvert.DeserializeObject(json.ToString(), typeof(Account));
                 int count = db.Insert(_account);
                 db.Commit();
                 return count;
