@@ -35,17 +35,17 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                     <label for="" class ="comIptIcon IptIconRight hide delIcon">
                         <i class ="iptIconInner iconfont"></i>
                     </label>
-                    <!--<p class="placeholder">手机号码注册</p>-->
                     <em class="regDesc hide">请输入您的手机号</em>
                 </div>
-                <button @click="CheckAccount">检查账号</button>
+                <button @click.prevent="CheckAccount">检查账号</button>
                 <div class="checkCodeBox clearfix">
                     <div class="comIptBox comPureIptBox l">
-                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt" valid="false" data-error="请输入验证码" data-normal="按右图填写,不区分大小写" maxlength="4" ajaxvalidate="img_valid" />
+                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt"  />
                         <p class="placeholder codePlaceholder">验证码</p>
                         <em class="regDesc hide">按右图填写,不区分大小写</em>
                     </div>
-                    <div class="codeImgBox l middle"><img src="#" class="codeImg middle" alt="" /></div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
+                    <div class ="codeImgBox l middle"><img src="#" class ="codeImg middle" alt="" />
+                    </div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
                 </div>
                 <div class="mRegCode clearfix">
                     <div class="comIptBox mCode">
@@ -88,7 +88,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     var data = {
         //注册左边
         Leftobject: {
-            QS:"aaaa",
             Iphone: 18717708873,
             GamePass: 123456
         },
@@ -117,8 +116,10 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                 template: leftChildHtml,
                 methods: {
                     CheckAccount: function () {
-                        common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function () {
-
+                        common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
+                            if (data == false) {
+                                alert("该账号已经存在，不可重复注册!");
+                            }
                         });
                     }
                 }
@@ -126,7 +127,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         },
         methods: {
             SubMitSign : function () {
-                common.postWebJson(_CheckAccountUrl, JSON.stringify(this.$props.value), function () {
+                common.postWebJson(_CheckAccountUrl, JSON.stringify(this.$props.value), function (data) {
 
                 });
             }
