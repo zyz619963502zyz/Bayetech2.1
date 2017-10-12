@@ -112,7 +112,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         },
         methods: {
             SubMitSign: function () {
-                common.postWebJson(_url, this.data, function () {
+                common.postWebJson(_url, JSON.stringify(this.$props.value), function () {
 
                 });
             }
