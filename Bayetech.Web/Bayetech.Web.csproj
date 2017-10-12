@@ -628,6 +628,8 @@
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\app\HomePage\index.js" />
+    <Content Include="Scripts\app\HomePage\mainArea02.js" />
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
