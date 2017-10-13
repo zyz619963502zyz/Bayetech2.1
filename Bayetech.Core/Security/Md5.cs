@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace Bayetech.Core.Security
+namespace Bayetech.Core
 {
     public class Md5
     {

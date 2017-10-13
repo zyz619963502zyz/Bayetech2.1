@@ -54,6 +54,8 @@ public partial class Account
 
     public string Tname { get; set; }
 
+    public bool EnableMark { get; set; }
+
 }
 
 }
