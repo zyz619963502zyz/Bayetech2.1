@@ -38,49 +38,49 @@ namespace Bayetech.Service
         {
             using (var db = new RepositoryBase())
             {
-                Account _account = db.FindEntity<Account>(c => c.GameUser == account);
+                Account _account = db.FindEntity<Account>(c => c.GameUser == account); 
                 return _account == null ? true : false;//true不重复可申请，false不可申请
             }
         }
 
 
-        //登录校验
-        public UserEntity CheckLogin(string username, string password)
-        {
-            UserEntity userEntity = service.FindEntity(t => t.F_Account == username);
-            if (userEntity != null)
-            {
-                if (userEntity.F_EnabledMark == true)
-                {
-                    UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
-                    string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
-                    if (dbPassword == userLogOnEntity.F_UserPassword)
-                    {
-                        DateTime lastVisitTime = DateTime.Now;
-                        int LogOnCount = (userLogOnEntity.F_LogOnCount).ToInt() + 1;
-                        if (userLogOnEntity.F_LastVisitTime != null)
-                        {
-                            userLogOnEntity.F_PreviousVisitTime = userLogOnEntity.F_LastVisitTime.ToDate();
-                        }
-                        userLogOnEntity.F_LastVisitTime = lastVisitTime;
-                        userLogOnEntity.F_LogOnCount = LogOnCount;
-                        userLogOnApp.UpdateForm(userLogOnEntity);
-                        return userEntity;
-                    }
-                    else
-                    {
-                        throw new Exception("密码不正确，请重新输入");
-                    }
-                }
-                else
-                {
-                    throw new Exception("账户被系统锁定,请联系管理员");
-                }
-            }
-            else
-            {
-                throw new Exception("账户不存在，请重新输入");
-            }
-        }
+        ////登录校验
+        //public UserEntity CheckLogin(string username, string password)
+        //{
+        //    UserEntity userEntity = service.FindEntity(t => t.F_Account == username);
+        //    if (userEntity != null)
+        //    {
+        //        if (userEntity.F_EnabledMark == true)
+        //        {
+        //            UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
+        //            string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
+        //            if (dbPassword == userLogOnEntity.F_UserPassword)
+        //            {
+        //                DateTime lastVisitTime = DateTime.Now;
+        //                int LogOnCount = (userLogOnEntity.F_LogOnCount).ToInt() + 1;
+        //                if (userLogOnEntity.F_LastVisitTime != null)
+        //                {
+        //                    userLogOnEntity.F_PreviousVisitTime = userLogOnEntity.F_LastVisitTime.ToDate();
+        //                }
+        //                userLogOnEntity.F_LastVisitTime = lastVisitTime;
+        //                userLogOnEntity.F_LogOnCount = LogOnCount;
+        //                userLogOnApp.UpdateForm(userLogOnEntity);
+        //                return userEntity;
+        //            }
+        //            else
+        //            {
+        //                throw new Exception("密码不正确，请重新输入");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("账户被系统锁定,请联系管理员");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("账户不存在，请重新输入");
+        //    }
+        //}
     }
 }
