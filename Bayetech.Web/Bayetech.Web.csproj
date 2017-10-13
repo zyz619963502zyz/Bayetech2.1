@@ -689,7 +689,6 @@
     <Content Include="Scripts\resource.js" />
     <Content Include="Scripts\vue.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Views\Home\ceshi.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
