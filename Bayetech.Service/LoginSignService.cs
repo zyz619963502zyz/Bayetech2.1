@@ -20,6 +20,7 @@ namespace Bayetech.Service
             using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.ToString(), typeof(Account));
+                _account.GamePass = Md5.EncryptString(_account.GamePass); 
                 int count = db.Insert(_account);
                 db.Commit();
                 return count > 0 ? true : false;
