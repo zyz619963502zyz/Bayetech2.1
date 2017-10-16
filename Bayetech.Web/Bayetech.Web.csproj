@@ -637,7 +637,6 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\entry.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />

@@ -14,24 +14,33 @@ var componentfig = {
         'helpButtom': 'app/HelpCenter/buttom',
         'helpContent': 'app/HelpCenter/content',
         'helpCenter': 'app/HelpCenter/helpCenter',
-        'SignModule': 'app/Sign/sign'
+        'SignModule': 'app/Sign/sign',
     },
     commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],
 };
 require.config(componentfig);
 
+var FindObjByProp = function (arr, propName, value) {
+    var newArr = [];
+    for (var prop in arr) {
+        var o = arr[prop], p = o[propName];
+        p && newArr.push(o);
+    }
+    return newArr[0];
+}
+
 //路由配置
-//var routeconfig = [{
-//    path: webUrl + 'Page/HelpCenter/index.html',
-//    name: "helpCenter",
-//}];
-var routeconfig = {};
-routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
+var routeconfig = [{
+    path: webUrl + 'Page/HelpCenter/index.html',
+    name: "helpCenter",
+}];
+//var routeconfig = {};
+//routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
 //需要组件
 let componentArr = ['vue', 'jquery', 'common', 'head', 'foot'];
-//let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
-let component = routeconfig[window.document.location.pathname];
+let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
+//let component = routeconfig[window.document.location.pathname];
 componentArr.push(component);
 
 //启动文件
