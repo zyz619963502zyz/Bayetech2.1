@@ -28,6 +28,7 @@
           <Property Name="id_pic" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="security" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="tname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="enable_mark" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -80,7 +81,7 @@
           <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
           <Property Name="admin" Type="tinyint" />
           <Property Name="loginip" Type="nvarchar" MaxLength="50" />
-          <Property Name="logintime" Type="int" />
+          <Property Name="logintime" Type="datetime" />
           <Property Name="message" Type="nvarchar" MaxLength="255" />
           <Property Name="agent" Type="nvarchar" MaxLength="255" />
         </EntityType>
@@ -117,25 +118,13 @@
           <Property Name="IdPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Login">
-          <Key>
-            <PropertyRef Name="Logid" />
-          </Key>
-          <Property Name="Logid" Type="Int64" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PassWord" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Admin" Type="Byte" />
-          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LoginTime" Type="Int32" />
-          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EnableMark" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="BayetechEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
-          <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="Article" EntityType="BayetechModel.Article" />
           <EntitySet Name="ArticleContent" EntityType="BayetechModel.ArticleContent" />
+          <EntitySet Name="Login" EntityType="BayetechModel.Login" />
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -179,6 +168,19 @@
           <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="articleid" Type="Int64" Nullable="false" />
         </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="Byte" />
+          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logintime" Type="DateTime" Precision="3" />
+          <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -188,6 +190,7 @@
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="BayetechModel.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="EnableMark" ColumnName="enable_mark" />
                 <ScalarProperty Name="Id" ColumnName="id" />
                 <ScalarProperty Name="ItemId" ColumnName="itemid" />
                 <ScalarProperty Name="GameUser" ColumnName="game_user" />
@@ -206,20 +209,6 @@
                 <ScalarProperty Name="IdPic" ColumnName="id_pic" />
                 <ScalarProperty Name="Security" ColumnName="security" />
                 <ScalarProperty Name="Tname" ColumnName="tname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Login">
-            <EntityTypeMapping TypeName="BayetechModel.Login">
-              <MappingFragment StoreEntitySet="Login">
-                <ScalarProperty Name="Logid" ColumnName="logid" />
-                <ScalarProperty Name="UserName" ColumnName="username" />
-                <ScalarProperty Name="PassWord" ColumnName="password" />
-                <ScalarProperty Name="Admin" ColumnName="admin" />
-                <ScalarProperty Name="LoginIp" ColumnName="loginip" />
-                <ScalarProperty Name="LoginTime" ColumnName="logintime" />
-                <ScalarProperty Name="Message" ColumnName="message" />
-                <ScalarProperty Name="Agent" ColumnName="agent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -264,6 +253,20 @@
                 <ScalarProperty Name="articleid" ColumnName="articleid" />
                 <ScalarProperty Name="content" ColumnName="content" />
                 <ScalarProperty Name="itemid" ColumnName="itemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="BayetechModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="agent" ColumnName="agent" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="LoginIp" ColumnName="loginip" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="PassWord" ColumnName="password" />
+                <ScalarProperty Name="UserName" ColumnName="username" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

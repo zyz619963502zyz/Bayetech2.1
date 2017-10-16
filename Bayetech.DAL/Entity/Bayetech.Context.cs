@@ -34,11 +34,11 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<Account> Account { get; set; }
 
-    public virtual DbSet<Login> Login { get; set; }
-
     public virtual DbSet<Article> Article { get; set; }
 
     public virtual DbSet<ArticleContent> ArticleContent { get; set; }
+
+    public virtual DbSet<Login> Login { get; set; }
 
 }
 

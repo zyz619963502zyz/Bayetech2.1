@@ -18,21 +18,21 @@ using System;
 public partial class Login
 {
 
-    public long Logid { get; set; }
+    public long logid { get; set; }
 
     public string UserName { get; set; }
 
     public string PassWord { get; set; }
 
-    public Nullable<byte> Admin { get; set; }
+    public Nullable<byte> admin { get; set; }
 
     public string LoginIp { get; set; }
 
-    public Nullable<int> LoginTime { get; set; }
+    public Nullable<System.DateTime> logintime { get; set; }
 
-    public string Message { get; set; }
+    public string message { get; set; }
 
-    public string Agent { get; set; }
+    public string agent { get; set; }
 
 }
 

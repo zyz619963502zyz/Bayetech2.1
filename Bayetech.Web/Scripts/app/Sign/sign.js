@@ -1,7 +1,8 @@
 ﻿//注册模板
 define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    var _url = "/api/Query/Start";
+    var _CreatAccountUrl = "/api/Query/CreatAccount"; //创建账号
+    var _CheckAccountUrl = "/api/Query/CheckAccount"; //检查账号重复
 
     //左边模板
     var leftHtml = `<div class="regBoxLeft l" template="RegBoxLeft">
@@ -13,7 +14,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                         <h1 class="l c3">手机号码注册</h1>
                     </div>
                     <child-regboxleft v-bind:value="value"></child-regboxleft>
-
 
                     <a href="#" @click.prevent="SubMitSign" class ="regBtn"  id="mRegBtn">同意并注册</a>
                     <div class="regAgreement">
@@ -29,17 +29,22 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                 <div class="comIptBox userIptBox">
                     <label for="" class="comIptIcon IptIconLeft">
                         <i class="iptIconInner iconfont"></i>
-                    </label><input type="text" id="tel" v-bind:value="value.Iphone" class="comIpt loginUserIpt" data-error="请输入手机号" data-normal="请输入手机号" maxlength="11" valid="false" regexp="^1[34578][0-9]{9}$" regexp_desc="手机号码格式不正确,请重新输入" ajaxvalidate="tel" /><label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont"></i></label>
-                    <!--<p class="placeholder">手机号码注册</p>-->
+                    </label>
+                       <input type="text" id="tel" v-bind:value="value.Iphone" class ="comIpt loginUserIpt" maxlength="11" valid="false" ajaxvalidate="tel" />
+                    <label for="" class ="comIptIcon IptIconRight hide delIcon">
+                        <i class ="iptIconInner iconfont"></i>
+                    </label>
                     <em class="regDesc hide">请输入您的手机号</em>
                 </div>
+                <button @click.prevent="CheckAccount">检查账号</button>
                 <div class="checkCodeBox clearfix">
                     <div class="comIptBox comPureIptBox l">
-                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt" valid="false" data-error="请输入验证码" data-normal="按右图填写,不区分大小写" maxlength="4" ajaxvalidate="img_valid" />
+                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt"  />
                         <p class="placeholder codePlaceholder">验证码</p>
                         <em class="regDesc hide">按右图填写,不区分大小写</em>
                     </div>
-                    <div class="codeImgBox l middle"><img src="#" class="codeImg middle" alt="" /></div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
+                    <div class ="codeImgBox l middle"><img src="#" class ="codeImg middle" alt="" />
+                    </div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
                 </div>
                 <div class="mRegCode clearfix">
                     <div class="comIptBox mCode">
@@ -107,12 +112,21 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         components: {
             'child-regboxleft': {
                 props: ['value'],
-                template: leftChildHtml               
+                template: leftChildHtml,
+                methods: {
+                    CheckAccount: function () {
+                        common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
+                            if (data == false) {
+                                alert("该账号已经存在，不可重复注册!");
+                            }
+                        });
+                    }
+                }
             }
         },
         methods: {
-            SubMitSign: function () {
-                common.postWebJson(_url, JSON.stringify(this.$props.value), function () {
+            SubMitSign : function () {
+                common.postWebJson(_CheckAccountUrl, JSON.stringify(this.$props.value), function (data) {
 
                 });
             }

@@ -56,6 +56,10 @@
     <Compile Include="ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
+      <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
+      <Name>Bayetech.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
       <Project>{8742e37f-2ade-47de-b427-36b80e2b3c83}</Project>
       <Name>Bayetech.DAL</Name>

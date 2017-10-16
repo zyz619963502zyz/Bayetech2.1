@@ -8,7 +8,8 @@
         'common': 'common',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
-        'SignModule': 'app/Sign/sign'
+        'SignModule': 'app/Sign/sign',
+        'HomeTabBox': 'app/HomePage/mainArea02'
     }
 };
 require.config(jsconfig);

@@ -4,8 +4,8 @@ namespace Bayetech.Service
 {
      public interface ILoginSignService
     {
-        int CreatAccount(JObject json);
+        bool CreatAccount(JObject json);
 
-        int CheckAccount(string account);
+        bool CheckAccount(string account);
     }
 }

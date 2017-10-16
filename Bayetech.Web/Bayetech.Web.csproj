@@ -262,7 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\CommonCss\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CommonCss\7881.common.css" />
@@ -642,6 +642,8 @@
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\app\HomePage\index.js" />
+    <Content Include="Scripts\app\HomePage\mainArea02.js" />
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
@@ -686,7 +688,6 @@
     <Content Include="Scripts\resource.js" />
     <Content Include="Scripts\vue.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Views\Home\ceshi.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
