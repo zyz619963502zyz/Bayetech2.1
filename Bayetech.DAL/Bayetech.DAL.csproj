@@ -76,7 +76,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bayetech.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Category.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Login.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Module.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\View_ArticleInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vw_LoginInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DbHelper.cs" />

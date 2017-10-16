@@ -2,7 +2,8 @@
 
 namespace Bayetech.Service.Interface
 {
-    public interface IArticleService : IBaseService<Article>
+    public interface ICategoryService : IBaseService<Category>
     {
+
     }
 }

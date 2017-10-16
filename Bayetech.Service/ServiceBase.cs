@@ -13,7 +13,7 @@ namespace Bayetech.Service
 {
     public class ServiceBase<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
-        private RepositoryBase repository = new RepositoryBase();
+        protected RepositoryBase repository = new RepositoryBase();
         public int Delete(object keyValue)
         {
             throw new NotImplementedException();

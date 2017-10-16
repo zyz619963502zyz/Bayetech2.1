@@ -47,9 +47,11 @@
   <ItemGroup>
     <Compile Include="ArticleContentService.cs" />
     <Compile Include="ArticleService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="Interface\IArticleContentService.cs" />
     <Compile Include="Interface\IArticleService.cs" />
     <Compile Include="Interface\IBaseService.cs" />
+    <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ILoginSignService.cs" />
     <Compile Include="LoginSignService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

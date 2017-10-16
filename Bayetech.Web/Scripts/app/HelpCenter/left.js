@@ -1,5 +1,7 @@
 ﻿//左侧模板
 define([], function () {
+    var findListUrl = "/api/Article/FindList"; //查询列表
+    var findContentUrl = "/api/Article/FindContent"; //查询详情
     //:onclick="value.clickFn"
     var html = `<div class="help_left" id="help_left">
             <h3>使用帮助</h3>
@@ -33,6 +35,16 @@ define([], function () {
         template: html,
         data() {
             return data;
+        },
+        created() {
+            debugger;
+            this.findList();
+        },
+        methods: {
+            findList: function () {
+                common.getWebJson(findListUrl, { value: "23" }, function (data) {
+                });
+            }
         },
     };
     return helpLeft;

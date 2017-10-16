@@ -72,6 +72,35 @@
           <Property Name="articleid" Type="bigint" Nullable="false" />
           <Property Name="content" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="int" Nullable="false" />
+          <Property Name="moduleid" Type="smallint" Nullable="false" />
+          <Property Name="catname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="style" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="catdir" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="linkurl" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="letter" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="level" Type="tinyint" Nullable="false" />
+          <Property Name="item" Type="bigint" Nullable="false" />
+          <Property Name="property" Type="smallint" Nullable="false" />
+          <Property Name="parentid" Type="int" Nullable="false" />
+          <Property Name="arrparentid" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="child" Type="tinyint" Nullable="false" />
+          <Property Name="arrchildid" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="listorder" Type="smallint" Nullable="false" />
+          <Property Name="template" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="show_template" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="seo_title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="seo_keywords" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="seo_description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="group_list" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="group_show" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="group_add" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="img" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="logid" />
@@ -85,11 +114,151 @@
           <Property Name="message" Type="nvarchar" MaxLength="255" />
           <Property Name="agent" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.Module”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="moduleid" />
+            <PropertyRef Name="isdelete" />
+          </Key>
+          <Property Name="moduleid" Type="smallint" Nullable="false" />
+          <Property Name="modulename" Type="nvarchar" MaxLength="50" />
+          <Property Name="isdelete" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.View_ArticleInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ArticleInfo">
+          <Key>
+            <PropertyRef Name="itemid" />
+            <PropertyRef Name="catid" />
+            <PropertyRef Name="catname" />
+            <PropertyRef Name="title" />
+            <PropertyRef Name="introduce" />
+            <PropertyRef Name="tag" />
+            <PropertyRef Name="keyword" />
+            <PropertyRef Name="author" />
+            <PropertyRef Name="copyfrom" />
+            <PropertyRef Name="fromurl" />
+            <PropertyRef Name="hits" />
+            <PropertyRef Name="thumb" />
+            <PropertyRef Name="addtime" />
+            <PropertyRef Name="editor" />
+            <PropertyRef Name="edittime" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="moduleid" />
+          </Key>
+          <Property Name="itemid" Type="bigint" Nullable="false" />
+          <Property Name="catid" Type="int" Nullable="false" />
+          <Property Name="catname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="introduce" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="tag" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="copyfrom" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="fromurl" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="hits" Type="int" Nullable="false" />
+          <Property Name="thumb" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="addtime" Type="int" Nullable="false" />
+          <Property Name="editor" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="edittime" Type="int" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="moduleid" Type="smallint" Nullable="false" />
+          <Property Name="modulename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.vw_LoginInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_LoginInfo">
+          <Key>
+            <PropertyRef Name="loginip" />
+            <PropertyRef Name="logintime" />
+            <PropertyRef Name="message" />
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="loginip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="logintime" Type="int" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="logid" Type="bigint" Nullable="false" />
+          <Property Name="itemid" Type="int" />
+          <Property Name="game_user" Type="nvarchar" MaxLength="30" />
+          <Property Name="game_pass" Type="nvarchar" MaxLength="30" />
+          <Property Name="game_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="id" Type="int" />
+          <Property Name="iphone" Type="int" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="email_pass" Type="nvarchar" MaxLength="30" />
+          <Property Name="answer_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="tname" Type="nvarchar" MaxLength="20" />
+          <Property Name="security" Type="nvarchar" MaxLength="500" />
+          <Property Name="identity" Type="int" />
+          <Property Name="ask_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="id_pic" Type="nvarchar" MaxLength="500" />
+          <Property Name="ask_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ask_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="answer_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="answer_2" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Module].[moduleid] AS [moduleid], 
+    [Module].[modulename] AS [modulename], 
+    [Module].[isdelete] AS [isdelete]
+    FROM [dbo].[Module] AS [Module]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ArticleInfo" EntityType="Self.View_ArticleInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ArticleInfo].[itemid] AS [itemid], 
+    [View_ArticleInfo].[catid] AS [catid], 
+    [View_ArticleInfo].[catname] AS [catname], 
+    [View_ArticleInfo].[title] AS [title], 
+    [View_ArticleInfo].[introduce] AS [introduce], 
+    [View_ArticleInfo].[tag] AS [tag], 
+    [View_ArticleInfo].[keyword] AS [keyword], 
+    [View_ArticleInfo].[author] AS [author], 
+    [View_ArticleInfo].[copyfrom] AS [copyfrom], 
+    [View_ArticleInfo].[fromurl] AS [fromurl], 
+    [View_ArticleInfo].[hits] AS [hits], 
+    [View_ArticleInfo].[thumb] AS [thumb], 
+    [View_ArticleInfo].[addtime] AS [addtime], 
+    [View_ArticleInfo].[editor] AS [editor], 
+    [View_ArticleInfo].[edittime] AS [edittime], 
+    [View_ArticleInfo].[status] AS [status], 
+    [View_ArticleInfo].[moduleid] AS [moduleid], 
+    [View_ArticleInfo].[modulename] AS [modulename]
+    FROM [dbo].[View_ArticleInfo] AS [View_ArticleInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_LoginInfo].[loginip] AS [loginip], 
+    [vw_LoginInfo].[logintime] AS [logintime], 
+    [vw_LoginInfo].[message] AS [message], 
+    [vw_LoginInfo].[logid] AS [logid], 
+    [vw_LoginInfo].[itemid] AS [itemid], 
+    [vw_LoginInfo].[game_user] AS [game_user], 
+    [vw_LoginInfo].[game_pass] AS [game_pass], 
+    [vw_LoginInfo].[game_name] AS [game_name], 
+    [vw_LoginInfo].[id] AS [id], 
+    [vw_LoginInfo].[iphone] AS [iphone], 
+    [vw_LoginInfo].[email] AS [email], 
+    [vw_LoginInfo].[email_pass] AS [email_pass], 
+    [vw_LoginInfo].[answer_1] AS [answer_1], 
+    [vw_LoginInfo].[tname] AS [tname], 
+    [vw_LoginInfo].[security] AS [security], 
+    [vw_LoginInfo].[identity] AS [identity], 
+    [vw_LoginInfo].[ask_3] AS [ask_3], 
+    [vw_LoginInfo].[id_pic] AS [id_pic], 
+    [vw_LoginInfo].[ask_2] AS [ask_2], 
+    [vw_LoginInfo].[ask_1] AS [ask_1], 
+    [vw_LoginInfo].[answer_3] AS [answer_3], 
+    [vw_LoginInfo].[answer_2] AS [answer_2]
+    FROM [dbo].[vw_LoginInfo] AS [vw_LoginInfo]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -125,6 +294,10 @@
           <EntitySet Name="Article" EntityType="BayetechModel.Article" />
           <EntitySet Name="ArticleContent" EntityType="BayetechModel.ArticleContent" />
           <EntitySet Name="Login" EntityType="BayetechModel.Login" />
+          <EntitySet Name="Category" EntityType="BayetechModel.Category" />
+          <EntitySet Name="Module" EntityType="BayetechModel.Module" />
+          <EntitySet Name="View_ArticleInfo" EntityType="BayetechModel.View_ArticleInfo" />
+          <EntitySet Name="vw_LoginInfo" EntityType="BayetechModel.vw_LoginInfo" />
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -180,6 +353,113 @@
           <Property Name="logintime" Type="DateTime" Precision="3" />
           <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="Int32" Nullable="false" />
+          <Property Name="moduleid" Type="Int16" Nullable="false" />
+          <Property Name="catname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="style" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="catdir" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="linkurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="letter" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="level" Type="Byte" Nullable="false" />
+          <Property Name="item" Type="Int64" Nullable="false" />
+          <Property Name="property" Type="Int16" Nullable="false" />
+          <Property Name="parentid" Type="Int32" Nullable="false" />
+          <Property Name="arrparentid" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="child" Type="Byte" Nullable="false" />
+          <Property Name="arrchildid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="listorder" Type="Int16" Nullable="false" />
+          <Property Name="template" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="show_template" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="seo_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_keywords" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="group_list" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="group_show" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="group_add" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="moduleid" />
+            <PropertyRef Name="isdelete" />
+          </Key>
+          <Property Name="moduleid" Type="Int16" Nullable="false" />
+          <Property Name="modulename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isdelete" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_ArticleInfo">
+          <Key>
+            <PropertyRef Name="itemid" />
+            <PropertyRef Name="catid" />
+            <PropertyRef Name="catname" />
+            <PropertyRef Name="title" />
+            <PropertyRef Name="introduce" />
+            <PropertyRef Name="tag" />
+            <PropertyRef Name="keyword" />
+            <PropertyRef Name="author" />
+            <PropertyRef Name="copyfrom" />
+            <PropertyRef Name="fromurl" />
+            <PropertyRef Name="hits" />
+            <PropertyRef Name="thumb" />
+            <PropertyRef Name="addtime" />
+            <PropertyRef Name="editor" />
+            <PropertyRef Name="edittime" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="moduleid" />
+          </Key>
+          <Property Name="itemid" Type="Int64" Nullable="false" />
+          <Property Name="catid" Type="Int32" Nullable="false" />
+          <Property Name="catname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="introduce" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="keyword" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="copyfrom" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fromurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hits" Type="Int32" Nullable="false" />
+          <Property Name="thumb" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="addtime" Type="Int32" Nullable="false" />
+          <Property Name="editor" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="moduleid" Type="Int16" Nullable="false" />
+          <Property Name="modulename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_LoginInfo">
+          <Key>
+            <PropertyRef Name="loginip" />
+            <PropertyRef Name="logintime" />
+            <PropertyRef Name="message" />
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="loginip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logintime" Type="Int32" Nullable="false" />
+          <Property Name="message" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="logid" Type="Int64" Nullable="false" />
+          <Property Name="itemid" Type="Int32" />
+          <Property Name="game_user" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="game_pass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="game_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" />
+          <Property Name="iphone" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email_pass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="answer_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="identity" Type="Int32" />
+          <Property Name="ask_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="id_pic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ask_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ask_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="answer_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="answer_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -267,6 +547,97 @@
                 <ScalarProperty Name="PassWord" ColumnName="password" />
                 <ScalarProperty Name="UserName" ColumnName="username" />
                 <ScalarProperty Name="logid" ColumnName="logid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="BayetechModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="group_add" ColumnName="group_add" />
+                <ScalarProperty Name="group_show" ColumnName="group_show" />
+                <ScalarProperty Name="group_list" ColumnName="group_list" />
+                <ScalarProperty Name="seo_description" ColumnName="seo_description" />
+                <ScalarProperty Name="seo_keywords" ColumnName="seo_keywords" />
+                <ScalarProperty Name="seo_title" ColumnName="seo_title" />
+                <ScalarProperty Name="show_template" ColumnName="show_template" />
+                <ScalarProperty Name="template" ColumnName="template" />
+                <ScalarProperty Name="listorder" ColumnName="listorder" />
+                <ScalarProperty Name="arrchildid" ColumnName="arrchildid" />
+                <ScalarProperty Name="child" ColumnName="child" />
+                <ScalarProperty Name="arrparentid" ColumnName="arrparentid" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="letter" ColumnName="letter" />
+                <ScalarProperty Name="linkurl" ColumnName="linkurl" />
+                <ScalarProperty Name="catdir" ColumnName="catdir" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="catname" ColumnName="catname" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Module">
+            <EntityTypeMapping TypeName="BayetechModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ArticleInfo">
+            <EntityTypeMapping TypeName="BayetechModel.View_ArticleInfo">
+              <MappingFragment StoreEntitySet="View_ArticleInfo">
+                <ScalarProperty Name="modulename" ColumnName="modulename" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="editor" ColumnName="editor" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="thumb" ColumnName="thumb" />
+                <ScalarProperty Name="hits" ColumnName="hits" />
+                <ScalarProperty Name="fromurl" ColumnName="fromurl" />
+                <ScalarProperty Name="copyfrom" ColumnName="copyfrom" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="catname" ColumnName="catname" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_LoginInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_LoginInfo">
+              <MappingFragment StoreEntitySet="vw_LoginInfo">
+                <ScalarProperty Name="answer_2" ColumnName="answer_2" />
+                <ScalarProperty Name="answer_3" ColumnName="answer_3" />
+                <ScalarProperty Name="ask_1" ColumnName="ask_1" />
+                <ScalarProperty Name="ask_2" ColumnName="ask_2" />
+                <ScalarProperty Name="id_pic" ColumnName="id_pic" />
+                <ScalarProperty Name="ask_3" ColumnName="ask_3" />
+                <ScalarProperty Name="identity" ColumnName="identity" />
+                <ScalarProperty Name="security" ColumnName="security" />
+                <ScalarProperty Name="tname" ColumnName="tname" />
+                <ScalarProperty Name="answer_1" ColumnName="answer_1" />
+                <ScalarProperty Name="email_pass" ColumnName="email_pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="iphone" ColumnName="iphone" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="game_name" ColumnName="game_name" />
+                <ScalarProperty Name="game_pass" ColumnName="game_pass" />
+                <ScalarProperty Name="game_user" ColumnName="game_user" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="loginip" ColumnName="loginip" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
