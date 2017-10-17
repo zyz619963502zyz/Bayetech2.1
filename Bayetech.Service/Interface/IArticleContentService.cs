@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bayetech.DAL.Entity;
 
 namespace Bayetech.Service.Interface
 {
-    public interface IArticleContentService: IBaseService
+    public interface IArticleContentService: IBaseService<Article>
     {
 
     }

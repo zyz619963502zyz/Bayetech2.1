@@ -47,15 +47,21 @@
   <ItemGroup>
     <Compile Include="ArticleContentService.cs" />
     <Compile Include="ArticleService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="Interface\IArticleContentService.cs" />
     <Compile Include="Interface\IArticleService.cs" />
     <Compile Include="Interface\IBaseService.cs" />
+    <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ILoginSignService.cs" />
     <Compile Include="LoginSignService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
+      <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
+      <Name>Bayetech.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
       <Project>{8742e37f-2ade-47de-b427-36b80e2b3c83}</Project>
       <Name>Bayetech.DAL</Name>

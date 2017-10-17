@@ -1,5 +1,8 @@
 ﻿//帮助中心主模块
 define(['vue', 'jquery', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
+    //Api
+    var findListtUrl = "/api/Article/FindList"; //查询列表
+    var findContentUrl = "/api/Article/FindContent"; //查询详情
     var html = `<div class="center">
             <help-left></help-left>
             <div class="help_right">

@@ -651,7 +651,6 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\entry.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />
@@ -704,7 +703,6 @@
     <Content Include="Scripts\resource.js" />
     <Content Include="Scripts\vue.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Views\Home\ceshi.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -736,6 +734,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
+      <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
+      <Name>Bayetech.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
       <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
       <Name>Bayetech.Service</Name>

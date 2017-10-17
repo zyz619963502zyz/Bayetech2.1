@@ -7,21 +7,26 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using Newtonsoft.Json;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service
 {
-    public class ServiceBase<TEntity> : IArticleService where TEntity : class, new()
+    public class ServiceBase<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
+        protected RepositoryBase repository = new RepositoryBase();
         public int Delete(object keyValue)
         {
             throw new NotImplementedException();
         }
 
-        public JObject FindEntity(object keyValue)
+        public TEntity FindEntity(object keyValue)
         {
-            var obj = new RepositoryBase().FindEntity<TEntity>(keyValue);
-            var json = JObject.Parse(JsonConvert.SerializeObject(obj));
-            return json;
+            return repository.FindEntity<TEntity>(keyValue);
+        }
+
+        public IQueryable<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
+        {
+            return repository.IQueryable<TEntity>(predicate);
         }
 
         public int Insert(JObject json)

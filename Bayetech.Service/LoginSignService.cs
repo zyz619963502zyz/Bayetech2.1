@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using Newtonsoft.Json;
 using Bayetech.DAL.Entity;
+using System;
+using Bayetech.Core;
 
 namespace Bayetech.Service
 {
@@ -23,6 +20,7 @@ namespace Bayetech.Service
             using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.ToString(), typeof(Account));
+                _account.GamePass = Md5.EncryptString(_account.GamePass); 
                 int count = db.Insert(_account);
                 db.Commit();
                 return count > 0 ? true : false;
@@ -38,49 +36,57 @@ namespace Bayetech.Service
         {
             using (var db = new RepositoryBase())
             {
-                Account _account = db.FindEntity<Account>(c => c.GameUser == account);
+                Account _account = db.FindEntity<Account>(c => c.GameUser == account); 
                 return _account == null ? true : false;//true不重复可申请，false不可申请
             }
         }
 
 
-        //登录校验
-        //public UserEntity CheckLogin(string username, string password)
-        //{
-        //    UserEntity userEntity = service.FindEntity(t => t.F_Account == username);
-        //    if (userEntity != null)
-        //    {
-        //        if (userEntity.F_EnabledMark == true)
-        //        {
-        //            UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
-        //            string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
-        //            if (dbPassword == userLogOnEntity.F_UserPassword)
-        //            {
-        //                DateTime lastVisitTime = DateTime.Now;
-        //                int LogOnCount = (userLogOnEntity.F_LogOnCount).ToInt() + 1;
-        //                if (userLogOnEntity.F_LastVisitTime != null)
-        //                {
-        //                    userLogOnEntity.F_PreviousVisitTime = userLogOnEntity.F_LastVisitTime.ToDate();
-        //                }
-        //                userLogOnEntity.F_LastVisitTime = lastVisitTime;
-        //                userLogOnEntity.F_LogOnCount = LogOnCount;
-        //                userLogOnApp.UpdateForm(userLogOnEntity);
-        //                return userEntity;
-        //            }
-        //            else
-        //            {
-        //                throw new Exception("密码不正确，请重新输入");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            throw new Exception("账户被系统锁定,请联系管理员");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("账户不存在，请重新输入");
-        //    }
-        //}
+        /// <summary>
+        /// 登陆校验
+        /// </summary>
+        /// <param name="username">登录账号</param>
+        /// <param name="password">登录密码</param>
+        /// <returns></returns>
+        public Account CheckLogin(string username, string password)
+        {
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                Account _userEntity = db.FindEntity<Account>(t => t.GameUser == username);
+                if (_userEntity != null)
+                {
+                    if (_userEntity.EnableMark == true)
+                    {
+                        //UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
+                        //string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
+                        string dbPassword = Md5.EncryptString(password);
+                        if (dbPassword == _userEntity.GamePass)
+                        {
+                            Login _currentLogin = new Login();
+                            _currentLogin.UserName = username;
+                            _currentLogin.PassWord = dbPassword;
+                            _currentLogin.LoginIp = Common.GetHostAddress();
+                            _currentLogin.logintime = DateTime.Now;
+                            _currentLogin.message = "登录成功";
+                            db.Insert(_currentLogin);
+                            db.Commit();
+                            return _userEntity;
+                        }
+                        else
+                        {
+                            throw new Exception("密码不正确，请重新输入");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("账户被系统锁定,请联系管理员");
+                    }
+                }
+                else
+                {
+                    throw new Exception("账户不存在，请重新输入");
+                }
+            }
+        }
     }
 }

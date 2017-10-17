@@ -1,4 +1,5 @@
 ﻿//注册模板
+var vm;
 define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
     var _CreatAccountUrl = "/api/Query/CreatAccount"; //创建账号
@@ -126,16 +127,16 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         },
         methods: {
             SubMitSign : function () {
-                common.postWebJson(_CheckAccountUrl, JSON.stringify(this.$props.value), function (data) {
+                common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
 
                 });
             }
         }
     });
 
+      
 
-    $(document).ready(function () {
-        new Vue({
+    vm = new Vue({
             el: '#LoginDiv',
             data: function () {
                 return data;
@@ -143,6 +144,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
             created: function () {
 
             }
-        });
     });
+
+    return vm;
 });
