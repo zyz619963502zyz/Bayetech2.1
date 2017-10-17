@@ -1,5 +1,4 @@
 ﻿//注册模板
-var vm;
 define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
     var _CreatAccountUrl = "/api/Query/CreatAccount"; //创建账号
@@ -14,7 +13,54 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                     <div class="loginTitle clearfix">
                         <h1 class="l c3">手机号码注册</h1>
                     </div>
-                    <child-regboxleft v-bind:value="value"></child-regboxleft>
+
+                    <div class ="loginMain">
+                        <div class ="comIptBox userIptBox">
+                            <label for="" class ="comIptIcon IptIconLeft">
+                                <i class ="iptIconInner iconfont"></i>
+                            </label>
+                               <input ref="aaaa" :value="value.Iphone" @input="updateValue(value)" class ="comIpt loginUserIpt" maxlength="11" valid="false" ajaxvalidate="tel" />
+                            <label for="" class ="comIptIcon IptIconRight hide delIcon">
+                                <i class ="iptIconInner iconfont"></i>
+                            </label>
+                            <em class ="regDesc hide">请输入您的手机号</em>
+                        </div>
+                        <button @click.prevent="CheckAccount">检查账号</button>
+                        <div class ="checkCodeBox clearfix">
+                            <div class ="comIptBox comPureIptBox l">
+                                <input type="text" id="checkCode_tel" name="checkCode_tel" class ="pureIpt mCodeIdt"  />
+                                <p class ="placeholder codePlaceholder">验证码</p>
+                                <em class ="regDesc hide">按右图填写, 不区分大小写</em>
+                            </div>
+                            <div class ="codeImgBox l middle"><img src="#" class ="codeImg middle" alt="" />
+                            </div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
+                        </div>
+                        <div class ="mRegCode clearfix">
+                            <div class ="comIptBox mCode">
+                                <label for="" class ="comIptIcon IptIconLeft"><i class ="iptIconInner iconfont"></i></label>
+                                <input type="text" id="validcode" ajaxvalidate="validcode" class ="comIpt phoneCode"/>
+                                <p class ="placeholder">手机验证码</p>
+                            </div>
+                            <input type="button" value="获取短信验证码" class ="getCode" id="getCode3" act="reg" />
+                            <div id="help"></div>
+                        </div>
+                        <div class ="comIptBox">
+                            <label for="" class ="comIptIcon IptIconLeft">
+                                <i class ="iptIconInner iconfont"></i>
+                            </label>
+                            <input  ref="input" type="password":value="value.GamePass" @input="updateValue(value)" class ="comIpt loginPwdIpt" valid="false" maxlength="20"/>
+                            <!--<p class ="placeholder">请输入密码</p>-->
+                            <em class ="regDesc hide">密码由6-20位字符组成, 需同时包含字母和数字</em>
+                        </div>
+                        <div class ="comIptBox">
+                            <label for="" class ="comIptIcon IptIconLeft">
+                                <i class ="iptIconInner iconfont"></i>
+                            </label>
+                            <input type="password" :value="value.GamePass" class ="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password"/>
+                            <!--<p class ="placeholder">再确认一次密码</p>-->
+                            <em class ="regDesc hide">密码由6-20位字符组成, 需同时包含字母和数字</em>
+                        </div>
+                    </div>
 
                     <a href="#" @click.prevent="SubMitSign" class ="regBtn"  id="mRegBtn">同意并注册</a>
                     <div class="regAgreement">
@@ -24,55 +70,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
 
             </div>
         </div>`
-
-    //左侧child模板loginmain
-    var leftChildHtml =`<div class="loginMain">
-                <div class="comIptBox userIptBox">
-                    <label for="" class="comIptIcon IptIconLeft">
-                        <i class="iptIconInner iconfont"></i>
-                    </label>
-                       <input type="text" id="tel" v-bind:value="value.Iphone" class ="comIpt loginUserIpt" maxlength="11" valid="false" ajaxvalidate="tel" />
-                    <label for="" class ="comIptIcon IptIconRight hide delIcon">
-                        <i class ="iptIconInner iconfont"></i>
-                    </label>
-                    <em class="regDesc hide">请输入您的手机号</em>
-                </div>
-                <button @click.prevent="CheckAccount">检查账号</button>
-                <div class="checkCodeBox clearfix">
-                    <div class="comIptBox comPureIptBox l">
-                        <input type="text" id="checkCode_tel" name="checkCode_tel" class="pureIpt mCodeIdt"  />
-                        <p class="placeholder codePlaceholder">验证码</p>
-                        <em class="regDesc hide">按右图填写,不区分大小写</em>
-                    </div>
-                    <div class ="codeImgBox l middle"><img src="#" class ="codeImg middle" alt="" />
-                    </div><span class="changeBox r">看不清? <a id="changeVal" href="http://www.7881.com/reg.jsp" class="changeOne">换一张</a></span>
-                </div>
-                <div class="mRegCode clearfix">
-                    <div class="comIptBox mCode">
-                        <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                        <input type="text" id="validcode" ajaxvalidate="validcode" class="comIpt phoneCode" data-error="请输入手机验证码" data-normal="请输入手机验证码" maxlength="6" />
-                        <p class="placeholder">手机验证码</p>
-                    </div>
-                    <input type="button" value="获取短信验证码" class="getCode" id="getCode3" act="reg" />
-                    <div id="help"></div>
-                </div>
-                <div class="comIptBox">
-                    <label for="" class="comIptIcon IptIconLeft">
-                        <i class="iptIconInner iconfont"></i>
-                    </label>
-                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范,请重新输入！" data-error="请输入密码" data-normal="密码由6-20位字符组成,需同时包含字母和数字" />
-                    <!--<p class="placeholder">请输入密码</p>-->
-                    <em class="regDesc hide">密码由6-20位字符组成,需同时包含字母和数字</em>
-                </div>
-                <div class="comIptBox">
-                    <label for="" class="comIptIcon IptIconLeft">
-                        <i class="iptIconInner iconfont"></i>
-                    </label>
-                    <input type="password" v-bind:value="value.GamePass" class="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password" maxlength="20" regexp="^(?![^a-zA-Z]+$)(?!\D+$).{6,20}$" regexp_desc="密码输入不符合规范,请重新输入！" data-error="请输入确认密码" comp_desc="两次密码输入不一致,请重新输入" data-normal="密码由6-20位字符组成,需同时包含字母和数字" id="confirmPassword" compare="true" compareid="userPassword" />
-                    <!--<p class="placeholder">再确认一次密码</p>-->
-                    <em class="regDesc hide">密码由6-20位字符组成,需同时包含字母和数字</em>
-                </div>
-            </div>`
 
     //右侧模板
     var rigthHtml = ` <div class="regBoxRight l" id="RegBoxRight">
@@ -87,7 +84,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //数据为左右整合数据
     var data = {
         //注册左边
-        Leftobject: {
+        Leftobject:{
             Iphone: 18717708873,
             GamePass: 123456
         },
@@ -109,41 +106,52 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     //左边模板
     Vue.component('regboxleft', {//全局注册
         props: ['value'],
-        template: leftHtml,
-        components: {
-            'child-regboxleft': {
-                props: ['value'],
-                template: leftChildHtml,
-                methods: {
-                    CheckAccount: function () {
-                        common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
-                            if (data == false) {
-                                alert("该账号已经存在，不可重复注册!");
-                            }
-                        });
-                    }
-                }
+        data: function () {
+            return {
+                myLeftobject : this.Leftobject//data中的Leftobject
             }
         },
+        template: leftHtml,
         methods: {
+            updateValue: function (value) {
+                //去除空格，保留两位小数  
+                value.Iphone = this.$refs.aaaa.value;
+                value.GamePass = this.$refs.input.value;
+            },
+            CheckAccount: function () {
+                common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
+                    if (data == false) {
+                        alert("该账号已经存在，不可重复注册!");
+                    }
+                });
+            },
             SubMitSign : function () {
-                common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
+                common.postWebJson("", JSON.stringify(this.$props.value), function (data) {//_CreatAccountUrl
 
                 });
+            }
+        },
+        watch: {
+            value(val){
+                this.a = 1;
+            },
+            Leftobject(val) {
+                this.myLeftobject = val;
+            },
+            myLeftobject(val) {
+                this.$emit("on-result-change", val);
             }
         }
     });
 
-      
+    var vm = new Vue({
+        el: '#LoginDiv',
+        data: function () {
+            return data;
+        },
+        created: function () {
 
-    vm = new Vue({
-            el: '#LoginDiv',
-            data: function () {
-                return data;
-            },
-            created: function () {
-
-            }
+        }
     });
 
     return vm;
