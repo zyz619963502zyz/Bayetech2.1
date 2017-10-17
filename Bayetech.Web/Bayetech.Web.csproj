@@ -262,6 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -278,8 +279,11 @@
     <Content Include="Content\CommonCss\helpcenter.css" />
     <Content Include="Content\CommonCss\index.css" />
     <Content Include="Content\CommonCss\layer.css" />
+    <Content Include="Content\CommonCss\list.css" />
     <Content Include="Content\CommonCss\loginReg.css" />
+    <Content Include="Content\CommonCss\popLayer.css" />
     <Content Include="Content\CommonCss\Public.css" />
+    <Content Include="Content\CommonCss\sell.css" />
     <Content Include="Content\CommonCss\shop-v2.0.css" />
     <Content Include="Content\CommonCss\shouchong.css" />
     <Content Include="Content\CommonCss\shouyou-7881.css" />
@@ -590,6 +594,8 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\GoodBuying\GoodBuying.html" />
+    <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
@@ -599,18 +605,21 @@
     <Content Include="Scripts\AllScript\7881-2016.js" />
     <Content Include="Scripts\AllScript\7881.login.popup.js" />
     <Content Include="Scripts\AllScript\7881_2014_logo_search_new.js" />
+    <Content Include="Scripts\AllScript\7881_logo_modify.js" />
     <Content Include="Scripts\AllScript\allgamesindex.js" />
     <Content Include="Scripts\AllScript\aq_auth.js" />
     <Content Include="Scripts\AllScript\character.core.js" />
     <Content Include="Scripts\AllScript\common-focus.js" />
     <Content Include="Scripts\AllScript\convenience.js" />
     <Content Include="Scripts\AllScript\cz-center.js" />
+    <Content Include="Scripts\AllScript\float-menu.js" />
     <Content Include="Scripts\AllScript\game_base_info.js" />
     <Content Include="Scripts\AllScript\gift.js" />
     <Content Include="Scripts\AllScript\h.js" />
     <Content Include="Scripts\AllScript\hm.js" />
     <Content Include="Scripts\AllScript\html5.js" />
     <Content Include="Scripts\AllScript\index.js" />
+    <Content Include="Scripts\AllScript\jquery-1.11.1.min.js" />
     <Content Include="Scripts\AllScript\jquery-1.7.2.min.js" />
     <Content Include="Scripts\AllScript\jquery-1.8.3.min.js" />
     <Content Include="Scripts\AllScript\jquery.min.js" />
@@ -618,7 +627,10 @@
     <Content Include="Scripts\AllScript\jquery.smartinput.js" />
     <Content Include="Scripts\AllScript\jquery.validate.js" />
     <Content Include="Scripts\AllScript\jquery1.5.js" />
+    <Content Include="Scripts\AllScript\kefu.js" />
     <Content Include="Scripts\AllScript\kf.js" />
+    <Content Include="Scripts\AllScript\lightbox-plus-jquery.min.js" />
+    <Content Include="Scripts\AllScript\list.js" />
     <Content Include="Scripts\AllScript\loginReg.js" />
     <Content Include="Scripts\AllScript\md5.js" />
     <Content Include="Scripts\AllScript\moment.min.js" />
@@ -626,6 +638,7 @@
     <Content Include="Scripts\AllScript\pop_login.js" />
     <Content Include="Scripts\AllScript\recharge.7881.js" />
     <Content Include="Scripts\AllScript\restrict_input.js" />
+    <Content Include="Scripts\AllScript\search-suggest.js" />
     <Content Include="Scripts\AllScript\search.js" />
     <Content Include="Scripts\AllScript\shop_v2.0.js" />
     <Content Include="Scripts\AllScript\shouchong.js" />
@@ -634,6 +647,7 @@
     <Content Include="Scripts\AllScript\slide.js" />
     <Content Include="Scripts\AllScript\store_base_info.js" />
     <Content Include="Scripts\AllScript\validateLogin.js" />
+    <Content Include="Scripts\AllScript\webuploader.min.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
@@ -680,6 +694,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\log4net.config" />
+    <Content Include="Scripts\AllScript\jquery.easing.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
