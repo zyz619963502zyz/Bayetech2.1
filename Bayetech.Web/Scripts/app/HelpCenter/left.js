@@ -1,11 +1,8 @@
 ﻿//左侧模板
-define(['vue', 'jquery', 'common'], function (Vue, $, common) {
-    var findListUrl = "/api/Article/FindList"; //查询列表
-    var findContentUrl = "/api/Article/FindContent"; //查询详情
-    //:onclick="value.clickFn"
+define([], function () {
     var html = `<div class="help_left" id="help_left">
             <h3>使用帮助</h3>
-            <ul v-for="value in object">
+            <ul v-for="value in list">
                 <ol>
                     <a>{{ value.title }}</a>
                 </ol>
@@ -14,9 +11,9 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
                 </li >
             </ul >
         </div>`;
-    //@click="goToFatherDetail(233)"@click="view(item.itemid)"
+
     var helpLeft = {
-        props: ['object'],
+        props: ['list'],
         name: "help-left",
         template: html,
         methods: {
