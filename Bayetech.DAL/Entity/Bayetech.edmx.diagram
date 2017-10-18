@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="BayetechModel.ArticleContent" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.Login" Width="1.5" PointX="3.125" PointY="1" />
         <EntityTypeShape EntityType="BayetechModel.Category" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="6.375" PointY="3.5" />
         <EntityTypeShape EntityType="BayetechModel.View_ArticleInfo" Width="1.5" PointX="6.75" PointY="6.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
