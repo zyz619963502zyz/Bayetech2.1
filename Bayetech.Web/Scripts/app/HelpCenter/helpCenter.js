@@ -8,9 +8,9 @@ define(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'he
     var findContentUrl = "/api/Article/FindContent"; //查询详情
 
     var html = `<div class="center">
-            <help-left :object="articleList" :view="view"></help-left>
+            <help-left :list="articleList" :view="view"></help-left>
             <div class="help_right">
-                <help-content :article="article"></help-content>
+                <help-content :object="article"></help-content>
                 <help-buttom></help-buttom> 
             </div>
         </div>`;  
