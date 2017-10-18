@@ -5,8 +5,10 @@ using Spring.Context;
 using Spring.Context.Support;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web.Http;
 
 namespace Bayetech.Web
@@ -32,14 +34,38 @@ namespace Bayetech.Web
         [HttpPost]
         public bool CreatAccount(JObject json)
         {
+            //try
+            //{
+            //    ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+            //    return service.CreatAccount(json);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
+
+
             try
             {
                 ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
                 return service.CreatAccount(json);
             }
-            catch (Exception ex)
+            catch (DbEntityValidationException ex)
             {
-                throw new Exception(ex.Message);
+                StringBuilder errors = new StringBuilder();
+                IEnumerable<DbEntityValidationResult> validationResult = ex.EntityValidationErrors;
+                foreach (DbEntityValidationResult result in validationResult)
+                {
+                    ICollection<DbValidationError> validationError = result.ValidationErrors;
+                    foreach (DbValidationError err in validationError)
+                    {
+                        errors.Append(err.PropertyName + ":" + err.ErrorMessage + "\r\n");
+                    }
+                }
+                throw new Exception(errors.ToString());
+                //简写
+                //var validerr = ex.EntityValidationErrors.First().ValidationErrors.First();
+                //Console.WriteLine(validerr.PropertyName + ":" + validerr.ErrorMessage);
             }
         }
     }
