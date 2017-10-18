@@ -63,6 +63,7 @@
           <Property Name="linkurl" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="filepath" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="moduleid" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="ArticleContent">
           <Key>
@@ -332,6 +333,7 @@
           <Property Name="linkurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="filepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="note" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="moduleid" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="ArticleContent">
           <Key>
@@ -495,6 +497,7 @@
           <EntitySetMapping Name="Article">
             <EntityTypeMapping TypeName="BayetechModel.Article">
               <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
                 <ScalarProperty Name="note" ColumnName="note" />
                 <ScalarProperty Name="filepath" ColumnName="filepath" />
                 <ScalarProperty Name="linkurl" ColumnName="linkurl" />

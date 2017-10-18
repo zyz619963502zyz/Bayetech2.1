@@ -1,19 +1,50 @@
 ﻿//帮助中心主模块
-define(['vue', 'jquery', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
+define(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
+    var Vue = arguments[0];
+    var $ = arguments[1];
+    var common = arguments[2];
     //Api
-    var findListtUrl = "/api/Article/FindList"; //查询列表
+    var findListUrl = "/api/Article/FindList"; //查询列表
     var findContentUrl = "/api/Article/FindContent"; //查询详情
+
     var html = `<div class="center">
-            <help-left></help-left>
+            <help-left :object="articleList" :view="view"></help-left>
             <div class="help_right">
-                <help-content></help-content>
-                <help-buttom></help-buttom>
+                <help-content :article="article"></help-content>
+                <help-buttom></help-buttom> 
             </div>
-        </div>`;
+        </div>`;  
+    var data = {
+        articleList: [],
+        article: {
+            content: `<li><img src="../../Content/Images/wymlc.jpg"></li>`
+        },
+    }; 
     var components = {
         name: "helpCenter",
         template: html,
         components: {},
+        data() {
+            return data;
+        },
+        created() {
+            this.findList();
+        },
+        nowVue :this ,
+        methods: {
+            findList() {
+                var nowVue = this;
+                common.getWebJson(findListUrl, { value: "23" }, function (data) {
+                    nowVue.articleList = data;
+                });
+            },
+            view(value) {
+                var nowVue = this;
+                common.getWebJson(findContentUrl, { value: value }, function (data) {
+                    nowVue.article = data;
+                });
+            },
+        },
     };
     for (var i = 4; i < arguments.length; i++) {
         components["components"][arguments[i].name] = arguments[i];
