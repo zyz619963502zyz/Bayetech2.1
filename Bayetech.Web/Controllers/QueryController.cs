@@ -39,10 +39,9 @@ namespace Bayetech.Web
                 ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
                 return service.CreatAccount(json);
             }
-            catch (DbEntityValidationException ex)
+            catch (Exception ex)
             {
-                //写入操作时候的Entity调用。
-                throw new Exception(ExceptionForWriteEntity(ex));
+                throw new Exception(ex.Message);
             }
         }
     }

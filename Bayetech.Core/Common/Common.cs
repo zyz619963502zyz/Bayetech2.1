@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +105,22 @@ namespace Bayetech.Core
         public static T AddTryCatch<T>(Func<T> func)
         {
             return AddTryCatch(func, null);
+        }
+
+        //写入操作的entity异常处理
+        public static string ExceptionForWriteEntity(DbEntityValidationException ex)
+        {
+            StringBuilder errors = new StringBuilder();
+            IEnumerable<DbEntityValidationResult> validationResult = ex.EntityValidationErrors;
+            foreach (DbEntityValidationResult result in validationResult)
+            {
+                ICollection<DbValidationError> validationError = result.ValidationErrors;
+                foreach (DbValidationError err in validationError)
+                {
+                    errors.Append(err.PropertyName + ":" + err.ErrorMessage + "\r\n");
+                }
+            }
+            return errors.ToString();
         }
     }
 }
