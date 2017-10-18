@@ -3,11 +3,10 @@ define([], function (Vue) {
     var html = `<div class="help_gg" style="text-align:left;">
                     <h1>7881交易流程</h1>
                     <ul>
-                        <li><img src="../../Content/Images/wymlc.jpg"></li>
-                        <li></li>
+                      <li v-html="article.content"></li>
                     </ul>
                 </div>`;
-
+    //<li :is="item.component" :text="item.text" v-for="item in items"></li>
     var data = {
         object: [],
     };
@@ -15,6 +14,7 @@ define([], function (Vue) {
     var components = {
         name:"help-content",
         template: html,
+        props: ['article'],
         data() {
             return data;
         },

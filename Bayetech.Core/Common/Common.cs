@@ -43,5 +43,67 @@ namespace Bayetech.Core
         {
             return System.Text.RegularExpressions.Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
         }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <param name="ExceptionFunc">异常方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func, Func<T> ExceptionFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception ex)
+            {
+                //写日志
+                //抛出
+                if (ExceptionFunc != null)
+                    return ExceptionFunc.Invoke();
+                else
+                    throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <param name="ExceptionFunc">异常方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func, Action ExceptionFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception ex)
+            {
+                //写日志
+                //抛出
+                ExceptionFunc?.BeginInvoke(null, null);
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func)
+        {
+            return AddTryCatch(func, null);
+        }
     }
 }

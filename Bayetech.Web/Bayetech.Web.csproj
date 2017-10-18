@@ -734,6 +734,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
+      <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
+      <Name>Bayetech.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
       <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
       <Name>Bayetech.DAL</Name>

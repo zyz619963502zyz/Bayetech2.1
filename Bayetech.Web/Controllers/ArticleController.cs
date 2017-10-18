@@ -9,14 +9,15 @@ namespace Bayetech.Web.Controllers
     public class ArticleController : BaseController
     {
         //IArticleService service = ctx.GetObject("ArticleService") as IArticleService;
-        ArticleService service = new ArticleService();
+        ArticleService articleService = new ArticleService();
+        ArticleContentService articleContentService = new ArticleContentService();
 
+        [HttpGet]
         public IHttpActionResult FindList(int value)
         {
             try
             {
-                var list = service.GetList(value);
-               // var list = service.FindList(a => a.tag == "").ToList();
+                var list = articleService.GetListByModule(value);
                 return Json(list);
             }
             catch (Exception ex)
@@ -25,9 +26,19 @@ namespace Bayetech.Web.Controllers
             }
         }
 
-        public IHttpActionResult FindContent(object value)
+        [HttpGet]
+        public IHttpActionResult FindContent(int value)
         {
-            return null;
+            //var list = Core.Common.AddTryCatch(a => service.GetList(value));
+            try
+            {
+                var list = articleContentService.FindEntity(value);
+                return Json(list);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 
