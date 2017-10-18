@@ -34,17 +34,6 @@ namespace Bayetech.Web
         [HttpPost]
         public bool CreatAccount(JObject json)
         {
-            //try
-            //{
-            //    ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
-            //    return service.CreatAccount(json);
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception(ex.Message);
-            //}
-
-
             try
             {
                 ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
@@ -52,20 +41,8 @@ namespace Bayetech.Web
             }
             catch (DbEntityValidationException ex)
             {
-                StringBuilder errors = new StringBuilder();
-                IEnumerable<DbEntityValidationResult> validationResult = ex.EntityValidationErrors;
-                foreach (DbEntityValidationResult result in validationResult)
-                {
-                    ICollection<DbValidationError> validationError = result.ValidationErrors;
-                    foreach (DbValidationError err in validationError)
-                    {
-                        errors.Append(err.PropertyName + ":" + err.ErrorMessage + "\r\n");
-                    }
-                }
-                throw new Exception(errors.ToString());
-                //简写
-                //var validerr = ex.EntityValidationErrors.First().ValidationErrors.First();
-                //Console.WriteLine(validerr.PropertyName + ":" + validerr.ErrorMessage);
+                //写入操作时候的Entity调用。
+                throw new Exception(ExceptionForWriteEntity(ex));
             }
         }
     }
