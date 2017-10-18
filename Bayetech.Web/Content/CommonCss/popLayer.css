@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+#div_popup_layer .box{ width:1000px; position:relative; margin: 0 auto; height:1px;}
+#div_popup_layer .mask{position:absolute;top:0%;left:0%;width:100%;height:100%;background-color:#000;z-index:999999998;-moz-opacity: 0.5;opacity:.50;filter: alpha(opacity=50);}
+#div_popup_layer .pops{position:absolute;top:150px; left:300px;width:426px;z-index:999999999;height:202px; overflow:hidden}
+#div_popup_layer .pops h2{ background:url(http://pic.ofcard.com/7881/market/images/Personals/tcch.png) repeat-x 0 0px; color:#FFF; font-size:12px; width:424px; height:29px; line-height:29px; border:1px solid #63a0f3; border-bottom:none }
+#div_popup_layer .pops h2 span{ float:left;  font-size:14px; margin-left:12px;}
+#div_popup_layer .pops h2 a{ float:right; width:17px; height:17px; display:block; background:url(http://pic.ofcard.com/7881/market/images/Personals/tcch.png) no-repeat 0 -31px; margin:7px 9px 0 0; display:inline}
+#div_popup_layer .pops h2 a:hover{ background-position:0 -49px;}
+
+#div_popup_layer .pops dl{ width:342px; height:170px; border:2px solid #63a0f3; background:#fff url(http://pic.ofcard.com/7881/market/images/Personals/tcch-pic1.jpg) no-repeat 32px 18px; border-top:none; padding-left:80px; text-align:left;}
+#div_popup_layer .pops dl.fbcx{background:#fff url(http://pic.ofcard.com/7881/market/images/Personals/tcch-pic2.jpg) no-repeat 41px 21px;}
+#div_popup_layer .pops dl dt{ width:315px; height:32px; line-height:32px; float:left; border-bottom:1px solid #ececec; padding-top:20px; font-weight:bold; text-indent:5px; margin-bottom:9px}
+#div_popup_layer .pops dl dd{ color:#808080;text-indent:6px; margin-bottom:26px; width:315px; height:21px; line-height:21px; float:left;}
+#div_popup_layer .pops dl dd a{ width:120px; height:21px; display:block; float:left; margin-right:10px; text-align:center; background:url(http://pic.ofcard.com/7881/market/images/Personals/tcch.png) no-repeat 0 -89px}
+#div_popup_layer .pops dl dd a.s1{ background-position:0 -67px; color:#fff}
