@@ -599,7 +599,7 @@
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
-    <Content Include="Page\HomePage\HomePage.html" />
+    <Content Include="Page\Home\index.html" />
     <Content Include="Page\Sign\signin.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\AllScript\7881-2016.js" />
@@ -656,8 +656,9 @@
     <Content Include="Scripts\app\HelpCenter\helpCenter.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
-    <Content Include="Scripts\app\HomePage\index.js" />
-    <Content Include="Scripts\app\HomePage\mainArea02.js" />
+    <Content Include="Scripts\app\Home\index.js" />
+    <Content Include="Scripts\app\Home\mainArea02.js" />
+    <Content Include="Scripts\app\Home\Notice.js" />
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
@@ -720,6 +721,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Page\Article\" />
     <Folder Include="Page\LoginRegister\" />
     <Folder Include="Page\Signin\" />
     <Folder Include="Page\Use\" />
