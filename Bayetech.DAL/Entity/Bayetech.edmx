@@ -14,21 +14,21 @@
           <Property Name="itemid" Type="int" Nullable="false" />
           <Property Name="game_user" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="game_pass" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="game_name" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="iphone" Type="int" Nullable="false" />
-          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="email_pass" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="answer_1" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="answer_2" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="answer_3" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ask_1" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ask_2" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ask_3" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="identity" Type="int" Nullable="false" />
-          <Property Name="id_pic" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="security" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="tname" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="enable_mark" Type="bit" Nullable="false" />
+          <Property Name="game_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="iphone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="email_pass" Type="nvarchar" MaxLength="30" />
+          <Property Name="answer_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="answer_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="answer_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="ask_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="ask_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ask_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="identity" Type="int" />
+          <Property Name="id_pic" Type="nvarchar" MaxLength="500" />
+          <Property Name="security" Type="nvarchar" MaxLength="500" />
+          <Property Name="tname" Type="nvarchar" MaxLength="20" />
+          <Property Name="enable_mark" Type="bit" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -265,33 +265,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BayetechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="ItemId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="GameUser" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GamePass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Iphone" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmailPass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Answer1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Answer2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Answer3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ask1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ask2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Ask3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Identity" Type="Int32" Nullable="false" />
-          <Property Name="IdPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EnableMark" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="BayetechEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Article" EntityType="BayetechModel.Article" />
           <EntitySet Name="ArticleContent" EntityType="BayetechModel.ArticleContent" />
           <EntitySet Name="Login" EntityType="BayetechModel.Login" />
@@ -299,6 +273,7 @@
           <EntitySet Name="Module" EntityType="BayetechModel.Module" />
           <EntitySet Name="View_ArticleInfo" EntityType="BayetechModel.View_ArticleInfo" />
           <EntitySet Name="vw_LoginInfo" EntityType="BayetechModel.vw_LoginInfo" />
+          <EntitySet Name="Account" EntityType="BayetechModel.Account" />
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -463,37 +438,37 @@
           <Property Name="answer_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="answer_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="GameUser" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GamePass" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="iphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email_pass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="answer_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="answer_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="answer_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ask_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ask_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ask_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="identity" Type="Int32" />
+          <Property Name="id_pic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EnableMark" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BayetechModelStoreContainer" CdmEntityContainer="BayetechEntities">
-          <EntitySetMapping Name="Account">
-            <EntityTypeMapping TypeName="BayetechModel.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="EnableMark" ColumnName="enable_mark" />
-                <ScalarProperty Name="Id" ColumnName="id" />
-                <ScalarProperty Name="ItemId" ColumnName="itemid" />
-                <ScalarProperty Name="GameUser" ColumnName="game_user" />
-                <ScalarProperty Name="GamePass" ColumnName="game_pass" />
-                <ScalarProperty Name="GameName" ColumnName="game_name" />
-                <ScalarProperty Name="Iphone" ColumnName="iphone" />
-                <ScalarProperty Name="Email" ColumnName="email" />
-                <ScalarProperty Name="EmailPass" ColumnName="email_pass" />
-                <ScalarProperty Name="Answer1" ColumnName="answer_1" />
-                <ScalarProperty Name="Answer2" ColumnName="answer_2" />
-                <ScalarProperty Name="Answer3" ColumnName="answer_3" />
-                <ScalarProperty Name="Ask1" ColumnName="ask_1" />
-                <ScalarProperty Name="Ask2" ColumnName="ask_2" />
-                <ScalarProperty Name="Ask3" ColumnName="ask_3" />
-                <ScalarProperty Name="Identity" ColumnName="identity" />
-                <ScalarProperty Name="IdPic" ColumnName="id_pic" />
-                <ScalarProperty Name="Security" ColumnName="security" />
-                <ScalarProperty Name="Tname" ColumnName="tname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Article">
             <EntityTypeMapping TypeName="BayetechModel.Article">
               <MappingFragment StoreEntitySet="Article">
@@ -641,6 +616,31 @@
                 <ScalarProperty Name="message" ColumnName="message" />
                 <ScalarProperty Name="logintime" ColumnName="logintime" />
                 <ScalarProperty Name="loginip" ColumnName="loginip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="BayetechModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="EnableMark" ColumnName="enable_mark" />
+                <ScalarProperty Name="tname" ColumnName="tname" />
+                <ScalarProperty Name="security" ColumnName="security" />
+                <ScalarProperty Name="id_pic" ColumnName="id_pic" />
+                <ScalarProperty Name="identity" ColumnName="identity" />
+                <ScalarProperty Name="ask_3" ColumnName="ask_3" />
+                <ScalarProperty Name="ask_2" ColumnName="ask_2" />
+                <ScalarProperty Name="ask_1" ColumnName="ask_1" />
+                <ScalarProperty Name="answer_3" ColumnName="answer_3" />
+                <ScalarProperty Name="answer_2" ColumnName="answer_2" />
+                <ScalarProperty Name="answer_1" ColumnName="answer_1" />
+                <ScalarProperty Name="email_pass" ColumnName="email_pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="iphone" ColumnName="iphone" />
+                <ScalarProperty Name="GameName" ColumnName="game_name" />
+                <ScalarProperty Name="GamePass" ColumnName="game_pass" />
+                <ScalarProperty Name="GameUser" ColumnName="game_user" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
