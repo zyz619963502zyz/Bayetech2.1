@@ -13,7 +13,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="itemid" Type="int" Nullable="false" />
           <Property Name="game_user" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="game_pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="game_pass" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="game_name" Type="nvarchar" MaxLength="30" />
           <Property Name="iphone" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="nvarchar" MaxLength="100" />
@@ -446,7 +446,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="itemid" Type="Int32" Nullable="false" />
           <Property Name="GameUser" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="GamePass" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GamePass" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="iphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
