@@ -10,29 +10,11 @@ define("SignRightModule", jsconfig.baseArr, function (Vue, $, common) {
             </ul>
         </div>`
 
-    //数据为左右整合数据
-    var data = {
-        //注册左边
-        Leftobject:{
-            Iphone: "",
-            GamePass: "",
-            GamePassAgain: ""
-        },
-        //注册右边
-        Rightobject: [
-            { text: '360登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: '支付宝登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: 'QQ登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: 'YY登录', url: 'http://www.7881.com/connect/qh360New/login' }
-        ]
-    }
-
     //右边模板
     var rigthComponent = {
         props: ['value'],
         template: rigthHtml 
     };
-
 
     return rigthComponent;
 });

@@ -73,11 +73,6 @@ define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
 
     var leftComponent = {//全局注册
         props: ['value'],
-        data: function () {
-            return {
-                myLeftobject: this.Leftobject//data中的Leftobject
-            }
-        },
         template: leftHtml,
         methods: {
             updateValue: function (value) {
