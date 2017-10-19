@@ -14,7 +14,7 @@ namespace Bayetech.Core
     {
         /// <summary>
         /// 每页行数
-        /// </summary>
+        /// </summary> 
         public int rows { get; set; }
         /// <summary>
         /// 当前页
