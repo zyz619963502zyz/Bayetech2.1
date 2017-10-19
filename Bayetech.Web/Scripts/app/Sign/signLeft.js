@@ -1,5 +1,5 @@
 ﻿//注册模板
-define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
+define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
     var _CreatAccountUrl = "/api/Query/CreatAccount"; //创建账号
     var _CheckAccountUrl = "/api/Query/CheckAccount"; //检查账号重复
@@ -71,45 +71,11 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
             </div>
         </div>`
 
-    //右侧模板
-    var rigthHtml = ` <div class="regBoxRight l" id="RegBoxRight">
-            <h2>已有账号？</h2>
-            <a href="#" class ="rightLogBtn">立即登录</a>
-            <h3>使用第三方账号登录</h3>
-            <ul class="rightOtherLogBox">
-                <li v-for="item in value"><a v-bind:href="item.url" class="clearfix"><i class="iconfont"></i><span>{{item.text}}</span></a></li>
-            </ul>
-        </div>`
-
-    //数据为左右整合数据
-    var data = {
-        //注册左边
-        Leftobject:{
-            Iphone: "",
-            GamePass: "",
-            GamePassAgain: ""
-        },
-        //注册右边
-        Rightobject: [
-            { text: '360登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: '支付宝登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: 'QQ登录', url: 'http://www.7881.com/connect/qh360New/login' },
-            { text: 'YY登录', url: 'http://www.7881.com/connect/qh360New/login' }
-        ]
-    }
-
-    //右边模板
-    Vue.component('regboxright', {
-        props: ['value'],
-        template: rigthHtml 
-    });
-
-    //左边模板
-    Vue.component('regboxleft', {//全局注册
+    var leftComponent = {//全局注册
         props: ['value'],
         data: function () {
             return {
-                myLeftobject : this.Leftobject//data中的Leftobject
+                myLeftobject: this.Leftobject//data中的Leftobject
             }
         },
         template: leftHtml,
@@ -127,23 +93,13 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            SubMitSign : function () {
+            SubMitSign: function () {
                 common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
 
                 });
             }
         }
-    });
+    };
 
-    var vm = new Vue({
-        el: '#LoginDiv',
-        data: function () {
-            return data;
-        },
-        created: function () {
-
-        }
-    });
-
-    return vm;
+    return leftComponent;
 });

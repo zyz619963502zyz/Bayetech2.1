@@ -664,7 +664,8 @@
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
-    <Content Include="Scripts\app\Sign\sign.js" />
+    <Content Include="Scripts\app\Sign\signRight.js" />
+    <Content Include="Scripts\app\Sign\signLeft.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />

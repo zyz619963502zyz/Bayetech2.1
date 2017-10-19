@@ -8,7 +8,8 @@
         'common': 'common',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
-        'SignModule': 'app/Sign/sign',
+        'SignLeftModule': 'app/Sign/signLeft',
+        'SignRightModule': 'app/Sign/signRight',
         'HomeTabBox': 'app/HomePage/mainArea02'
     }
 };
