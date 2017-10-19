@@ -1,21 +1,53 @@
 ﻿//帮助中心主模块
-define(['vue', 'jquery', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
-    //Api
-    var findListtUrl = "/api/Article/FindList"; //查询列表
-    var findContentUrl = "/api/Article/FindContent"; //查询详情
-    var html = `<div class="center">
-            <help-left></help-left>
+define(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
+    let html = `<div class="center">
+            <help-left :list="articleList" :view="view"></help-left>
             <div class="help_right">
-                <help-content></help-content>
-                <help-buttom></help-buttom>
+                <help-content :object="article"></help-content>
+                <help-buttom></help-buttom> 
             </div>
-        </div>`;
-    var components = {
+        </div>`;  
+
+    let Vue = arguments[0];
+    let $ = arguments[1];
+    let common = arguments[2];
+    //Api
+    let findListUrl = "/api/Article/FindList"; //查询列表
+    let findContentUrl = "/api/Article/FindContent"; //查询详情
+
+    let data = {
+        articleList: [],
+        article: {
+            content: `<li><img src="../../Content/Images/wymlc.jpg"></li>`
+        },
+    }; 
+    let components = {
         name: "helpCenter",
         template: html,
         components: {},
+        data() {
+            return data;
+        },
+        created() {
+            this.findList();
+        },
+        nowVue :this ,
+        methods: {
+            findList() {
+                let nowVue = this;
+                common.getWebJson(findListUrl, { value: "23" }, function (data) {
+                    nowVue.articleList = data;
+                });
+            },
+            view(value) {
+                let nowVue = this;
+                common.getWebJson(findContentUrl, { value: value }, function (data) {
+                    nowVue.article = data;
+                });
+            },
+        },
     };
-    for (var i = 4; i < arguments.length; i++) {
+    for (let i = 4; i < arguments.length; i++) {
         components["components"][arguments[i].name] = arguments[i];
     }
     return components;
@@ -31,8 +63,8 @@ define(['vue', 'jquery', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'
 //    Vue.component('main-head', head);
 //    Vue.component('main-foot', foot);
 
-//    var components = {};
-//    for (var i = 4; i < arguments.length; i++) {
+//    let components = {};
+//    for (let i = 4; i < arguments.length; i++) {
 //        components[arguments[i].name] = arguments[i];
 //    }
     

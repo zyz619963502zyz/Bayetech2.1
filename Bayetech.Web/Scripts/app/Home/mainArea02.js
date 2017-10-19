@@ -1,5 +1,5 @@
 ﻿//注册模板
-define("HomeTabBox", jsconfig.baseArr, function (vue, $, common) {
+define("HomeTabBox", ['vue', 'jquery', 'common'], function (vue, $, common) {
     var html = ` <li style="width:539px">
                             <h4><img src="value.imgUrl" style="width:190px;height:340px"></img></h4>
                                <div class ="tabBody" style="display: block;">
@@ -97,7 +97,6 @@ define("HomeTabBox", jsconfig.baseArr, function (vue, $, common) {
             },
         ],
     };
-
 
     Vue.component('mainAreaBox02', {
     	name: "hometabox",

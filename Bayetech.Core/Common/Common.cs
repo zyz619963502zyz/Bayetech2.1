@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,84 @@ namespace Bayetech.Core
         public static bool IsIP(string ip)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
+        }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <param name="ExceptionFunc">异常方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func, Func<T> ExceptionFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception ex)
+            {
+                //写日志
+                //抛出
+                if (ExceptionFunc != null)
+                    return ExceptionFunc.Invoke();
+                else
+                    throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <param name="ExceptionFunc">异常方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func, Action ExceptionFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception ex)
+            {
+                //写日志
+                //抛出
+                ExceptionFunc?.BeginInvoke(null, null);
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 带返回值异常处理的方法执行
+        /// </summary>
+        /// <param name="action">方法</param>
+        /// <returns></returns>
+        public static T AddTryCatch<T>(Func<T> func)
+        {
+            return AddTryCatch(func, null);
+        }
+
+        //写入操作的entity异常处理
+        public static string ExceptionForWriteEntity(DbEntityValidationException ex)
+        {
+            StringBuilder errors = new StringBuilder();
+            IEnumerable<DbEntityValidationResult> validationResult = ex.EntityValidationErrors;
+            foreach (DbEntityValidationResult result in validationResult)
+            {
+                ICollection<DbValidationError> validationError = result.ValidationErrors;
+                foreach (DbValidationError err in validationError)
+                {
+                    errors.Append(err.PropertyName + ":" + err.ErrorMessage + "\r\n");
+                }
+            }
+            return errors.ToString();
         }
     }
 }

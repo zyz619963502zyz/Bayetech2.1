@@ -31,9 +31,12 @@ var FindObjByProp = function (arr, propName, value) {
 
 //路由配置
 var routeconfig = [{
-    path: webUrl + 'Page/HelpCenter/index.html',
     name: "helpCenter",
-}];
+    path: webUrl + 'Page/HelpCenter/index.html',
+}, {
+        name: "home",
+        path: webUrl + 'Page/Home/index.html',
+    }];
 //var routeconfig = {};
 //routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
@@ -45,12 +48,12 @@ componentArr.push(component);
 
 //启动文件
 require(componentArr, function () {
-    var Vue = arguments[0];
-    var $ = arguments[1];
-    var common = arguments[2];
-    var head = arguments[3];
-    var foot = arguments[4];
-    var component = arguments[5];
+    let Vue = arguments[0];
+    let $ = arguments[1];
+    let common = arguments[2];
+    let head = arguments[3];
+    let foot = arguments[4];
+    let component = arguments[5];
 
     Vue.component('main-head', head);
     Vue.component('main-foot', foot);
