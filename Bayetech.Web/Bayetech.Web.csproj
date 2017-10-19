@@ -262,6 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrapValidator.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -689,6 +690,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapValidator.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Content\Images\img_valid.jsp" />
     <Content Include="Configs\Database.config">

@@ -19,7 +19,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                             <label for="" class ="comIptIcon IptIconLeft">
                                 <i class ="iptIconInner iconfont"></i>
                             </label>
-                               <input ref="aaaa" :value="value.Iphone" @input="updateValue(value)" class ="comIpt loginUserIpt" maxlength="11" valid="false" ajaxvalidate="tel" />
+                               <input ref="Iphone" :value="value.Iphone" @input="updateValue(value)" class ="comIpt loginUserIpt" maxlength="11" valid="false" ajaxvalidate="tel" />
                             <label for="" class ="comIptIcon IptIconRight hide delIcon">
                                 <i class ="iptIconInner iconfont"></i>
                             </label>
@@ -48,7 +48,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                             <label for="" class ="comIptIcon IptIconLeft">
                                 <i class ="iptIconInner iconfont"></i>
                             </label>
-                            <input  ref="input" type="password":value="value.GamePass" @input="updateValue(value)" class ="comIpt loginPwdIpt" valid="false" maxlength="20"/>
+                            <input  ref="GamePass" type="password" :value="value.GamePass" @input="updateValue(value)" class ="comIpt loginPwdIpt" valid="false" maxlength="20"/>
                             <!--<p class ="placeholder">请输入密码</p>-->
                             <em class ="regDesc hide">密码由6-20位字符组成, 需同时包含字母和数字</em>
                         </div>
@@ -56,7 +56,7 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                             <label for="" class ="comIptIcon IptIconLeft">
                                 <i class ="iptIconInner iconfont"></i>
                             </label>
-                            <input type="password" :value="value.GamePass" class ="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password"/>
+                            <input type="password"  ref="GamePassAgain" :value="value.GamePassAgain" class ="comIpt loginPwdIpt" valid="false" data_cmp1="true" data_cmp2="password"/>
                             <!--<p class ="placeholder">再确认一次密码</p>-->
                             <em class ="regDesc hide">密码由6-20位字符组成, 需同时包含字母和数字</em>
                         </div>
@@ -85,8 +85,9 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
     var data = {
         //注册左边
         Leftobject:{
-            Iphone: 18717708873,
-            GamePass: 123456
+            Iphone: "",
+            GamePass: "",
+            GamePassAgain: ""
         },
         //注册右边
         Rightobject: [
@@ -115,8 +116,9 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
         methods: {
             updateValue: function (value) {
                 //去除空格，保留两位小数  
-                value.Iphone = this.$refs.aaaa.value;
-                value.GamePass = this.$refs.input.value;
+                value.Iphone = this.$refs.Iphone.value;
+                value.GamePass = this.$refs.GamePass.value;
+                value.GamePassAgain = this.$refs.GamePassAgain.value;
             },
             CheckAccount: function () {
                 common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
@@ -129,17 +131,6 @@ define("SignModule", jsconfig.baseArr, function (Vue, $, common) {
                 common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
 
                 });
-            }
-        },
-        watch: {
-            value(val){
-                this.a = 1;
-            },
-            Leftobject(val) {
-                this.myLeftobject = val;
-            },
-            myLeftobject(val) {
-                this.$emit("on-result-change", val);
             }
         }
     });
