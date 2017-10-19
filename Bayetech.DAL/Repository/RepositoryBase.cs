@@ -51,7 +51,7 @@ namespace Bayetech.DAL
                 return returnValue;
             }
             catch (DbEntityValidationException ex)
-            {
+            { 
                 if (dbTransaction != null)
                 {
                     this.dbTransaction.Rollback();
