@@ -595,6 +595,7 @@
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
+    <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
