@@ -10,76 +10,80 @@
     <meta name="renderer" content="webkit" />
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css?v=2" />
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/index.css?v=2" />
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/Home/index.js"></script>
 </head>
 <body>
-    <!--通用顶部 Start-->
-    <div class="top-common-box">
-        <div class="top-common clearfix">
-            <div class="top-common-left">
-                <div class="not-log" id="noLog">
-                    <span>您好，欢迎访问7881游戏交易平台！</span>
-                    <a href="https://graph.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=101142043&redirect_uri=http%3A%2F%2Fwww.7881.com%2Fuser%2Fqqlogin.action"
-                       class="qq-log" rel="nofollow"><em class="icon-com"></em>QQ登录</a>
-                    <a href="/7881_touristlogin.jsp" class="blue" rel="nofollow">登录</a>
-                    <a href="/reg_tel.jsp" rel="nofollow">免费注册</a>
+    <div id="app">
+        <!--通用顶部 Start-->
+        <div class="top-common-box">
+            <div class="top-common clearfix">
+                <div class="top-common-left">
+                    <div class="not-log" id="noLog">
+                        <span>您好，欢迎访问7881游戏交易平台！</span>
+                        <a href="https://graph.qq.com/oauth/show?which=Login&display=pc&response_type=code&client_id=101142043&redirect_uri=http%3A%2F%2Fwww.7881.com%2Fuser%2Fqqlogin.action"
+                           class="qq-log" rel="nofollow"><em class="icon-com"></em>QQ登录</a>
+                        <a href="/7881_touristlogin.jsp" class="blue" rel="nofollow">登录</a>
+                        <a href="/reg_tel.jsp" rel="nofollow">免费注册</a>
+                    </div>
+                    <div class="already-log" id="alreadyLog" style="display: none;">
+                        <span>13814021438,欢迎回来！</span><em>|</em>
+                        <a href="#" class="on" rel="nofollow"><i class="icon-com message"></i>消息（<b>10</b>）</a><em>|</em>
+                        <a href="#" rel="nofollow">退出</a>
+                    </div>
                 </div>
-                <div class="already-log" id="alreadyLog" style="display: none;">
-                    <span>13814021438,欢迎回来！</span><em>|</em>
-                    <a href="#" class="on" rel="nofollow"><i class="icon-com message"></i>消息（<b>10</b>）</a><em>|</em>
-                    <a href="#" rel="nofollow">退出</a>
+                <div class="top-common-right">
+                    <ul>
+                        <li><a href="/personal.html?ver=20140717" rel="nofollow">我的7881</a></li>
+                        <li><a href="/financecharge/toAdd.action" class="gre" rel="nofollow">充值</a></li>
+                        <li><a href="/financecharge/toAddExtractcash.action" class="org" rel="nofollow">提现</a></li>
+                        <li class="top-menu-item">
+                            <div class="top-menu middle-menu">
+                                <a href="/personal.html?ver=20140717" class="menu-hd" rel="nofollow">买家中心<i class="icon-com"></i></a>
+                                <div class="top-menu-list">
+                                    <a href="/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a>
+                                    <a href="/gamelistshow.html" rel="nofollow">我要买</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-menu-item">
+                            <div class="top-menu middle-menu">
+                                <a href="/personal.html" class="menu-hd" rel="nofollow">卖家中心<i class="icon-com"></i></a>
+                                <div class="top-menu-list">
+                                    <a href="/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a>
+                                    <a href="/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a>
+                                    <a href="/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a>
+                                    <a href="/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a>
+                                    <a href="/release.html" rel="nofollow">我要卖</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-menu-item">
+                            <div class="top-menu">
+                                <a href="#" class="menu-hd" rel="nofollow">服务中心<i class="icon-com"></i></a>
+                                <div class="top-menu-list">
+                                    <a href="/sc/sc_index.html" rel="nofollow">客服中心</a>
+                                    <a href="/helpCenter.html" rel="nofollow">帮助中心</a>
+                                    <a href="/articlelist4-0-0.html" rel="nofollow">资讯中心</a>
+                                    <a href="/tradesafe.html" rel="nofollow">安全中心</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-menu-item last-menu-item">
+                            <div class="top-menu">
+                                <a href="#" class="menu-hd">网站导航<i class="icon-com"></i></a>
+                                <div class="top-menu-list">
+                                    <a href="http://www.7881.com/release_admittance.html" target="_blank">商家准入</a>
+                                    <a href="http://sellertools.7881.com" target="_blank">卖家助手</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="top-common-right">
-                <ul>
-                    <li><a href="/personal.html?ver=20140717" rel="nofollow">我的7881</a></li>
-                    <li><a href="/financecharge/toAdd.action" class="gre" rel="nofollow">充值</a></li>
-                    <li><a href="/financecharge/toAddExtractcash.action" class="org" rel="nofollow">提现</a></li>
-                    <li class="top-menu-item">
-                        <div class="top-menu middle-menu">
-                            <a href="/personal.html?ver=20140717" class="menu-hd" rel="nofollow">买家中心<i class="icon-com"></i></a>
-                            <div class="top-menu-list">
-                                <a href="/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a>
-                                <a href="/gamelistshow.html" rel="nofollow">我要买</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="top-menu-item">
-                        <div class="top-menu middle-menu">
-                            <a href="/personal.html" class="menu-hd" rel="nofollow">卖家中心<i class="icon-com"></i></a>
-                            <div class="top-menu-list">
-                                <a href="/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a>
-                                <a href="/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a>
-                                <a href="/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a>
-                                <a href="/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a>
-                                <a href="/release.html" rel="nofollow">我要卖</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="top-menu-item">
-                        <div class="top-menu">
-                            <a href="#" class="menu-hd" rel="nofollow">服务中心<i class="icon-com"></i></a>
-                            <div class="top-menu-list">
-                                <a href="/sc/sc_index.html" rel="nofollow">客服中心</a>
-                                <a href="/helpCenter.html" rel="nofollow">帮助中心</a>
-                                <a href="/articlelist4-0-0.html" rel="nofollow">资讯中心</a>
-                                <a href="/tradesafe.html" rel="nofollow">安全中心</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="top-menu-item last-menu-item">
-                        <div class="top-menu">
-                            <a href="#" class="menu-hd">网站导航<i class="icon-com"></i></a>
-                            <div class="top-menu-list">
-                                <a href="http://www.7881.com/release_admittance.html" target="_blank">商家准入</a>
-                                <a href="http://sellertools.7881.com" target="_blank">卖家助手</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
-    </div>
-    <div>
+
         <!--通用顶部 End-->
         <!--顶部通栏广告 Start-->
         <div class="top-adv-box">
@@ -100,7 +104,7 @@
         <!--顶部提醒 End-->
         <!--通用头部 Start-->
         <div class="header clearfix">
-            <h1 class="logo"><a href="http://www.7881.com/" target="_blank" title="7881游戏交易平台"><img src="http://pic.7881.com/7881-2016/images/index/logo-common.png" width="360" height="130" alt="7881游戏交易平台" /></a></h1>
+            <h1 class="logo"><a href="http://www.7881.com/" target="_blank" title="7881游戏交易平台"><img src="sthttp://pic.7881.com/7881-2016/images/index/logo-common.png" width="360" height="130" alt="7881游戏交易平台" /></a></h1>
 
             <!-- main search-->
             <div class="search-box">
@@ -227,7 +231,7 @@
         <!--首页导航 Start-->
         <div class="index-nav-box">
             <div class="index-nav">
-                <div class="index-nav-item dy-nav"><a href="http://www.7881.com/gamelistshow.html" class="nav-all">网络游戏</a><a href="http://www.7881.com/gamelistshow.html?goodsType=100001">游戏币</a><a href="http://www.7881.com/gamelistshow.html?goodsType=100003">账号</a><a href="http://dl.7881.com" class="dropdown-act">代练<em><img src="http://pic.7881.com/7881-2016/images/hot.gif" alt="" /></em></a><a href="#" class="dropdown-act">收货网</a><a href="http://www.7881.com/rechargecenter/toRechargeHF.action">充值</a><a href="http://jifen.7881.com/">积分商城</a></div>
+                <div class="index-nav-item dy-nav"><a href="http://www.7881.com/gamelistshow.html" class="nav-all">网络游戏</a><a href="http://www.7881.com/gamelistshow.html?goodsType=100001">游戏币</a><a href="http://www.7881.com/gamelistshow.html?goodsType=100003">账号</a><a href="http://dl.7881.com" class="dropdown-act">代练<em><img src="sthttp://pic.7881.com/7881-2016/images/hot.gif" alt="" /></em></a><a href="#" class="dropdown-act">收货网</a><a href="http://www.7881.com/rechargecenter/toRechargeHF.action">充值</a><a href="http://jifen.7881.com/">积分商城</a></div>
                 <div class="index-nav-item index-nav-line"></div>
                 <div class="index-nav-item sy-nav"><a href="http://shouyou.7881.com/" class="nav-all">手机游戏</a><a href="http://shouyou.7881.com/dianpu.html">手游商城</a><a href="http://shouyou.7881.com/sycz.html">手游充值</a><a href="http://shouyou.7881.com/yxzt-wzry.html">王者荣耀专区</a></div>
 
@@ -235,9 +239,9 @@
                 <div class="dropdown-nav-box dl-dropdown">
                     <div class="dropdown-nav">
                         <ul>
-                            <li><h3><a href="http://dl.7881.com" target="_blank">英雄联盟</a></h3><p><a href="http://dl.7881.com" target="_blank">我要找代练</a></p><img src="http://pic.7881.com/7881-2016/images/index/dl-yxlm-li2.png" width="200" height="76" alt="" /></li>
-                            <li><h3><a href="http://dl.7881.com/?gameid=wzry" target="_blank">王者荣耀</a></h3><p><a href="http://dl.7881.com/?gameid=wzry" target="_blank">我要找代练</a></p><img src="http://pic.7881.com/7881-2016/images/index/dl-wzry-li2.png" width="200" height="76" alt="" /></li>
-                            <li><h3><a href="http://dnf.dl.7881.com" target="_blank">地下城与勇士</a></h3><p><a href="http://dnf.dl.7881.com" target="_blank">我要找代练</a></p><img src="http://pic.7881.com/7881-2016/images/index/dl-dnf-li2.png" width="200" height="76" alt="" /></li>
+                            <li><h3><a href="http://dl.7881.com" target="_blank">英雄联盟</a></h3><p><a href="http://dl.7881.com" target="_blank">我要找代练</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/dl-yxlm-li2.png" width="200" height="76" alt="" /></li>
+                            <li><h3><a href="http://dl.7881.com/?gameid=wzry" target="_blank">王者荣耀</a></h3><p><a href="http://dl.7881.com/?gameid=wzry" target="_blank">我要找代练</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/dl-wzry-li2.png" width="200" height="76" alt="" /></li>
+                            <li><h3><a href="http://dnf.dl.7881.com" target="_blank">地下城与勇士</a></h3><p><a href="http://dnf.dl.7881.com" target="_blank">我要找代练</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/dl-dnf-li2.png" width="200" height="76" alt="" /></li>
                         </ul>
                     </div>
                 </div>
@@ -246,10 +250,10 @@
                 <div class="dropdown-nav-box goodsreceipt-dropdown">
                     <div class="dropdown-nav">
                         <ul>
-                            <li class="dnf-li"><h3><a href="http://www.7881.com/dnf_chuhuo.html" target="_blank">地下城与勇士</a></h3><p><a href="http://www.7881.com/dnf_chuhuo.html" target="_blank">游戏币出货</a><em>|</em><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G10&goodType=100072" target="_blank">深渊票出货</a></p><img src="http://pic.7881.com/7881-2016/images/index/dnf-li2.png" width="200" height="76" alt="" /></li>
-                            <li class="jxqy-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G12&goodType=100001" target="_blank">剑侠情缘3</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G12&goodType=100001" target="_blank">游戏币出货</a></p><img src="http://pic.7881.com/7881-2016/images/index/jxqy-li2.png" width="200" height="76" alt="" /></li>
-                            <li class="zt2s-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100045" target="_blank">征途2S</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100001" target="_blank">游戏币出货</a><em>|</em><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100045" target="_blank">交易点券出货</a></p><img src="http://pic.7881.com/7881-2016/images/index/zt2s-li2.png" width="200" height="76" alt="" /></li>
-                            <li class="mxd2-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G3415&goodType=100001" target="_blank">冒险岛2</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G3415&goodType=100001" target="_blank">游戏币出货</a></p><img src="http://pic.7881.com/7881-2016/images/index/mxd2-li2.png" width="200" height="76" alt="" /></li>
+                            <li class="dnf-li"><h3><a href="http://www.7881.com/dnf_chuhuo.html" target="_blank">地下城与勇士</a></h3><p><a href="http://www.7881.com/dnf_chuhuo.html" target="_blank">游戏币出货</a><em>|</em><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G10&goodType=100072" target="_blank">深渊票出货</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/dnf-li2.png" width="200" height="76" alt="" /></li>
+                            <li class="jxqy-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G12&goodType=100001" target="_blank">剑侠情缘3</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G12&goodType=100001" target="_blank">游戏币出货</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/jxqy-li2.png" width="200" height="76" alt="" /></li>
+                            <li class="zt2s-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100045" target="_blank">征途2S</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100001" target="_blank">游戏币出货</a><em>|</em><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G479&goodType=100045" target="_blank">交易点券出货</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/zt2s-li2.png" width="200" height="76" alt="" /></li>
+                            <li class="mxd2-li"><h3><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G3415&goodType=100001" target="_blank">冒险岛2</a></h3><p><a href="http://shou.7881.com/shipment/orderPlace.htm?gameId=G3415&goodType=100001" target="_blank">游戏币出货</a></p><img src="sthttp://pic.7881.com/7881-2016/images/index/mxd2-li2.png" width="200" height="76" alt="" /></li>
                         </ul>
                     </div>
                 </div>
@@ -261,121 +265,14 @@
         <div class="content">
             <!--主体区域01 Start-->
             <div class="main-area-01 clearfix">
-                <div class="hot-game-list">
-                    <div class="tab-top">
-                        <ul class="clearfix">
-                            <li class="on">热门网游<em></em></li>
-                            <li>热门手游<em></em></li>
-                        </ul>
-                    </div>
-                    <div class="tab-bottom">
-                        <div class="tab-item">
-                            <div class="hot-games dy-hot-games">
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G10" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G10" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G10" target="_blank">DNF地下城与勇士</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G10&gtid=100001" target="_blank">金币</a><a href="http://search.7881.com/list.html?gameId=G10&gtid=100003" target="_blank">账号</a><a href="http://search.7881.com/list.html?gameId=G10&gtid=100008" target="_blank">点券</a></p>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G479" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/zt2.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G479" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G479" target="_blank">征途2S</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G479&gtid=100045" target="_blank">点券</a><a href="http://search.7881.com/list.html?gameId=G479&gtid=100003" target="_blank">账号</a><a href="http://search.7881.com/list.html?gameId=G479&gtid=100001" target="_blank">金币</a></p>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G3415" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/mxd2.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G3415" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G3415" target="_blank">冒险岛2 <img src=' http://pic.7881.com/7881-2016/images/index/index-hot.gif' /></a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G3415&gtid=100001" target="_blank">游戏币</a><a href="http://search.7881.com/list.html?gameId=G3415&gtid=100008" target="_blank">蘑菇币</a></p>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G12" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/jw3.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G12" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G12" target="_blank">剑侠情缘3</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G12&gtid=100001" target="_blank">金币</a><a href="http://search.7881.com/list.html?gameId=G12&gtid=100003" target="_blank">账号</a><a href="http://search.7881.com/list.html?gameId=G12&gtid=100028" target="_blank">通宝</a></p>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G33" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/sm.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G33" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G33" target="_blank">蜀门</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G33&gtid=100001" target="_blank">金币</a><a href="http://search.7881.com/list.html?gameId=G33&gtid=100003" target="_blank">账号</a><a href="http://search.7881.com/list.html?gameId=G33&gtid=100002" target="_blank">装备</a></p>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=G521" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/dy_logo/jtb.png" width="90" height="60" alt="http://search.7881.com/list.html?gameId=G521" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=G521" target="_blank">醉逍遥之惊天变</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=G521&gtid=100001" target="_blank">金币</a><a href="http://search.7881.com/list.html?gameId=G521&gtid=100003" target="_blank">账号</a><a href="http://search.7881.com/list.html?gameId=G521&gtid=100002" target="_blank">装备</a></p>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <div class="tab-item" style="display: none;">
-                            <div class="hot-games sy-hot-games">
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A2705" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A2705.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A2705" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A2705" target="_blank">王者荣耀</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A2705&gtid=100106" target="_blank">充值</a> <a href="http://search.7881.com/list.html?gameId=A2705&gtid=100003" target="_blank">账号</a><a href="http://dl.7881.com/?gameid=wzry" target="_blank">代练</a></p>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A2804" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A2804.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A2804" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A2804" target="_blank">穿越火线：枪战王者</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A2804&gtid=100106" target="_blank">充值</a> <a href="http://search.7881.com/list.html?gameId=A2804&gtid=100003" target="_blank">账号</a></p>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A3212" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A3212.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A3212" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A3212" target="_blank">剑侠情缘</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A3212&gtid=100106" target="_blank">充值</a> </p>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A3183" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A3183.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A3183" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A3183" target="_blank">球球大作战</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A3183&gtid=100106" target="_blank">充值</a> </p>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A2884" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A842.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A2884" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A2884" target="_blank">火影忍者</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A2884&gtid=100106" target="_blank">充值</a> </p>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><a href="http://search.7881.com/list.html?gameId=A3427" target="_blank"><img src="http://pic.7881.com/7881/market/images/app_8080/A3411.png" width="60" height="60" alt="http://search.7881.com/list.html?gameId=A3427" /></a></dt>
-                                    <dd>
-                                        <h2><a href="http://search.7881.com/list.html?gameId=A3427" target="_blank">诛仙</a></h2>
-                                        <p><a href="http://search.7881.com/list.html?gameId=A3427&gtid=100106" target="_blank">充值</a> <a href="http://search.7881.com/list.html?gameId=A3427&gtid=100003" target="_blank">账号</a></p>
-                                    </dd>
-                                </dl>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <hot-game-list></hot-game-list>
                 <div class="banner-box">
                     <div class="slideBox">
                         <div class="bd">
                             <ul>
-                                <li><a href="http://search.7881.com/list.html?pageNum=1&gameId=G3415&gtid=100001&carrierId=&groupId=G3415P001&ser" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/lb/258.jpg" width="680" height="328" alt="" /></a></li>
-                                <li><a href="http://search.7881.com/201612376074038.html" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/lb/286.jpg" width="680" height="328" alt="" /></a></li>
-                                <li><a href="http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=" target="_blank"><img src="http://pic.7881.com/7881-2016/images/index/lb/282.jpg " width="680" height="328" alt="" /></a></li>
+                                <li><a href="http://search.7881.com/list.html?pageNum=1&gameId=G3415&gtid=100001&carrierId=&groupId=G3415P001&ser" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/258.jpg" width="680" height="328" alt="" /></a></li>
+                                <li><a href="http://search.7881.com/201612376074038.html" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/286.jpg" width="680" height="328" alt="" /></a></li>
+                                <li><a href="http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/282.jpg " width="680" height="328" alt="" /></a></li>
                             </ul>
                         </div>
                         <div class="txtBg" style="display: none;"></div>
@@ -389,8 +286,8 @@
                     </div>
                     <div class="adv-01">
                         <div class="adv-01-box">
-                            <a href="http://www.7881.com/dnf_chuhuo.html"><img src="http://pic.7881.com/7881-2016/images/index/2-5.jpg" width="336" height="140" alt="" /></a>
-                            <a href="http://shouyou.7881.com/yxzt-wzry.html"><img src="http://pic.7881.com/7881-2016/images/shouyou-index/2-1.jpg" width="336" height="140" alt="" /></a>
+                            <a href="http://www.7881.com/dnf_chuhuo.html"><img src="sthttp://pic.7881.com/7881-2016/images/index/2-5.jpg" width="336" height="140" alt="" /></a>
+                            <a href="http://shouyou.7881.com/yxzt-wzry.html"><img src="sthttp://pic.7881.com/7881-2016/images/shouyou-index/2-1.jpg" width="336" height="140" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -399,200 +296,8 @@
                         <a href="http://www.7881.com/gamelistshow.html">我要买</a>
                         <a onclick="javascript:checkLogin();" href="javascript:void(0);" class="sale-btn">我要卖</a>
                     </div>
-                    <div class="index-tab">
-                        <div class="index-tab-top tab-03">
-                            <ul class="clearfix">
-                                <li class="on"><a href="http://www.7881.com/articlelist4-0-0.html" target="_blank">公告</a></li>
-                                <li><a href="http://www.7881.com/helpCenter.html" target="_blank">新手指南</a></li>
-                                <li class="last-tab-li"><a href="http://www.7881.com/articlelist6-0-0.html" target="_blank">常见问题</a></li>
-                            </ul>
-                        </div>
-                        <div class="index-tab-bot">
-                            <div class="index-tab-item">
-                                <div class="gg-box">
-                                    <ul>
-                                        <li class="on"><a href="/article-915874890089047659-0.html" target="_blank">7881手游卖家管理条例</a></li>
-                                        <li><a href="/article-115205797286304494-0.html" target="_blank">【公告】DNF交易购买到账问题</a></li>
-                                        <li><a href="/article-713995423870549563-0.html" target="_blank">7881网站升级公告</a></li>
-                                        <li><a href="/article-113398172577946151-0.html" target="_blank">【公告】绿岸网络账号打款时间的调整</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="index-tab-item" style="display: none;">
-                                <div class="gg-box">
-                                    <ul>
-                                        <li class="on"><a href="/article-275079017460522529-0.html" target="_blank">DNF如何快速出售游戏币</a></li>
-                                        <li><a href="/article-968065528214149832-0.html" target="_blank">DNF游戏币交易上限说明</a></li>
-                                        <li><a href="/article-15886363374533255-0.html" target="_blank">DNF如何复制角色名</a></li>
-                                        <li><a href="/article-320670496107974788-0.html" target="_blank">《不败传说》解除2小时安全时限方法</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="index-tab-item" style="display: none;">
-                                <div class="gg-box">
-                                    <ul>
-                                        <li class="on"><a href="/article-248691812886037547-0.html" target="_blank">提现多久到账</a></li>
-                                        <li><a href="/article-365809715870535056-0.html" target="_blank">发布件数说明</a></li>
-                                        <li><a href="/article-174684284150562122-0.html" target="_blank">收货角色名管理</a></li>
-                                        <li><a href="/article-73812285242797933-0.html" target="_blank">如何找回密码</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <form action="/procurement/purchaseOfCardGoods.action" method="post" name="form1">
-                        <input type="hidden" name="current_money" id="current_money" />
-                        <input type="hidden" name="current_qq_money" id="current_qq_money" value="0.99" />
-                        <input type="hidden" name="select_qq_item" id="select_qq_item" value="Q币" />
-                        <input type="hidden" name="current_goodsid" id="current_goodsid" />
-                        <input type="hidden" name="current_qq_goodsid" id="current_qq_goodsid" value="36136024" />
-                        <input type="hidden" name="sum_money" id="sum_money" value="0.99" />
-                        <input type="hidden" name="current_num" id="current_num" />
-                        <input type="hidden" name="current_facevalue" id="current_facevalue" />
-                        <input type="hidden" name="current_qq_facevalue" id="current_qq_facevalue" value="1" />
-                        <input type="hidden" name="current_qd_facevalue" id="current_qd_facevalue" value="1" />
-                        <input type="hidden" id="gtid" name="ofCardSubmitBean.gtid" />
-                        <input type="hidden" id="gameName" name="ofCardSubmitBean.gameName" value="" />
-                        <input type="hidden" id="toolGoodsId" name="ofCardSubmitBean.toolGoodsId" value="" />
-                        <input type="hidden" id="cardId" name="ofCardSubmitBean.cardId" value="" />
-                        <input type="hidden" id="cardName" name="ofCardSubmitBean.cardName" value="" />
-                        <input type="hidden" id="cardNum" name="ofCardSubmitBean.cardNum" value="1" />
-                        <input type="hidden" id="cardFinalMoney" name="ofCardSubmitBean.cardFinalMoney" />
-                        <input type="hidden" id="gameAccount" name="ofCardSubmitBean.gameAccount" />
-                        <input type="hidden" name="mobiletypeflag" id="mobiletypeflag">
-                        <input type="hidden" name="rechargeType" id="rechargeType">
-                        <input type="hidden" name="current_facevalue" id="current_facevalue" />
-                        <div class="convenience">
-                            <ul class="clearfix">
-                                <li><a href="http://www.7881.com/b2b/buy-G10.html" target="_blank"><em class="iconfont">&#xe635;</em><p>DNF游戏币</p></a></li>
-                                <li><a href="http://www.7881.com/rechargecenter/toRechargeDK.action" target="_blank"><em class="iconfont">&#xe634;</em><p>充点卡</p></a></li>
-                                <li class="last"><a href="http://shouyou.7881.com/sycz.html" target="_blank"><em class="iconfont">&#xe636;</em><p>手游充值</p></a></li>
-                                <!--话费充值 Start-->
-                                <li class="hover-item pho-hover">
-                                    <em class="iconfont">&#xe638;</em><p>充话费</p>
-                                    <div class="hover-bot">
-                                        <div class="hover-bot-line"></div>
-                                        <div class="hover-bot-close"></div>
-                                        <div class="hover-input-box">
-                                            <h5 class="clearfix">
-                                                <span>手机号：</span>
-                                                <label class="placeholder">
-                                                    <input id="phonenum" type="text" maxlength="11" class="small-input hover-input phoneNum" autocomplete="off" onblur="select_mobileinfo(this.value)" onkeyup="select_mobileinfo(this.value)" />
-                                                    <span>请输入手机号码</span>
-                                                </label>
-                                                <i class="catName"></i>
-                                                <p class="error">手机号有误</p>
-                                            </h5>
-                                            <h5 class="clearfix">
-                                                <span>面　值：</span>
-                                                <div class="sec-item">
-                                                    <div class="sec-top clearfix">
-                                                        <input id="hfmz_view" class="hover-select-input small-input phonePrice" readonly="readonly"
-                                                               unselectable="on" type="text" value="50元">
-                                                        <em></em>
-                                                    </div>
-                                                    <div class="sec-bot small-ul">
-                                                        <ul id="select_hf" onchange="select_huafei(this.value);">
-                                                            <li id="hfcz_10" value="10" shownonum="9.89-10.33">10元</li>
-                                                            <li id="hfcz_20" value="20" shownonum="19.69-20.11">20元</li>
-                                                            <li id="hfcz_30" value="30" shownonum="29.55-29.98">30元</li>
-                                                            <li id="hfcz_50" value="50" shownonum="49.25-49.99">50元</li>
-                                                            <li id="hfcz_100" value="100" shownonum="98.49-99.99">100元</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </h5>
-                                            <h4><span>售　价：</span><i>¥</i><em class="pri" id="currmoney">49-49.8</em></h4>
-                                            <div class="hover-btn"><a href="javascript:void(0)" onclick="javascript:recharge_hf();">立即支付</a></div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!--话费充值End-->
-                                <!--QQ充值 Start-->
-                                <li class="hover-item qq-hover">
-                                    <em class="iconfont">&#xe637;</em><p>QQ充值</p>
-                                    <div class="hover-bot">
-                                        <div class="hover-bot-line"></div>
-                                        <div class="hover-bot-close"></div>
-                                        <div class="hover-input-box">
-                                            <h5 class="clearfix">
-                                                <span>QQ号码：</span>
-                                                <label class="placeholder">
-                                                    <input id="qqnum" type="text" maxlength="11" class="big-input hover-input onlynum qqNum" /><span>请输入要充值的QQ</span>
-                                                </label>
-                                                <p class="error">请输入QQ号码</p>
-                                            </h5>
-                                            <h5 class="clearfix">
-                                                <span>类　型：</span>
-                                                <div class="sec-item">
-                                                    <div class="sec-top clearfix">
-                                                        <input id="qqType" class="hover-select-input big-input" readonly="readonly" unselectable="on" type="text" value="Q币" data-denomination="0.99" data-num="5">
-                                                        <em></em>
-                                                    </div>
-                                                    <div class="sec-bot big-ul">
-                                                        <ul id="qq_item_select"></ul>
-                                                    </div>
-                                                </div>
-                                            </h5>
-                                            <h5 class="clearfix">
-                                                <span>面　值：</span>
-                                                <div class="sec-item">
-                                                    <div class="sec-top clearfix">
-                                                        <input id="qq_mz" class="hover-select-input big-input" readonly="readonly" unselectable="on" type="text" value="5个">
-                                                        <em></em>
-                                                    </div>
-                                                    <div class="sec-bot big-ul">
-                                                        <ul>
-                                                            <li data-num='5'>5个</li>
-                                                            <li data-num='10'>10个</li>
-                                                            <li data-num='30'>30个</li>
-                                                            <li data-num='50'>50个</li>
-                                                            <li data-num='100'>100个</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </h5>
-                                            <h4><span>售　价：</span><i>¥</i><em class="pri">4.95</em></h4>
-                                            <div class="hover-btn">
-                                                <a href="javascript:void(0)" onclick="submit_data_qq()">立即支付</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!--QQ充值 Start-->
-                                <!--APP充值 Start-->
-                                <li class="hover-item app-hover last">
-                                    <em class="iconfont">&#xe633;</em><p>APP充值</p>
-                                    <div class="hover-bot">
-                                        <div class="hover-bot-line"></div>
-                                        <div class="hover-bot-close"></div>
-                                        <div class="hover-input-box">
-                                            <h5 class="clearfix">
-                                                <span>面　值：</span>
-                                                <div class="sec-item">
-                                                    <div class="sec-top clearfix">
-                                                        <input class="hover-select-input big-input" readonly="readonly" unselectable="on" type="text" value="50元面额" data-denomination="51.5">
-                                                        <em></em>
-                                                    </div>
-                                                    <div class="sec-bot big-ul">
-                                                        <ul>
-                                                            <li id="appcz_1" data-price="50.0" onclick="select_price(50.0,376466736)">50.0元</li>
-                                                            <li id="appcz_2" data-price="98.0" onclick="select_price(98.0,376911056)">100.0元</li>
-                                                            <li id="appcz_3" data-price="196.0" onclick="select_price(196.0,377355147)">200.0元</li>
-                                                            <li id="appcz_4" data-price="490.0" onclick="select_price(490.0,376911059)">500.0元</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </h5>
-                                            <h4><span>售　价：</span><i>¥</i><em class="pri" id="appPrice"></em></h4>
-                                            <div class="hover-btn"><a href="javascript:void(0)" id="appcz">立即充值</a></div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!--APP充值 End-->
-                            </ul>
-                        </div>
-                    </form>
+                    <Index-Tab></Index-Tab>
+                    <convenience></convenience>
                     <div class="qq-yz">
                         <label class="placeholder"><input type="text" class="qq-input onlynum" id="qq_number" /><span>输入客服QQ，验证真假</span></label><a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
                     </div>
@@ -604,7 +309,7 @@
                 <div class="tabsList-box">
                     <ul class="tabsList">
                         <li class="tit on" style="width: 539px;">
-                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=G10','_blank')" src="http://pic.7881.com/7881-2016/images/index/pic-01.jpg" width="190" height="340" /></h4>
+                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=G10','_blank')" src="sthttp://pic.7881.com/7881-2016/images/index/pic-01.jpg" width="190" height="340" /></h4>
                             <div class="tabBody" style="display: block;">
                                 <h2><span>商品类型</span><a href="http://search.7881.com/list.html?pageNum=1&gameId=G10" target="_blank">进入游戏专题页 ></a></h2>
                                 <div class="shop-type">
@@ -637,7 +342,7 @@
                             </div>
                         </li>
                         <li class="tit">
-                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=G12','_blank')" src="http://pic.7881.com/7881-2016/images/index/pic-03.jpg" width="190" height="340" /></h4>
+                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=G12','_blank')" src="sthttp://pic.7881.com/7881-2016/images/index/pic-03.jpg" width="190" height="340" /></h4>
                             <div class="tabBody">
                                 <h2><span>商品类型</span><a href="http://search.7881.com/list.html?pageNum=1&gameId=G12" target="_blank">进入游戏专题页 ></a></h2>
                                 <div class="shop-type">
@@ -671,7 +376,7 @@
                             </div>
                         </li>
                         <li class="tit last">
-                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=A2705','_blank')" src="http://pic.7881.com/7881-2016/images/index/pic-04.jpg" width="190" height="340" /></h4>
+                            <h4><img onclick="javascript:window.open('http://search.7881.com/list.html?gameId=A2705','_blank')" src="sthttp://pic.7881.com/7881-2016/images/index/pic-04.jpg" width="190" height="340" /></h4>
                             <div class="tabBody">
                                 <h2><span>商品类型</span><a href="http://search.7881.com/list.html?pageNum=1&gameId=A2705" target="_blank">进入游戏专题页 ></a></h2>
                                 <div class="shop-type">
@@ -936,7 +641,7 @@
                 <div class="index-adv-box">
                     <div class="index-adv clearfix">
                         <div class="adv-item">
-                            <a href="http://www.7881.com/dnf_chuhuo.html" class="img-a"><img src="http://pic.7881.com/7881-2016/images/index/4ad/04.jpg " width="455" height="180" alt="" /></a>
+                            <a href="http://www.7881.com/dnf_chuhuo.html" class="img-a"><img src="sthttp://pic.7881.com/7881-2016/images/index/4ad/04.jpg " width="455" height="180" alt="" /></a>
                             <dl>
                                 <dt>
                                     <h2><a href="http://www.7881.com/dnf_chuhuo.html" target="_blank">《地下城与勇士》收货网</a></h2>
@@ -946,7 +651,7 @@
                             </dl>
                         </div>
                         <div class="adv-item">
-                            <a href="http://shouyou.7881.com/sycz.html" class="img-a"><img src="http://pic.7881.com/7881-2016/images/index/4ad/05.jpg" width="455" height="180" alt="" /></a>
+                            <a href="http://shouyou.7881.com/sycz.html" class="img-a"><img src="sthttp://pic.7881.com/7881-2016/images/index/4ad/05.jpg" width="455" height="180" alt="" /></a>
                             <dl>
                                 <dt>
                                     <h2><a href="http://shouyou.7881.com/sycz.html" target="_blank">手游充值</a></h2>
@@ -956,7 +661,7 @@
                             </dl>
                         </div>
                         <div class="adv-item">
-                            <a href="http://www.7881.com/buy-G12.html" class="img-a"><img src="http://pic.7881.com/7881-2016/images/index/4ad/08.jpg " width="455" height="180" alt="" /></a>
+                            <a href="http://www.7881.com/buy-G12.html" class="img-a"><img src="sthttp://pic.7881.com/7881-2016/images/index/4ad/08.jpg " width="455" height="180" alt="" /></a>
                             <dl>
                                 <dt>
                                     <h2><a href="http://www.7881.com/buy-G12.html" target="_blank">《剑侠情缘三》游戏币比例优惠</a></h2>
@@ -966,7 +671,7 @@
                             </dl>
                         </div>
                         <div class="adv-item">
-                            <a href="http://dl.7881.com/" class="img-a"><img src="http://pic.7881.com/7881-2016/images/index/4ad/07.jpg" width="455" height="180" alt="" /></a>
+                            <a href="http://dl.7881.com/" class="img-a"><img src="sthttp://pic.7881.com/7881-2016/images/index/4ad/07.jpg" width="455" height="180" alt="" /></a>
                             <dl>
                                 <dt>
                                     <h2><a href="http://dl.7881.com/" target="_blank">《LOL英雄联盟》代练</a></h2>
@@ -1105,57 +810,57 @@
                 </h3>
                 <div class="mgame-list">
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A2775.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A2775.png" width="100" height="100">
                         <h3 class="mgame-name">王者荣耀</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/wzry-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/wzry-android-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A3212.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A3212.png" width="100" height="100">
                         <h3 class="mgame-name">剑侠情缘</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/jxqy-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/jxqy-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A2884.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A2884.png" width="100" height="100">
                         <h3 class="mgame-name">火影忍者</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/hyrz-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/hyrz-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A2807.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A2807.png" width="100" height="100">
                         <h3 class="mgame-name">穿越火线：枪战王者</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/cyhxqzwz-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/cyhxqzwz-android-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A3411.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A3411.png" width="100" height="100">
                         <h3 class="mgame-name">诛仙</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/zxa-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/zxa-android-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A1724.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A1724.png" width="100" height="100">
                         <h3 class="mgame-name">新苍穹之剑</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/xcqzj-ios.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/xcqzj-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A1694.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A1694.png" width="100" height="100">
                         <h3 class="mgame-name">全民奇迹</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/qmqj-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/qmqj-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A817.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A817.png" width="100" height="100">
                         <h3 class="mgame-name">忘仙</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/wx-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/wx-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A1581.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A1581.png" width="100" height="100">
                         <h3 class="mgame-name">天龙八部3D</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/tlbb3d-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/tlbb3d-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                     <div class="mgame-item">
-                        <img src="http://pic.7881.com/7881/market/images/game_logo/A2446.png" width="100" height="100">
+                        <img src="sthttp://pic.7881.com/7881/market/images/game_logo/A2446.png" width="100" height="100">
                         <h3 class="mgame-name">拳皇98终极之战OL</h3>
                         <h3 class="mgame-btn"><a href="http://shouyou.7881.com/qh98zjzz-ios.html" target="_blank" class="apple-btn">苹果版</a><a href="http://shouyou.7881.com/qh98zjzzol-android.html" target="_blank" class="android-btn">安卓版</a></h3>
                     </div>
                 </div>
-                <div class="mgame-r"><img src="http://pic.7881.com/7881-2016/images/index/mgame-r-pic.jpg" width="269" height="366" /></div>
+                <div class="mgame-r"><img src="sthttp://pic.7881.com/7881-2016/images/index/mgame-r-pic.jpg" width="269" height="366" /></div>
             </div>
             <!--主体区域03 End-->
             <!--主体区域05 Start-->
@@ -1166,16 +871,16 @@
                 </h3>
                 <div class="partner-top">
                     <ul>
-                        <li><a href="http://qq.com" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/tx.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.baidu.com" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/bd.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.17173.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/17173.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.chubao.cn/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/cb.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.mumayi.com " target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/mmy.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.wandoujia.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/wdj.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.gao7.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/gq.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.360.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/360.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.duowan.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/dw.png" width="60" height="60" /></a></li>
-                        <li><a href="http://www.sdo.com/" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/index/hezuo/sd.png" width="60" height="60" /></a></li>
+                        <li><a href="http://qq.com" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.baidu.com" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/bd.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.17173.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/17173.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.chubao.cn/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/cb.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.mumayi.com " target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/mmy.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.wandoujia.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/wdj.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.gao7.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/gq.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.360.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/360.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.duowan.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/dw.png" width="60" height="60" /></a></li>
+                        <li><a href="http://www.sdo.com/" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/index/hezuo/sd.png" width="60" height="60" /></a></li>
                     </ul>
                 </div>
                 <div class="partner-bot">
@@ -1216,7 +921,7 @@
                     <em class="iconfont">&#xe653;</em>
                     <p>安卓</br/>APP</p>
                     <dl class="ewm-box">
-                        <dt><img src="http://pic.7881.com/7881-2016/images/shouyou-index/7881app_right.png" width="80" height="80" alt="" /></dt>
+                        <dt><img src="sthttp://pic.7881.com/7881-2016/images/shouyou-index/7881app_right.png" width="80" height="80" alt="" /></dt>
                     </dl>
                 </a>
                 <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&aty=0&a=0&curl=&ty=1" target="_blank" class="kf-qq">
@@ -1231,7 +936,7 @@
                     <em class="iconfont">&#xe630;</em>
                     <p>客服<br />电话</p>
                     <dl class="kf-box">
-                        <dt><img src="http://pic.7881.com/7881-2016/images/kf-img.png" width="126" height="150" alt="" /></dt>
+                        <dt><img src="sthttp://pic.7881.com/7881-2016/images/kf-img.png" width="126" height="150" alt="" /></dt>
                         <dd>
                             <h5>7881.com</h5>
                             <h5>客户服务热线：</h5>
@@ -1258,149 +963,176 @@
             <!-- 防诈骗浮动栏 End -->
         </div>
         <!--主体区域 End-->
-    </div>
-
-    <!--通用底部 Start-->
-    <div class="footer-content">
-        <div class="footer-server-box">
-            <div class="footer-server">
-                <div class="footer-server-dl">
+        <!--通用底部 Start-->
+        <div class="footer-content">
+            <div class="footer-server-box">
+                <div class="footer-server">
+                    <div class="footer-server-dl">
+                        <dl>
+                            <dt><em class="iconfont">&#xe62b;</em></dt>
+                            <dd>
+                                <h2>游戏交易 应有尽有</h2>
+                                <p>关于游戏你想要的，这里都有</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><em class="iconfont">&#xe62e;</em></dt>
+                            <dd>
+                                <h2>交易安全 资金保障</h2>
+                                <p>保障交易安全的事，我们都做</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><em class="iconfont">&#xe62d;</em></dt>
+                            <dd>
+                                <h2>7*24小时 专属客服</h2>
+                                <p>时时刻刻想联系我，客服都在</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><em class="iconfont">&#xe62c;</em></dt>
+                            <dd>
+                                <h2>权威认证 安全可靠</h2>
+                                <p>我是值得信赖平台，大家都造</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-nav clearfix">
+                <div class="footer-nav-dl clearfix">
                     <dl>
-                        <dt><em class="iconfont">&#xe62b;</em></dt>
+                        <dt>买家指南</dt>
                         <dd>
-                            <h2>游戏交易 应有尽有</h2>
-                            <p>关于游戏你想要的，这里都有</p>
+                            <p><a href="http://www.7881.com/helpcenter/53630197449768690.html" target="_blank" rel="nofollow">如何注册</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/53645345943894167.html" target="_blank" rel="nofollow">如何购买</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/73814839931161690.html" target="_blank" rel="nofollow">搜索商品</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/4.html" target="_blank" rel="nofollow">支付方式</a></p>
                         </dd>
                     </dl>
                     <dl>
-                        <dt><em class="iconfont">&#xe62e;</em></dt>
+                        <dt>卖家指南</dt>
                         <dd>
-                            <h2>交易安全 资金保障</h2>
-                            <p>保障交易安全的事，我们都做</p>
+                            <p><a href="http://www.7881.com/helpcenter/73789486396550831.html" target="_blank" rel="nofollow">出售商品</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/73790853549846082.html" target="_blank" rel="nofollow">寄售交易</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/43552371643536454.html" target="_blank" rel="nofollow">担保交易</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/73790970494518017.html" target="_blank" rel="nofollow">收费标准</a></p>
                         </dd>
                     </dl>
                     <dl>
-                        <dt><em class="iconfont">&#xe62d;</em></dt>
+                        <dt>安全交易</dt>
                         <dd>
-                            <h2>7*24小时 专属客服</h2>
-                            <p>时时刻刻想联系我，客服都在</p>
+                            <p><a href="http://www.7881.com/tradesafe/311350774185047325a0.html" target="_blank" rel="nofollow">钓鱼防骗</a></p>
+                            <p><a href="http://www.7881.com/tradesafe/311351017111547791a0.html" target="_blank" rel="nofollow">预防盗号</a></p>
+                            <p><a href="http://www.7881.com/tradesafe/311351107162346087a0.html" target="_blank" rel="nofollow">谨防诈骗</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/73811305049964817.html" target="_blank" rel="nofollow">实名认证</a></p>
                         </dd>
                     </dl>
                     <dl>
-                        <dt><em class="iconfont">&#xe62c;</em></dt>
+                        <dt>常见问题</dt>
                         <dd>
-                            <h2>权威认证 安全可靠</h2>
-                            <p>我是值得信赖平台，大家都造</p>
+                            <p><a href="http://www.7881.com/helpcenter/1.html" target="_blank" rel="nofollow">如何提现</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/53646056824590766.html" target="_blank" rel="nofollow">如何充值</a></p>
+                            <p><a href="http://www.7881.com/tradesafe/safeCenter.html" target="_blank" rel="nofollow">真假客服</a></p>
+                            <p><a href="http://www.7881.com/helpcenter/73812285242797933.html" target="_blank" rel="nofollow">忘记密码</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>服务中心</dt>
+                        <dd>
+                            <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要咨询</a></p>
+                            <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要建议</a></p>
+                            <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要投诉</a></p>
+                            <p><a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&aty=0&a=0&curl=&ty=1" rel="nofollow">QQ客服</a></p>
                         </dd>
                     </dl>
                 </div>
-            </div>
-        </div>
-        <div class="footer-nav clearfix">
-            <div class="footer-nav-dl clearfix">
-                <dl>
-                    <dt>买家指南</dt>
-                    <dd>
-                        <p><a href="http://www.7881.com/helpcenter/53630197449768690.html" target="_blank" rel="nofollow">如何注册</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/53645345943894167.html" target="_blank" rel="nofollow">如何购买</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/73814839931161690.html" target="_blank" rel="nofollow">搜索商品</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/4.html" target="_blank" rel="nofollow">支付方式</a></p>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>卖家指南</dt>
-                    <dd>
-                        <p><a href="http://www.7881.com/helpcenter/73789486396550831.html" target="_blank" rel="nofollow">出售商品</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/73790853549846082.html" target="_blank" rel="nofollow">寄售交易</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/43552371643536454.html" target="_blank" rel="nofollow">担保交易</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/73790970494518017.html" target="_blank" rel="nofollow">收费标准</a></p>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>安全交易</dt>
-                    <dd>
-                        <p><a href="http://www.7881.com/tradesafe/311350774185047325a0.html" target="_blank" rel="nofollow">钓鱼防骗</a></p>
-                        <p><a href="http://www.7881.com/tradesafe/311351017111547791a0.html" target="_blank" rel="nofollow">预防盗号</a></p>
-                        <p><a href="http://www.7881.com/tradesafe/311351107162346087a0.html" target="_blank" rel="nofollow">谨防诈骗</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/73811305049964817.html" target="_blank" rel="nofollow">实名认证</a></p>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>常见问题</dt>
-                    <dd>
-                        <p><a href="http://www.7881.com/helpcenter/1.html" target="_blank" rel="nofollow">如何提现</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/53646056824590766.html" target="_blank" rel="nofollow">如何充值</a></p>
-                        <p><a href="http://www.7881.com/tradesafe/safeCenter.html" target="_blank" rel="nofollow">真假客服</a></p>
-                        <p><a href="http://www.7881.com/helpcenter/73812285242797933.html" target="_blank" rel="nofollow">忘记密码</a></p>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>服务中心</dt>
-                    <dd>
-                        <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要咨询</a></p>
-                        <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要建议</a></p>
-                        <p><a href="http://www.7881.com/sc/add_sc.html" target="_blank" rel="nofollow">我要投诉</a></p>
-                        <p><a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&aty=0&a=0&curl=&ty=1" rel="nofollow">QQ客服</a></p>
-                    </dd>
-                </dl>
-            </div>
-            <div class="wx-item">
-                <img src="http://pic.7881.com/7881-2016/images/wx-shouyou7881.png" width="120" height="120" alt="7881官方微信" />
-                <h2>7881官方微信</h2>
-                <p>微信号：game7881</p>
-            </div>
-            <div class="wx-item wx-item-first">
-                <img src="http://pic.7881.com/7881-2016/images/wx-m7881.png" width="120" height="120" alt="手游充值APP" />
-                <h2>手游充值APP</h2>
-                <p>m.7881.com</p>
-            </div>
+                <div class="wx-item">
+                    <img src="sthttp://pic.7881.com/7881-2016/images/wx-shouyou7881.png" width="120" height="120" alt="7881官方微信" />
+                    <h2>7881官方微信</h2>
+                    <p>微信号：game7881</p>
+                </div>
+                <div class="wx-item wx-item-first">
+                    <img src="sthttp://pic.7881.com/7881-2016/images/wx-m7881.png" width="120" height="120" alt="手游充值APP" />
+                    <h2>手游充值APP</h2>
+                    <p>m.7881.com</p>
+                </div>
 
-        </div>
-        <div class="footer-link">
-            <div class="footer-link-a">
-                <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><em>|</em>
-                <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><em>|</em>
-                <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><em>|</em>
-                <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><em>|</em>
-                <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><em>|</em>
-                <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商户合作</a><em>|</em>
-                <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a>
             </div>
-            <p>Copyright <i></i> 2008-2018 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010202010326"><img src='http://pic.7881.com/7881-2016/images/sw.png' style="vertical-align: middle; margin-top: -3px; margin-right: 2px;" />苏公网安备 32010202010326号</a></p>
-            <div class="footer-link-honor">
-                <a href="https://ss.knet.cn/verifyseal.dll?sn=e13062732010041412rcaq000000&ct=df&a=1&pa=0.6369905350729823" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-01.png" width="106" height="42" alt="可信网站示范单位" /></a>
-                <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-02.png" width="106" height="42" alt="经营性网站备案信息" /></a>
-                <a href="http://www.cyberpolice.cn/wfjb" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-03.png" width="106" height="42" alt="网络警察" /></a>
-                <a href="https://www.alipay.com" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-04.png" width="106" height="42" alt="支付宝特约商户" /></a>
-                <a href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-05.png" width="106" height="42" alt="安全联盟" /></a>
-                <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B" target="_blank" rel="nofollow"><img src="http://pic.7881.com/7881-2016/images/footer-icon-06.png" width="106" height="42" alt="中国文化部" /></a>
-                <a id="_pingansec_bottomimagesmall_shiming" href="http://si.trustutn.org/info?sn=243170915030385505031&certType=1"><img src="http://v.trustutn.org/images/cert/bottom_small_img.png" /></a>
+            <div class="footer-link">
+                <div class="footer-link-a">
+                    <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><em>|</em>
+                    <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><em>|</em>
+                    <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><em>|</em>
+                    <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><em>|</em>
+                    <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><em>|</em>
+                    <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商户合作</a><em>|</em>
+                    <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a>
+                </div>
+                <p>Copyright <i></i> 2008-2018 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010202010326"><img src='http://pic.7881.com/7881-2016/images/sw.png' style="vertical-align: middle; margin-top: -3px; margin-right: 2px;" />苏公网安备 32010202010326号</a></p>
+                <div class="footer-link-honor">
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e13062732010041412rcaq000000&ct=df&a=1&pa=0.6369905350729823" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-01.png" width="106" height="42" alt="可信网站示范单位" /></a>
+                    <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-02.png" width="106" height="42" alt="经营性网站备案信息" /></a>
+                    <a href="http://www.cyberpolice.cn/wfjb" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-03.png" width="106" height="42" alt="网络警察" /></a>
+                    <a href="https://www.alipay.com" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-04.png" width="106" height="42" alt="支付宝特约商户" /></a>
+                    <a href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-05.png" width="106" height="42" alt="安全联盟" /></a>
+                    <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B" target="_blank" rel="nofollow"><img src="sthttp://pic.7881.com/7881-2016/images/footer-icon-06.png" width="106" height="42" alt="中国文化部" /></a>
+                    <a id="_pingansec_bottomimagesmall_shiming" href="http://si.trustutn.org/info?sn=243170915030385505031&certType=1"><img src="sthttp://v.trustutn.org/images/cert/bottom_small_img.png" /></a>
+                </div>
             </div>
         </div>
+        <!--通用底部 End-->
     </div>
-    <!--通用底部 End-->
     <!-- 通用Js库 Start -->
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/7881-2016.js"></script>
+    <script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/common/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/js/7881-2016.js"></script>
     <script type="text/javascript" src="/common/js/validateLogin.js"></script>
     <!-- 通用Js库 End -->
     <!-- 可选Js库 Start -->
-    <script type="text/javascript" src="http://so.7881.com/resources/script/common/moment.min.js"></script>
-    <script type="text/javascript" src="http://so.7881.com/resources/script/kf.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/slide.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/popup/popup.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/index.js?v=2"></script>
+    <!--<script type="text/javascript" src="sthttp://so.7881.com/resources/script/common/moment.min.js"></script>-->
+    <!--<script type="text/javascript" src="sthttp://so.7881.com/resources/script/kf.js"></script>
+    <script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/common/slide.js"></script>-->
+    <script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/common/popup/popup.js"></script>
+    <!--<script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/js/index.js?v=2"></script>-->
     <script type="text/javascript" src="/common/js/convenience.js"></script>
     <!-- 可选Js库 End -->
     <!-- 通用搜索Js库 Start -->
     <script type="text/javascript" src="/common/smartinput/character.core.js"></script>
     <script type="text/javascript" src="/common/js/main_search/jquery.smartinput-2016.js"></script>
     <script type="text/javascript" src="/common/game/js/game_base_info.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/search/search-suggest.js"></script>
-    <script type="text/javascript" src="http://search.7881.com/scripts/mainSearch.js"></script>
+    <script type="text/javascript" src="sthttp://pic.7881.com/7881-2016/common/search/search-suggest.js"></script>
+    <script type="text/javascript" src="sthttp://search.7881.com/scripts/mainSearch.js"></script>
     <!-- 通用搜索Js库 End -->
     <!-- 登录弹出 Start-->
     <script type="text/javascript" src="/common/js/pop_login.js"></script>
     <script src='/common/js/md5.js'></script>
 </body>
 </html>
+
+
+<div class="banner-box">
+    <div class="slideBox">
+        <div class="bd">
+            <ul>
+                <li><a href="http://search.7881.com/list.html?pageNum=1&gameId=G3415&gtid=100001&carrierId=&groupId=G3415P001&ser" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/258.jpg" width="680" height="328" alt="" /></a></li>
+                <li><a href="http://search.7881.com/201612376074038.html" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/286.jpg" width="680" height="328" alt="" /></a></li>
+                <li><a href="http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=" target="_blank"><img src="sthttp://pic.7881.com/7881-2016/images/index/lb/282.jpg " width="680" height="328" alt="" /></a></li>
+            </ul>
+        </div>
+        <div class="txtBg" style="display: none;"></div>
+        <div class="hd" style="display: none;">
+            <ul>
+                <li title="《冒险岛2》全类目免手续费"><p>《冒险岛2》全类目免手续费</p><h5><em></em></h5></li>
+                <li title="八折代充王者荣耀"><p>八折代充王者荣耀</p><h5><em></em></h5></li>
+                <li title="假期已完 福利不断"><p>假期已完 福利不断</p><h5><em></em></h5></li>
+            </ul>
+        </div>
+    </div>
+    <div class="adv-01">
+        <div class="adv-01-box">
+            <a href="http://www.7881.com/dnf_chuhuo.html"><img src="sthttp://pic.7881.com/7881-2016/images/index/2-5.jpg" width="336" height="140" alt="" /></a>
+            <a href="http://shouyou.7881.com/yxzt-wzry.html"><img src="sthttp://pic.7881.com/7881-2016/images/shouyou-index/2-1.jpg" width="336" height="140" alt="" /></a>
+        </div>
+    </div>
+</div>
+

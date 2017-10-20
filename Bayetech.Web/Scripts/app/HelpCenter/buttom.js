@@ -25,12 +25,12 @@
         },],
     };	
 
-    var helpButtom = {
+    var components = {
         name: "help-buttom",
         template: html,
         data() {
             return data;
         },
     };
-    return helpButtom
+    return components
 });

@@ -13,8 +13,9 @@ var componentfig = {
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
         'helpContent': 'app/HelpCenter/content',
-        'helpCenter': 'app/HelpCenter/helpCenter',
+        'helpCenter': 'app/HelpCenter/index',
         'SignModule': 'app/Sign/sign',
+        'index-tab': 'app/Home/index-tab',
     },
     commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],
 };
@@ -31,7 +32,7 @@ var FindObjByProp = function (arr, propName, value) {
 
 //路由配置
 var routeconfig = [{
-    name: "helpCenter",
+    name:"helpCenter",
     path: webUrl + 'Page/HelpCenter/index.html',
 }, {
         name: "home",

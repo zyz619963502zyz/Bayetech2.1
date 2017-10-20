@@ -12,7 +12,7 @@ define([], function () {
             </ul >
         </div>`;
 
-    var helpLeft = {
+    var components = {
         props: ['list'],
         name: "help-left",
         template: html,
@@ -23,5 +23,5 @@ define([], function () {
             },
         }
     };
-    return helpLeft;
+    return components;
 });
