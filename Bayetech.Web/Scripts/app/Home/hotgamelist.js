@@ -29,13 +29,12 @@ define([], function () {
     </div>
 </div>`;
 
-    //class="on" "
     var data = {
         type: [{ id: 1, name: "热门网游" }, { id: 2, name: "热门手游" }],
         object: [],
         object1: [{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image:"sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image:"http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "DNF地下城与勇士",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -49,7 +48,7 @@ define([], function () {
                 },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "征途2S",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -63,7 +62,7 @@ define([], function () {
             },]
             },{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "冒险岛2 ",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -77,7 +76,7 @@ define([], function () {
             },]
         },{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "剑侠情缘3",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -91,7 +90,7 @@ define([], function () {
             },]
         },{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "蜀门",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -105,7 +104,7 @@ define([], function () {
             },]
         },{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "DNF地下城与勇士",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -119,7 +118,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "醉逍遥之惊天变",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -135,7 +134,7 @@ define([], function () {
         ],
         object2: [{
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "王者荣耀",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -149,7 +148,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "阴阳师",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -163,7 +162,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "崩滑3 ",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -177,7 +176,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "球球大作战",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -191,7 +190,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "炉石传说",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -205,7 +204,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "命运冠位指定",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
@@ -219,7 +218,7 @@ define([], function () {
             },]
         }, {
             url: "http://search.7881.com/list.html?gameId=G10",
-            image: "sthttp://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
+            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
             name: "穿越火线：枪战王者",
             function: [{
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",

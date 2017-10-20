@@ -1,40 +1,29 @@
-﻿//注册模板
-define("HomeTabBox", ['vue', 'jquery', 'common'], function (vue, $, common) {
-    var html = ` <li style="width:539px">
-                            <h4><img src="value.imgUrl" style="width:190px;height:340px"></img></h4>
-                               <div class ="tabBody" style="display: block;">
-                                    <h2>
-                                        <span>商品类型</span>
-                                        <a: href="item.url" target="_blank">{{item.title }}</a>
-                                        <div class ="shop-type">
-                                            <ul v-for="value in object">
-                                                <li>
-                                                    <a: href="items.url" >{{ items.title }}</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </h2>
-                               </div>
-                               <h2 class ="new-cj-tit"><span>最新成交信息</span></h2>
-                               <div  class ="txtScroll-top">
-                                    <div class="bd">
-                                        <div class ="tempWrap" style="overflow:hidden; position:relative; height:140px">
-                                            <ul v-for="temp in value.temps" class ="infoList" style="height: 448px; position: relative; padding: 0px; margin: 0px; top: -84px;">
-                                                <li  class ="clone" style="height: 28px;">
-                                                     <p>
-                                                     <span>{{temp.name}}</span>
-                                                      {{temp.mation}}
-                                                     </p>
-                                                     <em>
-                                                     <i>{{temp.money}} </i>
-                                                      {{temp.element}}
-                                                     </em>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                               </div>
-                        </li>`
+﻿//广告位1
+define([], function () {
+    var html = `<div class="tabsList-box">
+    <ul class="tabsList">
+        <li class="tit on" style="width: 190px; overflow: hidden;" v-for="item in object">
+            <h4><img @click="javascript:window.open('item.url','_blank')" :src="item.img" width="190" height="340" @focus="showTab()" /></h4>
+            <div class="tabBody">
+                <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
+                <div class="shop-type">
+                    <ul>
+                        <li v-for="type in item.typeList"><a href="type.url" target="_blank">{{type.title}} </a></li>
+                    </ul>
+                </div>
+                <h2 class="new-cj-tit"><span>最新成交信息</span></h2>
+                <div class="txtScroll-top">
+                    <div class="bd">
+                        <ul class="infoList">
+                            <li v-for="trade in item.tradeList"><p><span>{{trade.name}}</span>{{trade.info}}</p><em><i>10</i>元</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>`;
+    //width: 539px;
 
     var data = {
         object: [
@@ -101,13 +90,14 @@ define("HomeTabBox", ['vue', 'jquery', 'common'], function (vue, $, common) {
         ],
     };
 
-    Vue.component('mainAreaBox02', {
-    	name: "hometabox",
-    	template: html,
-    	data() {
-    		return data;
-    	},
-    });
-
-    return homeTabBox;
+    var components = {
+        name: "tabsList-box",
+        data() {
+            return data;
+        },
+        template: html,
+        methods: {
+        }
+    };
+    return components;
 });

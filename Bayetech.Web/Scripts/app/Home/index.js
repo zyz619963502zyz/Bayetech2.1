@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'indexTab', 'convenience', 'hotgamelist', 'banner-box'], function (Vue, $, indexTab, convenience, hotgamelist, bannerBox) {
+require(['vue', 'jquery', 'indexTab', 'convenience', 'hotgamelist', 'banner-box', 'tabsList-box'], function (Vue, $, indexTab, convenience, hotgamelist, bannerBox, tabsListbox) {
     debugger;
     new Vue({
         el: '#app',
@@ -11,6 +11,7 @@ require(['vue', 'jquery', 'indexTab', 'convenience', 'hotgamelist', 'banner-box'
             "convenience": convenience,
             "hot-game-list": hotgamelist,
             "banner-box": bannerBox,
+            "tabslist-box": tabsListbox,
         }
     });
 

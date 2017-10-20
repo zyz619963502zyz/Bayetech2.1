@@ -666,6 +666,7 @@
     <Content Include="Scripts\app\Home\mainArea02.js" />
     <Content Include="Scripts\app\Home\index-tab.js" />
     <Content Include="Scripts\app\Home\slideBox.js" />
+    <Content Include="Scripts\app\Home\tabsList-box.js" />
     <Content Include="Scripts\app\Login\index.js" />
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
