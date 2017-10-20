@@ -13,7 +13,7 @@ var jsconfig = {
         'helpButtom': 'app/HelpCenter/buttom',
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
-        'HomeTabBox': 'app/HomePage/mainArea02'
+        'HomeTabBox': 'app/HomePage/mainArea02',
         'indexTab': 'app/Home/index-tab',
         'convenience': 'app/Home/convenience',
         'hotgamelist': 'app/Home/hotgamelist',
