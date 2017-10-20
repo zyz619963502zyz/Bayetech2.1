@@ -596,12 +596,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
     <Content Include="Page\Home\HomePage.html" />
+    <Content Include="Page\Login\Login.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
     <Content Include="Page\Home\index.html" />
-    <Content Include="Page\Sign\signin.html" />
+    <Content Include="Page\Sign\Signin.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\AllScript\7881-2016.js" />
     <Content Include="Scripts\AllScript\7881.login.popup.js" />
@@ -727,8 +728,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
-    <Folder Include="Page\LoginRegister\" />
-    <Folder Include="Page\Signin\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
   </ItemGroup>

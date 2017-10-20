@@ -23,8 +23,8 @@ namespace Bayetech.Service
                 _account.GamePass = Md5.EncryptString(_account.GamePass);
                 _account.GameUser = "ceshi";
                 _account.itemid = 15;
-                int count = db.Insert(_account);
-                db.Commit();
+                db.Insert(_account);
+                int count = db.Commit();
                 return count > 0 ? true : false;
             }
         }

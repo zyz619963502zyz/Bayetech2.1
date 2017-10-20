@@ -90,7 +90,9 @@ define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
             },
             SubMitSign: function () {
                 common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
-
+                    if (data == true) {
+                        alert("注册成功!");
+                    }
                 });
             }
         }
