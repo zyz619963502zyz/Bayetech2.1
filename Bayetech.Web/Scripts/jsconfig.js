@@ -6,6 +6,8 @@ var jsconfig = {
     paths: {
         'vue': 'vue',
         'jquery': 'jquery-1.10.2.min',
+        'bootstrap': 'bootstrap.min',
+        'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
