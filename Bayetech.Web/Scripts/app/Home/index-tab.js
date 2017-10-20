@@ -1,5 +1,5 @@
 ﻿//首页tab切换
-define("indexTab", ['common'], function (common) {
+define(['common'], function (common) {
     var html = `<div class="index-tab">
         <div class="index-tab-top tab-03">
             <ul class="clearfix">

@@ -1,6 +1,5 @@
 ﻿//热门游戏列表
-define(['common'], function (common) {
-    debugger;
+define([], function () {
     var html = `<div class="hot-game-list">
     <div class="tab-top">
         <ul class="clearfix">
@@ -237,7 +236,7 @@ define(['common'], function (common) {
     }
 
     var components = {
-        name: "index-tab",
+        name: "hotgamelist",
         data() {
             return data;
         },

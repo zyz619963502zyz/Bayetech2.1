@@ -658,11 +658,14 @@
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\app\Home\adv-01.js" />
+    <Content Include="Scripts\app\Home\banner-box.js" />
     <Content Include="Scripts\app\Home\convenience.js" />
     <Content Include="Scripts\app\Home\hotgamelist.js" />
     <Content Include="Scripts\app\Home\index.js" />
     <Content Include="Scripts\app\Home\mainArea02.js" />
     <Content Include="Scripts\app\Home\index-tab.js" />
+    <Content Include="Scripts\app\Home\slideBox.js" />
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
