@@ -48,7 +48,13 @@
 <body>
     <div class="w100">
         <div class="w1190 loginHead clearfix">
-            <a href="#" class="logo l">7881首页</a><span class="l c6"><em class="logoHappy">开心</em>游戏 <em class="logoEase">放心</em>交易</span><div class="logoRight r tr"><a href="#">首页</a><a href="#helpcenter.html">帮助中心</a></div>
+            <a href="#" class="logo l">7881首页</a><span class="l c6">
+                <em class="logoHappy">开心</em>游戏 <em class="logoEase">放心</em>交易
+            </span>
+            <div class="logoRight r tr">
+                <a href="#">首页</a>
+                <a href="#helpcenter.html">帮助中心</a>
+            </div>
         </div>
     </div>
     <div class="w100 rel h600">
@@ -78,28 +84,33 @@
                                             <i class="iptIconInner iconfont">
                                             </i>
                                         </label>
-                                        <input id="username" tabindex="1" name="username" type="text" class="comIpt loginUserIpt" data-error="请输入账号，账号是已验证的手机号或用户名" value="" autocomplete="off" />
+                                        <input id="username" tabindex="1"  placeholder="请输入账号" name="username" type="text" class="comIpt loginUserIpt"/>
                                         <label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont"></i></label>
                                         <!--<p class="placeholder">手机号码/用户名</p>-->
                                     </div>
                                     <div class="passContainer mt20">
                                         <div class="comIptBox">
                                             <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                                            <input id="password_text"  tabindex="2" type="text" class="comIpt loginPwdIpt color9" data-error="请输入密码" onkeydown="enterSearch(event);" autocomplete="off" />
+                                            <input id="password_text"  tabindex="2" type="text" class="comIpt loginPwdIpt color9" placeholder="请输入密码"/>
                                             <label for="" class="comIptIcon IptIconRight loginEye"><i class="loginEyeIcon iconfont" id="showPwd"></i></label>
                                         </div>
                                         <div class="comIptBox hide">
                                             <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                                            <input id="password" name="password" tabindex="2" type="password" class="comIpt loginPwdIpt" data-error="请输入密码" onkeydown="enterSearch(event);" autocomplete="off" />
+                                            <input id="password" name="password" tabindex="2" type="password" class="comIpt loginPwdIpt"/>
                                             <label for="" class="comIptIcon IptIconRight loginEye"><i class="loginEyeIcon iconfont" id="showPwd"></i></label>
                                         </div>
                                     </div>
                                     <div class="checkCodeBox clearfix">
                                         <div class="comIptBox comPureIptBox l">
-                                            <input type="text" class="pureIpt" data-error="请输入验证码" maxlength="4" onkeydown="enterSearch(event);" id="img_valid" name="img_valid" tabindex="4" />
+                                            <input type="text" class="pureIpt"  placeholder="验证码" maxlength="4" />
                                             <!--<p class="placeholder codePlaceholder">验证码</p>-->
                                         </div>
-                                        <div class="codeImgBox l middle"><img src="" class="codeImg middle" alt="" /></div><span class="changeBox r">看不清? <a href="#7881_touristlogin.jsp" class="changeOne">换一张</a></span>
+                                        <div class="codeImgBox l middle">
+                                            <img src="" class="codeImg middle" alt="" />
+                                        </div>
+                                        <span class="changeBox r">
+                                            看不清? <a href="#7881_touristlogin.jsp" class="changeOne">换一张</a>
+                                        </span>
                                     </div>
                                 </s:token>
                             </form>
