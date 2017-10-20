@@ -1,15 +1,24 @@
-﻿require(jsconfig.baseArr, function (Vue, $, left, right) {
-  //登录的数据
-    var data = {
+﻿require(jsconfig.baseArr, function (Vue, $) {
+    var _loginUrl = "/api/Account/LoginIn"
+
+    //登录的数据
+    var _data = {
         GameUser: "",
         GamePass: "",
     }
 
-    var vm = new Vue({
+    new Vue({
         el: '#LoginMain',
-        data: data,
+        data: _data,
         created: function () {
 
+        },
+        methods:{
+            SubmitLogin: function () {
+                postWebJson(_loginUrl, JSON.stringify(this.data), function () {
+                    var a = 1;
+                });
+            }
         }
     });
 });

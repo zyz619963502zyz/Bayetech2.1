@@ -7,5 +7,7 @@ namespace Bayetech.Service
         bool CreatAccount(JObject json);
 
         bool CheckAccount(string account);
+
+        bool LoginIn(JObject json);
     }
 }

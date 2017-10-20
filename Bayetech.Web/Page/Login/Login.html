@@ -3,47 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>登录-装备交易|游戏币交易帐号交易|寄售担保交易|点卡充值|游戏代练-7881.com</title>
-    <meta name="keywords" content="7881，7881.com，dnf地下城与勇士交易平台，地下城与勇士官网，地下城与勇士游戏币，游戏交易平台，网络游戏，游戏币，点卡" />
-    <meta name="description" content="7881是国内最专业dnf地下城与勇士游戏交易平台,提供各种dnf地下城与勇士游戏币，装备，点券信息,欢迎来到dnf地下城与勇士频道" />
+    <title>游戏币服务网站</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <link href="../../Content/CommonCss/common.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/loginReg.css" rel="stylesheet" />
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
-    <script type="text/javascript">
-        function setCookie(name, value) {
-            var argv = setCookie.arguments;
-            var argc = setCookie.arguments.length;
-            var expires = (argc > 2) ? argv[2] : null;
-            if (expires != null) {
-                var LargeExpDate = new Date();
-                LargeExpDate.setTime(LargeExpDate.getTime() + (expires * 1000 * 3600 * 24));
-            }
-            document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + LargeExpDate.toGMTString()));
-        }
-
-        function getCookie(Name) {
-            var search = Name + "=";
-            if (document.cookie.length > 0) {
-                offset = document.cookie.indexOf(search);
-                if (offset != -1) {
-                    offset += search.length;
-                    end = document.cookie.indexOf(";", offset);
-                    if (end == -1) end = document.cookie.length;
-                    return unescape(document.cookie.substring(offset, end));
-                }
-                else return "";
-            }
-        }
-        function enterSearch(event) {
-            var eventObj = event || window.event;
-            if (eventObj.keyCode == 13) {
-                $('#hlkOK').click();
-            }
-        }
-    </script>
+    <script src="../../Scripts/app/Login/index.js"></script>
 </head>
 <body>
     <div class="w100">
@@ -78,7 +45,6 @@
                                 <input type="hidden" name="random" id="random" value="" />
                                 <input type="hidden" name="lbbrowser" id="lbbrowser" value="webbrowser" />
                                 <input type="hidden" name="comeback" value="" />
-                                <s:token>
                                     <div class="comIptBox userIptBox">
                                         <label for="" class="comIptIcon IptIconLeft">
                                             <i class="iptIconInner iconfont">
@@ -112,13 +78,12 @@
                                             看不清? <a href="#7881_touristlogin.jsp" class="changeOne">换一张</a>
                                         </span>
                                     </div>
-                                </s:token>
                             </form>
                         </div>
                         <div class="loginError clearfix hide">
                             <i class="loginErrorIcon iconfont l"></i><span class="loginErrorText"></span>
                         </div>
-                        <a id="hlkOK" class="loginBtn tc" tabindex="5">登&nbsp;&nbsp;&nbsp;录</a>
+                        <a id="hlkOK" @click.prevent="SubmitLogin" class="loginBtn tc" tabindex="5">登&nbsp;&nbsp;&nbsp;录</a>
                         <div class="loginFunction clearfix">
                             <div class="l">
                                 <label for="autoLogin" class="middle"><input type="checkbox" name="" id="autoLogin" class="middle" /><span>自动登录</span></label>
@@ -146,3 +111,37 @@
     </div>
 </body>
 </html>
+
+
+<!--<script type="text/javascript">
+        function setCookie(name, value) {
+            var argv = setCookie.arguments;
+            var argc = setCookie.arguments.length;
+            var expires = (argc > 2) ? argv[2] : null;
+            if (expires != null) {
+                var LargeExpDate = new Date();
+                LargeExpDate.setTime(LargeExpDate.getTime() + (expires * 1000 * 3600 * 24));
+            }
+            document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + LargeExpDate.toGMTString()));
+        }
+
+        function getCookie(Name) {
+            var search = Name + "=";
+            if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search);
+                if (offset != -1) {
+                    offset += search.length;
+                    end = document.cookie.indexOf(";", offset);
+                    if (end == -1) end = document.cookie.length;
+                    return unescape(document.cookie.substring(offset, end));
+                }
+                else return "";
+            }
+        }
+        function enterSearch(event) {
+            var eventObj = event || window.event;
+            if (eventObj.keyCode == 13) {
+                $('#hlkOK').click();
+            }
+        }
+</script>-->

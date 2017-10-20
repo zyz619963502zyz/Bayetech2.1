@@ -55,6 +55,22 @@ namespace Bayetech.Web.Controllers
         }
 
 
+
+        [HttpPost]
+        public bool LoginIn(JObject json)
+        {
+            try
+            {
+                ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+                return service.CreatAccount(json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         //private const string LocalLoginProvider = "Local";
         //private ApplicationUserManager _userManager;
 
@@ -157,7 +173,7 @@ namespace Bayetech.Web.Controllers
 
         //    IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
         //        model.NewPassword);
-            
+
         //    if (!result.Succeeded)
         //    {
         //        return GetErrorResult(result);
@@ -290,7 +306,7 @@ namespace Bayetech.Web.Controllers
         //    if (hasRegistered)
         //    {
         //        Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
+
         //         ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
         //            OAuthDefaults.AuthenticationType);
         //        ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,

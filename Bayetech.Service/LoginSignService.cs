@@ -90,5 +90,10 @@ namespace Bayetech.Service
                 }
             }
         }
+
+        public bool LoginIn(JObject json)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
