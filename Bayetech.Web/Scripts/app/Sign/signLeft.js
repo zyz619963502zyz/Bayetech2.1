@@ -1,8 +1,8 @@
 ﻿//注册模板
 define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    var _CreatAccountUrl = "/api/Query/CreatAccount"; //创建账号
-    var _CheckAccountUrl = "/api/Query/CheckAccount"; //检查账号重复
+    var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
+    var _CheckAccountUrl = "/api/Account/CheckAccount"; //检查账号重复
 
     //左边模板
     var leftHtml = `<div class="regBoxLeft l" template="RegBoxLeft">
@@ -90,7 +90,9 @@ define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
             },
             SubMitSign: function () {
                 common.postWebJson(_CreatAccountUrl, JSON.stringify(this.$props.value), function (data) {
-
+                    if (data == true) {
+                        alert("注册成功!");
+                    }
                 });
             }
         }
