@@ -9,11 +9,12 @@ var jsconfig = {
         'common': 'common',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
-        'SignModule': 'app/Sign/sign',
+        'SignLeftModule': 'app/Sign/signLeft',
+        'SignRightModule': 'app/Sign/signRight',
+        'HomeTabBox': 'app/HomePage/mainArea02'
         'indexTab': 'app/Home/index-tab',
         'convenience': 'app/Home/convenience',
         'hotgamelist': 'app/Home/hotgamelist',
-        'HomeTabBox': 'app/Home/mainArea02',
     }
 };
 require.config(jsconfig);

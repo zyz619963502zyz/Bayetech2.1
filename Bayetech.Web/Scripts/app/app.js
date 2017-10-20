@@ -13,8 +13,9 @@ var componentfig = {
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
         'helpContent': 'app/HelpCenter/content',
-        'helpCenter': 'app/HelpCenter/index',
-        'SignModule': 'app/Sign/sign',
+        'helpCenter': 'app/HelpCenter/helpCenter',
+        'SignLeftModule': 'app/Sign/signLeft',
+        'SignRightModule': 'app/Sign/signRight'
         'index-tab': 'app/Home/index-tab',
     },
     commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],

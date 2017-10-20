@@ -21,6 +21,7 @@ namespace Bayetech.Service
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.First.Path, typeof(Account));
                 _account.GamePass = Md5.EncryptString(_account.GamePass);
+                _account.GameUser = "ceshi";
                 _account.itemid = 15;
                 int count = db.Insert(_account);
                 db.Commit();

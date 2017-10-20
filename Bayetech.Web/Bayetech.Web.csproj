@@ -262,6 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrapValidator.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -595,6 +596,7 @@
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
+    <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -664,7 +666,8 @@
     <Content Include="Scripts\app\Shared\foot.js" />
     <Content Include="Scripts\app\Shared\head.js" />
     <Content Include="Scripts\app\Sign\index.js" />
-    <Content Include="Scripts\app\Sign\sign.js" />
+    <Content Include="Scripts\app\Sign\signRight.js" />
+    <Content Include="Scripts\app\Sign\signLeft.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -690,6 +693,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapValidator.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Content\Images\img_valid.jsp" />
     <Content Include="Configs\Database.config">
