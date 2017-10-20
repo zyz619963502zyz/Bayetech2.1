@@ -20,6 +20,7 @@ var jsconfig = {
         'banner-box': 'app/Home/banner-box',
         'slideBox': 'app/Home/slideBox',
         'adv-01': 'app/Home/adv-01',
+        'tabsList-box':'app/Home/tabsList-box',
     }
 };
 require.config(jsconfig);

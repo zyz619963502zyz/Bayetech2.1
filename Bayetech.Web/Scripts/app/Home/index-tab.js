@@ -21,7 +21,6 @@ define(['common'], function (common) {
         </div>
     </div>`;
 
-    //class="on" "
     var data = {
         noticetype: [{
             id: "78",

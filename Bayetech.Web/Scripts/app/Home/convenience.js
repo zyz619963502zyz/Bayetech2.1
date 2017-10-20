@@ -10,7 +10,6 @@ define("convenience", ['common'], function (common) {
     </ul>
  </div>`;
 
-    //class="on" "
     var data = {
         object: [{
             url: "http://www.7881.com/b2b/buy-G10.html",
