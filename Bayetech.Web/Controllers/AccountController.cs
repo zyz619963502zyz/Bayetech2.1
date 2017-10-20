@@ -16,13 +16,47 @@ using Microsoft.Owin.Security.OAuth;
 using Bayetech.Web.Models;
 using Bayetech.Web.Providers;
 using Bayetech.Web.Results;
+using Bayetech.Service;
+using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Web.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class AccountController : BaseController
     {
+
+        //取出服务层
+        ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+
+        [HttpGet]
+        public bool CheckAccount(string accountName)
+        {
+            try
+            {
+                return service.CheckAccount(accountName);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public bool CreatAccount(JObject json)
+        {
+            try
+            {
+                ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+                return service.CreatAccount(json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
