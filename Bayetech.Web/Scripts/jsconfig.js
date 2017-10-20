@@ -15,7 +15,7 @@ var jsconfig = {
         'SignRightModule': 'app/Sign/signRight',
         'HomeTabBox': 'app/HomePage/mainArea02',
         'indexTab': 'app/Home/index-tab',
-        'convenience': 'app/Home/convenience',
+        'convenience': 'app/Home/convenience', 
         'hotgamelist': 'app/Home/hotgamelist',
     }
 };
