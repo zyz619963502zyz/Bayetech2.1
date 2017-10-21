@@ -17,6 +17,9 @@ var componentfig = {
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
         'index-tab': 'app/Home/index-tab',
+        'ScreenModel': 'app/PointTrading/screen',
+        'PointTradingModel': 'app/PointTrading/pointTradingMiddle'
+       
     },
     commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],
 };

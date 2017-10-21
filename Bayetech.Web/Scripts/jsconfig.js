@@ -2,7 +2,7 @@
 var jsconfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['vue', 'jquery', 'bootstrap', 'bootstrapValidator', 'common'],
+    baseArr: ['vue', 'jquery', 'common', 'bootstrap', 'bootstrapValidator'],
     paths: {
         'vue': 'vue',
         'jquery': 'jquery-1.10.2.min',
@@ -20,7 +20,10 @@ var jsconfig = {
         'banner-box': 'app/Home/banner-box',
         'slideBox': 'app/Home/slideBox',
         'adv-01': 'app/Home/adv-01',
-        'tabsList-box':'app/Home/tabsList-box',
+        'tabsList-box': 'app/Home/tabsList-box',
+        'ScreenModel': 'app/PointTrading/screen',
+        'PointTradingModel': 'app/PointTrading/pointTradingMiddle'
+       
     }
 };
 require.config(jsconfig);
