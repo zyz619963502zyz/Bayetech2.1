@@ -21,6 +21,9 @@ var jsconfig = {
         'slideBox': 'app/Home/slideBox',
         'adv-01': 'app/Home/adv-01',
         'tabsList-box': 'app/Home/tabsList-box',
+        'ScreenModel': 'app/PointTrading/screen',
+        'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
+        'c-tab':"app/Shared/tab",
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
         'ScreenModel': 'app/PointTrading/screen'
        

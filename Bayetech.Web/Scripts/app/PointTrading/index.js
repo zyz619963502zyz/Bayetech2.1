@@ -31,3 +31,5 @@ require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
         }
     });
 });
+
+//{{props.urltext}}

@@ -116,22 +116,7 @@ define([], function () {
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
                 name: "点券",
             },]
-        }, {
-            url: "http://search.7881.com/list.html?gameId=G10",
-            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
-            name: "醉逍遥之惊天变",
-            function: [{
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "金币",
-            }, {
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "账号",
-            }, {
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "点券",
-            },]
-        },
-        ],
+        },],
         object2: [{
             url: "http://search.7881.com/list.html?gameId=G10",
             image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
@@ -216,22 +201,7 @@ define([], function () {
                 url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
                 name: "点券",
             },]
-        }, {
-            url: "http://search.7881.com/list.html?gameId=G10",
-            image: "http://pic.7881.com/7881-2016/images/index/dy_logo/dnf.png",
-            name: "穿越火线：枪战王者",
-            function: [{
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "金币",
-            }, {
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "账号",
-            }, {
-                url: "http://search.7881.com/list.html?gameId=G10&gtid=100001",
-                name: "点券",
-            },]
-        },
-        ],
+        }, ],
     }
 
     var components = {
