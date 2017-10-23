@@ -13,6 +13,15 @@
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/Home/index.js"></script>
+    <style>
+        .tabsList-show {
+            width: 539px;
+        }
+        .tabsList-hide {
+            width: 190px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -272,7 +281,10 @@
                         <a href="http://www.7881.com/gamelistshow.html">我要买</a>
                         <a onclick="javascript:checkLogin();" href="javascript:void(0);" class="sale-btn">我要卖</a>
                     </div>
-                    <Index-Tab></Index-Tab>
+                    <c-tab :data="tab1">
+                        <a slot-scope="props" :href="props.obj.url" target="_blank" >{{ props.obj.title}}</a>
+                    </c-tab>
+                    <!--<Index-Tab></Index-Tab>:href="obj.htmlurl" target="_blank"-->
                     <convenience></convenience>
                     <div class="qq-yz">
                         <label class="placeholder"><input type="text" class="qq-input onlynum" id="qq_number" /><span>输入客服QQ，验证真假</span></label><a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
