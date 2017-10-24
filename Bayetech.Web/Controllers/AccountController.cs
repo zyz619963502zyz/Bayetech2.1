@@ -70,7 +70,6 @@ namespace Bayetech.Web.Controllers
             }
         }
 
-
         //private const string LocalLoginProvider = "Local";
         //private ApplicationUserManager _userManager;
 

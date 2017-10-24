@@ -1,5 +1,5 @@
 ﻿//帮助中心主模块
-define(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function () {
+define(['vue', 'jquery', 'common', 'helpLeft', 'helpButtom', 'helpContent'], function () {
     let html = `<div class="center">
             <help-left :list="articleList" :view="view"></help-left>
             <div class="help_right">
@@ -47,7 +47,7 @@ define(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'he
             },
         },
     };
-    for (let i = 4; i < arguments.length; i++) {
+    for (let i = 2; i < arguments.length; i++) {
         components["components"][arguments[i].name] = arguments[i];
     }
     return components;

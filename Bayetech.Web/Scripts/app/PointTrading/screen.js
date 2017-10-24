@@ -1,5 +1,6 @@
 ﻿define("ScreenModel", jsconfig.baseArr, function (Vue, $, common) {
-    var screenHtml = ` <div  template="RegBoxTop">
+    //alert(3);
+    var screenHtml = ` <div>
             <div class="slobar-01 clearfix">
                 <div class="list-sort">
                     <ul class="clearfix">
@@ -17,7 +18,6 @@
                                 <a class="link prev disab" title="上一页" href="javascript:void(0);">
                                     <span class="icon icon-btn-prev-1"></span>
                                 </a>
-
                             </li>
                             <li class="item"><span class="current">1</span>/<span class="pages">10</span></li>
                             <li class="item">
@@ -46,8 +46,9 @@
                 </div>
             </div>
         </div>`
+
     var screenComponent = {
-        props: ['value'],
+        //props: ['value'],
         template:screenHtml
     };
 

@@ -276,6 +276,7 @@
             <i> &gt; </i>
 
         </div>
+
         <div class="screen-box">
             <div class="screen-tit">
                 <div class="l"><b>商品筛选</b><span>共找到<em>392</em>个商品</span></div>
@@ -600,10 +601,11 @@
                 </div>
             </div>
         </div>
-        <RegBoxTop></RegBoxTop>
-        <div class="list-box list-type-03">
-            <RegBoxMiddle></RegBoxMiddle>
-        </div>
+
+        <RegBoxTop v-bind:value="Screenobject" ></RegBoxTop>
+
+        <RegBoxMiddle v-bind:value="PointTradingobiect"></RegBoxMiddle>
+        
         ﻿<div class="float-adv" style="display: block">
             <div class="function-adv" style="display: none">
                 <h2 class="out-tit"></h2>

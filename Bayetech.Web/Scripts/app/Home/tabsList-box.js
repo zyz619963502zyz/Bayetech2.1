@@ -1,10 +1,10 @@
 ﻿//广告位1
-define([], function () {
+define(['jquery'], function ($) {
     var html = `<div class="tabsList-box">
     <ul class="tabsList">
-        <li class="tit on" style="width: 190px; overflow: hidden;" v-for="item in object">
-            <h4><img @click="javascript:window.open('item.url','_blank')" :src="item.img" width="190" height="340" @focus="showTab()" /></h4>
-            <div class="tabBody">
+        <li class="tit on" v-for="item in object" style="width: 190px; overflow: hidden;">
+            <h4><img :src="item.img" width="190" height="340" @click="showTab(e)"/></h4>
+            <div class="tabBody" >
                 <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
                 <div class="shop-type">
                     <ul>
@@ -23,13 +23,14 @@ define([], function () {
         </li>
     </ul>
 </div>`;
-    //width: 539px;
+    //width: 539px; @click="javascript:window.open('item.url','_blank')" width: 190px; overflow: hidden;
 
     var data = {
+        asd:"11",
         object: [
             {
                 name: "地下城与勇士",
-                img: "../../Content/Images/pic-01.jpg",
+                img: "../../Content/Images/pic-01.jpg1",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -49,7 +50,7 @@ define([], function () {
             },
             {
                 name: "剑侠情缘3",
-                img: "../../Content/Images/pic-03.jpg",
+                img: "../../Content/Images/pic-03.jpg1",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -69,7 +70,7 @@ define([], function () {
             },
             {
                 name: "王者荣耀",
-                img: "../../Content/Images/pic-04.jpg",
+                img: "../../Content/Images/pic-04.jpg1",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -88,6 +89,11 @@ define([], function () {
                 ],
             },
         ],
+        show:false ,
+        hide: true,
+        tabObject: {
+
+        },
     };
 
     var components = {
@@ -97,6 +103,17 @@ define([], function () {
         },
         template: html,
         methods: {
+            showTab(e) {
+                debugger;
+                this.show = !this.show;
+                this.hide = !this.hide;
+                //$(this).siblings("li").removeClass("on").stop().animate({
+                //    width: "190px"
+                //}, 250);
+                //$(this).addClass("on").stop().animate({
+                //    width: "538px"
+                //}, 250);
+            }
         }
     };
     return components;
