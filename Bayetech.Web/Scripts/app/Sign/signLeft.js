@@ -82,7 +82,7 @@ define("SignLeftModule", jsconfig.baseArr, function (Vue, $, common) {
                 value.GamePassAgain = this.$refs.GamePassAgain.value;
             },
             CheckAccount: function () {
-                common.getWebJson(_CheckAccountUrl, { accountName: "123456" }, function (data) {
+                common.getWebJson(_CheckAccountUrl, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
                         alert("该账号已经存在，不可重复注册!");
                     }
