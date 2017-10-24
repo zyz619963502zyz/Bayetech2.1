@@ -2,16 +2,15 @@
     var _loginUrl = "/api/Account/LoginIn"
 
     //登录的数据
-    //var _data = {
-    //    GameUser: "",
-    //    GamePass: "",
-    //}
+    data: {
+        GameUser: "1111"
+        GamePass: "2222"
+     }
 
     new Vue({
         el: '#LoginMain',
-        data: {
-            GameUser: "1111",
-            GamePass: "2222",
+        data:function(){
+            return data;
         },
         methods:{
             SubmitLogin: function () {
