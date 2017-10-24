@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="BayetechModel.View_ArticleInfo" Width="1.5" PointX="6.75" PointY="6.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.GameRequirements" Width="1.5" PointX="9.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
