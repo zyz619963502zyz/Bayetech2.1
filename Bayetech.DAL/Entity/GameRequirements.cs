@@ -12,15 +12,13 @@ namespace Bayetech.DAL.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class GameRequirements
     {
-        public long logid { get; set; }
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
-        public Nullable<byte> admin { get; set; }
-        public string LoginIp { get; set; }
-        public Nullable<System.DateTime> logintime { get; set; }
-        public string message { get; set; }
-        public string agent { get; set; }
+        public int Id { get; set; }
+        public string ScreenshotsCertification { get; set; }
+        public string PlatformUndertakes { get; set; }
+        public string GameArea { get; set; }
+        public string AccountSecurity { get; set; }
+        public Nullable<decimal> Money { get; set; }
     }
 }

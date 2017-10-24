@@ -79,6 +79,9 @@
     <Compile Include="Entity\Category.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\GameRequirements.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Login.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
