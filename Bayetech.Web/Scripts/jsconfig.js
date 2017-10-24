@@ -2,12 +2,12 @@
 var jsconfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['vue', 'jquery', 'common', 'bootstrap', 'bootstrapValidator'],
+    baseArr: ['jquery','vue','common'],
     paths: {
-        'vue': 'vue',
         'jquery': 'jquery-1.10.2.min',
-        'bootstrap': 'bootstrap.min',
-        'bootstrapValidator': 'bootstrapValidator',
+        'vue': 'vue',
+        //'bootstrap': 'bootstrap.min',
+        //'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
@@ -24,10 +24,7 @@ var jsconfig = {
         'ScreenModel': 'app/PointTrading/screen',
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
         'c-tab':"app/Shared/tab",
-        'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
         'ScreenModel': 'app/PointTrading/screen'
-       
-       
     }
 };
 require.config(jsconfig);
