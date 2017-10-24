@@ -54,8 +54,6 @@ namespace Bayetech.Web.Controllers
             }
         }
 
-
-
         [HttpPost]
         public bool LoginIn(JObject json)
         {
