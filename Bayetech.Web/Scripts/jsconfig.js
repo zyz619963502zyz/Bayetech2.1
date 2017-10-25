@@ -14,7 +14,7 @@ var jsconfig = {
         'footer-server': 'app/Shared/footer-server',
         'footer-nav': 'app/Shared/footer-nav',
         'helpLeft': 'app/HelpCenter/left',
-        'helpButtom': 'app/HelpCenter/buttom',
+        'helpButtom': 'app/HelpCenter/bottom',
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
         'HomeTabBox': 'app/HomePage/mainArea02',
