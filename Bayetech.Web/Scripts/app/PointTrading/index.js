@@ -1,7 +1,9 @@
 ﻿//模块之间的操作
 var PointTradingModule = ['vue', 'jquery','common', 'ScreenModel', 'PointTradingModel']
 //alert(1);
-require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
+require(PointTradingModule, function (Vue, $,common, mediacy, tabuiation) {
+    //Api
+    let findListUrl = "/api/PointTrading/GameRequirementsList"; //查询列表
     //筛选和列表整合数据
     var data = {
         //注册筛选
@@ -29,8 +31,8 @@ require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
         methods: {
             findList() {
                 let nowVue = this;
-                common.getWebJson(findListUrl, { value: "23" }, function (data) {
-                    nowVue.articleList = data;
+                common.getWebJson(findListUrl, { value: 23 }, function (data) {
+                    nowVue.PointTradingobiect = data;
                 });
             }
         },
