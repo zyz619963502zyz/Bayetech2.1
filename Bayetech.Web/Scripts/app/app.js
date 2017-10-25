@@ -9,7 +9,7 @@ var componentfig = {
         'jquery': 'jquery-1.10.2.min',
         'common': 'common',
         'head': 'app/Shared/head',
-        'foot': 'app/Shared/foot',
+        'footer': 'app/Shared/footer',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
         'helpContent': 'app/HelpCenter/content',
@@ -21,7 +21,7 @@ var componentfig = {
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle'
        
     },
-    commonComponent: ['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft'],
+    commonComponent: ['vue', 'jquery', 'common', 'head', 'footer', 'helpLeft'],
 };
 require.config(componentfig);
 
@@ -46,7 +46,7 @@ var routeconfig = [{
 //routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
 //需要组件
-let componentArr = ['vue', 'jquery', 'common', 'head', 'foot'];
+let componentArr = ['vue', 'jquery', 'common', 'head', 'footer'];
 let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
 //let component = routeconfig[window.document.location.pathname];
 componentArr.push(component);
@@ -57,11 +57,11 @@ require(componentArr, function () {
     let $ = arguments[1];
     let common = arguments[2];
     let head = arguments[3];
-    let foot = arguments[4];
+    let footer = arguments[4];
     let component = arguments[5];
 
     Vue.component('main-head', head);
-    Vue.component('main-foot', foot);
+    Vue.component('main-foot', footer);
 
     let app = new Vue({
         components: { "v-view": component}

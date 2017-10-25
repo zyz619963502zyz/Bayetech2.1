@@ -1,7 +1,7 @@
 ﻿//通用tab
 define(['common'], function (common) {
-    var html = `<div class="index-tab">
-        <div class="index-tab-top tab-03">
+    var html = `<div class="index-tab" :class="data.boxclass">
+        <div class="index-tab-top" :class="typeclass">
             <ul class="clearfix">
                 <li v-for="item in data.type">
                    <a target="_blank"  @click="switchtab(item.id)">{{item.name}}</a>
@@ -10,7 +10,7 @@ define(['common'], function (common) {
         </div>
         <div class="index-tab-bot">
             <div class="index-tab-item" >
-                <div :class="data.boxstyle">
+                <div :class="data.cententclass">
                     <ul>
                         <li v-for="item in list">
                            <slot :obj="item"></slot>
@@ -22,15 +22,14 @@ define(['common'], function (common) {
     </div>`;
     //gg-box qa-box deal-top-box <a :href="item.htmlurl" target="_blank">{{item.urltext}}</a> <slot name="centent" :obj="item"></slot>
 
-    var data = {
-        list: {},
-    };
-
     var components = {
         name: "tab",
         props: ['data'],
         data() {
-            return data;
+            return {
+                typeclass: "tab-0" + this.data.type.length,
+                list: {},
+            };
         },
         created() {
             this.switchtab(this.data.default);

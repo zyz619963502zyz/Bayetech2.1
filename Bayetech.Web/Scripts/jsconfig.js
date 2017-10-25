@@ -9,6 +9,10 @@ var jsconfig = {
         'bootstrap': 'bootstrap.min',
         'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
+        'head': 'app/Shared/head',
+        'c-footer': 'app/Shared/footer',
+        'footer-server': 'app/Shared/footer-server',
+        'footer-nav': 'app/Shared/footer-nav',
         'helpLeft': 'app/HelpCenter/left',
         'helpButtom': 'app/HelpCenter/buttom',
         'SignLeftModule': 'app/Sign/signLeft',
@@ -23,7 +27,11 @@ var jsconfig = {
         'tabsList-box': 'app/Home/tabsList-box',
         'ScreenModel': 'app/PointTrading/screen',
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
-        'c-tab':"app/Shared/tab",
+        'c-tab': "app/Shared/tab",
+        'v-gameranking': "app/Home/v-gameranking",
+        'index-adv': "app/Home/index-adv",
+        'mgame-list': "app/Home/mgame-list",
+        'partner': "app/Home/partner",
     }
 };
 require.config(jsconfig);
