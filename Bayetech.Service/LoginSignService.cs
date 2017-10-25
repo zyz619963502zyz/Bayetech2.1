@@ -23,6 +23,7 @@ namespace Bayetech.Service
                 _account.GamePass = Md5.EncryptString(_account.GamePass);
                 _account.GameUser = _account.iphone;
                 _account.itemid = 15;
+                _account.EnableMark = true;
                 db.Insert(_account);
                 int count = db.Commit();
                 return count > 0 ? true : false;
@@ -96,11 +97,6 @@ namespace Bayetech.Service
                 }
                 return result;
             }
-        }
-
-        public bool LoginIn(JObject json)
-        {
-            throw new NotImplementedException();
         }
     }
 }
