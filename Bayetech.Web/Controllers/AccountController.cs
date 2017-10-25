@@ -29,7 +29,6 @@ namespace Bayetech.Web.Controllers
         {
             try
             {
-                ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
                 return service.CreatAccount(json);
             }
             catch (Exception ex)
@@ -39,12 +38,11 @@ namespace Bayetech.Web.Controllers
         }
 
         [HttpPost]
-        public bool LoginIn(JObject json)
+        public JObject LoginIn(JObject json)
         {
             try
             {
-                ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
-                return service.CreatAccount(json);
+                return service.CheckLogin(json);
             }
             catch (Exception ex)
             {

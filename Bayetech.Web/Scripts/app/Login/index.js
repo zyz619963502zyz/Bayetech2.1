@@ -2,9 +2,9 @@
     var _loginUrl = "/api/Account/LoginIn"
 
     //登录的数据
-    data: {
-        GameUser: "1111"
-        GamePass: "2222"
+     var data = {
+        GameUser:"1111",
+        GamePass:"2222"
      }
 
     new Vue({
@@ -14,8 +14,8 @@
         },
         methods:{
             SubmitLogin: function () {
-                common.postWebJson(_loginUrl, JSON.stringify(this.data), function (data) {
-                    alert(data == true ? "登录成功" : "账号或密码错误!");
+                common.postWebJson(_loginUrl, JSON.stringify(this.$data), function (data) {
+                    alert(data.content);
                 });
             }
         }
