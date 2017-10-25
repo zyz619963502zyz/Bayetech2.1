@@ -2,12 +2,12 @@
 var jsconfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['vue', 'jquery', 'common', 'bootstrap', 'bootstrapValidator'],
+    baseArr: ['jquery','vue','common'],
     paths: {
-        'vue': 'vue',
         'jquery': 'jquery-1.10.2.min',
-        'bootstrap': 'bootstrap.min',
-        'bootstrapValidator': 'bootstrapValidator',
+        'vue': 'vue',
+        //'bootstrap': 'bootstrap.min',
+        //'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
         'head': 'app/Shared/head',
         'c-footer': 'app/Shared/footer',
@@ -32,6 +32,8 @@ var jsconfig = {
         'index-adv': "app/Home/index-adv",
         'mgame-list': "app/Home/mgame-list",
         'partner': "app/Home/partner",
+        'c-tab':"app/Shared/tab",
+        'ScreenModel': 'app/PointTrading/screen'
     }
 };
 require.config(jsconfig);

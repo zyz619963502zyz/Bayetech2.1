@@ -102,13 +102,24 @@
           <Property Name="group_add" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="img" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="GameRequirements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScreenshotsCertification" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlatformUndertakes" Type="nvarchar" MaxLength="60" />
+          <Property Name="GameArea" Type="nvarchar" MaxLength="20" />
+          <Property Name="AccountSecurity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Money" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="logid" />
           </Key>
           <Property Name="logid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="admin" Type="tinyint" />
           <Property Name="loginip" Type="nvarchar" MaxLength="50" />
           <Property Name="logintime" Type="datetime" />
@@ -204,6 +215,7 @@
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Module" EntityType="Self.Module" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -274,6 +286,7 @@
           <EntitySet Name="View_ArticleInfo" EntityType="BayetechModel.View_ArticleInfo" />
           <EntitySet Name="vw_LoginInfo" EntityType="BayetechModel.vw_LoginInfo" />
           <EntitySet Name="Account" EntityType="BayetechModel.Account" />
+          <EntitySet Name="GameRequirements" EntityType="BayetechModel.GameRequirements" />
         </EntityContainer>
         <EntityType Name="Article">
           <Key>
@@ -324,7 +337,7 @@
           </Key>
           <Property Name="logid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="admin" Type="Byte" />
           <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="logintime" Type="DateTime" Precision="3" />
@@ -462,6 +475,17 @@
           <Property Name="security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="EnableMark" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GameRequirements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenshotsCertification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlatformUndertakes" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="GameArea" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AccountSecurity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Money" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -641,6 +665,18 @@
                 <ScalarProperty Name="GameUser" ColumnName="game_user" />
                 <ScalarProperty Name="itemid" ColumnName="itemid" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameRequirements">
+            <EntityTypeMapping TypeName="BayetechModel.GameRequirements">
+              <MappingFragment StoreEntitySet="GameRequirements">
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="AccountSecurity" ColumnName="AccountSecurity" />
+                <ScalarProperty Name="GameArea" ColumnName="GameArea" />
+                <ScalarProperty Name="PlatformUndertakes" ColumnName="PlatformUndertakes" />
+                <ScalarProperty Name="ScreenshotsCertification" ColumnName="ScreenshotsCertification" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

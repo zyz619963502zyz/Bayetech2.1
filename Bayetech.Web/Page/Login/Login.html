@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <link href="../../Content/CommonCss/common.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/loginReg.css" rel="stylesheet" />
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/Login/index.js"></script>
@@ -50,14 +49,14 @@
                                             <i class="iptIconInner iconfont">
                                             </i>
                                         </label>
-                                        <input id="username" :value="GameUser" tabindex="1"  placeholder="请输入账号" name="username" type="text" class="comIpt loginUserIpt"/>
-                                        <label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont"></i></label>
+                                        <input id="username"  v-model="GameUser" tabindex="1"  placeholder="请输入账号" name="username" type="text" class="comIpt loginUserIpt"/>
+                                        <label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont">账号错误！</i></label>
                                         <!--<p class="placeholder">手机号码/用户名</p>-->
                                     </div>
                                     <div class="passContainer mt20">
                                         <div class="comIptBox">
                                             <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                                            <input id="password_text"  :value="GamePass" tabindex="2" type="text" class="comIpt loginPwdIpt color9" placeholder="请输入密码"/>
+                                            <input id="password_text"  v-model="GamePass" tabindex="2" type="text" class="comIpt loginPwdIpt color9" placeholder="请输入密码"/>
                                             <label for="" class="comIptIcon IptIconRight loginEye"><i class="loginEyeIcon iconfont" id="showPwd"></i></label>
                                         </div>
                                         <div class="comIptBox hide">
@@ -111,37 +110,3 @@
     </div>
 </body>
 </html>
-
-
-<!--<script type="text/javascript">
-        function setCookie(name, value) {
-            var argv = setCookie.arguments;
-            var argc = setCookie.arguments.length;
-            var expires = (argc > 2) ? argv[2] : null;
-            if (expires != null) {
-                var LargeExpDate = new Date();
-                LargeExpDate.setTime(LargeExpDate.getTime() + (expires * 1000 * 3600 * 24));
-            }
-            document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + LargeExpDate.toGMTString()));
-        }
-
-        function getCookie(Name) {
-            var search = Name + "=";
-            if (document.cookie.length > 0) {
-                offset = document.cookie.indexOf(search);
-                if (offset != -1) {
-                    offset += search.length;
-                    end = document.cookie.indexOf(";", offset);
-                    if (end == -1) end = document.cookie.length;
-                    return unescape(document.cookie.substring(offset, end));
-                }
-                else return "";
-            }
-        }
-        function enterSearch(event) {
-            var eventObj = event || window.event;
-            if (eventObj.keyCode == 13) {
-                $('#hlkOK').click();
-            }
-        }
-</script>-->

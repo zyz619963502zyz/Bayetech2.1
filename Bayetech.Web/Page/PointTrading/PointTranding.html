@@ -276,6 +276,7 @@
             <i> &gt; </i>
 
         </div>
+
         <div class="screen-box">
             <div class="screen-tit">
                 <div class="l"><b>商品筛选</b><span>共找到<em>392</em>个商品</span></div>
@@ -600,10 +601,11 @@
                 </div>
             </div>
         </div>
-        <RegBoxTop></RegBoxTop>
-        <div class="list-box list-type-03">
-            <RegBoxMiddle></RegBoxMiddle>
-        </div>
+
+        <RegBoxTop v-bind:value="Screenobject" ></RegBoxTop>
+
+        <RegBoxMiddle v-bind:value="PointTradingobiect"></RegBoxMiddle>
+        
         ﻿<div class="float-adv" style="display: block">
             <div class="function-adv" style="display: none">
                 <h2 class="out-tit"></h2>
@@ -667,14 +669,5 @@
             <p>Copyright <i>©</i> 2008-2014 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a></p>
         </div>
     </div>
-    <!-- 通用底部 End -->
-    <script src="../../Scripts/AllScript/jquery-1.8.3.min.js"></script>
-    <script src="../../Scripts/AllScript/7881-2016.js"></script>
-    <script src="../../Scripts/AllScript/game_base_info.js"></script>
-    <script src="../../Scripts/AllScript/search-suggest.js"></script>
-    <script src="../../Scripts/AllScript/list.js"></script>
-    <script src="../../Scripts/AllScript/float-menu.js"></script>
-    <script src="../../Scripts/AllScript/jquery.easing.min.js"></script>
-    <script src="../../Scripts/AllScript/popup.js"></script>
 </body>
 </html>

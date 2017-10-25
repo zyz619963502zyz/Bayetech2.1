@@ -248,6 +248,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -745,6 +746,7 @@
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
+    <Folder Include="Views\PointTrading\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resource\fonts\glyphicons-halflings-regular.woff" />

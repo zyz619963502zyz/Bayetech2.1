@@ -1,5 +1,6 @@
 ﻿//模块之间的操作
-var PointTradingModule = ['vue', 'jquery', 'ScreenModel', 'PointTradingModel']
+var PointTradingModule = ['vue', 'jquery','common', 'ScreenModel', 'PointTradingModel']
+//alert(1);
 require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
     //筛选和列表整合数据
     var data = {
@@ -8,9 +9,8 @@ require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
 
         },
         //注册列表
-        PointTradingobiect: {
-
-        }
+        PointTradingobiect: [
+        ]
     }
 
     //注册主键到标签
@@ -23,8 +23,17 @@ require(PointTradingModule, function (Vue, $, mediacy, tabuiation) {
             return data;
         },
         created: function () {
-
-        }
+            this.findList();
+        },
+        nowVue: this,
+        methods: {
+            findList() {
+                let nowVue = this;
+                common.getWebJson(findListUrl, { value: "23" }, function (data) {
+                    nowVue.articleList = data;
+                });
+            }
+        },
     });
 });
 

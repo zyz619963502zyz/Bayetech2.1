@@ -48,6 +48,8 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<Account> Account { get; set; }
 
+    public virtual DbSet<GameRequirements> GameRequirements { get; set; }
+
 }
 
 }

@@ -54,6 +54,7 @@
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ILoginSignService.cs" />
     <Compile Include="LoginSignService.cs" />
+    <Compile Include="Model\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBase.cs" />
   </ItemGroup>
