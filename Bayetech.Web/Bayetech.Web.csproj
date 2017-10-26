@@ -262,11 +262,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrapValidator.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrapValidator.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
     <Content Include="Content\CommonCss\7881.common.css" />
@@ -292,6 +292,7 @@
     <Content Include="Content\CommonCss\shouyou-7881.css" />
     <Content Include="Content\CommonCss\shouyou-index.css" />
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
+    <Content Include="Content\helpcenter.css" />
     <Content Include="Content\Images\001.jpg" />
     <Content Include="Content\Images\002.jpg" />
     <Content Include="Content\Images\003.jpg" />
