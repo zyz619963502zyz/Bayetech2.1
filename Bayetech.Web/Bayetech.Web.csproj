@@ -746,6 +746,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\fonts\" />
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
