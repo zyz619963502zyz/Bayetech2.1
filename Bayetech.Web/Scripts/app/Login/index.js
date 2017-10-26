@@ -1,11 +1,13 @@
-﻿require(jsconfig.baseArr, function ($, Vue, common) {
+﻿jsconfig.baseArr.push("bootstrap");
+jsconfig.baseArr.push("bootstrapValidator");
+require(jsconfig.baseArr, function ($, Vue, common) {
     var _loginUrl = "/api/Account/LoginIn"
 
     //登录的数据
-     var data = {
-        GameUser:"1111",
-        GamePass:"2222"
-     }
+    var data = {
+    GameUser:"",
+    GamePass:""
+    }
 
     new Vue({
         el: '#LoginMain',
@@ -21,3 +23,4 @@
         }
     });
 });
+

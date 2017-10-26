@@ -4,9 +4,9 @@ var jsconfig = {
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
     baseArr: ['jquery','vue','common'],
     paths: {
-        'jquery': 'jquery-1.10.2.min',
+        'jquery': 'jquery-1.10.2',
         'vue': 'vue',
-        //'bootstrap': 'bootstrap.min',
+        //'bootstrap': 'bootstrap',
         //'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
         'head': 'app/Shared/head',
@@ -34,6 +34,18 @@ var jsconfig = {
         'partner': "app/Home/partner",
         'c-tab':"app/Shared/tab",
         'ScreenModel': 'app/PointTrading/screen'
+    },
+    shim: {
+        'jquery': {
+            exports: 'jquery'
+        },
+        'bootstrap': {
+            deps: ['jquery']
+        },
+        'bootstrapValidator': {
+            deps: ['bootstrap'],
+            //exports: 'bootstrapValidator'
+        }
     }
 };
 require.config(jsconfig);

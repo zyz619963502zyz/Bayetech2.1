@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0041)#7881_touristlogin.jsp -->
+<!-- saved from url=(0041)#_touristlogin.jsp -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -7,106 +7,189 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <link href="../../Content/CommonCss/common.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/loginReg.css" rel="stylesheet" />
-    <script src="../../Scripts/require.js"></script>
+
+    <link href="../../Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap/bootstrapValidator.css" rel="stylesheet" />
+
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/bootstrapValidator.js"></script>
+
+
+    <!--<script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
-    <script src="../../Scripts/app/Login/index.js"></script>
+    <script src="../../Scripts/app/Login/index.js"></script>-->
 </head>
 <body>
-    <div class="w100">
-        <div class="w1190 loginHead clearfix">
-            <a href="#" class="logo l">7881首页</a><span class="l c6">
-                <em class="logoHappy">开心</em>游戏 <em class="logoEase">放心</em>交易
-            </span>
-            <div class="logoRight r tr">
-                <a href="#">首页</a>
-                <a href="#helpcenter.html">帮助中心</a>
-            </div>
-        </div>
-    </div>
-    <div class="w100 rel h600">
-        <div id="loginPageLogoLinkUrl" class="loginBody">
-            <div class="w1190 clearfix rel">
-                <!-- 登陆框可点区域开始 -->
-                <div class="loginLeft l">
-                    <a class="loginLeftLink" target="_blank"></a>
-                </div>
-                <!-- 登陆框可点区域结束 -->
-                <div id="LoginMain" class="loginRight r" style="height: auto;padding-bottom: 12px;">
-                    <div class="loginBox">
-                        <div class="loginTitle clearfix">
-                            <h1 class="l c3">用户登录</h1>
-                            <div class="loginReg r">
-                                <a href="#reg_tel.jsp" class="noAccount">还没有7881账号? </a><a href="#" class="loginRegLink" target="_blank">10秒注册</a>
-                            </div>
-                        </div>
-                        <div class="loginMain">
-                            <form id="loginForm" method="post">
-                                <input type="hidden" name="random" id="random" value="" />
-                                <input type="hidden" name="lbbrowser" id="lbbrowser" value="webbrowser" />
-                                <input type="hidden" name="comeback" value="" />
-                                    <div class="comIptBox userIptBox">
-                                        <label for="" class="comIptIcon IptIconLeft">
-                                            <i class="iptIconInner iconfont">
-                                            </i>
-                                        </label>
-                                        <input id="username"  v-model="GameUser" tabindex="1"  placeholder="请输入账号" name="username" type="text" class="comIpt loginUserIpt"/>
-                                        <label for="" class="comIptIcon IptIconRight hide delIcon"><i class="iptIconInner iconfont">账号错误！</i></label>
-                                        <!--<p class="placeholder">手机号码/用户名</p>-->
-                                    </div>
-                                    <div class="passContainer mt20">
-                                        <div class="comIptBox">
-                                            <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                                            <input id="password_text"  v-model="GamePass" tabindex="2" type="text" class="comIpt loginPwdIpt color9" placeholder="请输入密码"/>
-                                            <label for="" class="comIptIcon IptIconRight loginEye"><i class="loginEyeIcon iconfont" id="showPwd"></i></label>
-                                        </div>
-                                        <div class="comIptBox hide">
-                                            <label for="" class="comIptIcon IptIconLeft"><i class="iptIconInner iconfont"></i></label>
-                                            <input id="password" name="password" tabindex="2" type="password" class="comIpt loginPwdIpt"/>
-                                            <label for="" class="comIptIcon IptIconRight loginEye"><i class="loginEyeIcon iconfont" id="showPwd"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="checkCodeBox clearfix">
-                                        <div class="comIptBox comPureIptBox l">
-                                            <input type="text" class="pureIpt"  placeholder="验证码" maxlength="4" />
-                                            <!--<p class="placeholder codePlaceholder">验证码</p>-->
-                                        </div>
-                                        <div class="codeImgBox l middle">
-                                            <img src="" class="codeImg middle" alt="" />
-                                        </div>
-                                        <span class="changeBox r">
-                                            看不清? <a href="#7881_touristlogin.jsp" class="changeOne">换一张</a>
-                                        </span>
-                                    </div>
-                            </form>
-                        </div>
-                        <div class="loginError clearfix hide">
-                            <i class="loginErrorIcon iconfont l"></i><span class="loginErrorText"></span>
-                        </div>
-                        <a id="hlkOK" @click.prevent="SubmitLogin" class="loginBtn tc" tabindex="5">登&nbsp;&nbsp;&nbsp;录</a>
-                        <div class="loginFunction clearfix">
-                            <div class="l">
-                                <label for="autoLogin" class="middle"><input type="checkbox" name="" id="autoLogin" class="middle" /><span>自动登录</span></label>
-                            </div>
-                            <a href="#user/toGetPassword.action" class="loginForgotPwd">忘记密码</a>
-                        </div>
-                        <div class="otherLogin">
-                            <div class="rel"><div class="loginLine"></div><h2 class="otherLoginText">你也可以使用以下账号登录</h2></div>
-                        </div>
-                        <ul class="socialIconBox clearfix">
-                            <li><a title="使用360账户登录" href="http://www.7881.com/connect/qh360New/login" class="socialIconItem socialIcon360 iconfont"></a></li>
-                            <li><a title="使用支付宝账户登录" href="http://www.7881.com/alipayapi.jsp" class="socialIconItem socialIconAli iconfont"></a></li>
-                            <li><a title="使用QQ账户登录" href="http://www.7881.com/connect/qq/login" class="socialIconItem socialIconQQ iconfont"></a></li>
-                            <li><a title="使用YY账户登录" href="http://www.7881.com/connect/yy/login" class="socialIconItem socialIconYY iconfont"></a></li>
-                        </ul>
+    <div class="container">
+        <div class="row">
+            <!-- form: -->
+            <section>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="page-header">
+                        <h2>Customizing errors</h2>
                     </div>
+
+                    <form id="defaultForm" method="post" class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Full name</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="firstName" placeholder="First name" />
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Username</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="username" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email address</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="email" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-5">
+                                <input type="password" class="form-control" name="password" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Gender</label>
+                            <div class="col-lg-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="male" /> Male
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="female" /> Female
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="other" /> Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group hide">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <ul id="errors"></ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary">Sign up</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </section>
+            <!-- :form -->
         </div>
     </div>
-    <div class="loginFoot w1190 tc">
-        <p class="loginFootLine1 c6">© 2016-2018  7881.com 游戏交易平台版权所有   网络文化经营许可证：苏网文[2015]2034-038号  网站备案-苏B1-20110004-4</p>
-        <p class="loginFootLine2 ca">本站隶属于江苏猎宝网络科技股份有限公司旗下平台</p>
-        <p class="loginFootLine3"><img src="" alt="" /></p>
-    </div>
+
+    <script type="text/javascript">
+$(document).ready(function() {
+    $('#defaultForm')
+        .bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                firstName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The first name is required and cannot be empty'
+                        }
+                    }
+                },
+                lastName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The last name is required and cannot be empty'
+                        }
+                    }
+                },
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and cannot be empty'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'The username can only consist of alphabetical, number, dot and underscore'
+                        },
+                        different: {
+                            field: 'password',
+                            message: 'The username and password cannot be the same as each other'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        emailAddress: {
+                            message: 'The input is not a valid email address'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required and cannot be empty'
+                        },
+                        different: {
+                            field: 'username',
+                            message: 'The password cannot be the same as username'
+                        }
+                    }
+                },
+                gender: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The gender is required'
+                        }
+                    }
+                }
+            }
+        })
+        .on('error.field.bv', function(e, data) {
+            var messages = data.bv.getMessages(data.field);
+            $('#errors').find('li[data-bv-for="' + data.field + '"]').remove();
+            for (var i in messages) {
+                $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#errors');
+            }
+            $('#errors').parents('.form-group').removeClass('hide');
+        })
+        .on('success.field.bv', function(e, data) {
+            $('#errors').find('li[data-bv-for="' + data.field + '"]').remove();
+        })
+        .on('success.form.bv', function(e) {
+            $('#errors')
+                .html('')
+                .parents('.form-group').addClass('hide');
+        });
+});
+    </script>
 </body>
-</html>
