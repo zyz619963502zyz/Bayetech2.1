@@ -2,19 +2,21 @@
 var jsconfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['jquery','vue','common'],
+    baseArr: ['jquery', 'vue', 'common'],
     paths: {
-        'jquery': 'jquery-1.10.2.min',
+        'jquery': 'jquery-1.10.2',
         'vue': 'vue',
-        //'bootstrap': 'bootstrap.min',
+
+        'bootstrap': 'bootstrap',
         //'bootstrapValidator': 'bootstrapValidator',
+
         'common': 'common',
         'head': 'app/Shared/head',
         'c-footer': 'app/Shared/footer',
         'footer-server': 'app/Shared/footer-server',
         'footer-nav': 'app/Shared/footer-nav',
         'helpLeft': 'app/HelpCenter/left',
-        'helpButtom': 'app/HelpCenter/buttom',
+        'helpButtom': 'app/HelpCenter/bottom',
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
         'HomeTabBox': 'app/HomePage/mainArea02',
@@ -36,6 +38,17 @@ var jsconfig = {
         'ScreenModel': 'app/PointTrading/screen',
         'index-nav': "app/Home/index-nav",
         "index-nav-dropdown":"app/Home/index-nav-dropdown",
+        'ScreenModel': 'app/PointTrading/screen'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery'],
+            exports: 'aaaa'
+        },
+        'bootstrapValidator': {
+            deps: ['jquery', 'bootstrap'],
+            exports: 'validate'
+        }
     }
 };
 require.config(jsconfig);

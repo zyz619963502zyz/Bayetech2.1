@@ -262,11 +262,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrapValidator.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrapValidator.css" />
+    <Content Include="Content\bootstrap\bootstrapValidator.min.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CommonCss\7881.common.css" />
     <Content Include="Content\CommonCss\7881.rechargeCenter.css" />
     <Content Include="Content\CommonCss\7881app.css" />
@@ -290,6 +293,8 @@
     <Content Include="Content\CommonCss\shouyou-7881.css" />
     <Content Include="Content\CommonCss\shouyou-index.css" />
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
+    <Content Include="Content\fonts\sa-regular.svg" />
+    <Content Include="Content\helpcenter.css" />
     <Content Include="Content\Images\001.jpg" />
     <Content Include="Content\Images\002.jpg" />
     <Content Include="Content\Images\003.jpg" />
@@ -654,7 +659,7 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\HelpCenter\buttom.js" />
+    <Content Include="Scripts\app\HelpCenter\bottom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
     <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
@@ -712,6 +717,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\bootstrapValidator.min.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Content\Images\img_valid.jsp" />
     <Content Include="Configs\Database.config">
@@ -719,6 +725,10 @@
     </Content>
     <Content Include="Configs\log4net.config" />
     <Content Include="Scripts\AllScript\jquery.easing.min.js" />
+    <Content Include="Content\fonts\sa-regular.eot" />
+    <Content Include="Content\fonts\sa-regular.ttf" />
+    <Content Include="Content\fonts\sa-regular.woff" />
+    <Content Include="Content\fonts\sa-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
