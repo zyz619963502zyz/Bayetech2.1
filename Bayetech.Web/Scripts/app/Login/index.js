@@ -72,14 +72,8 @@ require(jsconfig.baseArr, function ($, Vue, common, aaaa, validate) {
                                     message: '账号和密码不可相同!'
                                 }
                             }
-                        },
-                        email: {
-                            validators: {
-                                emailAddress: {
-                                    message: 'The input is not a valid email address'
-                                }
-                            }
                         }
+
                     }
                 });
             }
