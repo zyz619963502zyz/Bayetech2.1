@@ -1,6 +1,5 @@
 ﻿//底部模板1
 define([], function () {
-    debugger;
     var html = `<div class="center logo">
 	<div class="left"><h1><a href="http://www.7881.com/" rel="nofollow" title="最专业的游戏交易平台"><img src="http://pic.ofcard.com/7881/market/images/help/7881_logo.jpg" alt="最专业的游戏交易平台"></a></h1></div>
 	<div class="help_top">

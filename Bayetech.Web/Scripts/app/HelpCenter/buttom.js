@@ -1,5 +1,4 @@
 ﻿define([], function (Vue) {
-    debugger;
     var html = `<div class="help_gg xxfl" style="text-align:left;" id="help_buttom">
                 <h3>帮助信息分类</h3>
                 <dl v-for="value in object" style="margin-left:30px;">

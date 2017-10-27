@@ -659,7 +659,7 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\HelpCenter\bottom.js" />
+    <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
     <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
@@ -687,7 +687,7 @@
     <Content Include="Scripts\app\PointTrading\screen.js" />
     <Content Include="Scripts\app\Shared\footer.js" />
     <Content Include="Scripts\app\Shared\footer-nav.js" />
-    <Content Include="Scripts\app\Shared\head.js" />
+    <Content Include="Scripts\app\Shared\header.js" />
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />

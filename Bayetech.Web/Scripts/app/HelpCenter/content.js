@@ -1,6 +1,5 @@
 ﻿//底部模板
 define([], function () {
-    debugger;
     var html = `<div class="help_gg" style="text-align:left;">
                     <h1>7881交易流程</h1>
                     <ul>

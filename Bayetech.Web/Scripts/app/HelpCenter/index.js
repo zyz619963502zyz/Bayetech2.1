@@ -1,6 +1,5 @@
 ﻿//帮助中心主模块
 define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'help-content'], function () {
-    debugger;
     let html = `<div class="center">
             <help-head></help-head>
             <help-left :list="articleList" :view="view"></help-left>
@@ -18,6 +17,7 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
     let findContentUrl = "/api/Article/FindContent"; //查询详情
 
     let data = {
+        mouduleid: "23",//帮助中心id
         articleList: [],
         article: {
             content: `<li><img src="../../Content/Images/wymlc.jpg"></li>`
@@ -25,7 +25,6 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
     };
     let components = {
         name: "helpCenter",
-        mouduleid: "23",//帮助中心id
         template: html,
         components: {},
         data() {
