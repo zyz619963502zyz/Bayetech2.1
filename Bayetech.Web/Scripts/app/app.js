@@ -1,5 +1,6 @@
 ﻿var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
 //组件配置
+debugger;
 var componentfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
@@ -10,9 +11,10 @@ var componentfig = {
         'common': 'common',
         'head': 'app/Shared/head',
         'footer': 'app/Shared/footer',
-        'helpLeft': 'app/HelpCenter/left',
-        'helpButtom': 'app/HelpCenter/buttom',
-        'helpContent': 'app/HelpCenter/content',
+        'help-head': 'app/HelpCenter/head',
+        'help-left': 'app/HelpCenter/left',
+        'help-buttom': 'app/HelpCenter/buttom',
+        'help-content': 'app/HelpCenter/content',
         'helpCenter': 'app/HelpCenter/helpCenter',
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',

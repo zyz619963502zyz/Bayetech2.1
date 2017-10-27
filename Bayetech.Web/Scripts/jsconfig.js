@@ -33,7 +33,9 @@ var jsconfig = {
         'mgame-list': "app/Home/mgame-list",
         'partner': "app/Home/partner",
         'c-tab':"app/Shared/tab",
-        'ScreenModel': 'app/PointTrading/screen'
+        'ScreenModel': 'app/PointTrading/screen',
+        'index-nav': "app/Home/index-nav",
+        "index-nav-dropdown":"app/Home/index-nav-dropdown",
     }
 };
 require.config(jsconfig);

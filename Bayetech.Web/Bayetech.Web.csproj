@@ -656,6 +656,9 @@
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
+    <Content Include="Scripts\app\HelpCenter\head.js" />
+    <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
+    <Content Include="Scripts\app\Home\index-nav.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />

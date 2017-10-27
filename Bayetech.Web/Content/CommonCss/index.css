@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 body{font:12px/1.5 \5b8b\4f53,tahoma,arial,"microsoft yahei",sans-serif;}
 .header { padding-top: 0; padding-bottom: 4px;}
 .header h1.logo { margin-top: 0;}
@@ -23,7 +23,7 @@ body{font:12px/1.5 \5b8b\4f53,tahoma,arial,"microsoft yahei",sans-serif;}
 .index-nav .index-nav-item.sy-nav a.nav-all { color: #eb6100;}
 .index-nav .index-nav-item.sy-nav a.nav-all:hover { background: #eb6100; color: #fff;border-radius: 38px;}
 
-.dropdown-nav-box { width: 270px; position: absolute; left: 486px; top:30px; padding-top: 10px; display: none; background:url(http://pic.7881.com/7881-2016/images/index/goodsreceipt-nav-bg.png) repeat;}
+.dropdown-nav-box { width: 270px; position: absolute; left: 486px; top:30px; padding-top: 10px; background:url(http://pic.7881.com/7881-2016/images/index/goodsreceipt-nav-bg.png) repeat;}
 .dropdown-nav {width: 270px; padding: 5px; padding-bottom: 4px; background: #fff;}
 .dropdown-nav ul li { width: 270px; margin-bottom: 1px; height: 76px; position: relative; overflow: hidden; background: #fafafa;}
 .dropdown-nav ul li img { position: absolute; right: -42px; top:0; opacity: 0.66; display: block;}

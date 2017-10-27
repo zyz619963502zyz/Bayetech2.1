@@ -28,7 +28,7 @@ namespace Bayetech.Service
         {
             return repository.IQueryable<TEntity>(predicate);
         }
-
+        
         public int Insert(JObject json)
         {
             throw new NotImplementedException();

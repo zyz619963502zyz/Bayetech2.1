@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'head','c-footer', 'footer-server', 'footer-nav', 'indexTab', 'convenience', 'hotgamelist', 'banner-box', 'tabsList-box', 'c-tab', "v-gameranking", 'index-adv', 'mgame-list', 'partner'], function (Vue, $, common, head, footer, footerserver, footernav, indexTab, convenience, hotgamelist, bannerBox, tabsListbox, ctab, vgameranking, indexadv, mgamelist, partner) {
+require(['vue', 'jquery', 'common', 'head', 'c-footer', 'footer-server', 'footer-nav', 'indexTab', 'convenience', 'hotgamelist', 'banner-box', 'tabsList-box', 'c-tab', "v-gameranking", 'index-adv', 'mgame-list', 'partner', 'index-nav'], function (Vue, $, common, head, footer, footerserver, footernav, indexTab, convenience, hotgamelist, bannerBox, tabsListbox, ctab, vgameranking, indexadv, mgamelist, partner, indexnav) {
     debugger;
     new Vue({
         el: '#app',
@@ -25,6 +25,7 @@ require(['vue', 'jquery', 'common', 'head','c-footer', 'footer-server', 'footer-
             "index-adv": indexadv,
             "mgame-list": mgamelist,
             "partner": partner,
+            "index-nav":indexnav,
         }
     });
 

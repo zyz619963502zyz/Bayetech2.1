@@ -1,5 +1,6 @@
 ﻿//左侧模板
 define([], function () {
+    debugger;
     var html = `<div class="help_left" id="help_left">
             <h3>使用帮助</h3>
             <ul v-for="value in list">
