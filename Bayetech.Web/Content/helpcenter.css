@@ -9,5 +9,12 @@
     margin:0;
     padding:0;
 }
-.navbar-brand{}
+.navbar-nav>li::after{
+    content:'|';
+    position: absolute;
+    top: 6px;
+    left: 0px;
+    color:red;
+    font-weight:600;
+}
 
