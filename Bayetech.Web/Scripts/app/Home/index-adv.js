@@ -7,7 +7,7 @@ define([], function () {
             <dl>
                 <dt>
                     <h2><a :href="item.url" target="_blank">{{item.centent}}</a></h2>
-                    <p>一键出货，轻松收钱，无需等待，方便快捷！</p>
+                    <p>{{item.centent}}</p>
                 </dt>
                 <dd><a :href="item.url" target="_blank">{{item.fnname}}</a></dd>
             </dl>
