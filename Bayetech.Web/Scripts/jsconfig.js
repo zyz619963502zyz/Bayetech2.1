@@ -2,12 +2,14 @@
 var jsconfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['jquery','vue','common'],
+    baseArr: ['jquery', 'vue', 'common'],
     paths: {
         'jquery': 'jquery-1.10.2',
         'vue': 'vue',
-        //'bootstrap': 'bootstrap',
+
+        'bootstrap': 'bootstrap',
         //'bootstrapValidator': 'bootstrapValidator',
+
         'common': 'common',
         'head': 'app/Shared/head',
         'c-footer': 'app/Shared/footer',
@@ -36,15 +38,13 @@ var jsconfig = {
         'ScreenModel': 'app/PointTrading/screen'
     },
     shim: {
-        'jquery': {
-            exports: 'jquery'
-        },
         'bootstrap': {
-            deps: ['jquery']
+            deps: ['jquery'],
+            exports: 'aaaa'
         },
         'bootstrapValidator': {
-            deps: ['bootstrap'],
-            //exports: 'bootstrapValidator'
+            deps: ['jquery', 'bootstrap'],
+            exports: 'validate'
         }
     }
 };
