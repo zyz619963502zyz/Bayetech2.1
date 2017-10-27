@@ -16,12 +16,15 @@ require(jsconfig.baseArr, function ($, Vue, common, aaaa, validate) {
         },
         mounted:function(){
             this.FormVlidate();
+          
         },
         methods:{
             SubmitLogin: function () {
-                common.postWebJson(_loginUrl, JSON.stringify(this.$data), function (data) {
-                    alert(data.content);
-                });
+                if ($("#loginForm").data('bootstrapValidator').isValid()) {
+                    common.postWebJson(_loginUrl, JSON.stringify(this.$data), function (data) {
+                        alert(data.content);
+                    });
+                } 
             },
             FormVlidate: function () {
                 $('#loginForm').bootstrapValidator({
