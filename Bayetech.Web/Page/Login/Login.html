@@ -9,12 +9,8 @@
     <link href="../../Content/CommonCss/loginReg.css" rel="stylesheet" />
     <link href="../../Content/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/bootstrap/bootstrapValidator.css" rel="stylesheet" />
-
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
-    <script src="../../Scripts/jquery-1.10.2.js"></script>
-    <script src="../../Scripts/bootstrap.js"></script>
-    <script src="../../Scripts/bootstrapValidator.js"></script>
     <script src="../../Scripts/app/Login/index.js"></script>
 </head>
 <body>
@@ -46,47 +42,27 @@
                             </div>
                         </div>
                         <div class="loginMain">
-
     
-                           <form id="form" method="post" class="form-horizontal" action="target.php">
-                                <div class="form-group">
-                                    <div class="group">
-                                        <label class="col-sm-2 control-label">First name</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" name="firstName" />
-                                        </div>
-                                    </div>
-                                    <div class="group">
-                                        <label class="col-sm-2 control-label">Last name</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" name="lastName" data-bv-group=".group" />
-                                        </div>
-                                    </div>
+                        <form id="loginForm" method="post">
+                            <div class="form-group">
+                                <input id="username"  v-model="GameUser" tabindex="1"  placeholder="请输入账号" name="username" type="text" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <input id="password_text"  v-model="GamePass" tabindex="2" type="password"  name="password" class="form-control" placeholder="请输入密码" required />
+                            </div>
+                            <div>
+                                <div class="comIptBox comPureIptBox l">
+                                    <input type="text" class="form-control"  placeholder="验证码" maxlength="4" />
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Username</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="username" />
-                                    </div>
+                                <div class="codeImgBox l middle">
+                                    <img src="" class="codeImg middle" alt="" />
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Email address</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="email" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Password</label>
-                                    <div class="col-sm-5">
-                                        <input type="password" class="form-control" name="password" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-10 col-sm-offset-2">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                                <span class="changeBox r">
+                                    看不清? <a href="#_touristlogin.jsp" class="changeOne">换一张</a>
+                                </span>
+                            </div>
+                       </form>
+
 
                         </div>
                         <br />
