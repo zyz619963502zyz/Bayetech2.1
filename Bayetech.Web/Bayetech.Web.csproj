@@ -268,6 +268,8 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\bootstrap\bootstrapValidator.css" />
     <Content Include="Content\bootstrap\bootstrapValidator.min.css" />
+    <Content Include="Content\bootstrap\font-awesome.css" />
+    <Content Include="Content\bootstrap\font-awesome.min.css" />
     <Content Include="Content\common.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
@@ -294,6 +296,7 @@
     <Content Include="Content\CommonCss\shouyou-7881.css" />
     <Content Include="Content\CommonCss\shouyou-index.css" />
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\helpcenter.css" />
     <Content Include="Content\Images\001.jpg" />
@@ -600,11 +603,13 @@
     <Content Include="Content\Images\鬼谷子.jpg" />
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
+    <Content Include="Content\log-sin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
+    <Content Include="Page\Sign\signing.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
@@ -730,6 +735,11 @@
     <Content Include="Content\fonts\sa-regular.ttf" />
     <Content Include="Content\fonts\sa-regular.woff" />
     <Content Include="Content\fonts\sa-regular.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
