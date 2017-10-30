@@ -4,10 +4,11 @@ using Newtonsoft.Json;
 using Bayetech.DAL.Entity;
 using System;
 using Bayetech.Core;
+using Bayetech.Service.IServices;
 
-namespace Bayetech.Service
+namespace Bayetech.Service.Services
 {
-    public class LoginSignService : ILoginSignService
+    public partial class LoginSignService : ILoginSignService
     {
         /// <summary>
         /// 创建账号

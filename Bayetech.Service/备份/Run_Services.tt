@@ -17,7 +17,7 @@
 <#   
     Assembly assembly = typeof(BayetechEntities).Assembly;
 	    //Type[] modelTypes = assembly.GetTypes();
-	    Type[] modelTypes = assembly.GetTypes().Where(tj=>tj.Namespace=="Bayetech.DAL.Entity").ToArray();
+	    Type[] modelTypes = assembly.GetTypes().Where(tj=>tj.Namespace=="JMS.DataModel").ToArray();
     var currentPath = Path.GetDirectoryName(Host.TemplateFile);
     var projectPath = currentPath.Substring(0, currentPath.IndexOf(@"\T4Tools"));
     var path ="";
