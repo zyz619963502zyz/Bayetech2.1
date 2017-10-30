@@ -615,7 +615,9 @@
     <Content Include="Page\HelpCenter\index.html" />
     <Content Include="Page\Home\index.html" />
     <Content Include="Page\Sign\Signin.html" />
-    <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Resource\Spring\SpringObjects.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\AllScript\7881-2016.js" />
     <Content Include="Scripts\AllScript\7881.login.popup.js" />
     <Content Include="Scripts\AllScript\7881_2014_logo_search_new.js" />

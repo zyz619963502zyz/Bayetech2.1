@@ -1,5 +1,5 @@
 ﻿using Bayetech.DAL.Entity;
-using Bayetech.Service.Interface;
+using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 

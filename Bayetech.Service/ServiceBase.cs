@@ -1,12 +1,7 @@
-﻿using Bayetech.Service.Interface;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
-using Newtonsoft.Json;
 using System.Linq.Expressions;
 
 namespace Bayetech.Service

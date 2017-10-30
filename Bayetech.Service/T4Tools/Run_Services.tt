@@ -24,12 +24,12 @@
     foreach(var modelType in modelTypes)
     {
         var iRepositoryTemplate = new IServicesTemplate(modelType);
-        path = projectPath + @"\IServices";
+        path = projectPath + @"\IServices\Auto";
         iRepositoryTemplate.Output.Encoding = Encoding.UTF8;
         iRepositoryTemplate.RenderToFile(Path.Combine(path, iRepositoryTemplate.FileName));
 
         var repositoryTemplate = new ServicesTemplate(modelType);
-        path = projectPath + @"\Services";
+        path = projectPath + @"\Services\Auto";
         repositoryTemplate.Output.Encoding = Encoding.UTF8;
         repositoryTemplate.RenderToFile(Path.Combine(path, repositoryTemplate.FileName));
     }
