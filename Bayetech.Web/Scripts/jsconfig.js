@@ -4,12 +4,10 @@ var jsconfig = {
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
     baseArr: ['jquery', 'vue', 'common'],
     paths: {
-        'jquery': 'jquery-1.10.2',
+        jquery: 'jquery-1.10.2',
         'vue': 'vue',
-
         'bootstrap': 'bootstrap',
-        //'bootstrapValidator': 'bootstrapValidator',
-
+        'bootstrapValidator': 'bootstrapValidator',
         'common': 'common',
         'head': 'app/Shared/head',
         'c-footer': 'app/Shared/footer',

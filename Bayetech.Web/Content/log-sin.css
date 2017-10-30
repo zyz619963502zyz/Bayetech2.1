@@ -1,0 +1,16 @@
+﻿/*
+ *登录及注册样式
+ *作者：liuzy
+ *时间：2017.10.29
+ *说明：登录及注册相关样式请在以下编辑或者修改
+ */
+@charset"utf-8";
+#sin-content .panel-body .m-t-md{margin-top:20px;}
+#sin-content .panel-body input{padding-left:30px;}
+@media(max-width:480px){
+    #sin-head .page-header{margin:20px 0;}
+    #sin-head .nav>li,#sin-head .navbar-nav>li>a{
+        text-align:center;
+    }
+}
+
