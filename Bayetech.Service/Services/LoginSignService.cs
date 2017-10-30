@@ -24,6 +24,7 @@ namespace Bayetech.Service.Services
                 _account.GamePass = Md5.EncryptString(_account.GamePass);
                 _account.GameUser = _account.iphone;
                 _account.itemid = 15;
+                _account.EnableMark = true;
                 db.Insert(_account);
                 int count = db.Commit();
                 return count > 0 ? true : false;
@@ -39,7 +40,7 @@ namespace Bayetech.Service.Services
         {
             using (var db = new RepositoryBase())
             {
-                Account _account = db.FindEntity<Account>(c => c.GameUser == account); 
+                Account _account = db.FindEntity<Account>(c => c.GameUser == account);
                 return _account == null ? true : false;//true不重复可申请，false不可申请
             }
         }
@@ -51,50 +52,52 @@ namespace Bayetech.Service.Services
         /// <param name="username">登录账号</param>
         /// <param name="password">登录密码</param>
         /// <returns></returns>
-        public Account CheckLogin(string username, string password)
+        public JObject CheckLogin(JObject json)
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
-                Account _userEntity = db.FindEntity<Account>(t => t.GameUser == username);
+                Account _account = (Account)JsonConvert.DeserializeObject(json.First.Path, typeof(Account));//转换对象
+                Account _userEntity = db.FindEntity<Account>(t => t.GameUser == _account.GameUser);
+                JObject result = new JObject();
                 if (_userEntity != null)
                 {
                     if (_userEntity.EnableMark == true)
                     {
                         //UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
                         //string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
-                        string dbPassword = Md5.EncryptString(password);
+                        string dbPassword = Md5.EncryptString(_account.GamePass);
                         if (dbPassword == _userEntity.GamePass)
                         {
                             Login _currentLogin = new Login();
-                            _currentLogin.UserName = username;
+                            _currentLogin.UserName = _account.GameUser;
                             _currentLogin.PassWord = dbPassword;
                             _currentLogin.LoginIp = Common.GetHostAddress();
                             _currentLogin.logintime = DateTime.Now;
                             _currentLogin.message = "登录成功";
                             db.Insert(_currentLogin);
                             db.Commit();
-                            return _userEntity;
+                            result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                            result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.message));
                         }
                         else
                         {
-                            throw new Exception("密码不正确，请重新输入");
+                            result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                            result.Add(ResultInfo.Content, JProperty.FromObject("密码错误,请重新尝试!"));
                         }
                     }
                     else
                     {
-                        throw new Exception("账户被系统锁定,请联系管理员");
+                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                        result.Add(ResultInfo.Content, JProperty.FromObject("账户被系统锁定,请联系管理员!"));
                     }
                 }
                 else
                 {
-                    throw new Exception("账户不存在，请重新输入");
+                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    result.Add(ResultInfo.Content, JProperty.FromObject("账户不存在，请重新输入!"));
                 }
+                return result;
             }
-        }
-
-        public bool LoginIn(JObject json)
-        {
-            throw new NotImplementedException();
         }
     }
 }
