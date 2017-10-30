@@ -48,15 +48,41 @@
     <Compile Include="ArticleContentService.cs" />
     <Compile Include="ArticleService.cs" />
     <Compile Include="CategoryService.cs" />
+    <Compile Include="IBaseService.cs" />
     <Compile Include="Interface\IArticleContentService.cs" />
     <Compile Include="Interface\IArticleService.cs" />
     <Compile Include="Interface\IBaseService.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ILoginSignService.cs" />
+    <Compile Include="IServices\IAccountService.Auto.cs" />
+    <Compile Include="IServices\IArticleContentService.Auto.cs" />
+    <Compile Include="IServices\IArticleService.Auto.cs" />
+    <Compile Include="IServices\IBayetechEntitiesService.Auto.cs" />
+    <Compile Include="IServices\ICategoryService.Auto.cs" />
+    <Compile Include="IServices\IGameRequirementsService.Auto.cs" />
+    <Compile Include="IServices\ILoginService.Auto.cs" />
+    <Compile Include="IServices\IModuleService.Auto.cs" />
+    <Compile Include="IServices\IView_ArticleInfoService.Auto.cs" />
+    <Compile Include="IServices\Ivw_LoginInfoService.Auto.cs" />
     <Compile Include="LoginSignService.cs" />
     <Compile Include="Model\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBase.cs" />
+    <Compile Include="Services\AccountService.Auto.cs" />
+    <Compile Include="Services\ArticleContentService.Auto.cs" />
+    <Compile Include="Services\ArticleService.Auto.cs" />
+    <Compile Include="Services\BayetechEntitiesService.Auto.cs" />
+    <Compile Include="Services\CategoryService.Auto.cs" />
+    <Compile Include="Services\GameRequirementsService.Auto.cs" />
+    <Compile Include="Services\LoginService.Auto.cs" />
+    <Compile Include="Services\ModuleService.Auto.cs" />
+    <Compile Include="Services\View_ArticleInfoService.Auto.cs" />
+    <Compile Include="Services\vw_LoginInfoService.Auto.cs" />
+    <Compile Include="T4Tools\Run_Services.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Run_Services.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
@@ -70,6 +96,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="T4Tools\ServicesTemplate.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="T4Tools\IServicesTemplate.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="T4Tools\Run_Services.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Run_Services.cs</LastGenOutput>
+      <LastOutputs>.\Run_Services.cs</LastOutputs>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

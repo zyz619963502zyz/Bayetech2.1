@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Bayetech.Service.Interface
 {
-    public interface IBaseService<TEntity>
+    public interface IBaseService1<TEntity>
     {
         int Insert(JObject json);
         int Update(JObject json);

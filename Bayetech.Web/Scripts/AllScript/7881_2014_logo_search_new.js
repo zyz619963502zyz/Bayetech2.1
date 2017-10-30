@@ -1185,7 +1185,8 @@ $(document).ready(function(){
 
 
     //网络游戏/手机游戏
-    $(".main_name_select a").click(function(){
+    $(".main_name_select a").click(function () {
+        debugger;
         if($(this).html()=='手机游戏'){
             $(".main_letter_select").show();
             gametype='1';
