@@ -1,11 +1,11 @@
 ﻿using Bayetech.DAL.Entity;
-using Bayetech.Service.Interface;
+using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-namespace Bayetech.Service
+namespace Bayetech.Service.Services
 {
-    public class ArticleService : ServiceBase<Article>, IArticleService
+    public partial class ArticleService : ServiceBase<Article>, IArticleService
     {
         public JArray GetListByModule(int value)
         {

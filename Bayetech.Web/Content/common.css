@@ -1,0 +1,44 @@
+﻿/*！
+ *公共样式
+ *作者：liuzy
+ *时间：2017-10-27
+ *说明：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
+ */
+@charset"UTF-8";
+.p-n{padding:0!important;}
+.p-xs{padding:5px;}
+.p-sm{padding:10px;}
+.p-md{padding:15px;}
+.p-lg{padding:25px;}
+.p-xl{padding:35px;}
+
+.m-sm{margin:10px;}
+.m-md{margin:15px;}
+.m-t-xxs{margin-top:1px;}
+.m-t-xs{margin-top:5px;}
+.m-t-sm{margin-top:10px;}
+.m-t-md{margin-top:15px;}
+.m-t-lg{margin-top:25px;}
+.m-t-xl{margin-top:35px;}
+.m-r-0{margin-right:0!important;}
+
+.f12{font-size:12px!important;}
+.f14{font-size:14px!important;}
+.f16{font-size:16px!important;}
+.f18{font-size:18px!important;}
+.f20{font-size:20px!important;}
+.f22{font-size:22px!important;}
+.e12{font-size:1.2em!important;}
+.e13{font-size:1.3em!important}
+.e14{font-size:1.4em!important}
+.e15{font-size:1.5em!important}
+.e16{font-size:1.6em!important;}
+.e20{font-size:2em!important;}
+
+.pointer{cursor:pointer;}
+@media (max-width:992px){
+    .nav>li>a{
+        padding:5px 8px;
+    }
+}
+

@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Bayetech.Service.Interface
+namespace Bayetech.Service
 {
     public interface IBaseService<TEntity>
     {

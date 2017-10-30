@@ -262,11 +262,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrapValidator.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrapValidator.css" />
+    <Content Include="Content\bootstrap\bootstrapValidator.min.css" />
+    <Content Include="Content\bootstrap\font-awesome.css" />
+    <Content Include="Content\bootstrap\font-awesome.min.css" />
+    <Content Include="Content\common.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CommonCss\7881.common.css" />
     <Content Include="Content\CommonCss\7881.rechargeCenter.css" />
     <Content Include="Content\CommonCss\7881app.css" />
@@ -290,6 +296,9 @@
     <Content Include="Content\CommonCss\shouyou-7881.css" />
     <Content Include="Content\CommonCss\shouyou-index.css" />
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\sa-regular.svg" />
+    <Content Include="Content\helpcenter.css" />
     <Content Include="Content\Images\001.jpg" />
     <Content Include="Content\Images\002.jpg" />
     <Content Include="Content\Images\003.jpg" />
@@ -560,6 +569,7 @@
     <Content Include="Content\Images\扁鹊.jpg" />
     <Content Include="Content\Images\改名卡.jpg" />
     <Content Include="Content\Images\曹操.jpg" />
+    <Content Include="Content\Images\logo1.png" />
     <Content Include="Content\Images\李元芳.jpg" />
     <Content Include="Content\Images\李白.jpg" />
     <Content Include="Content\Images\杨戬.jpg" />
@@ -594,17 +604,21 @@
     <Content Include="Content\Images\鬼谷子.jpg" />
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
+    <Content Include="Content\log-sin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
+    <Content Include="Page\Sign\signing.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\HelpCenter\index.html" />
     <Content Include="Page\Home\index.html" />
     <Content Include="Page\Sign\Signin.html" />
-    <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Resource\Spring\SpringObjects.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\AllScript\7881-2016.js" />
     <Content Include="Scripts\AllScript\7881.login.popup.js" />
     <Content Include="Scripts\AllScript\7881_2014_logo_search_new.js" />
@@ -654,8 +668,11 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
-    <Content Include="Scripts\app\HelpCenter\bottom.js" />
+    <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
+    <Content Include="Scripts\app\HelpCenter\head.js" />
+    <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
+    <Content Include="Scripts\app\Home\index-nav.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
@@ -679,7 +696,7 @@
     <Content Include="Scripts\app\PointTrading\screen.js" />
     <Content Include="Scripts\app\Shared\footer.js" />
     <Content Include="Scripts\app\Shared\footer-nav.js" />
-    <Content Include="Scripts\app\Shared\head.js" />
+    <Content Include="Scripts\app\Shared\header.js" />
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />
@@ -709,6 +726,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\bootstrapValidator.min.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Content\Images\img_valid.jsp" />
     <Content Include="Configs\Database.config">
@@ -716,6 +734,15 @@
     </Content>
     <Content Include="Configs\log4net.config" />
     <Content Include="Scripts\AllScript\jquery.easing.min.js" />
+    <Content Include="Content\fonts\sa-regular.eot" />
+    <Content Include="Content\fonts\sa-regular.ttf" />
+    <Content Include="Content\fonts\sa-regular.woff" />
+    <Content Include="Content\fonts\sa-regular.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

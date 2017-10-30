@@ -1,5 +1,6 @@
 ﻿var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
 //组件配置
+debugger;
 var componentfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
@@ -8,11 +9,12 @@ var componentfig = {
         'vueRouter': 'vue-router',
         'jquery': 'jquery-1.10.2.min',
         'common': 'common',
-        'head': 'app/Shared/head',
+        'header': 'app/Shared/header',
         'footer': 'app/Shared/footer',
-        'helpLeft': 'app/HelpCenter/left',
-        'helpButtom': 'app/HelpCenter/bottom',
-        'helpContent': 'app/HelpCenter/content',
+        'help-head': 'app/HelpCenter/head',
+        'help-left': 'app/HelpCenter/left',
+        'help-buttom': 'app/HelpCenter/buttom',
+        'help-content': 'app/HelpCenter/content',
         'helpCenter': 'app/HelpCenter/index',
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
@@ -21,7 +23,7 @@ var componentfig = {
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle'
        
     },
-    commonComponent: ['vue', 'jquery', 'common', 'head', 'footer', 'helpLeft'],
+    commonComponent: ['vue', 'jquery', 'common', 'header', 'footer'],
 };
 require.config(componentfig);
 
@@ -46,7 +48,7 @@ var routeconfig = [{
 //routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
 //需要组件
-let componentArr = ['vue', 'jquery', 'common', 'head', 'footer'];
+let componentArr = ['vue', 'jquery', 'common', 'header', 'footer'];
 let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
 //let component = routeconfig[window.document.location.pathname];
 componentArr.push(component);
@@ -60,8 +62,8 @@ require(componentArr, function () {
     let footer = arguments[4];
     let component = arguments[5];
 
-    Vue.component('main-head', head);
-    Vue.component('main-foot', footer);
+    Vue.component('main-header', head);
+    Vue.component('main-footer', footer);
 
     let app = new Vue({
         components: { "v-view": component}
