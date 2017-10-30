@@ -119,7 +119,7 @@
           </Key>
           <Property Name="logid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="admin" Type="tinyint" />
           <Property Name="loginip" Type="nvarchar" MaxLength="50" />
           <Property Name="logintime" Type="datetime" />
@@ -337,7 +337,7 @@
           </Key>
           <Property Name="logid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="admin" Type="Byte" />
           <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="logintime" Type="DateTime" Precision="3" />

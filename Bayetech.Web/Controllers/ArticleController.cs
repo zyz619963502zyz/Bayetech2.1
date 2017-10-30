@@ -1,7 +1,5 @@
 ﻿using Bayetech.Service;
-using Bayetech.Service.Interface;
 using System;
-using System.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
