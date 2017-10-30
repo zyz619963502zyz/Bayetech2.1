@@ -8,6 +8,6 @@ namespace Bayetech.Service.IServices
 
         bool CheckAccount(string account);
 
-        bool LoginIn(JObject json);
+        JObject CheckLogin(JObject json);
     }
 }
