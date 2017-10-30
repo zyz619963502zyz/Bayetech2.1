@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Bayetech.Service
+namespace Bayetech.Service.IServices
 {
-     public interface ILoginSignService
+    public partial interface ILoginSignService
     {
         bool CreatAccount(JObject json);
 

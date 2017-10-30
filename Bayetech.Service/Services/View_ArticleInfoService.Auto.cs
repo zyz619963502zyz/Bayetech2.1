@@ -5,23 +5,18 @@
 //     重新生成代码，这些更改将会丢失。
 // </auto-generated>
 // <copyright file="View_ArticleInfoService.Auto.cs">
-//		作者：Johny
-//		所属工程：eDoctor.Services
-//		生成时间：2017-10-30 16:49
+//		作者：Jie
+//		所属工程：Bayetech2.0
+//		生成时间：2017-10-30 17:43
 // </copyright>
 //------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Bayetech.DAL.Entity;
 using Bayetech.Service.IServices;
-
-namespace Bayetech.Service.Services  
+namespace Bayetech.Service.Services 
 {
 
     public partial class View_ArticleInfoService :ServiceBase<View_ArticleInfo>,IView_ArticleInfoService
-    {   
+    {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }
 }
