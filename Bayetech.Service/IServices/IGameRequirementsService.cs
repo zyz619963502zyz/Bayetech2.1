@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bayetech.Service.Interface
+namespace Bayetech.Service.IServices
 {
     public partial interface IGameRequirementsService : IBaseService<GameRequirements>
     {
