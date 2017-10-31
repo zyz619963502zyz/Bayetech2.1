@@ -694,6 +694,7 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
+    <Content Include="Scripts\app\DealCheck\GoodPictures.js" />
     <Content Include="Scripts\app\DealCheck\index.js" />
     <Content Include="Scripts\app\DealCheck\OrderGoodInfo.js" />
     <Content Include="Scripts\app\DealCheck\OrderNav.js" />
@@ -801,6 +802,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
+    <Folder Include="Scripts\app\PlaceOrder\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\PointTrading\" />
   </ItemGroup>
