@@ -40,7 +40,7 @@ namespace Bayetech.Service.Services
         {
             using (var db = new RepositoryBase())
             {
-                Account _account = db.FindEntity<Account>(c => c.GameUser == account); 
+                Account _account = db.FindEntity<Account>(c => c.GameUser == account);
                 return _account == null ? true : false;//true不重复可申请，false不可申请
             }
         }
