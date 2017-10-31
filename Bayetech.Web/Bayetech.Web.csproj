@@ -626,6 +626,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\DealBuy\DealBuy.html" />
     <Content Include="Page\DealCheck\DealCheck.html" />
+    <Content Include="Page\Goldbuy\Goldbuy.html" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
