@@ -627,6 +627,7 @@
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
+    <Content Include="Page\PersonalCenter\personal center.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Page\Sign\signing.html" />
@@ -700,6 +701,8 @@
     <Content Include="Scripts\app\HelpCenter\head.js" />
     <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
     <Content Include="Scripts\app\Home\index-nav.js" />
+    <Content Include="Scripts\app\PersonalCenter\head.js" />
+    <Content Include="Scripts\app\PersonalCenter\index.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderGoodInfo.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderNav.js" />
