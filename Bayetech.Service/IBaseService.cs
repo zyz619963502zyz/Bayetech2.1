@@ -11,9 +11,6 @@ namespace Bayetech.Service
         int Update(JObject json);
         int Delete(object keyValue);
         TEntity FindEntity(object keyValue);
-
         IQueryable<TEntity> FindList(Expression<Func<TEntity, bool>> predicate);
-
-        
     }
 }
