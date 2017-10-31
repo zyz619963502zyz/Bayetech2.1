@@ -700,6 +700,9 @@
     <Content Include="Scripts\app\HelpCenter\head.js" />
     <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
     <Content Include="Scripts\app\Home\index-nav.js" />
+    <Content Include="Scripts\app\PlaceOrder\index.js" />
+    <Content Include="Scripts\app\PlaceOrder\OrderGoodInfo.js" />
+    <Content Include="Scripts\app\PlaceOrder\OrderNav.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
