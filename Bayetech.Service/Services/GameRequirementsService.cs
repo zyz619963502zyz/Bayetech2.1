@@ -19,11 +19,8 @@ namespace Bayetech.Service.Services
         public List<GameRequirements> GameRequirementsList()
         {
             List<GameRequirements> list = null;
-            using (var db = new RepositoryBase())
-            {
-                list = db.IQueryable<GameRequirements>().ToList();
-                return list;
-            }
+            list = repository.IQueryable<GameRequirements>().ToList();
+            return list;
         }
     }
 }
