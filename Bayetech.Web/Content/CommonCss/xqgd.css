@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+.all-pic{ clear: both;}
+.mod18{width:980px;height:706px;margin:20px auto;position:relative;}
+.mod18 .btn{position:absolute;width:24px;height:81px;bottom:0px;cursor:pointer;z-index:99;font-size:50px;font-weight:bold;}
+.mod18 .prev{left:0;background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/panel-prev.png) no-repeat center #ccc;}
+.mod18 .prev:hover{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/panel-prev.png) no-repeat center #5caaff;}
+.mod18 #prevTop,.mod18 #nextTop{top:0;width:46px;height:593px;}
+.mod18 #prevTop{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/prevp.png) no-repeat center;}
+.mod18 #prevTop:hover{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/prevp.png) no-repeat center rgba(0,0,0,0.6);}
+.mod18 #nextTop{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/nextp.png) no-repeat center;}
+.mod18 #nextTop:hover{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/nextp.png) no-repeat center rgba(0,0,0,0.6);}
+
+.mod18 .next{right:0; bottom:0; background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/panel-next.png) no-repeat center #ccc;}
+.mod18 .next:hover{background:url(http://pic.7881.com/7881-2016/js/ifoucs/images/panel-next.png) no-repeat center #5caaff;}
+.mod18 li{float:left;}
+.mod18 .cf li{position:relative;color:#fff;}
+.mod18 .cf a{display:block;width:980px;height:450px;position:absolute;color:#fff;}
+.mod18 .cf li span{display:block;width:640px;position:absolute;left:0;bottom:0;padding:10px 20px;line-height:22px;text-align:left;background:rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = "#60000000",endColorstr = "#60000000");}
+.mod18 .picBox{height:593px;position:relative;overflow:hidden;}
+.mod18 .picBox .demo-gallery{height:593px;position:absolute;}
+.mod18 .picBox .demo-gallery a{width:980px;height:593px; display:block; float:left;position:static; text-align: center; background: #fff;}
+.mod18 .picBox .demo-gallery img{ display: inline-block; *display: inline; *zoom:1; max-width: 980px; max-height: 593px;}
+.mod18 .listBox{width:896px;height:85px;margin:0 auto;position:relative;padding:6px 0 10px;overflow:hidden;}
+.mod18 .listBox ul{height:85px;position:absolute;}
+.mod18 .listBox li{width:112px;height:81px;cursor:pointer;position:relative;}
+.mod18 .listBox li i{display:none;}
+.mod18 .listBox li a{display:block;width:124px;height:70px;}
+.mod18 .listBox li img{width:100px;height:75px; padding:2px; border:1px solid#ccc;}
+.mod18 .listBox .on img{width:100px;height:75px; border:1px solid #9cceff;}
+.mod18 .listBox .on i{display:block;}
+.mod18 p{ text-align:center; height:24px; line-height:24px;}
+
+.videoplayer{position: absolute;top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: rgba(0,0,0,.4); text-align: center; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);}
+.videoplayer img{ padding-top: 205px; cursor: pointer;}
+.videoplayer p{color: #fff; font-size: 16px; line-height: 40px;}
