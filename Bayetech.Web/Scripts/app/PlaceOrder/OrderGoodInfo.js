@@ -19,12 +19,12 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                             <span>{{saleTime}}</span>
                         </h4>
                     </div>
-                    <div class ="game-ensure" v-for="item in acountInfo">
-                        <p class ="type">{{item.type}}<span>{{item.text}}</span></p>
+                    <div class ="game-ensure" >
+                        <p class ="type" v-for="item in acountInfo">{{item.type}}<span>{{item.text}}</span></p>
                     </div>
                     <div class="role-info">
-                        <ul v-for="item in roleInfo">
-                            <li><span>{{item.type}}</span><em>{{item.text}}</em></li>
+                        <ul>
+                            <li v-for="item in roleInfo"><span>{{item.type}}</span><em>{{item.text}}</em></li>
                         </ul>
                     </div>
                     <div class="detail_ico">

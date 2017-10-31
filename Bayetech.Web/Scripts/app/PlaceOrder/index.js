@@ -9,7 +9,7 @@ require(Signmoudule, function (Vue, $, goodInfo, orderNav) {
     Vue.component('OrderGoodInfo', goodInfo);
 
     var vm = new Vue({
-        el: '#LoginDiv',
+        el: '#GoodInfo',
         data: function () {
             return data;
         },

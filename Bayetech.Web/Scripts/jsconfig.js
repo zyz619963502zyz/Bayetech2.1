@@ -38,7 +38,7 @@ var jsconfig = {
         "index-nav-dropdown":"app/Home/index-nav-dropdown",
         'ScreenModel': 'app/PointTrading/screen',
         'OrderGoodInfo': 'app/PlaceOrder/OrderGoodInfo',
-        'OrderNav': 'app/PlaceOrder/PlaceOrder'
+        'OrderNav': 'app/PlaceOrder/OrderNav'
     },
     shim: {
         'bootstrap': {
