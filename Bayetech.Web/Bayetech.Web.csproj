@@ -427,6 +427,7 @@
     <Content Include="Content\Images\bd.png" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bigpic.jpg" />
+    <Content Include="Content\Images\buy_zhang.png" />
     <Content Include="Content\Images\cb.png" />
     <Content Include="Content\Images\cnnic.png" />
     <Content Include="Content\Images\dl-dnf-li2.png" />
@@ -459,6 +460,7 @@
     <Content Include="Content\Images\G611.jpg" />
     <Content Include="Content\Images\G769.jpg" />
     <Content Include="Content\Images\G975.jpg" />
+    <Content Include="Content\Images\gm_ts.png" />
     <Content Include="Content\Images\gq.png" />
     <Content Include="Content\Images\hot.gif" />
     <Content Include="Content\Images\icon-bell.png" />
@@ -498,6 +500,7 @@
     <Content Include="Content\Images\merit-04.png" />
     <Content Include="Content\Images\merit-05.png" />
     <Content Include="Content\Images\merit-06.png" />
+    <Content Include="Content\Images\message.png" />
     <Content Include="Content\Images\mgame-r-pic.jpg" />
     <Content Include="Content\Images\mmy.png" />
     <Content Include="Content\Images\moren.png" />
@@ -621,6 +624,7 @@
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\DealBuy\DealBuy.html" />
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\GoodBuying\GoodBuying.html" />
     <Content Include="Page\Home\HomePage.html" />
@@ -642,11 +646,13 @@
     <Content Include="Scripts\AllScript\allgamesindex.js" />
     <Content Include="Scripts\AllScript\aq_auth.js" />
     <Content Include="Scripts\AllScript\character.core.js" />
+    <Content Include="Scripts\AllScript\clsIDCard.js" />
     <Content Include="Scripts\AllScript\common-focus.js" />
     <Content Include="Scripts\AllScript\convenience.js" />
     <Content Include="Scripts\AllScript\cz-center.js" />
     <Content Include="Scripts\AllScript\details.js" />
     <Content Include="Scripts\AllScript\float-menu.js" />
+    <Content Include="Scripts\AllScript\ga.js" />
     <Content Include="Scripts\AllScript\game_base_info.js" />
     <Content Include="Scripts\AllScript\gift.js" />
     <Content Include="Scripts\AllScript\goodsDetail.js" />
