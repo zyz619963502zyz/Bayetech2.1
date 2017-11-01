@@ -275,6 +275,7 @@
     <Content Include="Content\bootstrap\font-awesome.min.css" />
     <Content Include="Content\common.css" />
     <Content Include="Content\CommonCss\buy.css" />
+    <Content Include="Content\CommonCss\change.css" />
     <Content Include="Content\CommonCss\default-skin.css" />
     <Content Include="Content\CommonCss\details.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
@@ -293,6 +294,7 @@
     <Content Include="Content\CommonCss\layer.css" />
     <Content Include="Content\CommonCss\list.css" />
     <Content Include="Content\CommonCss\loginReg.css" />
+    <Content Include="Content\CommonCss\Personal.css" />
     <Content Include="Content\CommonCss\photoswipe.css" />
     <Content Include="Content\CommonCss\popLayer.css" />
     <Content Include="Content\CommonCss\Public.css" />
@@ -427,6 +429,7 @@
     <Content Include="Content\Images\bd.png" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bigpic.jpg" />
+    <Content Include="Content\Images\bit_2.gif" />
     <Content Include="Content\Images\buy_zhang.png" />
     <Content Include="Content\Images\cb.png" />
     <Content Include="Content\Images\cnnic.png" />
@@ -487,6 +490,7 @@
     <Content Include="Content\Images\kf-img.png" />
     <Content Include="Content\Images\left-phone.png" />
     <Content Include="Content\Images\loading-2.gif" />
+    <Content Include="Content\Images\lock-.png" />
     <Content Include="Content\Images\loding.gif" />
     <Content Include="Content\Images\loginback.jpg" />
     <Content Include="Content\Images\logo-common.png" />
@@ -515,6 +519,8 @@
     <Content Include="Content\Images\nsy-268.jpg" />
     <Content Include="Content\Images\nsy-291.jpg" />
     <Content Include="Content\Images\one.png" />
+    <Content Include="Content\Images\personal_tx.png" />
+    <Content Include="Content\Images\phone.png" />
     <Content Include="Content\Images\pic-01.jpg" />
     <Content Include="Content\Images\pic-03.jpg" />
     <Content Include="Content\Images\pic-04.jpg" />
@@ -542,6 +548,7 @@
     <Content Include="Content\Images\two.png" />
     <Content Include="Content\Images\tx.png" />
     <Content Include="Content\Images\uhaozu.jpg" />
+    <Content Include="Content\Images\vcard-.png" />
     <Content Include="Content\Images\wdj.png" />
     <Content Include="Content\Images\wj.gif" />
     <Content Include="Content\Images\wx-m7881.png" />
@@ -627,6 +634,7 @@
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
+    <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\PersonalCenter\PersonalCenter.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
