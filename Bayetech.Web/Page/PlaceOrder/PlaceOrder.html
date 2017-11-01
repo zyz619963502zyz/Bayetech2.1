@@ -602,6 +602,7 @@
                 <input type="hidden" id="buyNum" value="1" />
 
                 <!--金币购买-->
+                --------------金币购买--------------
                 <ul id="GoldBuy">
                     <li class="buyNum">
                         <span>购买数量：<strong style="color:#F00">* </strong></span><input type="hidden" id="stock" name="goodsPurchaseBean.stock" value="1" />5000万金
@@ -617,32 +618,7 @@
                     <li>
                         <span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /浙江区
                         /浙江7区
-                    </li>
-                    <li>
-                        <span>收货角色：<strong style="color:#F00">* </strong></span>
-                        &nbsp;&nbsp;<a href="/transaction/toPurchaseRole.action" target="_blank" style="color: blue">管理收货角色</a>
-                        <div id="dxk">
-                            <div id="div_0">
-                                <dl>
-                                    <dd>
-                                        <span>角色名：<strong style="color:#F00">*</strong></span> <input type="text" id="txtRole" desc="角色名" autocomplete="off" value="" maxlength="40" />
-                                        <p class="txcpdd_default">
-                                        </p>
-                                        <a id="fuzhi_0" href="http://www.7881.com/helpcenter/15886363374533255.html" target="_blank" style="color: blue;display:none;">如何复制角色名>></a>
-                                    </dd>
-                                    <dd>
-                                        <span>确认角色名：<strong style="color:#F00">*</strong></span> <input type="text" compare="true" compareid="txtRole" desc="确认角色名" autocomplete="off" value="" maxlength="40" />
-                                        <p class="txcpdd_default"></p>
-                                    </dd>
-                                    <dd style="display:none">
-                                        <span>等级：<strong style="color:#F00">*</strong></span> <input type="text" id="djtxt" desc="角色等级" autocomplete="off" value="" maxlength="10" />
-                                        <p class="txcpdd_default"> </p>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
+                    </li>du                    <li>
                         <span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="17621109811" />
                     </li>
                     <li>
@@ -652,6 +628,7 @@
 
                     <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'') " /></li>
                 </ul>
+                --------------账号购买--------------
                 <!--账号购买-->
                 <ul id="DealBuy">
                     <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" id="stock" name="goodsPurchaseBean.stock" maxval="1" size="5" desc="购买数量" regexp="^[1-9]\d*$" regexp_desc="购买数量必须大于0" value="1" readonly="readonly" /> (可购 1 件)</li>
@@ -663,12 +640,11 @@
                     <input type="hidden" id="addservicecost" name="goodsPurchaseBean.addservicecost" value="" />
                     <input type="hidden" id="addservicename" name="goodsPurchaseBean.addservicename" value="" />
                     <input type="hidden" id="addproperties" name="goodsPurchaseBean.addproperties" value="" />
-
                     <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="17621109811" /></li>
                     <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value="" /></li>
                     <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onkeyup="value=value.replace(/[\W]/g,&#39;&#39;) " onbeforepaste="clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;) " /></li>
-
                 </ul>
+                --------------点券购买--------------
                 <!--点券购买-->
                 <ul>
                     <li class="buyNum">
@@ -707,7 +683,7 @@
             <h1>确认提交订单</h1>
             <ul>
                 <li>
-                    7881官方任何工作人员，都<b>不会</b>通过
+                    7881官方任何工作人员，都<b>不会</b>通
                     QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。
                 </li>
                 <li>
