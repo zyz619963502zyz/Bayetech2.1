@@ -5,7 +5,7 @@ require(Signmoudule, function (Vue, $, goodInfo, orderNav) {
     var data = {};
 
     //注册主键到标签
-    Vue.component('orderNav', orderNav);
+    Vue.component('ordernav', orderNav);
     Vue.component('ordergoodinfo', goodInfo);
 
     var vm = new Vue({

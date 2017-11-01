@@ -9,6 +9,10 @@
     <link href="../../Content/CommonCss/buy.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/popLayer.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/sell.css" rel="stylesheet" />
+
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/PlaceOrder/index.js"></script>
     <style type="text/css">
         .txcpdd ul li span {
             width: 90px;
@@ -572,131 +576,15 @@
                         }
                 </style>
 
-                <input type="hidden" name="goodsPurchaseBean.goodsid" value="201612376080214" />
-                <input type="hidden" name="goodsPurchaseBean.tradetype" value="js" />
-                <input type="hidden" name="goodsPurchaseBean.gameid" value="G10" />
-                <input type="hidden" name="goodsPurchaseBean.gamename" value="地下城与勇士" />
-                <input type="hidden" name="goodsPurchaseBean.carrierid" value="" />
-                <input type="hidden" name="goodsPurchaseBean.carriername" value="" />
-                <input type="hidden" name="goodsPurchaseBean.groupid" value="G10P008" />
-                <input type="hidden" name="goodsPurchaseBean.groupname" value="浙江区" />
-                <input type="hidden" name="goodsPurchaseBean.serverid" value="G10P008006" />
-                <input type="hidden" name="goodsPurchaseBean.servername" value="浙江7区" />
-                <input type="hidden" name="goodsPurchaseBean.camp" value="" />
-                <input type="hidden" name="goodsPurchaseBean.rid" value="鬼刀千水" />
-                <input type="hidden" name="goodsPurchaseBean.gameaccount" value="" />
-                <input type="hidden" name="goodsPurchaseBean.gtid" value="100001" />
-                <input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" value="100003" />
-                <input type="hidden" name="goodsPurchaseBean.ver" value="" />
-                <input type="hidden" name="goodsPurchaseBean.payoutdelay" value="0" />
-                <input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" value="鬼刀千水" />
-                <input type="hidden" id="price" name="goodsPurchaseBean.price" value="98" />
-                <input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" value="5000" />
-                <input type="hidden" id="prid" name="goodsPurchaseBean.prid" />
-                <input type="hidden" id="grade" name="goodsPurchaseBean.grade" />
-                <input type="hidden" id="goodsinfo" name="goodsPurchaseBean.goodsinfo" />
-                <input type="hidden" id="goodsprice" name="goodsPurchaseBean.goodsprice" />
-                <input type="hidden" id="numberid" name="goodsPurchaseBean.numberid" />
-                <input type="hidden" id="buyerRolename" name="buyerRolename" />
-                <input type="hidden" id="uploadAuctionImg" name="goodsPurchaseBean.uploadAuctionImg" />
-                <input type="hidden" id="buyNum" value="1" />
-
                 <!--金币购买-->
-                <ul id="GoldBuy">
-                    <li class="buyNum">
-                        <span>购买数量：<strong style="color:#F00">* </strong></span><input type="hidden" id="stock" name="goodsPurchaseBean.stock" value="1" />5000万金
-                        <p class="txcpdd_default"> (可购 1 件)</p>
-                    </li>
-                    <li>
-                        <span>交易方式：<strong style="color:#F00">* </strong></span>
-                        <input type="radio" name="goodsPurchaseBean.delivertype" value="face" checked="checked" />&nbsp;当面交易
-                        <div style="border:solid red 1px; background:#f4faff;padding:5px;line-height:20px; margin-left:95px;color: red">
-                            请拍单后前往16线行会莎兰处进行交易
-                        </div>
-                    </li>
-                    <li>
-                        <span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /浙江区
-                        /浙江7区
-                    </li>
-                    <li>
-                        <span>收货角色：<strong style="color:#F00">* </strong></span>
-                        &nbsp;&nbsp;<a href="/transaction/toPurchaseRole.action" target="_blank" style="color: blue">管理收货角色</a>
-                        <div id="dxk">
-                            <div id="div_0">
-                                <dl>
-                                    <dd>
-                                        <span>角色名：<strong style="color:#F00">*</strong></span> <input type="text" id="txtRole" desc="角色名" autocomplete="off" value="" maxlength="40" />
-                                        <p class="txcpdd_default">
-                                        </p>
-                                        <a id="fuzhi_0" href="http://www.7881.com/helpcenter/15886363374533255.html" target="_blank" style="color: blue;display:none;">如何复制角色名>></a>
-                                    </dd>
-                                    <dd>
-                                        <span>确认角色名：<strong style="color:#F00">*</strong></span> <input type="text" compare="true" compareid="txtRole" desc="确认角色名" autocomplete="off" value="" maxlength="40" />
-                                        <p class="txcpdd_default"></p>
-                                    </dd>
-                                    <dd style="display:none">
-                                        <span>等级：<strong style="color:#F00">*</strong></span> <input type="text" id="djtxt" desc="角色等级" autocomplete="off" value="" maxlength="10" />
-                                        <p class="txcpdd_default"> </p>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="17621109811" />
-                    </li>
-                    <li>
-                        <span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value="" />
-                    </li>
-                    <li><span>交易暗码：<strong style="color:#F00">* </strong></span><input type="text" id="jyam" name="goodsPurchaseBean.jyam" maxlength="4" required="true" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" /></li>
-
-                    <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'') " /></li>
-                </ul>
+                --------------金币购买--------------
+                <goldorder></goldorder>
+                --------------账号购买--------------
                 <!--账号购买-->
-                <ul id="DealBuy">
-                    <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" id="stock" name="goodsPurchaseBean.stock" maxval="1" size="5" desc="购买数量" regexp="^[1-9]\d*$" regexp_desc="购买数量必须大于0" value="1" readonly="readonly" /> (可购 1 件)</li>
-                    <li>
-                        <span>收货方式：<strong style="color:#F00">* </strong></span> 账号交易
-                    </li>
-                    <li><span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /浙江区 /浙江4/5区 </li>
-                    <input type="hidden" id="serviceprice" name="goodsPurchaseBean.serviceprice" value="" />
-                    <input type="hidden" id="addservicecost" name="goodsPurchaseBean.addservicecost" value="" />
-                    <input type="hidden" id="addservicename" name="goodsPurchaseBean.addservicename" value="" />
-                    <input type="hidden" id="addproperties" name="goodsPurchaseBean.addproperties" value="" />
-
-                    <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="17621109811" /></li>
-                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value="" /></li>
-                    <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onkeyup="value=value.replace(/[\W]/g,&#39;&#39;) " onbeforepaste="clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;) " /></li>
-
-                </ul>
+                <accountorder></accountorder>
+                --------------点券购买--------------
                 <!--点券购买-->
-                <ul>
-                    <li class="buyNum">
-                        <div style="color:#ff6a2f;font-weight:bold">警惕：提供刷信用、兼职等任务的都是骗子，购买后骗子不会返回本金，谨防被骗！<a style="color: #3366cc;" href="http://www.7881.com/tradesafe.html">7881安全中心&gt;&gt;</a></div><br>
-                        <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" id="stock" name="goodsPurchaseBean.stock" maxval="4872" size="5" desc="购买数量" regexp="^[1-9]\d*$" regexp_desc="购买数量必须大于0" value="1"><p class="zq">&nbsp;</p>
-                    </li>
-                    <li>
-                        <span>收货方式：<strong style="color:#F00">* </strong></span> 邮寄 交易
-                    </li>
-
-                    <li><span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /广东区 /广东1区 </li>
-                    <li style="position: relative;overflow: visible;">
-                        <span>游戏账号：<strong style="color:#F00">* </strong></span><input type="text" id="gameaccount" name="goodsPurchaseBean.gameaccount" desc="游戏账号" value="" onfocus="$('#tipFrame').show();" onblur="$('#tipFrame').hide();">
-
-                        <div class="fed-toolstip" id="tipFrame" style="left: 230px;position: absolute;display:none">
-                            <div class="fed-tipcon">
-                                <div>如有人提供游戏账号让您填写，以做任务或刷信用为由，均为骗子，请勿受骗！</div>
-                                <a class="fed-tipsclose" id="tipClose" href="javascript:$('#tipFrame').hide();">×</a>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li><span>确认游戏账号：<strong style="color:#F00">* </strong></span><input type="text" compare="true" compareid="gameaccount" desc="确认游戏账号" value=""></li>
-
-                    <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="17621109811"></li>
-                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value=""></li>
-                    <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'') "></li>
-                </ul>
+                <cashorder></cashorder>
             </div>
         </div>
         <div class="clear"></div>
@@ -707,7 +595,7 @@
             <h1>确认提交订单</h1>
             <ul>
                 <li>
-                    7881官方任何工作人员，都<b>不会</b>通过
+                    7881官方任何工作人员，都<b>不会</b>通
                     QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。
                 </li>
                 <li>
