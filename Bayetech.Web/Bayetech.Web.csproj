@@ -635,7 +635,7 @@
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\Login\Loging.html" />
-    <Content Include="Page\PersonalCenter\PersonalCenter.html" />
+    <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Page\Sign\signing.html" />
