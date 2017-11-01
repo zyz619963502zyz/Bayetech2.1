@@ -3,6 +3,11 @@ jsconfig.baseArr.push("bootstrapValidator");
 require(jsconfig.baseArr, function ($, Vue, common, aaaa, validate) {
     var _loginUrl = "/api/Account/LoginIn"
 
+    //注册主键到标签
+    Vue.component('goldorder', orderNav);
+    Vue.component('accountorder', goodInfo);
+    Vue.component('cashorder', goodInfo);
+
     //登录的数据
     var data = {
         GameUser:"",
