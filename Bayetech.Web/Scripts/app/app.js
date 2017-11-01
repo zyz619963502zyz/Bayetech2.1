@@ -38,7 +38,7 @@ var FindObjByProp = function (arr, propName, value) {
 
 //路由配置
 var routeconfig = [{
-    name:"helpCenter",
+    name:"helpCenter", 
     path: webUrl + 'Page/HelpCenter/index.html',
 }, {
         name: "home",
