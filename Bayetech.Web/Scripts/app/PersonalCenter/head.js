@@ -1,5 +1,6 @@
 ﻿//头部模板
 define([], function () {
+    alert(1);
     //var html = `<div  class="Navigation">
     //                 <div>
     //                     <ul>
@@ -76,7 +77,7 @@ define([], function () {
         `
     var components = {
         name: "personal-head",
-        template:html
+        template: html
     };
 
     return components;

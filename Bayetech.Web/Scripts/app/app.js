@@ -21,7 +21,8 @@ var componentfig = {
         'index-tab': 'app/Home/index-tab',
         'ScreenModel': 'app/PointTrading/screen',
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
-        'personal-head': 'app/PersonalCenter/head',
+        'personal-head': 'app/PersonalCenter/head', 
+        'personalModule': 'app/PersonalCenter/index',
 
     },
     commonComponent: ['vue', 'jquery', 'common', 'header', 'footer'],
