@@ -1,5 +1,5 @@
 ﻿var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
-var jsconfig = {
+var jsconfig = { 
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
     baseArr: ['jquery', 'vue', 'common'],
@@ -38,7 +38,10 @@ var jsconfig = {
         "index-nav-dropdown":"app/Home/index-nav-dropdown",
         'ScreenModel': 'app/PointTrading/screen',
         'OrderGoodInfo': 'app/DealCheck/OrderGoodInfo',
-        'OrderNav': 'app/DealCheck/OrderNav'
+        'OrderNav': 'app/DealCheck/OrderNav',
+        'AccountOrder': 'app/PlaceOrder/AccountOrder',
+        'CashOrder': 'app/PlaceOrder/CashOrder',
+        'GoldOrder': 'app/PlaceOrder/GoldOrder',
     },
     shim: {
         'bootstrap': {

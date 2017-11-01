@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-var Signmoudule = ['vue', 'jquery', 'OrderGoodInfo', 'OrderNav']
-require(Signmoudule, function (Vue, $, goodInfo, orderNav) {
+var moudule = ['vue', 'jquery', 'common', 'OrderGoodInfo', 'OrderNav']
+require(moudule, function (Vue, $, common, goodInfo, orderNav) {
     //数据为左右整合数据
     var data = {};
 
@@ -9,7 +9,7 @@ require(Signmoudule, function (Vue, $, goodInfo, orderNav) {
     Vue.component('ordergoodinfo', goodInfo);
 
     var vm = new Vue({
-        el: '#GoodInfo',
+        el: '#OrderInfo',
         data: function () {
             return data;
         },
