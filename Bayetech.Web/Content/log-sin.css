@@ -12,20 +12,21 @@
 #sin-head .a-logo{margin-left:-15px;}
 #sin-head .a-logo:hover{background-color:transparent;}
 #sin-head .to-login{display:inline-block;}
+#sin-content .box-r-ver{border-right:1px solid #ccc;}
 #sin-content .panel-body .m-t-md{margin-top:20px;}
 #sin-content .sin-form-horizontal .form-group{position:relative;}
 #sin-content .sin-form-horizontal .form-group input{padding-left:32px;}
 #sin-content .sin-form-horizontal .form-group i{position:absolute;top: 9px;left: 11px;font-size: 1.3em;color: #aaa;z-index: 10;}
 #sin-content .sin-form-horizontal .form-group i.fa-mobile{top:6px;left:10px;}
 #sin-content .sin-form-horizontal .form-group i.fa-check-square-o{top:10px;left:9px;}
-#sin-content .sin-form-horizontal .input-group-addon .check-code-img{width:94px;height:32px;}
+#sin-content .sin-form-horizontal .input-group-addon .check-code-img,
+#log-content .log-form-horizontal .input-group-addon .check-code-img{width:94px;height:32px;}
 
 /*登录样式*/
-#log-content{}
-
+#log-content{margin-top:-20px;min-height:600px;background-image:url(../Content/Images/loginback.jpg);}
+#log-content .container .row{margin-top:30px;}
 @media(max-width:1023px){
     #sin-head .container{padding-left:25px;padding-right:25px;}
-    
 }
 @media(min-width:640px){
     #sin-head .navbar-nav {float: left;margin: 0;}
@@ -34,9 +35,12 @@
     #sin-head .text-link{line-height: 53px;font-size: 1.2em;}
 }
 @media(min-width:320px) and (max-width:479px){
+    /*注册*/
     #sin-head .page-header{margin:20px 0;}
     #sin-head .nav>li,#sin-head .navbar-nav>li>a{text-align:center;}
     #sin-head .sin-hide,#sin-content .sin-hide{display:none!important;}
-    #sin-content 
+    #sin-content .box-r-ver{border-right:0;}
+    /*登录*/
+    #log-content{margin-top:0;background-image:none;}
 }
 

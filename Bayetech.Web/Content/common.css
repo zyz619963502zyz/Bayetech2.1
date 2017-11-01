@@ -48,7 +48,10 @@
  *base-style:solid
  *base-width:1px
  */
-
+.border-right{border-right:1px solid #ccc;}
+/*letter-spacing*/
+.ls-2{letter-spacing:2px;}
+.ls-10{letter-spacing:10px;}
 
 @media (max-width:991px){
     .nav>li>a{
