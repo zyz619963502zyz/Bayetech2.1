@@ -6,14 +6,14 @@ define("AccountOrder", jsconfig.baseArr, function (Vue, $, common) {
 
     //模板
     var accountorderHtml = `<ul id="DealBuy">
-                    <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" value="buyNum" readonly="readonly" /> (可购1件) </li>
+                    <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" :value="buyNum" readonly="readonly" /> (可购1件) </li>
                     <li>
                         <span>收货方式：<strong style="color:#F00">* </strong></span> 账号交易
                     </li>
                     <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{gameName}}/{{bigArea}}/{{smallArea}}</li>
-                    <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" value="phoneNum" /></li>
-                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" value="qqNum" /></li>
-                    <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" value="promo" /></li>
+                    <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" :value="phoneNum" /></li>
+                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" :value="qqNum" /></li>
+                    <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" :value="promo" /></li>
                 </ul>`;
 
     var data = {

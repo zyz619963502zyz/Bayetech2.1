@@ -7,14 +7,14 @@ define("CashOrder", jsconfig.baseArr, function (Vue, $, common) {
     //模板
     var cashorderHtml = `<ul>
                             <li class="buyNum">
-                                <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" value="buyNum"><p class ="zq">&nbsp; </p>
+                                <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" :value="buyNum"><p class ="zq">&nbsp; </p>
                             </li>
                             <li>
                                 <span>收货方式：<strong style="color:#F00">* </strong></span> 邮寄 交易
                             </li>
                             <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{gameName}}/{{bigArea}}/{{smallArea}}</li>
                             <li style="position: relative;overflow: visible;">
-                                <span>游戏账号：<strong style="color:#F00">* </strong></span><input type="text" value="account">
+                                <span>游戏账号：<strong style="color:#F00">* </strong></span><input type="text" :value="account">
                                 <div class="fed-toolstip" id="tipFrame" style="left: 230px;position: absolute;display:none">
                                     <div class="fed-tipcon">
                                         <div>如有人提供游戏账号让您填写，以做任务或刷信用为由，均为骗子，请勿受骗！</div>
@@ -22,10 +22,10 @@ define("CashOrder", jsconfig.baseArr, function (Vue, $, common) {
                                     </div>
                                 </div>
                             </li>
-                            <li><span>确认游戏账号：<strong style="color:#F00">* </strong></span><input type="text" value="accountAgain"></li>
-                            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" value="phoneNum"></li>
-                            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text"  value="qqNum"></li>
-                            <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" value="promo"></li>
+                            <li><span>确认游戏账号：<strong style="color:#F00">* </strong></span><input type="text" :value="accountAgain"></li>
+                            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" :value="phoneNum"></li>
+                            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text"  :value="qqNum"></li>
+                            <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" :value="promo"></li>
                         </ul>`;
 
     var data = {

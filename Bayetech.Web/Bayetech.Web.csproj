@@ -648,9 +648,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\AllScript\7881-2016.js" />
-    <Content Include="Scripts\AllScript\7881.login.popup.js" />
-    <Content Include="Scripts\AllScript\7881_2014_logo_search_new.js" />
-    <Content Include="Scripts\AllScript\7881_logo_modify.js" />
     <Content Include="Scripts\AllScript\allgamesindex.js" />
     <Content Include="Scripts\AllScript\aq_auth.js" />
     <Content Include="Scripts\AllScript\character.core.js" />
@@ -668,14 +665,6 @@
     <Content Include="Scripts\AllScript\hm.js" />
     <Content Include="Scripts\AllScript\html5.js" />
     <Content Include="Scripts\AllScript\index.js" />
-    <Content Include="Scripts\AllScript\jquery-1.11.1.min.js" />
-    <Content Include="Scripts\AllScript\jquery-1.7.2.min.js" />
-    <Content Include="Scripts\AllScript\jquery-1.8.3.min.js" />
-    <Content Include="Scripts\AllScript\jquery.min.js" />
-    <Content Include="Scripts\AllScript\jquery.smartinput-2016.js" />
-    <Content Include="Scripts\AllScript\jquery.smartinput.js" />
-    <Content Include="Scripts\AllScript\jquery.validate.js" />
-    <Content Include="Scripts\AllScript\jquery1.5.js" />
     <Content Include="Scripts\AllScript\kefu.js" />
     <Content Include="Scripts\AllScript\kf.js" />
     <Content Include="Scripts\AllScript\lightbox-plus-jquery.min.js" />
@@ -778,7 +767,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\log4net.config" />
-    <Content Include="Scripts\AllScript\jquery.easing.min.js" />
     <Content Include="Content\fonts\sa-regular.eot" />
     <Content Include="Content\fonts\sa-regular.ttf" />
     <Content Include="Content\fonts\sa-regular.woff" />
