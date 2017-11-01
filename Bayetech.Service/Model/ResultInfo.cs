@@ -15,6 +15,6 @@ namespace Bayetech.Service
         public static string Content = "content";
 
         //数据集
-        public static string List = "list";
+        public static string Data = "data";
     }
 }
