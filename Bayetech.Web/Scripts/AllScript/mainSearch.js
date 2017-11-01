@@ -21,7 +21,7 @@ var _gameInfo={};//游戏基本信息
 var platformNames=['苹果','安卓','苹果越狱'];
 //allgames 定义在game_base_info.js中 后台查询的所有游戏的基本信息
 //js搜索字段匹配
-$.getScript("http://search.7881.com/scripts/character.core.js");
+//$.getScript("http://search.7881.com/scripts/character.core.js");
 
 function changeSelected(num) {
     var _num = Math.abs(num - 1);
