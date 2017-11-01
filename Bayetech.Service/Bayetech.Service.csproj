@@ -57,6 +57,7 @@
     <Compile Include="IServices\Auto\IView_ArticleInfoService.Auto.cs" />
     <Compile Include="IServices\Auto\Ivw_LoginInfoService.Auto.cs" />
     <Compile Include="IServices\IArticleService.cs" />
+    <Compile Include="IServices\IGameRequirementsService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="Model\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Services\Auto\ModuleService.Auto.cs" />
     <Compile Include="Services\Auto\View_ArticleInfoService.Auto.cs" />
     <Compile Include="Services\Auto\vw_LoginInfoService.Auto.cs" />
+    <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="T4Tools\Run_Services.cs">
       <AutoGen>True</AutoGen>
@@ -125,9 +127,7 @@
 </LastOutputs>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
