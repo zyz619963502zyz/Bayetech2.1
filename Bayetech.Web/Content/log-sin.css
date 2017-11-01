@@ -5,9 +5,12 @@
  *说明：登录及注册相关样式请在以下编辑或者修改
  */
 @charset"utf-8";
+
+/*注册样式*/
 /*#sin-head .a-logo{margin:0 auto;width: 200px;height: 50px;font-style: italic;font-size: 42px;color: #FBB03B;letter-spacing: 10px;text-decoration: underline;font-weight: 700}*/
 /*#sin-head .a-logo{margin:0 auto;}*/
 #sin-head .a-logo{margin-left:-15px;}
+#sin-head .a-logo:hover{background-color:transparent;}
 #sin-head .to-login{display:inline-block;}
 #sin-content .panel-body .m-t-md{margin-top:20px;}
 #sin-content .sin-form-horizontal .form-group{position:relative;}
@@ -17,8 +20,11 @@
 #sin-content .sin-form-horizontal .form-group i.fa-check-square-o{top:10px;left:9px;}
 #sin-content .sin-form-horizontal .input-group-addon .check-code-img{width:94px;height:32px;}
 
+/*登录样式*/
+#log-content{}
+
 @media(max-width:1023px){
-    .container{padding-left:25px;padding-right:25px;}
+    #sin-head .container{padding-left:25px;padding-right:25px;}
     
 }
 @media(min-width:640px){
@@ -27,9 +33,10 @@
     #sin-head .navbar-right{float:right!important;}
     #sin-head .text-link{line-height: 53px;font-size: 1.2em;}
 }
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:320px) and (max-width:479px){
     #sin-head .page-header{margin:20px 0;}
     #sin-head .nav>li,#sin-head .navbar-nav>li>a{text-align:center;}
     #sin-head .sin-hide,#sin-content .sin-hide{display:none!important;}
+    #sin-content 
 }
 
