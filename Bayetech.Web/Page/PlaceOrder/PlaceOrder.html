@@ -557,38 +557,41 @@
             </div>
         </div>
     </div>
-    <form id="goodsForm" action="/procurement/purchaseGoods.action?from=" method="post">
-        <div class="center">
-            <div class="txcpdd">
-                <h1>填写商品订单</h1>
-                <style>
-                    .tips-of3b {
-                        background: #ffdfbe;
-                        padding: 10px 20px;
-                        color: red;
-                        font-size: 14px;
-                        margin: 5px 20px 0 20px;
-                    }
-
-                        .tips-of3b p {
-                            text-indent: 1em;
-                            margin: 5px 0 0;
+    <div id="OrderInfo">
+        <form id="goodsForm" action="/procurement/purchaseGoods.action?from=" method="post">
+            <div class="center">
+                <div class="txcpdd">
+                    <h1>填写商品订单</h1>
+                    <style>
+                        .tips-of3b {
+                            background: #ffdfbe;
+                            padding: 10px 20px;
+                            color: red;
+                            font-size: 14px;
+                            margin: 5px 20px 0 20px;
                         }
-                </style>
 
-                <!--金币购买-->
-                --------------金币购买--------------
-                <goldorder></goldorder>
-                --------------账号购买--------------
-                <!--账号购买-->
-                <accountorder></accountorder>
-                --------------点券购买--------------
-                <!--点券购买-->
-                <cashorder></cashorder>
+                            .tips-of3b p {
+                                text-indent: 1em;
+                                margin: 5px 0 0;
+                            }
+                    </style>
+
+                    <!--金币购买-->
+                    --------------金币购买--------------
+                    <goldorder></goldorder>
+                    --------------账号购买--------------
+                    <!--账号购买-->
+                    <accountorder></accountorder>
+                    --------------点券购买--------------
+                    <!--点券购买-->
+                    <cashorder></cashorder>
+                </div>
             </div>
-        </div>
-        <div class="clear"></div>
-    </form>
+            <div class="clear"></div>
+        </form>
+    </div>
+
     <div class="clear"></div>
     <div class="center">
         <div class="qdtjdd">

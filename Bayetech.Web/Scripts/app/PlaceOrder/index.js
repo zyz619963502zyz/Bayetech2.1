@@ -10,7 +10,7 @@ require(moudule, function (Vue, $, common, account, cash, gold) {
     Vue.component('cashorder', cash);
 
     var vm = new Vue({
-        el: '#GoodInfo',
+        el: '#OrderInfo',
         data: function () {
             return data;
         },
