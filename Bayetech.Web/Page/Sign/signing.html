@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../../Content/log-sin.css" />
 </head>
 <body>
-    <div id="sin-head">
+    <div id="sin-head" class="sin-head" data-class="sin-head">
         <div class="page-header">
             <div class="container">
                 <ul class="nav navbar-nav">
@@ -28,7 +28,7 @@
                             <img src="../../Content/Images/logo1.png" />
                         </a>
                     </li>
-                    <li class="text-link">快乐游戏，安全交易</li>
+                    <li class="text-link">用户注册</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right sin-hide m-r-0">
                     <li class="text-link">已有账号？<a href="../Login/Login.html" class="to-login">立即登录</a></li>
@@ -36,30 +36,22 @@
             </div>
         </div>
     </div>
-    <div id="sin-content">
+    <div id="sin-content" class="sin-content">
         <div class="container">
             <div class="row">
-                <div class="box-r-ver col-xs-12 col-sm-6 col-sm-offset-1 col-md-8 col-lg-4 col-lg-offset-2">
+                <div class="box-r-ver col-xs-12 col-sm-6 col-sm-offset-1 col-md-8 col-lg-4 col-lg-offset-3">
                     <div class="panel-body sin-hide">
                         <h4 class="m-b">手机号注册</h4>
                     </div>
                     <div class="panel-body">
                         <form class="sin-form-horizontal">
+                            <!--输入手机号-->
                             <div class="form-group">
                                 <label for="in_0" class="sr-only">phone number</label>
                                 <i class="fa fa-mobile e16" aria-hidden="true"></i>
                                 <input type="text" value="" class="form-control" placeholder="请输入手机号" id="in_0"/>
                             </div>
-                            <div class="form-group">
-                                <label for="in_1" class="sr-only"></label>
-                                <i class="fa fa-check-square-o e12" aria-hidden="true"></i>
-                                <div class="input-group">
-                                    <input type="text" value="" class="form-control" placeholder="验证码" id="in_1"/>
-                                    <span class="input-group-addon p-n pointer">
-                                        <img src="../../Content/Images/02.jpg" class="check-code-img" title="换一换"/>
-                                    </span>
-                                </div>
-                            </div>
+                            <!--手机验证码-->
                             <div class="form-group">
                                 <label for="in_2" class="sr-only"></label>
                                 <i class="fa fa-check-square-o e12" aria-hidden="true"></i>
@@ -70,17 +62,30 @@
                                     </span>
                                 </div>
                             </div>
+                            <!--图片验证码-->
+                            <div class="form-group">
+                                <label for="in_1" class="sr-only"></label>
+                                <i class="fa fa-check-square-o e12" aria-hidden="true"></i>
+                                <div class="input-group">
+                                    <input type="text" value="" class="form-control" placeholder="验证码" id="in_1" />
+                                    <span class="input-group-addon p-n pointer">
+                                        <img src="../../Content/Images/02.jpg" class="check-code-img" title="换一换" />
+                                    </span>
+                                </div>
+                            </div>
+                            <!--设置密码-->
                             <div class="form-group">
                                 <label for="in_3" class="sr-only"></label>
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                 <input type="text" value="" class="form-control" placeholder="设置密码" id="in_3"/>
                             </div>
+                            <!--确认密码-->
                             <div class="form-group">
                                 <label for="in_4" class="sr-only"></label>
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                 <input type="text" value="" class="form-control" placeholder="确认密码" id="in_4"/>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block m-t-md ls-2"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;立即注册</button>
+                            <button type="submit" class="btn btn-warning btn-block m-t-md ls-2"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;立即注册</button>
                         </form>
                     </div>
                 </div>
