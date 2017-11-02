@@ -26,6 +26,7 @@
     };
 
     var components = {
+        name: "v-footer",
         template: html,
         data() {
             return data;

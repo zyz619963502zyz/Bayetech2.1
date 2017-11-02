@@ -69,6 +69,7 @@
     };
 
     var components = {
+        name: "v-header",
         template: html,
         data() {
             return data;

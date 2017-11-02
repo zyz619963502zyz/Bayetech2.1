@@ -96,7 +96,7 @@ define([], function () {
     }
 
     var components = {
-        name: "mgame-list",
+        name: "v-partner",
         data() {
             return data;
         },

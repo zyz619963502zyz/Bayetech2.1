@@ -23,7 +23,7 @@ define(['common'], function (common) {
     //gg-box qa-box deal-top-box <a :href="item.htmlurl" target="_blank">{{item.urltext}}</a> <slot name="centent" :obj="item"></slot>
 
     var components = {
-        name: "tab",
+        name: "v-tab",
         props: ['data'],
         data() {
             return {

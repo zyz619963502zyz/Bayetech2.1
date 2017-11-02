@@ -49,7 +49,6 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
             },
         },
     };
-    debugger;
     common.PrepareComponents(components, 3, arguments);//组装组件
     return components;
 });

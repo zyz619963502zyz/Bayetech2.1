@@ -33,7 +33,7 @@ define([], function () {
     }
 
     var components = {
-        name: "slideBox",
+        name: "index-slidebox",
         data() {
             return data;
         },

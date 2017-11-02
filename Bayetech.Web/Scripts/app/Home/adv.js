@@ -1,4 +1,4 @@
-﻿//轮播图
+﻿//首页广告
 define([], function () {
     var html = `<div class="index-adv-box">
     <div class="index-adv clearfix">

@@ -1,5 +1,5 @@
 ﻿//首页导航
-define(['index-nav-dropdown'], function (navdropdown) {
+define(['nav-dropdown'], function (navdropdown) {
     var html = `<div class="index-nav-box">
     <div class="index-nav">
         <div class="index-nav-item dy-nav">
@@ -8,7 +8,7 @@ define(['index-nav-dropdown'], function (navdropdown) {
                <a v-else href="#" class="dropdown-act" @mouseover="showdropdown(item.title)" >{{item.title}}</a>
             </template>         
         </div>
-        <index-nav-dropdown :object="dropdownObj"  v-show="isShow" v-on:mouseleave.native="hidedropdown()"></index-nav-dropdown>
+        <nav-dropdown :object="dropdownObj"  v-show="isShow" v-on:mouseleave.native="hidedropdown()"></nav-dropdown>
     </div>
 </div>`;
 
