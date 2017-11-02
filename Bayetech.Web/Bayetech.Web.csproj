@@ -645,7 +645,7 @@
     <Content Include="Page\Sign\signing.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Page\HelpCenter\index.html" />
+    <Content Include="Page\ServiceCenter\index.html" />
     <Content Include="Page\Home\index.html" />
     <Content Include="Page\Sign\Signin.html" />
     <Content Include="Resource\Spring\SpringObjects.xml">
@@ -669,8 +669,6 @@
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
-    <Content Include="Scripts\app\PlaceOrder\OrderGoodInfo.js" />
-    <Content Include="Scripts\app\PlaceOrder\OrderNav.js" />
     <Content Include="Scripts\app\Search\search-gamedropdown.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
