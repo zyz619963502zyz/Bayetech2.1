@@ -79,5 +79,6 @@ require(jsconfig.baseArr, function ($, Vue, common, aaaa, validate) {
             }
         }
     });
+
 });
 
