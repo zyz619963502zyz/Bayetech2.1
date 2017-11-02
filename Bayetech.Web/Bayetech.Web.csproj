@@ -649,7 +649,6 @@
     </Content>
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\DealCheck\GoodPictures.js" />
     <Content Include="Scripts\app\DealCheck\index.js" />
     <Content Include="Scripts\app\DealCheck\OrderGoodInfo.js" />
@@ -668,7 +667,6 @@
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
-    <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Scripts\app\Home\adv-01.js" />
     <Content Include="Scripts\app\Home\banner-box.js" />
     <Content Include="Scripts\app\Home\convenience.js" />
@@ -692,7 +690,6 @@
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />
-    <Content Include="Scripts\app\_run.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
