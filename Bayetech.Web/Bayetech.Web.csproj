@@ -275,6 +275,7 @@
     <Content Include="Content\bootstrap\font-awesome.min.css" />
     <Content Include="Content\common.css" />
     <Content Include="Content\CommonCss\buy.css" />
+    <Content Include="Content\CommonCss\change.css" />
     <Content Include="Content\CommonCss\default-skin.css" />
     <Content Include="Content\CommonCss\details.css" />
     <Content Include="Content\CommonCss\HelpPage.css" />
@@ -293,6 +294,7 @@
     <Content Include="Content\CommonCss\layer.css" />
     <Content Include="Content\CommonCss\list.css" />
     <Content Include="Content\CommonCss\loginReg.css" />
+    <Content Include="Content\CommonCss\Personal.css" />
     <Content Include="Content\CommonCss\photoswipe.css" />
     <Content Include="Content\CommonCss\popLayer.css" />
     <Content Include="Content\CommonCss\Public.css" />
@@ -427,6 +429,7 @@
     <Content Include="Content\Images\bd.png" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\bigpic.jpg" />
+    <Content Include="Content\Images\bit_2.gif" />
     <Content Include="Content\Images\buy_zhang.png" />
     <Content Include="Content\Images\cb.png" />
     <Content Include="Content\Images\cnnic.png" />
@@ -487,6 +490,7 @@
     <Content Include="Content\Images\kf-img.png" />
     <Content Include="Content\Images\left-phone.png" />
     <Content Include="Content\Images\loading-2.gif" />
+    <Content Include="Content\Images\lock-.png" />
     <Content Include="Content\Images\loding.gif" />
     <Content Include="Content\Images\loginback.jpg" />
     <Content Include="Content\Images\logo-common.png" />
@@ -515,6 +519,8 @@
     <Content Include="Content\Images\nsy-268.jpg" />
     <Content Include="Content\Images\nsy-291.jpg" />
     <Content Include="Content\Images\one.png" />
+    <Content Include="Content\Images\personal_tx.png" />
+    <Content Include="Content\Images\phone.png" />
     <Content Include="Content\Images\pic-01.jpg" />
     <Content Include="Content\Images\pic-03.jpg" />
     <Content Include="Content\Images\pic-04.jpg" />
@@ -542,6 +548,7 @@
     <Content Include="Content\Images\two.png" />
     <Content Include="Content\Images\tx.png" />
     <Content Include="Content\Images\uhaozu.jpg" />
+    <Content Include="Content\Images\vcard-.png" />
     <Content Include="Content\Images\wdj.png" />
     <Content Include="Content\Images\wj.gif" />
     <Content Include="Content\Images\wx-m7881.png" />
@@ -627,7 +634,8 @@
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Login\Login.html" />
-    <Content Include="Page\PersonalCenter\PersonalCenter.html" />
+    <Content Include="Page\Login\Loging.html" />
+    <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Page\Sign\signing.html" />
@@ -639,62 +647,8 @@
     <Content Include="Resource\Spring\SpringObjects.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\AllScript\7881-2016.js" />
-    <Content Include="Scripts\AllScript\7881.login.popup.js" />
-    <Content Include="Scripts\AllScript\7881_2014_logo_search_new.js" />
-    <Content Include="Scripts\AllScript\7881_logo_modify.js" />
-    <Content Include="Scripts\AllScript\allgamesindex.js" />
-    <Content Include="Scripts\AllScript\aq_auth.js" />
-    <Content Include="Scripts\AllScript\character.core.js" />
-    <Content Include="Scripts\AllScript\clsIDCard.js" />
-    <Content Include="Scripts\AllScript\common-focus.js" />
-    <Content Include="Scripts\AllScript\convenience.js" />
-    <Content Include="Scripts\AllScript\cz-center.js" />
-    <Content Include="Scripts\AllScript\details.js" />
-    <Content Include="Scripts\AllScript\float-menu.js" />
-    <Content Include="Scripts\AllScript\ga.js" />
-    <Content Include="Scripts\AllScript\game_base_info.js" />
-    <Content Include="Scripts\AllScript\gift.js" />
-    <Content Include="Scripts\AllScript\goodsDetail.js" />
-    <Content Include="Scripts\AllScript\h.js" />
-    <Content Include="Scripts\AllScript\hm.js" />
-    <Content Include="Scripts\AllScript\html5.js" />
-    <Content Include="Scripts\AllScript\index.js" />
-    <Content Include="Scripts\AllScript\jquery-1.11.1.min.js" />
-    <Content Include="Scripts\AllScript\jquery-1.7.2.min.js" />
-    <Content Include="Scripts\AllScript\jquery-1.8.3.min.js" />
-    <Content Include="Scripts\AllScript\jquery.min.js" />
-    <Content Include="Scripts\AllScript\jquery.smartinput-2016.js" />
-    <Content Include="Scripts\AllScript\jquery.smartinput.js" />
-    <Content Include="Scripts\AllScript\jquery.validate.js" />
-    <Content Include="Scripts\AllScript\jquery1.5.js" />
-    <Content Include="Scripts\AllScript\kefu.js" />
-    <Content Include="Scripts\AllScript\kf.js" />
-    <Content Include="Scripts\AllScript\lightbox-plus-jquery.min.js" />
-    <Content Include="Scripts\AllScript\linkageSlide.js" />
-    <Content Include="Scripts\AllScript\list.js" />
-    <Content Include="Scripts\AllScript\loginReg.js" />
-    <Content Include="Scripts\AllScript\mainSearch.js" />
-    <Content Include="Scripts\AllScript\md5.js" />
-    <Content Include="Scripts\AllScript\moment.min.js" />
-    <Content Include="Scripts\AllScript\pc-common.js" />
-    <Content Include="Scripts\AllScript\popup.js" />
-    <Content Include="Scripts\AllScript\pop_login.js" />
-    <Content Include="Scripts\AllScript\recharge.7881.js" />
-    <Content Include="Scripts\AllScript\restrict_input.js" />
-    <Content Include="Scripts\AllScript\search-suggest.js" />
-    <Content Include="Scripts\AllScript\search.js" />
-    <Content Include="Scripts\AllScript\share.js" />
-    <Content Include="Scripts\AllScript\shop_v2.0.js" />
-    <Content Include="Scripts\AllScript\shouchong.js" />
-    <Content Include="Scripts\AllScript\shouyou-7881.js" />
-    <Content Include="Scripts\AllScript\shouyou-index.js" />
-    <Content Include="Scripts\AllScript\store_base_info.js" />
-    <Content Include="Scripts\AllScript\validateLogin.js" />
-    <Content Include="Scripts\AllScript\webuploader.min.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\DealCheck\GoodPictures.js" />
     <Content Include="Scripts\app\DealCheck\index.js" />
     <Content Include="Scripts\app\DealCheck\OrderGoodInfo.js" />
@@ -707,6 +661,9 @@
     <Content Include="Scripts\app\Home\index-nav.js" />
     <Content Include="Scripts\app\PersonalCenter\head.js" />
     <Content Include="Scripts\app\PersonalCenter\index.js" />
+    <Content Include="Scripts\app\PlaceOrder\AccountOrder.js" />
+    <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
+    <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderGoodInfo.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderNav.js" />
@@ -714,7 +671,6 @@
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
-    <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Scripts\app\Home\adv-01.js" />
     <Content Include="Scripts\app\Home\banner-box.js" />
     <Content Include="Scripts\app\Home\convenience.js" />
@@ -740,7 +696,6 @@
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />
-    <Content Include="Scripts\app\_run.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -773,7 +728,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\log4net.config" />
-    <Content Include="Scripts\AllScript\jquery.easing.min.js" />
     <Content Include="Content\fonts\sa-regular.eot" />
     <Content Include="Content\fonts\sa-regular.ttf" />
     <Content Include="Content\fonts\sa-regular.woff" />

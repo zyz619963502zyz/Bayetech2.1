@@ -5,23 +5,26 @@
  *说明：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
  */
 @charset"UTF-8";
+/*padding*/
 .p-n{padding:0!important;}
-.p-xs{padding:5px;}
-.p-sm{padding:10px;}
-.p-md{padding:15px;}
-.p-lg{padding:25px;}
-.p-xl{padding:35px;}
-
-.m-sm{margin:10px;}
-.m-md{margin:15px;}
-.m-t-xxs{margin-top:1px;}
-.m-t-xs{margin-top:5px;}
-.m-t-sm{margin-top:10px;}
-.m-t-md{margin-top:15px;}
-.m-t-lg{margin-top:25px;}
-.m-t-xl{margin-top:35px;}
+.p-xs{padding:5px!important;}
+.p-sm{padding:10px!important;}
+.p-md{padding:15px!important;}
+.p-lg{padding:25px!important;}
+.p-xl{padding:35px!important;}
+/*margin*/
+.m-sm{margin:10px!important;}
+.m-md{margin:15px!important;}
+.m-t-xxs{margin-top:1px!important;}
+.m-t-xs{margin-top:5px!important;}
+.m-t-sm{margin-top:10px!important;}
+.m-t-md{margin-top:15px!important;}
+.m-t-lg{margin-top:25px!important;}
+.m-t-xl{margin-top:35px!important;}
 .m-r-0{margin-right:0!important;}
-
+.m-r-sm{margin-right:10px!important;}
+.m-r-md{margin-right:15px!important;}
+/*font-size*/
 .f12{font-size:12px!important;}
 .f14{font-size:14px!important;}
 .f16{font-size:16px!important;}
@@ -34,9 +37,23 @@
 .e15{font-size:1.5em!important}
 .e16{font-size:1.6em!important;}
 .e20{font-size:2em!important;}
+/*font-weight*/
+.fb600{font-weight:600!important;}
+.fb700{font-weight:700!important;}
+.fb800{font-weight:800!important;}
+/*cursor:pointer*/
+.pointer{cursor:pointer!important;}
+/*border 
+ *base-color:#ccc
+ *base-style:solid
+ *base-width:1px
+ */
+.border-right{border-right:1px solid #ccc;}
+/*letter-spacing*/
+.ls-2{letter-spacing:2px;}
+.ls-10{letter-spacing:10px;}
 
-.pointer{cursor:pointer;}
-@media (max-width:992px){
+@media (max-width:991px){
     .nav>li>a{
         padding:5px 8px;
     }
