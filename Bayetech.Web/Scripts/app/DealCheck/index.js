@@ -5,8 +5,8 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
     var data = {};
 
     //注册主键到标签
-    Vue.component('ordernav', orderNav);
-    Vue.component('ordergoodinfo', goodInfo);
+    //Vue.component('ordernav', orderNav);
+    //Vue.component('ordergoodinfo', goodInfo);
 
     var vm = new Vue({
         el: '#OrderInfo',
@@ -15,6 +15,10 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
         },
         created: function () {
 
+        },
+        components: {
+            'ordernav': orderNav,
+            'ordergoodinfo': goodInfo
         }
     });
 });

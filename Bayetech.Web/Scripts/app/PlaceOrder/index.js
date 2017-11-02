@@ -5,9 +5,9 @@ require(moudule, function (Vue, $, common, account, cash, gold) {
     var data = {};
 
     //注册主键到标签
-    Vue.component('accountorder', account);
-    Vue.component('goldorder', gold);
-    Vue.component('cashorder', cash);
+    //Vue.component('accountorder', account);//账号
+    //Vue.component('goldorder', gold);//金币
+    //Vue.component('cashorder', cash);//点劵
 
     var vm = new Vue({
         el: '#OrderInfo',
@@ -16,6 +16,11 @@ require(moudule, function (Vue, $, common, account, cash, gold) {
         },
         created: function () {
 
+        },
+        components: {
+            'accountorder': account,
+            'goldorder': gold,
+            'cashorder':cash
         }
     });
 });

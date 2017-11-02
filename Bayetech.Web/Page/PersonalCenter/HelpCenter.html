@@ -7,14 +7,13 @@
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
     <title>7881个人中心-网游戏交易平台|游戏币交易|装备交易|账号交易|点卡交易-7881.com</title>
-   
-
     <link href="../../Content/CommonCss/7881.common.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/global_new.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Personal.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/change.css" rel="stylesheet" />
+    <script src="../../Scripts/require.js" data-main="../../Scripts/app/app.js"></script>
     <style>
         .header {
             height: 105px;
@@ -47,96 +46,12 @@
     <!--头部开始-->
 
 
-    <script>
-        function toadd() {
-            if ('119925081' == '117575680') {
-                alert("该用户禁止充值");
-            } else {
-                window.location.href = "/financecharge/toAdd.action";
-            }
-        }
-    </script>
+  
 
-    <div class="top_box">
-        <div class="top">
-            <!--顶部区域-->
-            <div class="top_l left"><dl><span id="span_user"><dt><a rel="nofollow" href="http://www.7881.com/personal.html">伟大的小源源</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="http://www.7881.com/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[0]</i></a></dt><dt class="top_grayline">|</dt><dt><a href="http://www.7881.com/logout.action" rel="nofollow">退出</a></dt></span></dl></div><!--顶部左侧-->
-
-            <div class="top_r right">
-                <!--顶部右侧-->
-                <dl>
-                    <dt><a href="http://www.7881.com/" rel="nofollow">首页</a></dt>
-                    <dt class="top_grayline">|</dt>
-                    <dd class="subNav">
-                        <a href="http://www.7881.com/personal.html" rel="nofollow">买家中心</a>
-                        <ul id="hide_nav">
-                            <li><a href="http://www.7881.com/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a></li>
-                            <li><a href="http://www.7881.com/gamelistshow.html" rel="nofollow">我要买</a></li>
-                        </ul>
-                    </dd>
-                    <dt class="top_grayline">|</dt>
-                    <dd class="subNav">
-                        <a href="http://www.7881.com/personal.html">卖家中心</a>
-                        <ul id="hide_nav">
-                            <li><a href="http://www.7881.com/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a></li>
-                            <li><a href="http://www.7881.com/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
-                            <li><a href="http://www.7881.com/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a></li>
-                            <li><a href="http://www.7881.com/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a></li>
-                            <li><a href="http://www.7881.com/release.html" rel="nofollow">我要卖</a></li>
-                        </ul>
-                    </dd>
-                    <dt class="top_grayline">|</dt>
-                    <dt><a href="javascript:toadd()" class="green" rel="nofollow">充值</a></dt>
-                    <dt class="top_grayline">|</dt>
-                    <dt><a href="http://www.7881.com/financecharge/toAddExtractcash.action" class="orange" rel="nofollow">提现</a></dt>
-                    <dt class="top_grayline">|</dt>
-                    <dd class="subNav">
-                        <a href="http://www.7881.com/personal.html#" rel="nofollow">服务中心</a>
-                        <ul id="hide_nav">
-                            <li><a href="http://www.7881.com/sc/sc_index.html" rel="nofollow">客服中心</a></li>
-                            <li><a href="http://www.7881.com/helpCenter.html" rel="nofollow">帮助中心</a></li>
-                            <li><a href="http://www.7881.com/articlelist4-0-0.html" rel="nofollow">资讯中心</a></li>
-                            <li><a href="http://www.7881.com/tradesafe.html" rel="nofollow">安全中心</a></li>
-                        </ul>
-                    </dd>
-                    <dt class="top_grayline">|</dt>
-                    <dd class="subNav wb">
-                        <a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a>
-                        <ul id="hide_nav">
-                            <li class="xn"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">新浪微博</a></li>
-                            <li class="tx"><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow">腾讯微博</a></li>
-                        </ul>
-                    </dd>
-                </dl>
-            </div>
-        </div>
+    <div id="app">
+        <personal-head></personal-head>
     </div>
-    <script type="text/javascript">
-        /// 判断是否登录
-        document.domain = "7881.com";
-        jQuery.ajax({
-            type: 'get',
-            url: '/loginCheckReturn.action?ip=' + Math.round(Math.random() * 10000),
-            success: function (resultData) {
-                var result = resultData.split('#');
-                if (result[0] == '500') {
-                    location.href = "/7881_touristlogin.jsp";
-                }
-                else if (result[0] == '200' && result.length > 2) {
-                    jQuery('#span_user').empty();
-                    if (result[2] != '0') {
-                        htmlText = '<dt><a rel="nofollow" href="/personal.html">' + result[1] + '</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message_open">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
-                    } else {
-                        htmlText = '<dt><a rel="nofollow" href="/personal.html">' + result[1] + '</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
-                    }
-                    jQuery('#span_user').html(htmlText);
-                }
-            }
-        });
-    </script>
-
     <div><br /></div>
-
     <div class="Navigation">
         <div class="center Part">
             <ul>
@@ -148,7 +63,7 @@
                     <a href="http://shouyou.7881.com/syzh.html">手游账号</a>
                     <a class="syfb" href="http://www.7881.com/dnf_chuhuo.html">DNF收货<img src="../../Content/Images/hot.gif" /></a>
                     <a style="background:#1D62BF; color:#FFF;">个人中心</a>
-                    <a href="http://www.7881.com/rechargecenter/toRechargeHF.action" target="_blank">便民中心</a>
+                    <a href="http://www.7881.com/rechargecenter/toRechargeHF.action"WWW>便民中心</a>
                 </li>
             </ul>
         </div>
@@ -158,33 +73,6 @@
     <div class="center yxlb">您的当前位置是：<a href="http://www.7881.com/">首页</a> - <a href="http://www.7881.com/personal.html?ver=20140728" class="ls">我的7881</a></div>
     <div class="clear"></div>
     <div class="center">
-
-        <script language="javascript" id="clientEventHandlersJS">
-            var number = 8;
-            function LMYC() {
-                var lbmc;
-                var treePic;
-                for (i = 1; i <= number; i++) {
-                    lbmc = eval('LM' + i);
-                    treePic = eval('treePic' + i);
-                    treePic.src = 'http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif';
-                    lbmc.style.display = 'none';
-                }
-            }
-            function ShowFLT(i) {
-                lbmc = eval('LM' + i);
-                treePic = eval('treePic' + i)
-                if (lbmc.style.display == 'none') {
-                    treePic.src = 'http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif';
-                    lbmc.style.display = '';
-                }
-                else {
-                    treePic.src = 'http://pic.ofcard.com/7881/market/images/Personal/bit_1.gif';
-                    lbmc.style.display = 'none';
-                }
-
-            }
-        </script>
         <div class="personal_left">
             <a href="http://www.7881.com/personal.html?ver=20140728" style="cursor:pointer; text-decoration:none"><h1>我的7881</h1></a>
             <ul>
@@ -277,17 +165,6 @@
                 <!-- 推广联盟暂时隐藏fy -->
             </ul>
         </div>
-        <script type="text/javascript">
-            var address = window.location.href.substring(window.location.href.indexOf('/'));
-            $('.personal_left ul li a').removeClass('global_a_hover');
-            $.each($('.personal_left ul li'), function (i, item) {
-                var href = $(item).children('a').attr('href');
-                href = href.substring(href.indexOf('/'));
-                if (address.indexOf(href) != -1) {
-                    $(item).children('a').addClass('global_a_hover');
-                }
-            });
-        </script>
         <div class="personal_right">
             <div class="personal_center">
                 <ul>
@@ -523,237 +400,12 @@
             </table>
         </div>
     </div>
-
     <div class="clear"></div>
     <!--  -->
     <!--底部开始-->
     <div class="clear"></div>
     <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
     <div class="clear"></div>
-    <div class="foot">
-        <div class="center foot_wenzi">
-            <a href="http://www.7881.com/aboutus.html" target="_blank" class="hs" rel="nofollow">&nbsp;关于我们&nbsp;</a> |
-            <a href="http://www.7881.com/contactus.html" target="_blank" class="hs" rel="nofollow">&nbsp;联系我们&nbsp;</a> |
-            <a href="http://www.7881.com/copyright.html" target="_blank" class="hs" rel="nofollow">&nbsp;免责声明&nbsp;</a> |
-            <a href="http://www.7881.com/hr.html" target="_blank" class="hs" rel="nofollow">&nbsp;诚聘英才&nbsp;</a> |
-            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" class="hs" rel="nofollow">&nbsp;家长监护&nbsp;</a> |
-            <a href="http://www.7881.com/cooperation.html" target="_blank" class="hs" rel="nofollow">&nbsp;商务合作&nbsp;</a> |
-            <a href="http://www.7881.com/sitemap.html" target="_blank" class="hs">&nbsp;网站地图&nbsp;</a> |
-            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank" class="hs">&nbsp;媒体声音&nbsp;</a> <br />
-            Copyright Reserved 2008-2016 © 7881游戏交易   网络文化经营许可证：
-            <a href="http://www.7881.com/contectus/lianxiwomen.jsp" target="_blank" class="hs" rel="nofollow">苏网文[2015]2034-038号</a>
-            网站备案-<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="hs">苏B1-20110004-4</a>
-        </div>
-        <div class="mb10 center cent">
-            <a target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn/"><img src="../../Content/Images/foot_1.png" /> 网站备案信息</a>
-            <a target="_blank" rel="nofollow" href="http://www.cyberpolice.cn/wfjb/"><img src="../../Content/Images/foot_2.png" /> 网络警察</a>
-            <a target="_blank" rel="nofollow" href="https://www.alipay.com/"><img src="../../Content/Images/foot_3.png" /> 支付宝特约商户</a>
-            <a target="_blank" rel="nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&amp;sn=2013071816040123804"><img src="../../Content/Images/foot_6.png" /> 安全联盟</a>
-            <a target="_blank" rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B"><img src="../../Content/Images/foot_8.png" /> 中国文化部</a>
-
-        </div>
-        <div class="tleft"></div>
-    </div>
-    <!--底部结束-->
-    <script type="text/javascript">
-        function goTopEx() {
-            var obj = document.getElementById("goTopBtn");
-            function getScrollTop() {
-                return document.documentElement.scrollTop;
-            }
-            function setScrollTop(value) {
-                document.documentElement.scrollTop = value;
-            }
-            window.onscroll = function () { getScrollTop() > 0 ? obj.style.display = "" : obj.style.display = "none"; }
-            obj.onclick = function () {
-                var goTop = setInterval(scrollMove, 10);
-                function scrollMove() {
-                    setScrollTop(getScrollTop() / 1.1);
-                    if (getScrollTop() < 1) clearInterval(goTop);
-                }
-            }
-        }
-    </script>
-    <div style="display: none;" id="goTopBtn"><img border="0" src="../../Content/Images/index_top.jpg" alt="返回头部" /></div>
-    <script type="text/javascript">goTopEx();</script>
-    <div style="display: none;">
-        <script type="text/javascript">
-            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script src="./7881个人中心-网游戏交易平台_游戏币交易_装备交易_账号交易_点卡交易-7881.com_files/h.js.下载" type="text/javascript"></script>
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-44365965-1']);
-            _gaq.push(['_trackPageview']);
-
-            (function () {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-
-        </script>
-    </div>
-    <div id="winpop">
-        <div class="head">
-            <div class="title">友情提示</div>
-            <div class="close" onclick="tips_pop()">知道了</div>
-            <div class="con">
-                <div id="menuz_con">
-
-                </div>
-                <div id="navz">
-                    <ul>
-                        <a href="http://www.7881.com/msg/notReadMsg.action" target="_blank" class="more blue">查看更多</a>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        function tips_pop() {
-            var MsgPop = document.getElementById("winpop");//获取窗口这个对象,即ID为winpop的对象
-            var popH = parseInt(MsgPop.style.height);//用parseInt将对象的高度转化为数字,以方便下面比较
-            if (popH == 0) {         //如果窗口的高度是0
-                MsgPop.style.display = "block";//那么将隐藏的窗口显示出来
-                show = setInterval("changeH('up')", 4);//开始以每0.002秒调用函数changeH("up"),即每0.002秒向上移动一次
-            }
-            else {         //否则
-                hide = setInterval("changeH('down')", 4);//开始以每0.002秒调用函数changeH("down"),即每0.002秒向下移动一次
-                $.ajax({
-                    type: 'post',
-                    data: { msgtype: 6 },
-                    url: '/msg/noticeNotPopMessage.action',
-                    dataType: 'text',
-                    success: function (data) { }
-                });
-            }
-        }
-        function changeH(str) {
-            var MsgPop = document.getElementById("winpop");
-            var popH = parseInt(MsgPop.style.height);
-            if (str == "up") {     //如果这个参数是UP
-                if (popH <= 140) {    //如果转化为数值的高度小于等于100
-                    MsgPop.style.height = (popH + 4).toString() + "px";//高度增加4个象素
-                }
-                else {
-                    clearInterval(show);//否则就取消这个函数调用,意思就是如果高度超过100象度了,就不再增长了
-                }
-            }
-            if (str == "down") {
-                if (popH >= 4) {       //如果这个参数是down
-                    MsgPop.style.height = (popH - 4).toString() + "px";//那么窗口的高度减少4个象素
-                }
-                else {        //否则
-                    clearInterval(hide);    //否则就取消这个函数调用,意思就是如果高度小于4个象度的时候,就不再减了
-                    MsgPop.style.display = "none";  //因为窗口有边框,所以还是可以看见1~2象素没缩进去,这时候就把DIV隐藏掉
-                }
-            }
-        }
-        window.onload = function () {    //加载
-            if ($('#menuz_con').children().length > 0) {
-                document.getElementById('winpop').style.height = '0px';//高度初始化
-                setTimeout("tips_pop()", 400);     //1.5秒后调用tips_pop()这个函数
-            }
-        }
-
-        function messagePage(num) {
-            for (var id = 0; id <= 15; id++) {
-                if (id == num) {
-                    document.getElementById("qhconz" + id).style.display = "block";
-                    document.getElementById("mynavz" + id).className = "navz_on";
-                }
-                else {
-                    document.getElementById("qhconz" + id).style.display = "none";
-                    document.getElementById("mynavz" + id).className = "navz_off";
-                }
-            }
-        }
-
-
-        function ajaxData(flag) {
-            $.ajax({
-                // 用POST方式传输
-                type: 'POST',
-                // 数据格式:JSON
-                dataType: 'json',
-                // 目标地址
-                url: '/commerical/ajaxModifyOffOrOn.action',
-                data: {
-                    'isFlag': flag
-                },
-                success: function (data) {
-                    if (data.success == true) {
-                        if (flag == '0') {
-                            $('.online_con').hide();
-                            $('.online_ico span.online_ico_1').removeClass('online_ico_2');
-                            $('.personal_center span em').html("【我在线】");
-                            $('.personal_center span em').removeClass('gray_2');
-                            $('.personal_center span em').addClass('green');
-                            $('.online_note_2').show();
-                            $('.online_note_1').hide();
-                        } else {
-                            $('.online_con').hide();
-                            $('.online_ico span.online_ico_1').addClass('online_ico_2');
-                            $('.personal_center span em').html("【离线】");
-                            $('.personal_center span em').addClass('gray_2');
-                            $('.personal_center span em').removeClass('green');
-                            $('.online_note_1').show();
-                            $('.online_note_2').hide();
-                        }
-                    } else if (data.success == null) {
-                        window.location.reload();
-                    } else {
-                        alert(data.instance);
-                    }
-                }
-            });
-        }
-
-        $(function () {
-            $(".online_note_1,.online_note_2,.online_note_3").hide();
-        });
-        /*在线离线提示*/
-        $('.online_ico a').click(function () {
-            $('.online_con').show();
-            $(".online_note_1,.online_note_2,.online_note_3").hide();
-        })
-        $('.online_con a:first').click(function () {
-            ajaxData('0');
-        })
-
-        $('.online_con a:last').click(function () {
-            ajaxData('1');
-        })
-        $('.online_ico_4 p a').click(function (event) {
-            $(".online_note_1,.online_note_2,.online_note_3").hide();
-            event.stopPropagation();
-        })
-        $('.online_ico_4').click(function () {
-            $('.online_note_3').show();
-            $(".online_note_1,.online_note_2,.online_con").hide();
-        })
-
-        //账户注释
-        $('.zh_ico01,.zh_ico02,.zh_ico03').hover(
-            function () {
-                $(this).addClass('hover');
-            },
-            function () {
-                $(this).removeClass('hover');
-            }
-        );
-        function addmoney() {
-            if ('119925081' == '117575680') {
-                alert("该用户禁止充值");
-            } else {
-                window.location.href = "/financecharge/toAdd.action";
-            }
-        }
-    </script>
+    <main-footer></main-footer>    
 </body>
 </html>

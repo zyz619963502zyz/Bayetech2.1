@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'header', 'c-footer', 'footer-server', 'footer-nav', 'indexTab', 'convenience', 'hotgamelist', 'banner-box', 'tabsList-box', 'c-tab', "v-gameranking", 'index-adv', 'mgame-list', 'partner', 'index-nav'], function (Vue, $, common, head, footer, footerserver, footernav, indexTab, convenience, hotgamelist, bannerBox, tabsListbox, ctab, vgameranking, indexadv, mgamelist, partner, indexnav) {
+require(['vue', 'jquery', 'common', 'v-header', 'v-footer', 'footer-server', 'footer-nav', 'indexTab', 'convenience', 'hotgamelist', 'banner-box', 'tabsList-box', 'c-tab', "v-gameranking", 'index-adv', 'mgame-list', 'partner', 'index-nav'], function (Vue, $, common, head, footer, footerserver, footernav, indexTab, convenience, hotgamelist, bannerBox, tabsListbox, ctab, vgameranking, indexadv, mgamelist, partner, indexnav) {
     debugger;
     new Vue({
         el: '#app',
@@ -13,8 +13,8 @@ require(['vue', 'jquery', 'common', 'header', 'c-footer', 'footer-server', 'foot
 
         },
         components: {
-            "c-head": head,
-            "c-footer": footer,
+            "v-header": head,
+            "v-footer": footer,
             "footer-server": footerserver,
             "footer-nav": footernav,
             "convenience": convenience,

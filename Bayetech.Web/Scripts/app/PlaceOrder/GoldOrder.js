@@ -18,10 +18,10 @@ define("GoldOrder", jsconfig.baseArr, function (Vue, $, common) {
                                 </div>
                             </li>
                             <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{gameName}}/{{bigArea}}/{{smallArea}}</li>
-                            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" value="phoneNum" /></li>
-                            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text"  value="phoneNum" /></li>
-                            <li><span>交易暗码：<strong style="color:#F00">* </strong></span><input type="text" value="signal" /></li>
-                            <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" value="promo" /></li>
+                            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" :value="phoneNum" /></li>
+                            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text"  :value="phoneNum" /></li>
+                            <li><span>交易暗码：<strong style="color:#F00">* </strong></span><input type="text" :value="signal" /></li>
+                            <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" :value="promo" /></li>
                         </ul>`;
 
         var data = {

@@ -20,8 +20,10 @@ var componentfig = {
         'SignRightModule': 'app/Sign/signRight',
         'index-tab': 'app/Home/index-tab',
         'ScreenModel': 'app/PointTrading/screen',
-        'PointTradingModel': 'app/PointTrading/pointTradingMiddle'
-       
+        'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
+        'personal-head': 'app/PersonalCenter/head', 
+        'personalModule': 'app/PersonalCenter/index',
+
     },
     commonComponent: ['vue', 'jquery', 'common', 'header', 'footer'],
 };
@@ -38,12 +40,16 @@ var FindObjByProp = function (arr, propName, value) {
 
 //路由配置
 var routeconfig = [{
-    name:"helpCenter", 
+    name: "helpCenter",
     path: webUrl + 'Page/HelpCenter/index.html',
 }, {
-        name: "home",
-        path: webUrl + 'Page/Home/index.html',
-    }];
+    name: "home",
+    path: webUrl + 'Page/Home/index.html',
+},
+{
+    name: "personalCenter",
+    path: webUrl + 'Page/PersonalCenter/index.html',
+}];
 //var routeconfig = {};
 //routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
@@ -66,7 +72,7 @@ require(componentArr, function () {
     Vue.component('main-footer', footer);
 
     let app = new Vue({
-        components: { "v-view": component}
+        components: { "v-view": component }
     }).$mount('#app');
 });
 
