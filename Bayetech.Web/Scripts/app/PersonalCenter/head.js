@@ -76,7 +76,7 @@ define([], function () {
     </div>
         `
     var components = {
-        name: "personal-head",
+        name: "personalhead",
         template: html
     };
 
