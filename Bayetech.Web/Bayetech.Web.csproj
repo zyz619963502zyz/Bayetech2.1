@@ -702,6 +702,7 @@
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
+    <Content Include="Scripts\app\Search\gameSelect.js" />
     <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
     <Content Include="Scripts\app\Home\index-nav.js" />
     <Content Include="Scripts\app\PersonalCenter\head.js" />
@@ -709,6 +710,7 @@
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderGoodInfo.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderNav.js" />
+    <Content Include="Scripts\app\Search\search-gamedropdown.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
@@ -733,6 +735,8 @@
     <Content Include="Scripts\app\Shared\footer.js" />
     <Content Include="Scripts\app\Shared\footer-nav.js" />
     <Content Include="Scripts\app\Shared\header.js" />
+    <Content Include="Scripts\app\Search\search-dropdown.js" />
+    <Content Include="Scripts\app\Search\search.js" />
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />

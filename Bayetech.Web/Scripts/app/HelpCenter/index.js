@@ -49,9 +49,8 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
             },
         },
     };
-    for (let i = 2; i < arguments.length; i++) {
-        components["components"][arguments[i].name] = arguments[i];
-    }
+    debugger;
+    common.PrepareComponents(components, 3, arguments);//组装组件
     return components;
 });
 
