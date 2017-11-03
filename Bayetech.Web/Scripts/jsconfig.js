@@ -45,6 +45,7 @@ var jsconfig = {
         "search-gamedropdown": "app/Search/search-gamedropdown",
         'PersonalHead': "app/PersonalCenter/head",
         'Pavigation': "app/PersonalCenter/pavigationBar",
+        'PwdRecoverTem': "app/Login/PwdRecover/PwdRecoverTem"
     },
     shim: {
         'bootstrap': {

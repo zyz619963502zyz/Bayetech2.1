@@ -1,6 +1,31 @@
 ﻿jsconfig.baseArr.push("PwdRecoverTem");
-require(jsconfig.baseArr, function ($, Vue, com, tem) {
+require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
+
+    //抓取当前url
+
     //两个插槽
+    var confirmAccount = ` <div class="box">
+            <h2 class="psw_title">找回登录密码</h2>
+            <div class="box_800">
+                <ul class="account_infor">
+                    <li>
+                        <label>用户名：<em>*</em></label>
+                        <input type="text" id="userName" name="userName" />
+                        <span class="error_infor" id="usererror"></span>
+                    </li>
+                    <li>
+                        <label>验证码：<em>*</em></label>
+                        <input name="captcha" type="text" class="w_104" id="txtCode" maxlength="4" autocomplete="off" />
+                        <span class="pic-tips" id="securityContainer"><a id="txtCode__Captcha" href="#" title="看不清？换张图片"><img id="__Captcha_Image__" src="" alt="看不清？换张图片" border="0" /><span style="margin-left: 10px">点击换张图</span></a></span>
+                        <span id="capchaerror"></span>
+                    </li>
+                    <li class="m_t_15">
+                        <label>&nbsp;</label>
+                        <a href="#" id="btn_blue" class="btn_blue"><span>确认</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>` //确定
     var recoverType = ` <form id="theForm" method="post">
             <div class="box">
                 <h2 class="psw_title">找回登录密码</h2>
@@ -119,41 +144,26 @@ require(jsconfig.baseArr, function ($, Vue, com, tem) {
             </div>
 
         </form>`;
-    var confirmAccount = ` <div class="box">
-            <h2 class="psw_title">找回登录密码</h2>
-            <div class="box_800">
-                <ul class="account_infor">
-                    <li>
-                        <label>用户名：<em>*</em></label>
-                        <input type="text" id="userName" name="userName" />
-                        <span class="error_infor" id="usererror"></span>
-                    </li>
-                    <li>
-                        <label>验证码：<em>*</em></label>
-                        <input name="captcha" type="text" class="w_104" id="txtCode" maxlength="4" autocomplete="off" />
-                        <span class="pic-tips" id="securityContainer"><a id="txtCode__Captcha" href="#" title="看不清？换张图片"><img id="__Captcha_Image__" src="" alt="看不清？换张图片" border="0" /><span style="margin-left: 10px">点击换张图</span></a></span>
-                        <span id="capchaerror"></span>
-                    </li>
-                    <li class="m_t_15">
-                        <label>&nbsp;</label>
-                        <a href="#" id="btn_blue" class="btn_blue"><span>确认</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>`
+
+
+    var data = {
+
+    };
 
     //根据选择确定使用那一套插槽，先默认使用返回type的插槽
     new Vue({
-        el: '#formArea',
+        el: '#FormArea',
         data: function () {
             return data;
         },
         components: {
-            'RecoverType': tem
+            'recovertype': recoverTem
+        },
+        created: function () {
+            $("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
-            this.FormVlidate();
-
+           
         },
         methods: {
 
