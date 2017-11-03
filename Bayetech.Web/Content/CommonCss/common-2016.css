@@ -248,8 +248,8 @@ a:hover{color:#39f;}
 .top_search .hotsearch.new-hot a:hover{color:#3399ff;}
 .top_search .hotsearch.new-hot dl{float:left;}
 .top_search .hotsearch.new-hot dl dt,.top_search .hotsearch.new-hot dl dd{ float:left; line-height:30px; margin-right:10px}
-.top_search .arrow{ position:absolute; z-index:10006; top:72px; left:60px;width:11px; height:6px;background:url(http://pic.7881.com/7881-2016/images/icon-com.png) 0 -247px no-repeat; display:none}
-.top_search .b_blue_box{ border:2px solid #3399fe;overflow:hidden; width:1186px; position:absolute;top:78px;left:-490px; background:#fff; z-index:10001; display:none; text-align:left;}
+.top_search .arrow{ position:absolute; z-index:10006; top:72px; left:60px;width:11px; height:6px;background:url(http://pic.7881.com/7881-2016/images/icon-com.png) 0 -247px no-repeat;}
+.top_search .b_blue_box{ border:2px solid #3399fe;overflow:hidden; width:1186px; position:absolute;top:78px;left:-490px; background:#fff; z-index:10001;text-align:left;}
 .main_con{ float:left; width:1186px;overflow:hidden;}
 .gamename_quicksearch{ height:28px; overflow:hidden; position: absolute; left: 380px; top:4px}
 .q_input{ width:178px; height:28px; border: none; padding:0 30px 0 12px; line-height:28px\9; float: left; font-family:\5b8b\4f53; background:#fff url(http://pic.7881.com/7881-2016/images/icon-com.png) 197px -202px no-repeat;}

@@ -1,5 +1,6 @@
 ﻿//手机列表
-define([], function () {
+define(function () {
+    debugger;
     var html = `<div class="mgame-list">
     <div class="mgame-item" v-for="item in object">
         <img :src="item.img" width="100" height="100">

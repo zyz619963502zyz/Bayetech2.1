@@ -82,7 +82,7 @@ define(['nav-dropdown'], function (navdropdown) {
         created() {
 
         },
-        components: { "index-nav-dropdown": navdropdown},
+        components: { "nav-dropdown": navdropdown},
         methods: {
             showdropdown(id) {
                 this.isShow = true;
