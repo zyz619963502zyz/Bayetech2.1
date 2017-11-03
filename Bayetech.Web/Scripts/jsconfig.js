@@ -43,6 +43,8 @@ var jsconfig = {
         "v-search": "app/Search/Search",
         "search-dropdown": "app/Search/search-dropdown",
         "search-gamedropdown": "app/Search/search-gamedropdown",
+        'PersonalHead': "app/PersonalCenter/head",
+        'Pavigation': "app/PersonalCenter/pavigationBar",
     },
     shim: {
         'bootstrap': {
