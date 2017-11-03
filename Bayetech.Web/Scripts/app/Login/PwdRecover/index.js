@@ -147,7 +147,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
 
 
     var data = {
-
+        contents: confirmAccount
     };
 
     //根据选择确定使用那一套插槽，先默认使用返回type的插槽
@@ -160,7 +160,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             'recovertype': recoverTem
         },
         created: function () {
-            $("#RecoverTempId").html(recoverType);
+            //$("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
            
