@@ -39,6 +39,7 @@
     };
 
     var components = {
+        name: "footer-server",
         template: html,
         data() {
             return data;

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -637,7 +639,7 @@
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\Login\PwdRecover\MessageRecover\MessageRecover.html" />
     <Content Include="Page\Login\PwdRecover\PhoneRecover\PhoneRecover.html" />
-    <Content Include="Page\PersonalCenter\HelpCenter.html" />
+    <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Page\Login\PwdRecover\ConfirmAccount.html" />
@@ -660,11 +662,13 @@
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
-    <Content Include="Scripts\app\Search\gameSelect.js" />
-    <Content Include="Scripts\app\Home\index-nav-dropdown.js" />
-    <Content Include="Scripts\app\Home\index-nav.js" />
+    <Content Include="Scripts\app\Home\nav-dropdown.js" />
+    <Content Include="Scripts\app\Home\nav.js" />
+    <Content Include="Scripts\app\Login\PwdRecover\index.js" />
+    <Content Include="Scripts\app\Login\PwdRecover\PwdRecoverTem.js" />
     <Content Include="Scripts\app\PersonalCenter\head.js" />
     <Content Include="Scripts\app\PersonalCenter\index.js" />
+    <Content Include="Scripts\app\PersonalCenter\pavigationBar.js" />
     <Content Include="Scripts\app\PlaceOrder\AccountOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
@@ -673,19 +677,18 @@
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
-    <Content Include="Scripts\app\Home\adv-01.js" />
-    <Content Include="Scripts\app\Home\banner-box.js" />
+    <Content Include="Scripts\app\Home\adv01.js" />
+    <Content Include="Scripts\app\Home\banner.js" />
     <Content Include="Scripts\app\Home\convenience.js" />
     <Content Include="Scripts\app\Home\hotgamelist.js" />
-    <Content Include="Scripts\app\Home\index-adv.js" />
+    <Content Include="Scripts\app\Home\adv.js" />
     <Content Include="Scripts\app\Home\index.js" />
-    <Content Include="Scripts\app\Home\mainArea02.js" />
-    <Content Include="Scripts\app\Home\index-tab.js" />
-    <Content Include="Scripts\app\Home\mgame-list.js" />
+    <Content Include="Scripts\app\Home\notice.js" />
+    <Content Include="Scripts\app\Home\mgamelist.js" />
     <Content Include="Scripts\app\Home\partner.js" />
-    <Content Include="Scripts\app\Home\slideBox.js" />
-    <Content Include="Scripts\app\Home\tabsList-box.js" />
-    <Content Include="Scripts\app\Home\v-gameranking.js" />
+    <Content Include="Scripts\app\Home\slidebox.js" />
+    <Content Include="Scripts\app\Home\tabslist.js" />
+    <Content Include="Scripts\app\Home\gameranking.js" />
     <Content Include="Scripts\app\Login\index.js" />
     <Content Include="Scripts\app\PointTrading\index.js" />
     <Content Include="Scripts\app\PointTrading\pointTradingMiddle.js" />
@@ -793,11 +796,15 @@
       <Name>Bayetech.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

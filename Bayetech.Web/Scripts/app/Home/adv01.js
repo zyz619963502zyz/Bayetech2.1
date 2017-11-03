@@ -20,7 +20,7 @@ define([], function () {
     }
 
     var components = {
-        name: "adv-01",
+        name: "index-adv01",
         data() {
             return data;
         },

@@ -205,7 +205,7 @@ define([], function () {
     }
 
     var components = {
-        name: "hotgamelist",
+        name: "index-hotgamelist",
         data() {
             return data;
         },

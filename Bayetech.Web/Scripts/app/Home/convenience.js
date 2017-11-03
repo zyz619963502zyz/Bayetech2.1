@@ -1,5 +1,5 @@
 ﻿//生活便利
-define("convenience", ['common'], function (common) {
+define(['common'], function (common) {
     var html = `<div class="convenience">
     <ul class="clearfix">
         <li v-for="item in object">
@@ -34,7 +34,7 @@ define("convenience", ['common'], function (common) {
     }
 
     var components = {
-        name: "index-tab",
+        name: "index-convenience",
         data() {
             return data;
         },

@@ -64,7 +64,7 @@ define([], function () {
     }
 
     var components = {
-        name: "mgame-list",
+        name: "index-mgamelist",
         data() {
             return data;
         },

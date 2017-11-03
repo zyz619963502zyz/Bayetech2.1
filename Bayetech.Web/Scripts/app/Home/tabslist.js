@@ -97,7 +97,7 @@ define(['jquery'], function ($) {
     };
 
     var components = {
-        name: "tabsList-box",
+        name: "index-tabsList",
         data() {
             return data;
         },

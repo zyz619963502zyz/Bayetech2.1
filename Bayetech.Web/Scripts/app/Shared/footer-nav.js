@@ -65,6 +65,7 @@
     };
 
     var components = {
+        name: "footer-nav",
         template: html,
         data() {
             return data;

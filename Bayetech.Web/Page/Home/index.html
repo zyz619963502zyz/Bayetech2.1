@@ -180,26 +180,29 @@
         <div class="content">
             <!--主体区域01 Start-->
             <div class="main-area-01 clearfix">
-                <hot-game-list></hot-game-list>
-                <banner-box></banner-box>
+                <index-hotgamelist></index-hotgamelist>
+                <index-banner></index-banner>
                 <div class="quk-area">
                     <div class="buy-sale-area">
                         <a href="http://www.7881.com/gamelistshow.html">我要买</a>
                         <a onclick="javascript:checkLogin();" href="javascript:void(0);" class="sale-btn">我要卖</a>
                     </div>
-                    <c-tab :data="tab1">
+                    <v-tab :data="tab1">
                         <a slot-scope="props" :href="props.obj.url" target="_blank" >{{ props.obj.title}}</a>
-                    </c-tab>
-                    <convenience></convenience>
+                    </v-tab>
+                    <index-convenience></index-convenience>
                     <div class="qq-yz">
-                        <label class="placeholder"><input type="text" class="qq-input onlynum" id="qq_number" /><span>输入客服QQ，验证真假</span></label><a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                        <label class="placeholder">
+                            <input type="text" class="qq-input onlynum" id="qq_number" /><span>输入客服QQ，验证真假</span>
+                        </label>
+                        <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
                     </div>
                 </div>
             </div>
             <!--主体区域01 End-->
             <!--主体区域02 Start-->
             <div class="main-area-02 clearfix">
-                <tabslist-box></tabslist-box>
+                <index-tabslist></index-tabslist>
                 <div class="index-tab q-a">
                     <div class="index-tab-top tab-03">
                         <ul class="clearfix">
@@ -429,14 +432,14 @@
             <!--主体区域03 Start-->
             <div class="main-area-04 clearfix">
                 <index-adv></index-adv>
-                <c-tab :data="tab2">
+                <v-tab :data="tab2">
                     <template slot-scope="props">
                         <div class="c1 top3">{{ props.obj.no}}.</div>
                         <div class="c2">{{ props.obj.title}}</div>
                         <div class="c3">成交{{ props.obj.quantity}}笔</div>
                         <div class="c4">昨日单笔最高成交额：<em class="org">{{ props.obj.maxMoney}}</em>元</div>
                     </template>
-                </c-tab>
+                </v-tab>
             </div>
             <!--主体区域03 End-->
             <!--主体区域04 Start-->
@@ -445,13 +448,13 @@
                     <span>手机游戏</span>
                     <a href="http://shouyou.7881.com/yxzq.html" target="_blank">所有手游<em class="iconfont">&#xe61f;</em></a>
                 </h3>
-                <mgame-list></mgame-list>
+                <index-mgamelist></index-mgamelist>
                 <div class="mgame-r"><img src="sthttp://pic.7881.com/7881-2016/images/index/mgame-r-pic.jpg" width="269" height="366" /></div>
             </div>
             <!--主体区域04 End-->
             <!--主体区域05 Start-->
             <div class="main-area-05 clearfix">
-                <partner></partner>
+                <index-partner></index-partner>
             </div>
             <!--主体区域05 End-->
             <!--首页侧边栏 Start-->

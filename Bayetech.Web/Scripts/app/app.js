@@ -22,7 +22,7 @@ var componentfig = {
         'ScreenModel': 'app/PointTrading/screen',
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
         'personal-head': 'app/PersonalCenter/head', 
-        'personalModule': 'app/PersonalCenter/index',
+        'personalCenter': 'app/PersonalCenter/index',
 
     },
     commonComponent: ['vue', 'jquery', 'common', 'header', 'footer'],
