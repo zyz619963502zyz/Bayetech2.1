@@ -26,6 +26,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                 </ul>
             </div>
         </div>` //确定
+
     var recoverType = ` <form id="theForm" method="post">
             <div class="box">
                 <h2 class="psw_title">找回登录密码</h2>
@@ -144,7 +145,6 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             </div>
 
         </form>`;
-
 
     var data = {
         contents: confirmAccount
