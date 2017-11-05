@@ -17,7 +17,10 @@ define("Pavigation", jsconfig.baseArr, function (Vue, $, common) {
             </div>
         </div>`
     var components = {
+        props: ['list'],
         template: html
+
+        
     };
 
     return components;

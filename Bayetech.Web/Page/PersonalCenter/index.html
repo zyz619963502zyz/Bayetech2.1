@@ -13,6 +13,8 @@
     <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Personal.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/change.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../Content/CommonCss/help.css">
+    <link rel="stylesheet" type="text/css" href="../../Content/CommonCss/helpcenter.css">
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/PersonalCenter/index.js"></script>
@@ -31,6 +33,52 @@
                 right: 6px;
             }
     </style>
+    <style>
+        .zh_ico01, .zh_ico02, .zh_ico03 {
+            position: relative;
+        }
+
+        .zh_cont01 {
+            display: none;
+            border: 1px solid #f90;
+            background: #fff;
+            position: absolute;
+            z-index: 998;
+            top: -5px;
+            left: 18px;
+            padding: 3px;
+            width: 300px;
+        }
+
+        .zh_cont02 {
+            display: none;
+            border: 1px solid #f90;
+            background: #fff;
+            position: absolute;
+            z-index: 998;
+            top: -30px;
+            left: 18px;
+            padding: 3px;
+            width: 300px;
+        }
+
+        .zh_cont03 {
+            display: none;
+            border: 1px solid #f90;
+            background: #fff;
+            position: absolute;
+            z-index: 998;
+            top: -55px;
+            left: 18px;
+            padding: 3px;
+            width: 300px;
+        }
+
+        .hover .zh_cont01, .hover .zh_cont02, .hover .zh_cont03 {
+            display: block;
+        }
+    </style>
+
     <!--[if lte IE 6]>
     <style type="text/css">
     body { behavior:url("css/csshover.htc");}
@@ -54,105 +102,21 @@
        <regperhead></regperhead>
         <div><br /></div>
         <regpavigation></regpavigation>
+        <div class="clear"></div>
+        <div class="center yxlb">您的当前位置是：<a href="http://www.7881.com/">首页</a> - <a href="http://www.7881.com/personal.html?ver=20140728" class="ls">我的7881</a></div>
+        <div class="clear"></div>
+        <div  class="center">
+            <!--<div class="personal_left">-->
+                <regleft :list="articleList"></regleft>
+            <!--</div>-->
+            
+        </div>
     </div>
    
     <!--头部结束-->
-    <div class="clear"></div>
-    <div class="center yxlb">您的当前位置是：<a href="http://www.7881.com/">首页</a> - <a href="http://www.7881.com/personal.html?ver=20140728" class="ls">我的7881</a></div>
-    <div class="clear"></div>
+    
+    
     <div class="center">
-        <div class="personal_left">
-            <a href="http://www.7881.com/personal.html?ver=20140728" style="cursor:pointer; text-decoration:none"><h1>我的7881</h1></a>
-            <ul>
-                <ol>
-                    <a onclick="javascript:ShowFLT(1)" href="javascript:void(null)"><img id="treePic1" src="../../Content/Images/bit_2.gif" /> 我是买家</a>
-                </ol>
-                <div id="LM1">
-                    <li><a href="http://www.7881.com/gamelistshow.html">我要买</a></li>
-                    <li><a href="http://www.7881.com/procurement/queryMyProcureOrder.action">我购买的订单</a></li>
-                    <li><a href="http://www.7881.com/leveing/toLeveingShow.action">我的代练订单</a></li>
-                    <li><a href="http://www.7881.com/transaction/toPurchaseRole.action">收货角色管理</a></li>
-                    <li><a href="http://www.7881.com/winprize/getList.action">中奖记录</a></li>
-                    <li><a href="http://www.7881.com/myAchieveBenefit/getList.action">我领取的福利</a></li>
-                    <li><a href="http://www.7881.com/levelingDnf/dnfGoodsBuyer.action">我发布的代练需求</a></li>
-                    <li><a href="http://www.7881.com/levelingDnf/showOrdersBuyer.action">买家代练订单</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(2)" href="javascript:void(null)"><img id="treePic2" src="../../Content/Images/bit_2.gif" /> 我是卖家</a>
-                </ol>
-                <div id="LM2">
-                    <li><a href="http://www.7881.com/release.html">我要卖</a></li>
-
-                    <li><a href="http://www.7881.com/sellertool/queryMySaleOrder.action">我的订单管理</a></li>
-                    <li><a href="http://www.7881.com/procurement/showMyGoods.action">出售中的商品</a></li>
-                    <li><a href="http://www.7881.com/sellertool/queryMyClosedGoods.action">仓库中的商品</a></li>
-                    <li><a href="http://www.7881.com/shouhuo/getOrderByList.action">我的出货订单</a></li>
-                    <li><a href="http://www.7881.com/procurement/batchMyGoods.action">商品批量发布</a></li>
-                    <li><a href="http://www.7881.com/props/getUserPropsDetail.action">我的置顶卡</a></li>
-                    <li><a href="http://www.7881.com/levelingDnf/dnfGoodsSaler.action">我发布的代练套餐</a></li>
-                    <li><a href="http://www.7881.com/levelingDnf/showOrdersSaler.action">我接的代练需求</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(3)" href="javascript:void(null)"><img id="treePic3" src="../../Content/Images/bit_2.gif" />积分和兑换</a>
-                </ol>
-                <div id="LM3">
-                    <li><a href="http://jifen.7881.com/">我的积分</a></li>
-                    <li><a href="http://www.7881.com/invite/getAllInvite.action" target="_blank">邀请好友</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(4)" href="javascript:void(null)"><img id="treePic4" src="../../Content/Images/bit_2.gif" /> 资金管理</a>
-                </ol>
-                <div id="LM4">
-                    <li><a href="http://www.7881.com/financecharge/toAddExtractcash.action">我要提现</a></li>
-                    <li><a href="http://www.7881.com/financecharge/toAdd.action">我要充值</a></li>
-                    <li><a href="http://www.7881.com/financerecord/incomeExpensesList.action">资金明细</a></li>
-                    <li><a href="http://www.7881.com/financerecord/extractList.action">提现明细</a></li>
-                    <li><a href="http://www.7881.com/financerecord/rechargeList.action">充值明细</a></li>
-                    <li><a href="http://www.7881.com/redenvelop/queryMyRedEnvelop.action">我的红包</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(5)" href="javascript:void(null)"><img id="treePic5" src="../../Content/Images/bit_2.gif" /> 推广联盟</a>
-                </ol>
-                <div id="LM5">
-                    <li><a href="http://www.7881.com/financerecord/toPromotionCode.action">推广码</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(6)" href="javascript:void(null)"><img id="treePic6" src="../../Content/Images/bit_2.gif" /> 帐号设置</a>
-                </ol>
-                <div id="LM6">
-                    <li><a href="http://www.7881.com/user/toChangePassword.action">修改登录密码</a></li>
-                    <li><a href="http://www.7881.com/commerical/toChangetransactionPass.action">我的支付密码</a></li>
-                    <li><a href="http://www.7881.com/commerical/toEditPhone.action">手机绑定</a></li>
-                    <li><a href="http://www.7881.com/commerical/toApprove.action">实名认证</a></li>
-
-
-                    <li><a href="http://www.7881.com/commerical/toFindSafelogin.action">登录验证</a></li>
-                    <li><a href="http://www.7881.com/address/toMyAddress.action">收货地址</a></li>
-                    <li><a href="http://www.7881.com/commerical/toServerAndIn.action">服务和准入</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(7)" href="javascript:void(null)"><img id="treePic7" src="../../Content/Images/bit_2.gif" /> 客户服务</a>
-                </ol>
-                <div id="LM7">
-                    <li><a href="http://www.7881.com/helpcenter.html">帮助中心</a></li>
-                    <li><a href="http://www.7881.com/complaint/queryComplaint.action" title="我的投诉">我的投诉</a></li>
-                    <li><a target="_blank" href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&amp;aty=0&amp;a=0&amp;curl=&amp;ty=1" title="我要咨询">我要咨询</a></li>
-                    <li><a href="http://www.7881.com/release_admittance.html">商家准入申请</a></li>
-
-                    <li><a href="http://www.7881.com/selfService/preToSelfService.action?urlType=1">申请手机变更</a></li>
-                    <li><a href="http://www.7881.com/selfService/preToSelfService.action?urlType=3">申请提现开户名变更</a></li>
-                </div>
-                <ol>
-                    <a onclick="javascript:ShowFLT(8)" href="javascript:void(null)"><img id="treePic8" src="../../Content/Images/bit_2.gif" /> 消息中心</a>
-                </ol>
-                <div id="LM8">
-                    <li><a href="http://www.7881.com/msg/notReadMsg.action" title="我的站内信">我的站内信</a></li>
-                    <li><a href="http://www.7881.com/msg/queryMsgSet.action" title="消息设置">消息设置</a></li>
-                    <li><a href="http://www.7881.com/msg/queryPhoneAndWxSet.action" title="语音外呼设置">语音外呼设置</a></li>
-                </div>
-                <!-- 推广联盟暂时隐藏fy -->
-            </ul>
-        </div>
         <div class="personal_right">
             <div class="personal_center">
                 <ul>
@@ -250,51 +214,7 @@
                             </dd>
 
                         </dl>
-                        <style>
-                            .zh_ico01, .zh_ico02, .zh_ico03 {
-                                position: relative;
-                            }
-
-                            .zh_cont01 {
-                                display: none;
-                                border: 1px solid #f90;
-                                background: #fff;
-                                position: absolute;
-                                z-index: 998;
-                                top: -5px;
-                                left: 18px;
-                                padding: 3px;
-                                width: 300px;
-                            }
-
-                            .zh_cont02 {
-                                display: none;
-                                border: 1px solid #f90;
-                                background: #fff;
-                                position: absolute;
-                                z-index: 998;
-                                top: -30px;
-                                left: 18px;
-                                padding: 3px;
-                                width: 300px;
-                            }
-
-                            .zh_cont03 {
-                                display: none;
-                                border: 1px solid #f90;
-                                background: #fff;
-                                position: absolute;
-                                z-index: 998;
-                                top: -55px;
-                                left: 18px;
-                                padding: 3px;
-                                width: 300px;
-                            }
-
-                            .hover .zh_cont01, .hover .zh_cont02, .hover .zh_cont03 {
-                                display: block;
-                            }
-                        </style>
+                        
                         <dl>
                             <dd>
                                 <div class="zh_ico01">
@@ -336,16 +256,7 @@
                 <h1>账户安全</h1>
                 <div class="personal_center m10">
                     账户安全:
-
-
-
                     <strong class="ml10 security_level_40">低<i class="ml10"><em></em></i></strong><span class="ml10 yellow">建议您尽快启动全部安全设置,以保障您的账号及资金安全.</span>
-
-
-
-
-
-
                 </div>
             </div>
             <table width="100%" border="0" cellspacing="1" cellpadding="0" class="security_type">
@@ -387,6 +298,9 @@
                 </tbody>
             </table>
         </div>
+
+
+       
     </div>
     <div class="clear"></div>
     <!--  -->
