@@ -222,34 +222,36 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
     ]
 
     var data = {
-        
         contents: confirmAccount,
         ceshi: "111111111",
         recoverRoute: RecoverRoute
     };
 
+    //Vue.component('recovertype', recoverTem)
+
+
     //根据选择确定使用那一套插槽，先默认使用返回type的插槽
     var vm = new Vue({
-                el: '#FormArea',
-                data: function () {
-                    return data;
-                },
-                components: {
-                    'recovertype': recoverTem
-                },
-                created: function () {
-                   
-                },
-                mounted: function () {
-                    var a = 1;
-                },
-                methods: {
-                    getPage: function (val) {//获取页面
-                        for (var item in this.RecoverRoute) {
-                            if (item.name == val)
-                                this.contents = eval(item.name);
-                        }
-                    },
+        el: '#FormArea',
+        data: function () {
+            return data;
+        },
+        components: {
+            'recovertype': recoverTem
+        },
+        created: function () {
+            //$("#RecoverTempId").html(recoverType);
+        },
+        mounted: function () {
+            var a = 1;
+        },
+        methods: {
+            GetPage(val) {//获取页面
+                for (var item in this.RecoverRoute) {
+                    if (item.name == val)
+                        this.contents = eval(item.name);
                 }
-            })
+            }
+        }
+    });
 })
