@@ -1,13 +1,15 @@
-﻿//找回密码中间页
-define("PwdRecoverTem", jsconfig.baseArr, function (Vue, $, common) {
-    var temHtml = `<form id="theForm" method="post">
-                       <slot><slot/>
-                    </form>`;
+﻿//找回密码中间页PwdRecoverTem
+define(jsconfig.baseArr, function (Vue, $, common) {
+    var temHtml = `<form id="theForm">
+                      <slot @click="GetPage"></slot>
+                   </form>`;
 
-    var data = {};
+    var data = {
+       
+    };
 
     var tmpcomponent = {
-        template: accountorderHtml,
+        template: temHtml,
         data() {
             return data;
         },
@@ -21,6 +23,9 @@ define("PwdRecoverTem", jsconfig.baseArr, function (Vue, $, common) {
                         this.data = data;
                     }
                 });
+            },
+            GetPage: function (val) {//获取页面
+                alert("已经执行!");
             }
         }
     };

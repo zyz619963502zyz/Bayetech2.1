@@ -1,6 +1,31 @@
 ﻿jsconfig.baseArr.push("PwdRecoverTem");
-require(jsconfig.baseArr, function ($, Vue, com, tem) {
-    //两个插槽
+require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
+    //找回的多插槽
+    //确定账号
+    var confirmAccount = `<div class="box">
+            <h2 class="psw_title">找回登录密码</h2>
+            <div class="box_800">
+                <ul class="account_infor">
+                    <li>
+                        <label>用户名：<em>*</em></label>
+                        <input type="text" id="userName" name="userName" />
+                        <span class="error_infor" id="usererror"></span>
+                    </li>
+                    <li>
+                        <label>{{ceshi}}<em>*</em></label>
+                        <input name="captcha" type="text" class="w_104" id="txtCode" maxlength="4" autocomplete="off" />
+                        <span class="pic-tips" id="securityContainer"><a id="txtCode__Captcha" href="#" title="看不清？换张图片"><img id="__Captcha_Image__" src="" alt="看不清？换张图片" border="0" /><span style="margin-left: 10px">点击换张图</span></a></span>
+                        <span id="capchaerror"></span>
+                    </li>
+                    <li class="m_t_15">
+                        <label>&nbsp;</label>
+                        <a href="#" id="btn_blue" @click.prevent="getPage" class ="btn_blue"><span>确认</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>`
+
+    //选择找回方式
     var recoverType = ` <form id="theForm" method="post">
             <div class="box">
                 <h2 class="psw_title">找回登录密码</h2>
@@ -119,44 +144,114 @@ require(jsconfig.baseArr, function ($, Vue, com, tem) {
             </div>
 
         </form>`;
-    var confirmAccount = ` <div class="box">
-            <h2 class="psw_title">找回登录密码</h2>
-            <div class="box_800">
-                <ul class="account_infor">
-                    <li>
-                        <label>用户名：<em>*</em></label>
-                        <input type="text" id="userName" name="userName" />
-                        <span class="error_infor" id="usererror"></span>
-                    </li>
-                    <li>
-                        <label>验证码：<em>*</em></label>
-                        <input name="captcha" type="text" class="w_104" id="txtCode" maxlength="4" autocomplete="off" />
-                        <span class="pic-tips" id="securityContainer"><a id="txtCode__Captcha" href="#" title="看不清？换张图片"><img id="__Captcha_Image__" src="" alt="看不清？换张图片" border="0" /><span style="margin-left: 10px">点击换张图</span></a></span>
-                        <span id="capchaerror"></span>
-                    </li>
-                    <li class="m_t_15">
-                        <label>&nbsp;</label>
-                        <a href="#" id="btn_blue" class="btn_blue"><span>确认</span></a>
-                    </li>
-                </ul>
+
+    //邮箱找回
+    var MessageRecover = `<form id="theForm" method="post">
+        <div class="box">
+	        <p class="f_14 m_t_15">找回登录密码</p>
+	        <div class="form-step">
+	          <ul>
+	            <li id="formtab3"><span>3.密码设置成功</span><ins></ins></li>
+	            <li id="formtab2"><span>2.设置新密码</span><ins></ins></li>
+	            <li class="on" id="formtab1"><span>1.接收邮件</span><ins></ins></li>
+	          </ul>
+	        </div>
+	        <div class="box_800">
+		        <p class="f_14 m_t_30">
+			        <s class="ico_success_4 v_mid m_r_10"></s>
+			        <strong>我们将向您的邮箱<span class="f_orange">61****@***.com</span>发送一封登录密码重置邮件，请确认。
+			        </strong>
+		        </p>
+		        <p class="btn_mar">
+			        </p><div>
+				        <ul class="account_infor" style="margin-top:10px;">
+					        <li>
+					        <label>验证码：<em>*</em></label>
+					        <input name="captcha" type="text" class="w_104" id="txtCode" maxlength="4" autocomplete="off">
+					        <span class="pic-tips" id="securityContainer"><a id="txtCode__Captcha" href="#" title="看不清？换张图片"><img id="__Captcha_Image__" src="https://passport.5173.com/Sso/RequestCaptcha?t=fa2382ad385c4e55b82089ed8ed017bf&amp;r=0.3049877622495043" alt="看不清？换张图片" border="0"><span style="margin-left: 10px">点击换张图</span></a></span>
+					        <span id="capchaerror"></span>
+					        </li>
+				        </ul>
+			        </div>
+			        <div>
+				        <a href="#" id="btn_blue" class="btn_blue" style="margin-left:70px;"><span>确认，发送</span></a>
+			        </div>
+		        <p></p>
+		        <div class="hint">
+			        <div class="hint_infor1">
+				        <strong>您忘记该邮箱，无法登录？</strong>
+				        <p>
+					        <span class="f_999">▪</span>您可以通过<a href="FindPasswordChoice" class="txt_line">其他方式</a>找回登录密码。
+				        </p>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+        <div id="layer_02" class="UED_hide">
+            <div class="pop_box">
+                <div class="pop_tittle">
+                  <h3 id="UED_layer_h3_v31">友情提示</h3>
+                  <a href="javascript:void()" onclick="$.LAYER.close();" class="close"></a>
+                </div>
+                <div class="pop_mainbox">
+        	        <div class="side_icon">
+            	        <s class="ico_warning_5"></s>
+                    </div>
+                    <div class="right_main">
+            	        <h4 class="normal">很抱歉，当前IP找回太频繁，请您稍后再试。</h4>
+
+                        <p class="mt10"><a href="#" onclick="$.LAYER.close();" class="btnlink_b_small"><span>确&nbsp;&nbsp;&nbsp;认</span></a></p>
+                    </div>
+                </div>
             </div>
-        </div>`
+        </div>
+        <input id="__validationToken__" type="hidden" value="fa2382ad385c4e55b82089ed8ed017bf" name="__validationToken__">
+      </form>`
+
+    //返回对应的找回页面
+    var RecoverRoute = [
+        {
+            name: "confirmAccount",
+        },
+        {
+            name: "recoverType",
+        },
+        {
+            name: "MessageRecover"
+        }
+    ]
+
+    var data = {
+        contents: confirmAccount,
+        ceshi: "111111111",
+        recoverRoute: RecoverRoute
+    };
+
+    //Vue.component('recovertype', recoverTem)
+
 
     //根据选择确定使用那一套插槽，先默认使用返回type的插槽
-    new Vue({
-        el: '#formArea',
+    var vm = new Vue({
+        el: '#FormArea',
         data: function () {
             return data;
         },
         components: {
-            'RecoverType': tem
+            'recovertype': recoverTem
+        },
+        created: function () {
+            //$("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
-            this.FormVlidate();
-
+            var a = 1;
         },
         methods: {
-
+            GetPage(val) {//获取页面
+                for (var item in this.RecoverRoute) {
+                    if (item.name == val)
+                        this.contents = eval(item.name);
+                }
+            }
         }
-    })
+    });
 })

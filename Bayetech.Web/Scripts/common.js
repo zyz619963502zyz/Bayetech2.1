@@ -100,7 +100,7 @@
     */
     common.PrepareComponents = function (obj, stratNum, parame) {
         var components = {};
-        for (let i = stratNum; i < parame.length; i++) {
+        for (var i = stratNum; i < parame.length; i++) {
             components[parame[i].name] = parame[i];
         }
         obj["components"] = components;

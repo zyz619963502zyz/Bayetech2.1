@@ -674,6 +674,9 @@
     <Content Include="Scripts\app\PersonalCenter\head.js" />
     <Content Include="Scripts\app\PersonalCenter\index.js" />
     <Content Include="Scripts\app\PersonalCenter\pavigationBar.js" />
+    <Content Include="Scripts\app\PersonalCenter\PerCenterRight.js" />
+    <Content Include="Scripts\app\PersonalCenter\rightbuttom.js" />
+    <Content Include="Scripts\app\PersonalCenter\righttop.js" />
     <Content Include="Scripts\app\PlaceOrder\AccountOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
