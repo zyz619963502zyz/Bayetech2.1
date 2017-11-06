@@ -36,13 +36,12 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
         <search-dropdown :data="dropdownData" v-show="showDropdown"></search-dropdown>
     </div>
 </div>`;
-
+    var dropdownComponents = dropdown;
     var components = {
         name: "v-search",
         data:function() {
             return {
                 isSimple: false,
-                dropdown: dropdown,
                 showDropdown: false,
                 dropdownData:{},
                 gameData: {
@@ -89,7 +88,6 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
             },
             loadDropdown: function (type) {
                 debugger;
-                this.dropdown = type === "game" ? gamedropdown : dropdown;
                 this.showDropdown = true;
                 switch (type) {
                     case "game":
@@ -108,7 +106,7 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
             },
         },
         components: {
-            "search-dropdown": dropdown,
+            "search-dropdown": dropdownComponents,
         },
     };
     return components;
