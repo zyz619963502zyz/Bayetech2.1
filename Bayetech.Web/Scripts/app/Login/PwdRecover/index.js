@@ -52,7 +52,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                     </ul>
                     <div class="hint">
                         <div class="hint_infor">
-                            <strong>友情提示：</strong>
+                            <strong @click="gggg">友情提示：</strong>
                             <p>
                                 <span class="f_999">▪</span>如果您无法通过上述方式找回，请通过<a href="http://complain.5173.com/MyEmailPost2.aspx" id="layer_01_button" class="txt_line">申请修改邮箱地址</a>找回登录密码。
                             </p>
@@ -137,7 +137,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                             <h4 class="geayline">很抱歉，您今天“申请修改邮箱地址”已超过3次。</h4>
                             <p class="f_666">请使用其他方式找回密码，或者明天再来试试吧。</p>
 
-                            <p class="mt10"><a href="#" onclick="$.LAYER.close();" class="btnlink_b_small"><span>确&nbsp;&nbsp;&nbsp;认</span></a></p>
+                            <p class ="mt10"><a href="#" class ="btnlink_b_small"><span>确&nbsp; &nbsp; &nbsp; 认</span></a></p>
                         </div>
                     </div>
                 </div>
@@ -241,12 +241,14 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
         },
         created: function () {
             $("#RecoverTempId").html(confirmAccount);
+            //$("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
             var a = 1;
         },
         methods: {
             gggg: function (val) {
+                alert("提示当前按钮!");
                 if (true) {
                     for (var item in this.RecoverRoute) {
                         if (item.name == val)
@@ -257,16 +259,13 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
 
             GetPage111: function (val) {//被诅咒的方法。无论如何都访问不到
                 if (true) {
-                    for (var item in this.RecoverRoute) {
-                        if (item.name == val)
-                            this.contents = eval(item.name);
-                    }
+                    var a = 1;
+                    //for (var item in this.RecoverRoute) {
+                    //    if (item.name == val)
+                    //        this.contents = eval(item.name);
+                    //}
                 }
-            },
-            //GetPage(val) {//获取页面
-            //    var a = 1;
-            //    val = 2;
-            //}
+            }
         }
     });
 })
