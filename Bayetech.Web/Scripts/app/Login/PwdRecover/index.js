@@ -222,7 +222,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
     ]
 
     var data = {
-        contents: confirmAccount,
+        contents:$(confirmAccount)[2],
         ceshi: "111111111",
         recoverRoute: RecoverRoute
     };
