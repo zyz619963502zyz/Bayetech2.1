@@ -19,7 +19,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                     </li>
                     <li class="m_t_15">
                         <label>&nbsp;</label>
-                        <a href="#" id="btn_blue" @click.prevent="getPage" class ="btn_blue"><span>确认</span></a>
+                        <a href="#" id="btn_blue" @click.prevent="GetPage111('111')" class ="btn_blue"><span>确认</span></a>
                     </li>
                 </ul>
             </div>
@@ -240,18 +240,33 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             'recovertype': recoverTem
         },
         created: function () {
-            //$("#RecoverTempId").html(recoverType);
+            $("#RecoverTempId").html(confirmAccount);
         },
         mounted: function () {
             var a = 1;
         },
         methods: {
-            GetPage(val) {//获取页面
-                for (var item in this.RecoverRoute) {
-                    if (item.name == val)
-                        this.contents = eval(item.name);
+            gggg: function (val) {
+                if (true) {
+                    for (var item in this.RecoverRoute) {
+                        if (item.name == val)
+                            this.contents = eval(item.name);
+                    }
                 }
-            }
+            },
+
+            GetPage111: function (val) {//被诅咒的方法。无论如何都访问不到
+                if (true) {
+                    for (var item in this.RecoverRoute) {
+                        if (item.name == val)
+                            this.contents = eval(item.name);
+                    }
+                }
+            },
+            //GetPage(val) {//获取页面
+            //    var a = 1;
+            //    val = 2;
+            //}
         }
     });
 })
