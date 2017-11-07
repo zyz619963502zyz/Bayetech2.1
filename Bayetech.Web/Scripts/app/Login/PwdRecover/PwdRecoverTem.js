@@ -1,7 +1,7 @@
 ﻿//找回密码中间页PwdRecoverTem
 define(jsconfig.baseArr, function (Vue, $, common) {
     var temHtml = `<form id="theForm">
-                      <slot @click="GetPage"></slot>
+                      <slot></slot>
                    </form>`;
 
     var data = {
@@ -24,9 +24,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            GetPage: function (val) {//获取页面
-                alert("已经执行!");
-            }
+            //GetPage: function (val) {//获取页面
+            //    alert("已经执行!");
+            //}
         }
     };
 

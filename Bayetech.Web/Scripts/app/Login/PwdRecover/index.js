@@ -19,7 +19,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                     </li>
                     <li class="m_t_15">
                         <label>&nbsp;</label>
-                        <a href="#" id="btn_blue" @click.prevent="getPage" class ="btn_blue"><span>确认</span></a>
+                        <a href="#" id="btn_blue" @click.prevent="GetPage111('111')" class ="btn_blue"><span>确认</span></a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                     </ul>
                     <div class="hint">
                         <div class="hint_infor">
-                            <strong>友情提示：</strong>
+                            <strong @click="gggg">友情提示：</strong>
                             <p>
                                 <span class="f_999">▪</span>如果您无法通过上述方式找回，请通过<a href="http://complain.5173.com/MyEmailPost2.aspx" id="layer_01_button" class="txt_line">申请修改邮箱地址</a>找回登录密码。
                             </p>
@@ -137,7 +137,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                             <h4 class="geayline">很抱歉，您今天“申请修改邮箱地址”已超过3次。</h4>
                             <p class="f_666">请使用其他方式找回密码，或者明天再来试试吧。</p>
 
-                            <p class="mt10"><a href="#" onclick="$.LAYER.close();" class="btnlink_b_small"><span>确&nbsp;&nbsp;&nbsp;认</span></a></p>
+                            <p class ="mt10"><a href="#" class ="btnlink_b_small"><span>确&nbsp; &nbsp; &nbsp; 认</span></a></p>
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
     ]
 
     var data = {
-        contents: confirmAccount,
+        contents:$(confirmAccount)[2],
         ceshi: "111111111",
         recoverRoute: RecoverRoute
     };
@@ -240,16 +240,30 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             'recovertype': recoverTem
         },
         created: function () {
+            $("#RecoverTempId").html(confirmAccount);
             //$("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
             var a = 1;
         },
         methods: {
-            GetPage(val) {//获取页面
-                for (var item in this.RecoverRoute) {
-                    if (item.name == val)
-                        this.contents = eval(item.name);
+            gggg: function (val) {
+                alert("提示当前按钮!");
+                if (true) {
+                    for (var item in this.RecoverRoute) {
+                        if (item.name == val)
+                            this.contents = eval(item.name);
+                    }
+                }
+            },
+
+            GetPage111: function (val) {//被诅咒的方法。无论如何都访问不到
+                if (true) {
+                    var a = 1;
+                    //for (var item in this.RecoverRoute) {
+                    //    if (item.name == val)
+                    //        this.contents = eval(item.name);
+                    //}
                 }
             }
         }
