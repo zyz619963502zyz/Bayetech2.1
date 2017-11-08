@@ -9,7 +9,7 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
     //Vue.component('ordergoodinfo', goodInfo);
 
     var vm = new Vue({
-        el: '#OrderInfo',
+        el: '#GoodInfo',
         data: function () {
             return data;
         },
