@@ -1,7 +1,10 @@
 ﻿//找回密码中间页PwdRecoverTem
 define(jsconfig.baseArr, function (Vue, $, common) {
     var temHtml = `<form id="theForm">
-                      <slot></slot>
+                      <slot>
+                        <h1>这里是测试标题H1</h1>
+                        <h2>这里是测试标题H2</h2>
+                      </slot>
                    </form>`;
 
     var data = {

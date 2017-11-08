@@ -50,9 +50,10 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
                             <a href="#" id="btn_emailClick" class="btn_blue"><span>立即找回</span></a>
                         </li>
                     </ul>
+                    <button  @click="gggg">选择方式里面测试gggg再次是否挂载成功按钮！</button>{{ceshi}}
                     <div class="hint">
                         <div class="hint_infor">
-                            <strong @click="gggg">友情提示：</strong>
+                            <strong>友情提示：</strong>
                             <p>
                                 <span class="f_999">▪</span>如果您无法通过上述方式找回，请通过<a href="http://complain.5173.com/MyEmailPost2.aspx" id="layer_01_button" class="txt_line">申请修改邮箱地址</a>找回登录密码。
                             </p>
@@ -222,12 +223,23 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
     ]
 
     var data = {
-        contents:$(confirmAccount)[2],
+        contents: confirmAccount,
         ceshi: "111111111",
-        recoverRoute: RecoverRoute
+        //recoverRoute: RecoverRoute
+        confirmAccount: confirmAccount,
+        recoverType: recoverType,
+        MessageRecover: MessageRecover
     };
 
-    //Vue.component('recovertype', recoverTem)
+
+    Vue.component('recovertype', {
+        render: function (createElement) {
+            return createElement(
+              'h2',   // tag name 标签名称
+              confirmAccount // 子组件中的阵列
+            )
+        }
+    })
 
 
     //根据选择确定使用那一套插槽，先默认使用返回type的插槽
@@ -236,11 +248,17 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
         data: function () {
             return data;
         },
-        components: {
-            'recovertype': recoverTem
-        },
+        //components: {
+        //    'recovertype': recoverTem,
+        //     render: function (createElement) {
+        //        return createElement(
+        //          'h1',   // tag name 标签名称
+        //          this.$slots.default // 子组件中的阵列
+        //        )
+        //    },
+        //},
         created: function () {
-            $("#RecoverTempId").html(confirmAccount);
+            //$("#RecoverTempId").html(confirmAccount);
             //$("#RecoverTempId").html(recoverType);
         },
         mounted: function () {
@@ -260,6 +278,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             GetPage111: function (val) {//被诅咒的方法。无论如何都访问不到
                 if (true) {
                     var a = 1;
+                    $("#RecoverTempId").html(recoverType);
                     //for (var item in this.RecoverRoute) {
                     //    if (item.name == val)
                     //        this.contents = eval(item.name);
