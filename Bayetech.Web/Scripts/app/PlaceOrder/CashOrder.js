@@ -28,6 +28,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" :value="promo"></li>
                         </ul>`;
 
+    //数据
     var data = {
         buyNum: "1",
         gameName: "地下城与勇士",
@@ -40,6 +41,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         promo: "13246"
     }
 
+    //组装成组件
     var cashordercomponent = {//全局注册
         template: cashorderHtml,
         data() {
@@ -59,5 +61,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         }
     }
 
+    //返回供调用
     return cashordercomponent;
 })

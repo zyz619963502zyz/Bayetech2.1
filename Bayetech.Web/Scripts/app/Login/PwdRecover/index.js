@@ -18,8 +18,7 @@ require(jsconfig.baseArr, function ($, Vue, com, recoverTem) {
             'recovertype': recoverTem
         },
         created: function () {
-            //$("#RecoverTempId").html(confirmAccount);
-            //$("#RecoverTempId").html(recoverType);
+
         },
         mounted: function () {
             var a = 1;

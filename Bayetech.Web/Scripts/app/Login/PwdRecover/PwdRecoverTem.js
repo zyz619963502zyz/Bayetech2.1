@@ -168,8 +168,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 			        </div>
 			        <div>
 				        <a href="#" id="btn_blue" class="btn_blue" style="margin-left:70px;"><span>确认，发送</span></a>
-			        </div>
-		        <p></p>
+			        </div><p>
+                </p>
 		        <div class="hint">
 			        <div class="hint_infor1">
 				        <strong>您忘记该邮箱，无法登录？</strong>
@@ -200,11 +200,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         </div>
         <input id="__validationToken__" type="hidden" value="fa2382ad385c4e55b82089ed8ed017bf" name="__validationToken__">
       </form>`
+    //
     //对应要找的类型。
     var data = {
-        type: 'confirmAccount'
+        type: 'MessageRecover'
     };
-
     var tmpcomponent = {
         template: confirmAccount + recoverType + MessageRecover,
         data() {
