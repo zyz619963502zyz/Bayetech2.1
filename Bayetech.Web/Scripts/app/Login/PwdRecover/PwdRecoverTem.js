@@ -200,7 +200,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         </div>
         <input id="__validationToken__" type="hidden" value="fa2382ad385c4e55b82089ed8ed017bf" name="__validationToken__">
       </form>`
-    //
     //对应要找的类型。
     var data = {
         type: 'MessageRecover'
