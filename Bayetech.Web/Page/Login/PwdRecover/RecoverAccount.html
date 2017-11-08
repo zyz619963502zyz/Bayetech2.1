@@ -32,13 +32,13 @@
             <!-- 四级联动游戏选择 -->
         </div>
     </div>
-    <button @click="gggg">测试组件外部的gggg的按钮</button>
+
     <div id="FormArea">
-       <button v-on:click.prevent="GetPage('1')">测试外围确定按钮</button>
+       <button @click="gggg('11111')">测试组件外部的gggg的按钮</button>
        <!--<recovertype v-html="contents"></recovertype>-->
 
        <recovertype></recovertype>
-
+          
     </div>
 
 </body>

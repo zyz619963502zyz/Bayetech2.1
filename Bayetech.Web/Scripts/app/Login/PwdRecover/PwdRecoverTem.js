@@ -141,7 +141,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     //邮箱找回
     var MessageRecover = `<form id="theForm" v-else-if="type==='MessageRecover'">
         <div class ="box">
-           <button @click="gggg">测试组件内部的gggg的按钮</button>
 	        <p class="f_14 m_t_15">找回登录密码</p>
 	        <div class="form-step">
 	          <ul>
