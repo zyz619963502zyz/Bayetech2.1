@@ -311,6 +311,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\helpcenter.css" />
+    <Content Include="Content\homepage.css" />
     <Content Include="Content\Images\001.jpg" />
     <Content Include="Content\Images\002.jpg" />
     <Content Include="Content\Images\003.jpg" />
@@ -635,6 +636,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\Home\HomePage.html" />
+    <Content Include="Page\Home\NewIndex.html" />
+    <Content Include="Page\Home\PhonePage.html" />
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\Login\PwdRecover\MessageRecover\MessageRecover.html" />
