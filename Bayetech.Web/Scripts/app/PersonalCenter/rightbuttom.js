@@ -7,8 +7,7 @@ define("PersonButtom", jsconfig.baseArr, function (Vue, $, common) {
         账户安全:
                             <strong class ="ml10 security_level_40">低<i class ="ml10"><em></em></i></strong><span class="ml10 yellow">建议您尽快启动全部安全设置,以保障您的账号及资金安全.</span>
                         </div>
-                    </div>
-                    <table width="100%" border="0" cellspacing="1" cellpadding="0" class ="security_type">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="0" class ="security_type">
                         <tbody>
                             <tr>
                                 <th>项目名称</th>
@@ -46,6 +45,8 @@ define("PersonButtom", jsconfig.baseArr, function (Vue, $, common) {
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                   
         `
     var components = {
         template: html

@@ -1,5 +1,5 @@
 ﻿//头部模板
-define("PersonalHead", jsconfig.baseArr, function (Vue, $, common) {   
+define("PersonalHead", jsconfig.baseArr, function (Vue, $, common) {
     var html = `
             <div class ="top_box">
         <div class ="top">

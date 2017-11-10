@@ -1,0 +1,718 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.7881.com/sc/sc_index.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>客服中心-7881游戏交易平台</title>
+    <meta name="keywords" content="客服中心">
+    <meta name="description" content="7881客服中心及时给您解答在游戏交易中遇到的各类问题">
+    <link href="../../Content/CommonCss/7881.common.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/global_new.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/7881.help.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <script>
+function toadd(){
+	if('119916776' == '117575680'){
+		alert("该用户禁止充值");
+	}else{
+		window.location.href="/financecharge/toAdd.action";
+	}
+}
+    </script>
+
+    <div class="top_box">
+        <div class="top">
+            <!--顶部区域-->
+            <div class="top_l left"><dl><span id="span_user"><dt><a rel="nofollow" href="http://www.7881.com/personal.html">大板牙兔子先生</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="http://www.7881.com/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[0]</i></a></dt><dt class="top_grayline">|</dt><dt><a href="http://www.7881.com/logout.action" rel="nofollow">退出</a></dt></span></dl></div><!--顶部左侧-->
+
+            <div class="top_r right">
+                <!--顶部右侧-->
+                <dl>
+                    <dt><a href="http://www.7881.com/" rel="nofollow">首页</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="http://www.7881.com/personal.html" rel="nofollow">买家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="http://www.7881.com/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a></li>
+                            <li><a href="http://www.7881.com/gamelistshow.html" rel="nofollow">我要买</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="http://www.7881.com/personal.html">卖家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="http://www.7881.com/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a></li>
+                            <li><a href="http://www.7881.com/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
+                            <li><a href="http://www.7881.com/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a></li>
+                            <li><a href="http://www.7881.com/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a></li>
+                            <li><a href="http://www.7881.com/release.html" rel="nofollow">我要卖</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="javascript:toadd()" class="green" rel="nofollow">充值</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="http://www.7881.com/financecharge/toAddExtractcash.action" class="orange" rel="nofollow">提现</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="http://www.7881.com/sc/sc_index.html#" rel="nofollow">服务中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="http://www.7881.com/sc/sc_index.html" rel="nofollow">客服中心</a></li>
+                            <li><a href="http://www.7881.com/helpCenter.html" rel="nofollow">帮助中心</a></li>
+                            <li><a href="http://www.7881.com/articlelist4-0-0.html" rel="nofollow">资讯中心</a></li>
+                            <li><a href="http://www.7881.com/tradesafe.html" rel="nofollow">安全中心</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav wb">
+                        <a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a>
+                        <ul id="hide_nav">
+                            <li class="xn"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">新浪微博</a></li>
+                            <li class="tx"><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow">腾讯微博</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+	/// 判断是否登录
+	document.domain="7881.com";
+	jQuery.ajax({
+		type : 'get',
+		url : '/loginCheckReturn.action?ip=' + Math.round(Math.random()*10000),
+		success : function(resultData) {
+			var result = resultData.split('#');
+			if(result[0] == '500')
+			{
+				location.href="/7881_touristlogin.jsp";
+			}
+			else if (result[0] == '200' && result.length > 2) {
+				 jQuery('#span_user').empty();
+				 if(result[2]!='0'){
+				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message_open">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
+				 }else{
+				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
+				 }
+				 jQuery('#span_user').html(htmlText);
+			}
+		}
+	});
+    </script>
+
+
+    <div class="header">
+        <!--头部-->
+        <div class="left"><h1><a href="http://www.7881.com/" title="7881游戏交易平台"><img src="../../Content/Images/logo_service.png" alt="7881游戏交易平台"></a></h1></div>
+        <div class="logo_wri">服务中心</div>
+        <div class="nav">
+            <a href="http://www.7881.com/sc/sc_index.html" class="nav1 f14 tcenter cur">客服中心</a>
+            <a href="http://www.7881.com/articlelist4-0-0.html" class="nav2 f14 tcenter">资讯中心</a>
+            <a href="http://www.7881.com/tradesafe.html" class="nav3 f14 tcenter">安全中心</a>
+            <a href="http://www.7881.com/helpCenter.html" class="nav4 f14 tcenter">帮助中心</a>
+        </div>
+    </div>
+    <div class="W980 clearfix">
+
+
+        <aside class="ColL">
+            <!-- aside begin -->
+            <div class="mainMenu">
+                <!-- mainMenu begin -->
+                <h3>问题类目</h3>
+                <section>
+                    <div class="menuItem">
+                        <!-- menuItem begin -->
+                        <dl class="sortItem">
+                            <dt class="sort1"><i></i>游戏名称</dt>
+                            <dd>
+                                <label>端游：</label>
+
+
+                                <a href="http://www.7881.com/sc/search-G10-0.html">地下城与勇士</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G641-0.html">斗战神</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G783-0.html">圣斗士星矢ol</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G793-0.html">新征途</a>
+
+                                <a href="http://www.7881.com/sc/search-G443-0.html">笑傲江湖</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G611-0.html">刀剑2</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G39-0.html">问道</a>
+
+                                <a href="http://www.7881.com/sc/search-GG-0.html">其他</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-G769-0.html">剑灵</a>
+
+
+
+                                <a href="http://www.7881.com/sc/search-all-0.html">全部游戏</a>
+
+
+                            </dd>
+                            <dd>
+                                <label>手游：</label>
+
+                                <a href="http://www.7881.com/sc/search-A817-0.html">忘仙</a>
+
+                                <a href="http://www.7881.com/sc/search-A821-0.html">英雄战魂</a>
+
+                            </dd>
+                        </dl><!-- sortItem end -->
+                    </div><!-- menuItem end -->
+                    <div class="menuItem">
+                        <!-- menuItem begin -->
+                        <dl>
+                            <dt class="sort2"><i></i>交易模式</dt>
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-1.html">寄售交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-2.html">担保交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-3.html">账号交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-4.html">其他</a></dd>
+
+                        </dl>
+                    </div><!-- menuItem end -->
+                    <div class="menuItem">
+                        <!-- menuItem begin -->
+                        <dl>
+                            <dt class="sort3"><i></i>物品类型</dt>
+                            <dd><a href="http://www.7881.com/sc/search-0-5.html">装备</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-6.html">游戏币</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-7.html">游戏账号</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-8.html">点券</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-9.html">其他</a></dd>
+                        </dl>
+                    </div><!-- menuItem end -->
+                    <div class="menuItem">
+                        <!-- menuItem begin -->
+                        <dl>
+                            <dt class="sort4"><i></i>服务流程</dt>
+                            <dd><a href="http://www.7881.com/sc/search-0-10.html">出售流程</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-11.html">购买流程</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-12.html">审核流程</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-13.html">交易安全性</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-14.html">交易费收取标准</a></dd>
+
+                            <dd><a href="http://www.7881.com/sc/search-0-31.html">其它</a></dd>
+
+
+                        </dl>
+                    </div><!-- menuItem end -->
+                    <div class="menuItem menuItemCurrent">
+                        <!-- menuItem begin -->
+                        <dl>
+                            <dt class="sort5"><i></i>其他</dt>
+
+                            <dd><a href="http://www.7881.com/sc/search-0-15.html">7881用户名</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-16.html">充值</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-17.html">提现</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-18.html">交易证明</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-19.html">实名认证</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-20.html">手机绑定</a></dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-30.html">其它</a></dd>
+
+
+
+
+                        </dl>
+                    </div><!-- menuItem end -->
+                    <div class="menuItem lastMenuItem">
+                        <!-- menuItem begin -->
+                        <dl>
+                            <dt class="sort6"><i></i>建议</dt>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-21.html">寄售交易</a></dd>
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-26.html">担保交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-27.html">账号交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-28.html">手游交易</a></dd>
+
+
+
+                            <dd><a href="http://www.7881.com/sc/search-0-29.html">其他</a></dd>
+
+
+
+
+
+
+                        </dl>
+                    </div><!-- menuItem end -->
+                </section><!-- section end -->
+            </div><!-- mainMenu end -->
+            <div class="qList pusht clearfix">
+                <h3>常见问题</h3>
+                <ul>
+                    <li><span class="num">1</span><a href="http://www.7881.com/helpcenter/73812285242797933.html" target="_blank">忘记密码怎么办</a></li>
+                    <li><span class="num">2</span><a href="http://www.7881.com/helpcenter/248692316587202013.html" target="_blank">如何联系订单客服</a></li>
+                    <li><span class="num">3</span><a href="http://www.7881.com/helpcenter/248692203167715790.html" target="_blank">如何验证真假客服</a></li>
+                    <li><span class="num">4</span><a href="http://www.7881.com/helpcenter/134344990756337236.html" target="_blank">如何正确出售商品</a></li>
+                    <li><span class="num">5</span><a href="http://www.7881.com/helpcenter/73815958199886129.html" target="_blank">收货角色名如何修改</a></li>
+                    <li><span class="num">6</span><a href="http://www.7881.com/helpcenter/1.html" target="_blank">如何提现我的资金</a></li>
+                    <li><span class="num">7</span><a href="http://www.7881.com/helpcenter/268873779487604761.html" target="_blank">提现怎么收取手续费</a></li>
+                    <li><span class="num">8</span><a href="http://www.7881.com/helpcenter/248692281206556395.html" target="_blank">订单撤销后退款到哪</a></li>
+                </ul>
+            </div>
+        </aside><!-- aside end -->
+
+        <section class="ColMain">
+            <div class="iSearch">
+                <div class="seaForm">
+                    <input id="comment" type="text" class="sText holderfont f12" placeholder="请输入问题的关键字，如“提现”">
+                    <input id="currentNo" type="hidden" value="0">
+                    <a href="http://www.7881.com/sc/sc_index.html#" id="search" class="sBtn">搜索解答</a>
+                </div>
+                <a href="http://www.7881.com/sc/add_sc.html" class="aBtn" rel="nofollow">我要提问</a>
+                <a href="http://www.7881.com/sc/sc_center.html" class="blue" rel="nofollow">我的服务记录</a>
+            </div><!-- iSearch end -->
+            <section class="flash pusht">
+                <div class="slides">
+                    <ul class="slide-pic">
+                        <li class="" style="display: none;">
+                            <dl>
+                                <dt>新手入门</dt>
+                                <dd><a href="http://www.7881.com/helpcenter/53630197449768690.html" target="_blank">如何注册及登录</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/73811901236102737.html" target="_blank">如何绑定手机</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/73811305049964817.html" target="_blank">如何实名认证</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/73812285242797933.html" target="_blank">如何找回密码</a></dd>
+                            </dl>
+                            <a target="_blank"><img src="../../Content/Images/slider_1.jpg"></a>
+                        </li>
+                        <li class="cur" style="display: block; opacity: 0.212497;">
+                            <dl>
+                                <dt>如何出售</dt>
+                                <dd><a href="http://www.7881.com/helpcenter/73789486396550831.html" target="_blank">如何出售商品</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/43552371643536454.html" target="_blank">什么是担保交易</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/73790853549846082.html" target="_blank">什么是寄售交易</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/248702596403404862.html" target="_blank">卖家等级与权限对照表</a></dd>
+                            </dl>
+                            <a target="_blank"><img src="../../Content/Images/slider_2.jpg"></a>
+                        </li>
+                        <li class="" style="display: none;">
+                            <dl>
+                                <dt>如何购买</dt>
+                                <dd><a href="http://www.7881.com/helpcenter/53645345943894167.html" target="_blank">如何购买商品</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/248692316587202013.html" target="_blank">如何联系订单客服</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/73815958199886129.html" target="_blank">如何管理收货角色名</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/15887289204208568.html" target="_blank">游戏充值商品如何兑换</a></dd>
+                            </dl>
+                            <a target="_blank"><img src="../../Content/Images/slider_3.jpg"></a>
+                        </li>
+                        <li class="" style="display: none;">
+                            <dl>
+                                <dt>充值提现</dt>
+                                <dd><a href="http://www.7881.com/helpcenter/53646056824590766.html" target="_blank">如何充值</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/1.html" target="_blank">如何提现</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/83901453962542048.html" target="_blank">提现账户如何添加</a></dd>
+                                <dd><a href="http://www.7881.com/helpcenter/268873779487604761.html" target="_blank">提现手续费</a></dd>
+                            </dl>
+                            <a target="_blank"><img src="../../Content/Images/slider_4.jpg"></a>
+                        </li>
+                        <li class="" style="display: none;">
+                            <dl>
+                                <dt>防骗指南</dt>
+                                <dd><a href="http://www.7881.com/tradesafe/311351213775209310a0.html" target="_blank">什么是钓鱼网站</a></dd>
+                                <dd><a href="http://www.7881.com/tradesafe/311351107162346087a0.html" target="_blank">骗子诈骗流程</a></dd>
+                                <dd><a href="http://www.7881.com/tradesafe/311350774185047325a0.html" target="_blank">防范钓鱼网站的基本知识</a></dd>
+                                <dd><a href="http://www.7881.com/tradesafe/311353680614562409a0.html" target="_blank">如何识破钓鱼网站</a></dd>
+                            </dl>
+                            <a target="_blank"><img src="../../Content/Images/slider_5.jpg"></a>
+                        </li>
+                    </ul>
+                    <ul class="slide-li op">
+                        <li class=""></li>
+                        <li class=""></li>
+                        <li class="cur"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="slide-li slide-txt">
+                        <li class=""><a target="_blank">新手入门</a></li>
+                        <li class=""><a target="_blank">如何出售</a></li>
+                        <li class="cur"><a target="_blank">如何购买</a></li>
+                        <li><a target="_blank">充值提现</a></li>
+                        <li><a target="_blank">防骗指南</a></li>
+                    </ul>
+                </div>
+            </section>
+            <script src="./客服中心_files/sider.js.下载"></script><!--焦点图轮播结束-->
+            <div class="change-info">
+                <ul>
+                    <li>
+                        <i class="sy"></i>
+                        <p>
+                            <strong>修改绑定手机</strong>
+                            <span>原绑定手机不再使用</span>
+                            <a href="http://www.7881.com/selfService/preToSelfService.action?urlType=1">点击进入</a>
+                        </p>
+                    </li>
+                    <li>
+                        <i class="yx"></i>
+                        <p>
+                            <strong>修改支付密码</strong>
+                            <span>忘记支付密码</span>
+                            <a href="http://www.7881.com/commerical/toChangetransactionPass.action">点击进入</a>
+                        </p>
+                    </li>
+                    <li>
+                        <i class="yh"></i>
+                        <p>
+                            <strong>修改开户行用户名</strong>
+                            <span>变更资金提现人</span>
+                            <a href="http://www.7881.com/selfService/preToSelfService.action?urlType=3">点击进入</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <section class="allQa pusht clearfix">
+                <div class="allQaHd clearfix">
+                    <a href="http://www.7881.com/sc/add_sc.html" class="iAsk" rel="nofollow">我要提问</a>
+                    <ul class="tabTit">
+                        <li class="current"><a href="http://www.7881.com/sc/sc_index.html#">大家正在问</a></li>
+                        <li><a target="_blank" href="http://www.7881.com/sc/sc_center.html">我的提问</a></li>
+                    </ul>
+                </div><!-- allQaHd end-->
+                <article class="allQaBox clearfix">
+                    <ul class="typeTab">
+                        <li class="current"><a href="javascript:void(0);" type="new">最新</a></li>
+                        <li><a href="javascript:void(0);" type="hot">热门</a></li>
+                        <li><a href="javascript:void(0);" type="1">咨询</a></li>
+                        <li><a href="javascript:void(0);" type="2">投诉</a></li>
+                        <li><a href="javascript:void(0);" type="3">建议</a></li>
+                    </ul>
+                    <section class="allQaInfo">
+                        <dl class="qaHd">
+                            <dd class="tit1">问题</dd>
+                            <dd class="tit2">提问时间</dd>
+                            <dd class="tit3">回复状态</dd>
+                            <dd class="tit4">回复时间</dd>
+                            <dd class="tit5">浏览量</dd>
+                        </dl>
+                        <div id="block1" class="showOne">
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171101056536.html" target="_blank">[咨询]调用服务出错了，无法发布出售物品</a></dd>
+                                <dd class="tit2">2017/11/01 11:11</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">15分钟</dd>
+                                <dd class="tit5">5</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171030056504.html" target="_blank">[投诉]付钱之后并没有收到货，如果不发货，把我钱退了吧</a></dd>
+                                <dd class="tit2">2017/10/30 21:21</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">3分钟</dd>
+                                <dd class="tit5">93</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171029056484.html" target="_blank">[咨询]我付款了还显示未付款</a></dd>
+                                <dd class="tit2">2017/10/29 19:43</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">26分钟</dd>
+                                <dd class="tit5">94</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171028056453.html" target="_blank">[咨询]我想知道实名认证需要多久？</a></dd>
+                                <dd class="tit2">2017/10/28 19:52</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">10分钟</dd>
+                                <dd class="tit5">53</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171028056429.html" target="_blank">[咨询]30分钟订单未自动完成。。。。。</a></dd>
+                                <dd class="tit2">2017/10/28 11:35</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">13分钟</dd>
+                                <dd class="tit5">71</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1">
+                                    <a href="http://www.7881.com/sc/171026056349.html" target="_blank">
+                                        [咨询]我的单被卖家撤销了 钱退到可用余额上 怎么能提现？
+                                    </a>
+                                </dd>
+                                <dd class="tit2">2017/10/26 09:35</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">4分钟</dd>
+                                <dd class="tit5">117</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171026056348.html" target="_blank">[咨询]游戏币订单撤销有不转钱给回我127102515089463265296259</a></dd>
+                                <dd class="tit2">2017/10/26 08:43</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">4分钟</dd>
+                                <dd class="tit5">66</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171025056340.html" target="_blank">[咨询]手机号码换了，以前的手机号码不用了！怎么办？</a></dd>
+                                <dd class="tit2">2017/10/25 19:18</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">18分钟</dd>
+                                <dd class="tit5">49</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171024056319.html" target="_blank">[投诉]为什么我支付了98元。但是点券却没有给我</a></dd>
+                                <dd class="tit2">2017/10/24 13:53</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">17分钟</dd>
+                                <dd class="tit5">241</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171024056316.html" target="_blank">[投诉]我昨天提现了250和199 昨天25010分钟已经到了 199 24小时都没到 是不是把我黑了？</a></dd>
+                                <dd class="tit2">2017/10/24 11:17</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">6分钟</dd>
+                                <dd class="tit5">90</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171023056306.html" target="_blank">[咨询]全民枪战买的100元礼包，钱已经给了，但是账号里东西没到?</a></dd>
+                                <dd class="tit2">2017/10/23 15:25</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">6分钟</dd>
+                                <dd class="tit5">79</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171021056235.html" target="_blank">[咨询]为什么我支付了28元的，然后点完成付款，为什么一直显示未付款呢？</a></dd>
+                                <dd class="tit2">2017/10/21 14:38</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">9分钟</dd>
+                                <dd class="tit5">336</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171020056226.html" target="_blank">[咨询]我想更改绑定的手机号因为以前的手机号用不了所以我充不了</a></dd>
+                                <dd class="tit2">2017/10/20 21:32</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">43分钟</dd>
+                                <dd class="tit5">63</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1">
+                                    <a href="http://www.7881.com/sc/171020056222.html" target="_blank">
+                                        [咨询]订单撤销是怎么回事啊
+                                    </a>
+                                </dd>
+                                <dd class="tit2">2017/10/20 20:50</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">7分钟</dd>
+                                <dd class="tit5">97</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171020056217.html" target="_blank">[投诉]已支付，显示订单未支付</a></dd>
+                                <dd class="tit2">2017/10/20 19:20</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">6分钟</dd>
+                                <dd class="tit5">190</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171020056214.html" target="_blank">[咨询]30分钟未自动完成订单</a></dd>
+                                <dd class="tit2">2017/10/20 17:12</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">23分钟</dd>
+                                <dd class="tit5">49</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1">
+                                    <a href="http://www.7881.com/sc/171019056200.html" target="_blank">
+                                        [咨询]我在 你们这出售帐号 为什么在我是卖家里面找不到啊
+                                    </a>
+                                </dd>
+                                <dd class="tit2">2017/10/19 15:48</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">17分钟</dd>
+                                <dd class="tit5">95</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1">
+                                    <a href="http://www.7881.com/sc/171018056192.html" target="_blank">
+                                        [咨询]我是东西卖完了 怎么没有提示到账
+                                    </a>
+                                </dd>
+                                <dd class="tit2">2017/10/18 21:32</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">44分钟</dd>
+                                <dd class="tit5">135</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171018056177.html" target="_blank">[咨询]如何出售DNF账号</a></dd>
+                                <dd class="tit2">2017/10/18 12:50</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">24分钟</dd>
+                                <dd class="tit5">59</dd>
+                            </dl>
+
+                            <dl>
+                                <dd class="tit1"><a href="http://www.7881.com/sc/171016056146.html" target="_blank">[咨询]我支付过后显示订单已经被取消，游戏币没有，支付的钱在那？</a></dd>
+                                <dd class="tit2">2017/10/16 22:01</dd>
+                                <dd class="tit3"><i class="iRight"></i></dd>
+                                <dd class="tit4">3分钟</dd>
+                                <dd class="tit5">134</dd>
+                            </dl>
+
+                        </div>
+                        <div class="pager pager_small" style="display: none;"></div>
+                    </section>
+                </article>
+            </section>
+        </section><!-- ColMain end -->
+    </div><!-- pWrap end -->
+    <div class="clear"></div>
+    <!--说明该页面内容和7881_foot.html保持一致。-->
+    <!--7881_foot_bak.html为老的备份-->
+    <!--为什么不用一个文件?-->
+    <!--各自引用100+。。。-->
+    <!--  -->
+
+
+    <div class="footer">
+        <!--底部区域-->
+        <div class="advan">
+            <ul><li class="s1">寄售担保 无货保赔</li><li class="s2">安全服务 保障资金</li><li class="s3">7*24小时 专属客服</li><li class="s4">权威认证 安全可信</li></ul>
+        </div>
+        <div class="link">
+            <!--文字链接-->
+            <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><span>|</span>
+            <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><span>|</span>
+            <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><span>|</span>
+            <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><span>|</span>
+            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><span>|</span>
+            <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商务合作</a><span>|</span>
+            <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a><span>|</span>
+            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank">媒体声音</a>
+        </div>
+        <div class="copyright gray_a font_a">Copyright © 2008-2016 7881.com版权所有&nbsp;&nbsp;ICP证：<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="gray_a">苏B1-20110004-4</a> <a href="http://www.7881.com/aboutus.html" target="_blank" class="gray_a">(江苏猎宝网络科技股份有限公司)</a> &nbsp;&nbsp;<a href="http://www.7881.com/qualification.html" target="_blank" rel="nofollow" class="gray_a">苏网文[2015]2034-038号</a></div>
+        <!--版权信息-->
+        <ul class="honor">
+            <!--小图链接-->
+            <li>
+                <a href="https://ss.knet.cn/verifyseal.dll?sn=e13062732010041412rcaq000000&amp;ct=df&amp;a=1&amp;pa=0.6369905350729823" style="display:inline-block;position:relative;width:89px;height:32px;" target="_blank"><img src="../../Content/Images/cnnic.png" style="left: 0px; position: absolute; top: 0px; border: none;width: 89px;height: 32px;"></a>
+            </li>
+            <li><a href="http://www.miibeian.gov.cn/" target="_blank" class="s2" rel="nofollow"></a></li>
+            <li><a href="http://www.cyberpolice.cn/wfjb/" target="_blank" class="s3" rel="nofollow"></a></li>
+            <li><a href="https://www.alipay.com/" target="_blank" class="s4" rel="nofollow"></a></li>
+            <li><a href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&amp;sn=2013071816040123804" target="_blank" class="s5" rel="nofollow"></a></li>
+            <li><a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B" target="_blank" class="s6" rel="nofollow"></a></li>
+            <li>
+                <a key="51e7a171f159c862917fd4c0" style="background:none" rel="nofollow" logo_size="83x30" logo_type="realname" href="http://www.anquan.org/authenticate/cert/?site=7881.com&amp;at=realname" target="_blank">
+                    <img src="../../Content/Images/sm_83x30.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
