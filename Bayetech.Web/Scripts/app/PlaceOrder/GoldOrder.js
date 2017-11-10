@@ -1,5 +1,5 @@
 ﻿//注册模块
-define("GoldOrder", jsconfig.baseArr, function (Vue, $, common) {
+define(jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
     //var _GetGoodInfo = "";

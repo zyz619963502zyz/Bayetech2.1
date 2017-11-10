@@ -13,7 +13,7 @@ define([], function () {
 </div>`;
 
     var components = {
-        name: "index-nav-dropdown",
+        name: "nav-dropdown",
         props: ['object'],
         template: html,
         methods: {

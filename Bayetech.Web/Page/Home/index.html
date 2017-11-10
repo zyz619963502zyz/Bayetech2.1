@@ -8,7 +8,7 @@
     <meta name="description" content="7881游戏交易平台提供最热门游戏币交易，游戏账号交易，游戏装备交易，游戏道具交易，游戏点卡充值，游戏点券交易，游戏代练等买卖服务。是国内最方便、安全的游戏交易平台！" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css?v=2" />
+    <link href="../../Content/CommonCss/common-2016.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/index.css" rel="stylesheet" />
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
@@ -48,129 +48,8 @@
         <!--通用头部 Start-->
         <div class="header clearfix">
             <h1 class="logo"><a href="http://www.7881.com/" target="_blank" title="7881游戏交易平台"><img src="sthttp://pic.7881.com/7881-2016/images/index/logo-common.png" width="360" height="130" alt="7881游戏交易平台" /></a></h1>
-
             <!-- main search-->
-            <div class="search-box">
-                <div class="top_search clearfix">
-                    <a href="javascript:void(0)" class="close_btn" title="关闭" alt="关闭">关闭</a>
-                    <div class="t_search">
-                        <a href="javascript:void(0)" class="hover">精准搜索</a><a href="javascript:void(0)" class="gray">简单搜索</a>
-                    </div>
-                    <div class="s_blue_box">
-                        <div id="gameSelectBox">
-                            <ul class="selectbox clearfix">
-                                <li class="g_name" gameid="">游戏名称</li>
-                                <li class="g_gameplatform" gameplatform="" style="display: none;">游戏平台</li>
-                                <li class="g_run" carrierid="" style="display: none;">运营商</li>
-                                <li class="g_area" groupid="">游戏区</li>
-                                <li class="g_service" serverid="">服务器</li>
-                                <li class="g_type" gtid="">物品类型</li>
-                                <li class="g_input"><label class="placeholder"><input type="text" value="" /><span>商品编码或关键词</span></label></li>
-                            </ul>
-                        </div>
-                        <div class="hide" id="simplebox">
-                            <label class="placeholder"><input id="txt_search_simple" type="text" class="input" placeholder=""><span>商品编码或关键词</span></label>
-                        </div>
-                    </div>
-                    <a href="javascript:void(0)" id="search_main" class="search">搜 索</a>
-                    <!--页面配置的热门搜索推荐-->
-                    <div class="hotsearch new-hot">
-                        <dl>
-                            <dt>热门搜索：</dt>
-                        </dl>
-                    </div>
-                    <i class="arrow" style="display: none;"></i>
-                    <div class="b_blue_box" style="display: none;">
-                        <!--选择游戏-->
-                        <div class="main_con">
-                            <ul class="main_name_select">
-                                <a href="javascript:void(0)" class="hover">网络游戏</a>
-                                <a href="javascript:void(0)">手机游戏</a>
-                                <ul class="gamename_quicksearch">
-                                    <input type="text" onkeyup="return fastSearchKeyUp();" value="请输入游戏关键字或拼音" id="sselect_gamename" class="q_input gray_a" onclick="if(this.value=='请输入游戏关键字或拼音'){this.value='';this.className='q_input'}" onblur="if(this.value=='') {this.value='请输入游戏关键字或拼音';this.className='q_input gray_a'}">
-                                </ul>
-                                <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
-                            </ul>
-                            <ul class="main_letter_select">
-                                <a href="javascript:void(0)" id="hotgame" class="current">热门游戏</a>
-                                <a href="javascript:void(0)">A</a>
-                                <a href="javascript:void(0)">B</a>
-                                <a href="javascript:void(0)">C</a>
-                                <a href="javascript:void(0)">D</a>
-                                <a href="javascript:void(0)">E</a>
-                                <a href="javascript:void(0)">F</a>
-                                <a href="javascript:void(0)">G</a>
-                                <a href="javascript:void(0)">H</a>
-                                <a href="javascript:void(0)">I</a>
-                                <a href="javascript:void(0)">J</a>
-                                <a href="javascript:void(0)">K</a>
-                                <a href="javascript:void(0)">L</a>
-                                <a href="javascript:void(0)">M</a>
-                                <a href="javascript:void(0)">N</a>
-                                <a href="javascript:void(0)">O</a>
-                                <a href="javascript:void(0)">P</a>
-                                <a href="javascript:void(0)">Q</a>
-                                <a href="javascript:void(0)">R</a>
-                                <a href="javascript:void(0)">S</a>
-                                <a href="javascript:void(0)">T</a>
-                                <a href="javascript:void(0)">U</a>
-                                <a href="javascript:void(0)">V</a>
-                                <a href="javascript:void(0)">W</a>
-                                <a href="javascript:void(0)">X</a>
-                                <a href="javascript:void(0)">Y</a>
-                                <a href="javascript:void(0)">Z</a>
-                            </ul>
-                            <dl class="con_list" id="letter_game"></dl>
-                        </div>
-                        <!--选择游戏平台-->
-                        <div class="main_con hide">
-                            <ul class="box_title">
-                                请选择游戏平台
-                                <a onclick="clearSelectPlatform()">全部平台</a>
-                            </ul>
-                            <dl class="con_list" id="letter_gameplatform"></dl>
-                        </div>
-                        <!--选择运营商-->
-                        <div class="main_con hide">
-                            <ul class="box_title">
-                                选择运营商
-                                <a onclick="$('.g_run').attr('carrierid','');$('.g_run').html('运营商');$('.g_area').attr('groupid','');$('.g_area').html('游戏区');$('.g_service').attr('serverid','');$('.g_service').html('服务器');">全部游戏区</a>
-                            </ul>
-                            <dl class="con_list" id="letter_carrier"></dl>
-                        </div>
-                        <!--选择区服-->
-                        <div class="main_con hide">
-                            <ul class="box_title">
-                                选择区服
-                                <a onclick="$('.g_area').attr('groupid','');$('.g_area').html('游戏区');$('.g_service').attr('serverid','');$('.g_service').html('服务器');">全部游戏区</a>
-                                <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
-                            </ul>
-                            <dl class="con_list" id="letter_group"></dl>
-                        </div>
-                        <!--选择服务器-->
-                        <div class="main_con hide">
-                            <ul class="box_title">
-                                选择服务器
-                                <a onclick="$('.g_service').attr('serverid','');$('.g_service').html('服务器');">全部服务器</a>
-                                <input id="sselect_servername" class="server_input gray_a" onkeyup="return fastSearchKeyUp2();" value="请输入服务器拼音或简称" onclick="if(this.value=='请输入服务器拼音或简称'){this.value='';this.className='server_input'}" onblur="if(this.value=='') {this.value='请输入服务器拼音或简称';this.className='server_input gray_a'}" type="text">
-                                <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
-                            </ul>
-                            <dl class="con_list" id="letter_server"></dl>
-                        </div>
-                        <!--选择物品类型-->
-                        <div class="main_con hide" id="main_con_type">
-                            <ul class="box_title">
-                                请选择物品类型
-                                <a onclick="clearSelectGtid()">全部类型</a>
-                            </ul>
-                            <dl class="con_list" id="letter_gtid"></dl>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    var hostSearch = "hostSearch_pc";
-                </script>
-            </div>
+            <v-search></v-search>
         </div>
         <!--通用头部 End-->
         <!--首页导航 Start-->
@@ -454,7 +333,7 @@
             <!--主体区域04 End-->
             <!--主体区域05 Start-->
             <div class="main-area-05 clearfix">
-                <index-partner></index-partner>
+                <v-partner></v-partner>
             </div>
             <!--主体区域05 End-->
             <!--首页侧边栏 Start-->
