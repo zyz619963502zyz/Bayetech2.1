@@ -52,8 +52,14 @@
     <Compile Include="IServices\Auto\IBayetechEntitiesService.Auto.cs" />
     <Compile Include="IServices\Auto\ICategoryService.Auto.cs" />
     <Compile Include="IServices\Auto\IGameRequirementsService.Auto.cs" />
+    <Compile Include="IServices\Auto\IGameRoleInfoService.Auto.cs" />
+    <Compile Include="IServices\Auto\IGameService.Auto.cs" />
     <Compile Include="IServices\Auto\ILoginService.Auto.cs" />
+    <Compile Include="IServices\Auto\IMallService.Auto.cs" />
+    <Compile Include="IServices\Auto\IMallTypeService.Auto.cs" />
     <Compile Include="IServices\Auto\IModuleService.Auto.cs" />
+    <Compile Include="IServices\Auto\IRelationshipService.Auto.cs" />
+    <Compile Include="IServices\Auto\IServerService.Auto.cs" />
     <Compile Include="IServices\Auto\IView_ArticleInfoService.Auto.cs" />
     <Compile Include="IServices\Auto\Ivw_LoginInfoService.Auto.cs" />
     <Compile Include="IServices\IArticleService.cs" />
@@ -69,8 +75,14 @@
     <Compile Include="Services\Auto\BayetechEntitiesService.Auto.cs" />
     <Compile Include="Services\Auto\CategoryService.Auto.cs" />
     <Compile Include="Services\Auto\GameRequirementsService.Auto.cs" />
+    <Compile Include="Services\Auto\GameRoleInfoService.Auto.cs" />
+    <Compile Include="Services\Auto\GameService.Auto.cs" />
     <Compile Include="Services\Auto\LoginService.Auto.cs" />
+    <Compile Include="Services\Auto\MallService.Auto.cs" />
+    <Compile Include="Services\Auto\MallTypeService.Auto.cs" />
     <Compile Include="Services\Auto\ModuleService.Auto.cs" />
+    <Compile Include="Services\Auto\RelationshipService.Auto.cs" />
+    <Compile Include="Services\Auto\ServerService.Auto.cs" />
     <Compile Include="Services\Auto\View_ArticleInfoService.Auto.cs" />
     <Compile Include="Services\Auto\vw_LoginInfoService.Auto.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
@@ -109,8 +121,14 @@
 ..\IServices\Auto\IBayetechEntitiesService.Auto.cs
 ..\IServices\Auto\ICategoryService.Auto.cs
 ..\IServices\Auto\IGameRequirementsService.Auto.cs
+..\IServices\Auto\IGameRoleInfoService.Auto.cs
+..\IServices\Auto\IGameService.Auto.cs
 ..\IServices\Auto\ILoginService.Auto.cs
+..\IServices\Auto\IMallService.Auto.cs
+..\IServices\Auto\IMallTypeService.Auto.cs
 ..\IServices\Auto\IModuleService.Auto.cs
+..\IServices\Auto\IRelationshipService.Auto.cs
+..\IServices\Auto\IServerService.Auto.cs
 ..\IServices\Auto\IView_ArticleInfoService.Auto.cs
 ..\IServices\Auto\Ivw_LoginInfoService.Auto.cs
 ..\Services\Auto\AccountService.Auto.cs
@@ -119,8 +137,14 @@
 ..\Services\Auto\BayetechEntitiesService.Auto.cs
 ..\Services\Auto\CategoryService.Auto.cs
 ..\Services\Auto\GameRequirementsService.Auto.cs
+..\Services\Auto\GameRoleInfoService.Auto.cs
+..\Services\Auto\GameService.Auto.cs
 ..\Services\Auto\LoginService.Auto.cs
+..\Services\Auto\MallService.Auto.cs
+..\Services\Auto\MallTypeService.Auto.cs
 ..\Services\Auto\ModuleService.Auto.cs
+..\Services\Auto\RelationshipService.Auto.cs
+..\Services\Auto\ServerService.Auto.cs
 ..\Services\Auto\View_ArticleInfoService.Auto.cs
 ..\Services\Auto\vw_LoginInfoService.Auto.cs
 .\Run_Services.cs

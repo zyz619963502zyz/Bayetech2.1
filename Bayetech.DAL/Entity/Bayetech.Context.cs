@@ -29,10 +29,16 @@ namespace Bayetech.DAL.Entity
         public virtual DbSet<ArticleContent> ArticleContent { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Module> Module { get; set; }
         public virtual DbSet<View_ArticleInfo> View_ArticleInfo { get; set; }
         public virtual DbSet<vw_LoginInfo> vw_LoginInfo { get; set; }
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<GameRequirements> GameRequirements { get; set; }
+        public virtual DbSet<Game> Game { get; set; }
+        public virtual DbSet<GameRoleInfo> GameRoleInfo { get; set; }
+        public virtual DbSet<Mall> Mall { get; set; }
+        public virtual DbSet<MallType> MallType { get; set; }
+        public virtual DbSet<Module> Module { get; set; }
+        public virtual DbSet<Relationship> Relationship { get; set; }
+        public virtual DbSet<Server> Server { get; set; }
     }
 }

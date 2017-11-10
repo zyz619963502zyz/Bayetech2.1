@@ -7,7 +7,7 @@
 // <copyright file="IBayetechEntitiesService.Auto.cs">
 //		作者：Jie
 //		所属工程：Bayetech2.0
-//		生成时间：2017-10-30 18:05
+//		生成时间：2017-11-10 14:18
 // </copyright>
 //------------------------------------------------------------------------------
 using Bayetech.DAL.Entity;

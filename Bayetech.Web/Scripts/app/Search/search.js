@@ -1,5 +1,5 @@
 ﻿//搜索框
-define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropdown) {
+define(["common", "search-dropdown"], function (common, dropdown) {
     var html = `<div class="search-box">
     <div class="top_search clearfix">
         <a href="javascript:void(0)" class="close_btn" title="关闭" alt="关闭">关闭</a>
@@ -10,7 +10,7 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
         <div class="s_blue_box">
             <div id="accuratetBox" v-show="!isSimple">
                 <ul class="selectbox clearfix">
-                    <li class ="g_name" @click="loadDropdown('game')">游戏名称</li>
+                    <li class ="g_name" @click="loadDropdown('pcgame')">游戏名称</li>
                     <li class="g_gameplatform" gameplatform="" style="display: none;">游戏平台</li>
                     <li class="g_run" carrierid="" style="display: none;">运营商</li>
                     <li class ="g_area" @click="loadDropdown('group')">游戏区</li>
@@ -44,38 +44,10 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
                 isSimple: false,
                 showDropdown: false,
                 dropdownData:{},
-                gameData: {
-                    title: "游戏",
-                    type:"game",
-                    list: [{
-                        id: 1,
-                        title:"地下城与勇士",
-                    }],
-                },
-                groupData: {
-                    title: "游戏区",
-                    type:"group",
-                    list: [{
-                        id: 1,
-                        title:"广东区",
-                    }],
-                },
-                serverData: {
-                    title: "服务器",
-                    type: "server",
-                    list: [{
-                        id: 1,
-                        title: "广东1区",
-                    }],
-                },
-                typeData: {
-                    title: "物品类型",
-                    type: "type",
-                    list: [{
-                        id: 1,
-                        title: "游戏币",
-                    }],
-                },
+                pcgameid: 0,
+                mobilegameid: 0,
+                groupid: 0,
+                serverid: 0,
             };
         },
         template: html,
@@ -86,23 +58,18 @@ define(["search-gamedropdown", "search-dropdown"], function (gamedropdown, dropd
             simpleBoxShow: function () {
                 this.isSimple = true;
             },
-            loadDropdown: function (type) {
-                debugger;
+            showDropdown:function(type){
+
+            },
+            loadDropdown: function (type, id) {
+                id = id || this[`${type}id`];
                 this.showDropdown = true;
-                switch (type) {
-                    case "game":
-                        this.dropdownData = this.gameData;
-                        break;
-                    case "group":
-                        this.dropdownData = this.groupData;
-                        break;
-                    case "server":
-                        this.dropdownData = this.serverData;
-                        break;
-                    case "type":
-                        this.dropdownData = this.typeData;
-                        break;
-                }
+                this[`${type}id`] = id;
+                let nowVue = this;
+                debugger;
+                common.getWebJson("/api/Search/GetData", { type: type, id: id }, function (data) {
+                    nowVue.dropdownData = data;
+                });
             },
         },
         components: {

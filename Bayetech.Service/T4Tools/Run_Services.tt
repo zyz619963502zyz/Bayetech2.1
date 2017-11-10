@@ -8,14 +8,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Reflection" #> 
 <#@ import namespace="Bayetech.DAL.Entity" #>
 <#@ include file="T4Toolbox.tt" #>
-<#@ include file="ServicesTemplate.ttinclude" #>
+<#@ include file="ServicesTemplate.ttinclude" #> 
 <#@ include file="IServicesTemplate.ttinclude" #>
-
+  
 <#   
-    Assembly assembly = typeof(BayetechEntities).Assembly;
+    Assembly assembly = typeof(BayetechEntities).Assembly; 
 	    //Type[] modelTypes = assembly.GetTypes();
 	    Type[] modelTypes = assembly.GetTypes().Where(tj=>tj.Namespace=="Bayetech.DAL.Entity").ToArray();
     var currentPath = Path.GetDirectoryName(Host.TemplateFile);

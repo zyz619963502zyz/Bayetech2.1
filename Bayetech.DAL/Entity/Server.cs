@@ -12,10 +12,16 @@ namespace Bayetech.DAL.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Module
+    public partial class Server
     {
         public long id { get; set; }
         public string name { get; set; }
+        public int type { get; set; }
+        public string letter { get; set; }
+        public int parentid { get; set; }
+        public short listorder { get; set; }
+        public string img { get; set; }
+        public Nullable<int> gameid { get; set; }
         public bool isdelete { get; set; }
     }
 }

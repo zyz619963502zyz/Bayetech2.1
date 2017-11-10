@@ -12,10 +12,17 @@ namespace Bayetech.DAL.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Module
+    public partial class Relationship
     {
         public long id { get; set; }
-        public string name { get; set; }
-        public bool isdelete { get; set; }
+        public long Key { get; set; }
+        public string Value { get; set; }
+        public int Type { get; set; }
+        public Nullable<long> ParentKey { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
+        public Nullable<System.DateTime> ModifyTime { get; set; }
+        public bool IsDelete { get; set; }
+    
+        public virtual MallType MallType { get; set; }
     }
 }
