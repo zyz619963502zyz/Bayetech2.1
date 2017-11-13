@@ -26,31 +26,6 @@
     </style>
     <![endif]-->
 
-    <script type="text/javascript">
-	var divArr = new Array();
-	$(document).ready(function(){
-		divArr.push('#knowledgeListDiv');
-		divArr.push('#stealListDiv');
-		divArr.push('#cheatListDiv');
-	});
-
-	function changeContent(num){
-	  var id = "";
-	  if(num==1){
-	  	id = '#knowledgeListDiv';
-	  }else if(num==2){
-	  	id = '#stealListDiv';
-	  }else if(num==3){
-	 	id = '#cheatListDiv';
-	  }
-		$(id).show();
-		for(i=0;i<divArr.length;i++){
-			if(divArr[i]!=id){
-				$(divArr[i]).hide();
-			}
-		}
-	}
-    </script>
 </head>
 <body>
     <!--头部开始-->

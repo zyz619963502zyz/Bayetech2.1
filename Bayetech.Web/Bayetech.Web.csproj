@@ -541,6 +541,7 @@
     <Content Include="Content\Images\right-phone.png" />
     <Content Include="Content\Images\rPic.png" />
     <Content Include="Content\Images\sd.png" />
+    <Content Include="Content\Images\security_banner.jpg" />
     <Content Include="Content\Images\sellicon.jpg" />
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
