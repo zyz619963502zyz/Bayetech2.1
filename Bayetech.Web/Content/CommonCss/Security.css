@@ -1,0 +1,62 @@
+@charset "utf-8";
+.security_banner{ margin-top:10px; margin-bottom:10px;}
+.security_news{ float:left; width:240px; margin-right:8px; border:solid #dfdfdf 1px}
+.security_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.security_news ul{ padding:10px;}
+.security_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.security_index_right{ float:right; width:228px;}
+.security_index_right ul{ display:block;}
+.security_index_right ul li{ margin-bottom:6px;}
+.security_knowledge{ border:solid #dfdfdf 1px; background:#f8fcff; margin-top:10px;margin-bottom:10px;}
+.security_knowledge ul{ padding:15px;}
+.security_knowledge ul h3{ height:33px; line-height:33px; font-size:14px; border-bottom:solid #dfdfdf 1px}
+.security_knowledge ul li{ padding-top:10px; padding-bottom:10px; overflow:hidden}
+.security_knowledge ul li a.category{ display:block; float:left; width:130px; height:30px; line-height:30px; font-weight:bold; text-align:center;}
+.security_knowledge ul li a:hover.category{color:#000;}
+.category_select{ background:#3982c7; color:#FFF;}
+.security_knowledge_news{border:solid #dfdfdf 1px}
+.security_knowledge_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.knowledge_news { padding:15px;}
+.knowledge_news ul{ display:block; border-bottom:dashed #dfdfdf 1px; padding-bottom:10px; padding-top:10px;}
+.knowledge_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.knowledge_news ul ol{ padding-top:5px; padding-bottom:5px;list-style-type:none; margin-left:20px;}
+.verification{ margin-top:10px;}
+.security_verification_left{ float:left; width:742px;}
+#nava{ height:40px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_3.png) no-repeat bottom;}
+#nava li{float:left;width:147px;text-align:center;margin-right:10px;}
+#nava li a{background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_1.png) no-repeat;display:block;cursor:pointer;line-height:34px;}
+#nava li .nava_on{background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_2.png) no-repeat;line-height:35px;}
+#menua_con{text-align:left; border:solid #dfdfdf 1px; height:356px;}
+.verification_kf{margin:15px;}
+.verification_kf_1{ width:100%}
+.verification_kf_1 li{ margin-top:5px;}
+.verification_kf_2{ width:480px;padding:10px; border-radius:3px;border:1px solid #efefef; margin-top:10px;position:relative;}
+.verification_kf_2 li{ border-bottom:dashed #efefef 1px; padding-top:10px; padding-bottom:10px;}
+.verification_kf_2 ol{ padding-top:10px; padding-bottom:10px;}
+.verification_kf_2 ol input.push{width:75px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification.png) no-repeat;border: medium none;cursor: pointer;}
+.verification_kf_3{ width:480px;padding:10px; border-radius:3px;border:1px solid #efefef; background:#f8fcff; margin-top:10px;}
+.verification_kf_3 li{ border-bottom:solid #efefef 1px; padding-top:10px; padding-bottom:10px;}
+.verification_kf_3 ol{ padding-top:10px; padding-bottom:10px;}
+.verification_kf_3 ol input.push{width:126px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_kf.png) no-repeat;border: medium none;cursor: pointer;}
+.verification_content{margin:15px;}
+.verification_content li{ padding-top:10px; padding-bottom:10px;}
+.verification_content ol{ padding:20px; border-radius:2px;border:1px solid #efefef;}
+.verification_content ol input.push{width:75px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification.png) no-repeat;border: medium none;cursor: pointer;}
+.security_verification_right{ float:right; width:228px;}
+.verification_right_news{ float:left; width:226px;border:solid #dfdfdf 1px}
+.verification_right_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.verification_right_news ul{ padding:10px;}
+.verification_right_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.verification_right_icon { width:228px; margin-top:10px;}
+.verification_right_icon ul{ display:block;}
+.verification_right_icon ul li{ margin-bottom:10px;}
+.verification_authenticity{margin:30px;}
+.verification_authenticity ul{ overflow:hidden; }
+.verification_authenticity ul li{display:block; float:left; width:48px; margin-right:15px;}
+.verification_authenticity ul ol{display:block; float:left;width:500px}
+.verification_authenticity ul ol dl{ border-bottom:dashed #dfdfdf 1px;}
+.verification_authenticity ul ol dl dt{ height:48px; font-size:18px;}
+.verification_authenticity ul ol dl dt span{ display:block; margin-top:10px}
+.verification_authenticity ul ol dl dt span.size{ font-size:14px}
+.verification_authenticity ul ol dl dd{ padding-top:6px; padding-bottom:6px; font-size:14px}
+.verification_authenticity ul ol dl dd input.view{ width:139px; height:28px; font-size:14px; color:#FFF;background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_ck.png) no-repeat;border: medium none;cursor: pointer;}

@@ -254,12 +254,14 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -276,6 +278,7 @@
     <Content Include="Content\bootstrap\font-awesome.css" />
     <Content Include="Content\bootstrap\font-awesome.min.css" />
     <Content Include="Content\common.css" />
+    <Content Include="Content\CommonCss\7881.help.css" />
     <Content Include="Content\CommonCss\buy.css" />
     <Content Include="Content\CommonCss\change.css" />
     <Content Include="Content\CommonCss\default-skin.css" />
@@ -300,6 +303,7 @@
     <Content Include="Content\CommonCss\photoswipe.css" />
     <Content Include="Content\CommonCss\popLayer.css" />
     <Content Include="Content\CommonCss\Public.css" />
+    <Content Include="Content\CommonCss\Security.css" />
     <Content Include="Content\CommonCss\sell.css" />
     <Content Include="Content\CommonCss\share_style0_16.css" />
     <Content Include="Content\CommonCss\shop-v2.0.css" />
@@ -311,6 +315,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\helpcenter.css" />
+    <Content Include="Content\homepage.css" />
     <Content Include="Content\Images\001.jpg" />
     <Content Include="Content\Images\002.jpg" />
     <Content Include="Content\Images\003.jpg" />
@@ -497,6 +502,7 @@
     <Content Include="Content\Images\loginback.jpg" />
     <Content Include="Content\Images\logo-common.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logo_service.png" />
     <Content Include="Content\Images\lPic.png" />
     <Content Include="Content\Images\m7881.png" />
     <Content Include="Content\Images\ma.png" />
@@ -635,6 +641,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\DealCheck\DealCheck.html" />
     <Content Include="Page\Home\HomePage.html" />
+    <Content Include="Page\Home\NewIndex.html" />
+    <Content Include="Page\Home\PhonePage.html" />
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\PersonalCenter\index.html" />
@@ -642,8 +650,10 @@
     <Content Include="Page\PointTrading\PointTranding.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
     <Content Include="Page\ServiceCenter\AdviceCentre.html" />
+    <Content Include="Page\ServiceCenter\anquan.html" />
     <Content Include="Page\ServiceCenter\CallCenter.html" />
     <Content Include="Page\ServiceCenter\helpcenter.html" />
+    <Content Include="Page\ServiceCenter\kefu.html" />
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
@@ -677,7 +687,6 @@
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
-    <Content Include="Scripts\app\Search\search-gamedropdown.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
@@ -777,6 +786,7 @@
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\PointTrading\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resource\fonts\glyphicons-halflings-regular.woff" />
