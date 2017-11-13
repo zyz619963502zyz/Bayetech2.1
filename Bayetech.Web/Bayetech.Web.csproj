@@ -542,6 +542,8 @@
     <Content Include="Content\Images\rPic.png" />
     <Content Include="Content\Images\sd.png" />
     <Content Include="Content\Images\security_banner.jpg" />
+    <Content Include="Content\Images\security_index_right_1.jpg" />
+    <Content Include="Content\Images\security_index_right_2.jpg" />
     <Content Include="Content\Images\sellicon.jpg" />
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
@@ -688,6 +690,7 @@
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
+    <Content Include="Scripts\app\ServiceCenter\index.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
