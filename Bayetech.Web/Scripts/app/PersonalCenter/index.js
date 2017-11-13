@@ -16,7 +16,7 @@ require(PersonalHeadModule, function (Vue, $, common, perHead, pavi, Percon) {
         components: {
             'regperhead': perHead,
             'regpavigation':pavi,
-            'aaaaa': Percon,
+            'regrercon': Percon,
         }
     });
 
