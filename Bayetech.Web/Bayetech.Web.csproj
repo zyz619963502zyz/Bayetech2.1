@@ -667,6 +667,7 @@
     <Content Include="Scripts\app\Home\nav.js" />
     <Content Include="Scripts\app\Login\PwdRecover\index.js" />
     <Content Include="Scripts\app\Login\PwdRecover\PwdRecoverTem.js" />
+    <Content Include="Scripts\app\PersonalCenter\content.js" />
     <Content Include="Scripts\app\PersonalCenter\head.js" />
     <Content Include="Scripts\app\PersonalCenter\index.js" />
     <Content Include="Scripts\app\PersonalCenter\pavigationBar.js" />
