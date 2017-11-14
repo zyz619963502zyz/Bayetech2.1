@@ -254,12 +254,14 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -539,6 +541,9 @@
     <Content Include="Content\Images\right-phone.png" />
     <Content Include="Content\Images\rPic.png" />
     <Content Include="Content\Images\sd.png" />
+    <Content Include="Content\Images\security_banner.jpg" />
+    <Content Include="Content\Images\security_index_right_1.jpg" />
+    <Content Include="Content\Images\security_index_right_2.jpg" />
     <Content Include="Content\Images\sellicon.jpg" />
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
@@ -675,6 +680,7 @@
     <Content Include="Scripts\app\Home\nav.js" />
     <Content Include="Scripts\app\Login\PwdRecover\index.js" />
     <Content Include="Scripts\app\Login\PwdRecover\PwdRecoverTem.js" />
+    <Content Include="Scripts\app\PersonalCenter\content.js" />
     <Content Include="Scripts\app\PersonalCenter\head.js" />
     <Content Include="Scripts\app\PersonalCenter\index.js" />
     <Content Include="Scripts\app\PersonalCenter\pavigationBar.js" />
@@ -684,7 +690,7 @@
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
-    <Content Include="Scripts\app\Search\search-gamedropdown.js" />
+    <Content Include="Scripts\app\ServiceCenter\index.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />
     <Content Include="Scripts\app\HelpCenter\left.js" />
@@ -784,6 +790,7 @@
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\PointTrading\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resource\fonts\glyphicons-halflings-regular.woff" />
