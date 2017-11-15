@@ -4,7 +4,47 @@
  *时间：2017.11.14
  *说明：首页PC端相关样式请在以下编辑或者修改
  */
-.home-all-module {
-    display: table;
-    background-color: #3b83e8;
+
+/*header*/
+.home-header .dropdown:hover >.dropdown-menu{
+    display:block;
 }
+.home-header .navbar-right .dropdown-menu {
+    left: 5px;
+    right: auto;
+}
+
+/*content*/
+.home-all-module .nav{
+    display:table;
+    background-color: #3b83e8;
+    text-align:center;
+}
+.home-all-module .nav-justified>li{
+    width:150px;
+}
+.home-all-module .nav-justified a{
+    color:#fff;
+}
+.home-all-module .nav-justified a:hover{
+    background-color:#206ef1;
+}
+.home-all-module .tab-content{
+    width:1200px;
+    margin:0 auto;
+}
+.left-pane,.right-pane{
+    float:left;
+    height:500px;
+}
+.left-pane{
+    width:800px;
+    background-color:orange;
+}
+.right-pane{
+    width:400px;
+    background-color:green;
+}
+
+
+/*footer*/

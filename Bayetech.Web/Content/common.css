@@ -53,6 +53,11 @@
 .ls-2{letter-spacing:2px;}
 .ls-10{letter-spacing:10px;}
 
+.clearfix{
+    content:'';
+    display:block;
+    clear:both;
+}
 @media (max-width:991px){
     .nav>li>a{
         padding:5px 8px;
