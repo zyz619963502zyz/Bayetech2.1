@@ -1,5 +1,5 @@
 ﻿/*
- *登录及注册样式
+ *首页及其他分页样式
  *作者：liuzy
  *时间：2017.11.14
  *说明：首页PC端相关样式请在以下编辑或者修改
@@ -21,7 +21,7 @@
     text-align:center;
 }
 .home-all-module .nav-justified>li{
-    width:150px;
+    width:147px;
 }
 .home-all-module .nav-justified a{
     color:#fff;
@@ -33,18 +33,65 @@
     width:1200px;
     margin:0 auto;
 }
-.left-pane,.right-pane{
+.left-panel,.right-panel{
     float:left;
-    height:500px;
+    height:auto;
+    padding:10px;
 }
-.left-pane{
+.left-panel{
     width:800px;
-    background-color:orange;
 }
-.right-pane{
+.right-panel{
     width:400px;
-    background-color:green;
+}
+.left-panel .left-panel-one{
+    width:780px;
+    height:350px;
+    border:1px solid #f36e0a;
+    /*margin-bottom:15px;*/
+    position:relative;
+}
+.left-panel .left-panel-two{
+    width:780px;
+    height:350px;
+    border:1px solid #f36e0a;
+}
+.right-panel .right-panel-one{
+    width:380px;
+    height:300px;
+    border:1px solid #0e76f6;
+    /*margin-bottom:15px;*/
+}
+.right-panel .right-panel-two{
+    width:380px;
+    height:300px;
+    border:1px solid #0e76f6;
 }
 
+.home-all-module .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+.home-all-module .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
 
 /*footer*/
