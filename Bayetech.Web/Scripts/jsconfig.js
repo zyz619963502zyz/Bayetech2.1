@@ -48,6 +48,7 @@ var jsconfig = {
         'PwdRecoverTem': "app/Login/PwdRecover/PwdRecoverTem",
         'PersonRight': "app/PersonalCenter/righttop",
         'PersonButtom': "app/PersonalCenter/rightbuttom",
+        'Percontent': "app/PersonalCenter/content",
     },
     shim: {
         'bootstrap': {

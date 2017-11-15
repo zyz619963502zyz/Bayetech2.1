@@ -1,3 +1,10 @@
 ﻿/*
- *
+ *登录及注册样式
+ *作者：liuzy
+ *时间：2017.11.14
+ *说明：首页PC端相关样式请在以下编辑或者修改
  */
+.home-all-module {
+    display: table;
+    background-color: #3b83e8;
+}
