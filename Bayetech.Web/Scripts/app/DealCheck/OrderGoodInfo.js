@@ -52,19 +52,19 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
         level: "stars-box",
         saleTime: "此账号首次在7881出售",
         acountInfo: [
-            { type: "类型:", text: "85" },
-            { type: "区服:", text: "账号" },
-            { type: "送积分:", text: "账号" }
+            { type: "类型:", text: "账号" },
+            { type: "区服:", text: "上海区/上海1区" },
+            { type: "送积分:", text: "12分" }
         ],
         roleInfo: [
-            { type: "等级:", text: "账号" },
+            { type: "等级:", text: "86" },
             { type: "性别:", text: "女" },
             { type: "职业:", text: "暗殿骑士" },
             { type: "身份证:", text: "身份证未设置" },
             { type: "QQ等级:", text: "QQ等级0级" },
             { type: "QQ好友:", text: "无QQ好友" }
         ]
-    }
+    }  
 
     var goodInfoComponent = {//全局注册
         template: goodInfoHtml,
