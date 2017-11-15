@@ -1,4 +1,6 @@
-﻿var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
+﻿/// <reference path="app/ServiceCenter/sevicelogo.js" />
+/// <reference path="app/ServiceCenter/sevicelogo.js" />
+var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
 var jsconfig = { 
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
@@ -49,6 +51,9 @@ var jsconfig = {
         'PersonRight': "app/PersonalCenter/righttop",
         'PersonButtom': "app/PersonalCenter/rightbuttom",
         'Percontent': "app/PersonalCenter/content",
+        'ServiceLogo': "app/ServiceCenter/sevicelogo",
+        'ServiceNav': "app/ServiceCenter/servicepavigation",
+        'ServiceButtom': "app/ServiceCenter/servicenew"
     },
     shim: {
         'bootstrap': {

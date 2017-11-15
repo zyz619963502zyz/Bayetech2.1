@@ -14,10 +14,12 @@
     <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/7881.help.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/global_new.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Security.css" rel="stylesheet" />
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/ServiceCenter/index.js"></script>
+    <script src="../../Scripts/app/app.js"></script>
 
     <!--<script type="text/javascript" async="" src="./7881安全中心_files/ga.js.下载"></script>
     <script type="text/javascript" src="./7881安全中心_files/jquery1.5.js.下载"></script>
@@ -34,330 +36,28 @@
     <!--头部开始-->
     <!--  -->
     <!--头部开始-->
-    <div class="top">
-        <div class="width980_top">
-            <div class="welcome">欢迎来到7881&nbsp;&nbsp;<span id="span_user"><a class="dlzc" rel="nofollow" href="http://www.7881.com/personal.html">大板牙兔子先生</a>&nbsp;&nbsp;<a class="dlzc" href="http://www.7881.com/msg/notReadMsg.action" rel="nofollow"><img align="absmiddle" src="../../Content/Images/message.png">[0]</a>&nbsp;&nbsp; <a href="http://www.7881.com/logout.action" rel="nofollow">退出</a></span></div>
-
-            <!--		<div class="right obtainTop myweixin" id="div_weixin">
-                            <div class="my_rice nav_text_5">官方微信</div>
-                            <ul class="mine_cont_4">
-                                <li><img src="http://pic.7881.com/7881/market/images/7881_weixin.jpg" align="absmiddle" /></li>
-                            </ul>
-            </div>
-            <span class="right_top3">|</span>-->
-            <div class="right obtainTop top_index" id="div_blog">
-                <div class="my_rice nav_text_3"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a></div>
-                <ul class="mine_cont_2">
-                    <li><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow"><img src="../../Content/Images/sina_wb.png" align="absmiddle"> 新浪微博</a></li>
-                    <li><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow"><img src="../../Content/Images/tencent_wb.png" align="absmiddle"> 腾讯微博</a></li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <div class="right obtainTop myService" id="div_Service">
-                <div class="my_rice nav_text_4">服务中心</div>
-                <ul class="mine_cont_3">
-                    <li>
-                        <a href="http://www.7881.com/helpCenter.html" target="_blank" rel="nofollow">帮助中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/articlelist4-0-0.html" target="_blank" rel="nofollow">资讯中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/tradesafe.html" target="_blank" rel="nofollow">安全中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/sc/sc_index.html" target="_blank" rel="nofollow">客服中心</a>
-                    </li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <div class="right obtainTop top_index" id="div_seller">
-                <div class="my_rice nav_text_2"><a href="http://www.7881.com/personal.html" rel="nofollow">我是卖家</a></div>
-                <ul class="mine_cont_1">
-                    <li><a href="http://www.7881.com/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
-                    <li><a href="http://www.7881.com/procurement/showMyGoods.action" rel="nofollow">出售中的商品</a></li>
-                    <li><a href="http://www.7881.com/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的商品</a></li>
-                    <li><a href="http://www.7881.com/release.html" rel="nofollow">我要卖</a></li>
-                    <li><a href="http://www.7881.com/financecharge/toAddExtractcash.action" rel="nofollow">提现</a></li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <span class="right obtainTop myrice" id="div_buyer">
-                <div class="my_rice nav_text"><a href="http://www.7881.com/personal.html" rel="nofollow">我是买家</a></div>
-                <ul class="mine_cont">
-                    <li><a href="http://www.7881.com/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的订单</a></li>
-                    <li><a href="http://www.7881.com/gamelistshow.html" rel="nofollow">我要买</a></li>
-                    <li><a href="http://www.7881.com/financecharge/toAdd.action" rel="nofollow">充值</a></li>
-                </ul>
-            </span>
-            <span class="right_top3">|</span>
-            <span class="right_top2"><a href="http://www.7881.com/personal.html" rel="nofollow">个人中心</a></span>
-            <span class="right_top3">|</span>
-            <span class="right_top"><a href="http://www.7881.com/" target="_blank" rel="nofollow">首页</a></span>
-        </div>
-    </div>
-    <div class="center logo">
-        <div class="left"><h1><a href="http://www.7881.com/" title="最专业的游戏交易平台"><img src="../../Content/Images/7881_logo.jpg" alt="最专业的游戏交易平台"></a></h1></div>
-        <div class="help_top">
-            <ul>
-                <li style="text-align: right">
-                    <span style="font-size: 16px; font-weight: bold;">客户服务热线：</span><span style="font-size: 24px; font-weight: bold; color: #CF1212">400-187-7881</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="Navigation">
-        <div class="center Part">
-            <ul>
-                <li>
-                    <a href="http://www.7881.com/tradesafe.html" style="background:#1D62BF;">首页</a>
-                    <a href="http://www.7881.com/tradesafe/knowledge.html">安全知识中心</a>
-                    <a href="http://www.7881.com/tradesafe/safeCenter.html">验证中心</a>
-                    <a href="http://www.7881.com/helpcenter.html">帮助中心</a>
-                    <a href="http://www.7881.com/articlelist4-0-0.html">资讯中心</a>
-                </li>
-            </ul>
-        </div>
+    <div id="ServiceDiv">
+        <regservicehead></regservicehead>
+        <regservicelogo></regservicelogo>
+        <regservicenav :list="ServiceList"></regservicenav>
+        <div class="clear"></div>
+        <div class="center security_banner"><img src="../../Content/Images/security_banner.jpg" /></div>
+        <regservicebuttom :list="ServiceNewList"></regservicebuttom>
     </div>
     <!--头部结束-->
-    <div class="clear"></div>
-    <div class="center security_banner"><img src="../../Content/Images/security_banner.jpg"></div>
-    <div class="center">
-        <div class="security_news">
-            <h3>安全常识</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/825689321558028350a0.html" target="_blank">
-
-
-
-                        看2014ChinaJoy了......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311350774185047325a0.html" target="_blank">
-
-
-
-
-                        防范钓鱼网站的基本知识
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351213775209310a0.html" target="_blank">
-
-
-
-
-                        什么是钓鱼网站
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351107162346087a0.html" target="_blank">
-
-
-
-
-                        骗子诈骗流程
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351017111547791a0.html" target="_blank">
-
-
-
-                        防止盗号木马盗取我们的账号和......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_news">
-            <h3>钓鱼网站盗号</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353772701955607a0.html" target="_blank">
-
-
-
-
-                        7881平台建议
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353680614562409a0.html" target="_blank">
-
-
-
-                        新闻背景：识破假冒钓鱼网站骗......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353602759823314a0.html" target="_blank">
-
-
-
-
-                        什么是钓鱼网站？
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353256804611517a0.html" target="_blank">
-
-
-
-
-                        钓鱼网站的危害方式
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353438108252392a0.html" target="_blank">
-
-
-
-                        卖家钓鱼后，冒充客服继续行骗......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_news">
-            <h3>假客服欺诈</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355023057360256a0.html" target="_blank">
-
-
-
-                        案例：骗子们用一些荒诞无稽的......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355390520822587a0.html" target="_blank">
-
-
-
-                        低价游戏币换来的高价“担保金......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355885345677266a0.html" target="_blank">
-
-
-
-
-                        购买低价商品被钓鱼后资金被盗
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311360294167782479a0.html" target="_blank">
-
-
-
-
-                        如何识别真假客服
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311360377028387910a0.html" target="_blank">
-
-
-
-                        骗子利用花言巧语对新用户进行......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_index_right">
-            <ul>
-                <li><a href="http://www.7881.com/tradesafe/knowledge.html" title="安全知识中心"><img src="../../Content/Images/security_index_right_1.jpg"></a></li>
-                <ol>
-                    <a href="http://www.7881.com/tradesafe/safeCenter.html" title="验证中心"><img src="../../Content/Images/security_index_right_2.jpg"></a>
-                </ol>
-            </ul>
-        </div>
-    </div>
+    
+    
     <!--  -->
     <!--底部开始-->
     <div class="clear"></div>
     <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
     <div class="clear"></div>
-    <main-footer></main-footer>  
+    <div id="app">
+        <main-footer></main-footer>  
+    </div>
+    
+     
     <!--底部结束-->
     <div style="DISPLAY: none" id="goTopBtn"><img border="0" src="../../Content/Images/index_top.jpg" alt="返回头部"></div>
-    <!--<div style="display: none;">
-        <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        
-        <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-44365965-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-        </script>
-    </div>-->
-
 </body>
 </html>
