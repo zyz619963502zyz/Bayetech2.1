@@ -9,6 +9,6 @@ namespace Bayetech.Web.Controllers
 {
     public class DealCheckController : BaseController
     {
-        
+         
     }  
 }
