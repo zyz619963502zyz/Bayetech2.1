@@ -10,21 +10,12 @@
     <link href="../../Content/CommonCss/7881.common.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/global_new.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/7881.help.css" rel="stylesheet" />
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/ServiceCenter/index.js"></script>
+    <script src="../../Scripts/app/app.js"></script>
 </head>
 
 <body>
-
-
-    <script>
-function toadd(){
-	if('119916776' == '117575680'){
-		alert("该用户禁止充值");
-	}else{
-		window.location.href="/financecharge/toAdd.action";
-	}
-}
-    </script>
-
     <div class="top_box">
         <div class="top">
             <!--顶部区域-->
@@ -79,32 +70,6 @@ function toadd(){
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-	/// 判断是否登录
-	document.domain="7881.com";
-	jQuery.ajax({
-		type : 'get',
-		url : '/loginCheckReturn.action?ip=' + Math.round(Math.random()*10000),
-		success : function(resultData) {
-			var result = resultData.split('#');
-			if(result[0] == '500')
-			{
-				location.href="/7881_touristlogin.jsp";
-			}
-			else if (result[0] == '200' && result.length > 2) {
-				 jQuery('#span_user').empty();
-				 if(result[2]!='0'){
-				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message_open">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
-				 }else{
-				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
-				 }
-				 jQuery('#span_user').html(htmlText);
-			}
-		}
-	});
-    </script>
-
-
     <div class="header">
         <!--头部-->
         <div class="left"><h1><a href="http://www.7881.com/" title="7881游戏交易平台"><img src="../../Content/Images/logo_service.png" alt="7881游戏交易平台"></a></h1></div>
@@ -117,8 +82,6 @@ function toadd(){
         </div>
     </div>
     <div class="W980 clearfix">
-
-
         <aside class="ColL">
             <!-- aside begin -->
             <div class="mainMenu">
