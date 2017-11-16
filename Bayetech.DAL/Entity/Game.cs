@@ -14,15 +14,15 @@ namespace Bayetech.DAL.Entity
     
     public partial class Game
     {
-        public long id { get; set; }
-        public string name { get; set; }
-        public string alias { get; set; }
-        public string letter { get; set; }
-        public Nullable<bool> ishot { get; set; }
-        public int parentid { get; set; }
-        public short listorder { get; set; }
-        public string platform { get; set; }
-        public string img { get; set; }
-        public bool isdelete { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Alias { get; set; }
+        public string Letter { get; set; }
+        public bool IsHot { get; set; }
+        public int Parentid { get; set; }
+        public short Order { get; set; }
+        public int Platform { get; set; }
+        public string Img { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

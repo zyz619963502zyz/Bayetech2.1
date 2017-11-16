@@ -8,11 +8,11 @@ namespace Bayetech.Web.Models
 {
     public class DropDownModels
     {
-        public string title { get; set; }
+        public string Title { get; set; }
 
-        public string type { get; set; }
-        public string child { get; set; }
+        public int Type { get; set; }
+        public int Child { get; set; }
 
-        public IList list { get; set; }
+        public IList List { get; set; }
     }
 }

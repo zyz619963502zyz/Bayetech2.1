@@ -21,9 +21,9 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.First.Path, typeof(Account));
-                _account.GamePass = Md5.EncryptString(_account.GamePass);
-                _account.GameUser = _account.iphone;
-                _account.itemid = 15;
+                _account.PassWord = Md5.EncryptString(_account.PassWord);
+                _account.UserName = _account.Iphone;
+                _account.ItemId = 15;
                 _account.EnableMark = true;
                 db.Insert(_account);
                 int count = db.Commit();
@@ -40,7 +40,7 @@ namespace Bayetech.Service.Services
         {
             using (var db = new RepositoryBase())
             {
-                Account _account = db.FindEntity<Account>(c => c.GameUser == account);
+                Account _account = db.FindEntity<Account>(c => c.UserName == account);
                 return _account == null ? true : false;//true不重复可申请，false不可申请
             }
         }
@@ -57,7 +57,7 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 Account _account = (Account)JsonConvert.DeserializeObject(json.First.Path, typeof(Account));//转换对象
-                Account _userEntity = db.FindEntity<Account>(t => t.GameUser == _account.GameUser);
+                Account _userEntity = db.FindEntity<Account>(t => t.UserName == _account.UserName);
                 JObject result = new JObject();
                 if (_userEntity != null)
                 {
@@ -65,19 +65,19 @@ namespace Bayetech.Service.Services
                     {
                         //UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
                         //string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
-                        string dbPassword = Md5.EncryptString(_account.GamePass);
-                        if (dbPassword == _userEntity.GamePass)
+                        string dbPassword = Md5.EncryptString(_account.PassWord);
+                        if (dbPassword == _userEntity.PassWord)
                         {
                             Login _currentLogin = new Login();
-                            _currentLogin.UserName = _account.GameUser;
+                            _currentLogin.UserName = _account.UserName;
                             _currentLogin.PassWord = dbPassword;
                             _currentLogin.LoginIp = Common.GetHostAddress();
-                            _currentLogin.logintime = DateTime.Now;
-                            _currentLogin.message = "登录成功";
+                            _currentLogin.LoginTime = DateTime.Now;
+                            _currentLogin.Message = "登录成功";
                             db.Insert(_currentLogin);
                             db.Commit();
                             result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                            result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.message));
+                            result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
                         }
                         else
                         {

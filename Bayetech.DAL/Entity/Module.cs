@@ -14,8 +14,8 @@ namespace Bayetech.DAL.Entity
     
     public partial class Module
     {
-        public long id { get; set; }
-        public string name { get; set; }
-        public bool isdelete { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

@@ -14,27 +14,13 @@ namespace Bayetech.DAL.Entity
     
     public partial class vw_LoginInfo
     {
-        public string loginip { get; set; }
-        public int logintime { get; set; }
-        public string message { get; set; }
-        public long logid { get; set; }
-        public Nullable<int> itemid { get; set; }
-        public string game_user { get; set; }
-        public string game_pass { get; set; }
-        public string game_name { get; set; }
-        public Nullable<int> id { get; set; }
-        public Nullable<int> iphone { get; set; }
-        public string email { get; set; }
-        public string email_pass { get; set; }
-        public string answer_1 { get; set; }
-        public string tname { get; set; }
-        public string security { get; set; }
-        public Nullable<int> identity { get; set; }
-        public string ask_3 { get; set; }
-        public string id_pic { get; set; }
-        public string ask_2 { get; set; }
-        public string ask_1 { get; set; }
-        public string answer_3 { get; set; }
-        public string answer_2 { get; set; }
+        public string UserName { get; set; }
+        public string GameName { get; set; }
+        public string Iphone { get; set; }
+        public Nullable<byte> Admin { get; set; }
+        public string LoginIp { get; set; }
+        public Nullable<System.DateTime> LoginTime { get; set; }
+        public string Message { get; set; }
+        public string Agent { get; set; }
     }
 }

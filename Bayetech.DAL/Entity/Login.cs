@@ -14,13 +14,13 @@ namespace Bayetech.DAL.Entity
     
     public partial class Login
     {
-        public long logid { get; set; }
+        public long LoginId { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
-        public Nullable<byte> admin { get; set; }
+        public Nullable<byte> Admin { get; set; }
         public string LoginIp { get; set; }
-        public Nullable<System.DateTime> logintime { get; set; }
-        public string message { get; set; }
-        public string agent { get; set; }
+        public Nullable<System.DateTime> LoginTime { get; set; }
+        public string Message { get; set; }
+        public string Agent { get; set; }
     }
 }

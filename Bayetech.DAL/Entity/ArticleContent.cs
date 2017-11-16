@@ -14,8 +14,8 @@ namespace Bayetech.DAL.Entity
     
     public partial class ArticleContent
     {
-        public long itemid { get; set; }
-        public string content { get; set; }
-        public long articleid { get; set; }
+        public long Id { get; set; }
+        public long ArticleId { get; set; }
+        public string Content { get; set; }
     }
 }

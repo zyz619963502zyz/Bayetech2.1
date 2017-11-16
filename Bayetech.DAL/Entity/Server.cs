@@ -14,14 +14,14 @@ namespace Bayetech.DAL.Entity
     
     public partial class Server
     {
-        public long id { get; set; }
-        public string name { get; set; }
-        public int type { get; set; }
-        public string letter { get; set; }
-        public int parentid { get; set; }
-        public short listorder { get; set; }
-        public string img { get; set; }
-        public Nullable<int> gameid { get; set; }
-        public bool isdelete { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public string Letter { get; set; }
+        public int ParentId { get; set; }
+        public Nullable<short> Order { get; set; }
+        public string Img { get; set; }
+        public int Gameid { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

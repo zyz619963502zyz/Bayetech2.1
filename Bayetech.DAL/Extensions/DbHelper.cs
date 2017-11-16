@@ -13,7 +13,7 @@ namespace Bayetech.DAL
 {
     public class DbHelper
     {  
-        private static string connstring = ConfigurationManager.ConnectionStrings["NFineDbContext"].ConnectionString;
+        private static string connstring = ConfigurationManager.ConnectionStrings["BayetechEntities"].ConnectionString;
         public static int ExecuteSqlCommand(string cmdText)
         {
             using (DbConnection conn = new SqlConnection(connstring))
