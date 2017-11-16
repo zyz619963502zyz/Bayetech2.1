@@ -14,7 +14,7 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
             return data;
         },
         created: function () {
-
+            common.postWebJson()
         },
         components: {
             'ordernav': orderNav,
