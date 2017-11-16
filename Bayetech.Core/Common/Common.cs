@@ -122,5 +122,32 @@ namespace Bayetech.Core
             }
             return errors.ToString();
         }
+
+
+        /// <summary>
+        /// 订单编号生成机制
+        /// </summary>
+        /// <returns></returns>
+        public static string CreatOrderNo()
+        {
+            try
+            {
+                string strHeader = "YM";
+                string year = DateTime.Now.Year.ToString();
+                string month = DateTime.Now.Month.ToString().PadLeft(2,'0');
+                string day = DateTime.Now.Day.ToString().PadLeft(2, '0');
+                string hour = DateTime.Now.Hour.ToString().PadLeft(2, '0');
+                string min = DateTime.Now.Minute.ToString().PadLeft(2, '0');
+                string second = DateTime.Now.Second.ToString().PadLeft(2, '0');
+                Random ran = new Random();
+                string wan = ran.Next(1, 9999).ToString().PadLeft(4, '0');
+                string result = strHeader + year + month + day + hour + min + second + wan;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "发生错误!");
+            }   
+        }
     }
 }
