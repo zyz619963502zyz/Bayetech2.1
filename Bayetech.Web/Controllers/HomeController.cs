@@ -8,6 +8,7 @@ namespace Bayetech.Web.Controllers
         {
             ViewBag.Title = "Home Page";
 
+            //Bayetech.Core.Common.CreatOrderNo();
             return View();
         }
     }

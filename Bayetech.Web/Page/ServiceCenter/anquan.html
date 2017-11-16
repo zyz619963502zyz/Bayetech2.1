@@ -14,7 +14,12 @@
     <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/7881.help.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/global_new.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Security.css" rel="stylesheet" />
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/ServiceCenter/index.js"></script>
+    <script src="../../Scripts/app/app.js"></script>
 
     <!--<script type="text/javascript" async="" src="./7881安全中心_files/ga.js.下载"></script>
     <script type="text/javascript" src="./7881安全中心_files/jquery1.5.js.下载"></script>
@@ -26,437 +31,33 @@
     </style>
     <![endif]-->
 
-    <script type="text/javascript">
-	var divArr = new Array();
-	$(document).ready(function(){
-		divArr.push('#knowledgeListDiv');
-		divArr.push('#stealListDiv');
-		divArr.push('#cheatListDiv');
-	});
-
-	function changeContent(num){
-	  var id = "";
-	  if(num==1){
-	  	id = '#knowledgeListDiv';
-	  }else if(num==2){
-	  	id = '#stealListDiv';
-	  }else if(num==3){
-	 	id = '#cheatListDiv';
-	  }
-		$(id).show();
-		for(i=0;i<divArr.length;i++){
-			if(divArr[i]!=id){
-				$(divArr[i]).hide();
-			}
-		}
-	}
-    </script>
 </head>
 <body>
     <!--头部开始-->
     <!--  -->
     <!--头部开始-->
-    <div class="top">
-        <div class="width980_top">
-            <div class="welcome">欢迎来到7881&nbsp;&nbsp;<span id="span_user"><a class="dlzc" rel="nofollow" href="http://www.7881.com/personal.html">大板牙兔子先生</a>&nbsp;&nbsp;<a class="dlzc" href="http://www.7881.com/msg/notReadMsg.action" rel="nofollow"><img align="absmiddle" src="../../Content/Images/message.png">[0]</a>&nbsp;&nbsp; <a href="http://www.7881.com/logout.action" rel="nofollow">退出</a></span></div>
-
-            <!--		<div class="right obtainTop myweixin" id="div_weixin">
-                            <div class="my_rice nav_text_5">官方微信</div>
-                            <ul class="mine_cont_4">
-                                <li><img src="http://pic.7881.com/7881/market/images/7881_weixin.jpg" align="absmiddle" /></li>
-                            </ul>
-            </div>
-            <span class="right_top3">|</span>-->
-            <div class="right obtainTop top_index" id="div_blog">
-                <div class="my_rice nav_text_3"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a></div>
-                <ul class="mine_cont_2">
-                    <li><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow"><img src="../../Content/Images/sina_wb.png" align="absmiddle"> 新浪微博</a></li>
-                    <li><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow"><img src="../../Content/Images/tencent_wb.png" align="absmiddle"> 腾讯微博</a></li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <div class="right obtainTop myService" id="div_Service">
-                <div class="my_rice nav_text_4">服务中心</div>
-                <ul class="mine_cont_3">
-                    <li>
-                        <a href="http://www.7881.com/helpCenter.html" target="_blank" rel="nofollow">帮助中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/articlelist4-0-0.html" target="_blank" rel="nofollow">资讯中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/tradesafe.html" target="_blank" rel="nofollow">安全中心</a>
-                    </li>
-                    <li>
-                        <a href="http://www.7881.com/sc/sc_index.html" target="_blank" rel="nofollow">客服中心</a>
-                    </li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <div class="right obtainTop top_index" id="div_seller">
-                <div class="my_rice nav_text_2"><a href="http://www.7881.com/personal.html" rel="nofollow">我是卖家</a></div>
-                <ul class="mine_cont_1">
-                    <li><a href="http://www.7881.com/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
-                    <li><a href="http://www.7881.com/procurement/showMyGoods.action" rel="nofollow">出售中的商品</a></li>
-                    <li><a href="http://www.7881.com/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的商品</a></li>
-                    <li><a href="http://www.7881.com/release.html" rel="nofollow">我要卖</a></li>
-                    <li><a href="http://www.7881.com/financecharge/toAddExtractcash.action" rel="nofollow">提现</a></li>
-                </ul>
-            </div>
-            <span class="right_top3">|</span>
-            <span class="right obtainTop myrice" id="div_buyer">
-                <div class="my_rice nav_text"><a href="http://www.7881.com/personal.html" rel="nofollow">我是买家</a></div>
-                <ul class="mine_cont">
-                    <li><a href="http://www.7881.com/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的订单</a></li>
-                    <li><a href="http://www.7881.com/gamelistshow.html" rel="nofollow">我要买</a></li>
-                    <li><a href="http://www.7881.com/financecharge/toAdd.action" rel="nofollow">充值</a></li>
-                </ul>
-            </span>
-            <span class="right_top3">|</span>
-            <span class="right_top2"><a href="http://www.7881.com/personal.html" rel="nofollow">个人中心</a></span>
-            <span class="right_top3">|</span>
-            <span class="right_top"><a href="http://www.7881.com/" target="_blank" rel="nofollow">首页</a></span>
-        </div>
-    </div>
-    <script type="text/javascript">
-	// 判断是否登录
-	jQuery.ajax({
-		type : 'get',
-		url : '/loginCheckReturn.action?ip=' + Math.round(Math.random()*10000),
-		success : function(resultData) {
-			var result = resultData.split('#');
-			if(result[0] == '500')
-			{
-				location.href="/7881_touristlogin.jsp";
-			}
-			else if (result[0] == '200' && result.length > 2) {
-				 jQuery('#span_user').empty();
-				 if(result[2]!='0'){
-				 	htmlText = '<a class="dlzc" rel="nofollow" href="/personal.html">'+result[1]+'</a>&nbsp;&nbsp;<a class="dlzc" href="/msg/notReadMsg.action" rel="nofollow"><img align="absmiddle" src="http://pic.7881.com/7881/market/images/Personal/znx_wd.png"/>[' + result[2] + ']</a>&nbsp;&nbsp; <a href="/logout.action" rel="nofollow">退出</a>';
-				 }else{
-				 	htmlText = '<a class="dlzc" rel="nofollow" href="/personal.html">'+result[1]+'</a>&nbsp;&nbsp;<a class="dlzc" href="/msg/notReadMsg.action" rel="nofollow"><img align="absmiddle" src="http://pic.7881.com/7881/market/images/Personal/message.png"/>[' + result[2] + ']</a>&nbsp;&nbsp; <a href="/logout.action" rel="nofollow">退出</a>';
-				 }
-				 jQuery('#span_user').html(htmlText);
-			}
-		}
-	});
-
-	$('#div_seller,#div_buyer,#div_blog,#div_Service').hover(
-		function(){
-			$(this).addClass('hover');
-		},
-		function(){
-			$(this).removeClass('hover');
-		}
-	);
-
-	document.domain="7881.com";
-    </script>
-    <div class="center logo">
-        <div class="left"><h1><a href="http://www.7881.com/" title="最专业的游戏交易平台"><img src="../../Content/Images/7881_logo.jpg" alt="最专业的游戏交易平台"></a></h1></div>
-        <div class="help_top">
-            <ul>
-                <li style="text-align: right">
-                    <span style="font-size: 16px; font-weight: bold;">客户服务热线：</span><span style="font-size: 24px; font-weight: bold; color: #CF1212">400-187-7881</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="Navigation">
-        <div class="center Part">
-            <ul>
-                <li>
-                    <a href="http://www.7881.com/tradesafe.html" style="background:#1D62BF;">首页</a>
-                    <a href="http://www.7881.com/tradesafe/knowledge.html">安全知识中心</a>
-                    <a href="http://www.7881.com/tradesafe/safeCenter.html">验证中心</a>
-                    <a href="http://www.7881.com/helpcenter.html">帮助中心</a>
-                    <a href="http://www.7881.com/articlelist4-0-0.html">资讯中心</a>
-                </li>
-            </ul>
-        </div>
+    <div id="ServiceDiv">
+        <regservicehead></regservicehead>
+        <regservicelogo></regservicelogo>
+        <regservicenav :list="ServiceList"></regservicenav>
+        <div class="clear"></div>
+        <div class="center security_banner"><img src="../../Content/Images/security_banner.jpg" /></div>
+        <regservicebuttom :list="ServiceNewList"></regservicebuttom>
     </div>
     <!--头部结束-->
-    <div class="clear"></div>
-    <div class="center security_banner"><img src="../../Content/Images/security_banner.jpg"></div>
-    <div class="center">
-        <div class="security_news">
-            <h3>安全常识</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/825689321558028350a0.html" target="_blank">
-
-
-
-                        看2014ChinaJoy了......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311350774185047325a0.html" target="_blank">
-
-
-
-
-                        防范钓鱼网站的基本知识
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351213775209310a0.html" target="_blank">
-
-
-
-
-                        什么是钓鱼网站
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351107162346087a0.html" target="_blank">
-
-
-
-
-                        骗子诈骗流程
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311351017111547791a0.html" target="_blank">
-
-
-
-                        防止盗号木马盗取我们的账号和......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_news">
-            <h3>钓鱼网站盗号</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353772701955607a0.html" target="_blank">
-
-
-
-
-                        7881平台建议
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353680614562409a0.html" target="_blank">
-
-
-
-                        新闻背景：识破假冒钓鱼网站骗......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353602759823314a0.html" target="_blank">
-
-
-
-
-                        什么是钓鱼网站？
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353256804611517a0.html" target="_blank">
-
-
-
-
-                        钓鱼网站的危害方式
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311353438108252392a0.html" target="_blank">
-
-
-
-                        卖家钓鱼后，冒充客服继续行骗......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_news">
-            <h3>假客服欺诈</h3>
-            <ul>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355023057360256a0.html" target="_blank">
-
-
-
-                        案例：骗子们用一些荒诞无稽的......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355390520822587a0.html" target="_blank">
-
-
-
-                        低价游戏币换来的高价“担保金......
-
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311355885345677266a0.html" target="_blank">
-
-
-
-
-                        购买低价商品被钓鱼后资金被盗
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311360294167782479a0.html" target="_blank">
-
-
-
-
-                        如何识别真假客服
-
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="http://www.7881.com/tradesafe/311360377028387910a0.html" target="_blank">
-
-
-
-                        骗子利用花言巧语对新用户进行......
-
-
-
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="security_index_right">
-            <ul>
-                <li><a href="http://www.7881.com/tradesafe/knowledge.html" title="安全知识中心"><img src="../../Content/Images/security_index_right_1.jpg"></a></li>
-                <ol>
-                    <a href="http://www.7881.com/tradesafe/safeCenter.html" title="验证中心"><img src="../../Content/Images/security_index_right_2.jpg"></a>
-                </ol>
-            </ul>
-        </div>
-    </div>
+    
+    
     <!--  -->
     <!--底部开始-->
     <div class="clear"></div>
     <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
     <div class="clear"></div>
-    <div class="foot">
-        <div class="center foot_wenzi">
-            <a href="http://www.7881.com/aboutus.html" target="_blank" class="hs" rel="nofollow">&nbsp;关于我们&nbsp;</a> |
-            <a href="http://www.7881.com/contactus.html" target="_blank" class="hs" rel="nofollow">&nbsp;联系我们&nbsp;</a> |
-            <a href="http://www.7881.com/copyright.html" target="_blank" class="hs" rel="nofollow">&nbsp;免责声明&nbsp;</a> |
-            <a href="http://www.7881.com/hr.html" target="_blank" class="hs" rel="nofollow">&nbsp;诚聘英才&nbsp;</a> |
-            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" class="hs" rel="nofollow">&nbsp;家长监护&nbsp;</a> |
-            <a href="http://www.7881.com/cooperation.html" target="_blank" class="hs" rel="nofollow">&nbsp;商务合作&nbsp;</a> |
-            <a href="http://www.7881.com/sitemap.html" target="_blank" class="hs">&nbsp;网站地图&nbsp;</a> |
-            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank" class="hs">&nbsp;媒体声音&nbsp;</a> <br>
-            Copyright Reserved 2008-2016 © 7881游戏交易   网络文化经营许可证：
-            <a href="http://www.7881.com/contectus/lianxiwomen.jsp" target="_blank" class="hs" rel="nofollow">苏网文[2015]2034-038号</a>
-            网站备案-<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="hs">苏B1-20110004-4</a>
-        </div>
-        <div class="mb10 center cent">
-            <a target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn/"><img src="../../Content/Images/foot_1.png"> 网站备案信息</a>
-            <a target="_blank" rel="nofollow" href="http://www.cyberpolice.cn/wfjb/"><img src="../../Content/Images/foot_2.png"> 网络警察</a>
-            <a target="_blank" rel="nofollow" href="https://www.alipay.com/"><img src="../../Content/Images/foot_3.png"> 支付宝特约商户</a>
-            <a target="_blank" rel="nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&amp;sn=2013071816040123804"><img src="../../Content/Images/foot_6.png"> 安全联盟</a>
-            <a target="_blank" rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B"><img src="../../Content/Images/foot_8.png"> 中国文化部</a>
-
-        </div>
-        <div class="tleft"></div>
+    <div id="app">
+        <main-footer></main-footer>  
     </div>
+    
+     
     <!--底部结束-->
-    <script type="text/javascript">
-function goTopEx(){
-        var obj=document.getElementById("goTopBtn");
-        function getScrollTop(){
-                return document.documentElement.scrollTop;
-            }
-        function setScrollTop(value){
-                document.documentElement.scrollTop=value;
-            }
-        window.onscroll=function(){getScrollTop()>0?obj.style.display="":obj.style.display="none";}
-        obj.onclick=function(){
-            var goTop=setInterval(scrollMove,10);
-            function scrollMove(){
-                    setScrollTop(getScrollTop()/1.1);
-                    if(getScrollTop()<1)clearInterval(goTop);
-                }
-        }
-    }
-    </script>
     <div style="DISPLAY: none" id="goTopBtn"><img border="0" src="../../Content/Images/index_top.jpg" alt="返回头部"></div>
-    <script type="text/javascript">goTopEx();</script>
-    <!--<div style="display: none;">
-        <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        
-        <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-44365965-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-        </script>
-    </div>-->
-
 </body>
 </html>

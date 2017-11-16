@@ -4,7 +4,7 @@ define("PersonButtom", jsconfig.baseArr, function (Vue, $, common) {
         <div class ="ddgl">
                         <h1>账户安全</h1>
                         <div class ="personal_center m10">
-        账户安全:
+                        账户安全:
                             <strong class ="ml10 security_level_40">低<i class ="ml10"><em></em></i></strong><span class="ml10 yellow">建议您尽快启动全部安全设置,以保障您的账号及资金安全.</span>
                         </div>
                          <table width="100%" border="0" cellspacing="1" cellpadding="0" class ="security_type">
