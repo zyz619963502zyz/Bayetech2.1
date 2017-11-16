@@ -24,6 +24,8 @@
 .m-r-0{margin-right:0;}
 .m-r-sm{margin-right:10px;}
 .m-r-md{margin-right:20px;}
+.m-b-sm{margin-bottom:10px;}
+.m-b-md{margin-bottom:20px;}
 /*font-size*/
 .f12{font-size:12px;}
 .f14{font-size:14px;}
@@ -53,11 +55,7 @@
 .ls-2{letter-spacing:2px;}
 .ls-10{letter-spacing:10px;}
 
-.clearfix{
-    content:'';
-    display:block;
-    clear:both;
-}
+
 @media (max-width:991px){
     .nav>li>a{
         padding:5px 8px;

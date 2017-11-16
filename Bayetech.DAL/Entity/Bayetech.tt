@@ -14,7 +14,7 @@ var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
 if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems(itemCollection), inputFile))
 {
     return string.Empty;
-}
+} 
 
 WriteHeader(codeStringGenerator, fileManager);
 

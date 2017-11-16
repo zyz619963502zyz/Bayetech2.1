@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Http;
 using Bayetech.Service.Services;
-using System.Web.Mvc;
+using Bayetech.Core.Enum;
+using System.Text.RegularExpressions;
 
 namespace Bayetech.Web.Controllers
 {
@@ -12,58 +10,49 @@ namespace Bayetech.Web.Controllers
     {
         GameService gameService = new GameService();
         ServerService serverService = new ServerService();
-        MallTypeService tradeTypeService = new MallTypeService();
+        MallTypeService mallTypeService = new MallTypeService();
         RelationshipService relationshipService = new RelationshipService();
 
-        public IHttpActionResult GetData(string type, int id)
+        public IHttpActionResult GetData(int type, int id)
         {
             Models.DropDownModels data = new Models.DropDownModels();
-            switch (type)
+            var enumType = (SearchType)type;
+
+            switch (enumType)
             {
-                case "pcgame":
-                    data.title = "游戏";
-                    data.type = type;
-                    data.child = "group";
-                    data.list = gameService.FindList(a => a.platform.Equals("pc") && !a.isdelete).ToList();
+                case SearchType.OnlineGames:
+                    data.Title = "游戏";
+                    data.Type = (int)enumType;
+                    data.Child = (int)SearchType.Group;
+                    data.List = gameService.FindList(a => a.Platform.Equals(type) && !a.IsDelete).ToList();
                     break;
-                case "mobilegame":
-                    data.title = "游戏";
-                    data.type = type;
-                    data.child = "group";
-                    data.list = gameService.FindList(a => a.platform.Equals("mobile") && !a.isdelete).ToList();
+                case SearchType.MobileGames:
+                    data.Title = "游戏";
+                    data.Type = (int)enumType;
+                    data.Child = (int)SearchType.Group;
+                    data.List = gameService.FindList(a => a.Platform.Equals(type) && !a.IsDelete).ToList();
                     break;
-                case "group":
-                    data.title = "游戏区";
-                    data.type = type;
-                    data.child = "server";
-                    var a2 = serverService.FindList(a1 => a1.type == 1 && a1.gameid.Equals(id) && !a1.isdelete);
-                    data.list = serverService.FindList(a => a.type == 1 && a.gameid == id && !a.isdelete).ToList();
+                case SearchType.Group:
+                    data.Title = "游戏区";
+                    data.Type = (int)enumType;
+                    data.Child = (int)SearchType.Server;
+                    var a2 = serverService.FindList(a1 => a1.Type == 1 && a1.Gameid.Equals(id) && !a1.IsDelete);
+                    data.List = serverService.FindList(a => a.Type == 1 && a.Gameid == id && !a.IsDelete).ToList();
                     break;
-                case "server":
-                    data.title = "服务器";
-                    data.type = type;
-                    data.child = "type";
-                    data.list = serverService.FindList(a => a.type == 2 && a.parentid.Equals(id) && !a.isdelete).ToList();
+                case SearchType.Server:
+                    data.Title = "服务器";
+                    data.Type = (int)enumType;
+                    data.Child = (int)SearchType.MallType;
+                    data.List = serverService.FindList(a => a.Type == 2 && a.ParentId.Equals(id) && !a.IsDelete).ToList();
                     break;
-                case "type":
-                    data.title = "交易类型";
-                    data.type = type;
-                    data.child = "type";
-                    //tradeTypeService.FindList(t => t.id == t.Relationship)
-                    //relationshipService.FindList(a => a.ParentKey.Equals(id)).
-                    //tradeTypeService.FindList(t => t.id ==())
-                    ;
-                    // data.list = serverService.FindList(a => a.type == 2 && a.parentid.Equals(id) && !a.isdelete).ToList();
+                case SearchType.MallType:
+                    data.Title = "交易类型";
+                    data.Type = (int)enumType;
+                    data.Child = 0;
+                    data.List = mallTypeService.GetDataByGameId((int)Relationship.Game_MallType,1);
                     break;
             }
             return Json(data);
-        }
-
-        public IHttpActionResult GetDataByAlphabet(string letter, string type)
-        {
-            type = type.Split(new string[] { "game" }, StringSplitOptions.RemoveEmptyEntries)[0];
-            var list = gameService.FindList(a => a.letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && a.platform.Equals(type) && !a.isdelete).ToList();
-            return Json(list);
         }
     }
 }

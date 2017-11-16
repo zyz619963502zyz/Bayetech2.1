@@ -14,18 +14,22 @@ namespace Bayetech.DAL.Entity
     
     public partial class GameRoleInfo
     {
-        public int id { get; set; }
-        public string gameName { get; set; }
-        public Nullable<int> gameLevel { get; set; }
-        public string gameProfession { get; set; }
-        public string gameService { get; set; }
-        public string gameId { get; set; }
-        public string userName { get; set; }
-        public Nullable<int> listOrder { get; set; }
-        public Nullable<int> editTime { get; set; }
-        public Nullable<int> addTime { get; set; }
-        public string qqLevel { get; set; }
-        public string identityInfo { get; set; }
-        public string qqFriends { get; set; }
+        public int Id { get; set; }
+        public Nullable<long> GameId { get; set; }
+        public Nullable<long> GameAcountId { get; set; }
+        public string GameName { get; set; }
+        public Nullable<int> GameLevel { get; set; }
+        public string GameProfession { get; set; }
+        public string GameService { get; set; }
+        public string GameGroup { get; set; }
+        public string GameServer { get; set; }
+        public string UserName { get; set; }
+        public Nullable<int> Account { get; set; }
+        public Nullable<int> ListOrder { get; set; }
+        public Nullable<int> EditTime { get; set; }
+        public Nullable<int> AddTime { get; set; }
+        public string QQLevel { get; set; }
+        public string IdentityInfo { get; set; }
+        public string QQFriends { get; set; }
     }
 }

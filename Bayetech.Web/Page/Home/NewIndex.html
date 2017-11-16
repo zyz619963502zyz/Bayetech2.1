@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页</title>
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../Content/bootstrap/font-awesome.min.css" />
     <link rel="stylesheet" href="../../Content/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="../../Content/bootstrap/bootstrapValidator.min.css" />
+    <link rel="stylesheet" href="../../Content/swiper/swiper.min.css" />
     <link rel="stylesheet" href="../../Content/common.css" />
     <link rel="stylesheet" href="../../Content/homepage.css" />
 </head>
@@ -27,7 +28,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">请登录</a></li>
+                        <li class="login-a"><a href="../Login/Loging.html">请登录</a></li>
                         <li></li>
                         <li></li>
                     </ul>
@@ -64,7 +65,7 @@
         </div>
     </div>
     <div class="home-all-module">
-            <!-- 导航栏 -->
+            <!-- navigation -->
             <ul class="nav nav-pills nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#home0" aria-controls="home" role="tab" data-toggle="tab">首页</a></li>
                 <li role="presentation"><a href="#home1" aria-controls="profile" role="tab" data-toggle="tab">金币交易</a></li>
@@ -75,15 +76,64 @@
                 <li role="presentation"><a href="#home6" aria-controls="settings" role="tab" data-toggle="tab">游戏代练</a></li>
                 <li role="presentation"><a href="#home7" aria-controls="settings" role="tab" data-toggle="tab">账号租赁</a></li>
             </ul>
-            <!-- 内容栏 -->
+            <!-- all content -->
             <div class="tab-content">
-                <!--首页-->
+                <!--home page-->
                 <div role="tabpanel" class="tab-pane active" id="home0">
-                    <div class="left-pane">
-
+                    <!--index content-->
+                    <div class="index-content">
+                        <!--left box-->
+                        <div class="left-panel">
+                            <div class="left-panel-one m-b-sm">
+                                <!--carousel-->
+                                <div class="swiper-container">
+                                    <div class="wrapper-car">
+                                        <div class="car-slide">Slide 1</div>
+                                        <div class="car-slide">Slide 2</div>
+                                        <div class="car-slide">Slide 3</div>
+                                        <div class="car-slide">Slide 4</div>
+                                        <div class="car-slide">Slide 5</div>
+                                        <div class="car-slide">Slide 6</div>
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                    <!-- Add Arrows -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                            <div class="left-panel-one m-b-sm">
+                                手风琴轮循
+                            </div>
+                            <div class="left-panel-one m-b-sm">
+                                广告图
+                            </div>
+                        </div>
+                        <!--right box-->
+                        <div class="right-panel">
+                            <div class="right-panel-one m-b-md" style="height:50px;">
+                                我要买我要卖
+                            </div>
+                            <div class="right-panel-one m-b-md" style="height:50px;">
+                                验证
+                            </div>
+                            <div class="right-panel-one m-b-md">
+                                公告
+                            </div>
+                            <div class="right-panel-one m-b-md">
+                                咨询、建议、投诉
+                            </div>
+                            <div class="right-panel-one m-b-md">
+                                交易榜单
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="right-pane">
-
+                    <!--index footer-->
+                    <div class="index-footer">
+                        <div class="foot-content">
+                            合作等
+                        </div>
                     </div>
                 </div>
                 <!--金币交易-->
@@ -106,5 +156,31 @@
 
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/swiper/swiper.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var FirstSwiper = new Swiper('.swiper-container', {
+                wrapperClass: 'wrapper-car',            //设置wrapper的css类名
+                slideClass: 'car-slide',                //设置slide的类名
+                direction:'horizontal',                 //横向水平滑动
+                pagination: {                           //分页器
+                    el: '.swiper-pagination',           //分页类名
+                },
+                navigation:{
+                    nextEl:'.swiper-button-next',       //下一张
+                    prevEl:'.swiper-button-prev',       //上一张
+                },
+                autoplay: {                             //自动切换
+                    delay:2000,                         //切换速度
+                },
+                slidesPerView: 1,                       //同时显示数量
+                spaceBetween: 30,                       //相邻图片边距                
+                loop: true,                             //无限循环模式
+                
+            });
+        })
+            
+        
+    </script>
 </body>
 </html>

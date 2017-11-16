@@ -14,23 +14,11 @@ namespace Bayetech.DAL.Entity
     
     public partial class MallType
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MallType()
-        {
-            this.Relationship = new HashSet<Relationship>();
-        }
-    
-        public long id { get; set; }
-        public short moduleid { get; set; }
-        public long pid { get; set; }
-        public string title { get; set; }
-        public string unit { get; set; }
-        public int type { get; set; }
-        public int catid { get; set; }
-        public int listorder { get; set; }
-        public string money { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Relationship> Relationship { get; set; }
+        public long Id { get; set; }
+        public long Parentid { get; set; }
+        public string Name { get; set; }
+        public string Unit { get; set; }
+        public int Order { get; set; }
+        public string Money { get; set; }
     }
 }

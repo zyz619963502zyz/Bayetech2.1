@@ -14,7 +14,7 @@ namespace Bayetech.DAL.Entity
     
     public partial class Relationship
     {
-        public long id { get; set; }
+        public long Id { get; set; }
         public long Key { get; set; }
         public string Value { get; set; }
         public int Type { get; set; }
@@ -22,7 +22,5 @@ namespace Bayetech.DAL.Entity
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> ModifyTime { get; set; }
         public bool IsDelete { get; set; }
-    
-        public virtual MallType MallType { get; set; }
     }
 }

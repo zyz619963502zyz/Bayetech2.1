@@ -10,12 +10,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         <div class="s_blue_box">
             <div id="accuratetBox" v-show="!isSimple">
                 <ul class="selectbox clearfix">
-                    <li class ="g_name" @click="loadDropdown('pcgame')">游戏名称</li>
-                    <li class="g_gameplatform" gameplatform="" style="display: none;">游戏平台</li>
-                    <li class="g_run" carrierid="" style="display: none;">运营商</li>
-                    <li class ="g_area" @click="loadDropdown('group')">游戏区</li>
-                    <li class ="g_service" @click="loadDropdown('server')">服务器</li>
-                    <li class ="g_type" @click="loadDropdown('type')">物品类型</li>
+                    <li class ="g_name" @click="loadDropdown('0')">游戏名称</li>
+                    <li class ="g_area" @click="loadDropdown('2')">游戏区</li>
+                    <li class ="g_service" @click="loadDropdown('3')">服务器</li>
+                    <li class ="g_type" @click="loadDropdown('4')">物品类型</li>
                     <li class ="g_input"><label><input type="text" placeholder="商品编码或关键词"/></label></li>
                 </ul>
             </div>
@@ -43,11 +41,17 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             return {
                 isSimple: false,
                 showDropdown: false,
-                dropdownData:{},
-                pcgameid: 0,
-                mobilegameid: 0,
-                groupid: 0,
-                serverid: 0,
+                dropdownData: {},
+                typeObj: {
+                    0: "game",
+                    1: "game",
+                    2: "group",
+                    3: "server",
+                    4: "mallType",
+                },
+                gameId: 0,
+                groupId: 0,
+                serverId: 0,
             };
         },
         template: html,
@@ -58,15 +62,14 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             simpleBoxShow: function () {
                 this.isSimple = true;
             },
-            showDropdown:function(type){
-
-            },
             loadDropdown: function (type, id) {
-                id = id || this[`${type}id`];
+                id = id || this[`${this.typeObj[type]}Id`];
+                type === "4" && (id = this.gameId);
                 this.showDropdown = true;
                 this[`${type}id`] = id;
                 let nowVue = this;
                 debugger;
+
                 common.getWebJson("/api/Search/GetData", { type: type, id: id }, function (data) {
                     nowVue.dropdownData = data;
                 });
@@ -78,10 +81,3 @@ define(["common", "search-dropdown"], function (common, dropdown) {
     };
     return components;
 });
-
-//<li class ="g_name" @click="loadDropdown('game')">游戏名称</li>
-//                   <li class="g_gameplatform" gameplatform="" style="display: none;">游戏平台</li>
-//                   <li class="g_run" carrierid="" style="display: none;">运营商</li>
-//                   <li class ="g_area" @click="loadDropdown('group')">游戏区</li>
-//                   <li class ="g_service" @click="loadDropdown('server')">服务器</li>
-//                   <li class ="g_type" @click="loadDropdown('type')">物品类型</li>
