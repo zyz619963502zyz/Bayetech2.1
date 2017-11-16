@@ -1,8 +1,8 @@
 ﻿/*
- *首页及其他分页样式
+ *首页及其他分页样式 v1.0.0
  *作者：liuzy
  *时间：2017.11.14
- *说明：首页PC端相关样式请在以下编辑或者修改
+ *说明：首页等PC端相关样式请在以下编辑或者修改
  */
 
 /*header*/
@@ -68,14 +68,41 @@
     /*margin-bottom:15px;*/
 }
 
-
 .index-content .swiper-container {
-        width: 100%;
-        height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-.index-content .swiper-slide {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper-car {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.car-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.index-content .car-slide {
         text-align: center;
         font-size: 18px;
         background: #fff;
