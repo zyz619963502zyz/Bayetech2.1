@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,13 @@ namespace Bayetech.Web.Controllers
 {
     public class DealCheckController : BaseController
     {
-         
+        [HttpPost]
+        public JObject GetCheckInfo() 
+        {
+
+
+            JObject ret = new JObject();
+            return ret;
+        }
     }  
 }
