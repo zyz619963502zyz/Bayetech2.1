@@ -9,8 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service.Services
 {
-    public class DealCheckService : IDealCheckService
+    public partial class vw_OrderInfoService : IDealCheckService
     {
+
         //获取
         public JObject GetCheckInfo()
         {
@@ -22,30 +23,5 @@ namespace Bayetech.Service.Services
             throw new Exception();
         }
 
-        public int Delete(object keyValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public vw_OrderInfo FindEntity(object keyValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<vw_OrderInfo> FindList(Expression<Func<vw_OrderInfo, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public int Insert(JObject json)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Update(JObject json)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
