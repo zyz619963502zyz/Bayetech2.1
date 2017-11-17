@@ -17,7 +17,7 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetCheckInfo() 
         {
-
+        
 
             JObject ret = new JObject();
             return ret;

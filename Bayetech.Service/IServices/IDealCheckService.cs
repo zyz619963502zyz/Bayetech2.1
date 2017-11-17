@@ -3,8 +3,8 @@ using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service
 {
-    public partial interface IDealCheckService:IBaseService<vw_OrderInfo>
+    public interface IDealCheckService
     {
-        JObject GetCheckInfo(JObject json);
+        JObject GetCheckInfo(string goodNo);
     }
 }
