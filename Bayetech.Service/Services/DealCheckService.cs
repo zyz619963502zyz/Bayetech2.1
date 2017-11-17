@@ -4,10 +4,12 @@ using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service.Services
 {
-    public partial class vw_OrderInfoService : IDealCheckService
+    public partial class DealCheckService : IDealCheckService
     {
 
         //获取
@@ -26,6 +28,31 @@ namespace Bayetech.Service.Services
                 ret.Add(ResultInfo.Content, JProperty.FromObject(_orderInfo));
                 return ret;
             }
+        }
+
+        public int Delete(object keyValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public vw_OrderInfo FindEntity(object keyValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<vw_OrderInfo> FindList(Expression<Func<vw_OrderInfo, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Insert(JObject json)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(JObject json)
+        {
+            throw new NotImplementedException();
         }
     }
 }
