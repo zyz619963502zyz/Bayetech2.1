@@ -7,13 +7,13 @@
 // <copyright file="IGameRoleInfoService.Auto.cs">
 //		作者：Jie
 //		所属工程：Bayetech2.0
-//		生成时间：2017-11-15 10:12
+//		生成时间：2017-11-17 11:24
 // </copyright>
 //------------------------------------------------------------------------------
 using Bayetech.DAL.Entity;
 namespace Bayetech.Service.IServices
 {
-    public partial interface IGameRoleInfoService : IBaseService<GameRoleInfo>
+    public partial interface IGameRoleInfoService : IBaseService<GameGoodInfo>
     {
         //自定义接口规范 请建立同名partial interface文件。防止代码被重新生成覆盖
     }

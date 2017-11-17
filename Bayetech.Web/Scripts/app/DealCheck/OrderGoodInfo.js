@@ -1,7 +1,7 @@
 ﻿//注册模块
 define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    //var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
+    //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
     //var _GetGoodInfo = "";
 
     //模板
@@ -41,7 +41,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </div>
             <div class="rent-btn">
-                <a href="javascript:buyGoods();">立即购买</a>
+                <a href="#" @click = "BuyNow">立即购买</a>
             </div>
         </div>`
 
@@ -72,15 +72,20 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             return data;
         },
         created() {
-            //this.GetNavBar();
+            common.postWebJson(url, data, function (data) {
+                var a = data;
+            });
         },
         methods: {
-            GetNavBar: function () {
+            GetNavBar() {
                 common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
                         this.data = data;
                     }
                 });
+            },
+            BuyNow() {
+
             }
         }
     }

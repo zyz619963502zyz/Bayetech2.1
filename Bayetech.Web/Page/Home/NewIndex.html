@@ -12,63 +12,72 @@
     <link rel="stylesheet" href="../../Content/swiper/swiper.min.css" />
     <link rel="stylesheet" href="../../Content/common.css" />
     <link rel="stylesheet" href="../../Content/homepage.css" />
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/Home/index.js"></script>
 </head>
 <body>
-    <div id="home-nav-box" class="home-header">
-        <nav class="nav navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">游戏联盟</a>
+    <div id="app">
+        <div id="home-nav-box" class="home-header">
+            <nav class="nav navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">游戏联盟</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="login-a"><a href="../Login/Loging.html">请登录</a></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#">我的6666</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">我购买的商品</a></li>
+                                    <li><a href="#">出售中的商品</a></li>
+                                    <li><a href="#">我的订单管理</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">金钻兑换</a></li>
+                            <li><a href="#">我的收藏</a></li>
+                            <li class="dropdown">
+                                <a href="#">客服中心</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">咨询中心</a></li>
+                                    <li><a href="#">安全中心</a></li>
+                                    <li><a href="#">帮助中心</a></li>
+                                    <li><a href="#">我要咨询</a></li>
+                                    <li><a href="#">我要投诉</a></li>
+                                    <li><a href="#">廉政举报</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">网站导航</a></li>
+                            <li><a href="#">官方微博</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="login-a"><a href="../Login/Loging.html">请登录</a></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#">我的6666</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">我购买的商品</a></li>
-                                <li><a href="#">出售中的商品</a></li>
-                                <li><a href="#">我的订单管理</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">金钻兑换</a></li>
-                        <li><a href="#">我的收藏</a></li>
-                        <li class="dropdown">
-                            <a href="#">客服中心</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">咨询中心</a></li>
-                                <li><a href="#">安全中心</a></li>
-                                <li><a href="#">帮助中心</a></li>
-                                <li><a href="#">我要咨询</a></li>
-                                <li><a href="#">我要投诉</a></li>
-                                <li><a href="#">廉政举报</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">网站导航</a></li>
-                        <li><a href="#">官方微博</a></li>
-                    </ul>
-                </div>
-            </div>            
-        </nav>
-        <div class="head" style="height:150px;width:100%">
-
+            </nav>
+            <div class="head" style="height:150px;width:100%">
+                <!--search-->>
+                <v-search></v-search>
+            </div>
         </div>
-    </div>
-    <div class="home-all-module">
+        <div class="home-all-module">
+            
             <!-- navigation -->
             <ul class="nav nav-pills nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#home0" aria-controls="home" role="tab" data-toggle="tab">首页</a></li>
-                <li role="presentation"><a href="#home1" aria-controls="profile" role="tab" data-toggle="tab">金币交易</a></li>
+                <li role="presentation">
+                    <h4></h4>
+                    <a href="#home1" aria-controls="profile" role="tab" data-toggle="tab">金币交易</a>
+                </li>
                 <li role="presentation"><a href="#home2" aria-controls="messages" role="tab" data-toggle="tab">账号交易</a></li>
                 <li role="presentation"><a href="#home3" aria-controls="settings" role="tab" data-toggle="tab">装备交易</a></li>
                 <li role="presentation"><a href="#home4" aria-controls="settings" role="tab" data-toggle="tab">手游交易</a></li>
@@ -103,28 +112,59 @@
                                 </div>
                             </div>
                             <div class="left-panel-one m-b-sm">
-                                手风琴轮循
+                            <!--手风琴轮循-->
+                                <index-tabsList></index-tabsList>
                             </div>
+                            
                             <div class="left-panel-one m-b-sm">
-                                广告图
+                                <!--广告图-->
+                                <index-adv></index-adv>
                             </div>
+                            
                         </div>
                         <!--right box-->
                         <div class="right-panel">
                             <div class="right-panel-one m-b-md" style="height:50px;">
-                                我要买我要卖
+                                <!--我要买我要卖-->
+                                <div class="buy-sale-area">
+                                    <a href="http://www.7881.com/gamelistshow.html">我要买</a>
+                                    <a onclick="javascript:checkLogin();" href="javascript:void(0);" class="sale-btn">我要卖</a>
+                                </div>
                             </div>
+                            
                             <div class="right-panel-one m-b-md" style="height:50px;">
-                                验证
+                                <!--验证-->
+                                <div class="qq-yz">
+                                    <label class="placeholder">
+                                        <input type="text" class="qq-input onlynum" id="qq_number" /><span>输入客服QQ，验证真假</span>
+                                    </label>
+                                    <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                                </div>
                             </div>
                             <div class="right-panel-one m-b-md">
-                                公告
+                                <v-tab data="notice">
+                                    <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                </v-tab>
                             </div>
+                            
                             <div class="right-panel-one m-b-md">
-                                咨询、建议、投诉
+                                <!--咨询、建议、投诉-->
+                                <!-- 没造数据，跟数据现在公告一样 -->
+                                <v-tab data="notice">
+                                    <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                </v-tab>
                             </div>
+                            
                             <div class="right-panel-one m-b-md">
-                                交易榜单
+                                <!--交易榜单-->
+                                <v-tab data="gameranking">
+                                    <template slot-scope="props">
+                                        <div class="c1 top3">{{ props.obj.no}}.</div>
+                                        <div class="c2">{{ props.obj.title}}</div>
+                                        <div class="c3">成交{{ props.obj.quantity}}笔</div>
+                                        <div class="c4">昨日单笔最高成交额：<em class="org">{{ props.obj.maxMoney}}</em>元</div>
+                                    </template>
+                                </v-tab>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -132,8 +172,10 @@
                     <!--index footer-->
                     <div class="index-footer">
                         <div class="foot-content">
-                            合作等
+                            <!--合作等-->
+                            <v-partner></v-partner>
                         </div>
+                        
                     </div>
                 </div>
                 <!--金币交易-->
@@ -151,8 +193,9 @@
                 <!--账号租赁-->
                 <div role="tabpanel" class="tab-pane" id="home7">8</div>
             </div>
-        
+        </div>
     </div>
+    
 
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
