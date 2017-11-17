@@ -10,8 +10,8 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #> 
 <#@ import namespace="Bayetech.DAL.Entity" #>
-<#@ include file="T4Toolbox.tt" #>
-<#@ include file="ServicesTemplate.ttinclude" #> 
+<#@ include file="T4Toolbox.tt" #>  
+<#@ include file="ServicesTemplate.ttinclude" #>  
 <#@ include file="IServicesTemplate.ttinclude" #>
   
 <#   
