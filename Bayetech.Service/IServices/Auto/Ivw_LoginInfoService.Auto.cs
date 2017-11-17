@@ -7,7 +7,7 @@
 // <copyright file="Ivw_LoginInfoService.Auto.cs">
 //		作者：Jie
 //		所属工程：Bayetech2.0
-//		生成时间：2017-11-17 10:44
+//		生成时间：2017-11-17 10:47
 // </copyright>
 //------------------------------------------------------------------------------
 using Bayetech.DAL.Entity;
