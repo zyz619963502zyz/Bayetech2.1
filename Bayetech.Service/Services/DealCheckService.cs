@@ -36,7 +36,7 @@ namespace Bayetech.Service.Services
                 else
                 {
                     ret.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    ret.Add(ResultInfo.Content, JProperty.FromObject("未查询到此商品对应的商品编号!"));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空，未查询到此笔数据!"));
                 }
                 return ret;
             }
