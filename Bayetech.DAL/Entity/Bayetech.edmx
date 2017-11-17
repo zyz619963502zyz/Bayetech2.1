@@ -567,7 +567,6 @@
           <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsLink" Type="Byte" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="NavigationProperty1" />
         </EntityType>
         <EntityType Name="ArticleContent">
           <Key>
