@@ -2,8 +2,8 @@
 define(['jquery'], function ($) {
     var html = `<div class="tabsList-box">
     <ul class="tabsList" id="TabBox">
-        <li class="tit on" v-for="item in object" style="width: 190px; overflow: hidden;">
-            <h4><img :src="item.img" width="190" height="340"/></h4>
+        <li class="tit on" v-for="item in object" style="width: 150px; overflow: hidden;">
+            <h4><img :src="item.img" width="150" height="350"/></h4>
             <div class="tabBody" >
                 <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
                 <div class="shop-type">
