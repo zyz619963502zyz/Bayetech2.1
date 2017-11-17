@@ -14,35 +14,24 @@ namespace Bayetech.DAL.Entity
     
     public partial class Article
     {
-        public long itemid { get; set; }
-        public int catid { get; set; }
-        public int areaid { get; set; }
-        public byte level { get; set; }
-        public string title { get; set; }
-        public string style { get; set; }
-        public float fee { get; set; }
-        public string subtitle { get; set; }
-        public string introduce { get; set; }
-        public string tag { get; set; }
-        public string keyword { get; set; }
-        public string pptword { get; set; }
-        public string author { get; set; }
-        public string copyfrom { get; set; }
-        public string fromurl { get; set; }
-        public string voteid { get; set; }
-        public int hits { get; set; }
-        public string thumb { get; set; }
-        public string username { get; set; }
-        public int addtime { get; set; }
-        public string editor { get; set; }
-        public int edittime { get; set; }
-        public string ip { get; set; }
-        public string template { get; set; }
-        public byte status { get; set; }
-        public byte islink { get; set; }
-        public string linkurl { get; set; }
-        public string filepath { get; set; }
-        public string note { get; set; }
-        public short moduleid { get; set; }
+        public long Id { get; set; }
+        public int ModuleId { get; set; }
+        public long CatId { get; set; }
+        public string Title { get; set; }
+        public string Introduce { get; set; }
+        public string Author { get; set; }
+        public string Tag { get; set; }
+        public string KeyWord { get; set; }
+        public string CopyFrom { get; set; }
+        public string FromUrl { get; set; }
+        public Nullable<int> Hits { get; set; }
+        public string Thumb { get; set; }
+        public string Creator { get; set; }
+        public int CreateTime { get; set; }
+        public string Editor { get; set; }
+        public Nullable<int> EditTime { get; set; }
+        public string Ip { get; set; }
+        public Nullable<byte> IsLink { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

@@ -14,24 +14,24 @@ namespace Bayetech.DAL.Entity
     
     public partial class Account
     {
-        public int id { get; set; }
-        public int itemid { get; set; }
-        public string GameUser { get; set; }
-        public string GamePass { get; set; }
+        public int Id { get; set; }
+        public int ItemId { get; set; }
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
         public string GameName { get; set; }
-        public string iphone { get; set; }
-        public string email { get; set; }
-        public string email_pass { get; set; }
-        public string answer_1 { get; set; }
-        public string answer_2 { get; set; }
-        public string answer_3 { get; set; }
-        public string ask_1 { get; set; }
-        public string ask_2 { get; set; }
-        public string ask_3 { get; set; }
-        public Nullable<int> identity { get; set; }
-        public string id_pic { get; set; }
-        public string security { get; set; }
-        public string tname { get; set; }
+        public string Iphone { get; set; }
+        public string Email { get; set; }
+        public string EmailPass { get; set; }
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Ask1 { get; set; }
+        public string Ask2 { get; set; }
+        public string Ask3 { get; set; }
+        public Nullable<int> Identity { get; set; }
+        public string IdPic { get; set; }
+        public string Security { get; set; }
+        public string Tname { get; set; }
         public Nullable<bool> EnableMark { get; set; }
     }
 }

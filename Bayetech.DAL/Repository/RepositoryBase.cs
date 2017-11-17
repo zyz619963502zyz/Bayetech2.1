@@ -191,5 +191,10 @@ namespace Bayetech.DAL
             tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
             return tempData.ToList();
         }
+
+        public BayetechEntities GetContext()
+        {
+            return dbcontext;
+        }
     }
 }

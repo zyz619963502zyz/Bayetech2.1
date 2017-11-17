@@ -252,7 +252,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
-    <Compile Include="Controllers\DealCheckController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -549,6 +549,11 @@
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
     <Content Include="Content\Images\sina_wb.png" />
+    <Content Include="Content\Images\slider_1.jpg" />
+    <Content Include="Content\Images\slider_2.jpg" />
+    <Content Include="Content\Images\slider_3.jpg" />
+    <Content Include="Content\Images\slider_4.jpg" />
+    <Content Include="Content\Images\slider_5.jpg" />
     <Content Include="Content\Images\sm.png" />
     <Content Include="Content\Images\sm_83x30.png" />
     <Content Include="Content\Images\stepsell.jpg" />

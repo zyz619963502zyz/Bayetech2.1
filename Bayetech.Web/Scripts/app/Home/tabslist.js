@@ -1,9 +1,9 @@
 ﻿//广告位1
 define(['jquery'], function ($) {
     var html = `<div class="tabsList-box">
-    <ul class="tabsList">
+    <ul class="tabsList" id="TabBox">
         <li class="tit on" v-for="item in object" style="width: 190px; overflow: hidden;">
-            <h4><img :src="item.img" width="190" height="340" @click="showTab(e)"/></h4>
+            <h4><img :src="item.img" width="190" height="340"/></h4>
             <div class="tabBody" >
                 <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
                 <div class="shop-type">
@@ -101,12 +101,21 @@ define(['jquery'], function ($) {
         data() {
             return data;
         },
+        mounted: function () {
+            $("#TabBox > li")[0].style.width = '540px';
+            $("#TabBox > li").mouseover(function () {
+                $(this).width(540).siblings().not(this).width(190);
+            });
+        },
         template: html,
         methods: {
             showTab(e) {
-                debugger;
-                this.show = !this.show;
-                this.hide = !this.hide;
+                //debugger;
+                var a = $(e);
+                //$(e).width(540).parent().find("list").not(e).width(190);
+                
+                //this.show = !this.show;
+                //this.hide = !this.hide;
                 //$(this).siblings("li").removeClass("on").stop().animate({
                 //    width: "190px"
                 //}, 250);

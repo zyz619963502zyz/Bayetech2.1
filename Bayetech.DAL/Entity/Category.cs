@@ -14,7 +14,7 @@ namespace Bayetech.DAL.Entity
     
     public partial class Category
     {
-        public int catid { get; set; }
+        public long catid { get; set; }
         public short moduleid { get; set; }
         public string catname { get; set; }
         public string style { get; set; }
