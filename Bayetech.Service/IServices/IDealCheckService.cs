@@ -5,6 +5,6 @@ namespace Bayetech.Service
 {
     public partial interface IDealCheckService:IBaseService<vw_OrderInfo>
     {
-        JObject GetCheckInfo();
+        JObject GetCheckInfo(JObject json);
     }
 }

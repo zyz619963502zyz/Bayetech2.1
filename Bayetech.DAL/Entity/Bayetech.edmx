@@ -106,6 +106,30 @@
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="GameGoodInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameLevel" Type="int" />
+          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameService" Type="nchar" MaxLength="50" />
+          <Property Name="GameGroup" Type="nchar" MaxLength="50" />
+          <Property Name="GameServer" Type="nchar" MaxLength="50" />
+          <Property Name="TotalNum" Type="int" />
+          <Property Name="BuyNum" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="HistoryAccount" Type="int" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
+          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
+          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="GameRequirements">
           <Key>
             <PropertyRef Name="Id" />
@@ -116,28 +140,6 @@
           <Property Name="GameArea" Type="nvarchar" MaxLength="20" />
           <Property Name="AccountSecurity" Type="nvarchar" MaxLength="50" />
           <Property Name="Money" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>
-        <EntityType Name="GameRoleInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="GameId" Type="bigint" />
-          <Property Name="GameAcountId" Type="bigint" />
-          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameLevel" Type="int" />
-          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameService" Type="nchar" MaxLength="10" />
-          <Property Name="GameGroup" Type="nchar" MaxLength="10" />
-          <Property Name="GameServer" Type="nchar" MaxLength="10" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Account" Type="int" />
-          <Property Name="ListOrder" Type="int" />
-          <Property Name="EditTime" Type="int" />
-          <Property Name="AddTime" Type="int" />
-          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
-          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
-          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
@@ -253,7 +255,7 @@
           <Property Name="OrderFeeName" Type="nvarchar" MaxLength="30" />
           <Property Name="OrderStatus" Type="tinyint" />
           <Property Name="OrderUpdateTime" Type="int" />
-          <Property Name="GameId" Type="bigint" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
           <Property Name="SellerId" Type="nvarchar" MaxLength="30" />
           <Property Name="BuyerId" Type="nvarchar" MaxLength="30" />
           <Property Name="TradeNo" Type="nvarchar" MaxLength="50" />
@@ -377,26 +379,8 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_OrderInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_OrderInfo">
           <Key>
-            <PropertyRef Name="MallId" />
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="GameId" Type="bigint" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
-          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameLevel" Type="int" />
-          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameService" Type="nchar" MaxLength="10" />
-          <Property Name="GameGroup" Type="nchar" MaxLength="10" />
-          <Property Name="GameServer" Type="nchar" MaxLength="10" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ListOrder" Type="int" />
-          <Property Name="EditTime" Type="int" />
-          <Property Name="AddTime" Type="int" />
-          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
-          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
-          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
-          <Property Name="MallId" Type="bigint" Nullable="false" />
           <Property Name="OrderId" Type="bigint" Nullable="false" />
           <Property Name="OrderNo" Type="nchar" MaxLength="50" />
           <Property Name="OrderTitle" Type="nvarchar" MaxLength="120" />
@@ -404,14 +388,16 @@
           <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
           <Property Name="OrderNumber" Type="int" />
           <Property Name="OrderAmount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="OrderFeeName" Type="nvarchar" MaxLength="30" />
           <Property Name="OrderFee" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderFeeName" Type="nvarchar" MaxLength="30" />
           <Property Name="OrderStatus" Type="tinyint" />
           <Property Name="OrderUpdateTime" Type="int" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
           <Property Name="SellerId" Type="nvarchar" MaxLength="30" />
           <Property Name="BuyerId" Type="nvarchar" MaxLength="30" />
           <Property Name="TradeNo" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderTime" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
           <Property Name="Editor" Type="nvarchar" MaxLength="30" />
           <Property Name="RefundReason" Type="nvarchar(max)" />
           <Property Name="Note" Type="nvarchar" MaxLength="255" />
@@ -420,7 +406,25 @@
           <Property Name="SellerStar" Type="tinyint" />
           <Property Name="SendTime" Type="nvarchar" MaxLength="20" />
           <Property Name="SendDays" Type="int" />
-          <Property Name="GameAcountId" Type="bigint" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameLevel" Type="int" />
+          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameService" Type="nchar" MaxLength="50" />
+          <Property Name="GameGroup" Type="nchar" MaxLength="50" />
+          <Property Name="GameServer" Type="nchar" MaxLength="50" />
+          <Property Name="TotalNum" Type="int" />
+          <Property Name="BuyNum" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="HistoryAccount" Type="int" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
+          <Property Name="Expr1" Type="datetime" />
+          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
+          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
@@ -428,8 +432,8 @@
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameGoodInfo" EntityType="Self.GameGoodInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GameRoleInfo" EntityType="Self.GameRoleInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mall" EntityType="Self.Mall" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallOrder" EntityType="Self.MallOrder" Schema="dbo" store:Type="Tables" />
@@ -452,23 +456,6 @@
           </EntitySet>
           <EntitySet Name="vw_OrderInfo" EntityType="Self.vw_OrderInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_OrderInfo].[GameId] AS [GameId], 
-    [vw_OrderInfo].[Name] AS [Name], 
-    [vw_OrderInfo].[Alias] AS [Alias], 
-    [vw_OrderInfo].[GameName] AS [GameName], 
-    [vw_OrderInfo].[GameLevel] AS [GameLevel], 
-    [vw_OrderInfo].[GameProfession] AS [GameProfession], 
-    [vw_OrderInfo].[GameService] AS [GameService], 
-    [vw_OrderInfo].[GameGroup] AS [GameGroup], 
-    [vw_OrderInfo].[GameServer] AS [GameServer], 
-    [vw_OrderInfo].[UserName] AS [UserName], 
-    [vw_OrderInfo].[ListOrder] AS [ListOrder], 
-    [vw_OrderInfo].[EditTime] AS [EditTime], 
-    [vw_OrderInfo].[AddTime] AS [AddTime], 
-    [vw_OrderInfo].[QQLevel] AS [QQLevel], 
-    [vw_OrderInfo].[IdentityInfo] AS [IdentityInfo], 
-    [vw_OrderInfo].[QQFriends] AS [QQFriends], 
-    [vw_OrderInfo].[MallId] AS [MallId], 
     [vw_OrderInfo].[OrderId] AS [OrderId], 
     [vw_OrderInfo].[OrderNo] AS [OrderNo], 
     [vw_OrderInfo].[OrderTitle] AS [OrderTitle], 
@@ -476,14 +463,16 @@
     [vw_OrderInfo].[OrderPrice] AS [OrderPrice], 
     [vw_OrderInfo].[OrderNumber] AS [OrderNumber], 
     [vw_OrderInfo].[OrderAmount] AS [OrderAmount], 
-    [vw_OrderInfo].[OrderFeeName] AS [OrderFeeName], 
     [vw_OrderInfo].[OrderFee] AS [OrderFee], 
+    [vw_OrderInfo].[OrderFeeName] AS [OrderFeeName], 
     [vw_OrderInfo].[OrderStatus] AS [OrderStatus], 
     [vw_OrderInfo].[OrderUpdateTime] AS [OrderUpdateTime], 
+    [vw_OrderInfo].[GoodNo] AS [GoodNo], 
     [vw_OrderInfo].[SellerId] AS [SellerId], 
     [vw_OrderInfo].[BuyerId] AS [BuyerId], 
     [vw_OrderInfo].[TradeNo] AS [TradeNo], 
     [vw_OrderInfo].[OrderTime] AS [OrderTime], 
+    [vw_OrderInfo].[AddTime] AS [AddTime], 
     [vw_OrderInfo].[Editor] AS [Editor], 
     [vw_OrderInfo].[RefundReason] AS [RefundReason], 
     [vw_OrderInfo].[Note] AS [Note], 
@@ -492,7 +481,25 @@
     [vw_OrderInfo].[SellerStar] AS [SellerStar], 
     [vw_OrderInfo].[SendTime] AS [SendTime], 
     [vw_OrderInfo].[SendDays] AS [SendDays], 
-    [vw_OrderInfo].[GameAcountId] AS [GameAcountId]
+    [vw_OrderInfo].[GameId] AS [GameId], 
+    [vw_OrderInfo].[GameName] AS [GameName], 
+    [vw_OrderInfo].[GameLevel] AS [GameLevel], 
+    [vw_OrderInfo].[GameProfession] AS [GameProfession], 
+    [vw_OrderInfo].[GameService] AS [GameService], 
+    [vw_OrderInfo].[GameGroup] AS [GameGroup], 
+    [vw_OrderInfo].[GameServer] AS [GameServer], 
+    [vw_OrderInfo].[TotalNum] AS [TotalNum], 
+    [vw_OrderInfo].[BuyNum] AS [BuyNum], 
+    [vw_OrderInfo].[UserName] AS [UserName], 
+    [vw_OrderInfo].[HistoryAccount] AS [HistoryAccount], 
+    [vw_OrderInfo].[ListOrder] AS [ListOrder], 
+    [vw_OrderInfo].[EditTime] AS [EditTime], 
+    [vw_OrderInfo].[QQLevel] AS [QQLevel], 
+    [vw_OrderInfo].[Expr1] AS [Expr1], 
+    [vw_OrderInfo].[IdentityInfo] AS [IdentityInfo], 
+    [vw_OrderInfo].[QQFriends] AS [QQFriends], 
+    [vw_OrderInfo].[Name] AS [Name], 
+    [vw_OrderInfo].[Alias] AS [Alias]
     FROM [dbo].[vw_OrderInfo] AS [vw_OrderInfo]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -507,17 +514,17 @@
           <EntitySet Name="Category" EntityType="BayetechModel.Category" />
           <EntitySet Name="Game" EntityType="BayetechModel.Game" />
           <EntitySet Name="GameRequirements" EntityType="BayetechModel.GameRequirements" />
-          <EntitySet Name="GameRoleInfo" EntityType="BayetechModel.GameRoleInfo" />
           <EntitySet Name="Login" EntityType="BayetechModel.Login" />
           <EntitySet Name="Mall" EntityType="BayetechModel.Mall" />
-          <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
           <EntitySet Name="MallOrder_Test" EntityType="BayetechModel.MallOrder_Test" />
           <EntitySet Name="MallType" EntityType="BayetechModel.MallType" />
           <EntitySet Name="Module" EntityType="BayetechModel.Module" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
           <EntitySet Name="vw_LoginInfo" EntityType="BayetechModel.vw_LoginInfo" />
-          <EntitySet Name="vw_OrderInfo" EntityType="BayetechModel.vw_OrderInfo" />
           <EntitySet Name="Server" EntityType="BayetechModel.Server" />
+          <EntitySet Name="vw_OrderInfo" EntityType="BayetechModel.vw_OrderInfo" />
+          <EntitySet Name="GameGoodInfo" EntityType="BayetechModel.GameGoodInfo" />
+          <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -631,28 +638,6 @@
           <Property Name="AccountSecurity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Money" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="GameRoleInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="GameAcountId" Type="Int64" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameLevel" Type="Int32" />
-          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameService" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroup" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="GameServer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Account" Type="Int32" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="Int32" />
-          <Property Name="AddTime" Type="Int32" />
-          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="LoginId" />
@@ -751,37 +736,6 @@
           <Property Name="qqt" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="gtid" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="MallOrder">
-          <Key>
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="MallId" Type="Int64" Nullable="false" />
-          <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="OrderTitle" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="OrderThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderFee" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderFeeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="OrderStatus" Type="Byte" />
-          <Property Name="OrderUpdateTime" Type="Int32" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="SellerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="TradeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderTime" Type="Int32" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SendNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SendType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SellerStar" Type="Byte" />
-          <Property Name="SendTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SendDays" Type="Int32" />
-        </EntityType>
         <EntityType Name="MallOrder_Test">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -871,53 +825,6 @@
           <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vw_OrderInfo">
-          <Key>
-            <PropertyRef Name="MallId" />
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameLevel" Type="Int32" />
-          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameService" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroup" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="GameServer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="Int32" />
-          <Property Name="AddTime" Type="Int32" />
-          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="MallId" Type="Int64" Nullable="false" />
-          <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="OrderTitle" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="OrderThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderFeeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="OrderFee" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderStatus" Type="Byte" />
-          <Property Name="OrderUpdateTime" Type="Int32" />
-          <Property Name="SellerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="TradeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderTime" Type="Int32" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SendNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SendType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SellerStar" Type="Byte" />
-          <Property Name="SendTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SendDays" Type="Int32" />
-          <Property Name="GameAcountId" Type="Int64" />
-        </EntityType>
         <EntityType Name="Server">
           <Key>
             <PropertyRef Name="Id" />
@@ -931,6 +838,110 @@
           <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Gameid" Type="Int32" Nullable="false" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_OrderInfo">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="OrderTitle" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="OrderThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderFee" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderFeeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="Byte" />
+          <Property Name="OrderUpdateTime" Type="Int32" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SellerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TradeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderTime" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SendNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SellerStar" Type="Byte" />
+          <Property Name="SendTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SendDays" Type="Int32" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameLevel" Type="Int32" />
+          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroup" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="TotalNum" Type="Int32" />
+          <Property Name="BuyNum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Expr1" Type="DateTime" Precision="3" />
+          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GameGoodInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameLevel" Type="Int32" />
+          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroup" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="TotalNum" Type="Int32" />
+          <Property Name="BuyNum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MallOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="MallId" Type="Int64" Nullable="false" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="OrderTitle" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="OrderThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderFee" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderFeeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="Byte" />
+          <Property Name="OrderUpdateTime" Type="Int32" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SellerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TradeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderTime" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SendNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SellerStar" Type="Byte" />
+          <Property Name="SendTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SendDays" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1055,29 +1066,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GameRoleInfo">
-            <EntityTypeMapping TypeName="BayetechModel.GameRoleInfo">
-              <MappingFragment StoreEntitySet="GameRoleInfo">
-                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
-                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
-                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="Account" ColumnName="Account" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
-                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
-                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="GameAcountId" ColumnName="GameAcountId" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Login">
             <EntityTypeMapping TypeName="BayetechModel.Login">
               <MappingFragment StoreEntitySet="Login">
@@ -1178,38 +1166,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MallOrder">
-            <EntityTypeMapping TypeName="BayetechModel.MallOrder">
-              <MappingFragment StoreEntitySet="MallOrder">
-                <ScalarProperty Name="SendDays" ColumnName="SendDays" />
-                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-                <ScalarProperty Name="SellerStar" ColumnName="SellerStar" />
-                <ScalarProperty Name="SendType" ColumnName="SendType" />
-                <ScalarProperty Name="SendNo" ColumnName="SendNo" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
-                <ScalarProperty Name="TradeNo" ColumnName="TradeNo" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="OrderFeeName" ColumnName="OrderFeeName" />
-                <ScalarProperty Name="OrderFee" ColumnName="OrderFee" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderThumb" ColumnName="OrderThumb" />
-                <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="MallId" ColumnName="MallId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MallOrder_Test">
             <EntityTypeMapping TypeName="BayetechModel.MallOrder_Test">
               <MappingFragment StoreEntitySet="MallOrder_Test">
@@ -1304,53 +1260,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_OrderInfo">
-            <EntityTypeMapping TypeName="BayetechModel.vw_OrderInfo">
-              <MappingFragment StoreEntitySet="vw_OrderInfo">
-                <ScalarProperty Name="GameAcountId" ColumnName="GameAcountId" />
-                <ScalarProperty Name="SendDays" ColumnName="SendDays" />
-                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-                <ScalarProperty Name="SellerStar" ColumnName="SellerStar" />
-                <ScalarProperty Name="SendType" ColumnName="SendType" />
-                <ScalarProperty Name="SendNo" ColumnName="SendNo" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
-                <ScalarProperty Name="TradeNo" ColumnName="TradeNo" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="OrderFee" ColumnName="OrderFee" />
-                <ScalarProperty Name="OrderFeeName" ColumnName="OrderFeeName" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderThumb" ColumnName="OrderThumb" />
-                <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="MallId" ColumnName="MallId" />
-                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
-                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
-                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
-                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
-                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Server">
             <EntityTypeMapping TypeName="BayetechModel.Server">
               <MappingFragment StoreEntitySet="Server">
@@ -1363,6 +1272,113 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_OrderInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_OrderInfo">
+              <MappingFragment StoreEntitySet="vw_OrderInfo">
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
+                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
+                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
+                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="SendDays" ColumnName="SendDays" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="SellerStar" ColumnName="SellerStar" />
+                <ScalarProperty Name="SendType" ColumnName="SendType" />
+                <ScalarProperty Name="SendNo" ColumnName="SendNo" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="TradeNo" ColumnName="TradeNo" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderFeeName" ColumnName="OrderFeeName" />
+                <ScalarProperty Name="OrderFee" ColumnName="OrderFee" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderThumb" ColumnName="OrderThumb" />
+                <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameGoodInfo">
+            <EntityTypeMapping TypeName="BayetechModel.GameGoodInfo">
+              <MappingFragment StoreEntitySet="GameGoodInfo">
+                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
+                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
+                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
+                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
+                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MallOrder">
+            <EntityTypeMapping TypeName="BayetechModel.MallOrder">
+              <MappingFragment StoreEntitySet="MallOrder">
+                <ScalarProperty Name="SendDays" ColumnName="SendDays" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="SellerStar" ColumnName="SellerStar" />
+                <ScalarProperty Name="SendType" ColumnName="SendType" />
+                <ScalarProperty Name="SendNo" ColumnName="SendNo" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="TradeNo" ColumnName="TradeNo" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderFeeName" ColumnName="OrderFeeName" />
+                <ScalarProperty Name="OrderFee" ColumnName="OrderFee" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderThumb" ColumnName="OrderThumb" />
+                <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="MallId" ColumnName="MallId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -82,10 +82,10 @@
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\GameRequirements.cs">
+    <Compile Include="Entity\GameGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\GameRoleInfo.cs">
+    <Compile Include="Entity\GameRequirements.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">

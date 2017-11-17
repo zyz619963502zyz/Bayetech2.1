@@ -13,7 +13,7 @@
 using Bayetech.DAL.Entity;
 namespace Bayetech.Service.IServices
 {
-    public partial interface IGameRoleInfoService : IBaseService<GameRoleInfo>
+    public partial interface IGameRoleInfoService : IBaseService<GameGoodInfo>
     {
         //自定义接口规范 请建立同名partial interface文件。防止代码被重新生成覆盖
     }

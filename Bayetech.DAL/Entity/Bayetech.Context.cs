@@ -44,13 +44,9 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<GameRequirements> GameRequirements { get; set; }
 
-    public virtual DbSet<GameRoleInfo> GameRoleInfo { get; set; }
-
     public virtual DbSet<Login> Login { get; set; }
 
     public virtual DbSet<Mall> Mall { get; set; }
-
-    public virtual DbSet<MallOrder> MallOrder { get; set; }
 
     public virtual DbSet<MallOrder_Test> MallOrder_Test { get; set; }
 
@@ -62,9 +58,13 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_LoginInfo> vw_LoginInfo { get; set; }
 
+    public virtual DbSet<Server> Server { get; set; }
+
     public virtual DbSet<vw_OrderInfo> vw_OrderInfo { get; set; }
 
-    public virtual DbSet<Server> Server { get; set; }
+    public virtual DbSet<GameGoodInfo> GameGoodInfo { get; set; }
+
+    public virtual DbSet<MallOrder> MallOrder { get; set; }
 
 }
 

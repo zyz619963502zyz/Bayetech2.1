@@ -26,7 +26,7 @@ namespace Bayetech.DAL.Entity
         public string OrderFeeName { get; set; }
         public Nullable<byte> OrderStatus { get; set; }
         public Nullable<int> OrderUpdateTime { get; set; }
-        public Nullable<long> GameId { get; set; }
+        public string GoodNo { get; set; }
         public string SellerId { get; set; }
         public string BuyerId { get; set; }
         public string TradeNo { get; set; }
