@@ -63,6 +63,7 @@
     <Compile Include="IServices\Auto\IServerService.Auto.cs" />
     <Compile Include="IServices\Auto\Ivw_LoginInfoService.Auto.cs" />
     <Compile Include="IServices\IArticleService.cs" />
+    <Compile Include="IServices\IDealCheckService.cs" />
     <Compile Include="IServices\IGameRequirementsService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\Interface1.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Services\Auto\RelationshipService.Auto.cs" />
     <Compile Include="Services\Auto\ServerService.Auto.cs" />
     <Compile Include="Services\Auto\vw_LoginInfoService.Auto.cs" />
+    <Compile Include="Services\DealCheckService.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
