@@ -3,6 +3,7 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Linq.Expressions;
+using Bayetech.DAL.Entity;
 
 namespace Bayetech.Service
 {
@@ -32,6 +33,11 @@ namespace Bayetech.Service
         public int Update(JObject json)
         {
             throw new NotImplementedException();
+        }
+
+        public BayetechEntities GetContext()
+        {
+            return repository.GetContext();
         }
     }
 }
