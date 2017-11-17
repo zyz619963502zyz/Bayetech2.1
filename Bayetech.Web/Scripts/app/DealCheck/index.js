@@ -3,7 +3,6 @@ var moudule = ['vue', 'jquery', 'common', 'OrderGoodInfo', 'OrderNav']
 require(moudule, function (Vue, $, common, goodInfo, orderNav) {
     //数据为左右整合数据
     var data = {};
-    var url = "/api/DealCheck/GetCheckInfo";
 
     //注册主键到标签
     //Vue.component('ordernav', orderNav);
@@ -15,9 +14,7 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
             return data;
         },
         created: function () {
-            common.postWebJson(url, data, function (data) {
-                var a = data;
-            });
+        
         },
         components: {
             'ordernav': orderNav,

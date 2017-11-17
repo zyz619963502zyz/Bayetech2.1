@@ -1,22 +1,20 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using Bayetech.Service;
+using Bayetech.Service.Services;
+using Newtonsoft.Json.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
 {
     public class DealCheckController : BaseController
     {
+        //取出服务层
+        DealCheckService service = ctx.GetObject("DealCheckService") as DealCheckService;
+
         [HttpPost]
-        public JObject GetCheckInfo() 
+        public JObject GetCheckInfo(string goodNo) 
         {
-
-
-            JObject ret = new JObject();
-            return ret;
+            return service.GetCheckInfo(goodNo);
         }
+
     }  
 }
