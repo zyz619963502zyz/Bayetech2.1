@@ -5,8 +5,8 @@ require(['vue', 'jquery', 'common', 'v-header', 'v-footer', 'footer-server', 'fo
         el: '#app',
         data() {
             return {
-                tab1: notice,
-                tab2: gameranking,
+                notice: notice,
+                gameranking: gameranking,
             }
         },
         created: function () {
