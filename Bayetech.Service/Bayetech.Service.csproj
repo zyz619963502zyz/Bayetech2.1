@@ -56,12 +56,14 @@
     <Compile Include="IServices\Auto\IGameService.Auto.cs" />
     <Compile Include="IServices\Auto\ILoginService.Auto.cs" />
     <Compile Include="IServices\Auto\IMallOrderService.Auto.cs" />
+    <Compile Include="IServices\Auto\IMallOrder_TestService.Auto.cs" />
     <Compile Include="IServices\Auto\IMallService.Auto.cs" />
     <Compile Include="IServices\Auto\IMallTypeService.Auto.cs" />
     <Compile Include="IServices\Auto\IModuleService.Auto.cs" />
     <Compile Include="IServices\Auto\IRelationshipService.Auto.cs" />
     <Compile Include="IServices\Auto\IServerService.Auto.cs" />
     <Compile Include="IServices\Auto\Ivw_LoginInfoService.Auto.cs" />
+    <Compile Include="IServices\Auto\Ivw_OrderInfoService.Auto.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IGameRequirementsService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
@@ -80,12 +82,14 @@
     <Compile Include="Services\Auto\GameService.Auto.cs" />
     <Compile Include="Services\Auto\LoginService.Auto.cs" />
     <Compile Include="Services\Auto\MallOrderService.Auto.cs" />
+    <Compile Include="Services\Auto\MallOrder_TestService.Auto.cs" />
     <Compile Include="Services\Auto\MallService.Auto.cs" />
     <Compile Include="Services\Auto\MallTypeService.Auto.cs" />
     <Compile Include="Services\Auto\ModuleService.Auto.cs" />
     <Compile Include="Services\Auto\RelationshipService.Auto.cs" />
     <Compile Include="Services\Auto\ServerService.Auto.cs" />
     <Compile Include="Services\Auto\vw_LoginInfoService.Auto.cs" />
+    <Compile Include="Services\Auto\vw_OrderInfoService.Auto.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
@@ -126,6 +130,7 @@
 ..\IServices\Auto\IGameRoleInfoService.Auto.cs
 ..\IServices\Auto\IGameService.Auto.cs
 ..\IServices\Auto\ILoginService.Auto.cs
+..\IServices\Auto\IMallOrder_TestService.Auto.cs
 ..\IServices\Auto\IMallOrderService.Auto.cs
 ..\IServices\Auto\IMallService.Auto.cs
 ..\IServices\Auto\IMallTypeService.Auto.cs
@@ -133,6 +138,7 @@
 ..\IServices\Auto\IRelationshipService.Auto.cs
 ..\IServices\Auto\IServerService.Auto.cs
 ..\IServices\Auto\Ivw_LoginInfoService.Auto.cs
+..\IServices\Auto\Ivw_OrderInfoService.Auto.cs
 ..\Services\Auto\AccountService.Auto.cs
 ..\Services\Auto\ArticleContentService.Auto.cs
 ..\Services\Auto\ArticleService.Auto.cs
@@ -142,6 +148,7 @@
 ..\Services\Auto\GameRoleInfoService.Auto.cs
 ..\Services\Auto\GameService.Auto.cs
 ..\Services\Auto\LoginService.Auto.cs
+..\Services\Auto\MallOrder_TestService.Auto.cs
 ..\Services\Auto\MallOrderService.Auto.cs
 ..\Services\Auto\MallService.Auto.cs
 ..\Services\Auto\MallTypeService.Auto.cs
@@ -149,6 +156,7 @@
 ..\Services\Auto\RelationshipService.Auto.cs
 ..\Services\Auto\ServerService.Auto.cs
 ..\Services\Auto\vw_LoginInfoService.Auto.cs
+..\Services\Auto\vw_OrderInfoService.Auto.cs
 .\Run_Services.cs
 </LastOutputs>
     </Content>

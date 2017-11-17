@@ -7,7 +7,7 @@
 // <copyright file="AccountService.Auto.cs">
 //		作者：Jie
 //		所属工程：Bayetech2.0
-//		生成时间：2017-11-15 10:12
+//		生成时间：2017-11-17 10:44
 // </copyright>
 //------------------------------------------------------------------------------
 using Bayetech.DAL.Entity;
@@ -16,7 +16,7 @@ namespace Bayetech.Service.Services
 {
 
     public partial class AccountService :ServiceBase<Account>,IAccountService
-    {
+    {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }
 }
