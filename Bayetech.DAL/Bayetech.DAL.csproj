@@ -52,15 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Account.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Article.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ArticleContent.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Bayetech.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,48 +66,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Bayetech.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Category.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Game.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\GameRequirements.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\GameRoleInfo.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Login.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Mall.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\MallOrder.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\MallOrder_Test.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\MallType.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Module.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Relationship.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Server.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\vw_LoginInfo.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\vw_OrderInfo.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DbHelper.cs" />
     <Compile Include="Extensions\EntityInterfaceExtensions.cs" />

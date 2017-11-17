@@ -19,9 +19,9 @@
         <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="2.75" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="4.75" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="10.75" PointY="10.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="12.75" PointY="4.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_OrderInfo" Width="1.5" PointX="12.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_OrderInfo" Width="1.5" PointX="3.375" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="13.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
