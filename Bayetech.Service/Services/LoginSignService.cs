@@ -75,7 +75,7 @@ namespace Bayetech.Service.Services
                             _currentLogin.LoginTime = DateTime.Now;
                             _currentLogin.Message = "登录成功";
                             db.Insert(_currentLogin);
-                            db.Commit();
+                            db.Commit();  
                             result.Add(ResultInfo.Result, JProperty.FromObject(true));
                             result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
                         }
