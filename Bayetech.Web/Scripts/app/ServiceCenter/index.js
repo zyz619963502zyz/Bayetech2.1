@@ -1,6 +1,6 @@
-﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom']
+﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot']
 //个人中心主模块
-require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom) {
+require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot) {
     var data = {
         ServiceList: [{ url: "http://www.7881.com/tradesafe.html", text: "首页" }
                 , { url: "http://www.7881.com/tradesafe.html", text: "安全知识中心" }
@@ -33,6 +33,12 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
                             { url: "http://www.7881.com/tradesafe/825689321558028350a0.html", text: "如何识别真假客服" },
                             { url: "http://www.7881.com/tradesafe/825689321558028350a0.html", text: "骗子利用花言巧语对新用户进行......" }]
             }
+        ],
+        ServiceFooterList: [
+            { cl: "s1", text: "寄售担保11 无货保赔" },
+            { cl: "s2", text: "安全服务 保障资金" },
+            { cl: "s3", text: "7*24小时 专属客服" },
+            { cl: "s4", text: "权威认证 安全可信" },
         ]
 
     }
@@ -47,6 +53,7 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
             'regservicelogo': serlogo,
             'regservicenav': servicenav,
             'regservicebuttom': serbuttom,
+            'regfoot': foot,
         }
     });
 

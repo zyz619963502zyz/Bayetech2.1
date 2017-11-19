@@ -53,7 +53,8 @@ var jsconfig = {
         'Percontent': "app/PersonalCenter/content",
         'ServiceLogo': "app/ServiceCenter/sevicelogo",
         'ServiceNav': "app/ServiceCenter/servicepavigation",
-        'ServiceButtom': "app/ServiceCenter/servicenew"
+        'ServiceButtom': "app/ServiceCenter/servicenew",
+        'ServiceFoot': "app/ServiceCenter/footeradvan"
     },
     shim: {
         'bootstrap': {
