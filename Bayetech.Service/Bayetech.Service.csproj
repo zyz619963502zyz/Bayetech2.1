@@ -71,7 +71,7 @@
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="Model\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\Auto\AccountService.Auto.cs" />
     <Compile Include="Services\Auto\ArticleContentService.Auto.cs" />
@@ -95,6 +95,7 @@
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
+    <Compile Include="Services\vw_LoginInfoService.Auto.cs" />
     <Compile Include="T4Tools\Run_Services.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

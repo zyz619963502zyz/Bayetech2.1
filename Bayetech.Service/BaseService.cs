@@ -7,7 +7,7 @@ using Bayetech.DAL.Entity;
 
 namespace Bayetech.Service
 {
-    public class ServiceBase<TEntity> : IBaseService<TEntity> where TEntity : class, new()
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
         protected RepositoryBase repository = new RepositoryBase();
         public int Delete(object keyValue)

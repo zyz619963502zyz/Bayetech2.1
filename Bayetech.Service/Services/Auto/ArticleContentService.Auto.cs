@@ -15,7 +15,7 @@ using Bayetech.Service.IServices;
 namespace Bayetech.Service.Services 
 {
 
-    public partial class ArticleContentService :ServiceBase<ArticleContent>,IArticleContentService
+    public partial class ArticleContentService :BaseService<ArticleContent>,IArticleContentService
     {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }

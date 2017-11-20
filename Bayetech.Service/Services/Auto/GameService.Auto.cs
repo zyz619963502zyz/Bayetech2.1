@@ -15,7 +15,7 @@ using Bayetech.Service.IServices;
 namespace Bayetech.Service.Services 
 {
 
-    public partial class GameService :ServiceBase<Game>,IGameService
+    public partial class GameService :BaseService<Game>,IGameService
     {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }

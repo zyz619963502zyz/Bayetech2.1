@@ -15,7 +15,7 @@ using Bayetech.Service.IServices;
 namespace Bayetech.Service.Services 
 {
 
-    public partial class vw_OrderInfoService :ServiceBase<vw_OrderInfo>,Ivw_OrderInfoService
+    public partial class vw_OrderInfoService :BaseService<vw_OrderInfo>,Ivw_OrderInfoService
     {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }

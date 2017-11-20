@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Bayetech.Service.Services
 {
-    public partial class GameRequirementsService  : ServiceBase<GameRequirements>, IGameRequirementsService
+    public partial class GameRequirementsService  : BaseService<GameRequirements>, IGameRequirementsService
     {
         /// <summary>
         /// 获取出售需求列表

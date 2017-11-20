@@ -15,7 +15,7 @@ using Bayetech.Service.IServices;
 namespace Bayetech.Service.Services 
 {
 
-    public partial class vw_LoginInfoService :ServiceBase<vw_LoginInfo>,Ivw_LoginInfoService
+    public partial class vw_LoginInfoService :BaseService<vw_LoginInfo>,Ivw_LoginInfoService
     {    
         //自定义接口实现请建立同名partial class文件。防止代码被重新生成覆盖
     }
