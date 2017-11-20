@@ -3,6 +3,7 @@ using System.Web.Http;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Bayetech.Service.IServices;
+using Bayetech.DAL.Entity;
 
 namespace Bayetech.Web.Controllers
 {
@@ -10,7 +11,10 @@ namespace Bayetech.Web.Controllers
     {
 
         //取出服务层
+
         ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+
+        IBaseService<Category> service11 = ctx.GetObject("BaseService") as IBaseService<Category>;
 
         [HttpGet]
         public bool CheckAccount(string accountName)
@@ -18,6 +22,7 @@ namespace Bayetech.Web.Controllers
             try
             {
                 return service.CheckAccount(accountName);
+                return true;
             }
             catch (Exception ex)
             {
@@ -25,30 +30,33 @@ namespace Bayetech.Web.Controllers
             }
         }
 
-        [HttpPost]
-        public bool CreatAccount(JObject json)
-        {
-            try
-            {
-                return service.CreatAccount(json);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        //[HttpPost]
+        //public bool CreatAccount(JObject json)
+        //{ 
 
-        [HttpPost]
-        public JObject LoginIn(JObject json)
-        {
-            try
-            {
-                return service.CheckLogin(json);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+
+         
+        //    try
+        //    {
+        //        return service.CreatAccount(json);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
+        //[HttpPost]
+        //public JObject LoginIn(JObject json)
+        //{
+        //    try
+        //    {
+        //        return service.CheckLogin(json);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
     }
 }
