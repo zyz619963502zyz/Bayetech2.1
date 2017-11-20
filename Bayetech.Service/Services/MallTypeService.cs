@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Bayetech.Service.Services
 {
-    public partial class MallTypeService: IMallTypeService
+    public partial class MallTypeService: BaseService<MallType> ,IMallTypeService
     {
         public List<MallType> GetDataByGameId(int type,int id)
         {

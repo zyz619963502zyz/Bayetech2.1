@@ -1,4 +1,6 @@
-﻿using Bayetech.Service.Services;
+﻿using Bayetech.Core.Entity;
+using Bayetech.Service;
+using Bayetech.Service.Services;
 using System;
 using System.Linq;
 using System.Web.Http;
@@ -7,7 +9,7 @@ namespace Bayetech.Web.Controllers
 {
     public class GameController : BaseController
     {
-        GameService gameService = new GameService();
+        BaseService<Game> gameService = new BaseService<Game>();
 
         /// <summary>
         /// 获取热门游戏

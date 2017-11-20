@@ -825,10 +825,6 @@
       <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
       <Name>Bayetech.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
-      <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
-      <Name>Bayetech.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
       <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
       <Name>Bayetech.Service</Name>
