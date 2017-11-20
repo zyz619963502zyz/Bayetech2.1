@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using Newtonsoft.Json;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 using System;
 using Bayetech.Core;
 using Bayetech.Service.IServices;

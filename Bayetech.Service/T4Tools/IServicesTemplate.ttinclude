@@ -32,7 +32,7 @@
 //		生成时间：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
 // </copyright>
 //------------------------------------------------------------------------------
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 namespace Bayetech.Service.IServices
 {
     public partial interface I<#=_modelName #>Service : IBaseService<<#=_modelName #>>

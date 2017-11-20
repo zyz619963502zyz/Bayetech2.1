@@ -7,21 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Server
+    public partial class Game
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public int Type { get; set; }
+        public string Alias { get; set; }
         public string Letter { get; set; }
-        public int ParentId { get; set; }
-        public Nullable<short> Order { get; set; }
+        public bool IsHot { get; set; }
+        public int Parentid { get; set; }
+        public short Order { get; set; }
+        public int Platform { get; set; }
         public string Img { get; set; }
-        public int Gameid { get; set; }
         public bool IsDelete { get; set; }
     }
 }

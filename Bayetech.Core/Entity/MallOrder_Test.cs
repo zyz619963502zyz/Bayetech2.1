@@ -7,15 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_OrderInfo
+    public partial class MallOrder_Test
     {
+        public long MallId { get; set; }
+        public string Buyer { get; set; }
+        public string Seller { get; set; }
         public long OrderId { get; set; }
-        public string OrderNo { get; set; }
         public string OrderTitle { get; set; }
         public string OrderThumb { get; set; }
         public Nullable<decimal> OrderPrice { get; set; }
@@ -25,38 +27,31 @@ namespace Bayetech.DAL.Entity
         public string OrderFeeName { get; set; }
         public Nullable<byte> OrderStatus { get; set; }
         public Nullable<int> OrderUpdateTime { get; set; }
-        public string GoodNo { get; set; }
-        public string SellerId { get; set; }
-        public string BuyerId { get; set; }
         public string TradeNo { get; set; }
+        public Nullable<short> add_time { get; set; }
         public Nullable<int> OrderTime { get; set; }
-        public Nullable<System.DateTime> AddTime { get; set; }
         public string Editor { get; set; }
         public string RefundReason { get; set; }
         public string Note { get; set; }
+        public string SellerId { get; set; }
+        public string SellerName { get; set; }
+        public string BuyerId { get; set; }
+        public string BuyerName { get; set; }
+        public string BuyerQQ { get; set; }
+        public string BuyerGameName { get; set; }
+        public Nullable<int> BuyerLevel { get; set; }
+        public string BuyerProfession { get; set; }
+        public string BuyerReason { get; set; }
+        public string BuyerReceive { get; set; }
+        public Nullable<byte> BuyerStar { get; set; }
+        public string BuyerPobile { get; set; }
+        public string BuyerPhone { get; set; }
+        public string BuyerPostCode { get; set; }
+        public string BuyerAddress { get; set; }
         public string SendNo { get; set; }
         public string SendType { get; set; }
         public Nullable<byte> SellerStar { get; set; }
         public string SendTime { get; set; }
         public Nullable<int> SendDays { get; set; }
-        public Nullable<long> GameId { get; set; }
-        public string GameName { get; set; }
-        public Nullable<int> GameLevel { get; set; }
-        public string GameProfession { get; set; }
-        public string GameService { get; set; }
-        public string GameGroup { get; set; }
-        public string GameServer { get; set; }
-        public Nullable<int> TotalNum { get; set; }
-        public Nullable<int> BuyNum { get; set; }
-        public string UserName { get; set; }
-        public Nullable<int> HistoryAccount { get; set; }
-        public Nullable<int> ListOrder { get; set; }
-        public Nullable<System.DateTime> EditTime { get; set; }
-        public string QQLevel { get; set; }
-        public Nullable<System.DateTime> Expr1 { get; set; }
-        public string IdentityInfo { get; set; }
-        public string QQFriends { get; set; }
-        public string Name { get; set; }
-        public string Alias { get; set; }
     }
 }

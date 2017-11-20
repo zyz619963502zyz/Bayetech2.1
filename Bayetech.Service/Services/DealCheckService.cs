@@ -1,5 +1,5 @@
 ﻿using System;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Collections.Generic;

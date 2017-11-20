@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
 
 using System;

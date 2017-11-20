@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Game
+    public partial class vw_LoginInfo
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Alias { get; set; }
-        public string Letter { get; set; }
-        public bool IsHot { get; set; }
-        public int Parentid { get; set; }
-        public short Order { get; set; }
-        public int Platform { get; set; }
-        public string Img { get; set; }
-        public bool IsDelete { get; set; }
+        public string UserName { get; set; }
+        public string GameName { get; set; }
+        public string Iphone { get; set; }
+        public Nullable<byte> Admin { get; set; }
+        public string LoginIp { get; set; }
+        public Nullable<System.DateTime> LoginTime { get; set; }
+        public string Message { get; set; }
+        public string Agent { get; set; }
     }
 }

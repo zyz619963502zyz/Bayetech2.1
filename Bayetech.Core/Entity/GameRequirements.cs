@@ -7,15 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ArticleContent
+    public partial class GameRequirements
     {
-        public long Id { get; set; }
-        public long ArticleId { get; set; }
-        public string Content { get; set; }
+        public int Id { get; set; }
+        public string ScreenshotsCertification { get; set; }
+        public string PlatformUndertakes { get; set; }
+        public string GameArea { get; set; }
+        public string AccountSecurity { get; set; }
+        public Nullable<decimal> Money { get; set; }
     }
 }

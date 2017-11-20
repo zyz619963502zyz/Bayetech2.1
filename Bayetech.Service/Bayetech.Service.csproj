@@ -59,7 +59,6 @@
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
-    <Compile Include="Services\vw_LoginInfoService.Auto.cs" />
     <Compile Include="T4Tools\Run_Services.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

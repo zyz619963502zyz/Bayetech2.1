@@ -1,4 +1,4 @@
-﻿using Bayetech.DAL.Entity;
+﻿using Bayetech.Core.Entity;
 using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System.Linq;

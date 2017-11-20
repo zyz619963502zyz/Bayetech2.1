@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 using System.Web.Http;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 using System.Linq;
 
 namespace Bayetech.Web.Controllers

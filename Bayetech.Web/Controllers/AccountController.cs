@@ -3,7 +3,7 @@ using System.Web.Http;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Bayetech.Service.IServices;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 
 namespace Bayetech.Web.Controllers
 {

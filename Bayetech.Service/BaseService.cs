@@ -3,7 +3,7 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Linq.Expressions;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 
 namespace Bayetech.Service
 {

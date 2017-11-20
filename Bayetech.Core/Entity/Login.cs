@@ -7,15 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bayetech.DAL.Entity
+namespace Bayetech.Core.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Module
+    public partial class Login
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public bool IsDelete { get; set; }
+        public long LoginId { get; set; }
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
+        public Nullable<byte> Admin { get; set; }
+        public string LoginIp { get; set; }
+        public Nullable<System.DateTime> LoginTime { get; set; }
+        public string Message { get; set; }
+        public string Agent { get; set; }
     }
 }
