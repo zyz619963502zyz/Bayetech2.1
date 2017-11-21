@@ -68,7 +68,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 this.showDropdown = true;
                 this[`${type}id`] = id;
                 let nowVue = this;
-                debugger;
+                 
 
                 common.getWebJson("/api/Search/GetData", { type: type, id: id }, function (data) {
                     nowVue.dropdownData = data;

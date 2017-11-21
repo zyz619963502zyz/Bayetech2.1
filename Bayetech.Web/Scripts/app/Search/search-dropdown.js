@@ -45,7 +45,7 @@ define(["common"], function (common) {
                 this.$parent.loadDropdown(type, id);
             },
             GetDataByAlphabet: function (letter,type) {
-                debugger;
+                 
                 let nowVue = this;
                 common.getWebJson("/api/Game/GetDataByAlphabet", { letter:letter, type: type }, function (data) {
                     nowVue.$props.data.list = data;

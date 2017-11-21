@@ -110,7 +110,7 @@ define(['jquery'], function ($) {
         template: html,
         methods: {
             showTab(e) {
-                //debugger;
+                // 
                 var a = $(e);
                 //$(e).width(540).parent().find("list").not(e).width(190);
                 

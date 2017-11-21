@@ -1,6 +1,6 @@
 ﻿var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web" : "";
 //组件配置
-debugger;
+ 
 var componentfig = {
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
