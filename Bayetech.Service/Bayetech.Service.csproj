@@ -58,6 +58,7 @@
     <Compile Include="Services\DealCheckService.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
+    <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
   </ItemGroup>
   <ItemGroup>

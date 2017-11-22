@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\PredicateExtensions.cs" />
     <Compile Include="Entity\Account.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
