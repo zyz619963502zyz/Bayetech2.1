@@ -703,8 +703,10 @@
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\ServiceCenter\footeradvan.js" />
     <Content Include="Scripts\app\ServiceCenter\index.js" />
+    <Content Include="Scripts\app\ServiceCenter\ServiceColl.js" />
     <Content Include="Scripts\app\ServiceCenter\servicenew.js" />
     <Content Include="Scripts\app\ServiceCenter\servicepavigation.js" />
+    <Content Include="Scripts\app\ServiceCenter\servicepusht.js" />
     <Content Include="Scripts\app\ServiceCenter\sevicelogo.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />

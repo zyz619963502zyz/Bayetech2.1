@@ -1,6 +1,6 @@
-﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot']
+﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall']
 //个人中心主模块
-require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot) {
+require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call) {
     var data = {
         ServiceList: [{ url: "http://www.7881.com/tradesafe.html", text: "首页" }
                 , { url: "http://www.7881.com/tradesafe.html", text: "安全知识中心" }
@@ -39,8 +39,119 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
             { cl: "s2", text: "安全服务 保障资金" },
             { cl: "s3", text: "7*24小时 专属客服" },
             { cl: "s4", text: "权威认证 安全可信" },
+        ],
+        ServiceCollList:[
+            {
+                title: "问题类目",
+                content: [
+                    {
+                        dttitle: "游戏名称",
+                        dtcontent: [
+                                    {
+                                    lbtitle: "端游：",
+                                    lbcontent: [
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "地下城与勇士" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "斗战神" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "圣斗士星矢ol" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "新征途" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "笑傲江湖" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "刀剑2" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "问道" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "其他" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "剑灵" },
+                                    { url: "http://www.7881.com/sc/search-G10-0.html", text: "全部游戏" },
+                                        ]
+                                    },
+                                    {
+                                        lbtitle: "手游：",
+                                        lbcontent: [
+                                        { url: "http://www.7881.com/sc/search-G10-0.html", text: "忘仙" },
+                                        { url: "http://www.7881.com/sc/search-G10-0.html", text: "英雄战魂" },
+                                        ]
+                                    },
+                            
+                           
+                        ]
+                    },
+                     {
+                         dttitle: "交易模式",
+                         dtcontent: [
+                                     {
+                                         lbtitle: "",
+                                         lbcontent: [
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "寄售交易" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "担保交易" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "账号交易" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "其他" },
+                                         ]
+                                     },
+                         ]
+                     },
+                     {
+                         dttitle: "物品类型",
+                         dtcontent: [
+                                     {
+                                         lbtitle: "",
+                                         lbcontent: [
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "装备" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "游戏币" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "游戏账号" },
+                                         { url: "http://www.7881.com/sc/search-G10-0.html", text: "其他" },
+                                         ]
+                                     },
+                         ]
+                     },
+                      {
+                          dttitle: "服务流程",
+                          dtcontent: [
+                                      {
+                                          lbtitle: "",
+                                          lbcontent: [
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "出售流程" },
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "购买流程" },
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "审核流程" },
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "交易安全性" },
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "交易费收取标准" },
+                                          { url: "http://www.7881.com/sc/search-G10-0.html", text: "其它" },
+                                          ]
+                                      },
+                          ]
+                      },
+                       {
+                           dttitle: "其他",
+                           dtcontent: [
+                                       {
+                                           lbtitle: "",
+                                           lbcontent: [
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "7881用户名" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "充值" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "提现" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "交易证明" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "实名认证" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "手机绑定" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "其它" },
+                                           ]
+                                       },
+                           ]
+                       },
+                       {
+                           dttitle: "建议",
+                           dtcontent: [
+                                       {
+                                           lbtitle: "",
+                                           lbcontent: [
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "寄售交易" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "担保交易" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "账号交易" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "手游交易" },
+                                           { url: "http://www.7881.com/sc/search-G10-0.html", text: "其他" },
+                                           ]
+                                       },
+                           ]
+                       },
+                ],
+            }
         ]
-
     }
     var vm = new Vue({
         el: '#ServiceDiv',
@@ -54,6 +165,7 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
             'regservicenav': servicenav,
             'regservicebuttom': serbuttom,
             'regfoot': foot,
+            'regservicecall':call,
         }
     });
 

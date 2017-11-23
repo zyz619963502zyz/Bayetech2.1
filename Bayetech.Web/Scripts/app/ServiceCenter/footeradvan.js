@@ -1,6 +1,5 @@
 ﻿//头部模板
 define(jsconfig.baseArr, function (Vue, $, common) {
-    debugger;
     var html = `
          <div class ="advan">
                 <ul>

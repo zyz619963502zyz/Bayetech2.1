@@ -54,7 +54,8 @@ var jsconfig = {
         'ServiceLogo': "app/ServiceCenter/sevicelogo",
         'ServiceNav': "app/ServiceCenter/servicepavigation",
         'ServiceButtom': "app/ServiceCenter/servicenew",
-        'ServiceFoot': "app/ServiceCenter/footeradvan"
+        'ServiceFoot': "app/ServiceCenter/footeradvan",
+        'ServiceCall':"app/ServiceCenter/ServiceColl"
     },
     shim: {
         'bootstrap': {
