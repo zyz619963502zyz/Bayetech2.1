@@ -3,15 +3,17 @@ using System.Web.Http;
 using Bayetech.Service.Services;
 using Bayetech.Core.Enum;
 using System.Text.RegularExpressions;
+using Bayetech.Service;
+using Bayetech.Core.Entity;
 
 namespace Bayetech.Web.Controllers
 {
     public class SearchController : BaseController
     {
-        GameService gameService = new GameService();
-        ServerService serverService = new ServerService();
+        BaseService<Game> gameService = new BaseService<Game>();
+        BaseService<Server> serverService = new BaseService<Server>();
         MallTypeService mallTypeService = new MallTypeService();
-        RelationshipService relationshipService = new RelationshipService();
+        BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
         public IHttpActionResult GetData(int type, int id)
         {
@@ -49,7 +51,7 @@ namespace Bayetech.Web.Controllers
                     data.Title = "交易类型";
                     data.Type = (int)enumType;
                     data.Child = 0;
-                    data.List = mallTypeService.GetDataByGameId((int)Relationship.Game_MallType,1);
+                    data.List = mallTypeService.GetDataByGameId((int)Core.Enum.Relationship.Game_MallType,1);
                     break;
             }
             return Json(data);

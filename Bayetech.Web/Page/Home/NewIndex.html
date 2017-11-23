@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="right-panel-one m-b-md">
-                                <v-tab data="notice">
+                                <v-tab :data="notice">
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
                             </div>
@@ -150,14 +150,14 @@
                             <div class="right-panel-one m-b-md">
                                 <!--咨询、建议、投诉-->
                                 <!-- 没造数据，跟数据现在公告一样 -->
-                                <v-tab data="notice">
+                                <v-tab :data="consult">
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
                             </div>
                             
                             <div class="right-panel-one m-b-md">
                                 <!--交易榜单-->
-                                <v-tab data="gameranking">
+                                <v-tab :data="gameranking">
                                     <template slot-scope="props">
                                         <div class="c1 top3">{{ props.obj.no}}.</div>
                                         <div class="c2">{{ props.obj.title}}</div>
@@ -197,31 +197,31 @@
     </div>
     
 
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <!--<script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../../Scripts/swiper.min.js"></script>
+    <script src="../../Scripts/swiper.min.js"></script>-->
     <script>
-        $(document).ready(function () {
-            var FirstSwiper = new Swiper('.swiper-container', {
-                wrapperClass: 'wrapper-car',        //设置wrapper的css类名
-                slideClass: 'car-slide',            //设置slide的类名
-                direction:'horizontal',             //横向水平滑动
-                pagination: {                       //分页器
-                    el: '.swiper-pagination',       //分页类名
-                },
-                navigation:{
-                    nextEl:'.swiper-button-next',   //下一张
-                    prevEl:'.swiper-button-prev',   //上一张
-                },
-                autoplay: {                         //自动切换
-                    delay:2000,                     //切换速度
-                },
-                slidesPerView: 1,                   //同时显示数量
-                spaceBetween: 30,                   //相邻图片边距                
-                loop: true,                         //无限循环模式
+        //$(document).ready(function () {
+        //    var FirstSwiper = new Swiper('.swiper-container', {
+        //        wrapperClass: 'wrapper-car',        //设置wrapper的css类名
+        //        slideClass: 'car-slide',            //设置slide的类名
+        //        direction:'horizontal',             //横向水平滑动
+        //        pagination: {                       //分页器
+        //            el: '.swiper-pagination',       //分页类名
+        //        },
+        //        navigation:{
+        //            nextEl:'.swiper-button-next',   //下一张
+        //            prevEl:'.swiper-button-prev',   //上一张
+        //        },
+        //        autoplay: {                         //自动切换
+        //            delay:2000,                     //切换速度
+        //        },
+        //        slidesPerView: 1,                   //同时显示数量
+        //        spaceBetween: 30,                   //相邻图片边距                
+        //        loop: true,                         //无限循环模式
                 
-            });
-        })
+        //    });
+        //})
             
         
     </script>

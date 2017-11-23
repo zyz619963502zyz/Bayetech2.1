@@ -10,6 +10,7 @@ var jsconfig = {
         'vue': 'vue',
         'bootstrap': 'bootstrap',
         'bootstrapValidator': 'bootstrapValidator',
+        'swiper': 'swiper.min',
         'common': 'common',
         'v-header': 'app/Shared/header',
         'v-footer': 'app/Shared/footer',
@@ -20,6 +21,7 @@ var jsconfig = {
         'SignLeftModule': 'app/Sign/signLeft',
         'SignRightModule': 'app/Sign/signRight',
         'index-notice': 'app/Home/notice',
+        'index-consult': 'app/Home/consult',
         'index-convenience': 'app/Home/convenience',
         'index-hotgamelist': 'app/Home/hotgamelist',
         'index-banner': 'app/Home/banner',
@@ -54,7 +56,8 @@ var jsconfig = {
         'ServiceLogo': "app/ServiceCenter/sevicelogo",
         'ServiceNav': "app/ServiceCenter/servicepavigation",
         'ServiceButtom': "app/ServiceCenter/servicenew",
-        'ServiceFoot': "app/ServiceCenter/footeradvan"
+        'ServiceFoot': "app/ServiceCenter/footeradvan",
+
     },
     shim: {
         'bootstrap': {

@@ -3,7 +3,7 @@ using System.Web.Http;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Bayetech.Service.IServices;
-using Bayetech.DAL.Entity;
+using Bayetech.Core.Entity;
 
 namespace Bayetech.Web.Controllers
 {
@@ -12,7 +12,7 @@ namespace Bayetech.Web.Controllers
 
         //取出服务层
         ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
-        IBaseService<Account> service1 = ctx.GetObject("ServiceBase") as IBaseService<Account>;
+        //IBaseService<Category> service11 = ctx.GetObject("BaseService") as IBaseService<Category>;   泛型依赖注入的写法
 
         [HttpGet]
         public bool CheckAccount(string accountName)

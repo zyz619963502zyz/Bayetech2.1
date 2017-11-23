@@ -255,6 +255,7 @@
     <Compile Include="Controllers\DealCheckController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MallController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -687,6 +688,7 @@
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
+    <Content Include="Scripts\app\Home\consult.js" />
     <Content Include="Scripts\app\Home\nav-dropdown.js" />
     <Content Include="Scripts\app\Home\nav.js" />
     <Content Include="Scripts\app\Login\PwdRecover\index.js" />
@@ -809,6 +811,7 @@
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
+    <Folder Include="Views\Mall\" />
     <Folder Include="Views\PointTrading\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>
@@ -824,10 +827,6 @@
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
       <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
       <Name>Bayetech.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
-      <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
-      <Name>Bayetech.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
       <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
