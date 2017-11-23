@@ -82,19 +82,19 @@
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\GameGoodInfo.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\GameRequirements.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Mall.cs">
+    <Compile Include="Entity\MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\MallOrder.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallOrderStatus.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\MallOrder_Test.cs">
@@ -149,6 +149,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <None Include="Entity\Bayetech.edmx.diagram">
       <DependentUpon>Bayetech.edmx</DependentUpon>
       <SubType>Designer</SubType>

@@ -12,11 +12,11 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class GameGoodInfo
+    public partial class MallGoodInfo
     {
         public int Id { get; set; }
-        public string GoodNo { get; set; }
         public Nullable<long> GameId { get; set; }
+        public string GoodNo { get; set; }
         public string GameName { get; set; }
         public Nullable<int> GameLevel { get; set; }
         public string GameProfession { get; set; }

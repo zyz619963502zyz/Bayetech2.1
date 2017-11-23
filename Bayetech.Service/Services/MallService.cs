@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service.Services
 {
-    public class MallService : BaseService<Mall>
+    public class MallService : BaseService<MallGoodInfo>
     {
-        public IQueryable<Mall> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
+        public IQueryable<MallGoodInfo> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
         {
-            Expression<Func<Mall, bool>> expression = t => true;
+            Expression<Func<MallGoodInfo, bool>> expression = t => true;
             if (gameId > 0)
             {
-                expression = expression.And(t => t.areaid == gameId);
+                expression = expression.And(t => t.GameId == gameId);
             }
             if (groupId > 0)
             {
-                expression = expression.And(t => t.catid == groupId);
+                expression = expression.And(t => t.Id == groupId);
             }
             return FindList(expression);
         }

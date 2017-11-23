@@ -14,7 +14,6 @@ namespace Bayetech.Core.Entity
     
     public partial class MallOrder
     {
-        public long MallId { get; set; }
         public long OrderId { get; set; }
         public string OrderNo { get; set; }
         public string OrderTitle { get; set; }
@@ -40,5 +39,6 @@ namespace Bayetech.Core.Entity
         public Nullable<byte> SellerStar { get; set; }
         public string SendTime { get; set; }
         public Nullable<int> SendDays { get; set; }
+        public Nullable<int> OrderLineNum { get; set; }
     }
 }
