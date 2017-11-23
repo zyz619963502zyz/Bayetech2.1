@@ -1,4 +1,4 @@
-﻿using Bayetech.DAL.Entity;
+﻿using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service

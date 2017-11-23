@@ -36,6 +36,8 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Http">
       <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll</HintPath>
@@ -49,6 +51,73 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\PredicateExtensions.cs" />
+    <Compile Include="Entity\Account.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Article.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ArticleContent.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Bayetech.Context.cs">
+      <DependentUpon>Bayetech.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entity\Bayetech.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entity\Bayetech.Designer.cs">
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entity\Category.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Game.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GameGoodInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GameRequirements.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Login.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Mall.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallOrder.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallOrder_Test.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallType.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Module.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Relationship.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Server.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vw_LoginInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vw_OrderInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enum\GamePlatform.cs" />
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
@@ -60,6 +129,33 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Entity\Bayetech.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Bayetech.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\Bayetech.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+      <LastGenOutput>Bayetech.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Bayetech.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+      <LastGenOutput>Bayetech.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entity\Bayetech.edmx.diagram">
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

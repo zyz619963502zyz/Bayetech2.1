@@ -1,4 +1,4 @@
-﻿using Bayetech.DAL.Entity;
+﻿using Bayetech.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

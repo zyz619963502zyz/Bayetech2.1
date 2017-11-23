@@ -46,24 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
-    <Compile Include="IServices\Auto\IAccountService.Auto.cs" />
-    <Compile Include="IServices\Auto\IArticleContentService.Auto.cs" />
-    <Compile Include="IServices\Auto\IArticleService.Auto.cs" />
-    <Compile Include="IServices\Auto\IBayetechEntitiesService.Auto.cs" />
-    <Compile Include="IServices\Auto\ICategoryService.Auto.cs" />
-    <Compile Include="IServices\Auto\IGameRequirementsService.Auto.cs" />
-    <Compile Include="IServices\Auto\IGameRoleInfoService.Auto.cs" />
-    <Compile Include="IServices\Auto\IGameService.Auto.cs" />
-    <Compile Include="IServices\Auto\ILoginService.Auto.cs" />
-    <Compile Include="IServices\Auto\IMallOrderService.Auto.cs" />
-    <Compile Include="IServices\Auto\IMallOrder_TestService.Auto.cs" />
-    <Compile Include="IServices\Auto\IMallService.Auto.cs" />
-    <Compile Include="IServices\Auto\IMallTypeService.Auto.cs" />
-    <Compile Include="IServices\Auto\IModuleService.Auto.cs" />
-    <Compile Include="IServices\Auto\IRelationshipService.Auto.cs" />
-    <Compile Include="IServices\Auto\IServerService.Auto.cs" />
-    <Compile Include="IServices\Auto\Ivw_LoginInfoService.Auto.cs" />
-    <Compile Include="IServices\Auto\Ivw_OrderInfoService.Auto.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IDealCheckService.cs" />
     <Compile Include="IServices\IGameRequirementsService.cs" />
@@ -71,35 +53,13 @@
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="Model\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="Services\ArticleService.cs" />
-    <Compile Include="Services\Auto\AccountService.Auto.cs" />
-    <Compile Include="Services\Auto\ArticleContentService.Auto.cs" />
-    <Compile Include="Services\Auto\ArticleService.Auto.cs" />
-    <Compile Include="Services\Auto\BayetechEntitiesService.Auto.cs" />
-    <Compile Include="Services\Auto\CategoryService.Auto.cs" />
-    <Compile Include="Services\Auto\GameRequirementsService.Auto.cs" />
-    <Compile Include="Services\Auto\GameRoleInfoService.Auto.cs" />
-    <Compile Include="Services\Auto\GameService.Auto.cs" />
-    <Compile Include="Services\Auto\LoginService.Auto.cs" />
-    <Compile Include="Services\Auto\MallOrderService.Auto.cs" />
-    <Compile Include="Services\Auto\MallOrder_TestService.Auto.cs" />
-    <Compile Include="Services\Auto\MallService.Auto.cs" />
-    <Compile Include="Services\Auto\MallTypeService.Auto.cs" />
-    <Compile Include="Services\Auto\ModuleService.Auto.cs" />
-    <Compile Include="Services\Auto\RelationshipService.Auto.cs" />
-    <Compile Include="Services\Auto\ServerService.Auto.cs" />
-    <Compile Include="Services\Auto\vw_LoginInfoService.Auto.cs" />
     <Compile Include="Services\DealCheckService.cs" />
-    <Compile Include="Services\Auto\vw_OrderInfoService.Auto.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
+    <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
-    <Compile Include="T4Tools\Run_Services.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Run_Services.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
@@ -113,55 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="T4Tools\ServicesTemplate.ttinclude" />
-    <None Include="T4Tools\IServicesTemplate.ttinclude" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="T4Tools\Run_Services.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Run_Services.cs</LastGenOutput>
-      <LastOutputs>
-..\IServices\Auto\IAccountService.Auto.cs
-..\IServices\Auto\IArticleContentService.Auto.cs
-..\IServices\Auto\IArticleService.Auto.cs
-..\IServices\Auto\IBayetechEntitiesService.Auto.cs
-..\IServices\Auto\ICategoryService.Auto.cs
-..\IServices\Auto\IGameRequirementsService.Auto.cs
-..\IServices\Auto\IGameRoleInfoService.Auto.cs
-..\IServices\Auto\IGameService.Auto.cs
-..\IServices\Auto\ILoginService.Auto.cs
-..\IServices\Auto\IMallOrder_TestService.Auto.cs
-..\IServices\Auto\IMallOrderService.Auto.cs
-..\IServices\Auto\IMallService.Auto.cs
-..\IServices\Auto\IMallTypeService.Auto.cs
-..\IServices\Auto\IModuleService.Auto.cs
-..\IServices\Auto\IRelationshipService.Auto.cs
-..\IServices\Auto\IServerService.Auto.cs
-..\IServices\Auto\Ivw_LoginInfoService.Auto.cs
-..\IServices\Auto\Ivw_OrderInfoService.Auto.cs
-..\Services\Auto\AccountService.Auto.cs
-..\Services\Auto\ArticleContentService.Auto.cs
-..\Services\Auto\ArticleService.Auto.cs
-..\Services\Auto\BayetechEntitiesService.Auto.cs
-..\Services\Auto\CategoryService.Auto.cs
-..\Services\Auto\GameRequirementsService.Auto.cs
-..\Services\Auto\GameRoleInfoService.Auto.cs
-..\Services\Auto\GameService.Auto.cs
-..\Services\Auto\LoginService.Auto.cs
-..\Services\Auto\MallOrder_TestService.Auto.cs
-..\Services\Auto\MallOrderService.Auto.cs
-..\Services\Auto\MallService.Auto.cs
-..\Services\Auto\MallTypeService.Auto.cs
-..\Services\Auto\ModuleService.Auto.cs
-..\Services\Auto\RelationshipService.Auto.cs
-..\Services\Auto\ServerService.Auto.cs
-..\Services\Auto\vw_LoginInfoService.Auto.cs
-..\Services\Auto\vw_OrderInfoService.Auto.cs
-.\Run_Services.cs
-</LastOutputs>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
