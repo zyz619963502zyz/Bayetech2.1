@@ -2,8 +2,9 @@
 using System;
 using System.Reflection;
 using System.Web.Http;
-using Bayetech.DAL.Entity;
 using System.Linq;
+using Bayetech.Service;
+using Bayetech.Core.Entity;
 
 namespace Bayetech.Web.Controllers
 {
@@ -11,7 +12,7 @@ namespace Bayetech.Web.Controllers
     {
         //IArticleService service = ctx.GetObject("ArticleService") as IArticleService;
         ArticleService articleService = new ArticleService();
-        ArticleContentService articleContentService = new ArticleContentService();
+        BaseService<Article> articleContentService = new BaseService<Article>();
 
         [HttpGet]
         public IHttpActionResult FindList(int value)

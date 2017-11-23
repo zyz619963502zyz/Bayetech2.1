@@ -1,5 +1,6 @@
 ﻿//头部模板
 define(jsconfig.baseArr, function (Vue, $, common) {
+     
     var html = `
          <div class ="center">
         <div class ="security_news" v-for="item in list">

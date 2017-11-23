@@ -167,7 +167,7 @@ define(jsconfig.baseArr, function ($, Vue, common, perR, perB, helpleft) {
             view(value) {
                 let nowVue = this;
                 common.getWebJson(findContentUrl, { value: value }, function (data) {
-                    debugger;
+                     
                     nowVue.article = data;
                 });
             },

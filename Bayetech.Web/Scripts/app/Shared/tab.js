@@ -32,11 +32,13 @@ define(['common'], function (common) {
             };
         },
         created() {
+             
             this.switchtab(this.data.default);
         },
         template: html,
         methods: {
             switchtab(itemId) {
+                 
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
                 this.list = obj.content;
             },
