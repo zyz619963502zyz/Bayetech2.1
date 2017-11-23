@@ -40,7 +40,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<vw_OrderInfo> vw_OrderInfo { get; set; }
         public virtual DbSet<MallOrder> MallOrder { get; set; }
-        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
         public virtual DbSet<MallOrderStatus> MallOrderStatus { get; set; }
+        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
     }
 }

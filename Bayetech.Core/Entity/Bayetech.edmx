@@ -141,8 +141,8 @@
           <Property Name="GameLevel" Type="int" />
           <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
           <Property Name="GameService" Type="nchar" MaxLength="50" />
-          <Property Name="GameGroup" Type="nchar" MaxLength="50" />
-          <Property Name="GameServer" Type="nchar" MaxLength="50" />
+          <Property Name="GameGroupId" Type="int" />
+          <Property Name="GameServerId" Type="int" Nullable="false" />
           <Property Name="TotalNum" Type="int" />
           <Property Name="BuyNum" Type="int" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
@@ -447,8 +447,8 @@
           <EntitySet Name="Server" EntityType="BayetechModel.Server" />
           <EntitySet Name="vw_OrderInfo" EntityType="BayetechModel.vw_OrderInfo" />
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
-          <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
           <EntitySet Name="MallOrderStatus" EntityType="BayetechModel.MallOrderStatus" />
+          <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -758,6 +758,15 @@
           <Property Name="SendDays" Type="Int32" />
           <Property Name="OrderLineNum" Type="Int32" />
         </EntityType>
+        <EntityType Name="MallOrderStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="MallGoodInfo">
           <Key>
             <PropertyRef Name="Id" />
@@ -769,8 +778,8 @@
           <Property Name="GameLevel" Type="Int32" />
           <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroup" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" Nullable="false" />
           <Property Name="TotalNum" Type="Int32" />
           <Property Name="BuyNum" Type="Int32" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -781,15 +790,6 @@
           <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="MallOrderStatus">
-          <Key>
-            <PropertyRef Name="StatusId" />
-          </Key>
-          <Property Name="StatusId" Type="Int32" Nullable="false" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1119,6 +1119,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="MallOrderStatus">
+            <EntityTypeMapping TypeName="BayetechModel.MallOrderStatus">
+              <MappingFragment StoreEntitySet="MallOrderStatus">
+                <ScalarProperty Name="StatusAlias" ColumnName="StatusAlias" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MallGoodInfo">
             <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
               <MappingFragment StoreEntitySet="MallGoodInfo">
@@ -1132,8 +1142,8 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
                 <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
-                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
-                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
                 <ScalarProperty Name="GameService" ColumnName="GameService" />
                 <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
                 <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
@@ -1141,16 +1151,6 @@
                 <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MallOrderStatus">
-            <EntityTypeMapping TypeName="BayetechModel.MallOrderStatus">
-              <MappingFragment StoreEntitySet="MallOrderStatus">
-                <ScalarProperty Name="StatusAlias" ColumnName="StatusAlias" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

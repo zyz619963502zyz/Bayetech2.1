@@ -20,7 +20,7 @@ namespace Bayetech.Service.Services
             }
             if (groupId > 0)
             {
-                expression = expression.And(t => t.Id == groupId);
+                expression = expression.And(t => t.GameGroupId == groupId);
             }
             return FindList(expression);
         }
