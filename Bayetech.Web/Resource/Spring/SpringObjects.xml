@@ -2,4 +2,5 @@
 <objects xmlns="http://www.springframework.net" xmlns:context="http://www.springframework.net/context" >  
   <object name="LoginSignService" type="Bayetech.Service.Services.LoginSignService,Bayetech.Service"></object>
   <object name="DealCheckService" type="Bayetech.Service.Services.DealCheckService,Bayetech.Service"></object>
+  <object name="ServiceBase" type="Bayetech.Service.ServiceBase,Bayetech.Service"></object>
 </objects>

@@ -2,7 +2,7 @@
 define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
-    //var _GetGoodInfo = "";
+    var _GetGoodInfo = "/api/DealCheck/GetCheckInfo";
 
     //模板
     var goodInfoHtml = `<div class="info-good">
@@ -46,8 +46,8 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
         </div>`
 
     var data = {
-        goodTitle : "【 85级 女 暗殿骑士 身份证未设置 QQ等级0级 无QQ好友】《蛋总专卖》12个角色78-85-满深渊票-87767--交易时间8:00-凌晨1:00",
-        goodprice: 280,
+        OrderTitle: "【 85级 女 暗殿骑士 身份证未设置 QQ等级0级 无QQ好友】《蛋总专卖》12个角色78-85-满深渊票-87767--交易时间8:00-凌晨1:00",
+        OrderPrice: 280,
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
         saleTime: "此账号首次在7881出售",
@@ -72,12 +72,17 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             return data;
         },
         created() {
-            common.postWebJson(url, data, function (data) {
-                var a = data;
-            });
+            GetGoodInfo();//获取商品信息。
         },
         methods: {
             GetNavBar() {
+                common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
+                    if (data == false) {
+                        this.data = data;
+                    }
+                });
+            },
+            GetGoodInfo() {
                 common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
                         this.data = data;
