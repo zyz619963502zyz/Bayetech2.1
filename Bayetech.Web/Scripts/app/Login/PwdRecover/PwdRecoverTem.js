@@ -19,7 +19,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </li>
                     <li class="m_t_15">
                         <label>&nbsp;</label>
-                        <a href="#" id="btn_blue" @click.prevent="GetPage('111')" class ="btn_blue"><span>确认</span></a>
+                        <a href="#" id="btn_blue" @click.prevent="GetPage('111')" class ="btn_blue "><span>确认</span></a>
                     </li>
                 </ul>
             </div>
