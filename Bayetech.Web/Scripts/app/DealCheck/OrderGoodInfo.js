@@ -1,8 +1,7 @@
 ﻿//注册模块
 define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     //Api
-    //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
-    //var _GetGoodInfo = "";
+    var GetGoodInfoUrl = "/api/DealCheck/GetCheckInfo";
 
     //模板
     var goodInfoHtml = `<div class="info-good">
@@ -77,8 +76,15 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             });
         },
         methods: {
+            GetGoodInfo(){
+                common.getWebJson(_GetGoodInfoUrl, { accountName: this.$props.value.Iphone }, function (data) {
+                    if (data == false) {
+                        this.data = data;
+                    }
+                });
+            },
             GetNavBar() {
-                common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
+                common.getWebJson(_GetNavBarUrl, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
                         this.data = data;
                     }
