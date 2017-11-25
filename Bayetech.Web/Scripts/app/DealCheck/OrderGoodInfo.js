@@ -75,8 +75,15 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             GetGoodInfo();//获取商品信息。
         },
         methods: {
+            GetGoodInfo(){
+                common.getWebJson(_GetGoodInfoUrl, { accountName: this.$props.value.Iphone }, function (data) {
+                    if (data == false) {
+                        this.data = data;
+                    }
+                });
+            },
             GetNavBar() {
-                common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
+                common.getWebJson(_GetNavBarUrl, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
                         this.data = data;
                     }
