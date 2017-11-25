@@ -1,6 +1,6 @@
-﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall']
+﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall', 'ServicePusht']
 //个人中心主模块
-require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call) {
+require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call,pusht) {
     var data = {
         ServiceList: [{ url: "http://www.7881.com/tradesafe.html", text: "首页" }
                 , { url: "http://www.7881.com/tradesafe.html", text: "安全知识中心" }
@@ -151,6 +151,22 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
                        },
                 ],
             }
+        ],
+        ServicePushtList: [
+            {
+                title: "",
+                content: [
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "忘记密码怎么办" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何联系订单客服" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何验证真假客服" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何正确出售商品" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "收货角色名如何修改" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何提现我的资金" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "提现怎么收取手续费" },
+                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "订单撤销后退款到哪" },
+                ]
+
+            }
         ]
     }
     var vm = new Vue({
@@ -165,7 +181,8 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
             'regservicenav': servicenav,
             'regservicebuttom': serbuttom,
             'regfoot': foot,
-            'regservicecall':call,
+            'regservicecall': call,
+            'regpusht':pusht,
         }
     });
 
