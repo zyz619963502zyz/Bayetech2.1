@@ -28,7 +28,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleContent> ArticleContent { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameRequirements> GameRequirements { get; set; }
         public virtual DbSet<Login> Login { get; set; }

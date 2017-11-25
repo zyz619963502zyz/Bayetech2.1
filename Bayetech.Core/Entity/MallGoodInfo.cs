@@ -15,6 +15,9 @@ namespace Bayetech.Core.Entity
     public partial class MallGoodInfo
     {
         public int Id { get; set; }
+        public string GoodTitle { get; set; }
+        public string GoodKeyWord { get; set; }
+        public Nullable<long> GoodType { get; set; }
         public Nullable<long> GameId { get; set; }
         public string GoodNo { get; set; }
         public string GameName { get; set; }
@@ -22,7 +25,7 @@ namespace Bayetech.Core.Entity
         public string GameProfession { get; set; }
         public string GameService { get; set; }
         public Nullable<int> GameGroupId { get; set; }
-        public int GameServerId { get; set; }
+        public Nullable<int> GameServerId { get; set; }
         public Nullable<int> TotalNum { get; set; }
         public Nullable<int> BuyNum { get; set; }
         public string UserName { get; set; }
