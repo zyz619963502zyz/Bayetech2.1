@@ -15,7 +15,7 @@ namespace Bayetech.Core.Entity
     public partial class Relationship
     {
         public long Id { get; set; }
-        public long Key { get; set; }
+        public Nullable<long> Key { get; set; }
         public string Value { get; set; }
         public int Type { get; set; }
         public Nullable<long> ParentKey { get; set; }
