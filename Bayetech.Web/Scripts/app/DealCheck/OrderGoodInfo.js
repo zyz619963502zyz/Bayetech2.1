@@ -6,11 +6,11 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
 
     //模板
     var goodInfoHtml = `<div class="info-good">
-            <h3 class ="title">{{goodTitle}}</h3>
+            <h3 class ="title">{{OrderTitle}}</h3>
             <div class="package-price">
                 <div class="price-con">
                     <h3>
-                        <p class ="nowprice">价格: <span><em>￥</em>{{goodprice}}</span></p>
+                        <p class ="nowprice">价格: <span><em>￥</em>{{OrderPrice}}</span></p>
                         <p class ="wantprice"><em class ="tags icon-jgxs"></em><a href="wantPriceUrl">我要议价</a></p>
                     </h3>
                 </div>
@@ -72,7 +72,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             return data;
         },
         created() {
-            GetGoodInfo();//获取商品信息。
+            //GetGoodInfo();//获取商品信息。
         },
         methods: {
             GetGoodInfo(){
