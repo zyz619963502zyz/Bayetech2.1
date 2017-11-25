@@ -2,7 +2,7 @@
 define(['common'], function (common) {
     var html = `<div class="index-tab" :class="data.boxclass">
         <div class="index-tab-top" :class="typeclass">
-            <ul class="clearfix">
+            <ul>
                 <li v-for="item in data.type">
                    <a target="_blank"  @click="switchtab(item.id)">{{item.name}}</a>
                 </li>
