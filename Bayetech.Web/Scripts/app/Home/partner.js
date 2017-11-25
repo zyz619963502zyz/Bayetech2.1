@@ -24,41 +24,41 @@ define([], function () {
     var data = {
         imageobj: [{
             title: "王者荣耀",
-            img: "sthttp://pic.7881.com/7881/market/images/game_logo/A2775.png",
+            img: "http://pic.7881.com/7881/market/images/game_logo/A2775.png",
             ios: "http://shouyou.7881.com/wzry-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html",
             android: "http://shouyou.7881.com/wzry-android-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html",
         },
         {
-            img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+            img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
             url: "http://qq.com",
             }, {
-                img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+                img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
                 url: "http://qq.com",
         }, {
-            img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+            img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
             url: "http://qq.com",
             }, {
-                img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+                img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
                 url: "http://qq.com",
         }, {
-            img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+            img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
             url: "http://qq.com",
             }, {
-                img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+                img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
                 url: "http://qq.com",
         }, {
-            img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+            img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
             url: "http://qq.com",
             }, {
-                img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+                img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
                 url: "http://qq.com",
         }, {
-            img: "sthttp://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
+            img: "http://pic.7881.com/7881-2016/images/index/hezuo/tx.png",
             url: "http://qq.com",
             },],
         cententobj: [{
             title: "王者荣耀",
-            img: "sthttp://pic.7881.com/7881/market/images/game_logo/A2775.png",
+            img: "http://pic.7881.com/7881/market/images/game_logo/A2775.png",
             ios: "http://shouyou.7881.com/wzry-ios-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html",
             android: "http://shouyou.7881.com/wzry-android-0-0-0-0-0-0-0-0-0-0-0-0-0-0.html",
         },

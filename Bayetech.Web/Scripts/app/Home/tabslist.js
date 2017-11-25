@@ -2,8 +2,8 @@
 define(['jquery'], function ($) {
     var html = `<div class="tabsList-box">
     <ul class="tabsList" id="TabBox">
-        <li class="tit on" v-for="item in object" style="width: 150px; overflow: hidden;">
-            <h4><img :src="item.img" width="150" height="350"/></h4>
+        <li class="tit" v-for="item in object" style="width: 170px; overflow: hidden;">
+            <h4><img :src="item.img" width="170" height="350"/></h4>
             <div class="tabBody" >
                 <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
                 <div class="shop-type">
@@ -30,7 +30,7 @@ define(['jquery'], function ($) {
         object: [
             {
                 name: "地下城与勇士",
-                img: "../../Content/Images/pic-01.jpg1",
+                img: "../../Content/Images/pic-01.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -50,7 +50,7 @@ define(['jquery'], function ($) {
             },
             {
                 name: "剑侠情缘3",
-                img: "../../Content/Images/pic-03.jpg1",
+                img: "../../Content/Images/pic-03.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -70,7 +70,7 @@ define(['jquery'], function ($) {
             },
             {
                 name: "王者荣耀",
-                img: "../../Content/Images/pic-04.jpg1",
+                img: "../../Content/Images/pic-04.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -104,7 +104,7 @@ define(['jquery'], function ($) {
         mounted: function () {
             $("#TabBox > li")[0].style.width = '540px';
             $("#TabBox > li").mouseover(function () {
-                $(this).width(540).siblings().not(this).width(190);
+                $(this).width(540).siblings().not(this).width(170);
             });
         },
         template: html,
