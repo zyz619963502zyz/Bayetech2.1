@@ -106,30 +106,6 @@
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="GameGoodInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
-          <Property Name="GameId" Type="bigint" />
-          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameLevel" Type="int" />
-          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
-          <Property Name="GameService" Type="nchar" MaxLength="50" />
-          <Property Name="GameGroup" Type="nchar" MaxLength="50" />
-          <Property Name="GameServer" Type="nchar" MaxLength="50" />
-          <Property Name="TotalNum" Type="int" />
-          <Property Name="BuyNum" Type="int" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="HistoryAccount" Type="int" />
-          <Property Name="ListOrder" Type="int" />
-          <Property Name="EditTime" Type="datetime" />
-          <Property Name="AddTime" Type="datetime" />
-          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
-          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
-          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
-        </EntityType>
         <EntityType Name="GameRequirements">
           <Key>
             <PropertyRef Name="Id" />
@@ -154,98 +130,37 @@
           <Property Name="Message" Type="nvarchar" MaxLength="255" />
           <Property Name="Agent" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="Mall">
+        <EntityType Name="MallGoodInfo">
           <Key>
-            <PropertyRef Name="itemid" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="itemid" Type="bigint" Nullable="false" />
-          <Property Name="catid" Type="int" Nullable="false" />
-          <Property Name="mycatid" Type="bigint" Nullable="false" />
-          <Property Name="areaid" Type="int" Nullable="false" />
-          <Property Name="level" Type="tinyint" Nullable="false" />
-          <Property Name="elite" Type="tinyint" Nullable="false" />
-          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="style" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="fee" Type="real" Nullable="false" />
-          <Property Name="introduce" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="brand" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="amount" Type="int" Nullable="false" />
-          <Property Name="tag" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="keyword" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="pptword" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="hits" Type="int" Nullable="false" />
-          <Property Name="orders" Type="int" Nullable="false" />
-          <Property Name="sales" Type="int" Nullable="false" />
-          <Property Name="comments" Type="int" Nullable="false" />
-          <Property Name="thumb" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="thumb1" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="thumb2" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="relate_name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="relate_id" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="relate_title" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="n1" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="n2" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="n3" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="v1" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="v2" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="v3" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="express_1" Type="int" Nullable="false" />
-          <Property Name="express_name_1" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="fee_start_1" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="fee_step_1" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="express_2" Type="int" Nullable="false" />
-          <Property Name="express_name_2" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="fee_start_2" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="fee_step_2" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="express_3" Type="int" Nullable="false" />
-          <Property Name="express_name_3" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="fee_start_3" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="fee_step_3" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="groupid" Type="smallint" Nullable="false" />
-          <Property Name="company" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="vip" Type="smallint" Nullable="false" />
-          <Property Name="validated" Type="tinyint" Nullable="false" />
-          <Property Name="truename" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="address" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="msn" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="qq" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="ali" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="skype" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="editor" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="edittime" Type="int" Nullable="false" />
-          <Property Name="editdate" Type="date" Nullable="false" />
-          <Property Name="addtime" Type="int" Nullable="false" />
-          <Property Name="adddate" Type="date" Nullable="false" />
-          <Property Name="ip" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="template" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="status" Type="tinyint" Nullable="false" />
-          <Property Name="linkurl" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="filepath" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="plays" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="jianshu" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="jia" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="leixing" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="pei" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="jiaose" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="anquan" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="danwei" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="shouji" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="qqt" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="gtid" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameLevel" Type="int" />
+          <Property Name="GameProfession" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameService" Type="nchar" MaxLength="50" />
+          <Property Name="GameGroupId" Type="int" />
+          <Property Name="GameServerId" Type="int" Nullable="false" />
+          <Property Name="TotalNum" Type="int" />
+          <Property Name="BuyNum" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="HistoryAccount" Type="int" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="QQLevel" Type="nchar" MaxLength="30" />
+          <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
+          <Property Name="QQFriends" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="MallOrder">
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="MallId" Type="bigint" Nullable="false" />
           <Property Name="OrderId" Type="bigint" Nullable="false" />
-          <Property Name="OrderNo" Type="nchar" MaxLength="50" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="50" />
+          <Property Name="OrderLineNum" Type="int" />
           <Property Name="OrderTitle" Type="nvarchar" MaxLength="120" />
           <Property Name="OrderThumb" Type="nvarchar" MaxLength="255" />
           <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
@@ -314,6 +229,15 @@
           <Property Name="SendTime" Type="nvarchar" MaxLength="20" />
           <Property Name="SendDays" Type="int" />
         </EntityType>
+        <EntityType Name="MallOrderStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="StatusName" Type="varchar" MaxLength="20" />
+          <Property Name="StatusAlias" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="MallType">
           <Key>
             <PropertyRef Name="Id" />
@@ -381,6 +305,8 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
           <Property Name="OrderId" Type="bigint" Nullable="false" />
           <Property Name="OrderNo" Type="nchar" MaxLength="50" />
           <Property Name="OrderTitle" Type="nvarchar" MaxLength="120" />
@@ -423,8 +349,6 @@
           <Property Name="Expr1" Type="datetime" />
           <Property Name="IdentityInfo" Type="nchar" MaxLength="30" />
           <Property Name="QQFriends" Type="nchar" MaxLength="30" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
@@ -432,12 +356,12 @@
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GameGoodInfo" EntityType="Self.GameGoodInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Mall" EntityType="Self.Mall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallOrder" EntityType="Self.MallOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallOrder_Test" EntityType="Self.MallOrder_Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MallOrderStatus" EntityType="Self.MallOrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallType" EntityType="Self.MallType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
@@ -456,6 +380,8 @@
           </EntitySet>
           <EntitySet Name="vw_OrderInfo" EntityType="Self.vw_OrderInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vw_OrderInfo].[Name] AS [Name], 
+    [vw_OrderInfo].[Alias] AS [Alias], 
     [vw_OrderInfo].[OrderId] AS [OrderId], 
     [vw_OrderInfo].[OrderNo] AS [OrderNo], 
     [vw_OrderInfo].[OrderTitle] AS [OrderTitle], 
@@ -497,9 +423,7 @@
     [vw_OrderInfo].[QQLevel] AS [QQLevel], 
     [vw_OrderInfo].[Expr1] AS [Expr1], 
     [vw_OrderInfo].[IdentityInfo] AS [IdentityInfo], 
-    [vw_OrderInfo].[QQFriends] AS [QQFriends], 
-    [vw_OrderInfo].[Name] AS [Name], 
-    [vw_OrderInfo].[Alias] AS [Alias]
+    [vw_OrderInfo].[QQFriends] AS [QQFriends]
     FROM [dbo].[vw_OrderInfo] AS [vw_OrderInfo]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -515,7 +439,6 @@
           <EntitySet Name="Game" EntityType="BayetechModel.Game" />
           <EntitySet Name="GameRequirements" EntityType="BayetechModel.GameRequirements" />
           <EntitySet Name="Login" EntityType="BayetechModel.Login" />
-          <EntitySet Name="Mall" EntityType="BayetechModel.Mall" />
           <EntitySet Name="MallOrder_Test" EntityType="BayetechModel.MallOrder_Test" />
           <EntitySet Name="MallType" EntityType="BayetechModel.MallType" />
           <EntitySet Name="Module" EntityType="BayetechModel.Module" />
@@ -523,8 +446,9 @@
           <EntitySet Name="vw_LoginInfo" EntityType="BayetechModel.vw_LoginInfo" />
           <EntitySet Name="Server" EntityType="BayetechModel.Server" />
           <EntitySet Name="vw_OrderInfo" EntityType="BayetechModel.vw_OrderInfo" />
-          <EntitySet Name="GameGoodInfo" EntityType="BayetechModel.GameGoodInfo" />
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
+          <EntitySet Name="MallOrderStatus" EntityType="BayetechModel.MallOrderStatus" />
+          <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -650,91 +574,6 @@
           <Property Name="LoginTime" Type="DateTime" Precision="3" />
           <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Mall">
-          <Key>
-            <PropertyRef Name="itemid" />
-          </Key>
-          <Property Name="itemid" Type="Int64" Nullable="false" />
-          <Property Name="catid" Type="Int32" Nullable="false" />
-          <Property Name="mycatid" Type="Int64" Nullable="false" />
-          <Property Name="areaid" Type="Int32" Nullable="false" />
-          <Property Name="level" Type="Byte" Nullable="false" />
-          <Property Name="elite" Type="Byte" Nullable="false" />
-          <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="style" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fee" Type="Single" Nullable="false" />
-          <Property Name="introduce" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="brand" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="amount" Type="Int32" Nullable="false" />
-          <Property Name="tag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="keyword" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="pptword" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="hits" Type="Int32" Nullable="false" />
-          <Property Name="orders" Type="Int32" Nullable="false" />
-          <Property Name="sales" Type="Int32" Nullable="false" />
-          <Property Name="comments" Type="Int32" Nullable="false" />
-          <Property Name="thumb" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="thumb1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="thumb2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="relate_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="relate_id" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="relate_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="n1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="n2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="n3" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="v1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="v2" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="v3" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="express_1" Type="Int32" Nullable="false" />
-          <Property Name="express_name_1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="fee_start_1" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="fee_step_1" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="express_2" Type="Int32" Nullable="false" />
-          <Property Name="express_name_2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="fee_start_2" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="fee_step_2" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="express_3" Type="Int32" Nullable="false" />
-          <Property Name="express_name_3" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="fee_start_3" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="fee_step_3" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="groupid" Type="Int16" Nullable="false" />
-          <Property Name="company" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="vip" Type="Int16" Nullable="false" />
-          <Property Name="validated" Type="Byte" Nullable="false" />
-          <Property Name="truename" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="msn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="qq" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="ali" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="skype" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="editor" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="edittime" Type="Int32" Nullable="false" />
-          <Property Name="editdate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="addtime" Type="Int32" Nullable="false" />
-          <Property Name="adddate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="template" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="Byte" Nullable="false" />
-          <Property Name="linkurl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="filepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="note" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="plays" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="jianshu" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="jia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="leixing" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="pei" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="jiaose" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="anquan" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="danwei" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="shouji" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="qqt" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="gtid" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MallOrder_Test">
           <Key>
@@ -888,37 +727,12 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="GameGoodInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameLevel" Type="Int32" />
-          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroup" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="TotalNum" Type="Int32" />
-          <Property Name="BuyNum" Type="Int32" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HistoryAccount" Type="Int32" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="DateTime" Precision="3" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="MallOrder">
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="MallId" Type="Int64" Nullable="false" />
           <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OrderTitle" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
           <Property Name="OrderThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
@@ -942,6 +756,40 @@
           <Property Name="SellerStar" Type="Byte" />
           <Property Name="SendTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="SendDays" Type="Int32" />
+          <Property Name="OrderLineNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MallOrderStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MallGoodInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameLevel" Type="Int32" />
+          <Property Name="GameProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" Nullable="false" />
+          <Property Name="TotalNum" Type="Int32" />
+          <Property Name="BuyNum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="QQLevel" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="IdentityInfo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="QQFriends" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1077,92 +925,6 @@
                 <ScalarProperty Name="PassWord" ColumnName="PassWord" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Mall">
-            <EntityTypeMapping TypeName="BayetechModel.Mall">
-              <MappingFragment StoreEntitySet="Mall">
-                <ScalarProperty Name="gtid" ColumnName="gtid" />
-                <ScalarProperty Name="qqt" ColumnName="qqt" />
-                <ScalarProperty Name="shouji" ColumnName="shouji" />
-                <ScalarProperty Name="danwei" ColumnName="danwei" />
-                <ScalarProperty Name="anquan" ColumnName="anquan" />
-                <ScalarProperty Name="jiaose" ColumnName="jiaose" />
-                <ScalarProperty Name="pei" ColumnName="pei" />
-                <ScalarProperty Name="leixing" ColumnName="leixing" />
-                <ScalarProperty Name="jia" ColumnName="jia" />
-                <ScalarProperty Name="jianshu" ColumnName="jianshu" />
-                <ScalarProperty Name="plays" ColumnName="plays" />
-                <ScalarProperty Name="note" ColumnName="note" />
-                <ScalarProperty Name="filepath" ColumnName="filepath" />
-                <ScalarProperty Name="linkurl" ColumnName="linkurl" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="template" ColumnName="template" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="adddate" ColumnName="adddate" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
-                <ScalarProperty Name="editdate" ColumnName="editdate" />
-                <ScalarProperty Name="edittime" ColumnName="edittime" />
-                <ScalarProperty Name="editor" ColumnName="editor" />
-                <ScalarProperty Name="skype" ColumnName="skype" />
-                <ScalarProperty Name="ali" ColumnName="ali" />
-                <ScalarProperty Name="qq" ColumnName="qq" />
-                <ScalarProperty Name="msn" ColumnName="msn" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="telephone" ColumnName="telephone" />
-                <ScalarProperty Name="truename" ColumnName="truename" />
-                <ScalarProperty Name="validated" ColumnName="validated" />
-                <ScalarProperty Name="vip" ColumnName="vip" />
-                <ScalarProperty Name="company" ColumnName="company" />
-                <ScalarProperty Name="groupid" ColumnName="groupid" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="fee_step_3" ColumnName="fee_step_3" />
-                <ScalarProperty Name="fee_start_3" ColumnName="fee_start_3" />
-                <ScalarProperty Name="express_name_3" ColumnName="express_name_3" />
-                <ScalarProperty Name="express_3" ColumnName="express_3" />
-                <ScalarProperty Name="fee_step_2" ColumnName="fee_step_2" />
-                <ScalarProperty Name="fee_start_2" ColumnName="fee_start_2" />
-                <ScalarProperty Name="express_name_2" ColumnName="express_name_2" />
-                <ScalarProperty Name="express_2" ColumnName="express_2" />
-                <ScalarProperty Name="fee_step_1" ColumnName="fee_step_1" />
-                <ScalarProperty Name="fee_start_1" ColumnName="fee_start_1" />
-                <ScalarProperty Name="express_name_1" ColumnName="express_name_1" />
-                <ScalarProperty Name="express_1" ColumnName="express_1" />
-                <ScalarProperty Name="v3" ColumnName="v3" />
-                <ScalarProperty Name="v2" ColumnName="v2" />
-                <ScalarProperty Name="v1" ColumnName="v1" />
-                <ScalarProperty Name="n3" ColumnName="n3" />
-                <ScalarProperty Name="n2" ColumnName="n2" />
-                <ScalarProperty Name="n1" ColumnName="n1" />
-                <ScalarProperty Name="relate_title" ColumnName="relate_title" />
-                <ScalarProperty Name="relate_id" ColumnName="relate_id" />
-                <ScalarProperty Name="relate_name" ColumnName="relate_name" />
-                <ScalarProperty Name="thumb2" ColumnName="thumb2" />
-                <ScalarProperty Name="thumb1" ColumnName="thumb1" />
-                <ScalarProperty Name="thumb" ColumnName="thumb" />
-                <ScalarProperty Name="comments" ColumnName="comments" />
-                <ScalarProperty Name="sales" ColumnName="sales" />
-                <ScalarProperty Name="orders" ColumnName="orders" />
-                <ScalarProperty Name="hits" ColumnName="hits" />
-                <ScalarProperty Name="pptword" ColumnName="pptword" />
-                <ScalarProperty Name="keyword" ColumnName="keyword" />
-                <ScalarProperty Name="tag" ColumnName="tag" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="introduce" ColumnName="introduce" />
-                <ScalarProperty Name="fee" ColumnName="fee" />
-                <ScalarProperty Name="style" ColumnName="style" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="elite" ColumnName="elite" />
-                <ScalarProperty Name="level" ColumnName="level" />
-                <ScalarProperty Name="areaid" ColumnName="areaid" />
-                <ScalarProperty Name="mycatid" ColumnName="mycatid" />
-                <ScalarProperty Name="catid" ColumnName="catid" />
-                <ScalarProperty Name="itemid" ColumnName="itemid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1325,34 +1087,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GameGoodInfo">
-            <EntityTypeMapping TypeName="BayetechModel.GameGoodInfo">
-              <MappingFragment StoreEntitySet="GameGoodInfo">
-                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
-                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
-                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
-                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
-                <ScalarProperty Name="GameServer" ColumnName="GameServer" />
-                <ScalarProperty Name="GameGroup" ColumnName="GameGroup" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
-                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MallOrder">
             <EntityTypeMapping TypeName="BayetechModel.MallOrder">
               <MappingFragment StoreEntitySet="MallOrder">
+                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
                 <ScalarProperty Name="SendDays" ColumnName="SendDays" />
                 <ScalarProperty Name="SendTime" ColumnName="SendTime" />
                 <ScalarProperty Name="SellerStar" ColumnName="SellerStar" />
@@ -1378,7 +1116,41 @@
                 <ScalarProperty Name="OrderTitle" ColumnName="OrderTitle" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="MallId" ColumnName="MallId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MallOrderStatus">
+            <EntityTypeMapping TypeName="BayetechModel.MallOrderStatus">
+              <MappingFragment StoreEntitySet="MallOrderStatus">
+                <ScalarProperty Name="StatusAlias" ColumnName="StatusAlias" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MallGoodInfo">
+            <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
+              <MappingFragment StoreEntitySet="MallGoodInfo">
+                <ScalarProperty Name="QQFriends" ColumnName="QQFriends" />
+                <ScalarProperty Name="IdentityInfo" ColumnName="IdentityInfo" />
+                <ScalarProperty Name="QQLevel" ColumnName="QQLevel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameProfession" ColumnName="GameProfession" />
+                <ScalarProperty Name="GameLevel" ColumnName="GameLevel" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
