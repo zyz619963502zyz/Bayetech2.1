@@ -13,7 +13,7 @@ namespace Bayetech.Service.Services
     public class DealCheckService : IDealCheckService
     {
         //获取商品信息
-        public JObject GetCheckInfo(string goodNo)
+        public JObject GetGoodInfo(string goodNo)
         {
             using (var db = new RepositoryBase())
             {
@@ -21,7 +21,7 @@ namespace Bayetech.Service.Services
                 var _good = new vw_MallGoodInfo();
                 if (!string.IsNullOrEmpty(goodNo))
                 {       
-                    _good = db.FindEntity<vw_MallGoodInfo>(c => c.GoodNo == goodNo);
+                    _good = db.FindEntity<vw_MallGoodInfo>(c => c.GoodInfoId == goodNo);
                     if (_good!=null)
                     {
                         ret.Add(ResultInfo.Result, JProperty.FromObject(true));

@@ -9,10 +9,10 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         DealCheckService service = ctx.GetObject("DealCheckService") as DealCheckService;
 
-        [HttpPost]
-        public JObject GetCheckInfo(string goodNo) 
+        [HttpGet]
+        public JObject GetGoodInfo(string goodNo) 
         {
-            return service.GetCheckInfo(goodNo);
+            return service.GetGoodInfo(goodNo);
         }
 
     }  
