@@ -12,9 +12,8 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class MallGoodInfo
+    public partial class vw_MallGoodInfo
     {
-        public int Id { get; set; }
         public string GoodTitle { get; set; }
         public string GoodKeyWord { get; set; }
         public Nullable<long> GoodType { get; set; }
@@ -27,9 +26,14 @@ namespace Bayetech.Core.Entity
         public Nullable<int> TotalNum { get; set; }
         public Nullable<int> BuyNum { get; set; }
         public string UserName { get; set; }
-        public Nullable<int> HistoryAccount { get; set; }
         public Nullable<int> ListOrder { get; set; }
+        public Nullable<int> HistoryAccount { get; set; }
         public Nullable<System.DateTime> EditTime { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
+        public Nullable<long> DescriptionId { get; set; }
+        public string DescriptionValue { get; set; }
+        public string DescriptionName { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> Expr1 { get; set; }
     }
 }

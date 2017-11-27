@@ -16,6 +16,7 @@ namespace Bayetech.Core.Entity
     {
         public long OrderId { get; set; }
         public string OrderNo { get; set; }
+        public Nullable<int> OrderLineNum { get; set; }
         public string OrderTitle { get; set; }
         public string OrderThumb { get; set; }
         public Nullable<decimal> OrderPrice { get; set; }
@@ -39,6 +40,5 @@ namespace Bayetech.Core.Entity
         public Nullable<byte> SellerStar { get; set; }
         public string SendTime { get; set; }
         public Nullable<int> SendDays { get; set; }
-        public Nullable<int> OrderLineNum { get; set; }
     }
 }
