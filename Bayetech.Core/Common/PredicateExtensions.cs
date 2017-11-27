@@ -1,12 +1,15 @@
-﻿using System;
+﻿/*******************************************************************************
+ * Copyright © 2017 平台组 版权所有
+ * Author: JIe
+ * Description: lambda 表达式动态拼接
+ * CreateTime：2017-11-21
+*********************************************************************************/
+using System;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace Bayetech.Core
 {
-    /// <summary>
-    /// lambda 表达式动态拼接
-    /// </summary>
     public static class PredicateExtensions
     {
         /// <summary>

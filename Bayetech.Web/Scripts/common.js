@@ -59,7 +59,7 @@
         $.ajax({
             type: "post",
             data: data,
-            url: url,
+            url: url + "?time=" + new Date().getTime(),
             dataType: "json",
             global: false,
             async: typeof (asyncC) == "undefined" || null == asyncC ? true : false,
