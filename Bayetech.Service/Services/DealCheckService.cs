@@ -18,10 +18,10 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                var _good = new vw_OrderInfo();
+                var _good = new vw_MallGoodInfo();
                 if (!string.IsNullOrEmpty(goodNo))
                 {       
-                    _good = db.FindEntity<vw_OrderInfo>(c => c.OrderNo == goodNo);
+                    _good = db.FindEntity<vw_MallGoodInfo>(c => c.GoodNo == goodNo);
                     if (_good!=null)
                     {
                         ret.Add(ResultInfo.Result, JProperty.FromObject(true));
