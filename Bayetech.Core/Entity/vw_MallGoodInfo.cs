@@ -14,26 +14,10 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_MallGoodInfo
     {
-        public string GoodTitle { get; set; }
-        public string GoodKeyWord { get; set; }
-        public Nullable<long> GoodType { get; set; }
-        public Nullable<long> GameId { get; set; }
-        public string GoodNo { get; set; }
-        public string GameName { get; set; }
-        public string GameService { get; set; }
-        public Nullable<int> GameGroupId { get; set; }
-        public Nullable<int> GameServerId { get; set; }
-        public Nullable<int> TotalNum { get; set; }
-        public Nullable<int> BuyNum { get; set; }
-        public string UserName { get; set; }
-        public Nullable<int> ListOrder { get; set; }
-        public Nullable<int> HistoryAccount { get; set; }
-        public Nullable<System.DateTime> EditTime { get; set; }
-        public Nullable<System.DateTime> AddTime { get; set; }
+        public string GoodInfoId { get; set; }
         public Nullable<long> DescriptionId { get; set; }
-        public string DescriptionValue { get; set; }
         public string DescriptionName { get; set; }
-        public int Id { get; set; }
-        public Nullable<int> Expr1 { get; set; }
+        public string DescriptionValue { get; set; }
+        public long Id { get; set; }
     }
 }
