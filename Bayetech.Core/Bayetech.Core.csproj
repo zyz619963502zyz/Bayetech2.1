@@ -62,19 +62,19 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.Context.cs">
+      <DependentUpon>Bayetech.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bayetech.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.Designer.cs">
+      <DependentUpon>Bayetech.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bayetech.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\Category.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -134,20 +134,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
     <EntityDeploy Include="Entity\Bayetech.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Bayetech.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="Entity\Bayetech.edmx.diagram">
-      <DependentUpon>Bayetech.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entity\Bayetech.Context.tt">
@@ -160,6 +150,16 @@
       <DependentUpon>Bayetech.edmx</DependentUpon>
       <LastGenOutput>Bayetech.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Entity\Bayetech.edmx.diagram">
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
-﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall', 'ServicePusht']
+﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall', 'ServicePusht', 'ServiceInfa']
 //个人中心主模块
-require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call,pusht) {
+require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call,pusht,info) {
     var data = {
         ServiceList: [{ url: "http://www.7881.com/tradesafe.html", text: "首页" }
                 , { url: "http://www.7881.com/tradesafe.html", text: "安全知识中心" }
@@ -167,6 +167,11 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
                 ]
 
             }
+        ],
+        ServiceInfo: [
+            { cla: "sy", str: "修改绑定手机", spa: "原绑定手机不再使用", url: "http://www.7881.com/selfService/preToSelfService.action?urlType=1", text: "点击进入" },
+            { cla: "yx", str: "修改支付密码", spa: "忘记支付密码", url: "http://www.7881.com/selfService/preToSelfService.action?urlType=1", text: "点击进入" },
+            { cla: "yh", str: "修改开户行用户名", spa: "变更资金提现人", url: "http://www.7881.com/selfService/preToSelfService.action?urlType=1", text: "点击进入" },
         ]
     }
     var vm = new Vue({
@@ -182,7 +187,8 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
             'regservicebuttom': serbuttom,
             'regfoot': foot,
             'regservicecall': call,
-            'regpusht':pusht,
+            'regpusht': pusht,
+            'reginfo':info,
         }
     });
 
