@@ -1,12 +1,9 @@
-﻿using System;
-using Bayetech.Core.Entity;
+﻿using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using System.Linq;
-using System.Linq.Expressions;
-using Bayetech.Service.IServices;
+using Bayetech.Core;
 
 namespace Bayetech.Service.Services
 {
@@ -18,14 +15,14 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                var _good = new vw_MallGoodInfo();
+                List<vw_MallGoodInfo> goods = new List<vw_MallGoodInfo>();
                 if (!string.IsNullOrEmpty(goodNo))
-                {       
-                    _good = db.FindEntity<vw_MallGoodInfo>(c => c.GoodInfoId == goodNo);
-                    if (_good!=null)
+                {
+                    goods = db.FindList<vw_MallGoodInfo>(c=>c.GoodInfoId == goodNo,new Pagination()).ToList();//此处看看能不能写个过滤器自动过滤出分页
+                    if (goods != null)
                     {
                         ret.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(_good));
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(goods));
                     }
                     else
                     {
