@@ -10,7 +10,7 @@ var jsconfig = {
         'vue': 'vue',
         'bootstrap': 'bootstrap',
         'bootstrapValidator': 'bootstrapValidator',
-        'swiper': 'swiper.min',
+        'swiper': 'swiper',
         'common': 'common',
         'v-header': 'app/Shared/header',
         'v-footer': 'app/Shared/footer',
