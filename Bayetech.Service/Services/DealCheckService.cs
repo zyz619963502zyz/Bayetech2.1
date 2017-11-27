@@ -13,7 +13,7 @@ namespace Bayetech.Service.Services
     public class DealCheckService : IDealCheckService
     {
         //获取商品信息
-        public JObject GetCheckInfo(string goodNo)
+        public JObject GetGoodInfo(string goodNo)
         {
             using (var db = new RepositoryBase())
             {

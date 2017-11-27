@@ -2,7 +2,7 @@
 define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
-    var _GetGoodInfo = "/api/DealCheck/GetCheckInfo";
+    var _GetGoodInfoUrl = "/api/DealCheck/GetGoodInfo";
 
     //模板
     var goodInfoHtml = `<div class="info-good">
@@ -67,16 +67,17 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     }  
 
     var goodInfoComponent = {//全局注册
+        self : this,
         template: goodInfoHtml,
         data() {
             return data;
         },
         created() {
-            //GetGoodInfo();//获取商品信息。
+           this.GetGoodInfo("201711151714130001");//获取商品信息。
         },
         methods: {
-            GetGoodInfo(){
-                common.getWebJson(_GetGoodInfoUrl, { accountName: this.$props.value.Iphone }, function (data) {
+            GetGoodInfo(goodno){
+                common.getWebJson(_GetGoodInfoUrl, { goodNo: goodno }, function (data) {
                     if (data == false) {
                         this.data = data;
                     }
@@ -89,13 +90,13 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            GetGoodInfo() {
-                common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
-                    if (data == false) {
-                        this.data = data;
-                    }
-                });
-            },
+            //GetGoodInfo() {
+            //    common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
+            //        if (data == false) {
+            //            this.data = data;
+            //        }
+            //    });
+            //},
             BuyNow() {
 
             }
