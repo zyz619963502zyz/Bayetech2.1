@@ -10,10 +10,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         <div class="s_blue_box">
             <div id="accuratetBox" v-show="!isSimple">
                 <ul class="selectbox clearfix">
-                    <li class ="g_name" @click="loadDropdown('0')">游戏名称</li>
-                    <li class ="g_area" @click="loadDropdown('2')">游戏区</li>
-                    <li class ="g_service" @click="loadDropdown('3')">服务器</li>
-                    <li class ="g_type" @click="loadDropdown('4')">物品类型</li>
+                    <li class ="g_name" @click="loadDropdown('0')">{{gameName}}</li>
+                    <li class ="g_area" @click="loadDropdown('2')">{{groupName}}</li>
+                    <li class ="g_service" @click="loadDropdown('3')">{{serverName}}</li>
+                    <li class ="g_type" @click="loadDropdown('4')">{{typeName}}</li>
                     <li class ="g_input"><label><input type="text" v-model="keyword" placeholder="商品编码或关键词"/></label></li>
                 </ul>
             </div>
@@ -51,9 +51,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     4: "mallType",
                 },
                 gameId: 0,
+                gameName:"游戏名称",
                 groupId: 0,
+                groupName:"游戏区",
                 serverId: 0,
-                typeId:0,
+                serverName:"服务器",
+                typeId: 0,
+                typeName: "物品类型",
             };
         },
         template: html,
@@ -64,10 +68,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             simpleBoxShow: function () {
                 this.isSimple = true;
             },
-            loadDropdown: function (type, id) {
+            showDropdown: function (type) {
+                this.showDropdown = true;
+                this.loadDropdown(type);
+            },
+            loadDropdown: function (type, id, name) {
                 id = id || this[`${this.typeObj[type]}Id`];
                 type === "4" && (id = this.gameId);
-                this.showDropdown = true;
                 this[`${type}id`] = id;
                 let nowVue = this;
                 common.getWebJson("/api/Search/GetData", { type: type, id: id }, function (data) {

@@ -18,11 +18,11 @@ define(["common"], function (common) {
         
         <ul v-if="data.Type <= 1" class ="main_letter_select">
             <a href="javascript:void(0)" id="hotgame" class ="current" @click="loadDropdown(data.Type)">热门游戏</a>
-            <a v-for="item in alphabet" href="javascript:void(0)" @click="GetDataByAlphabet(item,data.Type)">{{item}}</a>
+            <a v-for="item in alphabet" href="javascript:void(0)" @click="GetGameListByLetter(item,data.Type)">{{item}}</a>
         </ul>
         <dl class="con_list">
             <dt v-for="item in data.List">
-                <a href="javascript:void(0)" @click="loadDropdown(data.Child,item.Id)">{{item.Name}}</a>
+                <a href="javascript:void(0)" @click="loadDropdown(data.Child,item.Id,item.Name)">{{item.Name}}</a>
             </dt>
         </dl>
     </div>
@@ -41,14 +41,12 @@ define(["common"], function (common) {
             return data;
         },
         methods: {
-            loadDropdown: function (type,id) {
-                this.$parent.loadDropdown(type, id);
+            loadDropdown: function (type,id,name) {
+                this.$parent.loadDropdown(type, id,name);
             },
-            GetDataByAlphabet: function (letter,type) {
-                 
-                let nowVue = this;
-                common.getWebJson("/api/Game/GetDataByAlphabet", { letter:letter, type: type }, function (data) {
-                    nowVue.$props.data.list = data;
+            GetGameListByLetter: function (letter,type) {
+                common.getWebJson("/api/Game/GetGameListByLetter", { letter:letter, type: type }, function (data) {
+                    nowVue.$props.data.List = data;
                 });
             },
         }

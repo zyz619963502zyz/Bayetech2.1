@@ -1,6 +1,5 @@
 ﻿//首页tab切换
 define([], function (common) {
-    debugger;
     var data = {
         boxclass: "",
         cententclass: "gg-box",
