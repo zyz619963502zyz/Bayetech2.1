@@ -568,16 +568,6 @@
           <Property Name="Gameid" Type="Int32" Nullable="false" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="GoodAndDescription">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodInfoId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="DescriptionId" Type="Int64" />
-          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int64" />
-        </EntityType>
         <EntityType Name="vw_LoginInfo">
           <Key>
             <PropertyRef Name="UserName" />
@@ -606,10 +596,10 @@
           <EntitySet Name="Module" EntityType="Self.Module" />
           <EntitySet Name="Relationship" EntityType="Self.Relationship" />
           <EntitySet Name="Server" EntityType="Self.Server" />
-          <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" />
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" />
           <EntitySet Name="GameInfoDescription" EntityType="BayetechModel.GameInfoDescription" />
           <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
+          <EntitySet Name="GoodAndDescription" EntityType="BayetechModel.GoodAndDescription" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -627,6 +617,16 @@
           <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GoodAndDescription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodInfoId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionId" Type="Int64" />
+          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -880,17 +880,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GoodAndDescription">
-            <EntityTypeMapping TypeName="BayetechModel.GoodAndDescription">
-              <MappingFragment StoreEntitySet="GoodAndDescription">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
-                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
-                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_LoginInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_LoginInfo">
               <MappingFragment StoreEntitySet="vw_LoginInfo">
@@ -921,6 +910,17 @@
                 <ScalarProperty Name="DescriptionName" ColumnName="DescriptionName" />
                 <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
                 <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodAndDescription">
+            <EntityTypeMapping TypeName="BayetechModel.GoodAndDescription">
+              <MappingFragment StoreEntitySet="GoodAndDescription">
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
+                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
+                <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
