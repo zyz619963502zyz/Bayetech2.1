@@ -154,16 +154,16 @@ require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo
         ],
         ServicePushtList: [
             {
-                title: "",
+                title: "常见问题",
                 content: [
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "忘记密码怎么办" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何联系订单客服" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何验证真假客服" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何正确出售商品" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "收货角色名如何修改" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何提现我的资金" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "提现怎么收取手续费" },
-                    { url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "订单撤销后退款到哪" },
+                    { id:"1",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "忘记密码怎么办" },
+                    { id:"2",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何联系订单客服" },
+                    { id:"3",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何验证真假客服" },
+                    { id:"4",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何正确出售商品" },
+                    { id:"5",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "收货角色名如何修改" },
+                    { id:"6",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "如何提现我的资金" },
+                    { id:"7",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "提现怎么收取手续费" },
+                    { id:"8",url: "http://www.7881.com/helpcenter/73812285242797933.html", text: "订单撤销后退款到哪" },
                 ]
 
             }
