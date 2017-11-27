@@ -1,5 +1,4 @@
-﻿using Bayetech.Service;
-using Bayetech.Service.Services;
+﻿using Bayetech.Service.Services;
 using Newtonsoft.Json.Linq;
 using System.Web.Http;
 

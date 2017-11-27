@@ -27,7 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -255,7 +255,7 @@
     <Compile Include="Controllers\DealCheckController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MallController.cs" />
+    <Compile Include="Controllers\GoodInfoController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -443,6 +443,7 @@
     <Content Include="Content\Images\buy_zhang.png" />
     <Content Include="Content\Images\cb.png" />
     <Content Include="Content\Images\cnnic.png" />
+    <Content Include="Content\Images\dixiacheng.jpg" />
     <Content Include="Content\Images\dl-dnf-li2.png" />
     <Content Include="Content\Images\dl-wzry-li2.png" />
     <Content Include="Content\Images\dl-yxlm-li2.png" />
@@ -475,6 +476,9 @@
     <Content Include="Content\Images\G975.jpg" />
     <Content Include="Content\Images\gm_ts.png" />
     <Content Include="Content\Images\gq.png" />
+    <Content Include="Content\Images\guanggaolol.jpg" />
+    <Content Include="Content\Images\guanghui.jpg" />
+    <Content Include="Content\Images\hanbing.jpg" />
     <Content Include="Content\Images\hot.gif" />
     <Content Include="Content\Images\icon-bell.png" />
     <Content Include="Content\Images\icon-com.png" />
@@ -506,7 +510,9 @@
     <Content Include="Content\Images\logo-common.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\logo_service.png" />
+    <Content Include="Content\Images\lolruiwen.jpg" />
     <Content Include="Content\Images\lPic.png" />
+    <Content Include="Content\Images\lunzima.jpg" />
     <Content Include="Content\Images\m7881.png" />
     <Content Include="Content\Images\ma.png" />
     <Content Include="Content\Images\merit-01.png" />
@@ -536,6 +542,7 @@
     <Content Include="Content\Images\pic-03.jpg" />
     <Content Include="Content\Images\pic-04.jpg" />
     <Content Include="Content\Images\plane.gif" />
+    <Content Include="Content\Images\qinnv.jpg" />
     <Content Include="Content\Images\qq-01.png" />
     <Content Include="Content\Images\qq-02.png" />
     <Content Include="Content\Images\qrcode.png" />
@@ -551,6 +558,7 @@
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
     <Content Include="Content\Images\sina_wb.png" />
+    <Content Include="Content\Images\slideone.jpg" />
     <Content Include="Content\Images\slider_1.jpg" />
     <Content Include="Content\Images\slider_2.jpg" />
     <Content Include="Content\Images\slider_3.jpg" />
@@ -568,6 +576,7 @@
     <Content Include="Content\Images\tx.png" />
     <Content Include="Content\Images\uhaozu.jpg" />
     <Content Include="Content\Images\vcard-.png" />
+    <Content Include="Content\Images\wangzhe.jpg" />
     <Content Include="Content\Images\wdj.png" />
     <Content Include="Content\Images\wj.gif" />
     <Content Include="Content\Images\wx-m7881.png" />
@@ -705,8 +714,10 @@
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\ServiceCenter\footeradvan.js" />
     <Content Include="Scripts\app\ServiceCenter\index.js" />
+    <Content Include="Scripts\app\ServiceCenter\ServiceColl.js" />
     <Content Include="Scripts\app\ServiceCenter\servicenew.js" />
     <Content Include="Scripts\app\ServiceCenter\servicepavigation.js" />
+    <Content Include="Scripts\app\ServiceCenter\servicepusht.js" />
     <Content Include="Scripts\app\ServiceCenter\sevicelogo.js" />
     <Content Include="Scripts\app\Shared\footer-server.js" />
     <Content Include="Scripts\app\HelpCenter\index.js" />

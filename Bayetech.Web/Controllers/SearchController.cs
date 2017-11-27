@@ -13,7 +13,7 @@ namespace Bayetech.Web.Controllers
         BaseService<Game> gameService = new BaseService<Game>();
         BaseService<Server> serverService = new BaseService<Server>();
         MallTypeService mallTypeService = new MallTypeService();
-        BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
+        //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
         public IHttpActionResult GetData(int type, int id)
         {

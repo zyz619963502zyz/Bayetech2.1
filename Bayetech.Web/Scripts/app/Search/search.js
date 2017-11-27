@@ -14,7 +14,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     <li class ="g_area" @click="loadDropdown('2')">游戏区</li>
                     <li class ="g_service" @click="loadDropdown('3')">服务器</li>
                     <li class ="g_type" @click="loadDropdown('4')">物品类型</li>
-                    <li class ="g_input"><label><input type="text" placeholder="商品编码或关键词"/></label></li>
+                    <li class ="g_input"><label><input type="text" v-model="keyword" placeholder="商品编码或关键词"/></label></li>
                 </ul>
             </div>
             <div id="simplebox" v-show="isSimple">
@@ -23,7 +23,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                </label>
             </div>
         </div>
-        <a href="javascript:void(0)" id="search_main" class="search">搜 索</a>
+        <a href="javascript:void(0)" id="search_main" class="search" @click="searchGood">搜 索</a>
         <!--页面配置的热门搜索推荐-->
         <div class="hotsearch new-hot">
             <dl>
@@ -39,6 +39,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         name: "v-search",
         data:function() {
             return {
+                keyword:"",
                 isSimple: false,
                 showDropdown: false,
                 dropdownData: {},
@@ -52,6 +53,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 gameId: 0,
                 groupId: 0,
                 serverId: 0,
+                typeId:0,
             };
         },
         template: html,
@@ -68,15 +70,21 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 this.showDropdown = true;
                 this[`${type}id`] = id;
                 let nowVue = this;
-                 
-
                 common.getWebJson("/api/Search/GetData", { type: type, id: id }, function (data) {
                     nowVue.dropdownData = data;
                 });
             },
+            searchGood: function () {
+                common.getWebJson("/api/GoodInfo/GetList", {
+                    gameId: this.gameId, groupId: this.groupId, serverId: this.serverId,
+                    typeId: this.typeId, keyword: this.keyword,
+                }, function (data) {
+                    
+                });
+            },
         },
         components: {
-            "search-dropdown": dropdownComponents,
+            "search-dropdown": dropdownComponents
         },
     };
     return components;

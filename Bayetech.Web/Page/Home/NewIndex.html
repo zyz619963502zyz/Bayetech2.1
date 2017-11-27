@@ -97,7 +97,8 @@
                                 <!--carousel-->
                                 <div class="swiper-container">
                                     <div class="wrapper-car">
-                                        <div class="car-slide">Slide 1</div>
+                                        <div class="car-slide">
+                                            <img src="../../Content/Images/slideone.jpg" /></div>
                                         <div class="car-slide">Slide 2</div>
                                         <div class="car-slide">Slide 3</div>
                                         <div class="car-slide">Slide 4</div>
@@ -124,7 +125,7 @@
                         </div>
                         <!--right box-->
                         <div class="right-panel">
-                            <div class="right-panel-one m-b-md" style="height:50px;">
+                            <div class="right-panel-one m-b-md">
                                 <!--我要买我要卖-->
                                 <div class="buy-sale-area">
                                     <a href="http://www.7881.com/gamelistshow.html">我要买</a>
@@ -132,7 +133,7 @@
                                 </div>
                             </div>
                             
-                            <div class="right-panel-one m-b-md" style="height:50px;">
+                            <div class="right-panel-one m-b-md">
                                 <!--验证-->
                                 <div class="qq-yz">
                                     <label class="placeholder">
@@ -142,6 +143,7 @@
                                 </div>
                             </div>
                             <div class="right-panel-one m-b-md">
+                                <!--公告-->
                                 <v-tab :data="notice">
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
