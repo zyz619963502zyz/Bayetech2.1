@@ -8,6 +8,7 @@ namespace Bayetech.Service.Services
 {
     public class MallService : BaseService<MallGoodInfo>
     {
+     
         public IQueryable<MallGoodInfo> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
         {
             Expression<Func<MallGoodInfo, bool>> expression = t => true;

@@ -7,7 +7,7 @@ using Bayetech.Core;
 
 namespace Bayetech.Service.Services
 {
-    public class DealCheckService : IDealCheckService
+    public class DealCheckService : BaseService<DealCheckService>,IDealCheckService
     {
         //获取商品信息
         public JObject GetGoodInfo(string goodNo)
@@ -16,6 +16,7 @@ namespace Bayetech.Service.Services
             {
                 JObject ret = new JObject();
                 List<vw_MallGoodInfo> goods = new List<vw_MallGoodInfo>();
+
                 if (!string.IsNullOrEmpty(goodNo))
                 {
                     goods = db.FindList<vw_MallGoodInfo>(c=>c.GoodInfoId == goodNo,new Pagination()).ToList();//此处看看能不能写个过滤器自动过滤出分页
