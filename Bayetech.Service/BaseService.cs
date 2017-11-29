@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Linq.Expressions;
 using Bayetech.Core.Entity;
+using Bayetech.Core;
 
 namespace Bayetech.Service
 {
@@ -67,6 +68,23 @@ namespace Bayetech.Service
         public BayetechEntities GetContext()
         {
             return repository.GetContext();
+        }
+
+
+        /// <summary>
+        /// 默认分页参数
+        /// </summary>
+        /// <param name="sidx">分页字段</param>
+        /// <returns></returns>
+        public static Pagination GetDefaultPagination(string sidx,string sord ="asc" )
+        {
+            Pagination pages = new Pagination();
+            pages.rows = 9999999;
+            pages.page = 1;
+            pages.sidx = sidx;
+            pages.sord = sord;
+            pages.records = 9999999;
+            return pages;
         }
     }
 }
