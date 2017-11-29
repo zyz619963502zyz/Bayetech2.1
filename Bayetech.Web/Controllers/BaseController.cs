@@ -18,7 +18,14 @@ namespace Bayetech.Web
         /// </summary>
         /// <returns></returns>
         public static JObject CreatJObject(object content = null) {
-            return new JObject(content);
+            if (content == null)
+            {
+                return new JObject();
+            }
+            else
+            {
+                return new JObject(content);
+            }
         }
     }
 }
