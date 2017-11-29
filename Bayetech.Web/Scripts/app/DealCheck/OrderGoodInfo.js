@@ -15,8 +15,8 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                     </h3>
                 </div>
                 <h4>
-                    等级：<em class ="level"></em>
-                    <span>{{saleTime}}</span>
+                    等级：<em :class ="level"></em>
+                    <span>{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
                 </h4>
             </div>
             <div class ="game-ensure" >
@@ -24,7 +24,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             </div>
             <div class="role-info">
                 <ul>
-                    <li v-for="item in roleInfo"><span>{{item.type}}</span><em>{{item.text}}</em></li>
+                    <li v-for="item in mallGoodInfo"><span>{{item.DescriptionName}}：</span><em>{{item.DescriptionValue}}</em></li>
                 </ul>
             </div>
             <div class="detail_ico">
@@ -41,33 +41,27 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </div>
             <div class="rent-btn">
-                <a href="#" @click = "BuyNow">立即购买</a>
+                <a href="#" @click = "BuyNow">立即购买</a> 
             </div>
         </div>`
 
     var data = {
-        OrderTitle: "【 85级 女 暗殿骑士 身份证未设置 QQ等级0级 无QQ好友】《蛋总专卖》12个角色78-85-满深渊票-87767--交易时间8:00-凌晨1:00",
-        OrderPrice: 280,
+        GoodTitle: "",
+        GoodPrice: 280,
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
-        saleTime: "此账号首次在7881出售",
+        HistoryAccount: "此账号首次在7881出售",
+        mallGoodInfo: [
+            { DescriptionName: "", DescriptionValue: "" }
+        ],
         acountInfo: [
             { type: "类型:", text: "账号" },
             { type: "区服:", text: "上海区/上海1区" },
             { type: "送积分:", text: "12分" }
-        ],
-        roleInfo: [
-            { type: "等级:", text: "86" },
-            { type: "性别:", text: "女" },
-            { type: "职业:", text: "暗殿骑士" },
-            { type: "身份证:", text: "身份证未设置" },
-            { type: "QQ等级:", text: "QQ等级0级" },
-            { type: "QQ好友:", text: "无QQ好友" }
         ]
     }  
 
     var goodInfoComponent = {//全局注册
-        self : this,
         template: goodInfoHtml,
         data() {
             return data;
@@ -76,10 +70,14 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
            this.GetGoodInfo("201711151714130001");//获取商品信息。
         },
         methods: {
-            GetGoodInfo(goodno){
+            GetGoodInfo(goodno) {
+                var _self = this;
                 common.getWebJson(_GetGoodInfoUrl, { goodNo: goodno }, function (data) {
                     if (data.result) {
-                        this.data = data.content;
+                        _self.GoodTitle = data.content.GoodTitle;
+                        _self.GoodPrice = data.content.GoodPrice;
+                        _self.HistoryAccount = data.content.HistoryAccount;
+                        _self.$data.mallGoodInfo = data.content.mallGoodInfo;
                     }
                 });
             },

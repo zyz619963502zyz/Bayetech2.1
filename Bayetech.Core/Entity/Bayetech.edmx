@@ -286,6 +286,35 @@
           <Property Name="DescriptionValue" Type="nvarchar" MaxLength="50" />
           <Property Name="Id" Type="bigint" Nullable="false" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodMainInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_MallGoodMainInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GoodNo" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GoodTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodPrice" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="GoodSinglePrice" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="GoodKeyWord" Type="nvarchar" MaxLength="50" />
+          <Property Name="GoodType" Type="bigint" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameService" Type="nchar" MaxLength="50" />
+          <Property Name="GameGroupId" Type="int" />
+          <Property Name="GameServerId" Type="int" />
+          <Property Name="TotalNum" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuyNum" Type="int" />
+          <Property Name="HistoryAccount" Type="int" />
+          <Property Name="ListOrder" Type="int" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServerName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
@@ -331,6 +360,31 @@
     [vw_MallGoodInfo].[DescriptionValue] AS [DescriptionValue], 
     [vw_MallGoodInfo].[Id] AS [Id]
     FROM [dbo].[vw_MallGoodInfo] AS [vw_MallGoodInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_MallGoodMainInfo" EntityType="Self.vw_MallGoodMainInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_MallGoodMainInfo].[Id] AS [Id], 
+    [vw_MallGoodMainInfo].[GoodTitle] AS [GoodTitle], 
+    [vw_MallGoodMainInfo].[GoodPrice] AS [GoodPrice], 
+    [vw_MallGoodMainInfo].[GoodSinglePrice] AS [GoodSinglePrice], 
+    [vw_MallGoodMainInfo].[GoodKeyWord] AS [GoodKeyWord], 
+    [vw_MallGoodMainInfo].[GoodType] AS [GoodType], 
+    [vw_MallGoodMainInfo].[GameId] AS [GameId], 
+    [vw_MallGoodMainInfo].[GoodNo] AS [GoodNo], 
+    [vw_MallGoodMainInfo].[GameName] AS [GameName], 
+    [vw_MallGoodMainInfo].[GameService] AS [GameService], 
+    [vw_MallGoodMainInfo].[GameGroupId] AS [GameGroupId], 
+    [vw_MallGoodMainInfo].[GameServerId] AS [GameServerId], 
+    [vw_MallGoodMainInfo].[TotalNum] AS [TotalNum], 
+    [vw_MallGoodMainInfo].[UserName] AS [UserName], 
+    [vw_MallGoodMainInfo].[BuyNum] AS [BuyNum], 
+    [vw_MallGoodMainInfo].[HistoryAccount] AS [HistoryAccount], 
+    [vw_MallGoodMainInfo].[ListOrder] AS [ListOrder], 
+    [vw_MallGoodMainInfo].[EditTime] AS [EditTime], 
+    [vw_MallGoodMainInfo].[AddTime] AS [AddTime], 
+    [vw_MallGoodMainInfo].[GroupName] AS [GroupName], 
+    [vw_MallGoodMainInfo].[ServerName] AS [ServerName]
+    FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -580,6 +634,7 @@
           <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
           <EntitySet Name="GoodAndDescription" EntityType="BayetechModel.GoodAndDescription" />
           <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
+          <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -631,6 +686,33 @@
           <Property Name="ListOrder" Type="Int32" />
           <Property Name="EditTime" Type="DateTime" Precision="3" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vw_MallGoodMainInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GoodNo" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodType" Type="Int64" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GoodNo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="TotalNum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuyNum" Type="Int32" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -914,6 +996,33 @@
                 <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
+                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
+                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
+                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MallGoodMainInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
+              <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="BuyNum" ColumnName="BuyNum" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
                 <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
                 <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
