@@ -56,8 +56,8 @@ namespace Bayetech.Service.Services
             {
                 if (!string.IsNullOrEmpty(goodNo))
                 {
-                    MallGoodInfo goodInfo = new MallGoodInfo();
-                    goodInfo = db.FindEntity<MallGoodInfo>(c => c.GoodNo == goodNo);
+                    vw_MallGoodMainInfo goodInfo = new vw_MallGoodMainInfo();
+                    goodInfo = db.FindEntity<vw_MallGoodMainInfo>(c => c.GoodNo == goodNo);
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))//找到了此笔商品编号的数据。
                     {
                         ret.Add(ResultInfo.Result, true);

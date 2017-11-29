@@ -13,14 +13,15 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                         <p class ="nowprice">价格: <span><em>￥</em>{{GoodPrice}}</span></p>
                         <p class ="wantprice"><em class ="tags icon-jgxs"></em><a href="wantPriceUrl">我要议价</a></p>
                     </h3>
-                </div>
+                </div>7881
                 <h4>
                     等级：<em :class ="level"></em>
                     <span>{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
                 </h4>
             </div>
             <div class ="game-ensure" >
-                <p class ="type" v-for="item in acountInfo">{{item.type}}<span>{{item.text}}</span></p>
+                <p :class ="[HistoryAccount>=0?'type':'hide']">账号：<span>{{GroupName}}</span></p>
+                <p :class ="[HistoryAccount>=0?'type':'hide']">区服：<span>{{ServerName}}</span></p>
             </div>
             <div class="role-info">
                 <ul>
@@ -48,17 +49,19 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
     var data = {
         GoodTitle: "",
         GoodPrice: 280,
+        GroupName: "东北区",
+        ServerName: "东北1区",
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
         HistoryAccount: "此账号首次在7881出售",
         mallGoodInfo: [
             { DescriptionName: "", DescriptionValue: "" }
-        ],
-        acountInfo: [
-            { type: "类型:", text: "账号" },
-            { type: "区服:", text: "上海区/上海1区" },
-            { type: "送积分:", text: "12分" }
         ]
+        //acountInfo: [
+        //    { type: "类型:", text: "账号" },
+        //    { type: "区服:", text: "上海区/上海1区" },
+        //    { type: "送积分:", text: "12分" }
+        //]
     }  
 
     var goodInfoComponent = {//全局注册
@@ -76,6 +79,8 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                     if (data.result) {
                         _self.GoodTitle = data.content.GoodTitle;
                         _self.GoodPrice = data.content.GoodPrice;
+                        _self.GroupName = data.content.GroupName;
+                        _self.ServerName = data.content.ServerName;
                         _self.HistoryAccount = data.content.HistoryAccount;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
                     }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// </summary>
 namespace Bayetech.Web
 {
-    public class MallGoodInfoModels : MallGoodInfo
+    public class MallGoodInfoModels : vw_MallGoodMainInfo
     {
         public List<vw_MallGoodInfo> mallGoodInfo;
     }
