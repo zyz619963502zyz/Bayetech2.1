@@ -24,11 +24,12 @@ namespace Bayetech.Service.Services
                     List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(c=>c.GoodInfoId == goodNo,GetDefaultPagination("GoodInfoId")).ToList();
                     if (goodInfo != null)
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(goodInfo));
+                        ret.Add(ResultInfo.Result, true);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
                     }
                     else
                     {
-                        ret.Add(ResultInfo.Result, false);
+                        ret.Add(ResultInfo.Result,false);
                         ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }

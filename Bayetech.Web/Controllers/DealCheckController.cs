@@ -36,8 +36,7 @@ namespace Bayetech.Web.Controllers
                 result.Add(ResultInfo.Result,  false);
                 result.Add(ResultInfo.Content, !goodInfo? resultGoodInfo["content"].ToString(): resultGoodDetailInfo["content"].ToString());//返回报错信息
             }
-            return service.GetGoodInfoDetail(goodNo);
+            return result;
         }
-
     }  
 }
