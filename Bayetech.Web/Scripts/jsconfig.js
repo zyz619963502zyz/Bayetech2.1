@@ -69,6 +69,10 @@ var jsconfig = {
         'bootstrapValidator': {
             deps: ['jquery', 'bootstrap'],
             exports: 'validate'
+        },
+        'swiper': {
+            deps: ['jquery', 'bootstrap'],
+            exports: 'Swiper'
         }
     }
 };

@@ -10,10 +10,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         <div class="s_blue_box">
             <div id="accuratetBox" v-show="!isSimple">
                 <ul class="selectbox clearfix">
-                    <li class ="g_name" @click="loadDropdown('0')">{{gameName}}</li>
-                    <li class ="g_area" @click="loadDropdown('2')">{{groupName}}</li>
-                    <li class ="g_service" @click="loadDropdown('3')">{{serverName}}</li>
-                    <li class ="g_type" @click="loadDropdown('4')">{{typeName}}</li>
+                    <li class ="g_name" @click="showDropdown('0')">{{gameName}}</li>
+                    <li class ="g_area" @click="showDropdown('2')">{{groupName}}</li>
+                    <li class ="g_service" @click="showDropdown('3')">{{serverName}}</li>
+                    <li class ="g_type" @click="showDropdown('4')">{{typeName}}</li>
                     <li class ="g_input"><label><input type="text" v-model="keyword" placeholder="商品编码或关键词"/></label></li>
                 </ul>
             </div>
@@ -30,8 +30,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 <dt>热门搜索：</dt>
             </dl>
         </div>
-        <i class ="arrow" v-show="showDropdown"></i>
-        <search-dropdown :data="dropdownData" v-show="showDropdown"></search-dropdown>
+        <i class ="arrow" v-show="isShow"></i>
+        <search-dropdown :data="dropdownData" v-show="isShow"></search-dropdown>
     </div>
 </div>`;
     var dropdownComponents = dropdown;
@@ -41,7 +41,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             return {
                 keyword:"",
                 isSimple: false,
-                showDropdown: false,
+                isShow: false,
                 dropdownData: {},
                 typeObj: {
                     0: "game",
@@ -69,8 +69,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 this.isSimple = true;
             },
             showDropdown: function (type) {
-                this.showDropdown = true;
+                this.isShow = true;
                 this.loadDropdown(type);
+            },
+            hideDropdown: function () {
+                this.isShow = true;
             },
             loadDropdown: function (type, id, name) {
                 id = id || this[`${this.typeObj[type]}Id`];
