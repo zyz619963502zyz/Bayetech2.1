@@ -20,8 +20,8 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 </h4>
             </div>
             <div class ="game-ensure" >
-                <p :class ="[HistoryAccount>=0?'type':'hide']">账号：<span>{{GroupName}}</span></p>
-                <p :class ="[HistoryAccount>=0?'type':'hide']">区服：<span>{{ServerName}}</span></p>
+                <p class ="type">{{MallTypeName}}：<span>{{GroupName}}</span></p>
+                <p class ="type">区服：<span>{{ServerName}}</span></p>
             </div>
             <div class="role-info">
                 <ul>
@@ -42,13 +42,14 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </div>
             <div class="rent-btn">
-                <a href="#" @click = "BuyNow">立即购买</a> 
+                <a href="#" @click = "BuyNow">立即购买</a>
             </div>
         </div>`
 
     var data = {
         GoodTitle: "",
         GoodPrice: 280,
+        MallTypeName:"",
         GroupName: "东北区",
         ServerName: "东北1区",
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
@@ -57,11 +58,6 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
         mallGoodInfo: [
             { DescriptionName: "", DescriptionValue: "" }
         ]
-        //acountInfo: [
-        //    { type: "类型:", text: "账号" },
-        //    { type: "区服:", text: "上海区/上海1区" },
-        //    { type: "送积分:", text: "12分" }
-        //]
     }  
 
     var goodInfoComponent = {//全局注册

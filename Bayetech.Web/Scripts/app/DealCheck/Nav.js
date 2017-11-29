@@ -18,14 +18,17 @@ define("OrderNav", jsconfig.baseArr, function (Vue,$,common) {
             return data;
         },
         created() {
-            var self = this
+            var self = this;
             this.$parent.$on('GoodInfoHere', function (data) {//接收事件
                 if (data.content.HistoryAccount >= 0) {
-                    var currentObj = {
-                        title: "账号",
-                        href:"aaaaaaaa"
-                    }
-                    self.data.object.push(currentObj);
+                    var _Game = {title: "账号",href:"#"}
+                    var _GameType = { title: data.content.GameName, href: "#" };
+                    var _GroupName = { title: data.content.GroupName, href: "#" };
+                    var _ServerName = { title: data.content.ServerName, href: "#" };
+                    self.object.push(_Game);
+                    self.object.push(_GameType);
+                    self.object.push(_GroupName);
+                    self.object.push(_ServerName);
                 }
             });
         },
