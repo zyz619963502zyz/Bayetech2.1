@@ -35,9 +35,9 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 <a href="javascript:void(0)"><i class="tags icon-zhbp"></i></a>
                 <a href="javascript:void(0)"><i class="tags icon-jgxs"></i></a>
                 <div class="ico_text">
-                    <p><i class="tags icon-ptdf"></i>寄售商品：货在7881，款到立即发货。</p>
-                    <p style="display: none;"><i class="tags icon-zhyz"></i>此帐号注册资料已通过7881验证。</p>
-                    <p style="display: none;"><i class="tags icon-zhbp"></i>找回包赔：如交易成功后您购买的商品三个月内出现被卖家找回，7881将负责损失赔偿</p>
+                    <p><i class="tags icon-ptdf"></i>寄售商品：货在游戏联盟，款到立即发货。</p>
+                    <p style="display: none;"><i class ="tags icon-zhyz"></i>此帐号注册资料已通过游戏联盟验证。</p>
+                    <p style="display: none;"><i class ="tags icon-zhbp"></i>找回包赔：如交易成功后您购买的商品三个月内出现被卖家找回，游戏联盟将负责损失赔偿</p>
                     <p style="display: none;"><i class="tags icon-jgxs"></i>价格协商：此商品可以联系客服进行议价</p>
                 </div>
             </div>
