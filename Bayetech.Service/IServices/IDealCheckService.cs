@@ -6,5 +6,7 @@ namespace Bayetech.Service
     public interface IDealCheckService
     {
         JObject GetGoodInfo(string goodNo);
+
+        JObject GetGoodInfoDetail(string goodNo);
     }
 }

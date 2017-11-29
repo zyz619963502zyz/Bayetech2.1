@@ -12,7 +12,7 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public JObject GetGoodInfo(string goodNo) 
         {
-            return service.GetGoodInfo(goodNo);
+            return service.GetGoodInfoDetail(goodNo);
         }
 
     }  
