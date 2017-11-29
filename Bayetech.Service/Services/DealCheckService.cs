@@ -28,13 +28,13 @@ namespace Bayetech.Service.Services
                     }
                     else
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                        ret.Add(ResultInfo.Result, false);
                         ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }
                 else
                 {
-                    ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    ret.Add(ResultInfo.Result, false);
                     ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空,请重新输入!"));
                 }
                 return ret;
@@ -59,19 +59,19 @@ namespace Bayetech.Service.Services
                     goodInfo = db.FindEntity<MallGoodInfo>(c => c.GoodNo == goodNo);
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))//找到了此笔商品编号的数据。
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(ret));
+                        ret.Add(ResultInfo.Result, true);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
                     }
                     else
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                        ret.Add(ResultInfo.Result, false);
                         ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }
                 else
                 {
                    
-                    ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    ret.Add(ResultInfo.Result, false);
                     ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空，请重新输入！"));
                 }
             }
