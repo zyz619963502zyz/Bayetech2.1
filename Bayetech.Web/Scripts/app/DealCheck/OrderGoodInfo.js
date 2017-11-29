@@ -13,7 +13,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                         <p class ="nowprice">价格: <span><em>￥</em>{{GoodPrice}}</span></p>
                         <p class ="wantprice"><em class ="tags icon-jgxs"></em><a href="wantPriceUrl">我要议价</a></p>
                     </h3>
-                </div>7881
+                </div>
                 <h4>
                     等级：<em :class ="level"></em>
                     <span>{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
