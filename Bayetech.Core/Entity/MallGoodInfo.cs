@@ -22,7 +22,7 @@ namespace Bayetech.Core.Entity
         public Nullable<long> GoodType { get; set; }
         public Nullable<long> GameId { get; set; }
         public string GoodNo { get; set; }
-        public string GameName { get; set; }
+        public string GameAccountName { get; set; }
         public string GameService { get; set; }
         public Nullable<int> GameGroupId { get; set; }
         public Nullable<int> GameServerId { get; set; }

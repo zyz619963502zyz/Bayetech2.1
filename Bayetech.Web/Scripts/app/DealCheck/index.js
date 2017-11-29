@@ -14,7 +14,7 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
             return data;
         },
         created: function () {
-            
+            //this.$options.components.ordergoodinfo.methods.GetGoodInfo("201711151714130001");
         },
         components: {
             'ordernav': orderNav,

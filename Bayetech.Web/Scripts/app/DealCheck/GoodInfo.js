@@ -70,7 +70,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
             return data;
         },
         created() {
-           this.GetGoodInfo("201711151714130001");//获取商品信息。
+            this.GetGoodInfo("201711151714130001");//获取商品信息。
         },
         methods: {
             GetGoodInfo(goodno) {
@@ -83,6 +83,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                         _self.ServerName = data.content.ServerName;
                         _self.HistoryAccount = data.content.HistoryAccount;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
+                        _self.$parent.$emit('GoodInfoHere', data);//触发事件并传播
                     }
                 });
             },
