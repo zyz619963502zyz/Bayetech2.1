@@ -1,4 +1,4 @@
-﻿define("PointTradingModel", jsconfig.baseArr, function (Vue, $, common) {
+﻿define(jsconfig.baseArr, function (Vue, $, common) {
     var middleHtml = `<div class="list-box list-type-03">
         <div class="list-item"  v-for="item in value">
                 <div class ="list-item-box" >
@@ -40,6 +40,7 @@
                 </div>
             </div>
           </div>`
+
     //中间模板
     var middleComponent = {
         props: ['value'],

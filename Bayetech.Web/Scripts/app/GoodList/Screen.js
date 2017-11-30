@@ -1,4 +1,4 @@
-﻿define("ScreenModel", jsconfig.baseArr, function (Vue, $, common) {
+﻿define(jsconfig.baseArr, function (Vue, $, common) {
     //alert(3);
     var screenHtml = ` <div>
             <div class="slobar-01 clearfix">

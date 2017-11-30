@@ -1,8 +1,8 @@
 ﻿//注册模块
-define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
+define(jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
-    var _GetGoodInfoUrl = "/api/DealCheck/GetGoodInfo";
+    var _GetGoodInfoUrl = "/api/GoodInfo/GetGoodInfo";
 
     //模板
     var goodInfoHtml = `<div>
@@ -71,8 +71,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                     <img src="../../Content/Images/sellicon.jpg" />
                 </div>
                 <div class ="sellstar">
-                    <p>
-                        卖家信誉：<a href="http://www.7881.com/helpcenter/36057564234053938.html" target="_blank">
+                    <p>卖家信誉：<a href="http://www.7881.com/helpcenter/36057564234053938.html" target="_blank">
                             <em class ="startall"></em>
                             <em class ="startall"></em>
                             <em class ="startall"></em>
@@ -83,7 +82,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 <div class ="selldata">
                     <p>成交订单：<span>{{TotalNum}}笔</span></p>
                     <p>取消订单：<span>{{CancelNum}}笔</span></p>
-                    <p>成交概率：<span> {{CancelNum/TotalNum*100}}%  </span></p>
+                    <p>成交概率：<span>{{(parseFloat((TotalNum-CancelNum) /TotalNum*100)).toFixed(2) }}%  </span></p>
                 </div>
                 </div>
             </div>
