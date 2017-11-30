@@ -10,13 +10,13 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 <div class="picFocus">
                     <ul>
                         <li>
-                            <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
+                            <img src="../../Content/Images/1b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
                         </li>
                     </ul>
                 </div>
                 <div class="good-id">
                     <p class ="bianhao">编号：<span>{{GoodNo}}</span></p>
-                    <p class ="riqi">日期：<span>{{AddTime.replace('T',' ')}}</span></p>
+                    <p class ="riqi">日期：<span>{{AddTime.split('T')[0]}}</span></p>
                     <div class="sharep">
                         <div class="bdsharebuttonbox bdshare-button-style0-16" data-tag="share_1">
                             <a class="bds_more" data-cmd="more">分享</a>
@@ -82,8 +82,8 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 </div>
                 <div class ="selldata">
                     <p>成交订单：<span>{{TotalNum}}笔</span></p>
-                    <p>取消订单：<span>5笔</span></p>
-                    <p>成交概率：<span> 96%  </span></p>
+                    <p>取消订单：<span>{{CancelNum}}笔</span></p>
+                    <p>成交概率：<span> {{CancelNum/TotalNum*100}}%  </span></p>
                 </div>
                 </div>
             </div>
@@ -97,10 +97,11 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
         MallTypeName:"",
         GroupName: "",
         ServerName: "",
-        TotalNum:"",
+        TotalNum: "",
+        CancelNum:"",
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
-        HistoryAccount: "此账号首次在7881出售",
+        HistoryAccount: "此账号首次在就游戏联盟出售",
         mallGoodInfo: [
             { DescriptionName: "", DescriptionValue: "" }
         ]
@@ -128,6 +129,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                         _self.HistoryAccount = data.content.HistoryAccount;
                         _self.MallTypeName = data.content.MallTypeName;
                         _self.TotalNum = data.content.TotalNum;
+                        _self.CancelNum = data.content.CancelNum;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
                         _self.$parent.$emit('GoodInfoHere', data);//触发事件并传播
                     }

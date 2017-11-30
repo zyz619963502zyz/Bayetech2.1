@@ -37,5 +37,6 @@ namespace Bayetech.Core.Entity
         public string ServerName { get; set; }
         public string MallTypeName { get; set; }
         public string GameAccountName { get; set; }
+        public Nullable<int> CancelNum { get; set; }
     }
 }

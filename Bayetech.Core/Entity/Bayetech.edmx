@@ -166,6 +166,7 @@
           <Property Name="GameGroupId" Type="int" />
           <Property Name="GameServerId" Type="int" />
           <Property Name="TotalNum" Type="int" />
+          <Property Name="CancelNum" Type="int" />
           <Property Name="BuyNum" Type="int" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="HistoryAccount" Type="int" />
@@ -316,6 +317,7 @@
           <Property Name="GameName" Type="nvarchar" MaxLength="50" />
           <Property Name="MallTypeName" Type="nvarchar" MaxLength="100" />
           <Property Name="GameAccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CancelNum" Type="int" />
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
@@ -387,7 +389,8 @@
     [vw_MallGoodMainInfo].[ServerName] AS [ServerName], 
     [vw_MallGoodMainInfo].[GameName] AS [GameName], 
     [vw_MallGoodMainInfo].[MallTypeName] AS [MallTypeName], 
-    [vw_MallGoodMainInfo].[GameAccountName] AS [GameAccountName]
+    [vw_MallGoodMainInfo].[GameAccountName] AS [GameAccountName], 
+    [vw_MallGoodMainInfo].[CancelNum] AS [CancelNum]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -685,6 +688,7 @@
           <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MallTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GameAccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CancelNum" Type="Int32" />
         </EntityType>
         <EntityType Name="MallGoodInfo">
           <Key>
@@ -709,6 +713,7 @@
           <Property Name="ListOrder" Type="Int32" />
           <Property Name="EditTime" Type="DateTime" Precision="3" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="CancelNum" Type="Int32" />
         </EntityType>
         <EntityType Name="vw_MallGoodInfo">
           <Key>
@@ -985,6 +990,7 @@
           <EntitySetMapping Name="vw_MallGoodMainInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
               <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
                 <ScalarProperty Name="GameAccountName" ColumnName="GameAccountName" />
                 <ScalarProperty Name="MallTypeName" ColumnName="MallTypeName" />
                 <ScalarProperty Name="ServerName" ColumnName="ServerName" />
@@ -1014,6 +1020,7 @@
           <EntitySetMapping Name="MallGoodInfo">
             <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
               <MappingFragment StoreEntitySet="MallGoodInfo">
+                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="EditTime" ColumnName="EditTime" />
                 <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
