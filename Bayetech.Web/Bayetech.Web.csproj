@@ -672,7 +672,7 @@
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
-    <Content Include="Page\PointTrading\PointTranding.html" />
+    <Content Include="Page\GoodList\GoodList.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
     <Content Include="Page\ServiceCenter\AdviceCentre.html" />
     <Content Include="Page\ServiceCenter\anquan.html" />
