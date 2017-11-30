@@ -1,6 +1,7 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -8,9 +9,10 @@ namespace Bayetech.Service.Services
 {
     public class GoodInfoService : BaseService<MallGoodInfo>
     {
-        public IQueryable<MallGoodInfo> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
+        public IEnumerable<MallGoodInfo> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
         {
-            Expression<Func<MallGoodInfo, bool>> expression = t => true;
+            Expression<Func<MallGoodInfo, bool>> expression = PredicateExtensions.True<MallGoodInfo>();
+                //t => true;
             if (gameId > 0)
             {
                 expression = expression.And(t => t.GameId == gameId);
@@ -29,9 +31,9 @@ namespace Bayetech.Service.Services
             }
             if (string.IsNullOrEmpty(keyword))
             {
-                expression = expression.And(t => t.GoodTitle.Contains(keyword)||t.GoodKeyWord.Contains(keyword));
+                expression = expression.And(t => t.GoodTitle.Contains(keyword) || t.GoodKeyWord.Contains(keyword));
             }
-            return FindList(expression);
+             return FindList(t => true).Where(expression.Compile());
         }
     }
 }

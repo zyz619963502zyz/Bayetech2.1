@@ -59,7 +59,8 @@ var jsconfig = {
         'ServiceFoot': "app/ServiceCenter/footeradvan",
         'ServiceCall': "app/ServiceCenter/ServiceColl",
         'ServicePusht': "app/ServiceCenter/servicepusht",
-        'ServiceInfa': "app/ServiceCenter/serviceinfo"
+        'ServiceInfa': "app/ServiceCenter/serviceinfo",
+        "v-nav": 'app/Shared/nav',
     },
     shim: {
         'bootstrap': {

@@ -23,7 +23,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                </label>
             </div>
         </div>
-        <a href="javascript:void(0)" id="search_main" class="search" @click="searchGood">搜 索</a>
+        <a href="javascript:void(0)" id="search_main" class="search" @click="search">搜 索</a>
         <!--页面配置的热门搜索推荐-->
         <div class="hotsearch new-hot">
             <dl>
@@ -115,13 +115,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 this.setData(type, pid, this);
             },
             //搜索
-            searchGood: function () {
+            search: function () {
+                //let url = `${window.location.host}/Page/GoodInfo/List.html?page=1&gameId=${this.gameId}&groupId=${this.groupId}&serverId=${this.serverId}&typeId=${this.typeId}&keyword=${this.keyword}`;
+                //window.location.href = url;
                 common.getWebJson("/api/GoodInfo/GetList", {
                     gameId: this.gameId, groupId: this.groupId, serverId: this.serverId,
                     typeId: this.typeId, keyword: this.keyword,
-                }, function (data) {
-                    
-                });
+                }, function (data) {});
             },
             getParentTypeName: function (type) {
                 var parentTypeObj = {
