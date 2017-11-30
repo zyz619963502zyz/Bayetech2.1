@@ -1,7 +1,7 @@
 ﻿//模块之间的操作
-var PointTradingModule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
+var GoodListMoudule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
 //alert(1);
-require(PointTradingModule, function (Vue, $,common, mediacy, tabuiation) {
+require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
     //Api
     let findListUrl = "/api/PointTrading/GameRequirementsList"; //查询列表
     //筛选和列表整合数据

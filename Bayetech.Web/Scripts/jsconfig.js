@@ -4,10 +4,10 @@ var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? wi
 var jsconfig = { 
     baseUrl: webUrl + "/Scripts/",
     //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
-    baseArr: ['jquery', 'vue', 'common'],
+    baseArr: ['vue', 'jquery', 'common'],
     paths: {
-        jquery: 'jquery-1.10.2',
         'vue': 'vue',
+        'jquery': 'jquery-1.10.2',
         'bootstrap': 'bootstrap',
         'bootstrapValidator': 'bootstrapValidator',
         'swiper': 'swiper',
