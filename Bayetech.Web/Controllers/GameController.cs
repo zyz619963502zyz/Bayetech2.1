@@ -46,5 +46,16 @@ namespace Bayetech.Web.Controllers
             var list = gameService.FindList(a => a.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && a.Platform.Equals(type) && !a.IsDelete).ToList();
             return Json(list);
         }
+
+        /// <summary>
+        /// 根据游戏名模糊查找游戏名
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public IHttpActionResult GetGameByName(string name)
+        {
+            var list = gameService.FindList(a => a.Name.Contains(name) && !a.IsDelete).ToList();
+            return Json(list);
+        }
     }
 }

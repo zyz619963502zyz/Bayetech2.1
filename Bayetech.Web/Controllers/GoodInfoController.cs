@@ -15,6 +15,7 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
 
+        [HttpGet]
         public IHttpActionResult GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
         {
             var result = service.GetList(gameId, groupId, serverId, typeId, keyword).ToList();

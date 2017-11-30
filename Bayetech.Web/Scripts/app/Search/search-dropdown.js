@@ -11,7 +11,7 @@ define(["common"], function (common) {
             <a href="javascript:void(0)" class ="hover"  @click="loadDropdown('0')">网络游戏</a>
             <a href="javascript:void(0)" class ="" @click="loadDropdown('1')">手机游戏</a>
             <ul class="gamename_quicksearch">
-                <input type="text" onkeyup="return fastSearchKeyUp();" value="请输入游戏关键字或拼音" id="sselect_gamename" class="q_input gray_a" onclick="if    (this.value=='请输入游戏关键字或拼音'){this.value='';this.className='q_input'}" onblur="if(this.value=='') {this.value='请输入游戏关键字或拼    音';this.className='q_input gray_a'}">
+                <input type="text" placeholder="请输入游戏关键字或拼音" id="sselect_gamename" class ="q_input gray_a" @change="searchGameByName" v-model="searchGameName">
             </ul>
             <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
         </ul>
@@ -31,6 +31,7 @@ define(["common"], function (common) {
     var data = {
         alphabet: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
         list: [],
+        searchGameName: "",
     }
 
     var components = {
@@ -47,6 +48,12 @@ define(["common"], function (common) {
             GetGameListByLetter: function (letter,type) {
                 common.getWebJson("/api/Game/GetGameListByLetter", { letter:letter, type: type }, function (data) {
                     nowVue.$props.data.List = data;
+                });
+            },
+            searchGameByName: function () {
+                var _self = this;
+                common.getWebJson("/api/Game/GetGameByName", { name: this.searchGameName }, function (data) {
+                    _self.dropdownData = data;
                 });
             },
         }

@@ -4,8 +4,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
     <div class="top_search clearfix">
         <a href="javascript:void(0)" class="close_btn" title="关闭" alt="关闭">关闭</a>
         <div class="t_search">
-            <a href="javascript:void(0)" class ="hover" @click="showAccuratetBox">精准搜索</a>
-            <a href="javascript:void(0)" class ="gray" @click="showSimpleBox">简单搜索</a>
+            <a href="javascript:void(0)" :class ="accurateClass" @click="showAccuratetBox">精准搜索</a>
+            <a href="javascript:void(0)" :class ="simpleClass" @click="showSimpleBox">简单搜索</a>
         </div>
         <div class="s_blue_box">
             <div id="accuratetBox" v-show="!isSimple">
@@ -58,6 +58,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 serverName:"服务器",
                 typeId: 0,
                 typeName: "物品类型",
+                simpleClass: "gray",
+                accurateClass: "hover",
             };
         },
         template: html,
@@ -65,10 +67,15 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //显示精确搜索框
             showAccuratetBox: function () {
                 this.isSimple = false;
+                this.accurateClass = "hover";
+                this.simpleClass = "gray";
             },
             //显示简单搜索框
             showSimpleBox: function () {
                 this.isSimple = true;
+                this.isShow = false;
+                this.accurateClass = "gray";
+                this.simpleClass = "hover";
             },
             //显示下拉框
             showDropdown: function (type) {
@@ -116,13 +123,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //搜索
             search: function () {
-                //let url = `${window.location.host}/Page/GoodInfo/List.html?page=1&gameId=${this.gameId}&groupId=${this.groupId}&serverId=${this.serverId}&typeId=${this.typeId}&keyword=${this.keyword}`;
+                //let url = `${window.location.host}/Page/GoodInfo/List.html?page=1&gameId=${this.gameId}&groupId=${this.groupId}&serverId=${this.serverId}&typeId=${this.typeId}&keyword=${this.keyword.trim()}`;
                 //window.location.href = url;
                 common.getWebJson("/api/GoodInfo/GetList", {
                     gameId: this.gameId, groupId: this.groupId, serverId: this.serverId,
-                    typeId: this.typeId, keyword: this.keyword,
+                    typeId: this.typeId, keyword: this.keyword.trim(),
                 }, function (data) {});
-            },
+            },           
             getParentTypeName: function (type) {
                 var parentTypeObj = {
                     0: "",
