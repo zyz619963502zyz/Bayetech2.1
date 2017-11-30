@@ -2,7 +2,7 @@
 define(jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
-    var _GetGoodInfoUrl = "/api/DealCheck/GetGoodInfo";
+    var _GetGoodInfoUrl = "/api/GoodDetailInfo/GetGoodInfo";
 
     //模板
     var goodInfoHtml = `<div>

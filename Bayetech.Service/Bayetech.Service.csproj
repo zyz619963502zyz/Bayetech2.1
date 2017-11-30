@@ -60,10 +60,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ArticleService.cs" />
-    <Compile Include="Services\DealCheckService.cs" />
+    <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
-    <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
   </ItemGroup>
