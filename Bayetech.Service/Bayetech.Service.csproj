@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
-    <Compile Include="IServices\IDealCheckService.cs" />
+    <Compile Include="IServices\IGoodInfoService.cs" />
     <Compile Include="IServices\IGameRequirementsService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\Interface1.cs" />

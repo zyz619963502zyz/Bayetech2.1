@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service
 {
-    public interface IDealCheckService
+    public interface IGoodInfoService
     {
         JObject GetGoodInfo(string goodNo);
 

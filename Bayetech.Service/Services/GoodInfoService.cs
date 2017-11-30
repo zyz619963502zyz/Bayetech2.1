@@ -9,7 +9,7 @@ using System;
 
 namespace Bayetech.Service.Services
 {
-    public class GoodInfoService : BaseService<MallGoodInfo>,IDealCheckService
+    public class GoodInfoService : BaseService<MallGoodInfo>, IGoodInfoService
     {
         /// <summary>
         /// 根据下拉框查询列表
