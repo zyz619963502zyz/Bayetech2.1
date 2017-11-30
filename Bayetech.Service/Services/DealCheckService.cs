@@ -9,35 +9,74 @@ namespace Bayetech.Service.Services
 {
     public class DealCheckService : BaseService<DealCheckService>,IDealCheckService
     {
-        //获取商品信息
-        public JObject GetGoodInfo(string goodNo)
+        /// <summary>
+        /// 获取商品信息大类
+        /// </summary>
+        /// <param name="goodNo"></param>
+        /// <returns></returns>
+        public JObject GetGoodInfoDetail(string goodNo)
         {
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                List<vw_MallGoodInfo> goods = new List<vw_MallGoodInfo>();
-                
-
                 if (!string.IsNullOrEmpty(goodNo))
                 {
                     List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(c=>c.GoodInfoId == goodNo,GetDefaultPagination("GoodInfoId")).ToList();
                     if (goodInfo != null)
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(goodInfo));
+                        ret.Add(ResultInfo.Result, true);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
                     }
                     else
                     {
-                        ret.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        ret.Add(ResultInfo.Content, JProperty.FromObject("未查询到该笔信息!"));
+                        ret.Add(ResultInfo.Result,false);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }
                 else
                 {
-                    ret.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空，未查询到此笔数据!"));
+                    ret.Add(ResultInfo.Result, false);
+                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空,请重新输入!"));
                 }
                 return ret;
             }
+        }
+
+
+        /// <summary>
+        /// 获取商品信息的
+        /// </summary>
+        /// <param name="goodNo">商品编号</param>
+        /// <returns></returns>
+        public JObject GetGoodInfo(string goodNo)
+        {
+
+            JObject ret = new JObject();
+            using (var db = new RepositoryBase())
+            {
+                if (!string.IsNullOrEmpty(goodNo))
+                {
+                    vw_MallGoodMainInfo goodInfo = new vw_MallGoodMainInfo();
+                    goodInfo = db.FindEntity<vw_MallGoodMainInfo>(c => c.GoodNo == goodNo);
+                    if (!string.IsNullOrEmpty(goodInfo.GoodNo))//找到了此笔商品编号的数据。
+                    {
+                        ret.Add(ResultInfo.Result, true);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
+                    }
+                    else
+                    {
+                        ret.Add(ResultInfo.Result, false);
+                        ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
+                    }
+                }
+                else
+                {
+                   
+                    ret.Add(ResultInfo.Result, false);
+                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空，请重新输入！"));
+                }
+            }
+            return ret;
         }
     }
 }

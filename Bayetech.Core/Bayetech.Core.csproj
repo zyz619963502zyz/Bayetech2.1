@@ -121,6 +121,9 @@
     <Compile Include="Entity\vw_MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vw_MallGoodMainInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enum\GamePlatform.cs" />
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
