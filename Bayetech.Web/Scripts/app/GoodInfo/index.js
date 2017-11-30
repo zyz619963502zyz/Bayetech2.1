@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-var moudule = ['vue', 'jquery', 'common', 'OrderGoodInfo', 'OrderNav']
+var moudule = ['vue', 'jquery', 'common', 'GoodInfo', 'Nav']
 require(moudule, function (Vue, $, common, goodInfo, orderNav) {
     //数据为左右整合数据
     var data = {};

@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-var PointTradingModule = ['vue', 'jquery','common', 'ScreenModel', 'PointTradingModel']
+var PointTradingModule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
 //alert(1);
 require(PointTradingModule, function (Vue, $,common, mediacy, tabuiation) {
     //Api
