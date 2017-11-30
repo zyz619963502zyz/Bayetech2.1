@@ -1,5 +1,5 @@
 ﻿//注册模块
-define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
+define(jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _DealCheckUrl = "/api/DealCheck/GetCheckInfo"; //查找当前页面的数据
     var _GetGoodInfoUrl = "/api/DealCheck/GetGoodInfo";

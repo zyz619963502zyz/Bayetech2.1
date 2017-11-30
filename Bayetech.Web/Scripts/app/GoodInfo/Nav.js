@@ -1,5 +1,5 @@
 ﻿//注册模块
-define("OrderNav", jsconfig.baseArr, function (Vue,$,common) {
+define(jsconfig.baseArr, function (Vue,$,common) {
     var navHtml = `<div class="com-breadcrumb"  template="OrderNav">
                         <ul class ="clearfix">
                             <li v-for="item in object"><a :href="item.href">{{item.title}}</a><em>&gt;</em></li>
