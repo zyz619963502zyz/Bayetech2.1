@@ -1,24 +1,23 @@
 ﻿//轮播图
-define([], function () {
-    var html = `<div class="slideBox">
-        <div class="bd">
-            <ul>
-                <li><a :href="imgObj.url" target="_blank"><img :src="imgObj.img" width="680" height="328" :alt="imgObj.title" /></a></li>
-            </ul>
-        </div>
-        <div class="txtBg"></div>
-        <div class="hd">
-            <ul>
-                <li v-for="item in object" :title="item.title" @click="selectImg(item)"><p>{{item.title}}</p><h5><em></em></h5></li>
-            </ul>
-        </div>
-    </div>`;
+define(['jquery', 'swiper'], function ($, Swiper) {
+    var html = `<div class="swiper-container">
+                                    <div class="wrapper-car">
+                                        <div v-for="item in object" class ="car-slide">
+                                             <a :href="item.url" target="_blank"><img :src="item.img" :title="item.title" /></a>
+                                         </div>
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                    <!-- Add Arrows -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>`;
 
     var data = {
         object: [{
             title: "《冒险岛2》全类目免手续费",
             url: "http://www.7881.com/b2b/buy-G10.html",
-            img: "http://pic.7881.com/7881-2016/images/index/lb/258.jpg"
+            img: "../../Content/Images/slideone.jpg"
         }, {
             title: "八折代充王者荣耀",
             url: "http://search.7881.com/201612376074038.html",
@@ -27,7 +26,16 @@ define([], function () {
             title: "假期已完 福利不断",
             url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
             img: "http://pic.7881.com/7881-2016/images/index/lb/282.jpg"
-        }, 
+            }, {
+                title: "假期已完 福利不断",
+                url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
+                img: "http://pic.7881.com/7881-2016/images/index/lb/282.jpg"
+            },
+            {
+                title: "假期已完 福利不断",
+                url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
+                img: "http://pic.7881.com/7881-2016/images/index/lb/282.jpg"
+            },
         ],
         imgObj:{},
     }
@@ -38,13 +46,29 @@ define([], function () {
             return data;
         },
         template: html,
-        created() {
-            this.selectImg(this.object[0]);
+        mounted: function () {
+            var FirstSwiper = new Swiper('.swiper-container', {
+                wrapperClass: 'wrapper-car',        //设置wrapper的css类名
+                slideClass: 'car-slide',            //设置slide的类名
+                direction: 'horizontal',             //横向水平滑动
+                pagination: {                       //分页器
+                    el: '.swiper-pagination',       //分页类名
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',   //下一张
+                    prevEl: '.swiper-button-prev',   //上一张
+                },
+                autoplay: {                         //自动切换
+                    delay: 2000,                     //切换速度
+                },
+                slidesPerView: 1,                   //同时显示数量
+                spaceBetween: 30,                   //相邻图片边距                
+                loop: true,                         //无限循环模式
+
+            });
         },
         methods: {
-            selectImg(obj) {
-                this.imgObj = obj;
-            },
+
         }
     };
     return components;
