@@ -83,7 +83,7 @@ define("OrderGoodInfo", jsconfig.baseArr, function (Vue, $, common) {
                 <div class ="selldata">
                     <p>成交订单：<span>{{TotalNum}}笔</span></p>
                     <p>取消订单：<span>{{CancelNum}}笔</span></p>
-                    <p>成交概率：<span> {{CancelNum/TotalNum*100}}%  </span></p>
+                    <p>成交概率：<span> {{parseInt((TotalNum-CancelNum) /TotalNum*100) }}%  </span></p>
                 </div>
                 </div>
             </div>
