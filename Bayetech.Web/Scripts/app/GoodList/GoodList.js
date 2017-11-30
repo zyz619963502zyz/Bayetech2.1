@@ -40,6 +40,7 @@
                 </div>
             </div>
           </div>`
+
     //中间模板
     var middleComponent = {
         props: ['value'],

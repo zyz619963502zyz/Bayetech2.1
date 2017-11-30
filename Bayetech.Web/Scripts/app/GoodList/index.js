@@ -3,7 +3,7 @@ var GoodListMoudule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
 //alert(1);
 require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
     //Api
-    let findListUrl = "/api/PointTrading/GameRequirementsList"; //查询列表
+    var findListUrl = "/api/PointTrading/GameRequirementsList"; //查询列表
     //筛选和列表整合数据
     var data = {
         //注册筛选
@@ -20,7 +20,7 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
     Vue.component('regboxmiddle', tabuiation);
 
     var vm = new Vue({
-        el: '#PointDiv',
+        el: '#GoodList',
         data: function () {
             return data;
         },
@@ -30,7 +30,7 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
         nowVue: this,
         methods: {
             findList() {
-                let nowVue = this;
+                var nowVue = this;
                 common.getWebJson(findListUrl, { value: 23 }, function (data) {
                     nowVue.PointTradingobiect = data;
                 });

@@ -38,7 +38,7 @@ var jsconfig = {
         'ScreenModel': 'app/PointTrading/screen',
         'index-nav': "app/Home/nav",
         "nav-dropdown":"app/Home/nav-dropdown",
-        'ScreenModel': 'app/PointTrading/screen',
+        'ScreenModel': 'app/GoodList/Screen',
         'GoodInfo': 'app/GoodInfo/GoodInfo',
         'Nav': 'app/GoodInfo/Nav',
         'AccountOrder': 'app/PlaceOrder/AccountOrder',
