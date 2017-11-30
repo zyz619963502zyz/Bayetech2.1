@@ -691,10 +691,10 @@
     </Content>
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\DealCheck\GoodPictures.js" />
-    <Content Include="Scripts\app\DealCheck\index.js" />
-    <Content Include="Scripts\app\DealCheck\GoodInfo.js" />
-    <Content Include="Scripts\app\DealCheck\Nav.js" />
+    <Content Include="Scripts\app\GoodInfo\GoodPictures.js" />
+    <Content Include="Scripts\app\GoodInfo\index.js" />
+    <Content Include="Scripts\app\GoodInfo\GoodInfo.js" />
+    <Content Include="Scripts\app\GoodInfo\Nav.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
