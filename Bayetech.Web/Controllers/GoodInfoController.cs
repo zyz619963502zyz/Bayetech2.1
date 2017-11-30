@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace Bayetech.Web.Controllers
 {
-    public class GoodInfoController : Controller
+    public class GoodInfoController : BaseController
     {
         GoodInfoService goodInfoService = new GoodInfoService();
 

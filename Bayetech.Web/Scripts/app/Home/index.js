@@ -11,7 +11,7 @@ require(['vue', 'jquery', 'common','bootstrap','swiper', 'v-header', 'v-footer',
                 gameranking: gameranking,
             }
         },
-        created: function () {
+        mounted: function () {
                 var FirstSwiper = new Swiper('.swiper-container', {
                     wrapperClass: 'wrapper-car',        //设置wrapper的css类名
                     slideClass: 'car-slide',            //设置slide的类名
