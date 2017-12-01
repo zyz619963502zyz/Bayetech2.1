@@ -11,7 +11,7 @@ define(["common"], function (common) {
             <a href="javascript:void(0)" class ="hover"  @click="loadDropdown('0')">网络游戏</a>
             <a href="javascript:void(0)" class ="" @click="loadDropdown('1')">手机游戏</a>
             <ul class="gamename_quicksearch">
-                <input type="text" placeholder="请输入游戏关键字或拼音" id="sselect_gamename" class ="q_input gray_a" @change="searchGameByName" v-model="searchGameName">
+                <input type="text" placeholder="请输入游戏关键字或拼音" id="sselect_gamename" class ="q_input gray_a" v-on:change="searchGameByName()" v-model="searchGameName">
             </ul>
             <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
         </ul>
@@ -50,10 +50,10 @@ define(["common"], function (common) {
                     nowVue.$props.data.List = data;
                 });
             },
-            searchGameByName: function () {
+            searchGameByName: function (type) {
                 var _self = this;
                 common.getWebJson("/api/Game/GetGameByName", { name: this.searchGameName }, function (data) {
-                    _self.dropdownData = data;
+                    _self.$parent.dropdownData = data;
                 });
             },
         }
