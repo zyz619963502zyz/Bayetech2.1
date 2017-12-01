@@ -1,6 +1,6 @@
 ﻿//搜索框下拉
 define(["common"], function (common) {
-    var html = `<div class="b_blue_box">
+    var html = `<div class="b_blue_box" id="dropdown">
     <div class="main_con">
         <ul v-if="data.Type > 1" class ="box_title">
             选择{{data.Title}}

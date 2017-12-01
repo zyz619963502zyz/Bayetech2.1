@@ -63,6 +63,16 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             };
         },
         template: html,
+        mounted: function () {
+            //$(document).click(function (e) {
+            //    if (!$("#dropdown").is(":hidden"))
+            //        $("#dropdown").hide();
+            //});
+
+            //$(".search-box").on("click", function (event) {
+            //    event.stopPropagation();
+            //});
+        },
         methods: {
             //显示精确搜索框
             showAccuratetBox: function () {
