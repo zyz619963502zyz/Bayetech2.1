@@ -2,19 +2,6 @@
 var GoodListMoudule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
 //alert(1);
 require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
-    //Api
-    var findListUrl = "/api/PointTrading/GameRequirementsList"; //查询列表
-    //筛选和列表整合数据
-    var data = {
-        //注册筛选
-        Screenobject: {
-
-        },
-        //注册列表
-        PointTradingobiect: [
-        ]
-    }
-
     //注册主键到标签
     Vue.component('regboxtop', mediacy);
     Vue.component('regboxmiddle', tabuiation);
@@ -24,17 +11,12 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
         data: function () {
             return data;
         },
-        created: function () {
+        created() {
             this.findList();
         },
         nowVue: this,
         methods: {
-            findList() {
-                var nowVue = this;
-                common.getWebJson(findListUrl, { value: 23 }, function (data) {
-                    nowVue.PointTradingobiect = data;
-                });
-            }
+           
         },
     });
 });
