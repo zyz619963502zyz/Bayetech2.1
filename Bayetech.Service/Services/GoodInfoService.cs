@@ -26,19 +26,19 @@ namespace Bayetech.Service.Services
             {
                 JObject ret = new JObject();
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
-                if (goodInfo.GameId > 0)
+                if (goodInfo.GameId != null && goodInfo.GameId > 0)
                 {
                     expression = expression.And(t => t.GameId == goodInfo.GameId);
                 }
-                if (goodInfo.GameGroupId > 0)
+                if (goodInfo.GameGroupId != null && goodInfo.GameGroupId > 0)
                 {
                     expression = expression.And(t => t.GameGroupId == goodInfo.GameGroupId);
                 }
-                if (goodInfo.GameServerId > 0)
+                if (goodInfo.GameServerId != null && goodInfo.GameServerId > 0)
                 {
                     expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
                 }
-                if (goodInfo.GoodType > 0)
+                if (goodInfo.GoodType != null && goodInfo.GoodType > 0)
                 {
                     expression = expression.And(t => t.GoodType == goodInfo.GoodType);
                 }
