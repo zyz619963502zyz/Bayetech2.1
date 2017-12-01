@@ -52,7 +52,7 @@
           </div>`
 
     //中间模板
-    var middleComponent = {
+    var goodComponent = {
         template: middleHtml,
         data() {
             return data;
@@ -70,5 +70,5 @@
         }
     };
 
-    return middleComponent;
+    return goodComponent;
 });
