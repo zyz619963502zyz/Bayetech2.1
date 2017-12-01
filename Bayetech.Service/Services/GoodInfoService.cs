@@ -9,7 +9,7 @@ using System;
 
 namespace Bayetech.Service.Services
 {
-    public class GoodInfoService : BaseService<MallGoodInfo>, IGoodInfoService
+    public class GoodInfoService : BaseService<vw_MallGoodMainInfo>, IGoodInfoService
     {
         /// <summary>
         /// 根据下拉框查询列表
@@ -26,7 +26,6 @@ namespace Bayetech.Service.Services
             {
                 JObject ret = new JObject();
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
-                //t => true;
                 if (goodInfo.GameId > 0)
                 {
                     expression = expression.And(t => t.GameId == goodInfo.GameId);
@@ -47,7 +46,8 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
-                List<vw_MallGoodMainInfo> ListMain = db.FindList<vw_MallGoodMainInfo>(expression, GetDefaultPagination("GoodNo"));//暂时以GoodNo排序，以后做活。
+
+                List <vw_MallGoodMainInfo> ListMain = db.FindList(expression, GetDefaultPagination("GoodNo")).ToList();//暂时以GoodNo排序，以后做活。
 
                 if (ListMain.Count>0)
                 {

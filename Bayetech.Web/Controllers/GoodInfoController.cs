@@ -15,7 +15,7 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
 
-        [HttpGet]
+        [HttpPost]
         public JObject GetList(JObject json)
         {
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
