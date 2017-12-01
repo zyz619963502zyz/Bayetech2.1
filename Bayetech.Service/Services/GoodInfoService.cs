@@ -14,37 +14,53 @@ namespace Bayetech.Service.Services
         /// <summary>
         /// 根据下拉框查询列表
         /// </summary>
-        /// <param name="gameId"></param>
-        /// <param name="groupId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="typeId"></param>
-        /// <param name="keyword"></param>
+        /// <param name="gameId">游戏Id</param>
+        /// <param name="groupId">大区Id</param>
+        /// <param name="serverId">服务器Id</param>
+        /// <param name="typeId">类型Id</param>
+        /// <param name="keyword">游戏关键字</param>
         /// <returns></returns>
-        public IEnumerable<MallGoodInfo> GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo)
         {
-            Expression<Func<MallGoodInfo, bool>> expression = PredicateExtensions.True<MallGoodInfo>();
-            //t => true;
-            if (gameId > 0)
+            using (var db = new RepositoryBase())
             {
-                expression = expression.And(t => t.GameId == gameId);
+                JObject ret = new JObject();
+                Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
+                //t => true;
+                if (goodInfo.GameId > 0)
+                {
+                    expression = expression.And(t => t.GameId == goodInfo.GameId);
+                }
+                if (goodInfo.GameGroupId > 0)
+                {
+                    expression = expression.And(t => t.GameGroupId == goodInfo.GameGroupId);
+                }
+                if (goodInfo.GameServerId > 0)
+                {
+                    expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
+                }
+                if (goodInfo.GoodType > 0)
+                {
+                    expression = expression.And(t => t.GoodType == goodInfo.GoodType);
+                }
+                if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))
+                {
+                    expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
+                }
+                List<vw_MallGoodMainInfo> ListMain = db.FindList<vw_MallGoodMainInfo>(expression, GetDefaultPagination("GoodNo"));//暂时以GoodNo排序，以后做活。
+
+                if (ListMain.Count>0)
+                {
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add(ResultInfo.Content, JProperty.FromObject(ListMain));
+                }
+                else
+                {
+                    ret.Add(ResultInfo.Result, false);
+                    ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
+                }
+                return ret;
             }
-            if (groupId > 0)
-            {
-                expression = expression.And(t => t.GameGroupId == groupId);
-            }
-            if (serverId > 0)
-            {
-                expression = expression.And(t => t.GameServerId == serverId);
-            }
-            if (typeId > 0)
-            {
-                expression = expression.And(t => t.GoodType == typeId);
-            }
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                expression = expression.And(t => t.GoodTitle.Contains(keyword) || t.GoodKeyWord.Contains(keyword));
-            }
-            return FindList(t => true).Where(expression.Compile());
         }
 
 

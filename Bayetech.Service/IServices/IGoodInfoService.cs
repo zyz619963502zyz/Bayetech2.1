@@ -8,5 +8,7 @@ namespace Bayetech.Service
         JObject GetGoodInfo(string goodNo);
 
         JObject GetGoodInfoDetail(string goodNo);
+
+        JObject GetGoodList(vw_MallGoodMainInfo goodInfo)
     }
 }

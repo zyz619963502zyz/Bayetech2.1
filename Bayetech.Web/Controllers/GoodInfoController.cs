@@ -16,10 +16,10 @@ namespace Bayetech.Web.Controllers
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
 
         [HttpGet]
-        public IHttpActionResult GetList(int gameId, int groupId, int serverId, int typeId, string keyword)
+        public JObject GetList(JObject json)
         {
-            var result = service.GetList(gameId, groupId, serverId, typeId, keyword).ToList();
-            return null;
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
+            return service.GetGoodList(goodInfo);
         }
 
 
@@ -35,7 +35,7 @@ namespace Bayetech.Web.Controllers
             bool goodDetail = Convert.ToBoolean(resultGoodDetailInfo["result"]);//详细
             if (goodInfo && goodDetail)//判断整体信息查询结果
             {
-                model = (MallGoodInfoModels)JsonConvert.DeserializeObject(resultGoodInfo["content"].ToString(), typeof(MallGoodInfoModels));
+                model = JsonConvert.DeserializeObject<MallGoodInfoModels>(resultGoodInfo["content"].ToString());
                 model.mallGoodInfo = (List<vw_MallGoodInfo>)JsonConvert.DeserializeObject(resultGoodDetailInfo["content"].ToString(), typeof(List<vw_MallGoodInfo>));
                 result.Add(ResultInfo.Result,true);
                 result.Add(ResultInfo.Content,JProperty.FromObject(model));
