@@ -125,10 +125,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             search: function () {
                 //let url = `${window.location.host}/Page/GoodInfo/List.html?page=1&gameId=${this.gameId}&groupId=${this.groupId}&serverId=${this.serverId}&typeId=${this.typeId}&keyword=${this.keyword.trim()}`;
                 //window.location.href = url;
-                common.getWebJson("/api/GoodInfo/GetList", {
-                    gameId: this.gameId, groupId: this.groupId, serverId: this.serverId,
-                    typeId: this.typeId, keyword: this.keyword.trim(),
-                }, function (data) {});
+                var param =  {
+                    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
+                    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
+                };
+                common.postWebJson("/api/GoodInfo/GetList", JSON.stringify(param), function (data) { });
             },           
             getParentTypeName: function (type) {
                 var parentTypeObj = {
