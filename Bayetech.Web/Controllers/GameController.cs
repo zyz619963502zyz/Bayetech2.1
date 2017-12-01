@@ -52,9 +52,9 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public IHttpActionResult GetGameByName(string name)
+        public IHttpActionResult GetGameByName(int type, string name)
         {
-            var list = gameService.FindList(a => a.Name.Contains(name) && !a.IsDelete).ToList();
+            var list = gameService.FindList(a => a.Platform == type && a.Name.Contains(name) && !a.IsDelete).ToList();
             return Json(list);
         }
     }
