@@ -1,16 +1,6 @@
 ﻿define(jsconfig.baseArr, function (Vue, $, common) {
-    //Api
-    var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
-    //筛选和列表整合数据
-    var data = {
-        //注册筛选
-        Screenobject: {},
-        //注册列表
-        GoodList: []
-    }
-
     var middleHtml = `<div class="list-box list-type-03">
-        <div class="list-item"  v-for="item in value">
+        <div class ="list-item"  v-for="item in ListObj">
                 <div class ="list-item-box" >
                     <div class="list-v part-01 clearfix">
                         <div class="img-box">
@@ -28,7 +18,7 @@
                                 </a>
                             </h2>
                             <h4><i>游戏区服：</i><span>
-                            {{item.GameArea }}</span></h4>
+                                {{item.GameArea}}</span></h4>
                             <p>
                                 <i>账号安全：</i><span class="stars-boxs 0-5"></span>
                             </p>
@@ -51,19 +41,39 @@
             </div>
           </div>`
 
+    //Api
+    var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
+    //筛选和列表整合数据
+    var data = {
+        ListObj:[
+            {
+                ScreenshotsCertification: "",
+                imgurl: "",
+                aurl: "",
+                PlatformUndertakes: "",
+                GameArea: "",
+                Money: ""
+            }
+        ]
+    }
+
     //中间模板
     var goodComponent = {
         template: middleHtml,
-        data() {
+        data(){
             return data;
         },
         created(){
-            findList()
+            this.findList()
         },
         methods: {
             findList() {
                 var nowVue = this;
-                common.getWebJson(GoodListUrl, { value: 23 }, function (data) {
+                var param = {
+                    GameId:"1", GameGroupId: "", GameServerId:"",
+                    GoodType:"", GoodKeyWord: "",
+                };
+                common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
                     nowVue.GoodList = data;
                 });
             }

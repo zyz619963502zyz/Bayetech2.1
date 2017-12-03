@@ -47,8 +47,11 @@
             </div>
         </div>`
 
+    var data = {};
     var screenComponent = {
-        //props: ['value'],
+        data(){
+            return data;
+        },
         template:screenHtml
     };
 

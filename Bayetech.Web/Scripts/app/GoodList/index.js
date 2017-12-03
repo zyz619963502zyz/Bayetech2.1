@@ -8,11 +8,8 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
 
     var vm = new Vue({
         el: '#GoodList',
-        data: function () {
-            return data;
-        },
         created() {
-            this.findList();
+            //this.findList();
         },
         nowVue: this,
         methods: {
