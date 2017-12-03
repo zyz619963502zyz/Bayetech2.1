@@ -20,7 +20,7 @@
                             <h4><i>游戏区服：</i><span>
                                 {{item.GroupName}}/{{item.ServerName}}</span></h4>
                             <p>
-                                <i>账号安全：</i><span class="stars-boxs 0-5"></span>
+                                <i>账号安全：</i><span class="stars-box  s5"></span>
                             </p>
                         </div>
                     </div>
