@@ -5,7 +5,7 @@
                     <div class="list-v part-01 clearfix">
                         <div class="img-box">
                             <a v-bind:href="item.ScreenshotsCertification" target="_blank">
-                                <img v-bind:src="item.imgurl" />
+                                <img v-bind:src="item.GoodFirstPicture" />
                                 <h3 class="authenticate">截图认证</h3>
                                 <h3>149图</h3>
                             </a>
@@ -14,18 +14,18 @@
                             <h2>
                                 <a v-bind:href="item.aurl" target="_blank">
                                     <em class="tags icon-ptdf" ></em>
-                                    <span>{{item.PlatformUndertakes}} </span>
+                                    <span>{{item.GoodTitle}} </span>
                                 </a>
                             </h2>
                             <h4><i>游戏区服：</i><span>
-                                {{item.GameArea}}</span></h4>
+                                {{item.GroupName/item.ServerName}}</span></h4>
                             <p>
                                 <i>账号安全：</i><span class="stars-boxs 0-5"></span>
-                            </p>
+                            </p>GoodPrice
                         </div>
                     </div>
                     <div class="list-v part-02">
-                        <h5>¥ {{item.Money}}</h5>
+                        <h5>¥ {{item.GoodPrice}}</h5>
                     </div>
                     <div class="list-v part-04">
                         <div class="tags-box">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="list-v part-05">
-                        <h5><a v-bind:href="item.ScreenshotsCertification" class ="list-btn" target="_blank">查看帐号</a></h5>
+                        <h5><a v-bind:href="item.GoodFirstPicture" class ="list-btn" target="_blank">查看帐号</a></h5>
                     </div>
                 </div>
             </div>
@@ -48,11 +48,12 @@
         ListObj:[
             {
                 ScreenshotsCertification: "",
-                imgurl: "",
+                GoodFirstPicture: "",
                 aurl: "",
-                PlatformUndertakes: "",
-                GameArea: "",
-                Money: ""
+                GoodTitle: "",
+                GroupName: "",
+                ServerName:"",
+                GoodPrice: ""
             }
         ]
     }
@@ -74,7 +75,9 @@
                     GoodType:"", GoodKeyWord: "",
                 };
                 common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
-                    nowVue.GoodList = data;
+                    if (data.result) {
+                        this.ListObj = data.content;
+                    }
                 });
             }
         }
