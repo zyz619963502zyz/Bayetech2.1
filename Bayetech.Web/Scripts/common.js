@@ -43,7 +43,6 @@
        * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}
        * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text
        * successfn 成功回调函数
-       
        * errorfn 失败回调函数
        * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
@@ -106,6 +105,15 @@
         obj["components"] = components;
         return obj;
     };
+
+
+    /**
+    * 返回Url基础目录
+    */
+    common.GetBaseUrl = function () {
+        return window.location.host + "/Page/";
+    }
+
     return common;
 })
 
