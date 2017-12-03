@@ -18,10 +18,10 @@
                                 </a>
                             </h2>
                             <h4><i>游戏区服：</i><span>
-                                {{item.GroupName/item.ServerName}}</span></h4>
+                                {{item.GroupName}}/{{item.ServerName}}</span></h4>
                             <p>
                                 <i>账号安全：</i><span class="stars-boxs 0-5"></span>
-                            </p>GoodPrice
+                            </p>
                         </div>
                     </div>
                     <div class="list-v part-02">
@@ -69,14 +69,14 @@
         },
         methods: {
             findList() {
-                var nowVue = this;
+                var self = this;
                 var param = {
                     GameId:"1", GameGroupId: "", GameServerId:"",
                     GoodType:"", GoodKeyWord: "",
                 };
                 common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
-                        this.ListObj = data.content;
+                        self.ListObj = data.content;
                     }
                 });
             }
