@@ -17,7 +17,8 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetList(JObject json)
         {
-            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
+            //vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());两个外层括号导致无法反序列化
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.First.Path);
             return service.GetGoodList(goodInfo);
         }
 

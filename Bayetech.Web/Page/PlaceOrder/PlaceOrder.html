@@ -143,10 +143,10 @@
                             <em style=" color:#0099FF"=color:#0099FF">
                                {{GoodTitle}}
                             </em><br />
-                            物品类型： 账号<br />
-                            游戏区服： 地下城与勇士 /湖北区 /湖北2区
+                            物品类型： {{GoodTypeName}}<br/>
+                            游戏区服： {{GameName}} /{{GroupName}} /{{ServerName}}
                         </li>
-                        <li class="dj"><strong style="color:#F90"=color:#F90">500.00</strong>元</li>
+                        <li class="dj"><strong style="color:#F90"=color:#F90">{{GoodPrice.toFixed(2)}}</strong>元</li>
                     </ul>
                 </div>
             </div>
@@ -157,22 +157,22 @@
                 <div class="txcpdd">
                     <h1>填写商品订单</h1>
                     <div class="tsk"><img src="http://pic.ofcard.com/7881/market/images/buy/gm_ts.png" />  付款后,请立即到订单中心联系订单客服,不要把账号信息提供给任何其他人。</div>
-                    <input type="hidden" name="goodsPurchaseBean.goodsid" value="201612377253013" />
-                    <input type="hidden" name="goodsPurchaseBean.tradetype" value="js" />
-                    <input type="hidden" name="goodsPurchaseBean.gameid" value="G10" />
-                    <input type="hidden" name="goodsPurchaseBean.gamename" value="地下城与勇士" />
-                    <input type="hidden" name="goodsPurchaseBean.groupid" value="G10P005" />
-                    <input type="hidden" name="goodsPurchaseBean.groupname" value="湖北区" />
-                    <input type="hidden" name="goodsPurchaseBean.serverid" value="G10P005002" />
-                    <input type="hidden" name="goodsPurchaseBean.servername" value="湖北2区" />
-                    <input type="hidden" name="goodsPurchaseBean.camp" value="" />
-                    <input type="hidden" name="goodsPurchaseBean.rid" value="54486514" />
-                    <input type="hidden" name="goodsPurchaseBean.gameaccount" value="" />
-                    <input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" value="100003" />
+                    <input type="hidden" name="goodsPurchaseBean.goodsid"  :value="GoodNo" />
+                    <input type="hidden" name="goodsPurchaseBean.tradetype" :value="js" />
+                    <input type="hidden" name="goodsPurchaseBean.gameid" :value="GameId" />
+                    <input type="hidden" name="goodsPurchaseBean.gamename" :value="GameName" />
+                    <input type="hidden" name="goodsPurchaseBean.groupid" :value="GameGroupId" />
+                    <input type="hidden" name="goodsPurchaseBean.groupname" :value="GroupName" />
+                    <input type="hidden" name="goodsPurchaseBean.serverid" :value="GameServerId" />
+                    <input type="hidden" name="goodsPurchaseBean.servername" :value="ServerName" />
+                    <input type="hidden" name="goodsPurchaseBean.camp" :value="" /> 
+                    <input type="hidden" name="goodsPurchaseBean.rid" :value="54486514" />
+                    <input type="hidden" name="goodsPurchaseBean.gameaccount" :value="" />
+                    <input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" :value="100003" />
                     <input type="hidden" name="goodsPurchaseBean.ver" value="" />
-                    <input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" value="54486514" />
-                    <input type="hidden" id="price" name="goodsPurchaseBean.price" value="500" />
-                    <input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" value="1" />
+                    <input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" :value="54486514" />
+                    <input type="hidden" id="price" name="goodsPurchaseBean.price" :value="GoodPrice" />
+                    <input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" :value="BuyNum" />
                     <input type="hidden" id="prid" name="goodsPurchaseBean.prid" />
                     <input type="hidden" id="grade" name="goodsPurchaseBean.grade" />
                     <input type="hidden" id="goodsinfo" name="goodsPurchaseBean.goodsinfo" />
