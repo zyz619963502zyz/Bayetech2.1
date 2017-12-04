@@ -40,7 +40,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </h4>
                 </div>
                 <div class ="game-ensure" >
-                    <p class ="type">类型：<span>{{MallTypeName}}</span></p>
+                    <p class ="type">类型：<span>{{GoodTypeName}}</span></p>
                     <p class ="type">区服：<span>{{GroupName}}/{{ServerName}}</span></p>
                 </div>
                 <div class="role-info">
@@ -95,7 +95,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         GoodNo: "",
         GoodTitle: "",
         GoodPrice: 280,
-        MallTypeName: "",
+        GoodTypeName: "",
         GroupName: "",
         ServerName: "",
         TotalNum: "",
@@ -128,7 +128,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.GroupName = data.content.GroupName;
                         _self.ServerName = data.content.ServerName;
                         _self.HistoryAccount = data.content.HistoryAccount;
-                        _self.MallTypeName = data.content.MallTypeName;
+                        _self.GoodTypeName = data.content.GoodTypeName;
                         _self.TotalNum = data.content.TotalNum;
                         _self.CancelNum = data.content.CancelNum;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
