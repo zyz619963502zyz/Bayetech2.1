@@ -667,7 +667,7 @@
     <Content Include="Content\swiper\swiper.css" />
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Page\DealCheck\DealCheck.html" />
+    <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\GoodInfo\GoodInfo.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
@@ -675,7 +675,7 @@
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\PersonalCenter\index.html" />
-    <Content Include="Page\PlaceOrder\PlaceOrder.html" />
+    <Content Include="Page\MakeGoodInfo\MakeGoodInfo.html" />
     <Content Include="Page\GoodList\GoodList.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
     <Content Include="Page\ServiceCenter\AdviceCentre.html" />
