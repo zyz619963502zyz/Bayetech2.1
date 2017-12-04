@@ -168,7 +168,7 @@ namespace Bayetech.DAL
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
             string[] _order = pagination.sidx.Split(',');
             MethodCallExpression resultExp = null;
-            var tempData = dbcontext.Set<TEntity>().Where(predicate);
+            var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
             foreach (string item in _order)
             {
                 string _orderPart = item;
@@ -186,7 +186,7 @@ namespace Bayetech.DAL
                 var orderByExp = Expression.Lambda(propertyAccess, parameter);
                 resultExp = Expression.Call(typeof(Queryable), isAsc ? "OrderBy" : "OrderByDescending", new Type[] { typeof(TEntity), property.PropertyType }, tempData.Expression, Expression.Quote(orderByExp));
             }
-            tempData = tempData.Provider.CreateQuery<TEntity>(resultExp);
+            tempData = tempData.Provider.CreateQuery<TEntity>(resultExp).AsQueryable();
             pagination.records = tempData.Count();
             tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
             return tempData.ToList();

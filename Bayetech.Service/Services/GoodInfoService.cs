@@ -42,7 +42,7 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
-
+                List<vw_MallGoodMainInfo> test = db.FindList(expression, GetDefaultPagination("GoodNo"));
                 List <vw_MallGoodMainInfo> ListMain = db.FindList(expression, GetDefaultPagination("GoodNo")).ToList();//暂时以GoodNo排序，以后做活。
 
                 if (ListMain.Count>0)
