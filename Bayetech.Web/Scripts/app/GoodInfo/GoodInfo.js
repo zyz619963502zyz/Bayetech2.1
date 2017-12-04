@@ -112,7 +112,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             return data;
         },
         created() {
-            this.GetGoodInfo(common.GetQueryString("GoodNo"));//获取商品信息。
+            this.GetGoodInfo(common.GetUrlParam("","GoodNo"));//获取商品信息。
         },
         methods: {
             GetGoodInfo(goodno) {

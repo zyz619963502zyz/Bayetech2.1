@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="list-v part-05">
-                        <h5><a :goodNo="item.GoodNo" @click="GotoDetail" class ="list-btn">查看帐号</a></h5>
+                        <h5><a href="#" :goodNo="item.GoodNo" @click="GotoDetail" class ="list-btn">查看帐号</a></h5>
                     </div>
                 </div>
             </div>
@@ -83,9 +83,7 @@
                 });
             },
             GotoDetail(e) {//详情页跳转
-                //this.currentGo = + $(e.target).attr("goodNo");
-                //$(e.target).attr("href", this.GoodNo);
-                window.location.href = this.BaseUrl + $(e.target).attr("goodNo");
+                window.open(this.BaseUrl + $(e.target).attr("goodNo"));
             }
         }
     };
