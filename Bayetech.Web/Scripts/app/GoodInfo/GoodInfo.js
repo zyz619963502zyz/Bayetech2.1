@@ -88,23 +88,25 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             </div>
         </div>`
 
+    //定义数据
     var data = {
-        AddTime:"",
-        GoodNo:"",
+        BaseUrl: common.GetBaseUrl() + "PlaceOrder/PlaceOrder.html?GoodNo=",
+        AddTime: "",
+        GoodNo: "",
         GoodTitle: "",
         GoodPrice: 280,
-        MallTypeName:"",
+        MallTypeName: "",
         GroupName: "",
         ServerName: "",
         TotalNum: "",
-        CancelNum:"",
+        CancelNum: "",
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
         HistoryAccount: "此账号首次在就游戏联盟出售",
         mallGoodInfo: [
             { DescriptionName: "", DescriptionValue: "" }
         ]
-    }  
+    }
 
     var goodInfoComponent = {//全局注册
         template: goodInfoHtml,
@@ -141,8 +143,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            BuyNow() {//立即购买
-
+            BuyNow(GoodNo) {//立即购买
+                window.open(this.BaseUrl + GoodNo);
             }
         }
     }
