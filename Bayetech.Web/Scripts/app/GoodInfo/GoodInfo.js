@@ -141,14 +141,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            //GetGoodInfo() {
-            //    common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
-            //        if (data == false) {
-            //            this.data = data;
-            //        }
-            //    });
-            //},
-            BuyNow() {
+            BuyNow() {//立即购买
 
             }
         }

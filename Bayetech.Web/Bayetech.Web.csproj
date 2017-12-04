@@ -658,12 +658,17 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
+    <Content Include="Content\OlderCss\buy.css" />
+    <Content Include="Content\OlderCss\global.css" />
+    <Content Include="Content\OlderCss\popLayer.css" />
+    <Content Include="Content\OlderCss\Public.css" />
     <Content Include="Content\swiper\animate.css" />
     <Content Include="Content\swiper\animate.min.css" />
     <Content Include="Content\swiper\swiper.css" />
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Page\DealCheck\DealCheck.html" />
+    <Content Include="Page\GoodInfo\GoodInfo.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
     <Content Include="Page\Home\PhonePage.html" />
@@ -822,7 +827,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
-    <Folder Include="Page\GoodInfo\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
