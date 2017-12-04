@@ -1,0 +1,697 @@
+@charset "utf-8";
+.top{height:33px; background:url(http://pic.ofcard.com/7881/market/images/7881_top.jpg) repeat-x;}
+.top ul{ padding-top:8px;}
+.top ul li{margin-right:10px;}
+.top ul li a.dlzc{color:#09F;text-decoration:none}
+.top ul li a:hover.dlzc{color:#E95701;text-decoration:none}
+.logo{padding-bottom:15px;overflow: auto;}
+/* ---qiehuan---*/
+#nav{ height:25px;}
+#nav li{float:left;line-height:25px;width:72px;margin-right:5px;margin-top:2px;text-align:center;}
+#nav li a{color:#333;display:block;cursor:pointer;}
+#nav li .nav_on{color:#FFF;background:url(http://pic.ofcard.com/7881/market/images/7881_tab1.jpg) no-repeat;}
+#menu_con{border-radius:3px;border:3px solid #5695ff;text-align:left; padding:0px;}
+#menu_con .jdss{height:28px;}
+#menu_con .jdss li{float:left;overflow:hidden;}
+.search_an{border: 0px;height:26px;line-height:26px; width:554px;_width:551px;text-indent:3px;}
+.hot_search{ color:#999; margin-top:5px;}
+.hot_search a{ color:#999;}
+.hot_search a:hover{ color:#f60;}
+/* ---qiehuan---*/
+.Navigation{height:40px; background:#3d86ea;}
+.Part{ height:40px;}
+.Part li{height:40px;float:left;}
+.Part li.All_sections{ width:170px;background:#fe9101; color:#FFF; font-size:15px; padding-left:10px;}
+.Part li.All_sections a{ width:170px; line-height:40px; background:#fe9101; padding:0; text-align:left; display:block}
+.Part li.All_sections a:hover{ text-decoration:underline; background:none;}
+.Part li a{display:block; width:110px; height:40px;line-height:40px;float:left;text-align:center; color:#FFF; font-size:15px; border-right:#4e90ec solid 1px;}
+.Part li a.cj{background:url(http://pic.7881.com/7881/market/images/hot.gif) no-repeat right 2px;}
+.Part li a:hover{ background:#1D62BF; color:#FFF}
+.Part li a.cj:hover{background:#1D62BF url(http://pic.7881.com/7881/market/images/hot.gif) no-repeat right 2px;}
+.Part ol{float:right;width:154px; height:30px; margin-top:5px;}
+
+.Part li.Part_goumai{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer;  float:right; margin-top:5px;}
+.Part li.Part_goumai:hover{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer; background:fe9101;}
+
+.Part ol .Part_goumai{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer}
+.Part ol .Part_goumai:hover{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer}
+.Part ol a.grzx_goumai{ display:block;width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer}
+.Part ol a:hover.grzx_goumai{display:block;width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer}
+.track{ border:#dfdfdf solid 1px; margin-top:10px;}
+.track ul{overflow:auto;}
+.track li{ float:left; width:19.5%; text-align:center; margin-top:8px; margin-bottom:8px;}
+.track li.fjx{ border-right:#dfdfdf solid 1px;}
+.foot{padding-bottom:10px; overflow:hidden; margin:0 auto; width:980px; line-height:24px}
+.foot .tleft{ text-align:left}
+.foot_wenzi{ text-align:center;line-height:25px; margin-top:10px; color:#444;}
+
+.t_news{ height:40px; padding-left:10px; margin-top:4px; overflow:hidden; position:relative;}
+.appt_news{ height:80px; padding-left:10px; margin:0px; overflow:hidden; position:relative;}
+.news_li,.swap{ line-height:20px; display:inline-block; position:absolute; top:0; left:0px;text-align:left;width:390px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+ .mod_select{position:absolute;z-index:995;height:28px; background:#FFF;}
+ .mod_select ul{margin:0;padding:0;}
+ .mod_select ul li{list-style-type:none;float:left;height:28px;}
+
+ .select_label{line-height:28px;}
+ .select_box{float:left; border-left:#dfdfdf solid 1px;position:relative;width:138px;_width:136px;}
+ .select_txt{width:135px;_width:134px;line-height:28px;height:28px;cursor: pointer;text-align:left; padding-left:3px; display:block;white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+ .option{width:954px;border:solid 2px #5695ff; background:#fff;z-index:2;display:none; text-align:left; padding:10px;-moz-box-shadow: 2px 2px 2px #ccc;
+    -webkit-box-shadow: 2px 2px 2px #ccc; box-shadow: 2px 2px 2px #ccc;}
+
+ .option_wz1{position:absolute;top:38px;left:-345px;}
+ .option_wz2{position:absolute;top:38px;left:-484px;}
+ .option_wz3{position:absolute;top:38px;left:-623px;}
+ .option_wz4{position:absolute;top:38px;left:-762px;}
+ .select_jt_1{position:absolute; width:15px; height:8px;top:-8px;left:365px;}
+ .select_jt_2{position:absolute; width:15px; height:8px;top:-8px;left:490px;}
+ .select_jt_3{position:absolute; width:15px; height:8px;top:-8px;left:636px;}
+ .select_jt_4{position:absolute; width:15px; height:8px;top:-8px;left:770px;}
+ .search_an_1{border:0px;height:26px; line-height:26px; width:190px;_width:167px;text-indent:3px;}
+ 
+.option h3{ margin-top:9px; padding-bottom:8px; border-bottom:dotted #dfdfdf 1px;position:relative; font-size:16px; font-weight:normal;}
+.option h3 div{text-align:right; width:400px; height:18px; position:absolute; right:0px; top:-6px;}
+.search_cx{width:400px; height:30px; overflow:hidden; margin-bottom:10px; margin-top:10px;}
+.search_cx ul li{ height:30px; overflow:hidden; margin-right:4px; line-height:30px}
+.search_cx ul li span{ height:30px; overflow:hidden; padding-top:34px;}
+.search_cx input.search_cx_an{width:65px; height:20px; background:url(http://pic.ofcard.com/7881/market/images/buy/buy_kucx.jpg) no-repeat;border: medium none;cursor: pointer;line-height:20px;}
+.search_cx input.search_cx_an:hover{width:65px; height:20px; background:url(http://pic.ofcard.com/7881/market/images/buy/buy_kucx-1.jpg) no-repeat;border: medium none;cursor: pointer;}
+
+.search_yxsx{ border:#dfdfdf solid 1px; padding:10px; overflow:auto; height:22px;}
+.search_yxsx a{display:block;float:left;width:22px; height:20px; text-align:center;}
+.search_yxsx a:hover{ color:#FFF; background:#ff7800;}
+.search_yxsx a.rmyx{display:block;float:left;width:60px; height:20px; text-align:center;}
+.search_yxsx a:hover.rmyx{ color:#FFF; background:#ff7800;}
+
+.search_yxsx_a_hover {color:#FFF; background:#ff7800;}
+
+.search_yxm{ padding-top:5px; padding-bottom:5px;}
+.search_yxm a{ padding:4px; cursor:pointer;}
+.search_yxm a:hover{ background:#3D86EA; color:#fff;}
+.search_yxm p {float:left;width:135px; padding:8px 5px ;display:inline-block; text-align:left; background:url(http://pic.ofcard.com/7881/market/images/app/app_jt.png) no-repeat left center; margin-left:10px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+.search_yxm a:hover.wenzi{ color:#FFF; background:#ff7800;}
+
+.yxlb{ margin-bottom:10px; margin-top:10px;}
+.yxlb_1{width:954px;;border:solid 3px #3d86ea; background:#fff;overflow:hidden;text-align:left; padding:10px;}
+.yxlb_1 h1{ margin-top:9px; padding-bottom:8px; border-bottom:dotted #dfdfdf 1px;position:relative; font-size:16px; font-weight:normal;}
+.yxlb_1 h1 div{text-align:right; width:400px; height:12px; font-size:12px; font-weight:normal;position:absolute; right:0px; top:3px;}
+
+.zbdyx{overflow:auto; border:8px #efefef solid;}
+.zbdyx .tjnr{ width:500px; overflow:auto; margin:50px auto;}
+.zbdyx .tjnr li{ margin-bottom:20px; }
+.zbdyx .tjnr li span{ float:left;width:60px;display:block;}
+
+.float0831 {POSITION: fixed; TOP: 204px; RIGHT: 0px; _position: absolute; z-index:999999}
+.float0831 A {COLOR: #00a0e9}
+.float0831 A:hover {COLOR: #ff8100; TEXT-DECORATION: none}
+.float0831 .floatL {POSITION: relative; WIDTH: 24px; FLOAT: left}
+.float0831 .floatL A {TEXT-INDENT: -9999px; DISPLAY: block; FONT-SIZE: 0px}
+.float0831 .tp {BACKGROUND: url(http://pic.ofcard.com/7881/market/images/float_bg.gif)}
+.float0831 .floatR {WIDTH: 105px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: -106px bottom; FLOAT: left; OVERFLOW: hidden; border:solid #dfdfdf 1px; background:#fff;}
+.float0831 .tp {BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 0% 0%; HEIGHT: 26px ;}
+.float0831 .cn {BACKGROUND-REPEAT: repeat-y; BACKGROUND-POSITION: -262px 0px}
+.float0831 .cn UL { padding:0}
+.float0831 .cn UL LI {BORDER-BOTTOM: #e6e5e4 1px dashed; padding:3px 0;WORD-WRAP: break-word;OVERFLOW: hidden; WORD-BREAK: normal}
+.moveWyzx{ margin-left:3px;width:84px; height:22px; background:url(http://pic.ofcard.com/7881/market/images/zxzx/wyzx.png) no-repeat;border: medium none; cursor: pointer; margin-top:6px; display:inline-block;}
+.moveWyzx:hover{ width:84px; height:22px; background:url(http://pic.ofcard.com/7881/market/images/zxzx/wyzxh.png) no-repeat;border: medium none; cursor: pointer;}
+.moveWyts{ margin-left:3px;width:84px; height:22px; background:url(http://pic.ofcard.com/7881/market/images/zxzx/wyts.png) no-repeat;border: medium none; cursor: pointer; margin-top:6px;display:inline-block;}
+.moveWyts:hover{ width:84px; height:22px; background:url(http://pic.ofcard.com/7881/market/images/zxzx/wytsh.png) no-repeat;border: medium none; cursor: pointer;}
+
+
+.float0831 .btnOpen {BACKGROUND: url(http://pic.ofcard.com/7881/market/images/float_s.gif) no-repeat;}
+.float0831 .btnOpen_n {BACKGROUND: url(http://pic.ofcard.com/7881/market/images/float_s.gif) no-repeat}
+.float0831 .btnCtn {BACKGROUND: url(http://pic.ofcard.com/7881/market/images/float_s.gif) no-repeat}
+.float0831 .btnOpen {BACKGROUND-POSITION: -28px 0px}
+.float0831 .btnOpen_n {BACKGROUND-POSITION: -28px 0px}
+.float0831 .btnCtn {BACKGROUND-POSITION: 0px 0px}
+.float0831 .btnOpen {POSITION: relative; WIDTH: 24px; HEIGHT: 92px; TOP: 25px;}
+.float0831 .btnOpen_n {POSITION: relative; WIDTH: 24px; HEIGHT: 92px; TOP: 25px;}
+.float0831 .btnCtn {POSITION: relative; WIDTH: 24px; HEIGHT: 92px; TOP: 25px;}
+.float0831 .btnOpen {TOP: 50px;}
+.float0831 .btnOpen_n {TOP: 25px;}
+.float0831 .btnCtn {TOP: 50px;}
+
+/*头上部分*/
+.width980_top { width:980px; margin:0px auto; height:auto; line-height:30px; clear:both; position:relative; z-index:99999999; }
+.welcome { float:left; overflow:hidden; line-height:30px;}
+.welcome a.dlzc{color:#09F;text-decoration:none}
+.welcome a:hover.dlzc{color:#E95701;text-decoration:none}
+.right_top{width:40px; float:right; overflow:hidden;}
+.right_top1{width:65px; float:right; overflow:hidden;}
+.right_top2{width:60px; float:right; overflow:hidden;}
+.right_top3{width:10px; float:right; overflow:hidden; color:#DBDBDB; font-size:10px;}
+
+/*我是卖家*/
+.myrice { position:relative; display:inline-block; }
+.obtainTop { cursor:pointer; background:url(http://pic.ofcard.com/7881/market/images/dot_2.gif) no-repeat 55px 14px; width:72px; text-align:left;}
+.mine_cont_1 { display:none; overflow:hidden }
+.nav_text_2{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_2 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:999;}
+.hover .mine_cont_1 { display:block; border:1px solid #ddd;  width:90px; background:#fff; position: absolute; z-index:998; top:27px; left:0px; }
+.hover .mine_cont_1 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+/*我是买家*/
+.top_index { position:relative; display:inline-block;position: relative; z-index:99999999; }
+
+.mine_cont { display:none; overflow:hidden }
+.nav_text{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px;position: relative; z-index:997; }
+.hover .mine_cont { display:block; border:1px solid #ddd; width:90px; background:#fff; position: absolute; z-index:996; top:27px; left:0px; }
+.hover .mine_cont li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+/*官方微博*/
+.myrice { position:relative; display:inline-block; }
+.mine_cont_2{ display:none; overflow:hidden }
+.nav_text_3{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_3 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_2 { display:block; border:1px solid #ddd;  width:90px; background:#fff; position: absolute; z-index:1000; top:27px; left:0px; }
+.hover .mine_cont_2 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+
+/*客服中心*/
+.myService { position:relative; display:inline-block; }
+.mine_cont_3{ display:none; overflow:hidden }
+.nav_text_4{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_4 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_3 { display:block; border:1px solid #ddd;  width:70px; background:#fff; position: absolute; z-index:1000; top:27px; left:0px; }
+.hover .mine_cont_3 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+.hover .mine_cont_3 li a.Red {color:#F00; margin-left:10px;}
+
+/*官方微信*/
+.myweixin { position:relative; display:inline-block; }
+.mine_cont_4{ display:none; overflow:hidden }
+.nav_text_5{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_5 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_4 { display:block; border:1px solid #ddd;  width:275px; background:#fff; position: absolute; z-index:1000; top:27px; right:0px; }
+.hover .mine_cont_4 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+
+.input_1{ height:20px; font-size:14px; vertical-align:middle}
+.input_2{ height:16px; font-size:12px;}
+
+.buy_kscx_an {
+    background: url("http://pic.ofcard.com/7881/market/images/buy/buy_kucx.jpg") no-repeat scroll 0 0 transparent;
+	padding-top:1px;
+    border: medium none;
+    cursor: pointer;
+    height: 20px;
+    width: 65px;
+	vertical-align:middle;
+}
+.buy_kscx_an:hover {
+    background: url("http://pic.ofcard.com/7881/market/images/buy/buy_kucx-1.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 20px;
+    width: 65px;
+}
+
+/*搜索上的快速查询*/
+.public_kscx_an {
+    background: url("http://pic.ofcard.com/7881/market/images/buy/buy_kucx.jpg") no-repeat scroll 0 0 transparent; 
+    border: medium none;
+	margin-top:2px;
+    cursor: pointer;
+    height: 20px;
+    width: 65px;
+}
+.public_kscx_an:hover {
+    background: url("http://pic.ofcard.com/7881/market/images/buy/buy_kucx-1.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 20px;
+    width: 65px;
+}
+
+/* 底部 */
+.root_minute{ padding:8px 0;border:#dfdfdf solid 1px;margin-top:10px;overflow:hidden; }
+.root_minute li{ width:195px; float:left; overflow:hidden;text-align:center;}
+.root_minute li a{ line-height:20px;text-align:left; overflow:hidden; height:20px; display:block; color:#444; padding-left:88px}
+.root_minute li a:hover{ color:#f60}
+
+.foot_track { height:50px; padding-top: 10px; background:#ececec; overflow:hidden;}
+.foot_track li{ margin-left:38px; display:inline;}
+.foot_down img{ margin-left:30px; display: inline; margin-top:10px;}
+.szfoot{ border:#dfdfdf solid 1px; margin-top:10px; margin-bottom:20px; }
+
+/* 1771b2b.common.css样式 */
+
+.W950{width: 980px;margin: 0 auto;}
+
+select{min-width: 100px;}
+.overflow{overflow: hidden;}
+
+/* ofSiteMenu */
+.ofSiteMenu {background: #f8f8f8;border-bottom: 1px solid #e6e6e6;}
+.ofSiteMenu .W950 {height: 30px;line-height: 29px;}
+.ofSiteMenu ul li,.ofSiteMenu ul a{float: left;}
+.ofSiteMenu ul a {padding: 0 8px;}
+.ofSiteMenu .left a {margin: 4px 0 0 0;line-height: 20px;height: 20px;color:#666;}
+.ofSiteMenu .left a:hover{color: #0558b6;}
+.ofSiteMenu .loginBtn {color: #3366cc;}
+.ofSiteMenu .regBtn {color: #ff6600;}
+.ofSiteMenu a.t-q-log{
+	background: url(http://pic.ofcard.com/7881/market/images/ofbg.png) left top no-repeat;
+	width: 91px;
+	height: 21px;
+	text-indent: -9999px;
+	padding: 0;
+}
+.ofSiteMenu a.t-q-log:hover{
+	background-position: -93px -14px;
+}
+.ofSiteMenu .right a{
+	display: block;
+	padding: 0 6px;
+}
+.ofSiteMenu .right a.helpCen{
+	padding-left:15px;
+	background: url(http://pic.ofcard.com/7881/market/images/ofbg.png) -308px -176px no-repeat;
+}
+.ofSiteMenu .right a.qq{
+	width: 74px;
+	height: 23px;
+	padding: 0;
+	margin: 3px 0 0 8px;
+	background: url(lbui.png) left -398px no-repeat;
+}
+
+
+.mainWrap {margin-top:10px;overflow: hidden;}
+
+/*siteCrumbs */
+.siteCrumbs li{position: relative;float: left;margin-right:5px;display:inline;line-height: 26px;height:26px;}
+
+
+
+
+/*nav left*/
+.navL{
+	float: left;
+	width: 230px;
+	overflow: hidden;
+	border: 1px solid #dfdfdf;
+}
+.navL .list3 li{
+	height: 34px;
+	line-height: 34px;
+	padding-left: 22px;
+	text-align:left;
+	border-bottom: 1px solid #dfdfdf;
+	background: url(http://pic.ofcard.com/7881/market/images/rep-x.png) left -50px repeat-x;
+	cursor: pointer;
+}
+.navL .list3 li i{
+	width: 4px;
+	height: 7px;
+	*margin-top:12px;
+	margin-right: 15px;
+	background: url(http://pic.ofcard.com/7881/market/images/ofbg.png) -312px -393px no-repeat;
+}
+.navL .list3 li.selected{
+	border-bottom: 1px solid #f60;
+	background: url(http://pic.ofcard.com/7881/market/images/rep-x.png) left -91px repeat-x;
+}
+.navL .list3 li.selected i{
+	background-position:-312px -369px;
+}
+.navL .list3 li.selected a{
+	color: #f60;
+}
+.navL .list3 li.last{
+	border-bottom: 0 none;
+}
+.navL .list3 li.laston{
+	border-bottom: 1px solid #f60;
+}
+
+.mainR{
+	float: right;
+	width: 740px;
+	border: 1px solid #ddd;
+}
+.mainR h1{
+	background: url(http://pic.ofcard.com/7881/market/images/rep-x.png) repeat-x scroll left -50px transparent;
+    border-bottom: 1px solid #DFDFDF;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 22px;
+    text-align: left;
+	font-size:14px
+}
+.mainR h2{
+	height: 32px;
+	line-height: 32px;
+	padding-left: 15px;
+	font-weight: bold;
+	font-size: 14px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #dedede;
+	background: #f3f3f3;
+}
+.mainR h3{
+	background: url(http://pic.ofcard.com/7881/market/images/rep-x.png) repeat-x scroll left -50px transparent;
+    border-bottom: 1px solid #DFDFDF;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 22px;
+    text-align: left;
+}
+.rCont{
+	margin: 15px 10px;
+}
+.rCont li{
+	height: 30px;
+	line-height: 30px;
+	text-align:left;
+	padding-left:10px;
+	border-bottom: 1px dotted #dedede;
+}
+.news-hd{
+	margin: 10px;
+	text-align: center;
+	border-bottom: 1px dotted #dcdcdc;
+}
+.news-hd h1{
+	font-size: 16px;
+	font-weight: bold;
+	color: #0f55b7;
+	background:#FFF;
+	border:0px;
+	text-align:center;
+}
+.news-date{
+	padding: 5px 0;
+	color: #959595;
+}
+.news-date span{
+	padding: 0 30px;
+}
+.newsCont{
+	margin: 10px;
+}
+.newsCont p{
+	color: #666;
+	text-indent: 20px;
+	line-height: 25px;
+}
+.goback a{
+	color: #0657B2;
+	text-decoration: underline;
+}
+.helpCont{
+	width: 680px;
+	margin: 10px auto 20px;
+}
+.helpCont p.tit{
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	font-weight: bold;
+	color: #0456a2;
+	text-align:center;
+	margin-bottom: 10px;
+	border-bottom: 1px dotted #dedede;
+}
+.H-step{
+	margin-bottom: 20px;
+}
+.H-step dd{
+	margin: 10px 0;
+	text-align: center;
+}
+.H-step dd img{
+	display:inline;
+}
+.H-step dd.goback{
+	margin-top: 30px;
+	text-align: right;
+}
+.H-step dd.goback a{
+	text-decoration: underline;
+}
+.H-step a{
+	color: #666;
+}
+.verify-box{
+	width: 720px;
+	margin: 30px auto;
+	border: 1px solid #e2c5a7;
+}
+.hd{
+	background: #fcf3ea;
+	height: 40px;
+	border-bottom: 1px solid #e2c5a7;
+}
+.tab-ver{
+	float:left;
+	margin: 6px 0 0 10px;
+}
+.tab-ver li {
+    cursor: pointer;
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    width: 120px;
+}
+.tab-ver li.selected{
+	position: relative;
+	background: #fff;
+	border-style: solid;
+	border-width:1px;
+	z-index: 5;
+	border-color: #e2c5a7 #e2c5a7 #fff #e2c5a7;
+}
+.box-ver{
+	padding: 30px 0;
+}
+.warn404{
+	padding: 30px 0 30px 370px;
+	overflow: hidden;
+}
+.warn404 h2{
+	position: relative;
+	font-size: 16px;
+	color: #f67108;
+	margin-bottom: 5px;
+}
+.warn404 h2 i{
+	position: absolute;
+	left: -32px;
+	top: 2px;
+	width: 20px;
+	height: 22px;
+	background: url(http://pic.ofcard.com/7881/market/images/ofbg.png) -160px -364px no-repeat;
+}
+.warn404 dl{
+	margin: 15px 0;
+	color: #818181;
+}
+.warn404 dl dd a{
+	color: #0072af;
+	text-decoration: underline;
+}
+.warn404 p a{
+	color: #fd7500;
+	text-decoration: underline;
+}
+
+
+
+
+/* clear */
+.clearfix:after, .head:after,#footer:after,.block:after,#pages:after,#tab:after,.tab:after,.formul:after,.formul li:after,.formul li .common:after,.formul li .common li:after,.form:after,.form li:after,.form li .common:after,.form li .common li:after, .transverse:after, .vertical:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.clearfix,.head,#footer,.block,#pages,#tab,.tab,.formul, .formul li,.formul li .common,.formul li .common li, .form, .form li,.form li .common,.form li .common li, .transverse, .vertical {*zoom:1;clear:left;}
+
+
+
+
+/* layout */
+.col2,.col3,.col4,.col5{float:left;}.col2 .Jow,.col3 .Jow,.col4 .Jow,.col5 .Jow {margin:0 10px 0 0;}.colLast .Jow {margin:0;}.col2 {width:50%;}.col2.colLast{*margin-left:-1px;}.col3 {width:33.3%;}.col3.colLast {width:33.4%;}.col4{width:25%;}.col4.colLast{*margin-left:-2px;}.col5{width:20%;}
+.actions,.action,.icon,.inline,i {display:-moz-inline-stack;display:inline-block;zoom: 1;*display: inline;vertical-align:middle;}
+
+/* top */
+#goTopBtn {
+	POSITION: fixed; TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 50px; BOTTOM: 15px; HEIGHT: 50px; FONT-SIZE: 12px; CURSOR: pointer; RIGHT: 58px; _position: absolute; _right: 15px; _bottom:45px;-moz-opacity:.5;opacity:0.5;filter: alpha(opacity=50);
+}
+#goTopBtn:hover{POSITION: fixed; TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 50px; BOTTOM: 15px; HEIGHT: 50px; FONT-SIZE: 12px; CURSOR: pointer; RIGHT: 58px; _position: absolute; _right: 15px;_bottom:45px;-moz-opacity:.1;opacity:1;;filter: alpha(opacity=100);
+}
+#weixin1{position:fixed; bottom:140px; left: 50%;margin: 0px 0px 0px -610px; width:105px; height:312px; overflow:hidden; _position:absolute; _bottom:45px; _right:15px}
+#weixin1 .wx_cha{ width:9px; overflow:hidden; height:9px; margin-top:9px; right:6px; position: absolute; z-index:12}
+#weixin1 .wx_pic{ float:left;width:105px; text-align:right; overflow:hidden; position:relative; z-index:11}
+/* qq */
+.infobox {background: url(http://pic.ofcard.com/7881/market/images/qq_right.png) no-repeat top; border:#dfdfdf solid 1px; padding-top: 5px;width:132px;}
+.unfoldbox{width: 132px;float: right;overflow: hidden;display: none;position: relative;}
+.toFold{float: right;position: absolute;right: 5px;top: 8px;}
+.Obtn {margin-top: 10px; width: 30px; background: url(http://pic.ofcard.com/7881/market/images/qq_left.png) no-repeat; float: left; height: 133px; margin-left: -5px; cursor: pointer; display: inline;}
+.qqtable{padding: 30px 0 10px 0;}
+.qqtable a.ask{float: none;display: block;background:url(http://pic.ofcard.com/7881/market/images/qq_left.png) no-repeat; height:30px;width: 133px;text-indent: -9999px;margin-top:15px;}
+.qqtable a.qqts{float: none;display: block;background: url(http://pic.ofcard.com/7881/market/images/qq_ts_1.png) no-repeat; width:84px; height:22px;margin:10px auto;}
+.qqtable a:hover.qqts{background: url(http://pic.ofcard.com/7881/market/images/qq_ts_2.png) no-repeat;}
+.qqtable a.qqzx{float: none;display: block;background: url(http://pic.ofcard.com/7881/market/images/qq_zx_1.png) no-repeat; width:84px; height:22px;margin:10px auto;}
+.qqtable a:hover.qqzx{background: url(http://pic.ofcard.com/7881/market/images/qq_zx_2.png) no-repeat;}
+
+/* 通用弹出层_投诉 */
+.tip_box,.tip_box_1,.tip_box_2,.tip_box_3,.tip_box_4{width:480px; background-color:#fff;border:1px #4B94EE solid; border-top:0;position:absolute;top:0;left:0;display:none;z-index:1000000001; padding:0 0 8px; overflow:hidden}
+.tip_box h2,.tip_box_1 h2,.tip_box_2 h2,.tip_box_3 h2,.tip_box_4 h2{ text-align:left;height:30px;font-size:14px;background:#4B94EE;position:relative;padding-left:10px;line-height:30px;color:#fff; border-bottom:1px solid #36c;border-top:1px solid #48BCFF}
+.tip_box h2 a,.tip_box_1 h2 a,.tip_box_2 h2 a,.tip_box_3 h2 a,.tip_box_4 h2 a{position:absolute;right:10px;font-size:14px;color:#fff; *line-height:19px}
+.tip_box .mainlist,.tip_box_1 .mainlist,.tip_box_2 .mainlist,.tip_box_3 .mainlist,.tip_box_4 .mainlist{padding:20px 10px; text-align:left; overflow:hidden}
+.tip_box .ico,.tip_box_1 .ico{ float:left; width:48px; height:100px; padding:4px 20px 0 40px; text-align:right}
+.tip_box .text{ float:right; width:350px}
+.tip_box .text li{ line-height:20px; padding:4px 0; overflow:hidden}
+.tip_box .text li cite{ font-style:normal; color:#f90;}
+.tip_blue{line-height:22px; height:22px; display:block; width:70px; margin-right:10px; background:#4B94EE; border:1px solid #36c; border-radius:4px 4px 4px;}
+.tip_gray{line-height:22px; height:22px; display:block; width:70px; margin-right:10px; background:#efefef; border-radius:4px 4px 4px; border:1px solid #C5C5C5}
+/* 通用弹出层_release_1 */
+.tip_box_1 .text{ float:right; width:350px}
+.tip_box_1 .text li{ line-height:26px; padding:2px 0; overflow:hidden}
+
+/* 通用弹出层_release_2 */
+.tip_box_2 .ico{ float:left; width:48px; height:60px; padding:4px 20px 0 90px; text-align:right}
+.tip_box_2 .text{ float:right; width:300px}
+.tip_box_2 .text li{ line-height:20px; padding:4px 0; overflow:hidden}
+
+/* 通用弹出层_release_3 */
+.tip_box_3 .mainlist h3,.tip_box_4 .mainlist h3{ width:416px; overflow:hidden; border-bottom:1px dashed #BDE3FD; line-height:38px; padding-left:44px; font-size:12px}
+.tip_box_3 .text li{ line-height:24px; padding:4px 0 4px 60px; overflow:hidden;}
+.tip_box_3 .text li span{ float:left; width:95px; text-align:right; color:#666; margin-right:4px}
+
+/* 通用弹出层_release_4 */
+.tip_box_4 .text li{ line-height:30px; padding:4px 0 4px 92px; overflow:hidden;}
+#screen{width:100%;height:100%;position:absolute;top:0;left:0;display:none;z-index:100000000;background-color:#666;opacity:0.5;filter:alpha(opacity=50);-moz-opacity:0.5;}
+/* 卡密发单无权限页面*/
+.nomilit{ font-size:15px; width:518px; border:1px solid #EDEDED; height:270px; line-height:26px; padding:95px 0 0 460px; background:url(http://pic.ofcard.com/7881/images/fdzs/nolimit.jpg) no-repeat 200px 65px;}
+/* 右下角消息提示*/
+#winpop { width:300px; height:0px; position: fixed; _position:absolute; z-index:999; right:3px; bottom:3px; border:1px solid #2880CE; margin:0; padding:1px; overflow:hidden; display:none; background:#efefef;}
+#winpop .head{ width:300px;height:24px; line-height:24px; background:#2880CE; color:#fff; text-align:left;}
+#winpop .title { float:left;*width:260px;  text-indent:5px; height:24px;background:#2880CE}
+#winpop .con {float:left;width:100%; height:140px; line-height:30px;color:#2880CE; padding:0 10px;background:#fff}
+#winpop .con span{ float:left; width:275px;}
+<!--#silu { font-size:13px; color:#999999; position:absolute; right:0; text-align:right; text-decoration:underline; line-height:22px;}-->
+#winpop .close {float:right; color:#FFFFFF; cursor:pointer;width:45px;}
+
+#navz{width:280px; height:32px;}
+#navz ul{height:32px;}
+#navz .more{float:right; margin:-8px 0px 0px;}
+#navz li{float:left;width:22px;text-align:center;}
+#navz li a{display:block; line-height:16px; background:#36c; color:#fff; margin-right:5px}
+#navz li .navz_on{background:#f90;color:#fff;line-height:16px;}
+#menuz_con{width:280px; margin:0 auto; float:left}
+#menuz_con ul{ margin-bottom:5px}
+#menuz_con li{width:270px; line-height:20px; height:62px;float:left;}
+
+#xi_box{text-align:left;}
+
+
+
+/*20170309*/
+
+.c999 { color: #999;}
+.c39f { color: #3399ff;}
+.disabled { background: #cbcbcb!important; color: #fff!important; cursor: default!important;}
+
+.layui-layer { text-align: left;}
+.pop-ewm-box {width: 300px; padding: 25px 35px 35px 35px; background: #fff; font-family:\5b8b\4f53; text-align: center;}
+.pop-ewm-p { font-size: 14px; font-weight:bold; color: #666; line-height: 24px; margin-bottom: 14px; text-align: center;}
+.pop-ewm-img img { width: 248px; height: 248px; border: #eee 1px solid;}
+
+.popup-btn a { display: inline-block; *display: inline; *zoom:1; min-width: 120px; margin: 0 10px; background: #ff6700; color: #fff; height: 32px; line-height: 32px; text-align: center;border-radius: 2px;}
+.popup-btn a.off { background: #e1e1e1;}
+.popup-btn a.qx { border: #ededed 1px solid; background: #ffffff; color: #ec6100; min-width: 118px; height: 30px; line-height: 30px;}
+.popup-btn a.qr { background: #ff6700;}
+
+.com-popup.layui-layer { border-radius: 0;}
+.com-popup.layui-layer .layui-layer-content { overflow: visible;}
+.popup-btn { text-align: center;}
+.popup-btn a { margin: 0 8px;}
+.compop-box { text-align: center; padding: 40px; font-family: \5b8b\4f53;}
+.compop-box h2 { font-size: 14px; font-weight: bold; margin-bottom: 32px; font-weight: normal;}
+
+.tt-btn { display: inline-block; *display: inline; *zoom:1; height: 24px; line-height: 24px; min-width: 90px; text-align:center; font-weight: normal; color: #fff; font-size: 12px; background: #3399ff; border-radius: 2px; vertical-align: middle; margin-top: -1px; margin-left: 0!important;}
+.tt-btn:hover { background: #439efa; color: #fff;}
+.time-item { display: none; height: 24px; line-height: 24px; min-width: 90px; text-align:center; color: #fff!important; font-size: 12px; background: #cbcbcb; border-radius: 2px; vertical-align: middle; margin-top: -1px;}
+.desc-info.hide { display: none!important;}
+.hide { display: none;}
+.show {display: inline-block!important; *display: inline!important; *zoom:1!important;}
+.time-item em { color: #fff; margin: 0; padding: 0;}
+.pop-hide-box { display: none;}
+.consell-box { font-family: \5b8b\4f53; padding: 24px 55px 0px 55px;}
+.consell-box h5 { font-size: 14px; text-align: center; margin-bottom: 12px;}
+.consell-box ul li { height: 30px; line-height: 30px; width: 100%; background: #fbfbfb; border: #ededed 1px solid; margin-bottom: 10px; cursor: pointer;}
+.consell-box ul li.on,.consell-box ul li:hover { border: #ff6700 1px solid;}
+.consell-box ul li input {vertical-align: middle; margin-right: 10px;  margin-top: -1px; margin-left: 14px;}
+.consell-box .popup-btn { margin-top: 20px;}
+.w980 .order-desc { height: auto;}
+.see-selinfo { margin-top: 10px;}
+
+.star-box { width: 100px; height: 16px; background:url(http://pic.7881.com/7881/market/images/starbg-01.png) no-repeat;}
+.star-box.star-5 { background-position: 0 0;}
+.star-box.star-4 { background-position: 0 -18px;}
+.star-box.star-3 { background-position: 0 -36px;}
+.star-box.star-2 { background-position: 0 -54px;}
+.star-box.star-1 { background-position: 0 -72px;}
+.cus-popup.layui-layer { border-radius: 0;}
+.cus-popup.layui-layer .layui-layer-content { overflow: visible;}
+.cus-popup .layui-layer-title { height: 76px; line-height: 76px; text-align: center; border-bottom: none; font-size: 24px; color: #333; background: none; padding: 0;  font-family: "microsoft yahei";}
+.cus-popup .layui-layer-setwin { right: 22px; top:22px;}
+.cus-box .picScroll-left{ max-width:858px; height: 324px; position:relative;}
+.cus-box .picScroll-left .hd{ position: relative; z-index: 9; height: 0px; border: none; background: none;}
+.cus-box .picScroll-left .hd .prev,.picScroll-left .hd .next{ display:block; position: absolute; top:90px; width:30px; height:60px; overflow:hidden;cursor:pointer; background:url("http://pic.7881.com/7881/market/images/cus-arrow.png") no-repeat;}
+.cus-box .picScroll-left .hd .prev { left: -40px; }
+.cus-box .picScroll-left .hd .prev:hover { background-position:0px -60px;}
+.cus-box .picScroll-left .hd .next{ background-position:-30px 0px; left: auto; right: -40px;}
+.cus-box .picScroll-left .hd .next:hover {background-position:-30px -60px;}
+.cus-box .picScroll-left .hd .prevStop{ background-position:-60px 0; }
+.cus-box .picScroll-left .hd .nextStop{ background-position:-60px -50px; }
+.cus-box .picScroll-left .hd ul{ overflow:hidden; *zoom:1; position: absolute; left: 0; top: 292px; width: 100%; text-align: center; z-index: 9; }
+.cus-box .picScroll-left .hd ul li{ display: inline-block; *display: inline; *zoom:1; width:12px; height:12px; border-radius: 12px; background: #eee; overflow:hidden; margin:0 4px; text-indent:-999px; cursor:pointer; }
+.cus-box .picScroll-left .hd ul li.on{ background:#ff6700; }
+.cus-box .picScroll-left .bd { margin-left: 3px;}
+.cus-box .picScroll-left .bd ul{ overflow:hidden; zoom:1; width: auto; }
+.cus-box .picScroll-left .bd ul li{ margin-right:13px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+.cus-box .picScroll-left .bd ul li .pic{ text-align:center; position: relative;}
+.cus-box .picScroll-left .bd ul li .pic img{ width:160px; height:150px; display:block;}
+.cus-box .picScroll-left .bd ul li .pic p { position: absolute; left: 0; bottom: 0; width: 100%; height: 28px; line-height: 28px; text-align: center; color: #fff; background: url(http://pic.7881.com/7881/market/images/gray-bg.png) repeat-x;}
+.cus-box .picScroll-left .bd ul li .info { width: 158px; border: #eee 1px solid; padding: 15px 0; text-align: center;}
+.cus-box .picScroll-left .bd ul li .info h4 { display: inline-block; *display: inline; *zoom:1; margin-bottom: 6px;}
+.cus-box .picScroll-left .bd ul li .info h5 { line-height:24px; font-weight: normal; color: #888; margin-bottom: 10px;}
+.cus-box .picScroll-left .bd ul li .info h5 span { color: #ff6700;}
+.cus-box .picScroll-left .bd ul li .info h5 em { color: #333;}
+.cus-box .picScroll-left .bd ul li .info p { text-align: center;}
+.cus-box .picScroll-left .bd ul li .info p a { display: inline-block; *display: inline; *zoom:1; min-width: 130px; background: #ff6700; color: #fff; height: 32px; line-height: 32px; text-align: center;border-radius: 2px;}
+.cus-box .picScroll-left .bd ul li .info p a:hover { background:#333;}
+.cus-box { max-width: 858px; padding:0 40px; padding-top: 0; font-family: \5b8b\4f53;}
+
+
+.evaluate-popup.layui-layer { border-radius: 0;}
+.evaluate-popup .layui-layer-title { height: 76px; line-height: 76px; text-align: center; border-bottom: none; font-size: 24px; color: #333; background: none; padding: 0;  font-family: "microsoft yahei";}
+.evaluate-popup .layui-layer-setwin { right:14px; top:22px;}
+.evaluate-box { width: 460px; font-family: \5b8b\4f53; background: #fff;}
+.evaluate-box .evaluate-tips { width: 388px; height: 30px; line-height: 30px; text-align: center; border: #efefef 1px solid; background: #fbfbfb; margin: 0 auto; margin-bottom: 18px;}
+.evaluate-box .evaluate-tips em { vertical-align: middle; display: inline-block; *display: inline; *zoom:1; margin-right: 8px; margin-top: -2px;}
+.evaluate-box dl.pj-com {overflow: hidden; margin-left: 70px; margin-bottom: 20px;}
+.evaluate-box dl.pj-com dt { float: left; width: 70px; height: 82px; line-height: 82px;}
+.evaluate-box dl.pj-com dd { float: left; margin-left: 30px; margin-top: 18px;}
+.evaluate-box dl.pj-com dd h5 { margin-bottom: 12px;}
+.evaluate-box dl.pj-com dd h5 span { display: inline-block; *display: inline; *zoom:1; width: 31px; height: 30px; margin-right: 14px; cursor: pointer;}
+.evaluate-box dl.pj-com dd h5 span.star-pj-off { background: url(http://pic.7881.com/7881/market/images/star-pj-off.png) no-repeat;}
+.evaluate-box dl.pj-com dd h5 span.star-pj-on { background: url(http://pic.7881.com/7881/market/images/star-pj-on.png) no-repeat;}
+.evaluate-box dl.pj-com dd h5 img { margin-right: 14px;}
+.evaluate-box dl.pj-com dd p { color: #888;}
+.evaluate-box .pjyx-tit { width: 390px; margin: 0 auto; margin-bottom: 16px; height: 22px; line-height: 22px; position: relative;}
+.evaluate-box .pjyx-tit p { font-size: 14px; color: #888; text-align: center;}
+.evaluate-box .pjyx-tit em { display: block; width: 120px; height: 1px; background: #eee; position: absolute; top:11px;}
+.evaluate-box .pjyx-tit em.line-r { right: 0;}
+.evaluate-box .pjyx-box {width: 390px; margin: 0 auto;}
+.evaluate-box .pjyx-box ul { width: 420px; overflow: hidden;}
+.evaluate-box .pjyx-box ul li { width: 110px; padding: 0 4px; height: 30px; line-height: 30px; float: left; margin-right: 15px; margin-bottom: 12px; border: #d7d7d7 1px solid; color: #888; text-align: center; border-radius: 3px; cursor: pointer; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;word-wrap: normal;}
+.evaluate-box .pjyx-box ul li:hover,.evaluate-box .pjyx-box ul li.on { border: #ff6700 1px solid; color: #ff6700;}
+.evaluate-box .pj-btn { text-align: center; padding-bottom: 32px; padding-top: 15px;}
+.evaluate-box .pj-btn a { display: inline-block; *display: inline; *zoom:1; min-width: 150px; background: #ff6700; color: #fff; height: 32px; line-height: 32px; text-align: center;border-radius: 2px;}
+.evaluate-box .pj-textarea{ width: 388px; height: 100px; margin: 0 auto; border: 1px solid #d7d7d7; position: relative; margin-bottom: 10px;}
+.evaluate-box .pj-textarea textarea{width: 368px; height: 80px; padding: 10px; border: none; font-size: 12px; font-family: simsun; resize:none; line-height: 20px;}
+.evaluate-box .pj-textarea span{position: absolute; right: 10px; bottom: 10px; color: #aaa;}
+.evaluate-box .pj-textarea span em{color: #aaa; font-family: simsun;}
