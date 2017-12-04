@@ -40,7 +40,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </h4>
                 </div>
                 <div class ="game-ensure" >
-                    <p class ="type">类型：<span>{{MallTypeName}}</span></p>
+                    <p class ="type">类型：<span>{{GoodTypeName}}</span></p>
                     <p class ="type">区服：<span>{{GroupName}}/{{ServerName}}</span></p>
                 </div>
                 <div class="role-info">
@@ -88,23 +88,25 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             </div>
         </div>`
 
+    //定义数据
     var data = {
-        AddTime:"",
-        GoodNo:"",
+        BaseUrl: common.GetBaseUrl() + "PlaceOrder/PlaceOrder.html?GoodNo=",
+        AddTime: "",
+        GoodNo: "",
         GoodTitle: "",
         GoodPrice: 280,
-        MallTypeName:"",
+        GoodTypeName: "",
         GroupName: "",
         ServerName: "",
         TotalNum: "",
-        CancelNum:"",
+        CancelNum: "",
         wantPriceUrl: "http://search.7881.com/201612376390646.html#",
         level: "stars-box",
         HistoryAccount: "此账号首次在就游戏联盟出售",
         mallGoodInfo: [
             { DescriptionName: "", DescriptionValue: "" }
         ]
-    }  
+    }
 
     var goodInfoComponent = {//全局注册
         template: goodInfoHtml,
@@ -126,7 +128,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.GroupName = data.content.GroupName;
                         _self.ServerName = data.content.ServerName;
                         _self.HistoryAccount = data.content.HistoryAccount;
-                        _self.MallTypeName = data.content.MallTypeName;
+                        _self.GoodTypeName = data.content.GoodTypeName;
                         _self.TotalNum = data.content.TotalNum;
                         _self.CancelNum = data.content.CancelNum;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
@@ -141,8 +143,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            BuyNow() {//立即购买
-
+            BuyNow(GoodNo) {//立即购买
+                window.open(this.BaseUrl + GoodNo);
             }
         }
     }
