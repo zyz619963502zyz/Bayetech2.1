@@ -1,38 +1,195 @@
-﻿
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>游戏联盟-游戏交易站-下订单</title>
-    <link href="../../Content/OlderCss/global.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/Public.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/buy.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/popLayer.css" rel="stylesheet" />
-    <!--[if lte IE 6]>
-    <style type="text/css">
-    body { behavior:url("/market/css/csshover.htc");}
-    </style>
-    <![endif]-->
+    <title>注册商品信息</title>
+    <meta charset="utf-8" />
+    <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/buy.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/popLayer.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/sell.css" rel="stylesheet" />
+
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/PlaceOrder/index.js"></script>
     <style type="text/css">
         .txcpdd ul li span {
             width: 90px;
         }
 
         #dxk {
+            background: #fff;
             margin-left: 90px;
+            border: none;
         }
 
-        .shuoming {
-            border: #dfdfdf solid 1px;
-            line-height: 22px;
-            margin-left: 100px;
-            padding-left: 10px;
-            width: 570px;
-            background: #F9FCFD;
+        .cutpicli {
+            overflow: hidden;
         }
+
+        .cutpic {
+            width: 558px;
+            height: 188px;
+            border: 1px solid #ccc;
+            float: left;
+            padding: 20px;
+        }
+
+            .cutpic p {
+                background: #fffcf0;
+                border: 1px solid #ffcc33;
+                line-height: 20px;
+                padding: 10px 15px;
+            }
+
+        .webuploader-container {
+            position: relative;
+        }
+
+        .webuploader-element-invisible {
+            position: absolute !important;
+            clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+            clip: rect(1px,1px,1px,1px);
+        }
+
+        .webuploader-pick {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            background: #00b7ee;
+            padding: 10px 15px;
+            color: #fff;
+            text-align: center;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .webuploader-pick-hover {
+            background: #00a2d4;
+        }
+
+        .webuploader-pick-disable {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .bl-uploader-box {
+            padding-top: 20px;
+            margin-left: 15px;
+            width: 110px;
+            height: 110px;
+            overflow: hidden;
+            float: left;
+        }
+
+            .bl-uploader-box .uploader-list .file-item {
+                width: 110px;
+                height: 110px;
+                float: left;
+                margin-right: 12px;
+                margin-bottom: 12px;
+                position: relative;
+            }
+
+                .bl-uploader-box .uploader-list .file-item img {
+                    width: 110px;
+                    height: 110px;
+                }
+
+                .bl-uploader-box .uploader-list .file-item .info {
+                    position: absolute;
+                    left: 0px;
+                    bottom: 0px;
+                    width: 110px;
+                    text-align: center;
+                    height: 26px;
+                    line-height: 26px;
+                    background: #000;
+                    opacity: 0.8;
+                    filter: alpha(opacity=80);
+                    -moz-opacity: 0.8;
+                    -khtml-opacity: 0.8;
+                    color: #fff;
+                }
+
+                .bl-uploader-box .uploader-list .file-item .error {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 110px;
+                    text-align: center;
+                    height: 26px;
+                    line-height: 26px;
+                    background: red;
+                    opacity: 0.8;
+                    filter: alpha(opacity=80);
+                    -moz-opacity: 0.8;
+                    -khtml-opacity: 0.8;
+                    color: #fff;
+                }
+
+                .bl-uploader-box .uploader-list .file-item .del-img {
+                    position: absolute;
+                    z-index: 99;
+                    cursor: pointer;
+                    right: 0px;
+                    top: -0;
+                    text-align: center;
+                    width: 20px;
+                    height: 20px;
+                    background: url(http://pic.7881.com/7881/market/images/sell/picclose-icon.png) top right no-repeat;
+                    line-height: 26px;
+                    color: #333;
+                }
+
+            .bl-uploader-box .btns {
+                float: left;
+                margin-bottom: 30px;
+            }
+
+                .bl-uploader-box .btns #picker {
+                    width: 110px;
+                    height: 110px;
+                    text-align: center;
+                }
+
+                    .bl-uploader-box .btns #picker .webuploader-pick {
+                        background: transparent;
+                        color: #999;
+                        width: 110px;
+                        height: 110px;
+                        overflow: hidden;
+                        padding: 0;
+                    }
+
+        .cutsl {
+            width: 110px;
+            height: 110px;
+            float: left;
+            margin: 20px 0 0 20px;
+            position: relative;
+        }
+
+            .cutsl img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .cutsl p {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                bottom: 0;
+                left: 0;
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                color: #fff;
+                background: #3399ff;
+                padding: 0;
+                border: 0;
+            }
     </style>
 </head>
 <body>
@@ -96,11 +253,13 @@
     <div id="div_popup_layer">
         <div class="box">
             <div id="div_light" class="pops" style="display: none;">
-                <h2><span>友情提示</span><a href="/goods-201612377253013.html"></a></h2>
+                <h2><span>友情提示</span><a href="/goods-201612376080214.html"></a></h2>
                 <dl>
                     <dt>亲爱的用户，您未支付的订单太多了！</dt>
                     <dd>您需要先处理未支付订单后，方可继续购买</dd>
-                    <dd><a href="/procurement/queryMyProcureOrder.action" class="s1">我购买的订单</a><a href="/goods-201612377253013.html" class="s2">返回商品详情</a></dd>
+                    <dd>
+                        <a href="/procurement/queryMyProcureOrder.action" class="s1">我购买的订单</a><a href="/goods-201612376080214.html" class="s2">返回商品详情</a>
+                    </dd>
                 </dl>
             </div>
         </div>
@@ -112,7 +271,7 @@
         </div>
         <div>
             <div class="gm_lc">
-                <div id="div1" class="gm_lc_wz_1 gm_lc_2">
+                <div id="div1" class="gm_lc_wz_1 gm_lc_1">
                     1.填写收货信息
                 </div>
                 <div id="div2" class="gm_lc_wz_2 gm_lc_2">
@@ -121,9 +280,6 @@
                 <div id="div3" class="gm_lc_wz_3 gm_lc_2">
                     3.确认收货
                 </div>
-                <!--<div id="div4" class="gm_lc_wz_4 gm_lc_2">
-                    4.完成
-                </div>-->
             </div>
         </div>
     </div>
@@ -135,81 +291,71 @@
             <div class="kuang">
                 <ul>
                     <li class="cpbt"><span>商品标题</span></li>
-                    <li class="dj">价格</li>
+                    <li class="jg">价格</li>
+                    <li class="dj">单价</li>
                 </ul>
                 <ul>
                     <li class="cpbt">
-                        <img src="http://pic.ofcard.com/7881/market/images/buy/buy_zhang.png" />
-                        <em style=" color:#0099FF">
-                            【 90级 男 逐风者 身份证未设置 QQ等级0级 无QQ好友】《蛋总专卖》20个角色87-90-靓号--54486--交易时间8:00-凌晨1:00 地下城与勇士 湖北区湖北2区
+                        <img src="http://pic.ofcard.com/7881/market/images/buy/buy_ji.png" />
+                        <em>
+                            【当面交易】5000万金=98元 地下城与勇士 浙江区浙江7区
                         </em><br />
-                        物品类型： 账号<br />
-                        游戏区服： 地下城与勇士 /湖北区 /湖北2区
+                        物品类型： 游戏币<br />
+                        游戏区服： 地下城与勇士 /浙江区
+                        /浙江7区
                     </li>
-                    <li class="dj"><strong style=" color:#F90">500.00</strong>元</li>
+                    <li class="jg">
+                        <strong style=" color:#F90">98.00</strong>元
+                    </li>
+                    <li class="dj">
+                        1元=51.02万金<br />
+                        0.0196元/万金
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
-        <div class="center">
-            <div class="txcpdd">
-                <h1>填写商品订单</h1>
-                <div class="tsk"><img src="http://pic.ofcard.com/7881/market/images/buy/gm_ts.png" />  付款后,请立即到订单中心联系订单客服,不要把账号信息提供给任何其他人。</div>
-                <input type="hidden" name="goodsPurchaseBean.goodsid" value="201612377253013" />
-                <input type="hidden" name="goodsPurchaseBean.tradetype" value="js" />
-                <input type="hidden" name="goodsPurchaseBean.gameid" value="G10" />
-                <input type="hidden" name="goodsPurchaseBean.gamename" value="地下城与勇士" />
-                <input type="hidden" name="goodsPurchaseBean.groupid" value="G10P005" />
-                <input type="hidden" name="goodsPurchaseBean.groupname" value="湖北区" />
-                <input type="hidden" name="goodsPurchaseBean.serverid" value="G10P005002" />
-                <input type="hidden" name="goodsPurchaseBean.servername" value="湖北2区" />
-                <input type="hidden" name="goodsPurchaseBean.camp" value="" />
-                <input type="hidden" name="goodsPurchaseBean.rid" value="54486514" />
-                <input type="hidden" name="goodsPurchaseBean.gameaccount" value="" />
-                <input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" value="100003" />
-                <input type="hidden" name="goodsPurchaseBean.ver" value="" />
-                <input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" value="54486514" />
-                <input type="hidden" id="price" name="goodsPurchaseBean.price" value="500" />
-                <input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" value="1" />
-                <input type="hidden" id="prid" name="goodsPurchaseBean.prid" />
-                <input type="hidden" id="grade" name="goodsPurchaseBean.grade" />
-                <input type="hidden" id="goodsinfo" name="goodsPurchaseBean.goodsinfo" />
-                <input type="hidden" id="goodsprice" name="goodsPurchaseBean.goodsprice" />
-                <ul>
-                    <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" id="stock" name="goodsPurchaseBean.stock" maxval="1" size="5" desc="购买数量" regexp="^[1-9]\d*$" regexp_desc="购买数量必须大于0" value="1" readonly="readonly" /> (可购 1 件)</li>
-                    <li>
-                        <span>收货方式：<strong style="color:#F00">* </strong></span> 账号交易
-                    </li>
-                    <li><span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /湖北区 /湖北2区 </li>
-                    <input type="hidden" id="serviceprice" name="goodsPurchaseBean.serviceprice" value="" />
-                    <input type="hidden" id="addservicecost" name="goodsPurchaseBean.addservicecost" value="" />
-                    <input type="hidden" id="addservicename" name="goodsPurchaseBean.addservicename" value="" />
-                    <input type="hidden" id="addproperties" name="goodsPurchaseBean.addproperties" value="" />
-                    <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="18717708732" /></li>
-                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value="619963502" /></li>
-                    <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'') " /></li>
-                </ul>
+    <div id="OrderInfo">
+        <form id="goodsForm" action="/procurement/purchaseGoods.action?from=" method="post">
+            <div class="center">
+                <div class="txcpdd">
+                    <h1>填写商品订单</h1>
+                    <!--金币购买-->
+                    --------------金币购买--------------
+                    <goldorder></goldorder>
+                    --------------账号购买--------------
+                    <!--账号购买-->
+                    <accountorder></accountorder>
+                    --------------点券购买--------------
+                    <!--点券购买-->
+                    <cashorder></cashorder>
+                </div>
             </div>
-        </div>
-        <div class="clear"></div>
-    </form>
+            <div class="clear"></div>
+        </form>
+    </div>
+
     <div class="clear"></div>
     <div class="center">
         <div class="qdtjdd">
             <h1>确认提交订单</h1>
             <ul>
-                <li>7881官方任何工作人员，都<b>不会</b>通过 QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。</li>
                 <li>
-                    需支付总价：&nbsp;<strong style=" color:#F90;">
-                        <input type="text" id="text_goodsprice" style="color:#F90; font-size:16px; border:0px;width:70px;" readonly="readonly" />
-                    </strong>&nbsp;元
+                    7881官方任何工作人员，都<b>不会</b>通
+                    QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。
+                </li>
+                <li>
+                    需支付总价<input type="text" id="text_goodsprice"
+                                style="color:#F90; font-size:16px; font-weiht:bold; text-align:center; border:0px;width:65px;"
+                                readonly="readonly" />元
                 </li>
                 <li>
                     <input type="button" id="hlkOK" class="buy_gm_qdww" />
                     <span style="padding-left: 20px;" class="jf_detail hide">购买可获得<em id="nowJf" style="padding: 0 2px; color: #ff6700;">0</em>积分</span><s class="hide" style="color: silver;margin-left: 5px;">(<em id="oldJf">0</em>积分)</s>
                 </li>
-                <li><input type="checkbox" id="agreement" style=" height:12px;" checked="checked" />&nbsp;我已阅读并同意<a href="/account_pro.html" target="_blank" class="ls">《7881网游交易协议》</a></li>
+                <li>
+                    <input type="checkbox" id="agreement" checked="checked" style=" height:12px;" />&nbsp;我已阅读并同意<a href="/gmxy.html" target="_blank" class="ls">《7881网游交易购买协议》</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -251,14 +397,10 @@
             <a target="_blank" rel="nofollow" href="https://www.alipay.com"><img src="http://pic.ofcard.com/7881/market/images/foot_3.png" /> 支付宝特约商户</a>
             <a target="_blank" rel="nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804"><img src="http://pic.ofcard.com/7881/market/images/foot_6.png" /> 安全联盟</a>
             <a target="_blank" rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B"><img src="http://pic.7881.com/7881/market/images/foot_8.png" /> 中国文化部</a>
-
         </div>
         <div class="tleft"></div>
     </div>
     <!--底部结束-->
-    <DIV style="DISPLAY: none" id="goTopBtn"><IMG border=0 src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部"></DIV>
-    <SCRIPT type=text/javascript>goTopEx();</SCRIPT>
-    <div style="display: none;">
-    </div>
 </body>
+
 </html>
