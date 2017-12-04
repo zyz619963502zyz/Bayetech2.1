@@ -146,7 +146,7 @@
             var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
             reIE.test(userAgent);
             var fIEVersion = parseFloat(RegExp["$1"]);
-            return IE + "fIEVersion"
+            return "IE" + fIEVersion;
         }
         if (isFirefox) { return "Firefox"; }
         if (isOpera) { return "Opera"; }
