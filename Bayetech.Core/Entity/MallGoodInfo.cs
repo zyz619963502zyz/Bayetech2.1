@@ -34,5 +34,7 @@ namespace Bayetech.Core.Entity
         public Nullable<System.DateTime> EditTime { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public Nullable<int> CancelNum { get; set; }
+        public string GoodDetailInfo { get; set; }
+        public string GoodFirstPicture { get; set; }
     }
 }

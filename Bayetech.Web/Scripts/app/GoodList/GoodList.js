@@ -72,7 +72,11 @@
         methods: {
             findList() {
                 var self = this;
-                var param = common.GetUrlParam();
+                //var param = common.GetUrlParam();
+                var param = {
+                    GameId:"1", GameGroupId: "", GameServerId:"",
+                    GoodType:"", GoodKeyWord: "",
+                };
                 common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         self.ListObj = data.content;

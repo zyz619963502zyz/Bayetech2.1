@@ -134,7 +134,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //搜索
             search: function () {
-                var url = `${common.GetBaseUrl()}GoodInfo/List.html?page=1&gameId=${this.gameId}&groupId=${this.groupId}&serverId=${this.serverId}&typeId=${this.typeId}&keyword=${this.keyword.trim()}`;
+                var url = `${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=${this.gameId}&GameGroupId=${this.groupId}&GameServerId=${this.serverId}&GoodType=${this.typeId}&GoodKeyWord=${this.keyword.trim()}`;
                 window.open(url);
                 //var param =  {
                 //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,

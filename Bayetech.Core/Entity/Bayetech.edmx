@@ -161,6 +161,8 @@
           <Property Name="GoodType" Type="bigint" />
           <Property Name="GameId" Type="bigint" />
           <Property Name="GoodNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="GoodDetailInfo" Type="nvarchar" MaxLength="200" />
+          <Property Name="GoodFirstPicture" Type="nvarchar" MaxLength="50" />
           <Property Name="GameAccountName" Type="nvarchar" MaxLength="50" />
           <Property Name="GameService" Type="nchar" MaxLength="50" />
           <Property Name="GameGroupId" Type="int" />
@@ -315,9 +317,11 @@
           <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
           <Property Name="ServerName" Type="nvarchar" MaxLength="50" />
           <Property Name="GameName" Type="nvarchar" MaxLength="50" />
-          <Property Name="MallTypeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="GoodTypeName" Type="nvarchar" MaxLength="100" />
           <Property Name="GameAccountName" Type="nvarchar" MaxLength="50" />
           <Property Name="CancelNum" Type="int" />
+          <Property Name="GoodDetailInfo" Type="nvarchar" MaxLength="200" />
+          <Property Name="GoodFirstPicture" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
@@ -388,9 +392,11 @@
     [vw_MallGoodMainInfo].[GroupName] AS [GroupName], 
     [vw_MallGoodMainInfo].[ServerName] AS [ServerName], 
     [vw_MallGoodMainInfo].[GameName] AS [GameName], 
-    [vw_MallGoodMainInfo].[MallTypeName] AS [MallTypeName], 
+    [vw_MallGoodMainInfo].[GoodTypeName] AS [GoodTypeName], 
     [vw_MallGoodMainInfo].[GameAccountName] AS [GameAccountName], 
-    [vw_MallGoodMainInfo].[CancelNum] AS [CancelNum]
+    [vw_MallGoodMainInfo].[CancelNum] AS [CancelNum], 
+    [vw_MallGoodMainInfo].[GoodDetailInfo] AS [GoodDetailInfo], 
+    [vw_MallGoodMainInfo].[GoodFirstPicture] AS [GoodFirstPicture]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -686,9 +692,11 @@
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MallTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GameAccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CancelNum" Type="Int32" />
+          <Property Name="GoodTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MallGoodInfo">
           <Key>
@@ -714,6 +722,8 @@
           <Property Name="EditTime" Type="DateTime" Precision="3" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="CancelNum" Type="Int32" />
+          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vw_MallGoodInfo">
           <Key>
@@ -990,9 +1000,11 @@
           <EntitySetMapping Name="vw_MallGoodMainInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
               <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
+                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
+                <ScalarProperty Name="GoodTypeName" ColumnName="GoodTypeName" />
                 <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
                 <ScalarProperty Name="GameAccountName" ColumnName="GameAccountName" />
-                <ScalarProperty Name="MallTypeName" ColumnName="MallTypeName" />
                 <ScalarProperty Name="ServerName" ColumnName="ServerName" />
                 <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
@@ -1020,6 +1032,8 @@
           <EntitySetMapping Name="MallGoodInfo">
             <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
               <MappingFragment StoreEntitySet="MallGoodInfo">
+                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
+                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
                 <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="EditTime" ColumnName="EditTime" />

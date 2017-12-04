@@ -12,13 +12,9 @@ namespace Bayetech.Service.Services
     public class GoodInfoService : BaseService<vw_MallGoodMainInfo>, IGoodInfoService
     {
         /// <summary>
-        /// 根据下拉框查询列表
+        ///  根据下拉框查询列表
         /// </summary>
-        /// <param name="gameId">游戏Id</param>
-        /// <param name="groupId">大区Id</param>
-        /// <param name="serverId">服务器Id</param>
-        /// <param name="typeId">类型Id</param>
-        /// <param name="keyword">商品关键字</param>
+        /// <param name="goodInfo"></param>
         /// <returns></returns>
         public JObject GetGoodList(vw_MallGoodMainInfo goodInfo)
         {
@@ -26,23 +22,23 @@ namespace Bayetech.Service.Services
             {
                 JObject ret = new JObject();
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
-                if (goodInfo.GameId != null && goodInfo.GameId > 0)
+                if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
                 {
                     expression = expression.And(t => t.GameId == goodInfo.GameId);
                 }
-                if (goodInfo.GameGroupId != null && goodInfo.GameGroupId > 0)
+                if (goodInfo.GameGroupId != null && goodInfo.GameGroupId > 0)//大区Id
                 {
                     expression = expression.And(t => t.GameGroupId == goodInfo.GameGroupId);
                 }
-                if (goodInfo.GameServerId != null && goodInfo.GameServerId > 0)
+                if (goodInfo.GameServerId != null && goodInfo.GameServerId > 0)//服务器Id
                 {
                     expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
                 }
-                if (goodInfo.GoodType != null && goodInfo.GoodType > 0)
+                if (goodInfo.GoodType != null && goodInfo.GoodType > 0) //类型Id
                 {
                     expression = expression.And(t => t.GoodType == goodInfo.GoodType);
                 }
-                if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))
+                if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
                 {
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
