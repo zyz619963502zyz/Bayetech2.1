@@ -18,7 +18,7 @@ namespace Bayetech.Service.Services
         /// <param name="groupId">大区Id</param>
         /// <param name="serverId">服务器Id</param>
         /// <param name="typeId">类型Id</param>
-        /// <param name="keyword">游戏关键字</param>
+        /// <param name="keyword">商品关键字</param>
         /// <returns></returns>
         public JObject GetGoodList(vw_MallGoodMainInfo goodInfo)
         {

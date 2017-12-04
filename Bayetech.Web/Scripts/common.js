@@ -115,13 +115,48 @@
     }
 
     /**
-    * 获取地址栏的参数
-    */
-    common.GetQueryString = function(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
+     * 传过来的参数
+     */
+    common.GetUrlParam = function (url, queryStringName) {
+        url = url || location.search;
+        var urlArray = (url.split('?')[1] || "").split('&');
+        var urlParam = {};
+        urlArray == "" && (urlArray.length = 0);
+        for (var i = 0; i < urlArray.length; i++) {
+            var array = urlArray[i].split('=');
+            urlParam[array[0]] = decodeURI(array[1]);
+        }
+        return queryStringName ? urlParam[queryStringName] : urlParam;
     }
+
+    /**
+     * 判断当前浏览类型
+     */
+    common.BrowserType = function () {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
+        var isFirefox = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+        var isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+        var isChrome = userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
+        var isIE11 = userAgent.toLowerCase().indexOf("trident") > -1 && userAgent.indexOf("rv") > -1;
+
+        if (isIE) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            return IE + "fIEVersion"
+        }
+        if (isFirefox) { return "Firefox"; }
+        if (isOpera) { return "Opera"; }
+        if (isSafari) { return "Safari"; }
+        if (isChrome) { return "Chrome"; }
+        if (isEdge) { return "Edge"; }
+        if (isIE11) { return "IE11"; }
+    };
+
+
 
     return common;
 })
