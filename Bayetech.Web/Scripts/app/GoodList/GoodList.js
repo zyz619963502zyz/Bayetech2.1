@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="list-v part-05">
-                        <h5><a :href="currentGo"  :goodNo="item.GoodNo" @click="GotoDetail" class ="list-btn" target="_blank">查看帐号</a></h5>
+                        <h5><a :goodNo="item.GoodNo" @click="GotoDetail" class ="list-btn">查看帐号</a></h5>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,8 @@
     var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
     //筛选和列表整合数据
     var data = {
-        currentGo:"",
+        BaseUrl: common.GetBaseUrl() + "DealCheck/DealCheck.html?GoodNo=",
+        BaseTarget: "_blank",
         ListObj:[
             {
                 GoodNo: "",
@@ -82,8 +83,9 @@
                 });
             },
             GotoDetail(e) {//详情页跳转
-                this.currentGo = common.GetBaseUrl() + "DealCheck/DealCheck.html?GoodNo=" + $(e.target).attr("goodNo");
-                //$(e.target).attr("href", this.currentGo);明天继续研究跳转
+                //this.currentGo = + $(e.target).attr("goodNo");
+                //$(e.target).attr("href", this.GoodNo);
+                window.location.href = this.BaseUrl + $(e.target).attr("goodNo");
             }
         }
     };

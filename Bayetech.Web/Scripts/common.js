@@ -111,7 +111,16 @@
     * 返回Url基础目录
     */
     common.GetBaseUrl = function () {
-        return window.location.host + "/Page/";
+        return "http://"+ window.location.host + "/Page/";
+    }
+
+    /**
+    * 获取地址栏的参数
+    */
+    common.GetQueryString = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
     }
 
     return common;
