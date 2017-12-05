@@ -17,28 +17,24 @@ namespace Bayetech.Core.Entity
         public long OrderId { get; set; }
         public string OrderNo { get; set; }
         public Nullable<int> OrderLineNum { get; set; }
-        public string OrderTitle { get; set; }
-        public string OrderThumb { get; set; }
         public Nullable<decimal> OrderPrice { get; set; }
         public Nullable<int> OrderNumber { get; set; }
         public Nullable<decimal> OrderAmount { get; set; }
-        public Nullable<decimal> OrderFee { get; set; }
-        public string OrderFeeName { get; set; }
+        public Nullable<decimal> OrderDiscount { get; set; }
+        public string OrderDiscountName { get; set; }
         public Nullable<byte> OrderStatus { get; set; }
-        public Nullable<int> OrderUpdateTime { get; set; }
+        public Nullable<System.DateTime> OrderUpdateTime { get; set; }
+        public Nullable<long> CustomerServiceQQ { get; set; }
         public string GoodNo { get; set; }
         public string SellerId { get; set; }
         public string BuyerId { get; set; }
-        public string TradeNo { get; set; }
-        public Nullable<int> OrderTime { get; set; }
-        public Nullable<System.DateTime> AddTime { get; set; }
+        public Nullable<long> BuyerPhone { get; set; }
+        public Nullable<long> BuyerQQ { get; set; }
+        public string GoodType { get; set; }
+        public Nullable<System.DateTime> OrderAddTime { get; set; }
+        public string PromoNum { get; set; }
         public string Editor { get; set; }
         public string RefundReason { get; set; }
-        public string Note { get; set; }
-        public string SendNo { get; set; }
-        public string SendType { get; set; }
-        public Nullable<byte> SellerStar { get; set; }
-        public string SendTime { get; set; }
-        public Nullable<int> SendDays { get; set; }
+        public string Remark { get; set; }
     }
 }
