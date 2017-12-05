@@ -97,6 +97,9 @@
     <Compile Include="Entity\MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\MallGoodPictures.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\MallOrder.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\vw_MallGoodMainInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vw_MallPictureInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Enum\GamePlatform.cs" />
