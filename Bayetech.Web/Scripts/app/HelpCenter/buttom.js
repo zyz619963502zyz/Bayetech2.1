@@ -30,7 +30,7 @@
         template: html,
         data() {
             return data;
-        },
+        }
     };
     return components
 });
