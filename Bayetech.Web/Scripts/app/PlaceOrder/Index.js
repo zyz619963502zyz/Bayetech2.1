@@ -1,29 +1,15 @@
-﻿require(jsconfig.baseArr, function (Vue, $, common) {
+﻿jsconfig.baseArr.push("AccountOrder");
+jsconfig.baseArr.push("GoldOrder");
+jsconfig.baseArr.push("CashOrder");
+jsconfig.baseArr.push("SureBuy");
+require(jsconfig.baseArr, function (Vue, $, common, account, gold, cashorder,surebuy) {
     var vm = new Vue({
         el: '#PlaceOrderDiv',
         created() {
-            this.GetGoodInfo(common.GetUrlParam("", "GoodNo"));//获取商品信息。
+            //this.GetGoodInfo(common.GetUrlParam("", "GoodNo"));//获取商品信息。
         },
         data: {
-            FirstStep: {
-                BaseUrl: common.GetBaseUrl() + "PlaceOrder/PlaceOrder.html?GoodNo=",
-                AddTime: "",
-                GoodNo: "",
-                GoodTitle: "",
-                GoodPrice: 280,
-                GoodTypeName: "",
-                GroupName: "",
-                ServerName: "",
-                TotalNum: "",
-                CancelNum: "",
-                wantPriceUrl: "http://search.7881.com/201612376390646.html#"
-            },
-            SecondStep: {
-
-            },
-            ThirdStep: {
-
-            }
+          
         },
         methods: {
 
@@ -31,7 +17,8 @@
         components: {
             'accountorder': account,
             'goldorder': gold,
-            'cashorder': cash
+            'cashorder': cashorder,
+            'surebuy': surebuy
        }
     });
 });

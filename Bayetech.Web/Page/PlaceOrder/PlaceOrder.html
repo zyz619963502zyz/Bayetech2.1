@@ -3,10 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>游戏联盟-游戏交易站-下订单</title>
-    <link href="../../Content/OlderCss/global.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/Public.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/buy.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/popLayer.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/buy.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/popLayer.css" rel="stylesheet" />
+    <link href="../../Content/CommonCss/sell.css" rel="stylesheet" />
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/PlaceOrder/index.js"></script>
     <!--[if lte IE 6]>
     <style type="text/css">
     body { behavior:url("/market/css/csshover.htc");}
@@ -126,69 +130,22 @@
         <div class="clear"></div>
 
         <!--确认购买信息-->
-        <div class="center">
-            <div class="qrgmxx">
-                <h1>确认购买信息</h1>
-                <div class="kuang">
-                    <ul>
-                        <li class="cpbt"><span>商品标题</span></li>
-                        <li class="dj">价格</li>
-                    </ul>
-                    <ul>
-                        <li class="cpbt">
-                            <img src="http://pic.ofcard.com/7881/market/images/buy/buy_zhang.png" />
-                            <em style=" color:#0099FF"=color:#0099FF">
-                               {{GoodTitle}}
-                            </em><br />
-                            物品类型： {{GoodTypeName}}<br/>
-                            游戏区服： {{GameName}} /{{GroupName}} /{{ServerName}}
-                        </li>
-                        <li class="dj"><strong style="color:#F90"=color:#F90">{{GoodPrice.toFixed(2)}}</strong>元</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+       
         <!--确认购买信息-->
 
         <form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
             <div class="center">
                 <div class="txcpdd">
                     <h1>填写商品订单</h1>
-                    <div class="tsk"><img src="http://pic.ofcard.com/7881/market/images/buy/gm_ts.png" />  付款后,请立即到订单中心联系订单客服,不要把账号信息提供给任何其他人。</div>
-                    <input type="hidden" name="goodsPurchaseBean.goodsid"  :value="GoodNo" />
-                    <input type="hidden" name="goodsPurchaseBean.tradetype" :value="js" />
-                    <input type="hidden" name="goodsPurchaseBean.gameid" :value="GameId" />
-                    <input type="hidden" name="goodsPurchaseBean.gamename" :value="GameName" />
-                    <input type="hidden" name="goodsPurchaseBean.groupid" :value="GameGroupId" />
-                    <input type="hidden" name="goodsPurchaseBean.groupname" :value="GroupName" />
-                    <input type="hidden" name="goodsPurchaseBean.serverid" :value="GameServerId" />
-                    <input type="hidden" name="goodsPurchaseBean.servername" :value="ServerName" />
-                    <input type="hidden" name="goodsPurchaseBean.camp" :value="" /> 
-                    <input type="hidden" name="goodsPurchaseBean.rid" :value="54486514" />
-                    <input type="hidden" name="goodsPurchaseBean.gameaccount" :value="" />
-                    <input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" :value="100003" />
-                    <input type="hidden" name="goodsPurchaseBean.ver" value="" />
-                    <input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" :value="54486514" />
-                    <input type="hidden" id="price" name="goodsPurchaseBean.price" :value="GoodPrice" />
-                    <input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" :value="BuyNum" />
-                    <input type="hidden" id="prid" name="goodsPurchaseBean.prid" />
-                    <input type="hidden" id="grade" name="goodsPurchaseBean.grade" />
-                    <input type="hidden" id="goodsinfo" name="goodsPurchaseBean.goodsinfo" />
-                    <input type="hidden" id="goodsprice" name="goodsPurchaseBean.goodsprice" />
-                    <ul>
-                        <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" id="stock" name="goodsPurchaseBean.stock" maxval="1" size="5" desc="购买数量" regexp="^[1-9]\d*$" regexp_desc="购买数量必须大于0" value="1" readonly="readonly" /> (可购 1 件)</li>
-                        <li>
-                            <span>收货方式：<strong style="color:#F00">* </strong></span> 账号交易
-                        </li>
-                        <li><span>所在区服：<strong style="color:#F00">* </strong></span>地下城与勇士 /湖北区 /湖北2区 </li>
-                        <input type="hidden" id="serviceprice" name="goodsPurchaseBean.serviceprice" value="" />
-                        <input type="hidden" id="addservicecost" name="goodsPurchaseBean.addservicecost" value="" />
-                        <input type="hidden" id="addservicename" name="goodsPurchaseBean.addservicename" value="" />
-                        <input type="hidden" id="addproperties" name="goodsPurchaseBean.addproperties" value="" />
-                        <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.phone" maxlength="11" desc="电话号码" regexp="^1[34578][0-9]{9}$" regexp_desc="无效的手机号码" value="18717708732" /></li>
-                        <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text" name="goodsPurchaseBean.qq" maxlength="12" desc="联系QQ" regexp="^[0-9]{5,12}$" regexp_desc="无效的QQ号" value="619963502" /></li>
-                        <li><span>推广码：<strong style="color:#F00">&nbsp;&nbsp;</strong></span><input type="text" id="tgm" name="goodsPurchaseBean.promocode" maxlength="12" required="true" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'') " /></li>
-                    </ul>
+                    <!--金币购买-->
+                    --------------金币购买--------------
+                    <goldorder></goldorder>
+                    --------------账号购买--------------
+                    <!--账号购买-->
+                    <accountorder></accountorder>
+                    --------------点券购买--------------
+                    <!--点券购买-->
+                    <cashorder></cashorder>
                 </div>
             </div>
             <div class="clear"></div>
@@ -200,7 +157,7 @@
                 <ul>
                     <li>7881官方任何工作人员，都<b>不会</b>通过 QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。</li>
                     <li>
-                        需支付总价：&nbsp;<strong style=" color:#F90;"=color:#F90;">
+                        需支付总价：&nbsp;<strong style="color:#F90;">
                             <input type="text" id="text_goodsprice" style="color:#F90; font-size:16px; border:0px;width:70px;" readonly="readonly" />
                         </strong>&nbsp;元
                     </li>
@@ -208,7 +165,7 @@
                         <input type="button" id="hlkOK" class="buy_gm_qdww" />
                         <span style="padding-left: 20px;" class="jf_detail hide">购买可获得<em id="nowJf" style="padding: 0 2px; color: #ff6700;">0</em>积分</span><s class="hide" style="color: silver;margin-left: 5px;">(<em id="oldJf">0</em>积分)</s>
                     </li>
-                    <li><input type="checkbox" id="agreement" style=" height:12px;"=height:12px;" checked="checked" />&nbsp;我已阅读并同意<a href="/account_pro.html" target="_blank" class="ls">《7881网游交易协议》</a></li>
+                    <li><input type="checkbox" id="agreement" style="height:12px;" checked="checked" />&nbsp;我已阅读并同意<a href="/account_pro.html" target="_blank" class="ls">《7881网游交易协议》</a></li>
                 </ul>
             </div>
         </div>

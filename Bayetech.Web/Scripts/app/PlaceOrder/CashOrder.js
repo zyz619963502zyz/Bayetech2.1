@@ -7,7 +7,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     //模板
     var cashorderHtml = `<ul>
                 <li class="buyNum">
-                    <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" :value="buyNum"><p class ="zq">&nbsp; </p>
+                    <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text" :value="BuyNum"><p class ="zq">&nbsp; </p>
                 </li>
                 <li>
                     <span>收货方式：<strong style="color:#F00">* </strong></span> 邮寄 交易

@@ -18,8 +18,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </li>
             <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{GameName}}/{{GroupName}}/{{ServerName}}</li>
-            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text": value="BuyerPhone"/></li>
-            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text": value="BuyerQQ"/></li>
+            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerPhone"/></li>
+            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ"/></li>
             <li><span>交易暗码：<strong style="color:#F00">* </strong></span><input type="text" :value="Signal"/></li>
             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
         </ul>`;

@@ -10,12 +10,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     <li><span>收货方式：<strong style="color:#F00">* </strong></span> {{GoodTypeName}}交易</li>
                     <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{GameName}}/{{GroupName}}/{{ServerName}}</li>
                     <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerPhone" /></li>
-                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ" /></li>
+                    <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ"/></li>
                     <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text" :value="PromoNum" /></li>
                 </ul>`;
 
     var data = {
         BuyNum: "1",
+        GoodTypeName:"账号",
         GameName: "地下城与勇士",
         GroupName: "浙江区",
         ServerName: "浙江7区",
