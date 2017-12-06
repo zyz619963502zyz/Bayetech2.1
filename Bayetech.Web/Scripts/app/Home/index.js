@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'bootstrap', 'swiper', 'v-header', 'v-nav', 'v-search', 'index-notice', 'index-consult', 'index-convenience', 'index-hotgamelist', 'index-banner', 'index-tabslist', 'v-tab', "index-gameranking", 'index-adv', 'index-mgamelist', 'v-partner', 'index-slidebox'],
+require(['vue', 'jquery', 'common', 'bootstrap', 'swiper', 'v-header', 'v-nav', 'v-search', 'index-notice', 'index-consult', 'index-convenience', 'index-hotgamelist', 'index-banner', 'index-tabslist', 'v-tab', "index-gameranking", 'index-adv', 'index-mgamelist', 'v-partner', 'index-slidebox', 'css!../Content/bootstrap/font-awesome.min', 'css!../Content/bootstrap/bootstrap.min', 'css!../Content/swiper/swiper.min', 'css!../Content/common', 'css!../Content/homepage'],
 	function (Vue, $, common, bootstrap, Swiper, head, nav, search, notice, consult, convenience, hotgamelist, banner, tabsListbox, tab, gameranking, adv, mgamelist, partner, slidebox) {
      
     new Vue({

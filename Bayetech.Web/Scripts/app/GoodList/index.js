@@ -17,5 +17,3 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
         },
     });
 });
-
-//{{props.urltext}}
