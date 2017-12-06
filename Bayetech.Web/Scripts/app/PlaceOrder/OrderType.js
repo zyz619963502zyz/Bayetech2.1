@@ -58,7 +58,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             </ul>`;
 
         //数据
-    var data = {
+       var data = {
             flag:2,
             BuyNum: "1",
             GameName: "地下城与勇士",
