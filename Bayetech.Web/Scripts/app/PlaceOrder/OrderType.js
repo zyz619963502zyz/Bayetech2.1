@@ -34,7 +34,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
         </ul>
 
-        <ul v-else -if="GoodTypeId==4"><!--点券-->
+        <ul v-else-if="GoodTypeId==4"><!--点券-->
             <li class ="buyNum">
                     <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text":value="BuyNum"><p class ="zq">&nbsp; </p>
                 </li>
@@ -43,7 +43,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </li>
                 <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{GameName}}/{{GroupName}}/{{ServerName}}</li>
                 <li style="position: relative;overflow: visible;">
-                    <span>游戏账号：<strong style="color:#F00">* </strong></span><input type="text":value="GameAccount">
+                    <span>游戏账号：<strong style="color:#F00">* </strong></span><input type="text" :value="GameAccount">
                     <div class ="fed-toolstip" id="tipFrame" style="left: 230px;position: absolute;display:none">
                         <div class ="fed-tipcon">
                             <div>如有人提供游戏账号让您填写，以做任务或刷信用为由，均为骗子，请勿受骗！</div>
@@ -58,8 +58,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             </ul>`;
 
         //数据
-    var data = {
-            GoodTypeId: "账号",
+        var data={//填写的数据
+            GoodTypeId: 1,
             GoodTypeName: "账号",
             BuyNum: "1",
             GameName: "地下城与勇士",
