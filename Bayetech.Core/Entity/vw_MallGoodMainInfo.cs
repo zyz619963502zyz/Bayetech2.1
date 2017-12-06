@@ -40,5 +40,6 @@ namespace Bayetech.Core.Entity
         public Nullable<int> CancelNum { get; set; }
         public string GoodDetailInfo { get; set; }
         public string GoodFirstPicture { get; set; }
+        public Nullable<long> MallTypeId { get; set; }
     }
 }

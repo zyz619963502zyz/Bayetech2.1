@@ -19,9 +19,9 @@ namespace Bayetech.Core.Entity
         public string Alias { get; set; }
         public string Letter { get; set; }
         public bool IsHot { get; set; }
-        public int Parentid { get; set; }
-        public short Order { get; set; }
-        public int Platform { get; set; }
+        public Nullable<int> Parentid { get; set; }
+        public Nullable<short> Order { get; set; }
+        public Nullable<int> Platform { get; set; }
         public string Img { get; set; }
         public bool IsDelete { get; set; }
     }

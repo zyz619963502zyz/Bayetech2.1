@@ -6,7 +6,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
     //模板
     var goldorderHtml = `
-        <ul id="GoldBuy" v-if="flag==1">
+        <ul id="BuyGold" v-if="GoodTypeId==1"><!--金币-->
             <li class="buyNum">
                 <span>购买数量：<strong style="color:#F00">* </strong></span><input type="hidden"/>{{BuyNum}}
                 <p class="txcpdd_default"> (可购1件)</p>
@@ -25,7 +25,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
         </ul>
 
-        <ul id="DealBuy" v-else-if="flag==2">
+        <ul id="BuyAccount" v-else-if="GoodTypeId==3"><!--账号-->
             <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text":value="BuyNum" readonly="readonly" /> (可购1件) </li>
             <li><span>收货方式：<strong style="color:#F00">* </strong></span> {{GoodTypeName}}交易</li>
             <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{GameName}}/{{GroupName}}/{{ServerName}}</li>
@@ -34,7 +34,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
         </ul>
 
-        <ul v-else-if="flag==3">
+        <ul v-else -if="GoodTypeId==4"><!--点券-->
             <li class ="buyNum">
                     <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text":value="BuyNum"><p class ="zq">&nbsp; </p>
                 </li>
