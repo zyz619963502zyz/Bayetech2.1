@@ -103,7 +103,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //下拉框内点击加载数据
             loadDropdown: function (type, pid, pname) {
                 pid = pid || 0;
-                let typeName = this.getParentTypeName(type);
+                var typeName = this.getParentTypeName(type);
                 if (type) {
                     this[`${typeName}Id`] = pid;
                 }
