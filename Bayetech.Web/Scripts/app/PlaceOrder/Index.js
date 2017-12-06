@@ -1,5 +1,5 @@
 ﻿jsconfig.baseArr.push("SureBuy");
-jsconfig.baseArr.push("GoldOrder");
+jsconfig.baseArr.push("OrderType");
 require(jsconfig.baseArr, function (Vue, $, common, surebuy, order) {
     var vm = new Vue({
         el: '#PlaceOrderDiv',

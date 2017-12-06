@@ -717,7 +717,7 @@
     <Content Include="Scripts\app\PersonalCenter\righttop.js" />
     <Content Include="Scripts\app\PlaceOrder\AccountOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
-    <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
+    <Content Include="Scripts\app\PlaceOrder\OrderType.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\ServiceCenter\footeradvan.js" />
     <Content Include="Scripts\app\ServiceCenter\index.js" />
