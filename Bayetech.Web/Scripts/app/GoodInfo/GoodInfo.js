@@ -10,7 +10,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 <div class="picFocus">
                     <ul>
                         <li>
-                            <img src="../../Content/Images/1b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
+                            <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
                         </li>
                     </ul>
                 </div>
@@ -132,6 +132,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.TotalNum = data.content.TotalNum;
                         _self.CancelNum = data.content.CancelNum;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
+
                         _self.$parent.$emit('GoodInfoHere', data);//触发事件并传播
                     }
                 });

@@ -32,7 +32,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameRequirements> GameRequirements { get; set; }
         public virtual DbSet<Login> Login { get; set; }
-        public virtual DbSet<MallOrder> MallOrder { get; set; }
         public virtual DbSet<MallOrderStatus> MallOrderStatus { get; set; }
         public virtual DbSet<MallType> MallType { get; set; }
         public virtual DbSet<Module> Module { get; set; }
@@ -41,8 +40,11 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_LoginInfo> vw_LoginInfo { get; set; }
         public virtual DbSet<GameInfoDescription> GameInfoDescription { get; set; }
         public virtual DbSet<GoodAndDescription> GoodAndDescription { get; set; }
-        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
         public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
+        public virtual DbSet<MallGoodPictures> MallGoodPictures { get; set; }
         public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
+        public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
+        public virtual DbSet<MallOrder> MallOrder { get; set; }
+        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
     }
 }

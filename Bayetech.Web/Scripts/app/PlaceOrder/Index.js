@@ -32,6 +32,6 @@
             'accountorder': account,
             'goldorder': gold,
             'cashorder': cash
-        }
+       }
     });
 });
