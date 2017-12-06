@@ -1,9 +1,5 @@
 ﻿//注册模块
 define(jsconfig.baseArr, function (Vue, $, common) {
-    //Api
-    //var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
-    var _GetGoodInfoUrl = "/api/GoodInfo/GetGoodInfo";
-
     //模板
     var surebuyhtml = `<div class="center">
             <div class="qrgmxx">
@@ -27,6 +23,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </div>
         </div>`;
+
+    //Api
+    var _GetGoodInfoUrl="/api/GoodInfo/GetGoodInfo";
 
     var data = {
         SureBuyModel: {

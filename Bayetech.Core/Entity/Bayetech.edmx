@@ -328,7 +328,7 @@
           <Property Name="CancelNum" Type="int" />
           <Property Name="GoodDetailInfo" Type="nvarchar" MaxLength="200" />
           <Property Name="GoodFirstPicture" Type="nvarchar" MaxLength="50" />
-          <Property Name="MallTypeId" Type="bigint" />
+          <Property Name="GoodTypeId" Type="bigint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -422,7 +422,7 @@
     [vw_MallGoodMainInfo].[CancelNum] AS [CancelNum], 
     [vw_MallGoodMainInfo].[GoodDetailInfo] AS [GoodDetailInfo], 
     [vw_MallGoodMainInfo].[GoodFirstPicture] AS [GoodFirstPicture], 
-    [vw_MallGoodMainInfo].[MallTypeId] AS [MallTypeId]
+    [vw_MallGoodMainInfo].[GoodTypeId] AS [GoodTypeId]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -782,7 +782,7 @@
           <Property Name="CancelNum" Type="Int32" />
           <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MallTypeId" Type="Int64" />
+          <Property Name="GoodTypeId" Type="Int64" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1102,7 +1102,7 @@
           <EntitySetMapping Name="vw_MallGoodMainInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
               <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
-                <ScalarProperty Name="MallTypeId" ColumnName="MallTypeId" />
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
                 <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
                 <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
                 <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
