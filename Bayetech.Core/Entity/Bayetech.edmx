@@ -97,12 +97,12 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Alias" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
           <Property Name="Letter" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="IsHot" Type="bit" Nullable="false" />
-          <Property Name="Parentid" Type="int" Nullable="false" />
-          <Property Name="Order" Type="smallint" Nullable="false" />
-          <Property Name="Platform" Type="int" Nullable="false" />
+          <Property Name="Parentid" Type="int" />
+          <Property Name="Order" Type="smallint" />
+          <Property Name="Platform" Type="int" />
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
@@ -328,6 +328,7 @@
           <Property Name="CancelNum" Type="int" />
           <Property Name="GoodDetailInfo" Type="nvarchar" MaxLength="200" />
           <Property Name="GoodFirstPicture" Type="nvarchar" MaxLength="50" />
+          <Property Name="MallTypeId" Type="bigint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -420,7 +421,8 @@
     [vw_MallGoodMainInfo].[GameAccount] AS [GameAccount], 
     [vw_MallGoodMainInfo].[CancelNum] AS [CancelNum], 
     [vw_MallGoodMainInfo].[GoodDetailInfo] AS [GoodDetailInfo], 
-    [vw_MallGoodMainInfo].[GoodFirstPicture] AS [GoodFirstPicture]
+    [vw_MallGoodMainInfo].[GoodFirstPicture] AS [GoodFirstPicture], 
+    [vw_MallGoodMainInfo].[MallTypeId] AS [MallTypeId]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -527,12 +529,12 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsHot" Type="Boolean" Nullable="false" />
-          <Property Name="Parentid" Type="Int32" Nullable="false" />
-          <Property Name="Order" Type="Int16" Nullable="false" />
-          <Property Name="Platform" Type="Int32" Nullable="false" />
+          <Property Name="Parentid" Type="Int32" />
+          <Property Name="Order" Type="Int16" />
+          <Property Name="Platform" Type="Int32" />
           <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -780,6 +782,7 @@
           <Property Name="CancelNum" Type="Int32" />
           <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MallTypeId" Type="Int64" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1099,6 +1102,7 @@
           <EntitySetMapping Name="vw_MallGoodMainInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
               <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="MallTypeId" ColumnName="MallTypeId" />
                 <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
                 <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
                 <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />

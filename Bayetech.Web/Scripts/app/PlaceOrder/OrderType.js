@@ -58,12 +58,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             </ul>`;
 
         //数据
-       var data = {
-            flag:2,
+    var data = {
+            GoodTypeId: "账号",
+            GoodTypeName: "账号",
             BuyNum: "1",
             GameName: "地下城与勇士",
             GameAccount: "124132115",
-            GoodTypeName:"账号", 
             GameAccountAgain: "124132115",
             GroupName: "浙江区",
             ServerName: "浙江7区",
