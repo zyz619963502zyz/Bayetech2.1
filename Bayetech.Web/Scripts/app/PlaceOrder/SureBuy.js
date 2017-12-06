@@ -52,7 +52,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var _self = this;
                 common.getWebJson(_GetGoodInfoUrl, { goodNo: goodno }, function (data) {
                     if (data.result) {
-                         
+                        _self.SureBuyModel=data.content;
+                        _self.$root.$emit('MainInfo', data)
                     }
                 });
             },

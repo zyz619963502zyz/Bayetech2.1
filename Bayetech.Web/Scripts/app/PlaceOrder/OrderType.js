@@ -50,12 +50,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <a class ="fed-tipsclose" id="tipClose">×</a>
                         </div>
                     </div>
-                </li>
-                <li><span>确认游戏账号：<strong style="color:#F00">* </strong></span><input type="text":value="GameAccountAgain"></li>
-                <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerPhone"></li>
-                <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ"></li>
-                <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum"></li>
-            </ul>`;
+            </li>
+            <li><span>确认游戏账号：<strong style="color:#F00">* </strong></span><input type="text":value="GameAccountAgain"></li>
+            <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerPhone"></li>
+            <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ"></li>
+            <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum"></li>
+         </ul>`;
 
         //数据
         var data={//填写的数据
@@ -77,6 +77,14 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             template: goldorderHtml,
             data() {
                 return data;
+            },
+            created(){
+                var self=this;
+                self.$root.$on('MainInfo', function (data) {
+                    self.GameName=data.content.GameName;
+                    self.GroupName=data.content.GroupName;
+                    self.ServerName=data.content.ServerName;
+                });
             },
             methods: {
                 CheckOut() {//数据校验
