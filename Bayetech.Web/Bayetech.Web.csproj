@@ -750,6 +750,7 @@
     <Content Include="Scripts\app\Shared\header.js" />
     <Content Include="Scripts\app\Search\search-dropdown.js" />
     <Content Include="Scripts\app\Search\search.js" />
+    <Content Include="Scripts\app\Shared\second-level-menu.js" />
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />
@@ -795,6 +796,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\css.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jsconfig.js" />
