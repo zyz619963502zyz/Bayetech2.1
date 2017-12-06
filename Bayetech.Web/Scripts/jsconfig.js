@@ -44,6 +44,7 @@ var jsconfig = {
         'AccountOrder': 'Scripts/app/PlaceOrder/AccountOrder',
         'CashOrder': 'Scripts/app/PlaceOrder/CashOrder',
         'GoldOrder': 'Scripts/app/PlaceOrder/GoldOrder',
+        'SureBuy': 'Scripts/app/PlaceOrder/SureBuy',
         "v-search": "Scripts/app/Search/Search",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
         "search-gamedropdown": "Scripts/app/Search/search-gamedropdown",

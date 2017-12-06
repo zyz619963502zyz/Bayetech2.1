@@ -2,7 +2,7 @@
 define(jsconfig.baseArr, function (Vue, $, common) {
     //Api
     //var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
-    //var _GetGoodInfo = "";
+    var _GetGoodInfoUrl = "/api/GoodInfo/GetGoodInfo";
 
     //模板
     var surebuyhtml = `<div class="center">
@@ -30,20 +30,23 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
     var data = {
         SureBuyModel: {
-            GoodTitle: "地下城与勇士测试title",
+            GoodTitle: "地下城与勇士测试账号Title",
             GoodTypeName: "账号",
             GameName: "地下城与勇士",
             GroupName: "浙江区",
             ServerName: "浙江7区",
-            GoodPrice: "500",
+            GoodPrice: 500,
         }
     }
 
     //账号下订单
     var surebuycomponent = {//全局注册
         template: surebuyhtml,
-        data() {
+        created(){
             this.GetGoodInfo(common.GetUrlParam("", "GoodNo"));//获取商品信息。
+        },
+        data(){
+            return data;
         },
         methods: {
             GetGoodInfo(goodno) {

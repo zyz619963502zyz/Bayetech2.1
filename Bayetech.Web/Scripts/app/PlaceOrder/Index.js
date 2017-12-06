@@ -1,24 +1,19 @@
-﻿jsconfig.baseArr.push("AccountOrder");
+﻿jsconfig.baseArr.push("SureBuy");
 jsconfig.baseArr.push("GoldOrder");
-jsconfig.baseArr.push("CashOrder");
-jsconfig.baseArr.push("SureBuy");
-require(jsconfig.baseArr, function (Vue, $, common, account, gold, cashorder,surebuy) {
+require(jsconfig.baseArr, function (Vue, $, common, surebuy, order) {
     var vm = new Vue({
         el: '#PlaceOrderDiv',
         created() {
             //this.GetGoodInfo(common.GetUrlParam("", "GoodNo"));//获取商品信息。
         },
         data: {
-          
         },
         methods: {
 
         },
         components: {
-            'accountorder': account,
-            'goldorder': gold,
-            'cashorder': cashorder,
-            'surebuy': surebuy
+            'surebuy': surebuy,
+            'order': order,
        }
     });
 });
