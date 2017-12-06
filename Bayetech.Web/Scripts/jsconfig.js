@@ -61,6 +61,7 @@ var jsconfig = {
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
         'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
         "v-nav": 'Scripts/app/Shared/nav',
+        'text': "Scripts/text",
     },
     map: {
         '*': {
@@ -69,7 +70,7 @@ var jsconfig = {
     },
     shim: {
         'bootstrap': {
-            deps: ['jquery'],
+            deps: ['jquery', , 'css!../Content/bootstrap/bootstrap.min'],
             exports: 'aaaa'
         },
         'bootstrapValidator': {
@@ -77,8 +78,8 @@ var jsconfig = {
             exports: 'validate'
         },
         'swiper': {
-            deps: ['jquery', 'bootstrap'],
-            exports: 'Swiper'
+            deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],
+            exports: 'Swiper',
         }
     }
 };
