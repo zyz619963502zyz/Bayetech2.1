@@ -62,7 +62,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                 </div>
                 <div class="rent-btn">
-                    <a href="#" @click = "BuyNow">立即购买</a>
+                    <a href="#" @click = "BuyNow(GoodNo)">立即购买</a>
                 </div>
             </div>
 
