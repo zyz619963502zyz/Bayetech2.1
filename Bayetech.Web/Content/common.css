@@ -67,3 +67,10 @@ img{display:inline-block;}
     }
 }
 
+.menu{ float:left; border:#dfdfdf solid 1px; width:180px;}
+.menu h1{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
+.menu span{ height:30px; font-weight:bold; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_2.png) no-repeat; padding-left:20px;}
+.menu span a{display:block; padding-top:8px;}
+.menu li{ height:30px; line-height:30px; padding-left:20px; border-bottom:#efefef dotted 1px;}
+
+
