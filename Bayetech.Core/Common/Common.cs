@@ -125,14 +125,14 @@ namespace Bayetech.Core
 
 
         /// <summary>
-        /// 订单编号生成机制
+        /// 商品编号机制（18位）
         /// </summary>
         /// <returns></returns>
-        public static string CreatOrderNo()
+        public static string CreatGoodInfo()
         {
             try
             {
-                string strHeader = "YM";
+                //string strHeader = "YM";
                 string year = DateTime.Now.Year.ToString();
                 string month = DateTime.Now.Month.ToString().PadLeft(2,'0');
                 string day = DateTime.Now.Day.ToString().PadLeft(2, '0');
@@ -141,13 +141,33 @@ namespace Bayetech.Core
                 string second = DateTime.Now.Second.ToString().PadLeft(2, '0');
                 Random ran = new Random();
                 string wan = ran.Next(1, 9999).ToString().PadLeft(4, '0');
-                string result = strHeader + year + month + day + hour + min + second + wan;
+                string result = year + month + day + hour + min + second + wan;
                 return result;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message + "发生错误!");
             }   
+        }
+
+        /// <summary>
+        /// 根据商品编号生成订单编号（22位）
+        /// </summary>
+        /// <param name="goodNo"></param>
+        /// <returns></returns>
+        public static string CreatOrderNo(string goodNo)
+        {
+            try
+            {
+                Random ran = new Random();
+                string wan = ran.Next(1, 9999).ToString().PadLeft(4, '0');
+                string result = goodNo + wan;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "发生错误!");
+            }
         }
     }
 }

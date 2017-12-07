@@ -1,9 +1,5 @@
 ﻿//注册模块
 define(jsconfig.baseArr, function (Vue, $, common) {
-    //Api
-    //var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
-    //var _GetGoodInfo = "";
-
     //模板
     var goldorderHtml=`
           <div class ="txcpdd">
@@ -60,9 +56,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
              </ul>
         </div>`;
 
+        //Api
+        var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
+
         //数据
         var data={//填写的数据
-            GoodTypeId: 1,
+            GoodTypeId: 3,
             GoodTypeName: "账号",
             BuyNum: "1",
             GameName: "地下城与勇士",
@@ -91,6 +90,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             },
             methods: {
                 CheckOut() {//数据校验
+
+                },
+                SureBuy() {//确定购买生成订单
 
                 }
             }
