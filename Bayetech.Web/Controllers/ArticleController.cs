@@ -17,12 +17,6 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public IHttpActionResult FindList(int value)
         {
-            Assembly assembly = typeof(BayetechEntities).Assembly;
-            Type[] modelTypes = assembly.GetTypes().Where(tj => tj.Namespace == "Bayetech.DAL.Entity").ToArray();
-            foreach (var modelType in modelTypes)
-            {
-
-            }
             try
             {
                 var list = articleService.GetListByModule(value);

@@ -16,8 +16,8 @@ namespace Bayetech.Service.Services
             foreach (var category in categoryList)
             {
                 var obj = new JObject();
-                obj.Add(new JProperty("title", category.catname));
-                obj.Add(new JProperty("items", JArray.FromObject(articleList.Where(a => a.CatId == category.catid).ToList())));
+                obj.Add(new JProperty("Title", category.catname));
+                obj.Add(new JProperty("Items", JArray.FromObject(articleList.Where(a => a.CatId == category.catid).ToList())));
                 arr.Add(obj);
             }
             return arr;

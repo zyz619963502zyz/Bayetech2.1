@@ -1,29 +1,35 @@
 ﻿//帮助中心主模块
-define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'help-content'], function () {
-    let html = `<div class="center">
+define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'help-content', 'v-menu'], function () {
+    var html = `<div class="center">
             <help-head></help-head>
-            <help-left :list="articleList" :view="view"></help-left>
+            <v-menu :data="menuData"></v-menu>
             <div class="help_right">
                 <help-content :object="article"></help-content>
                 <help-buttom></help-buttom> 
             </div>
         </div>`;
+    //<help-left :list="articleList" :view="view"></help-left>
 
-    let Vue = arguments[0];
-    let $ = arguments[1];
-    let common = arguments[2];
+    var Vue = arguments[0];
+    var $ = arguments[1];
+    var common = arguments[2];
     //Api
-    let findListUrl = "/api/Article/FindList"; //查询列表
-    let findContentUrl = "/api/Article/FindContent"; //查询详情
+    var findListUrl = "/api/Article/FindList"; //查询列表
+    var findContentUrl = "/api/Article/FindContent"; //查询详情
 
-    let data = {
+    var data = {
         mouduleid: "23",//帮助中心id
+        menuData:{
+            title: "帮助中心",
+            home: "#",
+            list:[]
+        },
         articleList: [],
         article: {
             content: `<li><img src="../../Content/Images/wymlc.jpg"></li>`
         },
     };
-    let components = {
+    var components = {
         name: "helpCenter",
         template: html,
         components: {},
@@ -36,13 +42,13 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
         nowVue: this,
         methods: {
             findList() {
-                let nowVue = this;
+                var nowVue = this;
                 common.getWebJson(findListUrl, { value: this.mouduleid }, function (data) {
-                    nowVue.articleList = data;
+                    nowVue.menuData.list=data;
                 });
             },
             view(value) {
-                let nowVue = this;
+                var nowVue = this;
                 common.getWebJson(findContentUrl, { value: value }, function (data) {
                     nowVue.article = data;
                 });
@@ -56,19 +62,19 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
 //启动文件
 //require(['vue', 'jquery', 'common', 'head', 'foot', 'helpLeft', 'helpButtom', 'helpContent'], function (Vue, $, common, head, foot, helpCenter) {
 //    //路由配置
-//    let routeconfig = [{
+//    var routeconfig = [{
 //        path: webUrl + 'Page/HelpCenter/index.html',
 //        component: helpCenter,
 //    }];
 //    Vue.component('main-head', head);
 //    Vue.component('main-foot', foot);
 
-//    let components = {};
-//    for (let i = 4; i < arguments.length; i++) {
+//    var components = {};
+//    for (var i = 4; i < arguments.length; i++) {
 //        components[arguments[i].name] = arguments[i];
 //    }
 
-//    let app = new Vue({
+//    var app = new Vue({
 //        components: components,
 //    }).$mount('#app');
 //});

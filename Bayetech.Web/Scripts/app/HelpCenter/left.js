@@ -4,10 +4,10 @@ define([], function () {
             <h3>使用帮助</h3>
             <ul v-for="value in list">
                 <ol>
-                    <a>{{ value.title }}</a>
+                    <a>{{ value.Title }}</a>
                 </ol>
-                <li :class="value.class" v-for="item in value.items">
-                    <a @click="view(item.itemid)">{{ item.title }}</a>
+                <li :class="value.class" v-for="item in value.Items">
+                    <a @click="view(item.ID)">{{ item.Title }}</a>
                 </li >
             </ul >
         </div>`;
