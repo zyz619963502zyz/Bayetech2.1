@@ -15,7 +15,7 @@ namespace Bayetech.Web.Controllers
         OrderService service = ctx.GetObject("OrderService") as OrderService;
 
         [HttpPost]
-        public JObject GetList(JObject json)
+        public JObject CreatOrder(JObject json)
         {
             MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
             return service.CreatOrder(goodInfo);
