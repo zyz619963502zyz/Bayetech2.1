@@ -23,7 +23,7 @@ var componentfig = {
         'PointTradingModel': 'app/PointTrading/pointTradingMiddle',
         'personal-head': 'app/PersonalCenter/head', 
         'personalCenter': 'app/PersonalCenter/index',
-        'v-menu': "Scripts/app/Shared/menu",
+        'v-menu': "app/Shared/menu",
 
     },
     commonComponent: ['vue', 'jquery', 'common', 'header', 'footer'],

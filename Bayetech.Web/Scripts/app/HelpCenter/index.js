@@ -20,9 +20,9 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
     var data = {
         mouduleid: "23",//帮助中心id
         menuData:{
-            title: "帮助中心",
-            home: "#",
-            list:[]
+            Title: "帮助中心",
+            Home: "#",
+            List:[]
         },
         articleList: [],
         article: {
@@ -44,7 +44,7 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
             findList() {
                 var nowVue = this;
                 common.getWebJson(findListUrl, { value: this.mouduleid }, function (data) {
-                    nowVue.menuData.list=data;
+                    nowVue.menuData.List=data;
                 });
             },
             view(value) {
