@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>游戏联盟-个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/market/css/Personal.css">
+    <link href="../../Content/common.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881/market/css/change.css">
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/UserCenter/index.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <v-header></v-header>
+        <div class="clear"></div>
+        <div class="center yxlb">
+            您的当前位置是：<a href="/">首页</a> - <a href="/personal.html?ver=20140728" class="ls">个人中心</a>
+        </div>
+        <div class="clear"></div>
+        <div class="center">
+            <v-menu data="menuData"></v-menu>
+            <div class="personal_right">
+                <div class="ddgl">
+                    <h1>账户设置</h1>
+                    <div class="m10">
+                        <ul class="site_title">
+                            <li class="rad"><a href="/user/toChangePassword.action">修改登录密码</a></li>
+                            <li><a href="/commerical/toChangetransactionPass.action">我的支付密码</a></li>
+                            <li><a href="/commerical/toEditPhone.action">手机绑定</a></li>
+                            <li><a href="/commerical/toApprove.action">实名认证</a></li>
+                            <li><a href="/commerical/toApprove_pic.action">身份认证</a></li>
+
+
+                            <li><a href="/commerical/toFindSafelogin.action">登录验证</a></li>
+                        </ul>
+                        <form id="loginPasswordForm" method="post">
+                            <ul class="site_list">
+                                <li>
+                                    <label>当前密码：</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" maxlength="20" desc="当前密码" autocomplete="off">
+                                </li>
+                                <li>
+                                    <label>新密码：</label>
+                                    <input type="password" id="newPassword" name="newPassword" maxlength="20" desc="新密码" regexp="^(?![^a-zA-Z]+$)(?!^\D+$).{6,20}$" regexp_desc="密码由6-20位字符组成，需同时包含字母和数字。" autocomplete="off" ajaxvalidate="loginpass">
+                                </li>
+                                <li>
+                                    <label>确认新密码：</label>
+                                    <input type="password" id="newPassword1" maxlength="20" desc="确认新密码" compare="true" compareid="newPassword">
+                                </li>
+                                <li>
+                                    <label>验证码：</label>
+                                    <input type="text" id="img_valid" name="img_valid" style="vertical-align: top;" maxlength="6" desc="验证码">&nbsp;&nbsp;<img id="imgValid" src="/img_valid.jsp?param=1512724117666"><a id="hlkChange" class="blue">看不清 换一张</a>
+                                    <input type="hidden" id="ymid" name="ymid" value="0">
+                                </li>
+                                <li class="label"><a id="hlkOK" class="site_btn"></a></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <!--底部开始-->
+        <div class="clear"></div>
+        <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+        <div class="clear"></div>
+        <footer></footer>
+        <!--底部结束-->
+        <div style="DISPLAY: none" id="goTopBtn"><img border="0" src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部"></div>
+        <div id="_my97DP" style="position: absolute; z-index: 2147483647; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 198px;" src="http://www.7881.com/common/datepicker/My97DatePicker.htm" frameborder="0" border="0" scrolling="no"></iframe></div>
+    </div>
+</body>
+</html>

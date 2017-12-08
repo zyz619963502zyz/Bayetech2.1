@@ -90,3 +90,34 @@ var jsconfig = {
 };
 require.config(jsconfig);
 
+var requireManage={
+    libArr: [],
+    moduleArr: [],
+    cssArr: [],
+    textArr: [],
+    requireArr: ['vue', 'jquery', 'common'],
+    addLib: function (arr) {
+        requireManage.libArr.push(arr);
+        requireManage.requireArr.push(arr);
+    },
+    addModule: function (arr) {
+       // q.concat(b)
+        requireManage.moduleArr.push(arr);
+        requireManage.requireArr.push(arr);
+    },
+    addCss: function (arr) {
+        requireManage.cssArr.push(arr);
+        requireManage.requireArr.push(arr);
+    },
+    addText: function (arr) {
+        requireManage.textArr.push(arr);
+        requireManage.requireArr.push(arr);
+    },
+    getrequire: function () {
+        return requireManage.requireArr;
+    },
+    getModule: function () {
+        return requireManage.requireArr;
+    },
+}
+

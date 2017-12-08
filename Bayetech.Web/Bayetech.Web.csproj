@@ -689,6 +689,7 @@
     <Content Include="Page\ServiceCenter\kefu.html" />
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
+    <Content Include="Page\UserCenter\Index.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\ServiceCenter\index.html" />
@@ -720,7 +721,9 @@
     <Content Include="Scripts\app\PersonalCenter\pavigationBar.js" />
     <Content Include="Scripts\app\PersonalCenter\rightbuttom.js" />
     <Content Include="Scripts\app\PersonalCenter\righttop.js" />
-    <Content Include="Scripts\app\PlaceOrder\OrderType.js" />
+    <Content Include="Scripts\app\PlaceOrder\AccountOrder.js" />
+    <Content Include="Scripts\app\PlaceOrder\CashOrder.js" />
+    <Content Include="Scripts\app\PlaceOrder\GoldOrder.js" />
     <Content Include="Scripts\app\PlaceOrder\index.js" />
     <Content Include="Scripts\app\ServiceCenter\footeradvan.js" />
     <Content Include="Scripts\app\ServiceCenter\index.js" />
@@ -781,6 +784,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\app\UserCenter\index.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
