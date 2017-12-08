@@ -29,11 +29,11 @@ namespace Bayetech.Service.Services
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
-                    ret.Add(ResultInfo.Content,JProperty.FromObject((count > 0 ? "" : "订单编号生成失败，请稍后再试。")));
+                    ret.Add(ResultInfo.Content,JProperty.FromObject((count > 0 ? "" :Properties.Resources.Error_NoOrderNo)));
                 }
                 else
                 {
-                    ret.Add(ResultInfo.Result, "订单编号生成失败,无此商品编号。");
+                    ret.Add(ResultInfo.Result, Properties.Resources.Error_NoGoodNo);
                 }
                 return ret;
             }

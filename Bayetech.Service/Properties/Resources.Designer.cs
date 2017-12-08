@@ -70,6 +70,24 @@ namespace Bayetech.Service.Properties {
         }
         
         /// <summary>
+        ///   查找类似 订单编号生成失败，无此商品编号。 的本地化字符串。
+        /// </summary>
+        internal static string Error_NoGoodNo {
+            get {
+                return ResourceManager.GetString("Error_NoGoodNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 订单编号生成失败，请稍后再试。 的本地化字符串。
+        /// </summary>
+        internal static string Error_NoOrderNo {
+            get {
+                return ResourceManager.GetString("Error_NoOrderNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 提示样式，为提示信息的前面+ Reminder_XXXX 的本地化字符串。
         /// </summary>
         internal static string Reminder_AAA {
