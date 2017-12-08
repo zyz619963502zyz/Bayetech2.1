@@ -101,6 +101,7 @@ var requireManage={
         requireManage.requireArr.push(arr);
     },
     addModule: function (arr) {
+       // q.concat(b)
         requireManage.moduleArr.push(arr);
         requireManage.requireArr.push(arr);
     },
