@@ -190,7 +190,7 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="bigint" Nullable="false" />
+          <Property Name="OrderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderNo" Type="varchar" MaxLength="50" />
           <Property Name="OrderLineNum" Type="int" />
           <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
@@ -208,7 +208,7 @@
           <Property Name="BuyerQQ" Type="bigint" />
           <Property Name="InternalTypeId" Type="int" />
           <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
-          <Property Name="OrderAddTime" Type="datetime" />
+          <Property Name="OrderCreatTime" Type="datetime" />
           <Property Name="PromoNum" Type="varchar" MaxLength="30" />
           <Property Name="Editor" Type="nvarchar" MaxLength="30" />
           <Property Name="RefundReason" Type="nvarchar(max)" />
@@ -762,7 +762,7 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OrderLineNum" Type="Int32" />
           <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
@@ -780,7 +780,7 @@
           <Property Name="BuyerQQ" Type="Int64" />
           <Property Name="InternalTypeId" Type="Int32" />
           <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderAddTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
           <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1113,7 +1113,7 @@
                 <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
                 <ScalarProperty Name="Editor" ColumnName="Editor" />
                 <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
-                <ScalarProperty Name="OrderAddTime" ColumnName="OrderAddTime" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
                 <ScalarProperty Name="GoodType" ColumnName="GoodType" />
                 <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
                 <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />

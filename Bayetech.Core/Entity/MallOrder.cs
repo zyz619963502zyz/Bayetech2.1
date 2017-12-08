@@ -32,7 +32,7 @@ namespace Bayetech.Core.Entity
         public Nullable<long> BuyerQQ { get; set; }
         public Nullable<int> InternalTypeId { get; set; }
         public string GoodType { get; set; }
-        public Nullable<System.DateTime> OrderAddTime { get; set; }
+        public Nullable<System.DateTime> OrderCreatTime { get; set; }
         public string PromoNum { get; set; }
         public string Editor { get; set; }
         public string RefundReason { get; set; }

@@ -26,6 +26,7 @@ namespace Bayetech.Service.Services
                 if (!string.IsNullOrEmpty(order.GoodNo))
                 {
                     order.OrderNo = Common.CreatOrderNo(order.GoodNo);
+                    order.OrderCreatTime = DateTime.Now;
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
