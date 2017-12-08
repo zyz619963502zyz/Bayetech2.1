@@ -155,6 +155,15 @@
         if (isEdge) { return "Edge"; }
         if (isIE11) { return "IE11"; }
     };
+
+     
+    /**
+      * 转成JS对象
+     */
+    common.LogJS=function (vue) {
+        return eval('('+JSON.stringify(vue)+')');
+    }
+
     return common;
 })
 

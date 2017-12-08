@@ -62,9 +62,11 @@
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
+    <Compile Include="Services\IOrderService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">

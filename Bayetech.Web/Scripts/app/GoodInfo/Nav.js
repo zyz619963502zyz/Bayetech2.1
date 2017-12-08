@@ -19,7 +19,7 @@ define(jsconfig.baseArr, function (Vue,$,common) {
         },
         created() {
             var self = this;
-            self.$parent.$on('GoodInfoHere', function (data) {//接收事件
+            self.$root.$on('GoodInfoHere', function (data) {//接收事件
                 if (data.content.HistoryAccount >= 0) {
                     var _Game = {title: "账号",href:"#"}
                     var _GameType = { title: data.content.GameName, href: "#" };

@@ -133,34 +133,8 @@
         <surebuy></surebuy>
     <!--确认购买信息-->
 
-    <form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
-        <div class="center">
 
-            <order></order>
-
-        </div>
-        <div class="clear"></div>
-    </form>
-    <div class="clear"></div>
-
-    <div class="center">
-        <div class="qdtjdd">
-            <h1>确认提交订单</h1>
-            <ul>
-                <li>7881官方任何工作人员，都<b>不会</b>通过 QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。</li>
-                <li>
-                    需支付总价：&nbsp;<strong style="color:#F90;">
-                        <input type="text" id="text_goodsprice" style="color:#F90; font-size:16px; border:0px;width:70px;" readonly="readonly" />
-                    </strong>&nbsp;元
-                </li>
-                <li>
-                    <input type="button" id="hlkOK" class="buy_gm_qdww" />
-                    <span style="padding-left: 20px;" class="jf_detail hide">购买可获得<em id="nowJf" style="padding: 0 2px; color: #ff6700;">0</em>积分</span><s class="hide" style="color: silver;margin-left: 5px;">(<em id="oldJf">0</em>积分)</s>
-                </li>
-                <li><input type="checkbox" id="agreement" style="height:12px;" checked="checked" />&nbsp;我已阅读并同意<a href="/account_pro.html" target="_blank" class="ls">《7881网游交易协议》</a></li>
-            </ul>
-        </div>
-    </div>
+    <order></order>
 
     <div class="clear"></div>
     <div class="center">
@@ -211,3 +185,27 @@
 </div>
 </body>
 </html>
+
+
+<h1>填写商品订单</h1>
+<div class="tsk"><img src="http://pic.ofcard.com/7881/market/images/buy/gm_ts.png" />  付款后,请立即到订单中心联系订单客服,不要把账号信息提供给任何其他人。</div>
+<input type="hidden" name="goodsPurchaseBean.goodsid" value="201612377331840" />
+<input type="hidden" name="goodsPurchaseBean.tradetype" value="js" />
+<input type="hidden" name="goodsPurchaseBean.gameid" value="G10" />
+<input type="hidden" name="goodsPurchaseBean.gamename" value="地下城与勇士" />
+<input type="hidden" name="goodsPurchaseBean.groupid" value="G10P005" />
+<input type="hidden" name="goodsPurchaseBean.groupname" value="湖北区" />
+<input type="hidden" name="goodsPurchaseBean.serverid" value="G10P005001" />
+<input type="hidden" name="goodsPurchaseBean.servername" value="湖北1区" />
+<input type="hidden" name="goodsPurchaseBean.camp" value="" />
+<input type="hidden" name="goodsPurchaseBean.rid" value="842907945" />
+<input type="hidden" name="goodsPurchaseBean.gameaccount" value="" />
+<input type="hidden" id="gtid" name="goodsPurchaseBean.gtid" value="100003" />
+<input type="hidden" name="goodsPurchaseBean.ver" value="" />
+<input type="hidden" id="rolename" name="goodsPurchaseBean.rolename" value="842907945" />
+<input type="hidden" id="price" name="goodsPurchaseBean.price" value="450" />
+<input type="hidden" id="pernum" name="goodsPurchaseBean.pernum" value="1" />
+<input type="hidden" id="prid" name="goodsPurchaseBean.prid" />
+<input type="hidden" id="grade" name="goodsPurchaseBean.grade" />
+<input type="hidden" id="goodsinfo" name="goodsPurchaseBean.goodsinfo" />
+<input type="hidden" id="goodsprice" name="goodsPurchaseBean.goodsprice" />

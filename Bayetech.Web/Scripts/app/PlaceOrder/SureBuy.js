@@ -56,7 +56,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.$root.$emit('MainInfo', data)
                     }
                 });
-            },
+            }
         }
     }
     return surebuycomponent;

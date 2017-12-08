@@ -1,0 +1,22 @@
+/* new-footer */
+.footer { height: 210px; line-height: 28px; text-align: center; padding-top: 10px; width: 980px; margin: 0 auto; font: 12px/28px Microsoft YaHei; }
+.footer .advan { width: 980px; height: 65px; margin-bottom: 10px; }
+.footer .advan ul { width: 978px; height: 48px; border: 1px solid #e7e3e4; background: #fff; padding-top: 8px; text-indent: -9999px }
+.footer .advan li { width: 196px; height: 39px; background: url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -12px -463px; float: left; border-right: 1px solid #dfdfdf; padding: 0 25px 0 0px; margin-left: 25px; display: inline }
+.footer .advan li.s2 { background-position: -12px -505px; }
+.footer .advan li.s3 { background-position: -12px -548px; }
+.footer .advan li.s4 { background-position: -12px -590px; border: none; padding: 0 }
+.footer .link span { color: #aaa; margin: 0 10px 0 10px }
+.footer .honor { padding: 10px 0 0 125px; height: 33px }
+.footer .honor li { float: left; margin-right: 5px; }
+.footer .honor li a { width: 106px; height: 33px; display: block; background: url(http://pic.7881.com/7881/common_7881/images/global.png) no-repeat -16px -221px }
+.footer .honor li a.s2 { background-position: -16px -258px }
+.footer .honor li a.s3 { background-position: -16px -296px }
+.footer .honor li a.s4 { background-position: -16px -336px }
+.footer .honor li a.s5 { background-position: -16px -376px }
+.footer .honor li a.s6 { background-position: -16px -418px }
+.footer a { color: #333; text-decoration: none; cursor: pointer; }
+.footer a:hover { color: #E95701; text-decoration: underline; }
+.footer .link span { color: #aaa; margin: 0 10px 0 10px; }
+.footer .gray_a { color: #aaa; }
+.footer .font_a { font-family: Arial; }
