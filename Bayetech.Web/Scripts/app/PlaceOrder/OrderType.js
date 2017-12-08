@@ -75,7 +75,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <input type="button" @click="SureBuy" id="hlkOK" class ="buy_gm_qdww" />
                                 <span style="padding-left: 20px;" class ="jf_detail hide">购买可获得<em id="nowJf" style="padding: 0 2px; color: #ff6700;">0</em>积分</span><s class ="hide" style="color: silver;margin-left: 5px;">(<em id="oldJf">0</em>积分) </s>
                             </li>
-                            <li><input type="checkbox" id="agreement" style="height:12px;" checked="checked" />&nbsp; 我已阅读并同意<a href="/account_pro.html" target="_blank" class ="ls">《游戏联盟网游交易协议》</a></li>
+                            <li><input type="checkbox" id="agreem ent" style="height:12px;" checked="checked" />&nbsp; 我已阅读并同意<a href="/account_pro.html" target="_blank" class ="ls">《游戏联盟网游交易协议》</a></li>
                         </ul>
                     </div>
                 </div>

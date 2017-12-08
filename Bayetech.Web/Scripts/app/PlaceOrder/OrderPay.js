@@ -1,97 +1,7 @@
-﻿<html class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>游戏联盟交易平台-专业安全快捷的游戏交易平台-提供游戏币交易|装备交易|账号交易|寄售担保交易|点卡充值|APP充值|游戏点券|手游充值</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link href="../../Content/OlderCss/cashier.css" rel="stylesheet" />
-    <link href="../../Content/OlderCss/new-footer.css" rel="stylesheet" />
-    <!-- 短信语音验证码相关的样式 -->
-    <link href="../../Content/OlderCss/lbui.phonevalidator.css" rel="stylesheet" />
-    <!-- 以下三个是短信语音验证码必须引入的 -->
-    <script type="text/javascript" src="/common/js/jquery1.5.js"></script>
-    <script type="text/javascript" src="/market/js/jquery.validate.js"></script>
-    <script type="text/javascript" src="/common/js/restrict_input.js"></script>
-
-    <!--<script type="text/javascript">
-        var _bdhmProtocol=(("https:"==document.location.protocol)?" https://":" http://");
-        document.write(unescape("%3Cscript src='"+_bdhmProtocol+"hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $('#btn_send_verification').phoneValidator({
-                actionCode: 'payoutUseBalance', phoneCodeValidateCallback: function (success, msg) {
-                    if (success) {
-                    }
-                }
-            });
-        });
-        var yajin='';
-        var gameid='G10';
-        var gtid='100003';
-        var reducemoney=parseFloat('');
-        if (isNaN(reducemoney)) {
-            reducemoney=0;
-        }
-        var payway="3002";
-        var noid="32";
-        var goodsprice="45000.0";
-        var goodspriceFixed='450.0';
-
-
-        if (gameid=='G3415'&&gtid=='100016') {
-            goodspriceFixed=parseFloat(goodspriceFixed)+parseFloat(yajin)-parseFloat(reducemoney);
-        }
-        goodspriceFixed=goodspriceFixed-reducemoney;
-        var marketflag1='';
-        var marketflag1_='';
-        var mobilechecked1='1';
-        var from='';
-        if (''!='') {
-            alert('');
-            if (''!='') {
-                window.location="";
-            }
-        }
-        var iconstyle='3002';
-        var webclass='thirdpay_2';
-        var haveRedEnvelops="";
-        var hbflag="1";
-        function init() {
-            var coupon='';
-            if (coupon!=''&&coupon!='null') {
-                coupon=parseFloat(coupon);
-            }
-            if (coupon>0) {
-                var totalMoney=parseFloat('450.0');
-                $("#payValue").empty();
-                $("#payValue").text('450.0');
-            }
-        }
-
-        function mouseMesShow(id) {
-            if (id==32) {
-                $("#payInfo").html("单日支付多笔大额订单建议使用银行借记卡支付。");
-            } else {
-                $("#payInfo").html("");
-            }
-        }
-    </script>-->
-</head>
-<body onload="init();">
-    <div class="new-cashier-hd">
-        <div class="inner">
-            <a href="http://www.7881.com" class="nc-logo">youxlm.com | 收银台</a>
-            <div class="hd-rt-info">
-                <a href="../personal.html" id="span_user" target="_blank"></a>
-                <span class="separator">|</span>
-                <a href="../procurement/queryMyProcureOrder.action" target="_blank">我的订单</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="new-cashier">
+﻿//注册模块
+define(jsconfig.baseArr, function (Vue, $, common) {
+    //模板
+    var OrderHtml=` <div class="new-cashier">
         <form id="payForm" method="post" target="_blank">
             <div class="new-cashier-order">
                 <div class="cashier-box top-alert">
@@ -231,17 +141,11 @@
                                 </div>
                                 <div class="nc-type-body">
                                     <ul class="list clearfix">
-
                                         <li class="J_bank" id="clearfix119" webclass="creditcard" infomsg="" value="2903" fptname="中国工商银行" style="background:url(/images/pay-2005.png) center no-repeat" onmouseover="mouseShow(119)"></li>
-
                                         <li class="J_bank" id="clearfix120" webclass="creditcard" infomsg="" value="2902" fptname="中国农业银行" style="background:url(/images/pay-2007.png) center no-repeat" onmouseover="mouseShow(120)"></li>
-
                                         <li class="J_bank" id="clearfix104" webclass="creditcard" infomsg="信用卡网银单笔最高500元，单日以信用卡本身透支额度。" value="2910" fptname="招商银行" style="background:url(/images/pay-2006.png) center no-repeat" onmouseover="mouseShow(104)"></li>
-
                                         <li class="J_bank" id="clearfix121" webclass="creditcard" infomsg="" value="2909" fptname="交通银行" style="background:url(/images/pay-2008.png) center no-repeat" onmouseover="mouseShow(121)"></li>
-
                                         <li class="J_bank" id="clearfix122" webclass="creditcard" infomsg="" value="2906" fptname="中国银行" style="background:url(/images/pay-2011.png) center no-repeat" onmouseover="mouseShow(122)"></li>
-
                                     </ul>
                                 </div>
                             </div>
@@ -303,94 +207,109 @@
                 <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&aty=0&a=0&curl=&ty=1" class="q">支付遇到问题</a>
             </div>
         </div>
-    </div>
+    </div>`;
 
+        //Api
+        var _CreatOrderUrl="/api/Order/CreatOrder"; //创建账号
 
-    <!-- footer -->
-    <!--说明该页面内容和7881_foot.html保持一致。-->
-    <!--7881_foot_bak.html为老的备份-->
-    <!--为什么不用一个文件?-->
-    <!--各自引用100+。。。-->
-    <!--  -->
+        //数据
+        var data={//填写的数据
+            GoodNo: "",
+            OrderPrice:"",
+            GoodPrice:0,
+            GoodTypeId: 3,
+            GoodTypeName: "账号",
+            BuyNum: "1",
+            InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
+            GameName: "",
+            GameAccount: "",
+            GameAccountAgain: "",
+            GroupName: "",
+            InternalTypeId:"",
+            ServerName: "",
+            BuyerPhone: "18717708731",
+            BuyerQQ: "619963501",
+            Signal:"",
+            PromoNum: "1111",
+        }
 
+        var ordercomponent = {//全局注册
+            template: OrderHtml,
+            data() {
+                return data;
+            },
+            created(){
+                var self=this;
+                self.$root.$on('MainInfo', function (data) {
+                    self.GoodNo = data.content.GoodNo;
+                    self.GameName = data.content.GameName;
+                    self.GroupName = data.content.GroupName;
+                    self.GoodPrice=data.content.GoodPrice;
+                    self.OrderPrice = data.content.GoodPrice;
+                    self.ServerName = data.content.ServerName;
+                });
+            },
+            methods: {
+                FormValidate() {
+                    $('#loginForm').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        //group: '.form-group',
+                        fields: {
+                            username: {
+                                message: 'The username is not valid',
+                                validators: {
+                                    notEmpty: {
+                                        message: '账号不可以为空!'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 30,
+                                        message: '账号的长度为6-30个字符之间!'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                                    },
+                                    different: {
+                                        field: 'password',
+                                        message: '账号和密码不可相同!'
+                                    }
+                                }
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '密码不可以为空'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 30,
+                                        message: '账号的长度为6-30个字符之间!'
+                                    },
+                                    different: {
+                                        field: 'username',
+                                        message: '账号和密码不可相同!'
+                                    }
+                                }
+                            }
 
-    <div class="footer">
-        <!--底部区域-->
-        <div class="advan">
-            <ul><li class="s1">寄售担保 无货保赔</li><li class="s2">安全服务 保障资金</li><li class="s3">7*24小时 专属客服</li><li class="s4">权威认证 安全可信</li></ul>
-        </div>
-        <div class="link">
-            <!--文字链接-->
-            <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><span>|</span>
-            <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><span>|</span>
-            <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><span>|</span>
-            <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><span>|</span>
-            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><span>|</span>
-            <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商务合作</a><span>|</span>
-            <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a><span>|</span>
-            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank">媒体声音</a>
-        </div>
-        <div class="copyright gray_a font_a">Copyright © 2008-2016 7881.com版权所有&nbsp;&nbsp;ICP证：<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="gray_a">苏B1-20110004-4</a> <a href="http://www.7881.com/aboutus.html" target="_blank" class="gray_a">(江苏猎宝网络科技股份有限公司)</a> &nbsp;&nbsp;<a href="http://www.7881.com/qualification.html" target="_blank" rel="nofollow" class="gray_a">苏网文[2015]2034-038号</a></div>
-        <!--版权信息-->
-        <ul class="honor">
-            <!--小图链接-->
-            <li>
-                <a href="https://ss.knet.cn/verifyseal.dll?sn=e13062732010041412rcaq000000&ct=df&a=1&pa=0.6369905350729823" style="display:inline-block;position:relative;width:89px;height:32px;" target="_blank"><img src="../images/cnnic.png" style="left: 0px; position: absolute; top: 0px; border: none;width: 89px;height: 32px;" /></a>
-            </li>
-            <li><a href="http://www.miibeian.gov.cn" target="_blank" class="s2" rel="nofollow"></a></li>
-            <li><a href="http://www.cyberpolice.cn/wfjb/" target="_blank" class="s3" rel="nofollow"></a></li>
-            <li><a href="https://www.alipay.com" target="_blank" class="s4" rel="nofollow"></a></li>
-            <li><a href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804" target="_blank" class="s5" rel="nofollow"></a></li>
-            <li><a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B" target="_blank" class="s6" rel="nofollow"></a></li>
-            <li>
-                <a key="51e7a171f159c862917fd4c0" style="background:none" rel="nofollow" logo_size="83x30" logo_type="realname" href="http://www.anquan.org/authenticate/cert/?site=7881.com&at=realname" target="_blank">
-                    <img src="../images/sm_83x30.png" />
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div style="display: none;">
-        <script type="text/javascript">
-            var _bdhmProtocol=(("https:"==document.location.protocol)?" https://":" http://");
-            document.write(unescape("%3Cscript src='"+_bdhmProtocol+"hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-
-            var _gaq=_gaq||[];
-            _gaq.push(['_setAccount', 'UA-44365965-1']);
-            _gaq.push(['_trackPageview']);
-
-            (function () {
-                var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true;
-                ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
-                var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-
-        </script>
-    </div>
-    <script src="/market/js/jquery-1.11.3.min.js"></script>
-    <script src="/market/js/cashier.js?20151211"></script>
-    <script type="text/javascript" src="/common/lbui/js/json2.min.js"></script>
-    <script type="text/javascript" src="/common/lbui/js/lbui.core.js"></script>
-    <script type="text/javascript" src="/common/lbui/js/lbui.phonevalidator.js"></script>
-    <script type="text/javascript">
-    </script>
-
-    <script type="text/javascript">
-        /// 判断是否登录
-        jQuery.ajax({
-            type: 'get',
-            url: '/loginCheckReturn.action?ip='+Math.round(Math.random()*10000),
-            success: function (resultData) {
-                var result=resultData.split('#');
-                if (result[0]=='200'&&result.length>2) {
-                    jQuery('#span_user').empty();
-                    jQuery('#span_user').html('<span rel="nofollow" class="blue">'+result[1]+'</span>');
+                        }
+                    });
+                },
+                SureBuy() {
+                    var param=this.$data;
+                    common.postWebJson(_CreatOrderUrl, JSON.stringify(param), function (data) {//生成订单编号
+                        if (!data.result) {
+                            alert(data.content);
+                        }
+                    });
                 }
             }
-        });
-        document.domain="7881.com";
-    </script>
-</body>
-</html>
+        }
+        return ordercomponent;
+})
