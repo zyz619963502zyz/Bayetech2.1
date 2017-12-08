@@ -1,4 +1,4 @@
-﻿requireManage.addModule(['v-header', 'v-footer', 'v-nav', 'v-search', 'v-menu']);
+﻿requireManage.addModule('v-header, v-footer, v-nav, v-search, v-menu');
 
 //个人中心主模块
 require(requireManage.requireArr, function () {
