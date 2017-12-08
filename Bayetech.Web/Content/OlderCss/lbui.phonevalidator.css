@@ -1,0 +1,191 @@
+@charset "utf-8";
+/*
+ * ============================================================
+ * 发送手机验证码的弹窗等
+ * ============================================================
+ */
+ 
+/*button元素*/
+button{
+	cursor: pointer;
+}
+
+/*图形验证码确认框*/
+.pv-dlg-captcha{
+	display:none;
+	position:absolute;
+	left:420px;/*偏移未知自动计算*/
+	top:-64px;
+	width:240px;
+	height:auto;
+	padding:10px;
+	border:1px solid #f60;
+	z-index:1000;
+	background:#F8F8F8;
+	box-shadow:2px 2px 2px #ebebeb;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+.pv-dlg-captcha p{
+	font-size: 12px;
+}
+/*拨打语言前的提示信息*/
+.pv-dlg-captcha p.tips-for-voice{
+	/*display: none;*/
+	
+	/*color: #f60;*/
+	margin-bottom: 10px;
+}
+/*图形验证码输入错误的提示*/
+.pv-dlg-captcha p.tips-for-captcha{
+	color: #f60;
+	height: 20px;
+}
+.pv-dlg-captcha .pv-captcha
+.pv-dlg-captcha .buttons {
+	width:258px;
+	overflow:hidden;
+}
+
+/*图形验证码输入框区域*/
+.pv-dlg-captcha .pv-captcha{
+	height: 40px;
+	line-height: 40px;
+	margin:6px 0px 0px;
+}
+/*图形输入验证码区域内元素的布局对齐*/
+.pv-dlg-captcha .pv-captcha input ,
+.pv-dlg-captcha .pv-captcha a ,
+.pv-dlg-captcha .pv-captcha b ,
+.pv-dlg-captcha .pv-captcha img ,
+.pv-dlg-captcha .buttons a{
+	float: left;
+	margin-right: 5px;
+}
+/*图形验证码图片*/
+.pv-dlg-captcha .pv-captcha img {
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+}
+/*图形验证码输入框*/
+.pv-dlg-captcha .pv-captcha input{
+	width:60px;
+	height: 28px;
+	border: 1px solid #ccc;	
+}
+/*手机号码和验证码输入框的样式*/
+.pv-dlg-captcha .pv-captcha input ,
+.pv-txt-phone , 
+.pv-txt-code {
+	font-size: 14px;
+	line-height: 17px;
+	padding: 0 4px ;
+	color: #666;
+	font-weight: bolder;
+}
+/*图形验证码输入框后的输入正确与否的提示*/
+.pv-dlg-captcha .pv-captcha b{
+	width:16px;
+	height:16px;
+	margin-top:8px;
+	/*margin-left: 5px;*/
+	background:url(http://pic.7881.com/7881/common_7881/images/7881_icon.png) no-repeat center -272px;
+}
+/*图形验证码输入错误时的样式*/
+.pv-dlg-captcha .pv-captcha.error b{
+	background-position:center -320px;
+}
+/*图形验证码的输入框*/
+.pv-dlg-captcha .pv-captcha.error input{
+	background:#ffecec;
+	border:1px solid #ffc7c7;
+}
+/*图形验证码的刷新按钮*/
+.pv-dlg-captcha .pv-captcha a{
+	display: inline-block;
+	line-height:14px;
+	height: 40px;
+	width:38px;
+	/*margin-left:10px;*/
+	color:#3c8fd7;
+}
+/*按钮区域*/
+.pv-dlg-captcha .buttons{
+	margin-bottom: 10px;
+}
+.pv-dlg-captcha .buttons a.btn-ok{
+	width:62px;
+	height:26px;
+	margin-right:20px;
+	line-height:26px;
+	text-align:center;
+	color:#FFF;
+	background:url(http://pic.7881.com/7881/common_7881/css/7881.png) no-repeat -110px -155px;
+}
+.pv-dlg-captcha .buttons a.btn-cancel{
+	line-height:22px;
+	color:#3c8fd7;
+}
+
+/*手机号码输入框禁用的样式*/
+.pv-txt-phone.disabled{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none; 
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;   
+		background-color: #eee;
+}
+/*
+ * ============================================================
+ * 发送结果等提示信息
+ * ============================================================
+ */
+ /*提示层*/
+.pv-tips{
+	position:absolute;
+	display: none;
+	width: 200px;
+	min-height: 18px;
+	height: auto;
+	padding: 10px;
+	background-color: #ffd;
+	border: 1px solid #ccc;
+	box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+}
+/*内容体的样式*/
+.pv-tips div.body{
+	color: #999;
+}
+.pv-tips div.body a {
+	color: #3c8fd7;
+	font-weight: bolder;
+}
+/*
+* 箭头。TODO：浏览器兼容性
+*/
+.pv-tips .arrow{ 
+	position:absolute; 
+	bottom:-20px; 
+	left:20px; 
+	width:20px; 
+	height:20px; 
+}
+.pv-tips .arrow *{ 
+	position:absolute; 
+	display:block; 
+	font-size:0; 
+	line-height:0; 
+	border-width:10px; 
+	border-style:solid dashed dashed dashed; 
+}
+/*基础的箭头*/
+.pv-tips .arrow em{
+	border-color:#ccc transparent transparent;
+}
+/*叠加的箭头*/
+.pv-tips .arrow span{
+	top:-2px;
+	border-color:#ffd transparent transparent; 
+} 
