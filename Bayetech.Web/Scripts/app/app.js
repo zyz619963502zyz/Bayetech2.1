@@ -55,24 +55,24 @@ var routeconfig = [{
 //routeconfig[webUrl + '/Page/HelpCenter/index.html'] = "helpCenter";
 
 //需要组件
-let componentArr = ['vue', 'jquery', 'common', 'header', 'footer'];
-let component = FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
+var componentArr=['vue', 'jquery', 'common', 'header', 'footer'];
+var component=FindObjByProp(routeconfig, "path", window.document.location.pathname).name;
 //let component = routeconfig[window.document.location.pathname];
 componentArr.push(component);
 
 //启动文件
 require(componentArr, function () {
-    let Vue = arguments[0];
-    let $ = arguments[1];
-    let common = arguments[2];
-    let head = arguments[3];
-    let footer = arguments[4];
-    let component = arguments[5];
+    var Vue=arguments[0];
+    var $=arguments[1];
+    var common=arguments[2];
+    var head=arguments[3];
+    var footer=arguments[4];
+    var component=arguments[5];
 
     Vue.component('main-header', head);
     Vue.component('main-footer', footer);
 
-    let app = new Vue({
+    var app=new Vue({
         components: { "v-view": component }
     }).$mount('#app');
 });

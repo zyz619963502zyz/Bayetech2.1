@@ -155,9 +155,6 @@
         if (isEdge) { return "Edge"; }
         if (isIE11) { return "IE11"; }
     };
-
-
-
     return common;
 })
 

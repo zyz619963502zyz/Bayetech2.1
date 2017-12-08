@@ -5,11 +5,11 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
     <a :href="data.Home" style="cursor:pointer; text-decoration:none"><h1>{{data.Title}}</h1></a>
     <div v-for="(value,index) in data.List">
         <span>
-            <a @click="ShowFLT(index)" href="javascript:void(null)">
-                <img :id="'treePic'+index" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> {{ value.Title }}
+            <a @click="toggleTab(index)" href="javascript:void(null)">
+                <img :id="'pic'+index" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> {{ value.Title }}
             </a>
         </span>
-        <ul :id="'LM'+index">
+        <ul :id="'tab'+index">
             <li v-for="item in value.Items"><a @click="view(item.Id)">{{ item.Title }}</a></li>
         </ul>
     </div>
@@ -20,16 +20,16 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
         name: "v-menu",
         template: html,
         methods: {
-            ShowFLT:function(index){
-                lbmc = eval('LM' + index);
-                treePic = eval('treePic' + index)
-                if (lbmc.style.display == 'none') {
-                    treePic.src = 'http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif';
-                    lbmc.style.display = '';
+            toggleTab: function (index) {
+                tab = eval('tab'+index);
+                pic = eval('pic'+index);
+                if (tab.style.display=='none') {
+                    pic.src='http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif';
+                    tab.style.display='';
                 }
                 else {
-                    treePic.src = 'http://pic.ofcard.com/7881/market/images/Personal/bit_1.gif';
-                    lbmc.style.display = 'none';
+                    pic.src='http://pic.ofcard.com/7881/market/images/Personal/bit_1.gif';
+                    tab.style.display='none';
                 }
             },
             view:function(itemId) {
