@@ -1,7 +1,7 @@
 ﻿//注册模块
 define(jsconfig.baseArr, function (Vue, $, common) {
     //模板
-    var goldorderHtml=`<div>
+    var OrderHtml=`<div>
                         <form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
                         <div class ="center">
                             <div class ="txcpdd">
@@ -67,7 +67,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <ul>
                                 <li>7881官方任何工作人员，都<b>不会</b>通过 QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充7881工作人员向您索要，请千万不要提供！并第一时间联系7881官方客服，电话：400-187-7881（此号码无外拨功能）。</li>
                                 <li>
-                                    需支付总价：&nbsp; <strong style="color:#F90;">
+                                    需支付总价：{{GoodPrice}}<strong style="color:#F90;">
                                         <input type="text" id="text_goodsprice" style="color:#F90; font-size:16px; border:0px;width:70px;" readonly="readonly" />
                                     </strong>&nbsp;元
                                 </li>
@@ -82,37 +82,41 @@ define(jsconfig.baseArr, function (Vue, $, common) {
               </div>`;
 
         //Api
-        var _CreatAccountUrl = "/api/Account/CreatAccount"; //创建账号
+        var _CreatOrderUrl="/api/Order/CreatOrder"; //创建账号
 
         //数据
         var data={//填写的数据
+            GoodNo:"",
+            GoodPrice:0,
             GoodTypeId: 3,
             GoodTypeName: "账号",
             BuyNum: "1",
             InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
-            GameName: "地下城与勇士",
-            GameAccount: "124132115",
-            GameAccountAgain: "124132115",
-            GroupName: "浙江区",
+            GameName: "",
+            GameAccount: "",
+            GameAccountAgain: "",
+            GroupName: "",
             InternalTypeId:"",
-            ServerName: "浙江7区",
-            BuyerPhone: "123456789",
-            BuyerQQ: "987654321",
-            Signal:"12314",
-            PromoNum: "13246",
+            ServerName: "",
+            BuyerPhone: "18717708731",
+            BuyerQQ: "619963501",
+            Signal:"",
+            PromoNum: "1111",
         }
 
         var goldordercomponent = {//全局注册
-            template: goldorderHtml,
+            template: OrderHtml,
             data() {
                 return data;
             },
             created(){
                 var self=this;
                 self.$root.$on('MainInfo', function (data) {
-                    self.GameName=data.content.GameName;
-                    self.GroupName=data.content.GroupName;
-                    self.ServerName=data.content.ServerName;
+                    self.GoodNo = data.content.GoodNo;
+                    self.GameName = data.content.GameName;
+                    self.GroupName = data.content.GroupName;
+                    self.GoodPrice = data.content.GoodPrice;
+                    self.ServerName = data.content.ServerName;
                 });
             },
             methods: {
@@ -169,7 +173,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 },
                 SureBuy() {
                     var param=this.$data;
-                    common.postWebJson(OrderUrl, JSON.stringify(param), function (data) {//生成订单编号
+                    common.postWebJson(_CreatOrderUrl, JSON.stringify(param), function (data) {//生成订单编号
                         if (data) {
 
                         }
