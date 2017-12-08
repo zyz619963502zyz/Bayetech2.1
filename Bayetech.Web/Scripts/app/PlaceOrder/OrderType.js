@@ -89,10 +89,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GoodTypeId: 3,
             GoodTypeName: "账号",
             BuyNum: "1",
+            InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
             GameName: "地下城与勇士",
             GameAccount: "124132115",
             GameAccountAgain: "124132115",
             GroupName: "浙江区",
+            InternalTypeId:"",
             ServerName: "浙江7区",
             BuyerPhone: "123456789",
             BuyerQQ: "987654321",
@@ -175,6 +177,5 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 }
             }
         }
-
         return goldordercomponent;
 })

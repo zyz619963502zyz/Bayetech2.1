@@ -18,7 +18,7 @@ namespace Bayetech.Core.Entity
         public long Parentid { get; set; }
         public string Name { get; set; }
         public string Unit { get; set; }
-        public int Order { get; set; }
+        public Nullable<int> Order { get; set; }
         public string Money { get; set; }
     }
 }

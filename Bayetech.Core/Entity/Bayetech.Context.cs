@@ -70,9 +70,9 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
 
-    public virtual DbSet<MallOrder> MallOrder { get; set; }
-
     public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+
+    public virtual DbSet<MallOrder> MallOrder { get; set; }
 
 }
 
