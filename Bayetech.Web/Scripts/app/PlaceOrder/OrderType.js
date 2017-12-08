@@ -86,7 +86,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
         //数据
         var data={//填写的数据
-            GoodNo:"",
+            GoodNo: "",
+            OrderPrice:"",
             GoodPrice:0,
             GoodTypeId: 3,
             GoodTypeName: "账号",
@@ -115,7 +116,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     self.GoodNo = data.content.GoodNo;
                     self.GameName = data.content.GameName;
                     self.GroupName = data.content.GroupName;
-                    self.GoodPrice = data.content.GoodPrice;
+                    self.GoodPrice=data.content.GoodPrice;
+                    self.OrderPrice = data.content.GoodPrice;
                     self.ServerName = data.content.ServerName;
                 });
             },

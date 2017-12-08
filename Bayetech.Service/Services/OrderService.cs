@@ -25,7 +25,7 @@ namespace Bayetech.Service.Services
                 JObject ret = new JObject();
                 if (!string.IsNullOrEmpty(order.GoodNo))
                 {
-                    order.OrderNo = Common.CreatOrderNo(order.OrderNo);
+                    order.OrderNo = Common.CreatOrderNo(order.GoodNo);
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
