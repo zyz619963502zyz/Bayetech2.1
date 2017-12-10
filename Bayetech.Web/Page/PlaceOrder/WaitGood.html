@@ -1,0 +1,2018 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订单详情-买家-担保</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881/common/common.css" />
+    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881/common/header.css" />
+    <link rel="stylesheet" type="text/css" href="/market/css/Public.css" />
+    <script type="text/javascript" src="http://pic.7881.com/7881/market/js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        .w980 {
+             width: 980px;
+            margin: 0 auto;
+            font-family: "宋体";
+        }
+
+        .comHead {
+            height: 104px;
+            line-height: 104px;
+        }
+
+            .comHead h1 {
+                float: left;
+                margin-top: 25px;
+            }
+
+            .comHead .pay-flow {
+                float: right;
+                margin-top: 35px;
+            }
+
+        .current-state {
+            border: 1px solid #b3dff2;
+            width: 560px;
+            background: #f5fcff;
+            margin-bottom: 20px;
+            padding: 30px 210px 20px 210px;
+            position: relative;
+        }
+
+            .current-state .icon-state-left {
+                position: absolute;
+                right: 800px;
+                top: 35px;
+            }
+
+            .current-state .icon-state-right {
+                position: absolute;
+                right: 30px;
+                top: 35px;
+            }
+
+            .current-state .state-info .state-top h2 {
+                font-family: "微软雅黑";
+                color: #333;
+                font-size: 20px;
+                margin-bottom: 6px;
+            }
+
+                .current-state .state-info .state-top h2 span, .current-state .state-info .state-top p span {
+                    color: #3399ff;
+                }
+
+            .current-state .state-info .state-top p {
+                color: #666;
+                font-size: 14px;
+                line-height: 26px;
+            }
+
+                .current-state .state-info .state-top p i {
+                    font-family: "微软雅黑";
+                    color: #ff6700;
+                    margin: 0 5px;
+                }
+
+                .current-state .state-info .state-top p a {
+                    margin-left: 8px;
+                    display: inline-block;
+                }
+
+                    .current-state .state-info .state-top p a img {
+                        vertical-align: middle;
+                    }
+
+                .current-state .state-info .state-top p.btn-group {
+                    margin-top: 10px;
+                }
+
+                    .current-state .state-info .state-top p.btn-group a {
+                        margin-left: 0;
+                        margin-right: 10px;
+                    }
+
+            .current-state .state-info .state-top .state-tip {
+                position: relative;
+                width: 520px;
+                padding-left: 36px;
+                height: 30px;
+                line-height: 30px;
+                border: 1px solid #ff6700;
+                background: #fff;
+                margin: 10px 0;
+            }
+
+                .current-state .state-info .state-top .state-tip span {
+                    color: #ff6700;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+
+                .current-state .state-info .state-top .state-tip em {
+                    position: absolute;
+                    left: 15px;
+                    top: 8px;
+                }
+
+            .current-state .state-info .express-con {
+                border: 1px solid #b3dff2;
+                background: #fff;
+                width: 588px;
+                height: 182px;
+                margin-top: 18px;
+            }
+
+                .current-state .state-info .express-con .express-title {
+                    border-bottom: 1px solid #b3dff2;
+                    height: 40px;
+                    width: 100%;
+                    text-align: center;
+                    line-height: 40px;
+                    color: #666;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                .current-state .state-info .express-con .express-info {
+                    overflow: auto;
+                    height: 118px;
+                    padding: 10px 0px 10px 20px;
+                    overflow-x: hidden;
+                    position: relative;
+                }
+
+                    .current-state .state-info .express-con .express-info ul {
+                        width: 100%;
+                    }
+
+                        .current-state .state-info .express-con .express-info ul li {
+                            width: 100%;
+                            line-height: 24px;
+                            margin-bottom: 6px;
+                            position: relative;
+                        }
+
+                            .current-state .state-info .express-con .express-info ul li:after {
+                                position: absolute;
+                                left: 3px;
+                                bottom: -7px;
+                                width: 2px;
+                                height: 13px;
+                                background: #ccc;
+                            }
+
+                            .current-state .state-info .express-con .express-info ul li em {
+                                width: 8px;
+                                height: 8px;
+                                border-radius: 8px;
+                                background: #ccc;
+                                display: inline-block;
+                                *display: inline;
+                                *zoom: 1;
+                                margin-top: -2px;
+                                *margin-top: 0;
+                                margin-right: 20px;
+                                vertical-align: middle;
+                            }
+
+                            .current-state .state-info .express-con .express-info ul li.on em {
+                                background: #ff6700;
+                            }
+
+                            .current-state .state-info .express-con .express-info ul li span {
+                                margin-right: 30px;
+                                color: #333;
+                                font-size: 14px;
+                                display: inline-block;
+                                *display: inline;
+                                *zoom: 1;
+                                vertical-align: top;
+                            }
+
+                                .current-state .state-info .express-con .express-info ul li span.express-text {
+                                    width: 330px;
+                                    margin-right: 0;
+                                }
+
+                                .current-state .state-info .express-con .express-info ul li span.notime {
+                                    width: 133px;
+                                }
+
+        .indicate-info {
+            width: 560px;
+            padding: 0 210px;
+            margin-bottom: 20px;
+        }
+
+            .indicate-info p {
+                height: 38px;
+                line-height: 38px;
+                position: relative;
+                padding-left: 40px;
+                border: 1px solid #b3dff2;
+                background: #f5fcff;
+                margin-bottom: 10px;
+            }
+
+                .indicate-info p span {
+                    color: #666;
+                    font-size: 14px;
+                }
+
+                    .indicate-info p span i {
+                        color: #3399ff;
+                    }
+
+                .indicate-info p em {
+                    position: absolute;
+                    left: 15px;
+                    top: 9px;
+                }
+
+        .order-desc {
+            width: 980px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+            .order-desc .desc-top {
+                width: 100%;
+                height: 50px;
+                background: #fbfbfb;
+                border-bottom: 1px solid #eee;
+                l;
+                line-height: 50px;
+                text-align: center;
+                font-family: "微软雅黑";
+                color: #333;
+                font-size: 18px;
+            }
+
+            .order-desc .desc-info {
+                padding: 20px 30px;
+                width: 520px;
+                float: left;
+            }
+
+                .order-desc .desc-info p {
+                    color: #666;
+                    font-size: 14px;
+                    line-height: 31px;
+                }
+
+                    .order-desc .desc-info p a {
+                        margin-left: 8px;
+                        display: inline-block;
+                    }
+
+                        .order-desc .desc-info p a img {
+                            vertical-align: middle;
+                        }
+
+                    .order-desc .desc-info p span i {
+                        color: #3399ff;
+                    }
+
+            .order-desc .order-price {
+                position: absolute;
+                height: 60px;
+                bottom: 8px;
+                right: 20px;
+                text-align: center;
+                line-height: 60px;
+                font-size: 14px;
+                color: #666;
+            }
+
+                .order-desc .order-price span {
+                    color: #ff6700;
+                    font-size: 24px;
+                    font-family: "微软雅黑";
+                }
+
+        .order-problem {
+            width: 980px;
+            height: 165px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+            .order-problem .problem-top {
+                width: 100%;
+                height: 35px;
+                border-bottom: 1px dotted #eee;
+                l;
+                line-height: 35px;
+                font-family: "微软雅黑";
+                color: #ff6700;
+                font-size: 14px;
+            }
+
+            .order-problem .problem-info {
+                padding: 8px 0;
+            }
+
+                .order-problem .problem-info p {
+                    color: #333;
+                    font-size: 12px;
+                    line-height: 24px;
+                }
+
+                    .order-problem .problem-info p a {
+                        color: #3399ff;
+                    }
+
+            .order-problem .more-help a {
+                color: #3166cd;
+                font-size: 12px;
+            }
+        /*.center {text-align: center;}*/
+        .actions, .action, .icon, .inline, i {
+            vertical-align: initial;
+        }
+
+        /*商品推荐*/
+        .maylove {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+            .maylove .maytit {
+                color: #ff9900;
+                font-size: 14px;
+                font-weight: bold;
+                padding-bottom: 10px;
+            }
+
+            .maylove .maycon {
+                width: 238px;
+                height: 180px;
+                border: 1px solid #dfdfdf;
+                float: left;
+                margin-right: 6px;
+            }
+
+                .maylove .maycon h2 {
+                    color: #303030;
+                    font-size: 14px;
+                    padding: 20px 0 0 8px;
+                    overflow: hidden;
+                    padding-bottom: 10px;
+                }
+
+                    .maylove .maycon h2 i {
+                        width: 16px;
+                        height: 16px;
+                        display: block;
+                        float: left;
+                        background: url("http://pic.7881.com/7881/common_7881/images/cash_ico.png") no-repeat;
+                        margin-right: 5px;
+                        margin-top: 2px;
+                    }
+
+                        .maylove .maycon h2 i.ico_ji {
+                            background-position: 0 -469px;
+                        }
+
+                        .maylove .maycon h2 i.ico_dan {
+                            background-position: 0 -490px;
+                        }
+
+                    .maylove .maycon h2 span {
+                        width: 195px;
+                        display: block;
+                        float: left;
+                        line-height: 20px;
+                        height: 40px;
+                        overflow: hidden;
+                    }
+
+                .maylove .maycon p {
+                    font-size: 12px;
+                    color: #888;
+                    line-height: 26px;
+                    padding-left: 10px;
+                }
+
+                .maylove .maycon h3 {
+                    padding: 10px 10px 0 10px;
+                    height: 28px;
+                }
+
+                    .maylove .maycon h3 span {
+                        float: left;
+                        color: #ff9900;
+                        font-size: 18px;
+                        font-family: arial;
+                        line-height: 28px;
+                    }
+
+                        .maylove .maycon h3 span em {
+                            font-size: 16px;
+                            font-family: "microsoft yahei";
+                        }
+
+                    .maylove .maycon h3 a {
+                        display: block;
+                        background: #ff9900;
+                        width: 75px;
+                        text-align: center;
+                        float: right;
+                        height: 28px;
+                        line-height: 28px;
+                        color: #fff;
+                        font-size: 12px;
+                        font-weight: normal;
+                        border-radius: 4px;
+                    }
+
+                .maylove .maycon.lstdiv {
+                    margin-right: 0;
+                }
+
+        /*王者荣耀皮肤弹框*/
+        .quyz-pop.layui-layer {
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .quyz-wrap {
+            display: none;
+        }
+
+        .quyz {
+            width: 430px;
+            height: 330px;
+            text-align: center;
+            position: relative;
+            background: url("http://pic.7881.com/7881/market/images/quyz-pop-bg.png") no-repeat;
+        }
+
+            .quyz .close {
+                display: block;
+                width: 32px;
+                height: 32px;
+                position: absolute;
+                right: 0;
+                top: 14px;
+            }
+
+            .quyz h2 {
+                font-size: 24px;
+                color: #218bf4;
+                font-family: "microsoft yahei";
+                font-weight: normal;
+                padding-top: 130px;
+                margin-bottom: 2px;
+            }
+
+            .quyz h3 {
+                font-size: 18px;
+                color: #8ab9f8;
+                font-family: "microsoft yahei";
+                font-weight: normal;
+                margin-bottom: 50px;
+            }
+
+            .quyz p a {
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                width: 240px;
+                height: 48px;
+                line-height: 48px;
+                border-radius: 48px;
+                background: #3399ff;
+                color: #fff;
+                font-size: 20px;
+                font-family: "microsoft yahei";
+                text-align: center;
+            }
+
+                .quyz p a:hover {
+                    text-decoration: none;
+                }
+
+        /*评价框*/
+        .evaluate {
+            display: none;
+        }
+
+        .evaluate-box {
+            width: 476px;
+        }
+
+            .evaluate-box .pj-all-con {
+                height: 490px;
+                overflow: auto;
+                margin-bottom: 61px;
+            }
+
+            .evaluate-box .newbtn {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 476px;
+                background: #fff;
+                border-top: 1px solid #eee;
+                padding: 10px 0;
+            }
+
+                .evaluate-box .newbtn a {
+                    min-width: 390px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                }
+
+                    .evaluate-box .newbtn a span {
+                        padding-right: 5px;
+                    }
+
+            .evaluate-box .dstit {
+                height: 28px;
+                margin-bottom: 16px;
+                text-align: center;
+            }
+
+                .evaluate-box .dstit p {
+                    height: 26px;
+                    line-height: 26px;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                    border: 1px solid #f5be4d;
+                    font-size: 12px;
+                    padding-right: 10px;
+                    border-radius: 3px;
+                    color: #f5be4d;
+                }
+
+                    .evaluate-box .dstit p span {
+                        color: #fff;
+                        background: #f5be4d;
+                        padding: 7px 12px;
+                        margin-right: 10px;
+                    }
+
+            .evaluate-box .dslist {
+                overflow: hidden;
+                padding-left: 25px;
+            }
+
+                .evaluate-box .dslist dl {
+                    width: 90px;
+                    float: left;
+                    text-align: center;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+
+                    .evaluate-box .dslist dl dt {
+                        width: 88px;
+                        height: 98px;
+                        border: 1px solid #d7d7d7;
+                        border-radius: 3px;
+                    }
+
+                        .evaluate-box .dslist dl dt img {
+                            padding: 8px 0;
+                        }
+
+                    .evaluate-box .dslist dl dd {
+                        font-size: 14px;
+                        color: #888;
+                        line-height: 30px;
+                    }
+
+                    .evaluate-box .dslist dl.on dt {
+                        background: #fff8f4;
+                        border: 1px solid #ff6700;
+                        color: #ff6700;
+                    }
+
+        /*左侧扫码*/
+        .ddxf {
+            position: fixed;
+            top: 183px;
+            right: 50%;
+            margin-right: 509px;
+        }
+
+        /*提取密码*/
+        .status_con {
+            float: left;
+            overflow: hidden;
+        }
+
+            .status_con li {
+                line-height: 20px;
+                padding: 4px 0;
+                text-align: left;
+                overflow: hidden;
+            }
+
+                .status_con li label {
+                    width: 70px;
+                    float: left;
+                    text-align: right;
+                }
+
+        .status_text {
+            padding-left: 76px;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .bail_notopeneds {
+            background: #ffeaea;
+            border: solid #ffabab 1px;
+            padding: 10px;
+            text-align: left;
+            width: 300px;
+        }
+
+        /*确认支付密码弹框*/
+        .surepass.layui-layer {
+        }
+
+        .surepass .layui-layer-content {
+            padding-bottom: 20px;
+        }
+
+        .surepass h3 {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 66px;
+        }
+
+        .surepass .layui-layer-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            font-family: "microsoft yahei";
+        }
+
+        .surepass p {
+            font-size: 14px;
+            line-height: 30px;
+            padding-left: 42px;
+            margin-bottom: 10px;
+        }
+
+            .surepass p i {
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                width: 80px;
+                text-align: right;
+            }
+
+            .surepass p em {
+                color: #333;
+                font-weight: bold;
+                margin-left: 5px;
+            }
+
+            .surepass p input {
+                height: 28px;
+                line-height: 28px;
+                padding: 0 5px;
+                border: 1px solid #ddd;
+                font-size: 14px;
+                margin-left: 5px;
+            }
+
+                .surepass p input.yzmtxt {
+                    width: 120px;
+                }
+
+            .surepass p span {
+                font-size: 12px;
+                line-height: 20px;
+                color: #ff6700;
+                padding-left: 84px;
+                display: none;
+            }
+
+            .surepass p a {
+                display: inline-block;
+                width: 74px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                margin-left: 10px;
+                background: #ccc;
+                color: #888;
+                border: 1px solid #dddddd;
+            }
+
+                .surepass p a.on {
+                    color: #333;
+                    background: #f2f2f2;
+                }
+
+        .surepass h4 {
+            text-align: center;
+            font-weight: normal;
+            padding-top: 5px;
+        }
+
+            .surepass h4 a {
+                display: inline-block;
+                width: 120px;
+                margin: 0 10px;
+            }
+
+                .surepass h4 a.btnpass {
+                    background: #3399ff;
+                    color: #fff;
+                    font-size: 16px;
+                    border-radius: 3px;
+                    height: 36px;
+                    line-height: 36px;
+                }
+
+                .surepass h4 a.nextbtn {
+                    background: #f2f2f2;
+                    color: #666;
+                    font-size: 16px;
+                    border-radius: 3px;
+                    height: 36px;
+                    line-height: 36px;
+                    border: 1px solid #ddd;
+                    box-sizing: border-box;
+                }
+
+                .surepass h4 a.forpwd {
+                    color: #39f;
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+function toadd(){
+	if('119831551' == '117575680'){
+		alert("该用户禁止充值");
+	}else{
+		window.location.href="/financecharge/toAdd.action";
+	}
+}
+    </script>
+
+    <div class="top_box">
+        <div class="top">
+            <!--顶部区域-->
+            <div class="top_l left"><dl><span id="span_user"><dt>你好！欢迎访问7881</dt><dt><a href="/7881_touristlogin.jsp" class="blue" rel="nofollow">登录</a></dt><dt><a href="/reg_tel.jsp" class="blue" rel="nofollow">免费注册</a></dt></span></dl></div><!--顶部左侧-->
+
+            <div class="top_r right">
+                <!--顶部右侧-->
+                <dl>
+                    <dt><a href="http://www.7881.com/" rel="nofollow">首页</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="/personal.html" rel="nofollow">买家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a></li>
+                            <li><a href="/gamelistshow.html" rel="nofollow">我要买</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="/personal.html">卖家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a></li>
+                            <li><a href="/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
+                            <li><a href="/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a></li>
+                            <li><a href="/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a></li>
+                            <li><a href="http://sellertools.7881.com" target="_blank">卖家助手</a></li>
+                            <li><a href="/release.html" rel="nofollow">我要卖</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="javascript:toadd()" class="green" rel="nofollow">充值</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="/financecharge/toAddExtractcash.action" class="orange" rel="nofollow">提现</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="#" rel="nofollow">服务中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/sc/sc_index.html" rel="nofollow">客服中心</a></li>
+                            <li><a href="/helpCenter.html" rel="nofollow">帮助中心</a></li>
+                            <li><a href="/articlelist4-0-0.html" rel="nofollow">资讯中心</a></li>
+                            <li><a href="/tradesafe.html" rel="nofollow">安全中心</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav wb">
+                        <a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a>
+                        <ul id="hide_nav">
+                            <li class="xn"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">新浪微博</a></li>
+                            <li class="tx"><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow">腾讯微博</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+	/// 判断是否登录
+	document.domain="7881.com";
+	jQuery.ajax({
+		type : 'get',
+		url : '/loginCheckReturn.action?ip=' + Math.round(Math.random()*10000),
+		success : function(resultData) {
+			var result = resultData.split('#');
+			if(result[0] == '500')
+			{
+				location.href="/7881_touristlogin.jsp";
+			}
+			else if (result[0] == '200' && result.length > 2) {
+				 jQuery('#span_user').empty();
+				 if(result[2]!='0'){
+				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message_open">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
+				 }else{
+				 	htmlText = '<dt><a rel="nofollow" href="/personal.html">'+result[1]+'</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/msg/notReadMsg.action" rel="nofollow"><i class="ico_message">[' + result[2] + ']</i></a></dt><dt class="top_grayline">|</dt><dt><a href="/logout.action" rel="nofollow">退出</a></dt>';
+				 }
+				 jQuery('#span_user').html(htmlText);
+			}
+		}
+	});
+    </script>
+    <div class="w980">
+
+
+        <a href="http://act.7881.com/pc/20171201-dnfhd.html" target="_blank">
+            <img src="http://pic.7881.com/7881-2016/images/dnf_mxd.jpg" />
+        </a>
+
+
+        <div class="comHead">
+            <h1><a href=""><img src="http://pic.7881.com/7881/market/images/order-detail/logo.png" height="50" width="236" alt="" /></a></h1>
+        </div>
+        <div id="autoReload">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <img src="http://pic.7881.com/7881/market/images/order-detail/buy-flow-01.png" width="982" height="44" />
+
+
+
+            <div style="width:100%; height:20px;"></div>
+            <div class="current-state" style="width: 760px; padding-right: 10px;">
+                <div class="state-info">
+                    <div class="state-top">
+                        <h2>
+                            当前状态：<span>
+
+
+
+
+
+
+
+
+                                正在发货
+
+
+                            </span>
+                        </h2>
+
+
+
+
+
+
+
+
+
+
+
+                        <p>我们已为您联系卖家进行发货，请您耐心等待！<em class="c999">（卖家发货后请您在<b class="c39f">半小时内</b>确认收货，否则将为您<b class="c39f">自动确认收货</b>）</em></p>
+                        <p>
+                            若长时间仍然未收到货物，您也可以:<br>
+                            1. 再次<a href="javascript:void(0)" class="tt-btn contsel-btn disabled">提醒卖家发货</a>
+                            <span class="time-item"><em id="minute_show">0分</em><em id="second_show">00秒</em>后再试</span>
+                            <br>
+                            2.
+
+
+                            请求客服小妹
+                            <a href="javascript:void(0)" class="tt-btn contkf-btn">联系客服小妹</a>
+
+
+
+                        </p>
+
+
+
+                    </div>
+                    <div class="express-con">
+                        <div class="express-title">
+                            您的物流信息
+                        </div>
+                        <div class="express-info">
+                            <ul>
+
+                                <li>
+                                    <em></em>
+                                    <span>2017-12-09 02:31:16</span>
+                                    <span class="express-text">订单支付成功</span>
+                                </li>
+
+                                <li>
+                                    <em></em>
+                                    <span>2017-12-09 02:30:22</span>
+                                    <span class="express-text">订单创建成功</span>
+                                </li>
+
+                                <li class="on">
+                                    <em></em>
+                                    <span>2017-12-09 02:33:14</span>
+                                    <span class="express-text">
+                                        订单 1 正在处理，发货数量：2830, 预计 4.8 分钟完成。
+                                        订单 2 待处理，发货数量：374, 预计 14.4 分钟完成。
+                                        订单 3 待处理，发货数量：374, 预计 19.2 分钟完成。
+                                        订单 4 正在处理，发货数量：1430, 预计 4.8 分钟完成。
+                                        订单 5 正在处理，发货数量：2576, 预计 4.8 分钟完成。
+                                        订单 6 待处理，发货数量：1430, 预计 9.6 分钟完成。
+                                    </span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-state-left"><img src="http://pic.7881.com/7881/market/images/order-detail/icon-duihao.png" width="52" height="52" alt="" /></div>
+
+
+            </div>
+
+
+            <script>
+    var substatus = "2";
+    var windowInterval;
+    if(substatus == "6" || substatus == "60"){
+        clearInterval(windowInterval);
+    }
+            </script>
+        </div>
+
+        <div style="width:100%; height:20px;"></div>
+
+
+
+        <!-- how to buy end-->
+
+
+
+
+
+
+
+
+
+
+
+        <div class="order-desc">
+            <div class="desc-top">您的订单详情</div>
+
+
+
+
+
+
+            <div class="desc-info">
+
+                <p><label>订单编号： </label><span>127120915127578210008991</span><a class="copy-btn" href="javascript:void(0);" onclick="copyContent('127120915127578210008991', '')"><img src="http://pic.7881.com/7881/market/images/order-detail/btn-copy.png" /></a></p>
+                <p><label>商品标题： </label><span><i>7210万金=150.00元</i></span></p>
+                <p><label>游戏区服： </label><span>地下城与勇士 /上海区 /上海2区 </span></p>
+                <p><label>物品类型： </label><span>游戏币</span></p>
+                <p><label>购买数量： </label><span>7210万金</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <p><label>收货角色： </label><span>启明星的碎片</span></p>
+
+
+
+
+            </div>
+
+
+
+
+
+            <div style="margin-top: 252px;height: 40px;"></div>
+            <div class="order-price">订单总额：<span>150.00</span>元</div>
+        </div>
+
+        <div class="clear beforeMyLove" style="margin-top: -20px;"></div>
+
+        <div class="order-problem">
+            <div class="problem-top">订单遇到问题</div>
+            <div class="problem-info">
+                <p>
+                    1.订单号无效，怎么回事啊？<br />
+                    回答：请确保您的订单成功支付了，否则无法成功取货哦。
+                </p>
+                <p>
+                    2.账号订单图片看不清或不满意？<br />
+                    回答：账号图片不清晰或被遮挡，请点击图片右下角的换一换查看最新图片；账号图片查看不满意或未展示关键内容，您可联系订单客服，为您重新截取相关图片。
+                </p>
+            </div>
+            <div class="more-help">
+                <a href="/helpcenter.html">更多帮助</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="evaluate">
+        <div class="evaluate-box">
+            <div class="pj-all-con">
+                <div class="evaluate-tips"><em><img src="http://pic.7881.com/7881/market/images/ld-icon.png" width="15" height="16" alt="" /></em><span>请您针对此次交易做出评价！</span></div>
+                <dl class="zh-pj pj-com">
+                    <dt><img src="http://pic.7881.com/7881/market/images/zhpj-icon.png" alt="" /></dt>
+                    <dd>
+                        <h5><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span></h5>
+                        <p></p>
+                    </dd>
+                </dl>
+                <div class="pjyx-tit"><em class="line-l"></em><p>对本次交易的印象</p><em class="line-r"></em></div>
+                <div class="zh-yx pjyx-box">
+                    <ul></ul>
+                </div>
+                <div class="pj-textarea appraiseTrade">
+                    <textarea placeholder="聊聊针对此次交易的感受！" maxlength="200"></textarea>
+                    <span><em>0</em>/200</span>
+                </div>
+                <dl class="kf-pj pj-com">
+                    <dt><img src="http://pic.7881.com/7881/market/images/kfpj-icon.png" alt="" /></dt>
+                    <dd>
+                        <h5><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span></h5>
+                        <p></p>
+                    </dd>
+                </dl>
+                <div class="pjyx-tit"><em class="line-l"></em><p>对本次服务的印象</p><em class="line-r"></em></div>
+                <div class="kf-yx pjyx-box">
+                    <ul></ul>
+                </div>
+                <div class="pj-textarea appraiseKefu">
+                    <textarea placeholder="聊聊针对此次客服服务的感受！" maxlength="200"></textarea>
+                    <span><em>0</em>/200</span>
+                </div>
+                <div class="dstit">
+                    <p><span>打赏客服</span>客服小妹很辛苦，客官大人请打赏（自愿非强迫）</p>
+                </div>
+                <div class="dslist rewardList"></div>
+                <div class="pj-btn newbtn"><a href="javascript:void(0)">打完收工</a></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="quyz-wrap" style="display: none;">
+        <div class="quyz">
+            <a href="javascript:layer.closeAll()" class="close"></a>
+            <h2>请及时去除QQ好友验证问题</h2>
+            <h3>方便卖家添加好友发货，谢谢配合</h3>
+            <p><a href="javascript:layer.closeAll()">好的，朕知道了</a></p>
+        </div>
+    </div>
+
+    <div class="ddxf">
+        <img src="http://pic.7881.com/7881-2016/images/dd-ewm.png" width="140" height="240">
+    </div>
+
+
+    <div class="surepwd" style="display: none;">
+        <h3>为确保账户安全，请校验支付密码并完成交易</h3>
+        <p><i>支付密码:</i><input type="password" placeholder="请输入支付密码" class="pwdtxt" autocomplete="off"></p>
+        <p><span>密码填写错误！</span></p>
+        <h4><a href="javascript:void(0)" class="btnpass">确认</a></h4>
+        <h4><a href="/commerical/toFindTransactionPassword.action" class="forpwd" target="_blank">忘记支付密码</a></h4>
+    </div>
+    <div class="iptyzm" style="display: none;">
+        <h3>为确保账户安全，请校验短信验证码并完成交易</h3>
+        <p><i>当前手机:</i><em id="validatePhone"></em></p>
+        <p><i>短信验证码:</i><input type="text" placeholder="请输入短信验证码" class="yzmtxt" maxlength="6"><a href="javascript:void(0)" class="getyzm on">获 取</a></p>
+        <p><span>验证码填写错误！</span></p>
+        <h4><a href="javascript:void(0)" class="btnpass">确认</a></h4>
+    </div>
+    <div class="nobang" style="display: none;">
+        <h3>为确保账户安全，请先绑定手机号码</h3>
+        <h4><a href="/commerical/toEditPhone.action" class="btnpass" target="_blank">立即绑定</a><a href="javascript:layer.closeAll()" class="nextbtn">下次绑定</a></h4>
+    </div>
+
+
+    <!-- 实际开发直接去掉 -->
+    <!--  -->
+    <!--底部开始-->
+    <div class="clear"></div>
+    <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+    <div class="clear"></div>
+    <div class="foot">
+        <div class="center foot_wenzi">
+            <a href="http://www.7881.com/aboutus.html" target="_blank" class="hs" rel="nofollow">&nbsp;关于我们&nbsp;</a> |
+            <a href="http://www.7881.com/contactus.html" target="_blank" class="hs" rel="nofollow">&nbsp;联系我们&nbsp;</a> |
+            <a href="http://www.7881.com/copyright.html" target="_blank" class="hs" rel="nofollow">&nbsp;免责声明&nbsp;</a> |
+            <a href="http://www.7881.com/hr.html" target="_blank" class="hs" rel="nofollow">&nbsp;诚聘英才&nbsp;</a> |
+            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" class="hs" rel="nofollow">&nbsp;家长监护&nbsp;</a> |
+            <a href="http://www.7881.com/cooperation.html" target="_blank" class="hs" rel="nofollow">&nbsp;商务合作&nbsp;</a> |
+            <a href="http://www.7881.com/sitemap.html" target="_blank" class="hs">&nbsp;网站地图&nbsp;</a> |
+            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank" class="hs">&nbsp;媒体声音&nbsp;</a> <br />
+            Copyright Reserved 2008-2016 &copy; 7881游戏交易   网络文化经营许可证：
+            <a href="http://www.7881.com/contectus/lianxiwomen.jsp" target="_blank" class="hs" rel="nofollow">苏网文[2015]2034-038号</a>
+            网站备案-<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="hs">苏B1-20110004-4</a>
+        </div>
+        <div class="mb10 center cent">
+            <a target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn"><img src="http://pic.ofcard.com/7881/market/images/foot_1.png" /> 网站备案信息</a>
+            <a target="_blank" rel="nofollow" href="http://www.cyberpolice.cn/wfjb/"><img src="http://pic.ofcard.com/7881/market/images/foot_2.png" /> 网络警察</a>
+            <a target="_blank" rel="nofollow" href="https://www.alipay.com"><img src="http://pic.ofcard.com/7881/market/images/foot_3.png" /> 支付宝特约商户</a>
+            <a target="_blank" rel="nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804"><img src="http://pic.ofcard.com/7881/market/images/foot_6.png" /> 安全联盟</a>
+            <a target="_blank" rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B"><img src="http://pic.7881.com/7881/market/images/foot_8.png" /> 中国文化部</a>
+
+        </div>
+        <div class="tleft"></div>
+    </div>
+    <!--底部结束-->
+    <script type="text/javascript">
+function goTopEx(){
+        var obj=document.getElementById("goTopBtn");
+        function getScrollTop(){
+                return document.documentElement.scrollTop;
+            }
+        function setScrollTop(value){
+                document.documentElement.scrollTop=value;
+            }
+        window.onscroll=function(){getScrollTop()>0?obj.style.display="":obj.style.display="none";}
+        obj.onclick=function(){
+            var goTop=setInterval(scrollMove,10);
+            function scrollMove(){
+                    setScrollTop(getScrollTop()/1.1);
+                    if(getScrollTop()<1)clearInterval(goTop);
+                }
+        }
+    }
+    </script>
+    <DIV style="DISPLAY: none" id="goTopBtn"><IMG border=0 src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部"></DIV>
+    <SCRIPT type=text/javascript>goTopEx();</SCRIPT>
+    <div style="display: none;">
+        <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6fb35abaf76325a4316e33e23c984e73' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44365965-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+        </script>
+    </div>
+    <!-- 实际开发直接去掉 -->
+    <script type="text/javascript" src="http://pic.7881.com/7881/market/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://pic.7881.com/7881/market/js/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/popup/popup.js"></script>
+    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/slide.js"></script>
+    <script type="text/javascript" src="http://pic.7881.com/7881/market/js/customer-service.js"></script>
+    <script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAwMzAwNl80NzY3ODlfNDAwODM2Nzg4MV8"></script>
+
+    <script type="text/javascript">
+	var subbillid = "117120915127578210489097";
+	var leftTimes = "0";
+	var leftTime =parseInt("116");
+	var checkBuyerMsg = "0";
+	var gameId = "G10";
+	var salerId = "112348969";
+	var kfqq = "";
+	var kfId = "";
+	var gtId = "100001";
+	var tradeType = "2";
+	var sellerId = "112348969";
+	var dm = "0";// 0为端游 1为手游;
+	var interval;
+	var groupId = "G10P001";
+	var serverId = "G10P001039";
+
+	var inform_maxnum = parseInt("1");//最大通知次数
+	var inform_time = parseInt("5");//间隔时间
+	var inform_time_getmsg = parseInt("10");//已获取买家信息后通知间隔时间
+
+	/*选择确认支付校验方式*/
+	var validateType,validateCode;
+	function chooseValidateType(){
+		var url = "/payment/queryUserPaymentValidateType.action";
+		var data = {};
+		var successFun = function(result){
+			if(result.code == "2"){
+				alert(result.msg)
+			}else{
+				validateType = result.data.validateType;
+				var type = result.data.validateType;
+				if(type == "paymentPassword"){
+					popValidateTip(".surepwd");
+				}else if(type == "phone"){
+					$("#validatePhone").html(result.data.validatePhone);
+					popValidateYZM();
+				}else{
+					popValidateTip(".nobang");
+				}
+			}
+		};
+		var errorFun = function(result){
+			alert("网络异常，请稍候再试！");
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	function insertOrderFlow(){
+		var substatus="2";
+		var subbillid="117120915127578210489097";
+		var superbillid="127120915127578210008991";
+		if(substatus!='18' && substatus!='17'){
+			alert("确认失败");
+		}else{
+			$.ajax({
+				type: 'post',
+				url:"/payment/insertOrderFlow_buy.action",
+				data:{outId:subbillid,flag:'0',orderid:superbillid,substatus:substatus,"validateCode":validateCode,"validateType":validateType},
+				async:false,
+				cache:false,
+				success:function(json){
+					if(json=="yes"){
+						layer.closeAll();
+						alert("操作成功");
+						evaluatePop();//评价弹框
+					}else if(json=="no"){
+						alert("操作失败");
+					}else{
+						alert(json);
+					}
+				}
+			});
+		}
+	}
+
+	function copyContent(content, type){
+		if(window.clipboardData){
+			window.clipboardData.clearData();
+			window.clipboardData.setData("text", content);
+			alert((type == 'qq' ? '客服QQ号' : '订单编号') + '已经复制到粘贴板！');
+		}else{
+			prompt('你使用的是非IE核心浏览器，请按下 Ctrl+C 复制代码到剪贴板', content);
+		}
+	}
+
+	$(function(){
+
+		alertWzryTip();
+		mdxDlTip();
+		getOrderEvaluLabel();//初始化页面获取评价标签
+		getRewardGoods();//获取打赏商品及事件
+
+
+		//点击星星评分
+		$("body").on("click",".pj-com h5 span",function(){
+			var pj_type;
+			var star_num;
+			if($(this).parents(".pj-com").hasClass("zh-pj")){
+				$(this).parent().find("span").removeClass("star-pj-on");
+				$(this).addClass("star-pj-on").prevAll("span").addClass("star-pj-on");
+				pj_type = 1;
+				star_num = $(this).index()+1;
+			}else if ($(this).parents(".pj-com").hasClass("kf-pj")){
+				$(this).parent().find("span").removeClass("star-pj-on");
+				$(this).addClass("star-pj-on").prevAll("span").addClass("star-pj-on");
+				pj_type = 2;
+				star_num = $(this).index()+1;
+			};
+			evaHandle(pj_type,star_num)
+		});
+
+		//点击印象评价
+		$("body").on("click",".pjyx-box ul li",function(){
+			$(this).toggleClass("on");
+		});
+
+		//点击打完收工
+		$("body").on("click",".pj-btn a",function(){
+			commentKefu();
+		});
+
+		onloadCallBack();//部分需要初始化的方法
+
+		/*10自动刷新详情页，刷新部分区域*/
+		if(substatus != "6" && substatus != "60") {
+			windowInterval = window.setInterval(function autoReload(){
+				$("#autoReload").load("/orderDetail/autoReload.action",
+						{"subbillid":"117120915127578210489097",
+							"gameid":"G10",
+							"gtid":"100001",
+							"kfqq":"",
+							"isAuto":"0",
+							"sellerQQ":"",
+                    		"kfNickName":""},
+						function(result,status,xhr){
+							onloadCallBack();
+						}
+				);
+			},1000 * 60 * 3);
+
+			fullPageRefurbish();//全页面刷新
+		}
+
+		myLoveGoods();
+	});
+
+	/*弹出验证的提示框、或输入框*/
+	function popValidateTip(className){
+		var surepwd = $(className).html();
+		layer.open({
+			type: 1,
+			title:'确认收货',
+			skin: 'surepass', //加上边框
+			area: '380px', //宽高
+			content: surepwd,
+			success: function(){
+				$(".layui-layer").find(".btnpass").click(function(){
+					var pwdtxt = $(".layui-layer").find(".pwdtxt").val();
+					if(pwdtxt!=""){
+						$(".layui-layer").find("p span").hide();
+						validateCode = pwdtxt;
+						if(validateType == "paymentPassword"){
+							insertOrderFlow();
+						}else{
+							layer.closeAll();
+						}
+					}else{
+						$(".layui-layer").find("p span").show();
+					}
+				});
+			},
+			end:function(){
+				$(".layui-layer").find(".pwdtxt").val("");
+				$(".layui-layer").find("p span").hide();
+			}
+		});
+	}
+
+	/*弹出手机验证码输入提示框*/
+	function popValidateYZM(){
+		var iptyzm = $(".iptyzm").html();
+		layer.open({
+			type: 1,
+			title:'确认收货',
+			skin: 'surepass', //加上边框
+			area: '380px', //宽高
+			content: iptyzm,
+			success: function(){
+				$(".layui-layer").find(".btnpass").click(function(){
+					var yzmtxt = $(".layui-layer").find(".yzmtxt").val();
+					if(yzmtxt!=""){
+						$(".layui-layer").find("p span").hide();
+						validateCode = yzmtxt;
+						insertOrderFlow();
+					}else{
+						$(".layui-layer").find("p span").show();
+					}
+				});
+
+				$(".layui-layer").find(".getyzm").click(function(){
+					var count = 60;
+					if($(this).hasClass("on")){
+						sendPhoneCode();
+						$(this).removeClass("on");
+						var t = setInterval(function(){
+							count--;
+							$(".layui-layer").find(".getyzm").text(count+"s");
+							if(count <= 0) {
+								clearInterval(t);
+								$(".layui-layer").find(".getyzm").text("获 取");
+								$(".layui-layer").find(".getyzm").addClass("on");
+							}
+						}, 1000);
+					}
+				});
+			},
+			end:function(){
+				$(".layui-layer").find(".yzmtxt").val("");
+				$(".layui-layer").find("p span").hide();
+			}
+		});
+	}
+	/*发送短信验证码*/
+	function sendPhoneCode(){
+		var url = "/payment/sendPhoneValidateCode.action";
+		var data = {"type":"paymentValidateCode"};
+		var successFun = function(result){
+			if(result.code == "2"){
+				alert(result.msg);
+			}
+		};
+		var errorFun = function(result){
+
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	function onloadCallBack(){
+		/*初始化页面倒计时 start*/
+		if(leftTimes >= inform_maxnum || leftTimes == -1 || substatus == '18' || substatus == '17' || substatus == "6" || substatus == "60" || kfqq != ""){
+		}else{
+			informToSaler();
+			if(leftTime){
+				var leftTime_temp;
+				if(checkBuyerMsg == "1"){
+					leftTime_temp = inform_time_getmsg * 60 - leftTime;
+				}else{
+					leftTime_temp = inform_time * 60 - leftTime;
+				}
+				if(leftTime_temp > 0){
+					$(".contsel-btn").removeClass("show").addClass("hide").parent().find(".time-item").removeClass("hide").addClass("show");
+					clearInterval(interval);
+					timer(leftTime_temp);
+				}else{
+					$(".contsel-btn").removeClass("disabled");
+				}
+			}else{
+				$(".contsel-btn").removeClass("disabled");
+			}
+		}
+		/*初始化页面倒计时 end*/
+
+		/*点击联系客服小妹*/
+		$(".contkf-btn").click(function(){
+			if(substatus == "6" || substatus == "60" || substatus == "4" || substatus == "1" || substatus == "0"){
+				getZXKFQQ();
+			}else{
+				getKefuList();
+			}
+		});
+	}
+
+	/*点击提醒卖家发货*/
+	function informToSaler(){
+		$(".contsel-btn").click(function(){
+			if($(this).hasClass("disabled")){
+				return false;
+			}
+			if(leftTimes >= inform_maxnum){
+				alert("最多提醒"+inform_maxnum+"次！");
+				return false;
+			}else if(leftTimes == -1){
+				alert("暂时不能提醒卖家发货！");
+				return false;
+			}else if(substatus == '18' || substatus == '17' || substatus == "6" || substatus == "60"){
+				alert("订单已发货或已完成，不可以提醒卖家发货！");
+				return false;
+			}else if(kfqq != ""){
+				alert("订单已分配客服，不可以联系卖家！");
+				return false;
+			}
+			leftTimes ++;
+
+			if(dm == "0"){
+				informBuyer("1");
+			}else{
+				informBuyer("5");
+			}
+
+			layer.open({
+				type: 1,
+				skin: 'com-popup',
+				area: '400px',
+				title:"提 示",
+				move: false,
+				shadeClose: false,
+				content: '<div class="compop-box">'+
+				'<h2>已经为您联系卖家进行发货，请耐心等待！</h2>'+
+				'<p class="popup-btn"><a href="javascript:void(0)" class="qr">我知道了</a></p>'+
+				'</div>',
+				success:function(){
+					if(leftTimes >= inform_maxnum){
+						$(".contsel-btn").off("click");
+						$(".contsel-btn").addClass("disabled");
+					}else{
+						$(".contsel-btn").removeClass("show").addClass("hide").parent().find(".time-item").removeClass("hide").addClass("show");
+						leftTime = 1;
+						timer(checkBuyerMsg == "1" ? inform_time_getmsg*60-1 : inform_time*60-1);
+					}
+					$(".qr").click(function(){
+						layer.closeAll();
+					});
+				}
+			});
+		});
+	}
+
+	/*点击星星回调*/
+	var descArray_zh = ["一星描述","二星描述","三星描述","四星描述","五星描述"];
+	var descArray_kf = ["一星描述","二星描述","三星描述","四星描述","五星描述"];
+	function evaHandle(pj_type,star_num){ // pj_type:1为综合评价 2为客服评价; star_num:星星数量;
+		// 变更html示例：
+		if(pj_type == 1){
+			$(".evaluate-popup").find(".zh-pj").find("dd").find("p").html(descArray_zh[star_num-1]);
+			$(".evaluate-popup").find(".zh-yx").find("ul").html(labelArray_zh[star_num-1]);
+		}else if (pj_type == 2){
+			$(".evaluate-popup").find(".kf-pj").find("dd").find("p").html(descArray_kf[star_num-1]);
+			$(".evaluate-popup").find(".kf-yx").find("ul").html(labelArray_kf[star_num-1]);
+		}
+	}
+
+	/*评价弹出层*/
+	function evaluatePop(){
+		if(!kfId){
+			$(".appraiseTrade").nextUntil(".pj-btn").addClass("hide");
+		}
+		var _html = $(".evaluate").html();
+		layer.open({
+			type:1,
+			skin: 'evaluate-popup',
+			title:"邀请您吐槽我们",
+			move: false,
+			shadeClose: true,
+			scrollbar: false,
+			content: _html,
+			end:function(){
+				history.go(0);
+			}
+		});
+	}
+	//评价字数限制
+	$(document).on('input propertychange', '.pj-textarea textarea', function() {
+		var rem = $(this).val().length;
+		$(this).parent().find("em").text(rem);
+	});
+
+	/*获取评价标签*/
+	var labelArray_zh = [];//综合评价标签数组
+	var labelArray_kf = [];//客服评价标签数组
+	function getOrderEvaluLabel(){
+		var data = {};
+		var url = "/orderDetail/getOrderEvaluLabel.action";
+		var successFun = function(result){
+			if(result.data.list_zh){
+				var array_zh = result.data.list_zh;
+				var html = "";
+				var starLevel = 1;
+				$.each(array_zh,function(i,obj){
+					if(starLevel != obj.starLevel){
+						starLevel = obj.starLevel;
+						labelArray_zh.push(html);
+						html = "";
+					}
+					html += "<li>"+ obj.labelName+"</li>";
+				});
+				labelArray_zh.push(html);
+			}
+
+			if(result.data.list_kf){
+				var array_kf = result.data.list_kf;
+				var html = "";
+				var starLevel = 1;
+				$.each(array_kf,function(i,obj){
+					if(starLevel != obj.starLevel){
+						starLevel = obj.starLevel;
+						labelArray_kf.push(html);
+						html = "";
+					}
+					html += "<li>"+ obj.labelName+"</li>";
+				});
+				labelArray_kf.push(html);
+			}
+
+			evaHandle(1,1);
+			evaHandle(2,1);
+		};
+		var errorFun = function(result){
+
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*客服订单评价*/
+	function commentKefu(){
+		var appraiseTrade = $(".layui-layer").find(".appraiseTrade > textarea").val();
+		var appraiseKefu = $(".layui-layer").find(".appraiseKefu > textarea").val();
+
+		var starLevel_zh = $(".zh-pj h5 .star-pj-on").length;
+		var starLevel_kf = $(".kf-pj h5 .star-pj-on").length;
+
+		var labelName_zh = "";
+		var labelName_kf = "";
+		$(".zh-yx ul .on").each(function(i,o){
+			labelName_zh += $(o).html() + ",";
+		});
+		$(".kf-yx ul .on").each(function(i,o){
+			labelName_kf += $(o).html() + ",";
+		});
+		labelName_zh = labelName_zh.substr(0,labelName_zh.length-1);
+		labelName_kf = labelName_kf.substr(0,labelName_kf.length-1);
+		var data = {
+			"starLevel_zh":starLevel_zh,
+			"starLevel_kf":starLevel_kf,
+			"labelName_zh":labelName_zh,
+			"labelName_kf":labelName_kf,
+			"appraiseTrade":appraiseTrade,
+			"appraiseKefu":appraiseKefu,
+			"subbillid":subbillid
+		};
+		var url = "/orderDetail/commentKefu.action";
+		var successFun = function(result){
+			var rewardGoodsId = $(".rewardList > dl").filter("[class='on']").attr("goodsId");
+			var rewardPrice = $(".rewardList > dl").filter("[class='on']").attr("price");
+			if(rewardGoodsId){
+				window.open("http://www.7881.com/procurement/purchaseOfCardGoods.action?ofCardSubmitBean.toolGoodsId="+rewardGoodsId+"&ofCardSubmitBean.cardNum=1&ofCardSubmitBean.cardFinalMoney="+rewardPrice+"&outOrderId="+subbillid+"&kfid="+kfId+"&random="+Math.random());
+			}
+			layer.closeAll();
+		};
+		var errorFun = function(result){
+			alert("网络异常！");
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*异步通知买家*/
+	function informBuyer(type){
+		var data = {"subbillid":subbillid,"type":type};
+		var url = "/orderDetail/informUserMsg.action";
+		var successFun = function(result){
+
+		};
+		var errorFun = function(result){
+
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*获取客服列表*/
+	function getKefuList(){
+		var url = "/orderDetail/getKefuList.action";
+		var data = {"gameId":gameId,"tradeType":tradeType,"sellerId":sellerId};
+		var successFun = function(result){
+			var kefuList = result.data.kefuArray;
+			var kefuArray = [];
+			$.each(kefuList,function(i,o){
+				var kefu = {};
+				kefu.avatarSrc = o.headerImage;
+				kefu.name = o.nickName;
+				kefu.starLevel = parseInt(o.appraiseLevel);
+				kefu.waitOrder = o.billnum;
+				kefu.kefuid = o.kfid;
+				kefuArray.push(kefu);
+			});
+			cusPop(kefuArray);
+		};
+		var errrorFun = function(result){
+			alert("网络异常！");
+		};
+		ajaxFunction(url,data,successFun,errrorFun);
+	}
+
+	/*选择客服回调函数*/
+	function selectedCallback(kefuid){
+		kfId = kefuid;
+		var data = {"subbillid":subbillid,"kefuId":kefuid,"substatus":substatus,"type":"1"};
+		var url = "/orderDetail/assignmentKefu.action";
+		var successFun = function(result){
+			layer.closeAll();
+			if(result && result.code == "0"){
+				window.open(result.data.qqLink);
+			}else{
+				alert(result.msg);
+			}
+		};
+		var errorFun = function(result){
+			alert("网络异常");
+			layer.closeAll();
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*获取打赏商品及事件*/
+	function getRewardGoods(){
+		var url = "/orderDetail/getRewardGoods.action";
+		var successFun = function(result){
+			if(!$.isEmptyObject(result)){
+				var html = "";
+				var rewardPic = ["http://pic.7881.com/7881-2016/images/dsdj01.png","http://pic.7881.com/7881-2016/images/dsdj02.png","http://pic.7881.com/7881-2016/images/dsdj03.png","http://pic.7881.com/7881-2016/images/dsdj04.png"];
+				var rewardTitle = ["为她点赞","送她香吻","献她鲜花","赐她钻戒"];
+				$.each(result,function(index,item){
+					html += '<dl goodsId="'+item.goodsId+'" price="'+item.price+'">';
+					html += '<dt>';
+					html += '<img src="'+rewardPic[index]+'">';
+					html += '<p>'+rewardTitle[index]+'</p>';
+					html += '</dt>';
+					html += '<dd>￥<span>'+item.price+'</span></dd>';
+					html += '</dl>';
+				});
+				$(".rewardList").append(html);
+				//点击打赏
+				$("body").on("click",".dslist dl",function(){
+					if($(this).hasClass("on")){
+						$(this).removeClass("on");
+						$(".layui-layer").find(".newbtn a").text("确认提交");
+					}else{
+						var money = $(this).find("dd span").text();
+						$(this).addClass("on").siblings("dl").removeClass("on");
+						$(".layui-layer").find(".newbtn a").html("￥<span>"+money+"</span>为她支付");
+					}
+				});
+			}else{
+				$(".dslist").hide();
+			}
+
+		};
+		var errorFun = function(result){
+
+		};
+		ajaxFunction(url,{},successFun,errorFun);
+	}
+
+	/*获取咨询客服qq*/
+	function getZXKFQQ(){
+		var url = "/orderDetail/getZXKFQQ.action";
+		var data = {"subbillid":subbillid,"type":"1"};
+		var successFun = function(result){
+			if(result && result.code == "0"){
+				window.open("http://crm2.qq.com/page/portalpage/wpa.php?uin="+result.data.kfqq+"&aty=0&a=0&curl=&ty=1");
+			}else{
+				alert(result.msg);
+			}
+		};
+		var errorFun = function(result){
+			alert("网络异常");
+		};
+		ajaxFunction(url,data,successFun,errorFun)
+	}
+
+	/*查看账户密码*/
+	function showPassWord(){
+		var url = "/orderDetail/insertOrderMsgForViewPassword.action";
+		var data = {"subbillId":subbillid};
+		var successFun = function(result){
+			$("#account").html('');
+			$("#password").html('');
+			$("#showBtn").hide();
+		};
+		var errorFun = function(result){
+			alert("网络异常，请稍候再试！");
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*完成强化按钮*/
+	function completeStrengthen(){
+		var url = "/orderDetail/insertOrderMsgForCompleteStrengthen.action";
+		var data = {"subbillId":subbillid};
+		var successFun = function(result){
+			$("#completeStrengthen").hide();
+			alert("已确认强化完成！");
+			window.location.reload();
+		};
+		var errorFun = function(result){
+			alert("网络异常，请稍候再试！");
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*全页面刷新*/
+	function fullPageRefurbish(){
+		if(gameId == "G3415" && gtId == "100160"){
+			clearInterval(windowInterval);
+			windowInterval = window.setInterval(function autoReload(){
+				if(substatus == "6" || substatus == "60"){
+					clearInterval(windowInterval);
+				}
+				window.location.reload();
+			},1000 * 15);
+		}
+	}
+
+	/*获取客服信息*/
+	function getKefuMsg(){
+		var url = "/orderDetail/getKefuMsg.action";
+		var data = {"subbillid":subbillid};
+		var successFun = function(result){
+			if(result && result.code == 0){
+				if(result.data.kfQQ){
+					window.open(result.data.qqLink);
+				}
+			}else{
+				alert(result.msg);
+			}
+		};
+		var errorFun = function(result){
+			alert("网络异常！");
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*弹出王者荣耀提示*/
+	function alertWzryTip(){
+		if((gameId == "A2775" || gameId == "A2705") && gtId == "100146"
+		&& substatus != "6" && substatus != "60" && substatus != "4" && substatus != "-1"){
+			layer.open({
+				title: false,
+				type: 1,
+				move: false,
+				shadeClose:true,
+				closeBtn:false,
+				content: $(".quyz-wrap"),
+				skin: 'quyz-pop',
+				area: '430px'
+			});
+		}
+	}
+
+	/*冒险岛代练提示*/
+	function mdxDlTip(){
+		var tip = getCookies("maoxiandao"+subbillid);
+		if(gameId == 'G3415' && gtId == '100144' && tip != "true" && substatus != "6" && substatus != "60" && substatus != "4" && substatus != "-1" && substatus != "0"){
+			setCookies("maoxiandao"+subbillid,"true");
+			layer.open({
+				type: 1,
+				title: '温馨提示',
+				move: false,
+				area:'370px',
+				content: '<div class="pop-ewm-box">'+
+				'<p class="pop-ewm-p" style="padding:20px 0;">请务必将贵重物品放置背包仓库内，设置好二级密码，不要将二级密码告诉任何人。代练完成后，请及时修改您的账号密码。</p>'+
+				'</div>'
+			});
+		}
+	}
+
+	/*倒计时*/
+	function timer(intDiff){
+		interval = setInterval(function(){
+			var day=0,
+					hour=0,
+					minute=0,
+					second=0;//时间默认值
+			if(intDiff > 0){
+				day = Math.floor(intDiff / (60 * 60 * 24));
+				hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+				minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+				second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+			}
+			if (second <= 9) second = '0' + second;
+			$('#minute_show').html(minute+'分');
+			$('#second_show').html(second+'秒');
+			if(intDiff == 0){
+				clearInterval(interval);
+				$(".contsel-btn").removeClass("hide").addClass("show").parent().find(".time-item").removeClass("show").addClass("hide");
+			}
+			intDiff--;
+			leftTime++;
+		}, 1000);
+	}
+
+	/*推荐商品*/
+	function myLoveGoods(){
+		var url = "/procurement/queryMyLoveGoods.action";
+		var data = {"gameId":gameId,"gtId":gtId,"groupId":groupId,"serverId":serverId};
+		var successFun = function(result){
+			if(result && result.length > 0){
+				var list = result;
+				var html = '<div class="maylove center"><div class="maytit">您可能喜欢：</div>';
+				$.each(list,function(index,item){
+					html += '<div class="maycon">';
+					html += '<h2>';
+					if(item.tradeType == "db"){
+						html += '<i class="ico_dan"></i>'
+					}else{
+						html += '<i class="ico_ji"></i>'
+					}
+					html += '<span><a href="http://search.7881.com/'+item.goodsId+'.html" target="_blank">'+item.title+'</a></span></h2>';
+					html += '<p><span>物品类型：</span>'+item.goodTypeName+'</p>';
+					html += '<p><span>游戏区服：</span>'+item.gameName+(typeof item.groupName != "undefined"?'/'+item.groupName:'')+(typeof item.serverName != "undefined"?'/'+item.serverName:'')+'</p>';
+					html += '<h3><span><em>￥</em>'+item.price+'</span>';
+					html += '<a href="http://search.7881.com/'+item.goodsId+'.html" target="_blank">立即购买</a>';
+					html += '</h3>';
+					html += '</div>';
+				});
+				html += '</div>';
+
+				$(".beforeMyLove").after(html);
+
+				$(".maycon").each(function(index,item){
+					if(index!=0 && index%3 == 0){
+						$(this).addClass("lstdiv");
+					}
+				})
+			}
+		};
+		var errorFun = function(result){
+
+		};
+		ajaxFunction(url,data,successFun,errorFun);
+	}
+
+	/*ajax通用方法*/
+	function ajaxFunction(url,data,success,error,asyncFlag){
+		if(typeof error == "boolean"){
+			asyncFlag = error;
+		}
+		if(typeof error != "function" ){
+			error = function(result){
+			}
+		}
+		//默认异步
+		if(typeof asyncFlag != "boolean"){
+			asyncFlag = true;
+		}
+		$.ajax({
+			"url":url,
+			"type":"post",
+			"data":data,
+			"dataType":"json",
+			"success":success,
+			"error":error,
+			"async":asyncFlag
+		})
+	}
+
+	function setCookies(name,value){
+		var nameString = name + "=" + value;
+
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+365);
+		var expiryString = ";expires="+exdate.toGMTString();
+
+		var pathString = ";path=/";
+
+		document.cookie = nameString+expiryString+pathString;
+	}
+
+	function getCookies(name){
+		var cookieFount = false;
+		var start = 0;
+		var end = 0;
+		var cookieString = document.cookie;
+		var i = 0;
+		while(i <= cookieString.length){
+			start = i;
+			end = start + name.length;
+			if(cookieString.substring(start,end) == name){
+				cookieFount = true;
+				break;
+			}
+			i++;
+		}
+
+		if(cookieFount){
+			start = end + 1;
+			end = cookieString.indexOf(";",start);
+			if(end < start){
+				end = cookieString.length;
+			}
+			return cookieString.substring(start,end);
+		}
+	}
+
+    </script>
+</body>
+</html>
