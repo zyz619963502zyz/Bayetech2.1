@@ -1,5 +1,5 @@
 ﻿jsconfig.baseArr.push("SureBuy");
-jsconfig.baseArr.push("OrderType");
+jsconfig.baseArr.push("OrderPay");
 require(jsconfig.baseArr, function (Vue, $, common, surebuy, order) {
     var OrderUrl="api/Order/CreatOrder";
     var vm = new Vue({
