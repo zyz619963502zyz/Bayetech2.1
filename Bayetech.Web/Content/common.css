@@ -31,6 +31,7 @@ img{display:inline-block;}
 .m-r-md{margin-right:20px;}
 .m-b-sm{margin-bottom:10px;}
 .m-b-md{margin-bottom:20px;}
+.m-b-none{margin-bottom:0;}
 /*font-size*/
 .f12{font-size:12px;}
 .f14{font-size:14px;}

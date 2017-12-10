@@ -3,7 +3,6 @@ define([], function () {
     var html = `<ul class="nav nav-pills nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#home0" aria-controls="home" role="tab" data-toggle="tab">首页</a></li>
                 <li role="presentation">
-                    <h4></h4>
                     <a href="#home1" aria-controls="profile" role="tab" data-toggle="tab">金币交易</a>
                 </li>
                 <li role="presentation"><a href="#home2" aria-controls="messages" role="tab" data-toggle="tab">账号交易</a></li>
