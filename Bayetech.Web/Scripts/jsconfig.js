@@ -46,7 +46,7 @@ var jsconfig = {
         'ScreenModel': 'Scripts/app/GoodList/Screen',
         'GoodInfo': 'Scripts/app/GoodInfo/GoodInfo',
         'Nav': 'Scripts/app/GoodInfo/Nav',
-        'OrderType': 'Scripts/app/PlaceOrder/OrderType',
+        'OrderPay': 'Scripts/app/PlaceOrder/OrderPay',
         'SureBuy': 'Scripts/app/PlaceOrder/SureBuy',
         "v-search": "Scripts/app/Search/Search",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
