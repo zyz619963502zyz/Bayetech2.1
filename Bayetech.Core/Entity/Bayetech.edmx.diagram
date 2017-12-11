@@ -26,7 +26,7 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="0.75" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="13.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.GameProfession" Width="1.5" PointX="3.375" PointY="13.75" />
-        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="4.625" PointY="10.625" />
+        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="3.875" PointY="10.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

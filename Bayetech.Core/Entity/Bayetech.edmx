@@ -277,7 +277,7 @@
           <Property Name="Order" Type="smallint" />
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="GameId" Type="int" />
-          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_LoginInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -806,7 +806,7 @@
           <Property Name="Order" Type="Int16" />
           <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="GameId" Type="Int32" />
-          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

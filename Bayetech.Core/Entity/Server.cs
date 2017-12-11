@@ -21,6 +21,6 @@ namespace Bayetech.Core.Entity
         public Nullable<short> Order { get; set; }
         public string Img { get; set; }
         public Nullable<int> GameId { get; set; }
-        public Nullable<bool> IsDelete { get; set; }
+        public bool IsDelete { get; set; }
     }
 }
