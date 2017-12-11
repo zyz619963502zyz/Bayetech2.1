@@ -74,6 +74,8 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<MallOrder> MallOrder { get; set; }
 
+    public virtual DbSet<GameProfession> GameProfession { get; set; }
+
 }
 
 }

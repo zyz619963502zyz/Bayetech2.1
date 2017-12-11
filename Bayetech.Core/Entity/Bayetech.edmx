@@ -113,6 +113,17 @@
           <Property Name="DescriptionId" Type="int" Nullable="false" />
           <Property Name="DescriptionName" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="GameProfession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="ProfessionId" Type="bigint" />
+          <Property Name="ProfessionName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ParentId" Type="bigint" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="GameRequirements">
           <Key>
             <PropertyRef Name="Id" />
@@ -349,6 +360,7 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameInfoDescription" EntityType="Self.GameInfoDescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameProfession" EntityType="Self.GameProfession" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" Schema="dbo" store:Type="Tables" />
@@ -653,6 +665,7 @@
           <EntitySet Name="vw_MallPictureInfo" EntityType="BayetechModel.vw_MallPictureInfo" />
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
+          <EntitySet Name="GameProfession" EntityType="BayetechModel.GameProfession" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -785,6 +798,17 @@
           <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GameProfession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="ProfessionId" Type="Int64" />
+          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1132,6 +1156,18 @@
                 <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameProfession">
+            <EntityTypeMapping TypeName="BayetechModel.GameProfession">
+              <MappingFragment StoreEntitySet="GameProfession">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
