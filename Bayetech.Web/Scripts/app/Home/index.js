@@ -25,8 +25,7 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
             "index-tabslist": tabsListbox,
             "index-adv": adv,
             "index-mgamelist": mgamelist,
-            "index-slidebox": slidebox,
-
+            "index-slidebox": slidebox
         }
     });
 
