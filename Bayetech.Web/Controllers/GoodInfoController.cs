@@ -47,7 +47,6 @@ namespace Bayetech.Web.Controllers
             return ret;
         }
 
-
         /// <summary>
         /// 获取角色职业
         /// </summary>
