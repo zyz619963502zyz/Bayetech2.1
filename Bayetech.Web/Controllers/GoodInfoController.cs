@@ -14,6 +14,33 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
 
+        /// <summary>
+        /// 获取大区
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetGoupNams()
+        {
+            JObject ret = new JObject();
+            return ret;
+        }
+
+        /// <summary>
+        /// 获取服务器名称
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetServerNams()
+        {
+            JObject ret = new JObject();
+            return ret;
+        }
+
+        /// <summary>
+        /// 获取列表页数据
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public JObject GetList(JObject json)
         {
@@ -22,7 +49,11 @@ namespace Bayetech.Web.Controllers
             return service.GetGoodList(goodInfo);
         }
 
-
+        /// <summary>
+        /// 获取详情页信息
+        /// </summary>
+        /// <param name="goodNo"></param>
+        /// <returns></returns>
         [HttpGet]
         public JObject GetGoodInfo(string goodNo)
         {

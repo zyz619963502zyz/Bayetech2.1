@@ -38,7 +38,6 @@ namespace Bayetech.Web.Controllers
                     data.Title = "游戏区";
                     data.Type = (int)enumType;
                     data.Child = (int)SearchType.Server;
-                    var a2 = serverService.FindList(a1 => a1.Type == 1 && a1.Gameid.Equals(id) && !a1.IsDelete);
                     data.List = serverService.FindList(a => a.Type == 1 && a.Gameid == id && !a.IsDelete).ToList();
                     break;
                 case SearchType.Server:
