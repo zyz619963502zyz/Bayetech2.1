@@ -79,7 +79,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             </div>
         </form>
         <!--游戏选择列表-->
-        <div class ="gs_box" id="gsBox" style="display: none;">
+        <div class ="gs_box" id="gsBox" style="display:none;">
             <div class ="gs_box_inner">
                 <ul id="gsSort" class ="gs_sort">
                     <li id="sortall" class ="">
