@@ -1,5 +1,6 @@
 ﻿//筛选栏位
 define(jsconfig.baseArr, function () {
+
     var html=`
             <div class ="screen-box">
                 <div class ="screen-tit">
@@ -91,9 +92,29 @@ define(jsconfig.baseArr, function () {
              </div>
            `
 
+    var api= "../"
+
     var data={
+        Gourps: [],
+        Severs: [],
         Professions: [],
+    };
 
-    }
+    var ScreenCompnent={
+        template: OrderHtml,
+        data() {
+            return data;
+        },
+        created(){
+            var self=this;
+            self.$root.$on('MainInfo', function (data) {
+                self.ServerName = data.content.ServerName;
+            });
+        },
+        methods: {
 
+        }
+    };
+
+    return ScreenCompnent;
 })
