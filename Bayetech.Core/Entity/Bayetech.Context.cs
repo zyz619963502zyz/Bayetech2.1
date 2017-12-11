@@ -54,8 +54,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<Relationship> Relationship { get; set; }
 
-    public virtual DbSet<Server> Server { get; set; }
-
     public virtual DbSet<vw_LoginInfo> vw_LoginInfo { get; set; }
 
     public virtual DbSet<GameInfoDescription> GameInfoDescription { get; set; }
@@ -75,6 +73,8 @@ public partial class BayetechEntities : DbContext
     public virtual DbSet<MallOrder> MallOrder { get; set; }
 
     public virtual DbSet<GameProfession> GameProfession { get; set; }
+
+    public virtual DbSet<Server> Server { get; set; }
 
 }
 

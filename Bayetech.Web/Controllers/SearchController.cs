@@ -38,13 +38,13 @@ namespace Bayetech.Web.Controllers
                     data.Title = "游戏区";
                     data.Type = (int)enumType;
                     data.Child = (int)SearchType.Server;
-                    data.List = serverService.FindList(a => a.Type == 1 && a.Gameid == id && !a.IsDelete).ToList();
+                    data.List = serverService.FindList(a => a.ParentId == 0 && a.GameId == id && !a.IsDelete).ToList();
                     break;
                 case SearchType.Server:
                     data.Title = "服务器";
                     data.Type = (int)enumType;
                     data.Child = (int)SearchType.MallType;
-                    data.List = serverService.FindList(a => a.Type == 2 && a.ParentId.Equals(id) && !a.IsDelete).ToList();
+                    data.List = serverService.FindList(a => a.ParentId != 0 && a.ParentId.Equals(id) && !a.IsDelete).ToList();
                     break;
                 case SearchType.MallType:
                     data.Title = "交易类型";

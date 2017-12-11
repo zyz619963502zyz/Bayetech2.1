@@ -16,12 +16,11 @@ namespace Bayetech.Core.Entity
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public int Type { get; set; }
         public string Letter { get; set; }
-        public int ParentId { get; set; }
+        public Nullable<int> ParentId { get; set; }
         public Nullable<short> Order { get; set; }
         public string Img { get; set; }
-        public int Gameid { get; set; }
-        public bool IsDelete { get; set; }
+        public Nullable<int> GameId { get; set; }
+        public Nullable<bool> IsDelete { get; set; }
     }
 }
