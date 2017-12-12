@@ -79,7 +79,7 @@
                     }
                 });
             },
-            GotoDetail(goodNo) {//详情页跳转
+            GotoDetail(goodNo) {//详情页跳转 
                 window.open(this.BaseUrl + goodNo);
             }
         }

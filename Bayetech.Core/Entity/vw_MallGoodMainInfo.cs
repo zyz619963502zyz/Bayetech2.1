@@ -40,5 +40,7 @@ namespace Bayetech.Core.Entity
         public string GoodDetailInfo { get; set; }
         public string GoodFirstPicture { get; set; }
         public Nullable<long> GoodTypeId { get; set; }
+        public string ProfessionName { get; set; }
+        public Nullable<long> ProfessionId { get; set; }
     }
 }

@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Gourps">
                                     <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.Name" :Id="item.Id">{{item.Name}}</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain">{{item.Name}}</span>
                                     </a>
                                 </li>
 
@@ -74,7 +74,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
 
@@ -93,7 +93,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
              </div>
            `
-
+    //Api
+    var GoodListUrl="/api/GoodInfo/GetList"; //查询列表
     var GroupUrl="/api/GoodInfo/GetGoupNames" //获取所有的服务器名称
     var ProfessionUrl="/api/GoodInfo/GetProfessions"
 
@@ -126,6 +127,15 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var param={ GameId: gameId };
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
+                });
+            },
+            GetSearchAgain() {//条件增加重新搜索
+                var self=this;
+                var param=common.GetUrlParam();
+                common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
+                    if (data.result) {
+                        
+                    }
                 });
             }
         }
