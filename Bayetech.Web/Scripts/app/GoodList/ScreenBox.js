@@ -29,7 +29,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-foot">
                             <div class ="sl-foot-function clearfix">
 
-                                <a class ="sl-more more-ac" href="javascript:void(0);"><span>更多</span><i></i></a>
+                                <a class ="" href="javascript:void(0);"><span>更多</span><i></i></a>
                             </div>
                             <div class ="sl-foot-btns">
                                 <a class ="btn-qx" href="javascript:void(0);">取消</a>
@@ -82,7 +82,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </div>
                         <div class ="sl-foot">
                             <div class ="sl-foot-function clearfix">
-                                <a class ="sl-more more-ac" href="javascript:void(0);"><span>更多</span><i></i></a>
+                                <a class ="" href="javascript:void(0);"><span>更多</span><i></i></a>
                             </div>
                             <div class ="sl-foot-btns">s
                                 <a class ="btn-qx" href="javascript:void(0);">取消</a>

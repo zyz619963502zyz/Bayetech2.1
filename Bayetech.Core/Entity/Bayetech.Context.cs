@@ -60,21 +60,21 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<GoodAndDescription> GoodAndDescription { get; set; }
 
-    public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
-
     public virtual DbSet<MallGoodPictures> MallGoodPictures { get; set; }
 
     public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
 
     public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
 
-    public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
-
     public virtual DbSet<MallOrder> MallOrder { get; set; }
 
     public virtual DbSet<GameProfession> GameProfession { get; set; }
 
     public virtual DbSet<Server> Server { get; set; }
+
+    public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+
+    public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
 
 }
 
