@@ -1,10 +1,7 @@
 ﻿//模块之间的操作
-var GoodListMoudule = ['vue', 'jquery', 'common', 'Screen', 'GoodList']
+var GoodListMoudule=['vue', 'jquery', 'common', 'Screen', 'GoodList', "ScreenBox"]
 //alert(1);
-require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
-    //注册主键到标签
-    Vue.component('regboxtop', mediacy);
-    Vue.component('regboxmiddle', tabuiation);
+require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation, screenbox) {
 
     var vm = new Vue({
         el: '#GoodList',
@@ -15,5 +12,10 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation) {
         methods: {
            
         },
+        components: {
+            "screenbox": screenbox,
+            "regboxtop": mediacy,
+            "regboxmiddle": tabuiation
+        }
     });
 });

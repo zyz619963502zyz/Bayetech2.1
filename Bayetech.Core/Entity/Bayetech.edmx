@@ -113,6 +113,17 @@
           <Property Name="DescriptionId" Type="int" Nullable="false" />
           <Property Name="DescriptionName" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="GameProfession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="ProfessionId" Type="bigint" />
+          <Property Name="ProfessionName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ParentId" Type="bigint" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="GameRequirements">
           <Key>
             <PropertyRef Name="Id" />
@@ -260,13 +271,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type" Type="int" Nullable="false" />
-          <Property Name="Letter" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Letter" Type="nvarchar" MaxLength="4" />
+          <Property Name="ParentId" Type="int" />
           <Property Name="Order" Type="smallint" />
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
-          <Property Name="Gameid" Type="int" Nullable="false" />
+          <Property Name="GameId" Type="int" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
@@ -349,6 +359,7 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameInfoDescription" EntityType="Self.GameInfoDescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameProfession" EntityType="Self.GameProfession" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" Schema="dbo" store:Type="Tables" />
@@ -604,20 +615,6 @@
           <Property Name="ModifyTime" Type="DateTime" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Server">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ParentId" Type="Int32" Nullable="false" />
-          <Property Name="Order" Type="Int16" />
-          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Gameid" Type="Int32" Nullable="false" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="vw_LoginInfo">
           <Key>
             <PropertyRef Name="UserName" />
@@ -643,7 +640,6 @@
           <EntitySet Name="MallType" EntityType="Self.MallType" />
           <EntitySet Name="Module" EntityType="Self.Module" />
           <EntitySet Name="Relationship" EntityType="Self.Relationship" />
-          <EntitySet Name="Server" EntityType="Self.Server" />
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" />
           <EntitySet Name="GameInfoDescription" EntityType="BayetechModel.GameInfoDescription" />
           <EntitySet Name="GoodAndDescription" EntityType="BayetechModel.GoodAndDescription" />
@@ -653,6 +649,8 @@
           <EntitySet Name="vw_MallPictureInfo" EntityType="BayetechModel.vw_MallPictureInfo" />
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
+          <EntitySet Name="GameProfession" EntityType="BayetechModel.GameProfession" />
+          <EntitySet Name="Server" EntityType="BayetechModel.Server" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -785,6 +783,30 @@
           <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GameProfession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="ProfessionId" Type="Int64" />
+          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Order" Type="Int16" />
+          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -968,21 +990,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Server">
-            <EntityTypeMapping TypeName="BayetechModel.Server">
-              <MappingFragment StoreEntitySet="Server">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Letter" ColumnName="Letter" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="Img" ColumnName="Img" />
-                <ScalarProperty Name="Gameid" ColumnName="Gameid" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_LoginInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_LoginInfo">
               <MappingFragment StoreEntitySet="vw_LoginInfo">
@@ -1132,6 +1139,32 @@
                 <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameProfession">
+            <EntityTypeMapping TypeName="BayetechModel.GameProfession">
+              <MappingFragment StoreEntitySet="GameProfession">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Server">
+            <EntityTypeMapping TypeName="BayetechModel.Server">
+              <MappingFragment StoreEntitySet="Server">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Letter" ColumnName="Letter" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

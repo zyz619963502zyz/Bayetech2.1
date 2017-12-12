@@ -1,10 +1,12 @@
 ﻿using Bayetech.Core.Entity;
+using Bayetech.Core.Enum;
 using Bayetech.Service;
 using Bayetech.Service.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
@@ -13,7 +15,57 @@ namespace Bayetech.Web.Controllers
     {
         //取出服务层
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
+        BaseService<GameProfession> proBase = new BaseService<GameProfession>();
+        BaseService<Server> severBase = new BaseService<Server>();
 
+        /// <summary>
+        /// 获取区服名称
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetGoupNames(int gameId,string type)
+        {
+            JObject ret = new JObject();
+            List<Server> servers;
+            if (type == "Group")
+            {
+                servers = severBase.FindList(c => c.GameId == gameId && c.ParentId == 0).ToList();
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JProperty.FromObject(servers));
+            }
+            else if (type == "Server")
+            {
+                servers = severBase.FindList(c => c.GameId == gameId && c.ParentId != 0).ToList();
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JProperty.FromObject(servers));
+            }
+            else
+            {
+                ret.Add(ResultInfo.Result, false);
+                ret.Add(ResultInfo.Content,"暂无此游戏区服信息");
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// 获取角色职业
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetProfessions(int gameId)
+        {
+            JObject ret = new JObject();
+            List<GameProfession> professions = proBase.FindList(c => c.GameId == gameId).ToList();
+            ret.Add(ResultInfo.Result, true);
+            ret.Add(ResultInfo.Content, JProperty.FromObject(professions));
+            return ret;
+        }
+
+        /// <summary>
+        /// 获取列表页数据
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public JObject GetList(JObject json)
         {
@@ -22,7 +74,11 @@ namespace Bayetech.Web.Controllers
             return service.GetGoodList(goodInfo);
         }
 
-
+        /// <summary>
+        /// 获取详情页信息
+        /// </summary>
+        /// <param name="goodNo"></param>
+        /// <returns></returns>
         [HttpGet]
         public JObject GetGoodInfo(string goodNo)
         {

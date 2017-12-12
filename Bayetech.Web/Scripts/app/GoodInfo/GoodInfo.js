@@ -5,7 +5,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var _GetGoodInfoUrl = "/api/GoodInfo/GetGoodInfo";
 
     //模板
-    var goodInfoHtml = `<div>
+    var goodInfoHtml=`
+        <div>
         <div class ="info-pic">
                 <div class="picFocus">
                     <ul>
@@ -86,7 +87,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
                 </div>
             </div>
-        </div>`
+        `
 
     //定义数据
     var data = {

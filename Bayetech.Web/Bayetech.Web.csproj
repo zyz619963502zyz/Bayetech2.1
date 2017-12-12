@@ -709,6 +709,7 @@
     <Content Include="Scripts\app\GoodInfo\index.js" />
     <Content Include="Scripts\app\GoodInfo\GoodInfo.js" />
     <Content Include="Scripts\app\GoodInfo\Nav.js" />
+    <Content Include="Scripts\app\GoodList\ScreenBox.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
