@@ -1,21 +1,31 @@
 ﻿//模块之间的操作
 var GoodListMoudule=['vue', 'jquery', 'common', 'Screen', 'GoodList', "ScreenBox"]
 //alert(1);
-require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation, screenbox) {
-
+require(GoodListMoudule, function (Vue, $, common, screen, goodlist, screenbox) {
     var vm = new Vue({
         el: '#GoodList',
+        data:{
+            SearchResult: {aaaa:111}
+        },
         created() {
-            //this.findList();
+            
         },
         nowVue: this,
         methods: {
-           
+            FindListCopy(){ },
+            OtherCopy(){ },
         },
         components: {
             "screenbox": screenbox,
-            "regboxtop": mediacy,
-            "regboxmiddle": tabuiation
+            "regboxtop": screen,
+            "goodlist": goodlist
+        },
+        watch: {
+            SearchResult: function () {//监听参数的变化
+                if (this.FindListCopy&&this.searParam) {
+                    this.FindListCopy(this.searParam);
+                }
+            }
         }
     });
 });

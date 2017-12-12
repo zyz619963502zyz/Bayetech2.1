@@ -67,7 +67,8 @@
             return data;
         },
         created(){
-            this.findList()
+            this.findList();
+            this.$root.FindListCopy = this.findList;//把方法克隆到index
         },
         methods: {
             findList() {
@@ -82,7 +83,7 @@
             GotoDetail(goodNo) {//详情页跳转 
                 window.open(this.BaseUrl + goodNo);
             }
-        }
+        },
     };
     return goodComponent;
 });
