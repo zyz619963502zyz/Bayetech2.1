@@ -43,7 +43,7 @@ namespace Bayetech.Web.Controllers
         /// <returns></returns>
         public IHttpActionResult GetGameListByLetter(string letter, int type)
         {
-            var list = gameService.FindList(a => a.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && a.Platform.Equals(type) && !a.IsDelete).ToList();
+            var list = gameService.FindList(a => a.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && a.Platform == type && !a.IsDelete).ToList();
             return Json(list);
         }
 
