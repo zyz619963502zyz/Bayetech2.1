@@ -23,7 +23,7 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public JObject GetGoupNams(int gameId,string type)
+        public JObject GetGoupNames(int gameId,string type)
         {
             JObject ret = new JObject();
             List<Server> servers;

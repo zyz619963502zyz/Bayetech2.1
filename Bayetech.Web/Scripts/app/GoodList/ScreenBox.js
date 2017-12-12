@@ -1,5 +1,5 @@
 ﻿//筛选栏位
-define(jsconfig.baseArr, function () {
+define(jsconfig.baseArr, function (Vue, $, common) {
 
     var html=`
             <div class ="screen-box">
@@ -92,7 +92,8 @@ define(jsconfig.baseArr, function () {
              </div>
            `
 
-    var api= "../"
+    var GroupUrl="/api/GoodInfo/GetGoupNames" //获取所有的服务器名称
+    var ProfessionUrl="/api/GoodInfo/GetProfessions"
 
     var data={
         Gourps: [],
@@ -101,7 +102,7 @@ define(jsconfig.baseArr, function () {
     };
 
     var ScreenCompnent={
-        template: OrderHtml,
+        template: html,
         data() {
             return data;
         },
@@ -112,7 +113,20 @@ define(jsconfig.baseArr, function () {
             });
         },
         methods: {
-
+            GetGroups(gameId, type) {
+                var self=this;
+                var param = {GameId:gameId,type:type};
+                common.getWebJson(GroupUrl, param, function (data) {
+                    type=="Group"?self.Gourps=data.content:self.Severs=data.content;
+                });
+            },
+            GetProfessions(gameId) {
+                var self=this;
+                var param={ GameId: gameId };
+                common.getWebJson(ProfessionUrl, param, function (data) {
+                    self.GoProfessionsurps=data.content;
+                });
+            }
         }
     };
 
