@@ -40,6 +40,7 @@ var jsconfig = {
         'index-mgamelist': "Scripts/app/Home/mgamelist",
         'index-nav': "Scripts/app/Home/nav",
         'Screen': 'Scripts/app/GoodList/Screen',
+        'ScreenBox': "Scripts/app/GoodList/ScreenBox",
         'GoodList': 'Scripts/app/GoodList/GoodList',
         'ScreenModel': 'Scripts/app/PointTrading/screen',
         "nav-dropdown": "Scripts/app/Home/nav-dropdown",
@@ -66,7 +67,7 @@ var jsconfig = {
         'ServiceFoot': "Scripts/app/ServiceCenter/footeradvan",
         'ServiceCall': "Scripts/app/ServiceCenter/ServiceColl",
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
-        'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
+        'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo"
     },
     map: {
         '*': {

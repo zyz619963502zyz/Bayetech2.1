@@ -17,10 +17,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
 
-                                <li for="var item in content">
-                                    <a href="javascript:void(0)" title="体验区">
+                                <li v-for="item in Gourps">
+                                    <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" value="G10P030" fixKey="groupId">体验区</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id">{{item.Name}}</span>
                                     </a>
                                 </li>
 
@@ -70,12 +70,14 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-head"><span title="职业">职业</span>：</div>
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
-                                <li v-for="var item in Professions">
-                                    <a href="javascript:void(0)" title="ProfessionName">
+
+                                <li v-for="item in Professions">
+                                    <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" value="item.ProfessionName" unFixKey="item.ProfessionId">{{ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
+
                             </ul>
                         </div>
                         <div class ="sl-foot">
@@ -108,9 +110,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         },
         created(){
             var self=this;
-            self.$root.$on('MainInfo', function (data) {
-                self.ServerName = data.content.ServerName;
-            });
+            self.GetGroups(1, "Group");
+            self.GetProfessions(1);
         },
         methods: {
             GetGroups(gameId, type) {
@@ -124,7 +125,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var self=this;
                 var param={ GameId: gameId };
                 common.getWebJson(ProfessionUrl, param, function (data) {
-                    self.GoProfessionsurps=data.content;
+                    self.Professions=data.content;
                 });
             }
         }
