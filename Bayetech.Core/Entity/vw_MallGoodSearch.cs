@@ -12,30 +12,37 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class MallGoodInfo
+    public partial class vw_MallGoodSearch
     {
-        public int Id { get; set; }
+        public string GoodNo { get; set; }
         public string GoodTitle { get; set; }
         public Nullable<decimal> GoodPrice { get; set; }
         public Nullable<decimal> GoodSinglePrice { get; set; }
         public string GoodKeyWord { get; set; }
-        public Nullable<long> GoodTypeId { get; set; }
         public Nullable<long> GameId { get; set; }
-        public string GoodNo { get; set; }
-        public string GoodDetailInfo { get; set; }
-        public string GoodFirstPicture { get; set; }
-        public string GameAccount { get; set; }
         public string GameService { get; set; }
         public Nullable<int> GameGroupId { get; set; }
-        public Nullable<long> GameProfessionId { get; set; }
         public Nullable<int> GameServerId { get; set; }
         public Nullable<int> TotalNum { get; set; }
-        public Nullable<int> CancelNum { get; set; }
-        public Nullable<int> BuyNum { get; set; }
         public string UserName { get; set; }
+        public Nullable<int> BuyNum { get; set; }
         public Nullable<int> HistoryAccount { get; set; }
         public Nullable<int> ListOrder { get; set; }
         public Nullable<System.DateTime> EditTime { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
+        public string GroupName { get; set; }
+        public string ServerName { get; set; }
+        public string GameName { get; set; }
+        public string GoodTypeName { get; set; }
+        public string GameAccount { get; set; }
+        public Nullable<int> CancelNum { get; set; }
+        public string GoodDetailInfo { get; set; }
+        public string GoodFirstPicture { get; set; }
+        public Nullable<long> GoodTypeId { get; set; }
+        public string ProfessionName { get; set; }
+        public Nullable<long> ProfessionId { get; set; }
+        public Nullable<long> DescriptionId { get; set; }
+        public string DescriptionName { get; set; }
+        public string DescriptionValue { get; set; }
     }
 }

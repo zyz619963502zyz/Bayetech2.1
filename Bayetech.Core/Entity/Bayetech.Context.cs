@@ -47,5 +47,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
         public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
     }
 }
