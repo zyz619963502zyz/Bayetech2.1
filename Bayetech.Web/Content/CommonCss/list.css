@@ -87,10 +87,10 @@
 .screen-tit .r a.dealfin-a:hover { color: #22ac38;}
 .screen-tit .r a em { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; margin-bottom: -4px; margin-right: 4px;}
 .screen-item-box { padding: 0 20px;}
-.screen-item { border-top: #e8e8e8 1px dashed; padding: 9px 0; position: relative; max-height: 68px; overflow: hidden;}
+.screen-item { border-top: #e8e8e8 1px dashed; padding: 9px 0; position: relative; max-height: 94px;}
 .screen-item .sl-head { position: absolute; left: 10px; top: 17px; color: #999;}
 .screen-item .sl-head span { float: left; max-width:70px; margin-right: 2px; overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
-.screen-item .sl-body { padding: 0 160px 0 94px; overflow: hidden;}
+.screen-item .sl-body { padding: 0 160px 0 94px;}
 .screen-item .sl-body ul { width: 910px; padding-left: 8px;}
 .screen-item .sl-body ul li { float: left; position: relative; width: 94px; padding: 8px 0; padding-left: 20px; height: 18px;  margin-right: 15px;}
 .screen-item .sl-body ul li.active a { color: #ff6700;}
@@ -528,3 +528,14 @@
 .sellstar .startall{background-position:-1px -39px!important;}
 .sellstar .starthalf{background-position:-1px -62px!important;}
 .sellstar .startnone{background-position:-1px -84px!important;}
+
+/*addbyzhaoyz5-2017-12-13暂用*/
+.head-search .logo {
+    width: 315px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 446px;
+    font-size: 36px;
+}
+/*addbyzhaoyz5-2017-12-13暂用*/

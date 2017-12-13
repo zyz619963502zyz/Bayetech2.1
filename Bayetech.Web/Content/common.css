@@ -194,7 +194,7 @@ img{display:inline-block;}
 .gs_sort li a:hover {text-decoration:none;}
 .gs_sort li.active {font-weight:bolder;}
 .gs_sort li.active a {background-color:#FFF;color:#1ea5ff;}
-#gameSelectV2 {float:right;width:800px;}
+#gameSelectV2 {float:right;width:1185px;}
 #gameSelectV2 .game_select_box {width:598px;}
 #gameSelectV2 .gs_box {left:-316px;}
 /*#gameSelectV2 .tab_box {width:598px;}
@@ -212,3 +212,21 @@ img{display:inline-block;}
 #searchbar_rookie_tips .fed-arrleft {top:2px;}
 #searchbar_rookie_tips .fed-toolstip .fed-tipsclose {height:10px;line-height:10px;top:5px;_top:2px;right:3px;_right:10px;position:absolute;font-size:20px;color:#C6C6C6;}
 
+/*addbyzhaoyz5-2017-12-13暂用*/
+#GoodList .nav-justified {
+    padding-left: 466px;
+    background-color:#3b83e8;
+}
+
+#GoodList .nav-justified li>a {
+    color:#fff;
+}
+
+.nav-justified>li {
+    width: 147px;
+}
+
+.nav-justified>a {
+    color: #fff;
+}
+/*addbyzhaoyz5-2017-12-13暂用*/
