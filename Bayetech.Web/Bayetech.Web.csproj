@@ -822,6 +822,7 @@
     <Content Include="Scripts\swiper.js" />
     <Content Include="Scripts\swiper.min.js" />
     <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\vue-router.js" />
     <Content Include="Scripts\vue.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\app\Shared\tab.js" />
