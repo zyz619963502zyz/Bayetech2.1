@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Gourps">
                                     <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.Name" :Id="item.Id">{{item.Name}}</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain">{{item.Name}}</span>
                                     </a>
                                 </li>
 
@@ -29,7 +29,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-foot">
                             <div class ="sl-foot-function clearfix">
 
-                                <a class ="sl-more more-ac" href="javascript:void(0);"><span>更多</span><i></i></a>
+                                <a class ="" href="javascript:void(0);"><span>更多</span><i></i></a>
                             </div>
                             <div class ="sl-foot-btns">
                                 <a class ="btn-qx" href="javascript:void(0);">取消</a>
@@ -74,7 +74,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
 
@@ -82,7 +82,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </div>
                         <div class ="sl-foot">
                             <div class ="sl-foot-function clearfix">
-                                <a class ="sl-more more-ac" href="javascript:void(0);"><span>更多</span><i></i></a>
+                                <a class ="" href="javascript:void(0);"><span>更多</span><i></i></a>
                             </div>
                             <div class ="sl-foot-btns">s
                                 <a class ="btn-qx" href="javascript:void(0);">取消</a>
@@ -93,7 +93,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
              </div>
            `
-
+    //Api
+    var GoodListUrl="/api/GoodInfo/GetList"; //查询列表
     var GroupUrl="/api/GoodInfo/GetGoupNames" //获取所有的服务器名称
     var ProfessionUrl="/api/GoodInfo/GetProfessions"
 
@@ -127,8 +128,18 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
                 });
+            },
+            GetSearchAgain() {//条件增加重新搜索
+                var self=this;
+                var param=common.GetUrlParam();
+                common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
+                    if (data.result) {
+                        data.content=data.content.slice(0, 8);
+                        self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
+                    }
+                });
             }
-        }
+        }   
     };
 
     return ScreenCompnent;

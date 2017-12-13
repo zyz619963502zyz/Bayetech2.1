@@ -130,6 +130,9 @@
     <Compile Include="Entity\vw_MallGoodMainInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vw_MallGoodSearch.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vw_MallPictureInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
