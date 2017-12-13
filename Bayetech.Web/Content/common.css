@@ -75,6 +75,7 @@ img{display:inline-block;}
 .menu span a{display:block; padding-top:8px;}
 .menu li{ height:30px; line-height:30px; padding-left:20px; border-bottom:#efefef dotted 1px;}
 
+
 /*serach*/.game_select_box .tab_menu a,.game_select .gs_search_btn,.gs_f_search .gs_f_search_btn,.gs_box_inner .arrow,.game_select_box .left_bg,.game_select_box .right_bg,.game_select .hot_game_list,.gs_head .close_btn,.gs_nav li,.gs_list li,.gs_menu .arrow,.game_select_arrow,#searchbar_rookie_tips .fed-tipsarr span.arr-1,#searchbar_rookie_tips .fed-tipcon,.gs_f_search .gs_back_btn {background:url(http://img01.5173cdn.com/common/build/2.00/images/gs_sprites.png) no-repeat;}
 .f_999 {color:#999;}
 .game_select {float:right;width:606px;position:relative;z-index:1000;padding:6px 0 0 0;}

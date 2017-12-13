@@ -50,7 +50,7 @@ define([], function () {
             return data;
         },
         template: html,
-        created() {
+        created:function() {
 
         },
         methods: {

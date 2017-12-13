@@ -57,7 +57,7 @@
                 ServerName:"",
                 GoodPrice: ""
             }
-        ]
+        ],
     }
 
     //中间模板
@@ -72,8 +72,8 @@
         methods: {
             findList() {
                 var self = this;
-                var param = common.GetUrlParam();
-                common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
+                //var param=common.GetUrlParam();
+                common.postWebJson(GoodListUrl, localStorage.SearchParam, function (data) {
                     if (data.result) {
                         self.ListObj = data.content;
                     }

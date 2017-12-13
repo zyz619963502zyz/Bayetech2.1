@@ -119,12 +119,12 @@
      */
     common.GetUrlParam = function (url, queryStringName) {
         url = url || location.search;
-        var urlArray = (url.split('?')[1] || "").split('&');
+        var urlArray=(decodeURI(url).split('?')[1]||"").split('&');
         var urlParam = {};
         urlArray == "" && (urlArray.length = 0);
         for (var i = 0; i < urlArray.length; i++) {
             var array = urlArray[i].split('=');
-            urlParam[array[0]] = decodeURI(array[1]);
+            urlParam[array[0]] = array[1];
         }
         return queryStringName ? urlParam[queryStringName] : urlParam;
     }
@@ -162,7 +162,18 @@
      */
     common.LogJS=function (vue) {
         return eval('('+JSON.stringify(vue)+')');
-    }
+    };
+    /**
+     * 合并对象空值不覆盖
+    */
+    common.MergeObj=function (a, b) {
+        for (var prop in b) {
+            if (b[prop]) {
+                a[prop]=b[prop];
+            }
+        }
+        return a;
+    };
 
     return common;
 })

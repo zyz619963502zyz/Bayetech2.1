@@ -12,7 +12,8 @@ define(jsconfig.baseArr, function ($, Vue, common, perR, perB, helpleft) {
                 </div>
         </div>
         `
-    var html1 = `
+
+    var html1=`
             <div class ="personal_center">
                         <ul>
                             <ol><img src="../../Content/Images/personal_tx.png" /></ol>

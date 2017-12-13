@@ -1,7 +1,7 @@
 ﻿//模块之间的操作
-var GoodListMoudule=['vue', 'jquery', 'common', 'Screen', 'GoodList', "ScreenBox"]
+var GoodListMoudule=['vue', 'jquery', 'common','v-header', 'v-nav', 'Screen', 'GoodList', "ScreenBox"]
 //alert(1);
-require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation, screenbox) {
+require(GoodListMoudule, function (Vue, $, common,header,nav, mediacy, tabuiation, screenbox) {
 
     var vm = new Vue({
         el: '#GoodList',
@@ -13,6 +13,8 @@ require(GoodListMoudule, function (Vue, $, common, mediacy, tabuiation, screenbo
            
         },
         components: {
+            "v-header": header,
+            "v-nav": nav,
             "screenbox": screenbox,
             "regboxtop": mediacy,
             "regboxmiddle": tabuiation

@@ -34,9 +34,9 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
                 }
-                if (goodInfo.GoodType != null && goodInfo.GoodType > 0) //类型Id
+                if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id
                 {
-                    expression = expression.And(t => t.GoodType == goodInfo.GoodType);
+                    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
                 }
                 if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
                 {

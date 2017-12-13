@@ -44,7 +44,7 @@ namespace Bayetech.Web.Controllers
                     data.Title = "服务器";
                     data.Type = (int)enumType;
                     data.Child = (int)SearchType.MallType;
-                    data.List = serverService.FindList(a => a.ParentId != 0 && a.ParentId.Equals(id) && !a.IsDelete).ToList();
+                    data.List = serverService.FindList(a => a.ParentId != 0 && a.ParentId == id && !a.IsDelete).ToList();
                     break;
                 case SearchType.MallType:
                     data.Title = "交易类型";

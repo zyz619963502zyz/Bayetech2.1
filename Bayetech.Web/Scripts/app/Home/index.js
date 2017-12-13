@@ -2,7 +2,7 @@
 require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search', 'index-notice', 'index-consult', 'index-convenience'
     , 'index-hotgamelist', 'index-banner', 'index-tabslist', 'v-tab', "index-gameranking", 'index-adv', 'index-mgamelist'
     , 'v-partner', 'index-slidebox', 'css!../Content/bootstrap/font-awesome.min', 'css!../Content/common', 'css!../Content/homepage'],
-	function (Vue, $, common, bootstrap, head, nav, search, notice, consult, convenience, hotgamelist, banner, tabsListbox, tab, gameranking, adv, mgamelist, partner, slidebox) {
+	function (Vue, $, common, bootstrap, header, nav, search, notice, consult, convenience, hotgamelist, banner, tabsListbox, tab, gameranking, adv, mgamelist, partner, slidebox) {
      
     new Vue({
         el: '#app',
@@ -14,7 +14,7 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
             }
         },
         components: {
-            "v-header": head,
+            "v-header": header,
             "v-nav":nav,
             "v-tab": tab,
             "v-partner": partner,

@@ -19,7 +19,7 @@ namespace Bayetech.Core.Entity
         public Nullable<decimal> GoodPrice { get; set; }
         public Nullable<decimal> GoodSinglePrice { get; set; }
         public string GoodKeyWord { get; set; }
-        public Nullable<long> GoodType { get; set; }
+        public Nullable<long> GoodTypeId { get; set; }
         public Nullable<long> GameId { get; set; }
         public string GoodNo { get; set; }
         public string GoodDetailInfo { get; set; }
