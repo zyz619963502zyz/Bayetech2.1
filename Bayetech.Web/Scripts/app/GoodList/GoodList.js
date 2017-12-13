@@ -61,7 +61,7 @@
     }
 
     //中间模板
-    var goodComponent = {
+    var goodComponent={
         template: middleHtml,
         data(){
             return data;

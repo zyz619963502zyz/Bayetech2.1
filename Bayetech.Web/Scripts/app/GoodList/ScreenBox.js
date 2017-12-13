@@ -135,11 +135,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         data.content=data.content.slice(0, 8);
-                        self.$root.$children[2].$data.ListObj=data.content;
+                        self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
                     }
                 });
             }
-        }
+        }   
     };
 
     return ScreenCompnent;
