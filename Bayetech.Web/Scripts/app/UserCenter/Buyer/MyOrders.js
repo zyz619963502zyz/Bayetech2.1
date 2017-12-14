@@ -1,6 +1,146 @@
 ﻿//我购买的订单
-define([], function () {
-    var html=`<p>我购买的订单</P>`;
+define(jsconfig.baseArr, function () {
+
+    var html=`<div class="personal_right">
+            <div class="ddgl">
+                <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
+                <form id="queryForm" method="post">
+                    <input type="hidden" id="pageSize" name="procureOrderBean.pageSize" value="10" />
+                    <input type="hidden" id="currentNo" name="procureOrderBean.currentNo" value="0" />
+                    <input type="hidden" id="querystatus" name="procureOrderBean.querystatus" value="" />
+                    <input type="hidden" name="procureOrderBean.buyerid" value="119831551" />
+                    <!-- 标识查询方式：1最近查询 2历史查询 -->
+                    <input id="queryType" name="procureOrderBean.queryType" value="1" type="hidden" />
+                    <div class="yxddcx">
+                        <ul>
+                            <li>
+                                &nbsp;&nbsp;游 戏：
+                                <select id="gameid" name="procureOrderBean.gameid" class="js-states js-example-events form-control">
+                                    <option value="">请选择</option>
+                                    <option value="G10">D - 地下城与勇士</option>
+                                </select>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                商品类型：
+                                <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
+                                    <option value="" selected="selected">全部</option>
+                                    <option value="100002">装备</option>
+                                    <option value="100003">账号</option>
+                                    <option value="100111">道具</option>
+                                    <option value="100151">卢克金团</option>
+                                    <option value="100154">老玩家推荐码</option>
+                                    <option value="100008">点券</option>
+                                    <option value="100148">安图恩金团</option>
+                                    <option value="100113">强化增幅书</option>
+                                    <option value="100001">游戏币</option>
+                                    <option value="100072">深渊票</option>
+                                    <option value="100150">搬砖号</option>
+                                    <option value="100159">无色小晶体</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span class="yys" style="display: none;">　&nbsp;运 营 商： <select id="carrierid" name="procureOrderBean.carrierid" class="sec-border"><option value="">请选择</option></select>&nbsp;&nbsp;&nbsp;</span>
+                                &nbsp;&nbsp;游 戏 区：<select id="groupid" name="procureOrderBean.groupid" class="sec-border"><option value="">请选择</option></select> &nbsp;&nbsp;&nbsp;
+                                &nbsp;游 戏 服：<select id="serverid" name="procureOrderBean.serverid" class="sec-border"><option value="">请选择</option></select>
+                            </li>
+                            <li>
+                                订 单 时 间：
+                                <input id="starttime" name="procureOrderBean.starttime" size="20" readonly="readonly" value="2017-11-13 00:00:00" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                &nbsp;&nbsp;到&nbsp;&nbsp;
+                                <input id="endtime" name="procureOrderBean.endtime" size="20" readonly="readonly" value="2017-12-13 23:59:59" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                <span style="margin-left:10px"></span>
+                                <span class="search_time_span" id="today" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">今天</a></span>
+                                <span class="search_time_span" id="oneMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">最近1个月</a></span>
+                                <span class="search_time_span" id="threeMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">3个月</a></span>
+                                <span class="search_time_span" id="sixMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">6个月</a></span>
+                                <span style="display:none;">自定义</span>
+                            </li>
+                            <li>
+                                订 单 编 号：
+                                <input name="procureOrderBean.superbillid" size="28" value="" onkeyup="this.value=this.value.replace(/\s+/g, '');" />
+                                <input type="button" class="cxFormtime" id="btnQuery" value="查询" />
+                                <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 	<span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：亲，目前只能查询2015年的订单哦，后期将为您恢复，给您带来不便，敬请谅解。</span> -->
+                    <div class="yxddlb">
+
+                        <div class="myxssl"><span>每页显示数量：</span><a type="pageSize" size="10">10</a> <a type="pageSize" size="20">20</a> <a type="pageSize" size="30">30</a></div>
+                        <div id="nave">
+                            <ol querystatus=""><a class="a_hover">全部</a></ol>
+                            <ol querystatus="6,60"><a class="">成功订单</a></ol>
+                            <ol querystatus="4,40"><a class="">撤销订单</a></ol>
+                            <ol querystatus="1"><a class="">等待付款</a></ol>
+                            <ol querystatus="5"><a class="">等待取货</a></ol>
+                        </div>
+                        <div class="ddxq">
+                            <ul>
+                                <li class="spmc">商品名称</li>
+                                <li class="zj">总价</li>
+                                <li class="sl">数量</li>
+                                <li class="khfw">客户服务</li>
+                                <li class="ddzt">订单状态</li>
+                            </ul>
+                        </div>
+                        <div id="menud_con">
+                            <div class="ddlb">
+                                <h1>
+                                    订单编号：127121015129162378197536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：2017-12-10 22:30
+                                    <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
+                                        <a href="../goods-buying-G10-100001-1.html"><span class="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;"></span></a>
+                                    </span>
+                                </h1>
+                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" orderid="127121015129162378197536" sellertype="B" billstatus="4">
+                                    <ol class="spmc">
+                                        <span style="color:#36c">
+                                            <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />
+                                            5853万金=120元 即买即发 地下城与勇士 上海区
+                                            上海2区
+                                        </span>
+                                        <br />
+                                        游戏区服：地下城与勇士/上海区/上海2区
+                                    </ol>
+                                    <ol class="zj"><span style="color:#F90">120.00</span>元</ol>
+
+                                    <ol class="sl">
+                                        1
+                                        <br />
+                                        <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
+                                    </ol>
+                                    <ol class="khfw">
+                                        <a href="javascript:void(0)" class="list-kf" kfid="" gameId="G10" gtId="100001"
+                                           tradeType="db" salerId="112348969" substatus="1"
+                                           subbillId="117121015129162378667633">
+                                            <img src="http://pic.7881.com/7881/market/images/list-kf-icon.png" alt="" />
+                                        </a>
+                                    </ol>
+                                    <ol class="ddzt">
+                                        取消
+                                        <div class="tsgrzx" onmousemove="javascript:$('#prompt_127121015129162378197536').show();" onmouseout="javascript:$('#prompt_127121015129162378197536').hide();"><img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" /></div>
+                                        <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
+
+                                    </ol>
+                                    <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
+                                        <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
+                                    </ol>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cpfy">
+                            <dl currentNo="0" pageCount="1" totalRecords="9">
+                                <dd class="fy_l">上一页</dd>
+                                <dd class="fy2" onclick="return locatePage(0);">1</dd>
+                                <dd class="fy_r">下一页</dd>
+                                <dd><span>共1页 到第 <input id="pageNumber" onkeydown="restrict_digit_input(this)" maxlength="4" /> 页 <img src="http://pic.7881.com/7881/market/images/pageLook.png" align="absmiddle" style="cursor: pointer; vertical-align: middle" onclick="return gotoPage()" /></span></dd>
+                            </dl>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </form>
+            </div>
+        </div>`;
+    
+    var GetOrderInfoUrl ="/api/Order/"
 
     var data={};
     var components={
@@ -9,10 +149,10 @@ define([], function () {
         data: function () {
             return data;
         },
-        created: function () {
-
-        },
         methods: {
+            GetOrderInfo: function () {//根据条件获取订单的收发信息
+
+            }
         }
     };
     return components;

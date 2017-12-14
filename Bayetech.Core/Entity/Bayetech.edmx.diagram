@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="0.75" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="13.75" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="5.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
