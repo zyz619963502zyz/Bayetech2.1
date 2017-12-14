@@ -5,10 +5,6 @@ define(jsconfig.baseArr, function () {
             <div class="ddgl">
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
                 <form id="queryForm" method="post">
-                    <input type="hidden" id="pageSize" name="procureOrderBean.pageSize" value="10" />
-                    <input type="hidden" id="currentNo" name="procureOrderBean.currentNo" value="0" />
-                    <input type="hidden" id="querystatus" name="procureOrderBean.querystatus" value="" />
-                    <input type="hidden" name="procureOrderBean.buyerid" value="119831551" />
                     <!-- 标识查询方式：1最近查询 2历史查询 -->
                     <input id="queryType" name="procureOrderBean.queryType" value="1" type="hidden" />
                     <div class="yxddcx">
@@ -83,6 +79,8 @@ define(jsconfig.baseArr, function () {
                             </ul>
                         </div>
                         <div id="menud_con">
+
+                           
                             <div class="ddlb">
                                 <h1>
                                     订单编号：127121015129162378197536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：2017-12-10 22:30
@@ -101,9 +99,7 @@ define(jsconfig.baseArr, function () {
                                         游戏区服：地下城与勇士/上海区/上海2区
                                     </ol>
                                     <ol class="zj"><span style="color:#F90">120.00</span>元</ol>
-
-                                    <ol class="sl">
-                                        1
+                                    <ol class="sl">1
                                         <br />
                                         <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
                                     </ol>
@@ -114,17 +110,17 @@ define(jsconfig.baseArr, function () {
                                             <img src="http://pic.7881.com/7881/market/images/list-kf-icon.png" alt="" />
                                         </a>
                                     </ol>
-                                    <ol class="ddzt">
-                                        取消
+                                    <ol class="ddzt">取消
                                         <div class="tsgrzx" onmousemove="javascript:$('#prompt_127121015129162378197536').show();" onmouseout="javascript:$('#prompt_127121015129162378197536').hide();"><img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" /></div>
                                         <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
-
                                     </ol>
                                     <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
                                         <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
                                     </ol>
                                 </ul>
                             </div>
+
+
                         </div>
                         <div class="cpfy">
                             <dl currentNo="0" pageCount="1" totalRecords="9">
@@ -140,7 +136,7 @@ define(jsconfig.baseArr, function () {
             </div>
         </div>`;
     
-    var GetOrderInfoUrl ="/api/Order/"
+    var _GetOrderInfoUrl="/api/Order/GetOrderInfo"
 
     var data={};
     var components={
@@ -151,7 +147,10 @@ define(jsconfig.baseArr, function () {
         },
         methods: {
             GetOrderInfo: function () {//根据条件获取订单的收发信息
+                var param={};
+                common.getWebJson(_GetOrderInfoUrl, param, function (data) {
 
+                });
             }
         }
     };
