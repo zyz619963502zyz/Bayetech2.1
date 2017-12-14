@@ -10,11 +10,11 @@ define(['Scripts/app/UserCenter/Home',
     'Scripts/app/UserCenter/Seller/GoodsManage',
     'Scripts/app/UserCenter/Seller/DlPackage',
     'Scripts/app/UserCenter/Seller/MyAcceptDlRequire',
-    'Scripts/app/UserCenter/AccountSettings/ChangePassword',
-    'Scripts/app/UserCenter/AccountSettings/MyPaymentPassword',
-    'Scripts/app/UserCenter/AccountSettings/PhoneBinding',
-    'Scripts/app/UserCenter/AccountSettings/Certification',
-    'Scripts/app/UserCenter/AccountSettings/ValidateLogin',], function () {
+    'Scripts/app/UserCenter/AccountSetting/ChangePassword',
+    'Scripts/app/UserCenter/AccountSetting/MyPaymentPassword',
+    'Scripts/app/UserCenter/AccountSetting/PhoneBinding',
+    'Scripts/app/UserCenter/AccountSetting/Certification',
+    'Scripts/app/UserCenter/AccountSetting/ValidateLogin',], function () {
     var routes=[];
     for (var i=0; i<arguments.length; i++) {
         routes.push({
