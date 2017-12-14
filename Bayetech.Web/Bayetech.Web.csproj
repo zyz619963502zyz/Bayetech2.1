@@ -790,7 +790,23 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\app\UserCenter\AccountSettings\Certification.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSettings\ChangePassword.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSettings\MyPaymentPassword.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSettings\PhoneBinding.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSettings\ValidateLogin.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\BuyerDlOrder.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\MyDlOrder.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\MyDlRequire.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\MyOrders.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\ToBuy.js" />
     <Content Include="Scripts\app\UserCenter\index.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\DlPackage.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\GoodsManage.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\MyAcceptDlRequire.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\OrdersManage.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />
+    <Content Include="Scripts\app\UserCenter\router.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
