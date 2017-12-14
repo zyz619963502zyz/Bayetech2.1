@@ -20,5 +20,18 @@ namespace Bayetech.Web.Controllers
             MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
             return service.CreatOrder(goodInfo);
         }
+
+        /// <summary>
+        /// 取出订单信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetOrderInfo(JObject json)
+        {
+            JObject ret = new JObject();
+
+            return ret;
+        }
     }  
 }

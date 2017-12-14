@@ -12,31 +12,27 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class MallOrder
+    public partial class vw_MallOrderInfo
     {
-        public long OrderId { get; set; }
         public string OrderNo { get; set; }
-        public Nullable<int> OrderLineNum { get; set; }
         public Nullable<decimal> OrderPrice { get; set; }
+        public string GoodTitle { get; set; }
+        public string GroupName { get; set; }
+        public string ServerName { get; set; }
+        public string GameName { get; set; }
         public Nullable<int> OrderNumber { get; set; }
-        public Nullable<decimal> OrderAmount { get; set; }
-        public Nullable<decimal> OrderDiscount { get; set; }
-        public string OrderDiscountName { get; set; }
-        public Nullable<byte> OrderStatus { get; set; }
-        public Nullable<System.DateTime> OrderUpdateTime { get; set; }
+        public Nullable<long> BuyerQQ { get; set; }
+        public string Remark { get; set; }
+        public string RefundReason { get; set; }
+        public Nullable<long> GameId { get; set; }
+        public string StatusName { get; set; }
+        public string StatusAlias { get; set; }
+        public string ReceiveRole { get; set; }
         public string GoodNo { get; set; }
-        public string ServiceId { get; set; }
         public Nullable<long> ServiceQQ { get; set; }
         public string BuyerId { get; set; }
         public Nullable<long> BuyerPhone { get; set; }
-        public Nullable<long> BuyerQQ { get; set; }
-        public Nullable<int> InternalTypeId { get; set; }
         public string GoodType { get; set; }
-        public Nullable<System.DateTime> OrderCreatTime { get; set; }
-        public string PromoNum { get; set; }
-        public string Editor { get; set; }
-        public string RefundReason { get; set; }
-        public string Remark { get; set; }
-        public string ReceiveRole { get; set; }
+        public long OrderId { get; set; }
     }
 }
