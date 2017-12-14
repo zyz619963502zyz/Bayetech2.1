@@ -668,6 +668,7 @@
     <Content Include="Content\OlderCss\global.css" />
     <Content Include="Content\OlderCss\lbui.phonevalidator.css" />
     <Content Include="Content\OlderCss\new-footer.css" />
+    <Content Include="Content\OlderCss\Personal.css" />
     <Content Include="Content\OlderCss\popLayer.css" />
     <Content Include="Content\OlderCss\Public.css" />
     <Content Include="Content\swiper\animate.css" />
@@ -676,6 +677,7 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\GoodInfo\GoodInfo.html" />

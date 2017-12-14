@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我购买的订单-7881游戏交易平台</title>
+    <link href="http://pic.7881.com/7881/common_7881/css/7881.common.css" rel="stylesheet" type="text/css" />
+    <link href="http://pic.7881.com/7881/common_7881/css/global_new.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/OlderCss/global.css" rel="stylesheet" />
+    <link href="../../Content/OlderCss/Public.css" rel="stylesheet" />
+    <link href="../../Content/OlderCss/Personal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/select2.min.css">
+    <link rel="stylesheet" href="/css/websearch.css">
+    <!--[if lte IE 6]>
+    <style type="text/css">
+        body { behavior:url("/market/css/csshover.htc");}
+    </style>
+    <![endif]-->
+</head>
+<body>
+    <div id="screen"></div>
+    <div class="tip_box">
+        <h2>友情提示<a class="close-btn" href="#">关闭</a></h2>
+        <div class="mainlist">
+            <div class="ico">
+                <img src="http://pic.7881.com/7881/market/images/tip_box_1.png" width="48" height="48" align="absmiddle" />
+            </div>
+            <div class="text">
+                <ul>
+                    <li><strong>很遗憾，投诉入口已经关闭</strong></li>
+                    <li>亲，对不起哦，您目前无法投诉此单。</li>
+                    <li><cite>提示：订单已超过30天，无法投诉。</cite></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!--头部开始-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <div class="top_box">
+        <div class="top">
+            <!--顶部区域-->
+            <div class="top_l left"><dl><span id="span_user"><dt>你好！欢迎访问7881</dt><dt><a href="/7881_touristlogin.jsp" class="blue" rel="nofollow">登录</a></dt><dt><a href="/reg_tel.jsp" class="blue" rel="nofollow">免费注册</a></dt></span></dl></div><!--顶部左侧-->
+
+            <div class="top_r right">
+                <!--顶部右侧-->
+                <dl>
+                    <dt><a href="http://www.7881.com/" rel="nofollow">首页</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="/personal.html" rel="nofollow">买家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/procurement/queryMyProcureOrder.action" rel="nofollow">我购买的商品</a></li>
+                            <li><a href="/gamelistshow.html" rel="nofollow">我要买</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="/personal.html">卖家中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a></li>
+                            <li><a href="/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a></li>
+                            <li><a href="/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a></li>
+                            <li><a href="/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a></li>
+                            <li><a href="http://sellertools.7881.com" target="_blank">卖家助手</a></li>
+                            <li><a href="/release.html" rel="nofollow">我要卖</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="javascript:toadd()" class="green" rel="nofollow">充值</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dt><a href="/financecharge/toAddExtractcash.action" class="orange" rel="nofollow">提现</a></dt>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav">
+                        <a href="#" rel="nofollow">服务中心</a>
+                        <ul id="hide_nav">
+                            <li><a href="/sc/sc_index.html" rel="nofollow">客服中心</a></li>
+                            <li><a href="/helpCenter.html" rel="nofollow">帮助中心</a></li>
+                            <li><a href="/articlelist4-0-0.html" rel="nofollow">资讯中心</a></li>
+                            <li><a href="/tradesafe.html" rel="nofollow">安全中心</a></li>
+                        </ul>
+                    </dd>
+                    <dt class="top_grayline">|</dt>
+                    <dd class="subNav wb">
+                        <a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">官方微博</a>
+                        <ul id="hide_nav">
+                            <li class="xn"><a href="http://e.weibo.com/u/3578882991/" target="_blank" rel="nofollow">新浪微博</a></li>
+                            <li class="tx"><a href="http://t.qq.com/game7881/" target="_blank" rel="nofollow">腾讯微博</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div><br></div>
+    <!--头部结束-->
+    <!--弹出层时背景层DIV-->
+    <input type="hidden" id="gameId_hidden" value="" />
+    <input type="hidden" id="gtid_hidden" value="" />
+    <input type="hidden" id="superbillid_hidden" value="" />
+    <input type="hidden" id="buyerid_hidden" value="" />
+    <input type="hidden" id="substatus_hidden" value="" />
+    <input type="hidden" id="upload_imgs" name="upload_imgs" value="" />
+    <input type="hidden" id="userid" value="119831551" />
+    <div id="light" style="display: none;font-size: 14px;position: absolute;top:200px;left: 30%;width: 480px;height:180px;background-color: white;z-index:1002;overflow: auto;text-align:left;border:#3984ea solid 1px;">
+        <div style="float:left; color:#FFFFFF; line-height:30px;">
+            <strong>&nbsp;友情提示</strong>
+        </div>
+        <div class="gban">
+            <p style="float:right; margin-top:5px;"><a href="javascript:void(0)" onclick="$('#light').hide();$('#fade').hide();"><img src="http://pic.7881.com/7881/market/images/Personal/gbtcc.png" /></a>&nbsp;&nbsp;</p>
+        </div>
+        <div class="downContent">
+            <ul>
+                <li style="margin-top:6px;padding-left: 40px;">
+                    <img src="http://pic.7881.com/7881/images/promptImg.png" />
+                </li>
+                <li style="margin-top:12px; margin-left:20px;">
+                    <strong>为快速完成交易，请添加以下客服为QQ好友并联系。</strong><br /><br />
+                    <span>
+                        客服QQ:
+                        <input type="text" size="10" readonly="readonly" id="text_content" style="border-style:none" />
+                        [<span onclick="copyContent()" style="color:#4691d2; cursor: pointer;">复制</span>]
+                    </span><br /><br />
+                    <span><input type="button" class="CloseDivBtn" onclick="CloseDiv('light','fade')" /></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="fade" style="display: none;position: absolute;top: 0%;left: 0%;width: 100%;height:100%;background-color:#000;z-index:1001;-moz-opacity: 0.5;opacity:.50;filter: alpha(opacity=50);"></div>
+    <div class="clear"></div>
+    <div class="center yxlb">您的当前位置是：首页 - <span style="color:#3366cc">我的7881</span></div>
+    <div class="clear"></div>
+    <div class="center">
+        <div class="personal_left">
+            <a href="/personal.html?ver=20140728" style="cursor:pointer; text-decoration:none"><h1>我的7881</h1></a>
+            <ul>
+                <ol>
+                    <A onclick=javascript:ShowFLT(1) href="javascript:void(null)"><IMG id="treePic1" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 我是买家</A>
+                </ol>
+                <div id="LM1">
+                    <li><a href="/gamelistshow.html">我要买</a></li>
+                    <li><a href="/procurement/queryMyProcureOrder.action">我购买的订单</a></li>
+                    <li><a href="/leveing/toLeveingShow.action">我的代练订单</a></li>
+                    <li><a href="/transaction/toPurchaseRole.action">收货角色管理</a></li>
+                    <li><a href="/winprize/getList.action">中奖记录</a></li>
+                    <li><a href="/myAchieveBenefit/getList.action">我领取的福利</a></li>
+                    <li><a href="/levelingDnf/dnfGoodsBuyer.action">我发布的代练需求</a></li>
+                    <li><a href="/levelingDnf/showOrdersBuyer.action">买家代练订单</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(2) href="javascript:void(null)"><IMG id="treePic2" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 我是卖家</A>
+                </ol>
+                <div id="LM2">
+                    <li><a href="/release.html">我要卖</a></li>
+                    <li><a href="/sellertool/queryMySaleOrder.action">我的订单管理</a></li>
+                    <li><a href="/procurement/showMyGoods.action">出售中的商品</a></li>
+                    <li><a href="/sellertool/queryMyClosedGoods.action">仓库中的商品</a></li>
+                    <li><a href="/shouhuo/getOrderByList.action">我的出货订单</a></li>
+                    <li><a href="/procurement/batchMyGoods.action">商品批量发布</a></li>
+                    <li><a href="/props/getUserPropsDetail.action">我的置顶卡</a></li>
+                    <li><a href="/levelingDnf/dnfGoodsSaler.action">我发布的代练套餐</a></li>
+                    <li><a href="/levelingDnf/showOrdersSaler.action">我接的代练需求</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(3) href="javascript:void(null)"><IMG id="treePic3" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif">积分和兑换</A>
+                </ol>
+                <div id="LM3">
+                    <li><a href="http://jifen.7881.com">我的积分</a></li>
+                    <li><a href="/invite/getAllInvite.action" target="_blank">邀请好友</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(4) href="javascript:void(null)"><IMG id="treePic4" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 资金管理</A>
+                </ol>
+                <div id="LM4">
+                    <li><a href="/financecharge/toAddExtractcash.action">我要提现</a></li>
+                    <li><a href="/financecharge/toAdd.action">我要充值</a></li>
+                    <li><a href="/financerecord/incomeExpensesList.action">资金明细</a></li>
+                    <li><a href="/financerecord/extractList.action">提现明细</a></li>
+                    <li><a href="/financerecord/rechargeList.action">充值明细</a></li>
+                    <li><a href="/redenvelop/queryMyRedEnvelop.action">我的红包</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(5) href="javascript:void(null)"><IMG id="treePic5" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 推广联盟</A>
+                </ol>
+                <div id="LM5">
+                    <li><a href="/financerecord/toPromotionCode.action">推广码</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(6) href="javascript:void(null)"><IMG id="treePic6" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 帐号设置</A>
+                </ol>
+                <div id="LM6">
+                    <li><a href="/user/toChangePassword.action">修改登录密码</a></li>
+                    <li><a href="/commerical/toChangetransactionPass.action">我的支付密码</a></li>
+                    <li><a href="/commerical/toEditPhone.action">手机绑定</a></li>
+                    <li><a href="/commerical/toApprove.action">实名认证</a></li>
+                    <li><a href="/commerical/toApprove_pic.action">身份认证</a></li>
+                    <li><a href="/commerical/toFindSafelogin.action">登录验证</a></li>
+                    <li><a href="/address/toMyAddress.action">收货地址</a></li>
+                    <li><a href="/commerical/toServerAndIn.action">服务和准入</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(7) href="javascript:void(null)"><IMG id="treePic7" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 客户服务</A>
+                </ol>
+                <div id="LM7">
+                    <li><a href="/helpcenter.html">帮助中心</a></li>
+                    <li><a href="/complaint/queryComplaint.action" title="我的投诉">我的投诉</a></li>
+                    <li><a target="_blank" href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4001877881&aty=0&a=0&curl=&ty=1" title="我要咨询">我要咨询</a></li>
+                    <li><a href="/release_admittance.html">商家准入申请</a></li>
+
+                    <li><a href="/selfService/preToSelfService.action?urlType=1">申请手机变更</a></li>
+                    <li><a href="/selfService/preToSelfService.action?urlType=3">申请提现开户名变更</a></li>
+                </div>
+                <ol>
+                    <A onclick=javascript:ShowFLT(8) href="javascript:void(null)"><IMG id="treePic8" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 消息中心</A>
+                </ol>
+                <div id="LM8">
+                    <li><a href="/msg/notReadMsg.action" title="我的站内信">我的站内信</a></li>
+                    <li><a href="/msg/queryMsgSet.action" title="消息设置">消息设置</a></li>
+                    <li><a href="/msg/queryPhoneAndWxSet.action" title="语音外呼设置">语音外呼设置</a></li>
+                </div>
+                <!-- 推广联盟暂时隐藏fy -->
+            </ul>
+        </div>
+        <div class="personal_right">
+            <div class="ddgl">
+
+                <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
+                <form id="queryForm" method="post">
+                    <input type="hidden" id="pageSize" name="procureOrderBean.pageSize" value="10" />
+                    <input type="hidden" id="currentNo" name="procureOrderBean.currentNo" value="0" />
+                    <input type="hidden" id="querystatus" name="procureOrderBean.querystatus" value="" />
+                    <input type="hidden" name="procureOrderBean.buyerid" value="119831551" />
+                    <!-- 标识查询方式：1最近查询 2历史查询 -->
+                    <input id="queryType" name="procureOrderBean.queryType" value="1" type="hidden" />
+                    <div class="yxddcx">
+                        <ul>
+                            <li>
+                                &nbsp;&nbsp;游 戏：
+                                <select id="gameid" name="procureOrderBean.gameid" class="js-states js-example-events form-control">
+                                    <option value="">请选择</option>
+                                    <option value="G10">D - 地下城与勇士</option>
+                                </select>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                商品类型：
+                                <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
+                                    <option value="" selected="selected">全部</option>
+                                    <option value="100002">装备</option>
+                                    <option value="100003">账号</option>
+                                    <option value="100111">道具</option>
+                                    <option value="100151">卢克金团</option>
+                                    <option value="100154">老玩家推荐码</option>
+                                    <option value="100008">点券</option>
+                                    <option value="100148">安图恩金团</option>
+                                    <option value="100113">强化增幅书</option>
+                                    <option value="100001">游戏币</option>
+                                    <option value="100072">深渊票</option>
+                                    <option value="100150">搬砖号</option>
+                                    <option value="100159">无色小晶体</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span class="yys" style="display: none;">　&nbsp;运 营 商： <select id="carrierid" name="procureOrderBean.carrierid" class="sec-border"><option value="">请选择</option></select>&nbsp;&nbsp;&nbsp;</span>
+                                &nbsp;&nbsp;游 戏 区：<select id="groupid" name="procureOrderBean.groupid" class="sec-border"><option value="">请选择</option></select> &nbsp;&nbsp;&nbsp;
+                                &nbsp;游 戏 服：<select id="serverid" name="procureOrderBean.serverid" class="sec-border"><option value="">请选择</option></select>
+                            </li>
+                            <li>
+                                订 单 时 间：
+                                <input id="starttime" name="procureOrderBean.starttime" size="20" readonly="readonly" value="2017-11-13 00:00:00" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                &nbsp;&nbsp;到&nbsp;&nbsp;
+                                <input id="endtime" name="procureOrderBean.endtime" size="20" readonly="readonly" value="2017-12-13 23:59:59" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                <span style="margin-left:10px"></span>
+                                <span class="search_time_span" id="today" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">今天</a></span>
+                                <span class="search_time_span" id="oneMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">最近1个月</a></span>
+                                <span class="search_time_span" id="threeMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">3个月</a></span>
+                                <span class="search_time_span" id="sixMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">6个月</a></span>
+                                <span style="display:none;">自定义</span>
+                            </li>
+                            <li>
+                                订 单 编 号：
+                                <input name="procureOrderBean.superbillid" size="28" value="" onkeyup="this.value=this.value.replace(/\s+/g, '');" />
+                                <input type="button" class="cxFormtime" id="btnQuery" value="查询" />
+                                <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 	<span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：亲，目前只能查询2015年的订单哦，后期将为您恢复，给您带来不便，敬请谅解。</span> -->
+                    <div class="yxddlb">
+
+                        <div class="myxssl"><span>每页显示数量：</span><a type="pageSize" size="10">10</a> <a type="pageSize" size="20">20</a> <a type="pageSize" size="30">30</a></div>
+                        <div id="nave">
+                            <ol querystatus=""><a class="a_hover">全部</a></ol>
+                            <ol querystatus="6,60"><a class="">成功订单</a></ol>
+                            <ol querystatus="4,40"><a class="">撤销订单</a></ol>
+                            <ol querystatus="1"><a class="">等待付款</a></ol>
+                            <ol querystatus="5"><a class="">等待取货</a></ol>
+                        </div>
+                        <div class="ddxq">
+                            <ul>
+                                <li class="spmc">商品名称</li>
+                                <li class="zj">总价</li>
+                                <li class="sl">数量</li>
+                                <li class="khfw">客户服务</li>
+                                <li class="ddzt">订单状态</li>
+                            </ul>
+                        </div>
+                        <div id="menud_con">
+                            <div class="ddlb">
+                                <h1>
+                                    订单编号：127121015129162378197536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：2017-12-10 22:30
+                                    <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
+                                        <a href="../goods-buying-G10-100001-1.html"><span class="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;"></span></a>
+
+
+                                    </span>
+
+                                </h1>
+                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" orderid="127121015129162378197536" sellertype="B" billstatus="4">
+                                    <ol class="spmc">
+                                        <span style="color:#36c">
+
+                                            <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />
+
+
+
+                                            5853万金=120元 即买即发 地下城与勇士 上海区
+                                            上海2区
+                                        </span>
+                                        <br />
+
+                                        游戏区服：地下城与勇士/上海区/上海2区
+                                    </ol>
+                                    <ol class="zj"><span style="color:#F90">120.00</span>元</ol>
+
+                                    <ol class="sl">
+                                        1
+                                        <br />
+                                        <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
+                                    </ol>
+                                    <ol class="khfw">
+                                        <a href="javascript:void(0)" class="list-kf" kfid="" gameId="G10" gtId="100001"
+                                           tradeType="db" salerId="112348969" substatus="1"
+                                           subbillId="117121015129162378667633">
+                                            <img src="http://pic.7881.com/7881/market/images/list-kf-icon.png" alt="" />
+
+                                        </a>
+                                    </ol>
+
+
+
+
+                                    <ol class="ddzt">
+                                        取消
+                                        <div class="tsgrzx" onmousemove="javascript:$('#prompt_127121015129162378197536').show();" onmouseout="javascript:$('#prompt_127121015129162378197536').hide();"><img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" /></div>
+                                        <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
+
+                                    </ol>
+                                    <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
+                                        <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
+                                    </ol>
+
+
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cpfy">
+                            <dl currentNo="0" pageCount="1" totalRecords="9">
+                                <dd class="fy_l">上一页</dd>
+                                <dd class="fy2" onclick="return locatePage(0);">1</dd>
+                                <dd class="fy_r">下一页</dd>
+                                <dd><span>共1页 到第 <input id="pageNumber" onkeydown="restrict_digit_input(this)" maxlength="4" /> 页 <img src="http://pic.7881.com/7881/market/images/pageLook.png" align="absmiddle" style="cursor: pointer; vertical-align: middle" onclick="return gotoPage()" /></span></dd>
+                            </dl>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--  -->
+    <!--底部开始-->
+    <div class="clear"></div>
+    <div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+    <div class="clear"></div>
+    <div class="foot">
+        <div class="center foot_wenzi">
+            <a href="http://www.7881.com/aboutus.html" target="_blank" class="hs" rel="nofollow">&nbsp;关于我们&nbsp;</a> |
+            <a href="http://www.7881.com/contactus.html" target="_blank" class="hs" rel="nofollow">&nbsp;联系我们&nbsp;</a> |
+            <a href="http://www.7881.com/copyright.html" target="_blank" class="hs" rel="nofollow">&nbsp;免责声明&nbsp;</a> |
+            <a href="http://www.7881.com/hr.html" target="_blank" class="hs" rel="nofollow">&nbsp;诚聘英才&nbsp;</a> |
+            <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" class="hs" rel="nofollow">&nbsp;家长监护&nbsp;</a> |
+            <a href="http://www.7881.com/cooperation.html" target="_blank" class="hs" rel="nofollow">&nbsp;商务合作&nbsp;</a> |
+            <a href="http://www.7881.com/sitemap.html" target="_blank" class="hs">&nbsp;网站地图&nbsp;</a> |
+            <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank" class="hs">&nbsp;媒体声音&nbsp;</a> <br />
+            Copyright Reserved 2008-2016 &copy; 7881游戏交易   网络文化经营许可证：
+            <a href="http://www.7881.com/contectus/lianxiwomen.jsp" target="_blank" class="hs" rel="nofollow">苏网文[2015]2034-038号</a>
+            网站备案-<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="hs">苏B1-20110004-4</a>
+        </div>
+        <div class="mb10 center cent">
+            <a target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn"><img src="http://pic.ofcard.com/7881/market/images/foot_1.png" /> 网站备案信息</a>
+            <a target="_blank" rel="nofollow" href="http://www.cyberpolice.cn/wfjb/"><img src="http://pic.ofcard.com/7881/market/images/foot_2.png" /> 网络警察</a>
+            <a target="_blank" rel="nofollow" href="https://www.alipay.com"><img src="http://pic.ofcard.com/7881/market/images/foot_3.png" /> 支付宝特约商户</a>
+            <a target="_blank" rel="nofollow" href="http://www.anquan.org/authenticate/cert/?site=www.7881.com&sn=2013071816040123804"><img src="http://pic.ofcard.com/7881/market/images/foot_6.png" /> 安全联盟</a>
+            <a target="_blank" rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/6C975C7695A34AD89E8416C44BEE105B"><img src="http://pic.7881.com/7881/market/images/foot_8.png" /> 中国文化部</a>
+        </div>
+        <div class="tleft"></div>
+    </div>
+    <!--底部结束-->
+
+    <DIV style="DISPLAY: none" id="goTopBtn"><IMG border=0 src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部"></DIV>
+    <SCRIPT type=text/javascript>goTopEx();</SCRIPT>
+    <div style="display: none;">
+    </div>
+    <div id="winpop">
+        <div class="head">
+            <div class="title">友情提示</div>
+            <div class="close" onclick="tips_pop()">知道了</div>
+            <div class="con">
+                <div id="menuz_con">
+
+                </div>
+                <div id="navz">
+                    <ul>
+                        <a href="/msg/notReadMsg.action" target="_blank" class="more blue">查看更多</a>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="evaluate" kfqq="">
+        <div class="evaluate-box">
+            <div class="pj-all-con">
+                <div class="evaluate-tips"><em><img src="http://pic.7881.com/7881/market/images/ld-icon.png" width="15" height="16" alt="" /></em><span>请您针对此次交易做出评价！（完成评价可以获得积分哦~）</span></div>
+                <dl class="zh-pj pj-com">
+                    <dt><img src="http://pic.7881.com/7881/market/images/zhpj-icon.png" alt="" /></dt>
+                    <dd>
+                        <h5><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span></h5>
+                        <p></p>
+                    </dd>
+                </dl>
+                <div class="pjyx-tit"><em class="line-l"></em><p>对本次交易的印象</p><em class="line-r"></em></div>
+                <div class="zh-yx pjyx-box">
+                    <ul></ul>
+                </div>
+                <div class="pj-textarea appraiseTrade">
+                    <textarea placeholder="聊聊针对此次交易的感受！" maxlength="200"></textarea>
+                    <span><em>0</em>/200</span>
+                </div>
+                <dl class="kf-pj pj-com">
+                    <dt><img src="http://pic.7881.com/7881/market/images/kfpj-icon.png" alt="" /></dt>
+                    <dd>
+                        <h5><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span><span class="star-pj-off"></span></h5>
+                        <p></p>
+                    </dd>
+                </dl>
+                <div class="pjyx-tit"><em class="line-l"></em><p>对本次服务的印象</p><em class="line-r"></em></div>
+                <div class="kf-yx pjyx-box">
+                    <ul></ul>
+                </div>
+                <div class="pj-textarea appraiseKefu">
+                    <textarea placeholder="聊聊针对此次客服服务的感受！" maxlength="200"></textarea>
+                    <span><em>0</em>/200</span>
+                </div>
+                <div class="dstit">
+                    <p><span>打赏客服</span>客服小妹很辛苦，客官大人请打赏（自愿非强迫）</p>
+                </div>
+                <div class="dslist rewardList"></div>
+            </div>
+            <div class="pj-btn newbtn"><a href="javascript:void(0)">打完收工</a></div>
+        </div>
+    </div>
+
+    <!--修改密码弹窗-->
+    <div class="openetpwd" style="display: none;">
+        <div class="openetpwd-box">
+            <p><span>QQ账号：</span><input type="text" class="qqaccount" /></p>
+            <p><span>账号密码：</span><input type="password" class="qqpaswd" /></p>
+            <p><a href="javascript:void(0)" class="editsure">确定</a><a href="javascript:void(0)" class="editclose">取消</a></p>
+        </div>
+    </div>
+</body>
+</html>
