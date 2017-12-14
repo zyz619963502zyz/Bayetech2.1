@@ -790,16 +790,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\app\UserCenter\AccountSettings\Certification.js" />
-    <Content Include="Scripts\app\UserCenter\AccountSettings\ChangePassword.js" />
-    <Content Include="Scripts\app\UserCenter\AccountSettings\MyPaymentPassword.js" />
-    <Content Include="Scripts\app\UserCenter\AccountSettings\PhoneBinding.js" />
-    <Content Include="Scripts\app\UserCenter\AccountSettings\ValidateLogin.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSetting\Certification.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSetting\ChangePassword.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSetting\MyPaymentPassword.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSetting\PhoneBinding.js" />
+    <Content Include="Scripts\app\UserCenter\AccountSetting\ValidateLogin.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\BuyerDlOrder.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyDlOrder.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyDlRequire.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyOrders.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\ToBuy.js" />
+    <Content Include="Scripts\app\UserCenter\Home.js" />
     <Content Include="Scripts\app\UserCenter\index.js" />
     <Content Include="Scripts\app\UserCenter\Seller\DlPackage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\GoodsManage.js" />
@@ -842,6 +843,7 @@
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\vue-router.js" />
     <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue-router.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\app\Shared\tab.js" />
     <Content Include="Web.config" />

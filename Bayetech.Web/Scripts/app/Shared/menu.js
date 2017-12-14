@@ -2,7 +2,7 @@
 define(['vue', 'jquery', 'common'], function (Vue, $, common) {
 
     var html=`<div class="menu">
-    <a :href="data.Home" style="cursor:pointer; text-decoration:none"><h1>{{data.Title}}</h1></a>
+    <router-link to="/" style="cursor:pointer; text-decoration:none"><h1>{{data.Title}}</h1></router-link>
     <div v-for="(value,index) in data.List">
         <span>
             <a @click="toggleTab(index)" href="javascript:void(null)">

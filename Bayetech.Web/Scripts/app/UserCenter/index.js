@@ -2,8 +2,6 @@
 
 //个人中心主模块
 require(UserCenterRequireArr, function () {
-    //api
-    debugger;
     var Vue=arguments[0];
     var $=arguments[1];
     var common=arguments[2];
@@ -17,7 +15,6 @@ require(UserCenterRequireArr, function () {
     var data={
         menuData: {
             Title: "个人中心",
-            Home: "#",
             List: [{
                 Title: "我是买家",
                 Items: [{ Id: 0, Title: "我要买", Path: "/ToBuy" },
