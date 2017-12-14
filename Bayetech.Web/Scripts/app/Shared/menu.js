@@ -1,4 +1,4 @@
-﻿//左侧模板
+﻿//左侧菜单模板
 define(['vue', 'jquery', 'common'], function (Vue, $, common) {
 
     var html=`<div class="menu">
@@ -10,11 +10,12 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
             </a>
         </span>
         <ul :id="'tab'+index">
-            <li v-for="item in value.Items"><a @click="view(item.Id)">{{ item.Title }}</a></li>
+            <li v-for="item in value.Items"><router-link :to="{ path: item.Path,params:{id:item.Id}}">{{ item.Title }}</router-link></li>
         </ul>
     </div>
 </div>`;
 
+    //<a @click="view(item.Id)">{{ item.Title }}</a>
     var components = {
         props: ['data'],
         name: "v-menu",

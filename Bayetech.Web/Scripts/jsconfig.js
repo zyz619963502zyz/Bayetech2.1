@@ -67,7 +67,8 @@ var jsconfig = {
         'ServiceFoot': "Scripts/app/ServiceCenter/footeradvan",
         'ServiceCall': "Scripts/app/ServiceCenter/ServiceColl",
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
-        'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo"
+        'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
+        'VueRouter': 'Scripts/vue-router',
     },
     map: {
         '*': {
