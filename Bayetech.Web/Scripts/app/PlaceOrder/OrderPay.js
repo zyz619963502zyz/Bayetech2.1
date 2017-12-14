@@ -175,7 +175,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 },
                 SureBuy() {
                     var param=this.$data;
-                    common.postWebJson(_CreatOrderUrl, JSON.stringify(param), function (data) {//生成订单编号
+                    common.postWebJson(_CreatOrderUrl, JSON.stringify(param), function (data) {//生成订单编号 
                         if (!data.result) {
                             alert(data.content);
                         } else {

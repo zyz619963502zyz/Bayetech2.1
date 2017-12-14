@@ -177,7 +177,7 @@ img{display:inline-block;}
 .game_select_main .right_bg {display:inline;}
 .game_select_main .gs_menu {width:587px;height:40px;border:4px solid #3983E8;float:left;}
 .game_select_main .gs_menu .arrow {height:29px;line-height:29px;color:#333;text-indent:8px;cursor:pointer;background-position:100% -238px;padding-right:12px;border:0 none;width:100px;text-align:center;}
-.game_select_main .gs_menu .gs_search_box {width:179px;height:29px;padding:16px 20px;font-size:12px;line-height:16px;overflow:hidden;border:0 none;color:#999;}
+.game_select_main .gs_menu .gs_search_box {width:179px;height:29px;padding:15px 20px;font-size:12px;line-height:16px;overflow:hidden;color:#999;}
 .game_select_main .gs_menu .gs_search_box_reset {width:120px;}
 .game_select_main .gs_search_btn {width:80px;height:37px;background-color:#faa426;background-position:0 -30px;}
 .game_select_main .gs_search_btn:hover {background-position:0 -283px;}
@@ -194,7 +194,7 @@ img{display:inline-block;}
 .gs_sort li a:hover {text-decoration:none;}
 .gs_sort li.active {font-weight:bolder;}
 .gs_sort li.active a {background-color:#FFF;color:#1ea5ff;}
-#gameSelectV2 {float:right;width:800px;}
+#gameSelectV2 {float:right;width:1185px;}
 #gameSelectV2 .game_select_box {width:598px;}
 #gameSelectV2 .gs_box {left:-316px;}
 /*#gameSelectV2 .tab_box {width:598px;}
@@ -212,3 +212,21 @@ img{display:inline-block;}
 #searchbar_rookie_tips .fed-arrleft {top:2px;}
 #searchbar_rookie_tips .fed-toolstip .fed-tipsclose {height:10px;line-height:10px;top:5px;_top:2px;right:3px;_right:10px;position:absolute;font-size:20px;color:#C6C6C6;}
 
+/*addbyzhaoyz5-2017-12-13暂用*/
+#GoodList .nav-justified {
+    padding-left: 466px;
+    background-color:#3b83e8;
+}
+
+#GoodList .nav-justified li>a {
+    color:#fff;
+}
+
+.nav-justified>li {
+    width: 147px;
+}
+
+.nav-justified>a {
+    color: #fff;
+}
+/*addbyzhaoyz5-2017-12-13暂用*/
