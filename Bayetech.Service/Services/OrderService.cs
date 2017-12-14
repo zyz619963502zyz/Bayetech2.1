@@ -66,9 +66,9 @@ namespace Bayetech.Service.Services
                 {
                     expressions.And(t => t.ServerName == order.ServerName);
                 }
-                if (!string.IsNullOrEmpty(order.ServerName))//订单时间
+                if (order.OrderCreatTime!=null&&!string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
                 {
-                    expressions.And(t => t.ServerName == order.ServerName);
+                    expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
                 }
                 if (!string.IsNullOrEmpty(order.OrderNo))
                 {
@@ -76,7 +76,7 @@ namespace Bayetech.Service.Services
                 }
                 if (!string.IsNullOrEmpty(order.GameName))
                 {
-
+                    expressions.And(t => t.OrderStatus == order.OrderStatus);
                 }
                 List<vw_MallOrderInfo> orderInfos = db.FindList<vw_MallOrderInfo>(expressions, GetDefaultPagination("OrderNo")).ToList();
                 if (orderInfos.Count>0)
