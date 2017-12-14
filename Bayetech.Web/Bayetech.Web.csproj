@@ -843,6 +843,7 @@
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\vue-router.js" />
     <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue-router.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\app\Shared\tab.js" />
     <Content Include="Web.config" />
