@@ -69,8 +69,9 @@ img{display:inline-block;}
     }
 }
 
-/*menu*/
+/*menu左侧边栏*/
 .menu{ float:left; border:#dfdfdf solid 1px; width:180px;}
+.menu > a {cursor:pointer; text-decoration:none;}
 .menu h1{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
 .menu span{ height:30px; font-weight:bold; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_2.png) no-repeat; padding-left:20px;}
 .menu span a{display:block; padding-top:8px;}
@@ -212,7 +213,7 @@ img{display:inline-block;}
 #searchbar_rookie_tips .close:hover {color:#CCC;text-decoration:none;}
 #searchbar_rookie_tips .fed-arrleft {top:2px;}
 #searchbar_rookie_tips .fed-toolstip .fed-tipsclose {height:10px;line-height:10px;top:5px;_top:2px;right:3px;_right:10px;position:absolute;font-size:20px;color:#C6C6C6;}
-
+/*serach end*/
 
 
 /*查询搜索优化*/
