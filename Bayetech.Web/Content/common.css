@@ -9,6 +9,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,dl,dt,dd,ul,ol,li,form,fieldset,legend,button,input,
 fieldset,img{border:0;}
 ul,ol,li{list-style:none;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: normal;}
+
 img{display:inline-block;}
 /*padding*/
 .p-n{padding:0;}
@@ -194,7 +195,7 @@ img{display:inline-block;}
 .gs_sort li a:hover {text-decoration:none;}
 .gs_sort li.active {font-weight:bolder;}
 .gs_sort li.active a {background-color:#FFF;color:#1ea5ff;}
-#gameSelectV2 {float:right;width:1185px;}
+#gameSelectV2 {float:right;width:823px;}
 #gameSelectV2 .game_select_box {width:598px;}
 #gameSelectV2 .gs_box {left:-316px;}
 /*#gameSelectV2 .tab_box {width:598px;}
@@ -203,7 +204,7 @@ img{display:inline-block;}
 #searchbar_rookie_tips .fed-toolstip {padding:5px 0;background:#FFFDE6;border:1px solid #FED99D;position:relative;}
 #searchbar_rookie_tips .fed-tipcon {padding:0 5px 0 30px;background-color:#FFFDE6;height:18px;background-position:-77px -427px;}
 #searchbar_rookie_tips .fed-toolstip .fed-tipcon p {color:#F60;}
-#searchbar_rookie_tips .fed-tipsarr {font-size:18px;}
+#searchbar_r  ookie_tips .fed-tipsarr {font-size:18px;}
 #searchbar_rookie_tips .fed-arrleft {left:-8px;}
 #searchbar_rookie_tips .fed-tipsarr span.arr-1 {left:-2px;top:6px;color:#FED99D;width:10px;height:10px;background-position:-90px -490px;font-size:18px;}
 #searchbar_rookie_tips .fed-tipsarr span.arr-2 {left:-1px;top:-1px;color:#FFFDE6;width:10px;font-size:18px;display:none;}
@@ -212,7 +213,9 @@ img{display:inline-block;}
 #searchbar_rookie_tips .fed-arrleft {top:2px;}
 #searchbar_rookie_tips .fed-toolstip .fed-tipsclose {height:10px;line-height:10px;top:5px;_top:2px;right:3px;_right:10px;position:absolute;font-size:20px;color:#C6C6C6;}
 
-/*addbyzhaoyz5-2017-12-13暂用*/
+
+
+/*查询搜索优化*/
 #GoodList .nav-justified {
     padding-left: 466px;
     background-color:#3b83e8;
@@ -229,4 +232,16 @@ img{display:inline-block;}
 .nav-justified>a {
     color: #fff;
 }
-/*addbyzhaoyz5-2017-12-13暂用*/
+
+.home-header .head-search {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.home-header .head-search .logo {
+        width: 315px;
+        float: left;
+}  
+
+.logo {margin-top: 20px;margin-bottom: 10px;}
+/*查询搜索优化*/
