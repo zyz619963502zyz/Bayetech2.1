@@ -2,8 +2,6 @@
 
 //个人中心主模块
 require(UserCenterRequireArr, function () {
-    //api
-    debugger;
     var Vue=arguments[0];
     var $=arguments[1];
     var common=arguments[2];
