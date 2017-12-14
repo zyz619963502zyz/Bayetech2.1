@@ -17,7 +17,6 @@ require(UserCenterRequireArr, function () {
     var data={
         menuData: {
             Title: "个人中心",
-            Home: "#",
             List: [{
                 Title: "我是买家",
                 Items: [{ Id: 0, Title: "我要买", Path: "/ToBuy" },

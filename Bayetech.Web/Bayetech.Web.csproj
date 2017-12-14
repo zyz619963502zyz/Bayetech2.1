@@ -800,6 +800,7 @@
     <Content Include="Scripts\app\UserCenter\Buyer\MyDlRequire.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyOrders.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\ToBuy.js" />
+    <Content Include="Scripts\app\UserCenter\Home.js" />
     <Content Include="Scripts\app\UserCenter\index.js" />
     <Content Include="Scripts\app\UserCenter\Seller\DlPackage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\GoodsManage.js" />
