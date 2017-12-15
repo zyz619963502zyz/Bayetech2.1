@@ -11,32 +11,25 @@ define(jsconfig.baseArr, function () {
                         <ul>
                             <li>
                                 &nbsp;&nbsp;游 戏：
-                                <select id="gameid" name="procureOrderBean.gameid" class="js-states js-example-events form-control">
-                                    <option value="">请选择</option>
+                                <select id="gameid" class="js-states js-example-events form-control">
+                                    <option v-for="var item in GameNames" :value="item.GameId">{{item.GameName}}</option>
                                     <option value="G10">D - 地下城与勇士</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 商品类型：
                                 <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
-                                    <option value="" selected="selected">全部</option>
-                                    <option value="100002">装备</option>
-                                    <option value="100003">账号</option>
-                                    <option value="100111">道具</option>
-                                    <option value="100151">卢克金团</option>
-                                    <option value="100154">老玩家推荐码</option>
-                                    <option value="100008">点券</option>
-                                    <option value="100148">安图恩金团</option>
-                                    <option value="100113">强化增幅书</option>
-                                    <option value="100001">游戏币</option>
-                                    <option value="100072">深渊票</option>
-                                    <option value="100150">搬砖号</option>
-                                    <option value="100159">无色小晶体</option>
+                                    <option v-for="var item in Types" :value="item.Id" selected="selected">{{item.Name}}</option>
                                 </select>
                             </li>
                             <li>
-                                <span class="yys" style="display: none;">　&nbsp;运 营 商： <select id="carrierid" name="procureOrderBean.carrierid" class="sec-border"><option value="">请选择</option></select>&nbsp;&nbsp;&nbsp;</span>
-                                &nbsp;&nbsp;游 戏 区：<select id="groupid" name="procureOrderBean.groupid" class="sec-border"><option value="">请选择</option></select> &nbsp;&nbsp;&nbsp;
-                                &nbsp;游 戏 服：<select id="serverid" name="procureOrderBean.serverid" class="sec-border"><option value="">请选择</option></select>
+                                &nbsp; &nbsp; 游 戏 区：
+                                <select id="groupid" class ="sec-border">
+                                    <option v-for="var item in Groups": value="item.Id">{{item.Name}}</option>
+                                </select> &nbsp; &nbsp; &nbsp;
+                                &nbsp; 游 戏 服：
+                                <select id="serverid" v-for="var item in Servers" :value="item.Id" class ="sec-border">
+                                    <option value="">{{item.Name}}</option>
+                                </select>
                             </li>
                             <li>
                                 订 单 时 间：
@@ -80,7 +73,7 @@ define(jsconfig.baseArr, function () {
                         </div>
                         <div id="menud_con">
 
-                           
+
                             <div class="ddlb">
                                 <h1>
                                     订单编号：127121015129162378197536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：2017-12-10 22:30
@@ -119,8 +112,6 @@ define(jsconfig.baseArr, function () {
                                     </ol>
                                 </ul>
                             </div>
-
-
                         </div>
                         <div class="cpfy">
                             <dl currentNo="0" pageCount="1" totalRecords="9">
@@ -135,10 +126,10 @@ define(jsconfig.baseArr, function () {
                 </form>
             </div>
         </div>`;
-    
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo"
-
-    var data={};
+    var data={
+        Types:[],//交易类别
+    };
     var components={
         name: "MyOrders",
         template: html,
