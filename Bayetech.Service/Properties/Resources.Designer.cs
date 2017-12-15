@@ -97,7 +97,7 @@ namespace Bayetech.Service.Properties {
         }
         
         /// <summary>
-        ///   查找类似 未查询到此笔信息! 的本地化字符串。
+        ///   查找类似 未查询到相关信息! 的本地化字符串。
         /// </summary>
         internal static string Reminder_NoInfo {
             get {

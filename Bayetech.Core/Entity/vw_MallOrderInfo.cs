@@ -34,5 +34,7 @@ namespace Bayetech.Core.Entity
         public Nullable<long> BuyerPhone { get; set; }
         public string GoodType { get; set; }
         public long OrderId { get; set; }
+        public Nullable<byte> OrderStatus { get; set; }
+        public Nullable<System.DateTime> OrderCreatTime { get; set; }
     }
 }

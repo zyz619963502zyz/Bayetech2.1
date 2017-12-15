@@ -29,9 +29,9 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public JObject GetOrderInfo(JObject json)
         {
-            JObject ret = new JObject();
-
-            return ret;
+            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json.First.Path);
+            return service.GetOrderInfo(order);
+          
         }
     }  
 }

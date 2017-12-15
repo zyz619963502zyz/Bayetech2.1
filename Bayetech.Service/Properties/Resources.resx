@@ -134,7 +134,7 @@
     <comment>提示信息格式</comment>
   </data>
   <data name="Reminder_NoInfo" xml:space="preserve">
-    <value>未查询到此笔信息!</value>
+    <value>未查询到相关信息!</value>
     <comment>根据条件没有查询到对应的数据库的实体或者列表但不报错.</comment>
   </data>
 </root>

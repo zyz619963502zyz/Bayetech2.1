@@ -408,6 +408,8 @@
           <Property Name="BuyerPhone" Type="bigint" />
           <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderId" Type="bigint" Nullable="false" />
+          <Property Name="OrderStatus" Type="tinyint" />
+          <Property Name="OrderCreatTime" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -561,7 +563,9 @@
     [vw_MallOrderInfo].[BuyerId] AS [BuyerId], 
     [vw_MallOrderInfo].[BuyerPhone] AS [BuyerPhone], 
     [vw_MallOrderInfo].[GoodType] AS [GoodType], 
-    [vw_MallOrderInfo].[OrderId] AS [OrderId]
+    [vw_MallOrderInfo].[OrderId] AS [OrderId], 
+    [vw_MallOrderInfo].[OrderStatus] AS [OrderStatus], 
+    [vw_MallOrderInfo].[OrderCreatTime] AS [OrderCreatTime]
     FROM [dbo].[vw_MallOrderInfo] AS [vw_MallOrderInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -1000,6 +1004,8 @@
           <Property Name="BuyerPhone" Type="Int64" />
           <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderStatus" Type="Byte" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1403,6 +1409,8 @@
           <EntitySetMapping Name="vw_MallOrderInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
               <MappingFragment StoreEntitySet="vw_MallOrderInfo">
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="GoodType" ColumnName="GoodType" />
                 <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
