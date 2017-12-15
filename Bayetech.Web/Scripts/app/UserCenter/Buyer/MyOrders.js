@@ -24,7 +24,7 @@ define(jsconfig.baseArr, function () {
                             <li>
                                 &nbsp; &nbsp; 游 戏 区：
                                 <select id="groupid" class ="sec-border">
-                                    <option v-for="var item in Groups": value="item.Id">{{item.Name}}</option>
+                                    <option v-for="var item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select> &nbsp; &nbsp; &nbsp;
                                 &nbsp; 游 戏 服：
                                 <select id="serverid" v-for="var item in Servers" :value="item.Id" class ="sec-border">
@@ -73,25 +73,24 @@ define(jsconfig.baseArr, function () {
                         </div>
                         <div id="menud_con">
 
-
-                            <div class="ddlb">
+                            //一笔订单开始
+                            <div class="ddlb" v-for="var item in Orders">
                                 <h1>
-                                    订单编号：127121015129162378197536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：2017-12-10 22:30
+                                    订单编号：{{item.OrderNo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：{{item.OrderCreatTime}}
                                     <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
                                         <a href="../goods-buying-G10-100001-1.html"><span class="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;"></span></a>
                                     </span>
                                 </h1>
-                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" orderid="127121015129162378197536" sellertype="B" billstatus="4">
+                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="Orders.OrderNo" sellertype="B" billstatus="4">
                                     <ol class="spmc">
                                         <span style="color:#36c">
                                             <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />
-                                            5853万金=120元 即买即发 地下城与勇士 上海区
-                                            上海2区
+                                            {{item.GoodTitle}}
                                         </span>
                                         <br />
-                                        游戏区服：地下城与勇士/上海区/上海2区
+                                        游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}
                                     </ol>
-                                    <ol class="zj"><span style="color:#F90">120.00</span>元</ol>
+                                    <ol class="zj"><span style="color:#F90">{{item.OrderPrice}}</span>元</ol>
                                     <ol class="sl">1
                                         <br />
                                         <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
@@ -104,21 +103,25 @@ define(jsconfig.baseArr, function () {
                                         </a>
                                     </ol>
                                     <ol class="ddzt">取消
-                                        <div class="tsgrzx" onmousemove="javascript:$('#prompt_127121015129162378197536').show();" onmouseout="javascript:$('#prompt_127121015129162378197536').hide();"><img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" /></div>
+                                        <div class ="tsgrzx">
+                                            <img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" />
+                                        </div>
                                         <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
                                     </ol>
                                     <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
-                                        <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
+                                        <div :style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
                                     </ol>
                                 </ul>
                             </div>
+                            //一笔订单结束
+
                         </div>
                         <div class="cpfy">
                             <dl currentNo="0" pageCount="1" totalRecords="9">
                                 <dd class="fy_l">上一页</dd>
                                 <dd class="fy2" onclick="return locatePage(0);">1</dd>
                                 <dd class="fy_r">下一页</dd>
-                                <dd><span>共1页 到第 <input id="pageNumber" onkeydown="restrict_digit_input(this)" maxlength="4" /> 页 <img src="http://pic.7881.com/7881/market/images/pageLook.png" align="absmiddle" style="cursor: pointer; vertical-align: middle" onclick="return gotoPage()" /></span></dd>
+                                <dd><span>共1页 到第 <input id="pageNumber" maxlength="4" /> 页 <img src="http://pic.7881.com/7881/market/images/pageLook.png" onclick="return gotoPage()" /></span></dd>
                             </dl>
                         </div>
                         <div class="clear"></div>
@@ -128,7 +131,10 @@ define(jsconfig.baseArr, function () {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo"
     var data={
-        Types:[],//交易类别
+        Orders:[],//订单信息表
+        Types: [],//交易类别
+        Groups: [],
+        Servers:[],
     };
     var components={
         name: "MyOrders",
