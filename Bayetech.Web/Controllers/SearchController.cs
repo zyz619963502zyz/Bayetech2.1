@@ -50,7 +50,7 @@ namespace Bayetech.Web.Controllers
                     data.Title = "交易类型";
                     data.Type = (int)enumType;
                     data.Child = 5;
-                    data.List = mallTypeService.GetDataByGameId((int)Core.Enum.Relationship.Game_MallType,1);
+                    data.List = mallTypeService.GetDataByGameId(id);
                     break;
             }
             return Json(data);

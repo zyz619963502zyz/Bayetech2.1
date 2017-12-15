@@ -4,7 +4,7 @@ define([], function () {
 
     var data={};
     var components={
-        name: "",
+        name: "Home",
         template: html,
         data: function () {
             return data;
