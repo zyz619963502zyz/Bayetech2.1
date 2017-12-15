@@ -1,6 +1,5 @@
 ﻿//我购买的订单
-define(jsconfig.baseArr, function () {
-
+define(jsconfig.baseArr, function (Vue, $, common) {
     var html=`<div class="personal_right">
             <div class="ddgl">
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
@@ -11,22 +10,22 @@ define(jsconfig.baseArr, function () {
                             <li>
                                 &nbsp;&nbsp;游 戏：
                                 <select id="gameid" class="js-states js-example-events form-control">
-                                    <option v-for="var item in GameNames" :value="item.GameId">{{item.GameName}}</option>
+                                    <option v-for="item in GameNames" :value="item.GameId">{{item.GameName}}</option>
                                     <option value="G10">D - 地下城与勇士</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 商品类型：
                                 <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
-                                    <option v-for="var item in Types" :value="item.Id" selected="selected">{{item.Name}}</option>
+                                    <option v-for="item in Types" :value="item.Id" selected="selected">{{item.Name}}</option>
                                 </select>
                             </li>
                             <li>
                                 &nbsp; &nbsp; 游 戏 区：
                                 <select id="groupid" class ="sec-border">
-                                    <option v-for="var item in Groups" :value="item.Id">{{item.Name}}</option>
+                                    <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select> &nbsp; &nbsp; &nbsp;
                                 &nbsp; 游 戏 服：
-                                <select id="serverid" v-for="var item in Servers" :value="item.Id" class ="sec-border">
+                                <select id="serverid" v-for="item in Servers" :value="item.Id" class ="sec-border">
                                     <option value="">{{item.Name}}</option>
                                 </select>
                             </li>
@@ -72,15 +71,18 @@ define(jsconfig.baseArr, function () {
                         </div>
                         <div id="menud_con">
 
-                            //一笔订单开始
-                            <div class="ddlb" v-for="var item in Orders">
+                
+                            <div class="ddlb" v-for="item in Orders">
                                 <h1>
                                     订单编号：{{item.OrderNo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：{{item.OrderCreatTime}}
                                     <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
-                                        <a href="../goods-buying-G10-100001-1.html"><span class="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;"></span></a>
+                                        <a href="../goods-buying-G10-100001-1.html">
+                                            <span class ="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;">
+                                            </span>
+                                        </a>
                                     </span>
                                 </h1>
-                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="Orders.OrderNo" sellertype="B" billstatus="4">
+                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="item.OrderNo" sellertype="B" billstatus="4">
                                     <ol class="spmc">
                                         <span style="color:#36c">
                                             <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />
@@ -108,11 +110,11 @@ define(jsconfig.baseArr, function () {
                                         <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
                                     </ol>
                                     <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
-                                        <div :style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
+                                        <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
                                     </ol>
                                 </ul>
                             </div>
-                            //一笔订单结束
+                
 
                         </div>
                         <div class="cpfy">
@@ -130,6 +132,7 @@ define(jsconfig.baseArr, function () {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo"
     var data={
+        GameNames:[],
         Orders:[],//订单信息表
         Types: [],//交易类别
         Groups: [],
@@ -142,15 +145,14 @@ define(jsconfig.baseArr, function () {
             return data;
         },
         created(){
-        
+            this.GetOrderInfo();
         },
         methods: {
             GetOrderInfo: function () {//根据条件获取订单的收发信息
-                var param={
-
-                };
+                var self= this;
+                var param={};
                 common.getWebJson(_GetOrderInfoUrl, param, function (data) {
-                    var a = 1
+                    self.Orders = data.content;
                 });
             }
         }

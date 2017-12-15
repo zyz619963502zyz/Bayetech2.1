@@ -18,7 +18,7 @@ require(UserCenterRequireArr, function () {
             List: [{
                 Title: "我是买家",
                 Items: [{ Id: 0, Title: "我要买", Path: "/ToBuy" },
-                    { Id: 0, Title: "我购买的订单", Path: "/MyDlOrder" },
+                    { Id: 0, Title: "我购买的订单", Path: "/MyOrders" },
                     { Id: 0, Title: "我的代练订单", Path: "/BuyerDlOrder" },
                     { Id: 0, Title: "我发布的代练需求", Path: "/MyDlRequire" },
                     { Id: 0, Title: "买家代练订单", Path: "/BuyerDlOrder" }],

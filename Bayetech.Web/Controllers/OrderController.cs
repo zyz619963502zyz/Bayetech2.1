@@ -29,7 +29,7 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public JObject GetOrderInfo(JObject json)
         {
-            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json.First.Path);
+            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.First.Path);
             return service.GetOrderInfo(order);
           
         }

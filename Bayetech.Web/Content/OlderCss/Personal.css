@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 .personal_left{ float:left; border:#dfdfdf solid 1px; width:180px;}
 .personal_left h1{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
 .personal_left ol{ height:30px; font-weight:bold; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_2.png) no-repeat; padding-left:20px;}
@@ -6,7 +6,7 @@
 .personal_left li{ height:30px; line-height:30px; padding-left:20px; border-bottom:#efefef dotted 1px;}
 .personal_left li span{ color:#ff7800; font-weight:bold;}
 .personal_right{ width:790px; float:right; overflow:hidden}
-.personal_center{ border:solid #efe0b2 1px; background:#fffce9; _float:left;padding:20px; overflow:hidden;}
+.personal_center{ border:solid #efe0b2 1px; background:#fffce9; _float:left;overflow:hidden;}
 .personal_center ul{ float:left;padding-right:20px;}
 .personal_center ul ol{ padding:5px; background:#FFF; border:#dfdfdf solid 1px;}
 .personal_center ul li{padding:10px 0; width:600px; line-height:22px}

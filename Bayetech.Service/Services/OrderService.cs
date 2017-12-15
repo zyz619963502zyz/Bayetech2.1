@@ -49,37 +49,47 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 JObject ret = new JObject();
+                List<vw_MallOrderInfo> orderInfos;
                 Expression<Func<vw_MallOrderInfo,bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
-                if (order.GameId<=0 && order.GameId != null)
+                if (order!=null)
                 {
-                    expressions.And(t => t.GameId == order.GameId);
+                    if (order.GameId <= 0 && order.GameId != null)
+                    {
+                        expressions.And(t => t.GameId == order.GameId);
+                    }
+                    if (!string.IsNullOrEmpty(order.GoodType))
+                    {
+                        expressions.And(t => t.GoodType == order.GoodType);
+                    }
+                    if (!string.IsNullOrEmpty(order.GroupName))
+                    {
+                        expressions.And(t => t.GroupName == order.GroupName);
+                    }
+                    if (!string.IsNullOrEmpty(order.ServerName))
+                    {
+                        expressions.And(t => t.ServerName == order.ServerName);
+                    }
+                    if (order.OrderCreatTime != null && !string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
+                    {
+                        expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
+                    }
+                    if (!string.IsNullOrEmpty(order.OrderNo))
+                    {
+                        expressions.And(t => t.OrderNo == order.OrderNo);
+                    }
+                    if (!string.IsNullOrEmpty(order.GameName))
+                    {
+                        expressions.And(t => t.OrderStatus == order.OrderStatus);
+                    }
+                    orderInfos = db.FindList<vw_MallOrderInfo>(expressions, GetDefaultPagination("OrderNo")).ToList(); 
                 }
-                if (!string.IsNullOrEmpty(order.GoodType))
+                else
                 {
-                    expressions.And(t => t.GoodType == order.GoodType);
+                    orderInfos = db.FindList<vw_MallOrderInfo>(GetDefaultPagination("OrderNo")).ToList();
                 }
-                if (!string.IsNullOrEmpty(order.GroupName))
-                {
-                    expressions.And(t => t.GroupName == order.GroupName);
-                }
-                if (!string.IsNullOrEmpty(order.ServerName))
-                {
-                    expressions.And(t => t.ServerName == order.ServerName);
-                }
-                if (order.OrderCreatTime!=null&&!string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
-                {
-                    expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
-                }
-                if (!string.IsNullOrEmpty(order.OrderNo))
-                {
-                    expressions.And(t => t.OrderNo == order.OrderNo);
-                }
-                if (!string.IsNullOrEmpty(order.GameName))
-                {
-                    expressions.And(t => t.OrderStatus == order.OrderStatus);
-                }
-                List<vw_MallOrderInfo> orderInfos = db.FindList<vw_MallOrderInfo>(expressions, GetDefaultPagination("OrderNo")).ToList();
-                if (orderInfos.Count>0)
+
+                //查询结果封装
+                if (orderInfos.Count > 0)
                 {
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
