@@ -6,7 +6,6 @@ define(jsconfig.baseArr, function () {
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
                 <form id="queryForm" method="post">
                     <!-- 标识查询方式：1最近查询 2历史查询 -->
-                    <input id="queryType" name="procureOrderBean.queryType" value="1" type="hidden" />
                     <div class="yxddcx">
                         <ul>
                             <li>
@@ -139,14 +138,19 @@ define(jsconfig.baseArr, function () {
     var components={
         name: "MyOrders",
         template: html,
-        data: function () {
+        data() {
             return data;
+        },
+        created(){
+        
         },
         methods: {
             GetOrderInfo: function () {//根据条件获取订单的收发信息
-                var param={};
-                common.getWebJson(_GetOrderInfoUrl, param, function (data) {
+                var param={
 
+                };
+                common.getWebJson(_GetOrderInfoUrl, param, function (data) {
+                    var a = 1
                 });
             }
         }
