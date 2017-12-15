@@ -121,6 +121,9 @@
     <Compile Include="Entity\Server.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vw_GameServers.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vw_LoginInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
