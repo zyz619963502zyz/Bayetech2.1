@@ -5,6 +5,6 @@ namespace Bayetech.Service.IServices
 {
     public partial interface IMallTypeService
     {
-        List<MallType> GetDataByGameId(int type, int id);
+        List<MallType> GetDataByGameId(int id);
     }
 }

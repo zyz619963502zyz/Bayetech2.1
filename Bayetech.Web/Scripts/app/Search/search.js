@@ -5,8 +5,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         <form id="gsForm" method="get" class ="clearfix">
             <div class ="game_select_box" id="gameSelectBox">
                 <ul class ="tab_menu">
-                    <li :class ="{current:!IsSimple}"><a href="#multipleSearch" @click="showAccuratetBox">普通搜索</a></li>
-                    <li :class ="{current:IsSimple}"><a href="#simpleSearch" @click="showSimpleBox">简单搜索</a></li>
+                    <li :class ="{current:!IsSimple}"><a href="javascript:void(0);" @click="showAccuratetBox">普通搜索</a></li>
+                    <li :class ="{current:IsSimple}"><a href="javascript:void(0);" @click="showSimpleBox">简单搜索</a></li>
                 </ul>
                 <div class ="tab_box clearfix" id="multipleSearch" v-show="!IsSimple">
 

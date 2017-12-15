@@ -15,7 +15,7 @@ define(['Scripts/app/UserCenter/Home',
     'Scripts/app/UserCenter/AccountSetting/PhoneBinding',
     'Scripts/app/UserCenter/AccountSetting/Certification',
     'Scripts/app/UserCenter/AccountSetting/ValidateLogin',], function () {
-    var routes=[];
+        var routes=[{ path: '/', redirect: '/Home' }];
     for (var i=0; i<arguments.length; i++) {
         routes.push({
             path: '/'+arguments[i].name,
