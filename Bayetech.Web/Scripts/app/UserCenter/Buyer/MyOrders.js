@@ -10,7 +10,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li>
                                 &nbsp;&nbsp;游 戏：
                                 <select id="gameid" class="js-states js-example-events form-control">
-                                    <option v-for="item in GameNames" :value="item.GameId">{{item.GameName}}</option>
+                                    <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                     <option value="G10">D - 地下城与勇士</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -130,9 +130,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </form>
             </div>
         </div>`;
-    var _GetOrderInfoUrl="/api/Order/GetOrderInfo"
+    var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
+    var _GetServersUrl="/api/Order/GetServers";
+    var _GetMallTypeUrl = "/api/Order/GetMallType";//交易类别
     var data={
-        GameNames:[],
+        Games: [{GameId:"",GameName:""}],
         Orders:[],//订单信息表
         Types: [],//交易类别
         Groups: [],
@@ -148,11 +150,32 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             this.GetOrderInfo();
         },
         methods: {
-            GetOrderInfo: function () {//根据条件获取订单的收发信息
+            GetTypes(){
+                var self=this;
+                var param={};
+                common.getWebJson(_GetMallTypeUrl, param, function (data) {
+                    if (data.result) {
+                       self.Types = data.content;
+                    }
+                });
+            },
+            GetServers(type){
+                var self=this;
+                var param={};
+                common.getWebJson(_GetServersUrl, param, function (data) {
+                    if (data.result) {
+                       type = "Group"? self.Groups = data.content : self.Servers =data.content;
+                    }
+                });
+            },
+            GetOrderInfo() {//获取收发信息
                 var self= this;
                 var param={};
                 common.getWebJson(_GetOrderInfoUrl, param, function (data) {
-                    self.Orders = data.content;
+                    if (data.result) {
+                        self.Orders = data.content;
+                        self.Games = data.Games;
+                    }
                 });
             }
         }
