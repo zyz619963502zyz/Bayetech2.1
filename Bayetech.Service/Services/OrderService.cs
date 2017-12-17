@@ -49,7 +49,6 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 JObject ret = new JObject();
-                List<dynamic> games;
                 List<vw_MallOrderInfo> orderInfos;
                 Expression<Func<vw_MallOrderInfo,bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order!=null)
@@ -88,13 +87,15 @@ namespace Bayetech.Service.Services
                 {
                     orderInfos = db.FindList<vw_MallOrderInfo>(GetDefaultPagination("OrderNo")).ToList();
                 }
-                games = db.IQueryable(expressions).GroupBy(c => c.GameId).ToList<dynamic>();//自身选择
+
                 //查询结果封装
                 if (orderInfos.Count > 0)
                 {
+                    List<dynamic> Games = orderInfos.Select(c => new { GameId = c.GameId , GameName = c.GameName })
+                        .GroupBy(q => new { q.GameId, q.GameName }).ToList<dynamic>();
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
-                    ret.Add("Games", JProperty.FromObject(games));
+                    ret.Add("Games", JProperty.FromObject(Games));
                 }
                 else
                 {

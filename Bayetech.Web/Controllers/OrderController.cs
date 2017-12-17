@@ -49,7 +49,7 @@ namespace Bayetech.Web.Controllers
             {
                 ret.Add(ResultInfo.Result, true);
                 ret.Add(ResultInfo.Content, JProperty.FromObject(types));
-                ret.Add("Games", JProperty.FromObject(Games));
+                //ret.Add("Games", JProperty.FromObject(Games));
             }
             else
             {
