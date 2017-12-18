@@ -1,16 +1,21 @@
 ﻿//我购买的订单
 define(jsconfig.baseArr, function (Vue, $, common) {
-    var html=`<div class="personal_right">
+    var html=`
+        <div class="personal_right">
             <div class="ddgl">
-                <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
+                <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span>
+                    <a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>
+                    <a id="queryHelp" style="font-weight: lighter;color:black;">
+                        <img src="../../market/images/common/helper.png" style="height: 15px; width: 15px;; " alt="" />
+                    </a>
+                </h1>
                 <form id="queryForm" method="post">
                     <!-- 标识查询方式：1最近查询 2历史查询 -->
                     <div class="yxddcx">
                         <ul>
                             <li>
-                                &nbsp;&nbsp;游 戏：
+                                &nbsp;&nbsp;游戏：
                                 <select  v-model="GameSelected" class ="js-states js-example-events form-control" @change="GetTypes(GameSelected)">
-                                    <option value="-1">请选择</option>
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -20,39 +25,42 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 </select>
                             </li>
                             <li>
-                                &nbsp; &nbsp; 游 戏 区：
+                                &nbsp;&nbsp; 游戏区：
                                 <select v-model="GroupSelected" class ="sec-border" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select> &nbsp; &nbsp; &nbsp;
-                                &nbsp; 游 戏 服：
+                                &nbsp; 游戏服：
                                 <select v-model="ServerSelected" class ="sec-border">
                                     <option  v-for="item in Servers" :value="item.Id">{{item.Name}}</option>
                                 </select>
                             </li>
                             <li>
-                                订 单 时 间：
-                                <input id="starttime" name="procureOrderBean.starttime" size="20" readonly="readonly" value="2017-11-13 00:00:00" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                订单时间：
+                                <input readonly="readonly" value="2017-11-13" class="Wdate time" style=" width:140px;"/>
                                 &nbsp;&nbsp;到&nbsp;&nbsp;
-                                <input id="endtime" name="procureOrderBean.endtime" size="20" readonly="readonly" value="2017-12-13 23:59:59" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+                                <input readonly="readonly" value="2017-12-13" class="Wdate time" style=" width:140px;"/>
                                 <span style="margin-left:10px"></span>
-                                <span class="search_time_span" id="today" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">今天</a></span>
-                                <span class="search_time_span" id="oneMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">最近1个月</a></span>
-                                <span class="search_time_span" id="threeMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">3个月</a></span>
-                                <span class="search_time_span" id="sixMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">6个月</a></span>
+                                <span class="search_time_span" id="today"><a href="javascript:void(0);">今天</a></span>
+                                <span class="search_time_span" id="oneMonth"><a href="javascript:void(0);">最近1个月</a></span>
+                                <span class="search_time_span" id="threeMonth"><a href="javascript:void(0);">3个月</a></span>
+                                <span class="search_time_span" id="sixMonth"><a href="javascript:void(0);">6个月</a></span>
                                 <span style="display:none;">自定义</span>
                             </li>
                             <li>
-                                订 单 编 号：
+                                订单编号：
                                 <input name="procureOrderBean.superbillid" size="28" value="" onkeyup="this.value=this.value.replace(/\s+/g, '');" />
                                 <input type="button" class="cxFormtime" id="btnQuery" value="查询" />
                                 <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
                             </li>
                         </ul>
                     </div>
-                    <!-- 	<span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：亲，目前只能查询2015年的订单哦，后期将为您恢复，给您带来不便，敬请谅解。</span> -->
                     <div class="yxddlb">
-
-                        <div class="myxssl"><span>每页显示数量：</span><a type="pageSize" size="10">10</a> <a type="pageSize" size="20">20</a> <a type="pageSize" size="30">30</a></div>
+                        <div class ="myxssl">
+                            <span>每页显示数量：</span>
+                            <a type="pageSize" size="10">10</a>
+                            <a type="pageSize" size="20">20</a>
+                            <a type="pageSize" size="30">30</a>
+                        </div>
                         <div id="nave">
                             <ol querystatus=""><a class="a_hover">全部</a></ol>
                             <ol querystatus="6,60"><a class="">成功订单</a></ol>
@@ -94,7 +102,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                     <ol class="zj"><span style="color:#F90">{{item.OrderPrice}}</span>元</ol>
                                     <ol class="sl">1
                                         <br />
-                                        <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
+                                        <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html'>再来一单</a></span>
                                     </ol>
                                     <ol class="khfw">
                                         <a href="javascript:void(0)" class="list-kf" kfid="" gameId="G10" gtId="100001"
@@ -166,10 +174,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetServers(gourp){
                 var self=this;
                 var gameId = self.GameSelected;
-                var param={gameId:gameId,TypeGroup:gourp};
+                var param={gameId:gameId,parentId:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
-                       type = "Group"? self.Groups = data.content : self.Servers =data.content;
+                       gourp == 0? self.Groups = data.content : self.Servers =data.content;
                     }
                 });
             },

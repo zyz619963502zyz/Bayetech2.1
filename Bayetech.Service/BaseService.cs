@@ -5,6 +5,7 @@ using Bayetech.DAL;
 using System.Linq.Expressions;
 using Bayetech.Core.Entity;
 using Bayetech.Core;
+using System.Collections.Generic;
 
 namespace Bayetech.Service
 {
@@ -32,7 +33,7 @@ namespace Bayetech.Service
         }
 
         /// <summary>
-        ///查询集合 
+        ///查询集合延迟加载 
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
@@ -40,10 +41,16 @@ namespace Bayetech.Service
         {
             return repository.IQueryable<TEntity>(predicate);
         }
-        //public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
-        //{
-        //    return repository.FindList<TEntity>(predicate, null);
-        //}
+
+        /// <summary>
+        /// 查找集合非延迟加载
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate,string page)
+        {
+            return repository.FindList<TEntity>(predicate,GetDefaultPagination(page));
+        }
 
 
         /// <summary>

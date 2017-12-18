@@ -14,11 +14,12 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_GameTypes
     {
-        public Nullable<long> TypeId { get; set; }
+        public long TypeId { get; set; }
         public string TypeName { get; set; }
         public string GameName { get; set; }
         public long GameId { get; set; }
         public string Unit { get; set; }
         public string Alias { get; set; }
+        public Nullable<int> Type { get; set; }
     }
 }

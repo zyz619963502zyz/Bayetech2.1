@@ -95,7 +95,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
            `
     //Api
     var GoodListUrl="/api/GoodInfo/GetList"; //查询列表
-    var GroupUrl="/api/GoodInfo/GetGoupNames" //获取所有的服务器名称
+    var _GetServersUrl="/api/Order/GetServers";//获取区服名称列表
     var ProfessionUrl="/api/GoodInfo/GetProfessions"
 
     var data={
@@ -111,15 +111,15 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         },
         created(){
             var self=this;
-            self.GetGroups(1, "Group");
+            self.GetGroups(1, "0");
             self.GetProfessions(1);
         },
         methods: {
-            GetGroups(gameId, type) {
+            GetGroups(gameId, gourp) {
                 var self=this;
-                var param = {GameId:gameId,type:type};
-                common.getWebJson(GroupUrl, param, function (data) {
-                    type=="Group"?self.Gourps=data.content:self.Severs=data.content;
+                var param={gameId:gameId,parentId:gourp};
+                common.getWebJson(_GetServersUrl, param, function (data) {
+                    gourp==0?self.Gourps=data.content:self.Severs=data.content;
                 });
             },
             GetProfessions(gameId) {
