@@ -15,7 +15,7 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         OrderService service = ctx.GetObject("OrderService") as OrderService;
         BaseService<Server> serverService = new BaseService<Server>();
-        BaseService<vw_GameServers> typeService = new BaseService<vw_GameServers>();
+        BaseService<vw_GameTypes> typeService = new BaseService<vw_GameTypes>();
         [HttpPost]
         public JObject CreatOrder(JObject json)
         {
@@ -44,18 +44,17 @@ namespace Bayetech.Web.Controllers
         public JObject GetMallType(int gameId)
         {
             JObject ret = new JObject();
-            List<vw_GameServers> types = typeService.FindList(c => c.GameId == gameId).ToList();
+            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId).ToList();
             if (types.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);
                 ret.Add(ResultInfo.Content, JProperty.FromObject(types));
-                //ret.Add("Games", JProperty.FromObject(Games));
             }
             else
             {
                 ret.Add(ResultInfo.Result, false);
             }
-            return ret;
+            return ret; 
         }
 
         /// <summary>

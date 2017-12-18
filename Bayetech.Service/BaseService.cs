@@ -40,6 +40,11 @@ namespace Bayetech.Service
         {
             return repository.IQueryable<TEntity>(predicate);
         }
+        //public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
+        //{
+        //    return repository.FindList<TEntity>(predicate, null);
+        //}
+
 
         /// <summary>
         /// 新增
