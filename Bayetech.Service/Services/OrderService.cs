@@ -50,6 +50,7 @@ namespace Bayetech.Service.Services
             {
                 JObject ret = new JObject();
                 List<vw_MallOrderInfo> orderInfos;
+                List<object> ResultGames = new List<object>();
                 Expression<Func<vw_MallOrderInfo,bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order!=null)
                 {
@@ -91,11 +92,15 @@ namespace Bayetech.Service.Services
                 //查询结果封装
                 if (orderInfos.Count > 0)
                 {
-                    List<dynamic> Games = orderInfos.Select(c => new { GameId = c.GameId , GameName = c.GameName })
-                        .GroupBy(q => new { q.GameId, q.GameName }).ToList<dynamic>();
+                    var Games = orderInfos.Select(c => new { GameId = c.GameId , GameName = c.GameName })
+                        .GroupBy(q => new { q.GameId, q.GameName });
+                    foreach (var item in Games)
+                    {
+                        ResultGames.Add(item.FirstOrDefault());
+                    }
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
-                    ret.Add("Games", JProperty.FromObject(Games));
+                    ret.Add("Games", JProperty.FromObject(ResultGames));
                 }
                 else
                 {
