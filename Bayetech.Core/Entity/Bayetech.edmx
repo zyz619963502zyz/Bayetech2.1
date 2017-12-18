@@ -285,15 +285,15 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_GameTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_GameTypes">
           <Key>
-            <PropertyRef Name="GameName" />
-            <PropertyRef Name="GameId" />
+            <PropertyRef Name="TypeId" />
           </Key>
-          <Property Name="TypeId" Type="bigint" />
+          <Property Name="TypeId" Type="bigint" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="100" />
           <Property Name="GameName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GameId" Type="bigint" Nullable="false" />
           <Property Name="Unit" Type="nvarchar" MaxLength="20" />
           <Property Name="Alias" Type="nvarchar" MaxLength="255" />
+          <Property Name="Type" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_LoginInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -476,7 +476,8 @@
     [vw_GameTypes].[GameName] AS [GameName], 
     [vw_GameTypes].[GameId] AS [GameId], 
     [vw_GameTypes].[Unit] AS [Unit], 
-    [vw_GameTypes].[Alias] AS [Alias]
+    [vw_GameTypes].[Alias] AS [Alias], 
+    [vw_GameTypes].[Type] AS [Type]
     FROM [dbo].[vw_GameTypes] AS [vw_GameTypes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" store:Type="Views" store:Schema="dbo">
@@ -1034,15 +1035,15 @@
         </EntityType>
         <EntityType Name="vw_GameTypes">
           <Key>
-            <PropertyRef Name="GameName" />
-            <PropertyRef Name="GameId" />
+            <PropertyRef Name="TypeId" />
           </Key>
-          <Property Name="TypeId" Type="Int64" />
+          <Property Name="TypeId" Type="Int64" Nullable="false" />
           <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GameName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GameId" Type="Int64" Nullable="false" />
           <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1474,6 +1475,7 @@
           <EntitySetMapping Name="vw_GameTypes">
             <EntityTypeMapping TypeName="BayetechModel.vw_GameTypes">
               <MappingFragment StoreEntitySet="vw_GameTypes">
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />

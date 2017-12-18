@@ -44,7 +44,7 @@ namespace Bayetech.Web.Controllers
         public JObject GetMallType(int gameId)
         {
             JObject ret = new JObject();
-            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId).ToList();
+            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId, "GameId");
             if (types.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);
