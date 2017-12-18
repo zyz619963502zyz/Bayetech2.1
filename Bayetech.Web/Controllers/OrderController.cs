@@ -64,10 +64,10 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpGet]
-        public JObject GetServers(int parentId=0)
+        public JObject GetServers(int gameId,int parentId)
         {
             JObject ret = new JObject();
-            List<Server> servers = serverService.FindList(c => c.ParentId == parentId).ToList();
+            List<Server> servers = serverService.FindList(c => c.ParentId == parentId&&c.GameId == gameId).ToList();
             if (servers.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);

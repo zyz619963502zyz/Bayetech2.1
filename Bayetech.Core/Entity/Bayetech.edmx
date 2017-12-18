@@ -282,8 +282,8 @@
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“Bayetech.dbo.vw_GameServers”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="vw_GameServers">
+警告 6002: 表/视图“Bayetech.dbo.vw_GameTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_GameTypes">
           <Key>
             <PropertyRef Name="GameName" />
             <PropertyRef Name="GameId" />
@@ -469,15 +469,15 @@
     [MallGoodPictures].[GoodPictureUrl] AS [GoodPictureUrl]
     FROM [dbo].[MallGoodPictures] AS [MallGoodPictures]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vw_GameServers" EntityType="Self.vw_GameServers" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vw_GameTypes" EntityType="Self.vw_GameTypes" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_GameServers].[TypeId] AS [TypeId], 
-    [vw_GameServers].[TypeName] AS [TypeName], 
-    [vw_GameServers].[GameName] AS [GameName], 
-    [vw_GameServers].[GameId] AS [GameId], 
-    [vw_GameServers].[Unit] AS [Unit], 
-    [vw_GameServers].[Alias] AS [Alias]
-    FROM [dbo].[vw_GameServers] AS [vw_GameServers]</DefiningQuery>
+    [vw_GameTypes].[TypeId] AS [TypeId], 
+    [vw_GameTypes].[TypeName] AS [TypeName], 
+    [vw_GameTypes].[GameName] AS [GameName], 
+    [vw_GameTypes].[GameId] AS [GameId], 
+    [vw_GameTypes].[Unit] AS [Unit], 
+    [vw_GameTypes].[Alias] AS [Alias]
+    FROM [dbo].[vw_GameTypes] AS [vw_GameTypes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -808,7 +808,7 @@
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
-          <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
+          <EntitySet Name="vw_GameTypes" EntityType="BayetechModel.vw_GameTypes" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1032,7 +1032,7 @@
           <Property Name="OrderStatus" Type="Byte" />
           <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="vw_GameServers">
+        <EntityType Name="vw_GameTypes">
           <Key>
             <PropertyRef Name="GameName" />
             <PropertyRef Name="GameId" />
@@ -1471,9 +1471,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_GameServers">
-            <EntityTypeMapping TypeName="BayetechModel.vw_GameServers">
-              <MappingFragment StoreEntitySet="vw_GameServers">
+          <EntitySetMapping Name="vw_GameTypes">
+            <EntityTypeMapping TypeName="BayetechModel.vw_GameTypes">
+              <MappingFragment StoreEntitySet="vw_GameTypes">
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />

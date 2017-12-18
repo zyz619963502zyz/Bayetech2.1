@@ -9,24 +9,24 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <ul>
                             <li>
                                 &nbsp;&nbsp;游 戏：
-                                <select id="gameid" class="js-states js-example-events form-control">
+                                <select  v-model="GameSelected" class ="js-states js-example-events form-control" @change="GetTypes(GameSelected)">
+                                    <option value="-1">请选择</option>
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
-                                    <option value="G10">D - 地下城与勇士</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 商品类型：
-                                <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
-                                    <option v-for="item in Types" :value="item.Id" selected="selected">{{item.Name}}</option>
+                                <select v-model="TypeSelected" class ="sec-border" @change="GetServers(0)">
+                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.TypeName}}</option>
                                 </select>
                             </li>
                             <li>
                                 &nbsp; &nbsp; 游 戏 区：
-                                <select id="groupid" class ="sec-border">
+                                <select v-model="GroupSelected" class ="sec-border" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select> &nbsp; &nbsp; &nbsp;
                                 &nbsp; 游 戏 服：
-                                <select id="serverid" v-for="item in Servers" :value="item.Id" class ="sec-border">
-                                    <option value="">{{item.Name}}</option>
+                                <select v-model="ServerSelected" class ="sec-border">
+                                    <option  v-for="item in Servers" :value="item.Id">{{item.Name}}</option>
                                 </select>
                             </li>
                             <li>
@@ -134,11 +134,15 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var _GetServersUrl="/api/Order/GetServers";
     var _GetMallTypeUrl = "/api/Order/GetMallType";//交易类别
     var data={
-        Games: [{GameId:"",GameName:""}],
-        Orders:[],//订单信息表
+        Games: [{ GameId: "", GameName: "" }],
+        GameSelected:"",
+        Orders: [],//订单信息表 
         Types: [],//交易类别
+        TypeSelected:"",
         Groups: [],
-        Servers:[],
+        GroupSelected: "",
+        Servers: [],
+        ServerSelected:""
     };
     var components={
         name: "MyOrders",
@@ -150,18 +154,19 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             this.GetOrderInfo();
         },
         methods: {
-            GetTypes(){
+            GetTypes(gameId){
                 var self=this;
-                var param={};
+                var param={gameId:gameId};
                 common.getWebJson(_GetMallTypeUrl, param, function (data) {
                     if (data.result) {
                        self.Types = data.content;
                     }
                 });
             },
-            GetServers(type){
+            GetServers(gourp){
                 var self=this;
-                var param={};
+                var gameId = self.GameSelected;
+                var param={gameId:gameId,TypeGroup:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
                        type = "Group"? self.Groups = data.content : self.Servers =data.content;

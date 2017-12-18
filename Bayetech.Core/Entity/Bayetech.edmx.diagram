@@ -29,7 +29,7 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="13.75" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="15.75" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="5.375" PointY="15.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="7.375" PointY="15.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_GameTypes" Width="1.5" PointX="7.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

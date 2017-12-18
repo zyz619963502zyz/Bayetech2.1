@@ -12,7 +12,7 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_GameServers
+    public partial class vw_GameTypes
     {
         public Nullable<long> TypeId { get; set; }
         public string TypeName { get; set; }
