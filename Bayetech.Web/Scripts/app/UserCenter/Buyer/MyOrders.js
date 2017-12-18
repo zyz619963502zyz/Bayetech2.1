@@ -1,6 +1,7 @@
 ﻿//我购买的订单
 define(jsconfig.baseArr, function (Vue, $, common) {
-    var html=`<div class="personal_right">
+    var html=`
+        <div class="personal_right">
             <div class="ddgl">
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span>
                     <a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>
@@ -15,7 +16,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li>
                                 &nbsp;&nbsp;游戏：
                                 <select  v-model="GameSelected" class ="js-states js-example-events form-control" @change="GetTypes(GameSelected)">
-                                    <option value="-1">请选择</option>
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -54,7 +54,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </li>
                         </ul>
                     </div>
-                    <!--<span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：亲，目前只能查询2015年的订单哦，后期将为您恢复，给您带来不便，敬请谅解。</span>
                     <div class="yxddlb">
                         <div class ="myxssl">
                             <span>每页显示数量：</span>
