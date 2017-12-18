@@ -166,10 +166,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetServers(gourp){
                 var self=this;
                 var gameId = self.GameSelected;
-                var param={gameId:gameId,TypeGroup:gourp};
+                var param={gameId:gameId,parentId:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
-                       type = "Group"? self.Groups = data.content : self.Servers =data.content;
+                       gourp == 0? self.Groups = data.content : self.Servers =data.content;
                     }
                 });
             },

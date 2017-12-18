@@ -60,7 +60,8 @@ namespace Bayetech.Web.Controllers
         /// <summary>
         /// 获取区服列表
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="gameId">游戏Id</param>
+        /// <param name="parentId">父级ID,0的时候为服务器，其他的时候为区名称</param>
         /// <returns></returns>
         [HttpGet]
         public JObject GetServers(int gameId,int parentId)
