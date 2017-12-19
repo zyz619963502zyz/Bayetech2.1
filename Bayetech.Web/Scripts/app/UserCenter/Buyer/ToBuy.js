@@ -10,7 +10,7 @@ define([], function () {
             return data;
         },
         created: function () {
-            alert("初始化了!");
+  
         },
         methods: {
         }

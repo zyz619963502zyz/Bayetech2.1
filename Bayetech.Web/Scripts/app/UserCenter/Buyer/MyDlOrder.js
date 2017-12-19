@@ -1,8 +1,9 @@
 ﻿//我的代练订单
-define([], function () {
-    var html=`<p>我的代练订单</P>`;
+jsconfig.baseArr.push('Scripts/app/UserCenter/Buyer/MyOrders');
+define(jsconfig.baseArr, function (Vue,$,common,order) {
+    var html = order.template;
 
-    var data={};
+    var data= order.data();
     var components={
         name: "MyDlOrder",
         template: html,
