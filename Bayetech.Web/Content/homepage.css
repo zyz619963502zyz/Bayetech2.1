@@ -6,11 +6,11 @@
  */
 
 /*header*/
-.home-header .dropdown:hover > .dropdown-menu {
+.com-header .dropdown:hover > .dropdown-menu {
     display: block;
 }
 
-.home-header .navbar-right .dropdown-menu {
+.com-header .navbar-right .dropdown-menu {
     left: 5px;
     right: auto;
 }
@@ -41,6 +41,9 @@
 .home-all-module .tab-content {
     width: 1200px;
     margin: 0 auto;
+}
+.home-all-module .tab-content ul{
+    margin-bottom:0;
 }
 /*index content*/
 .home-all-module .index-content {
@@ -333,7 +336,7 @@
     .tabsList li.tit {
         float: left;
         display: inline;
-        padding-right: 1px;
+        padding-right: 2px;
         height: 350px;
         zoom: 1;
         overflow: hidden;
@@ -341,14 +344,9 @@
     }
 
         .tabsList li.tit h4 {
-            width: 170px;
-            height: 350px;
             cursor: pointer;
-            float: left;
             overflow: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
+            margin:0;
         }
 
         /*.tabsList li.tit.on {
@@ -363,8 +361,8 @@
             display: block;
             width: 359px;
             height: 350px;
-            border-top: #eee 1px solid;
-            border-bottom: #eee 1px solid;
+            border-top: #ddd 1px solid;
+            border-bottom: #ddd 1px solid;
             padding: 5px 21px 0 21px;
             float: left;
         }
@@ -380,14 +378,16 @@
 
         .tabsList li.tit.on.last {
             width: 538px;
+            
         }
 
 .tabBody h2 {
     overflow: hidden;
     height: 38px;
     line-height: 38px;
-    border-bottom: #f5f5f5 1px solid;
-    margin-bottom: 18px;
+    border-bottom: #e5e5e5 1px solid;
+    margin: 0 0 15px;
+    font-size: 100%;
 }
 
     .tabBody h2.new-cj-tit {

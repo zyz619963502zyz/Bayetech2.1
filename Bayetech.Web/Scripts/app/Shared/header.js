@@ -1,5 +1,5 @@
 ﻿define(['v-search'], function (vsearch) {
-    var html=`<div id="home-nav-box" class="home-header">
+    var html=`<div id="home-nav-box" class="com-header">
             <nav class="nav navbar-default">
                 <div class="container">
                     <div class="navbar-header">
@@ -19,7 +19,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#">我的6666</a>
+                                <a href="#">我的6666 <span class ="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">我购买的商品</a></li>
                                     <li><a href="#">出售中的商品</a></li>
@@ -29,7 +29,7 @@
                             <li><a href="#">金钻兑换</a></li>
                             <li><a href="#">我的收藏</a></li>
                             <li class="dropdown">
-                                <a href="#">客服中心</a>
+                                <a href="#">客服中心 <span class ="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">咨询中心</a></li>
                                     <li><a href="#">安全中心</a></li>
@@ -47,11 +47,11 @@
             </nav>
             <div class="head-search clearfix">
                 <!--logo-->
-                <h1 class="logo">
+                <div class="logo">
                     <a href="#">
                         <img src="/Content/Images/logo1.png" alt="Alternate Text" />
                     </a>
-                </h1>
+                </div>
                 <!--search-->
                 <v-search></v-search>
             </div>
