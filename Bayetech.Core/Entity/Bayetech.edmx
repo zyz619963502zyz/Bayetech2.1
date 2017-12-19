@@ -285,6 +285,8 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_GameTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_GameTypes">
           <Key>
+            
+            
             <PropertyRef Name="TypeId" />
           </Key>
           <Property Name="TypeId" Type="bigint" Nullable="false" />
@@ -424,6 +426,9 @@
           <Property Name="OrderId" Type="bigint" Nullable="false" />
           <Property Name="OrderStatus" Type="tinyint" />
           <Property Name="OrderCreatTime" Type="datetime" />
+          <Property Name="GameGroupId" Type="int" />
+          <Property Name="GameServerId" Type="int" />
+          <Property Name="GoodTypeId" Type="bigint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -590,7 +595,10 @@
     [vw_MallOrderInfo].[GoodType] AS [GoodType], 
     [vw_MallOrderInfo].[OrderId] AS [OrderId], 
     [vw_MallOrderInfo].[OrderStatus] AS [OrderStatus], 
-    [vw_MallOrderInfo].[OrderCreatTime] AS [OrderCreatTime]
+    [vw_MallOrderInfo].[OrderCreatTime] AS [OrderCreatTime], 
+    [vw_MallOrderInfo].[GameGroupId] AS [GameGroupId], 
+    [vw_MallOrderInfo].[GameServerId] AS [GameServerId], 
+    [vw_MallOrderInfo].[GoodTypeId] AS [GoodTypeId]
     FROM [dbo].[vw_MallOrderInfo] AS [vw_MallOrderInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -1032,6 +1040,9 @@
           <Property Name="OrderId" Type="Int64" Nullable="false" />
           <Property Name="OrderStatus" Type="Byte" />
           <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="GoodTypeId" Type="Int64" />
         </EntityType>
         <EntityType Name="vw_GameTypes">
           <Key>
@@ -1447,6 +1458,9 @@
           <EntitySetMapping Name="vw_MallOrderInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
               <MappingFragment StoreEntitySet="vw_MallOrderInfo">
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
                 <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
                 <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />

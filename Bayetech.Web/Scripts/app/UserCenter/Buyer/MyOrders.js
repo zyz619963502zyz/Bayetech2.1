@@ -10,7 +10,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </a>
                 </h1>
                 <form id="queryForm" method="post">
-                    <!-- 标识查询方式：1最近查询 2历史查询 -->
+
+                <!--搜索框组件的位置-->
                     <div class="yxddcx">
                         <ul>
                             <li>
@@ -48,12 +49,14 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </li>
                             <li>
                                 订单编号：
-                                <input name="procureOrderBean.superbillid" size="28" value="" onkeyup="this.value=this.value.replace(/\s+/g, '');" />
-                                <input type="button" class="cxFormtime" id="btnQuery" value="查询" />
+                                <input  :value="OrderNum" />
+                                <input type="button" class="cxFormtime" @click="QueryOrders" value="查询" />
                                 <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
                             </li>
                         </ul>
                     </div>
+                <!--搜索框组件的位置-->
+
                     <div class="yxddlb">
                         <div class ="myxssl">
                             <span>每页显示数量：</span>
@@ -79,7 +82,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </div>
                         <div id="menud_con">
 
-                
                             <div class="ddlb" v-for="item in Orders">
                                 <h1>
                                     订单编号：{{item.OrderNo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：{{item.OrderCreatTime}}
@@ -122,7 +124,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                     </ol>
                                 </ul>
                             </div>
-                
 
                         </div>
                         <div class="cpfy">
@@ -140,8 +141,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
-    var _GetMallTypeUrl = "/api/Order/GetMallType";//交易类别
+    var _GetMallTypeUrl="/api/Order/GetMallType";//交易类别
+    var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
+        times:0,
         Games: [{ GameId: "", GameName: "" }],
         GameSelected:"",
         Orders: [],//订单信息表 
@@ -150,7 +153,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         Groups: [],
         GroupSelected: "",
         Servers: [],
-        ServerSelected:""
+        ServerSelected: "",
+        OrderNum:""//订单编号
     };
     var components={
         name: "MyOrders",
@@ -181,14 +185,29 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            GetOrderInfo() {//获取收发信息
+            GetOrderInfo() {//获取订单信息
                 var self= this;
-                var param={};
-                common.getWebJson(_GetOrderInfoUrl, param, function (data) {
+                var param={
+                    GameId: GameSelected,
+                    GoodTypeId: TypeSelected,//先默认账号
+                    Group: GroupSelected,
+                    Server:ServerSelected,
+                    //Time: "",//等待日历控件
+                    OrderNum:OrderNum
+                };
+                common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         self.Orders = data.content;
-                        self.Games = data.Games;
+                        self.times == 0?self.Games=data.Games:"";
+                        self.times++;
                     }
+                });
+            },
+            QueryOrders() {//订单查询
+                var self=this;
+                var param={};
+                common.getWebJson(_GetOrdersUrl, param, function () {
+
                 });
             }
         }

@@ -36,5 +36,8 @@ namespace Bayetech.Core.Entity
         public long OrderId { get; set; }
         public Nullable<byte> OrderStatus { get; set; }
         public Nullable<System.DateTime> OrderCreatTime { get; set; }
+        public Nullable<int> GameGroupId { get; set; }
+        public Nullable<int> GameServerId { get; set; }
+        public Nullable<long> GoodTypeId { get; set; }
     }
 }
