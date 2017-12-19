@@ -3,7 +3,7 @@
 var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web/" : "/";
 var jsconfig = {
     baseUrl: webUrl,
-    //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
+    //urlArgs: 'v=' + (new Date()).getTime(),//清除缓存
     baseArr: ['vue', 'jquery', 'common'],
     paths: {
         'vue': 'Scripts/vue',
@@ -20,6 +20,7 @@ var jsconfig = {
         'v-menu': "Scripts/app/Shared/menu",
         'v-partner': "Scripts/app/Home/partner",
         "v-search": "Scripts/app/Search/Search",
+        "nav-top": "Scripts/app/Shared/nav-top",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
         'footer-server': 'Scripts/app/Shared/footer-server',
         'footer-nav': 'Scripts/app/Shared/footer-nav',

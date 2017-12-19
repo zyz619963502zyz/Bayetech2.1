@@ -1,4 +1,4 @@
-﻿var UserCenterRequireArr=['vue', 'jquery', 'common', 'VueRouter', '../Scripts/app/UserCenter/router', 'v-header', 'v-footer', 'v-nav', 'v-search', 'v-menu', ];
+﻿var UserCenterRequireArr=['vue', 'jquery', 'common', 'VueRouter', '../Scripts/app/UserCenter/router', 'v-header', 'v-footer', 'v-nav', 'v-search', 'v-menu','nav-top' ];
 
 //个人中心主模块
 require(UserCenterRequireArr, function () {

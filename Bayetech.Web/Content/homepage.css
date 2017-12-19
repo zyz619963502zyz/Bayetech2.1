@@ -6,14 +6,7 @@
  */
 
 /*header*/
-.com-header .dropdown:hover > .dropdown-menu {
-    display: block;
-}
 
-.com-header .navbar-right .dropdown-menu {
-    left: 5px;
-    right: auto;
-}
   
 
 /*all content
