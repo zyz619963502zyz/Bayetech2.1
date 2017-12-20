@@ -1,6 +1,6 @@
 ﻿//顶部导航
 
-define([], function () {
+define(jsconfig.baseArr, function (Vue, $, common) {
 	var html = `
 			<nav class ="nav navbar-default nav-t">
                 <div class ="container">
@@ -41,7 +41,19 @@ define([], function () {
                                     <li><a href="#">廉政举报</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">网站导航</a></li>
+                            <li class ="dropdown">
+								<a href="#">网站导航 <span class ="caret"></span></a>
+								<ul class ="dropdown-menu">
+                                    <li class="homebg"><a href="#">首页</a></li>
+                                    <li><a href="#">金币交易</a></li>
+                                    <li><a href="#">账号交易</a></li>
+                                    <li><a href="#">装备交易</a></li>
+                                    <li><a href="#">手游交易</a></li>
+                                    <li><a href="#">点卡交易</a></li>
+									<li><a href="#">游戏代练</a></li>
+									<li><a href="#">账号租赁</a></li>
+                                </ul>
+							</li>
                             <li><a href="#">官方微博</a></li>
                         </ul>
                     </div>
