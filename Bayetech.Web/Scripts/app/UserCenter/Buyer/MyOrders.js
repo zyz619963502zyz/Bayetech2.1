@@ -6,7 +6,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span>
                     <a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>
                     <a id="queryHelp" style="font-weight: lighter;color:black;">
-                        <img src="../../market/images/common/helper.png" style="height: 15px; width: 15px;; " alt="" />
+                        <img src="" style="height: 15px; width: 15px;; " alt="" />
                     </a>
                 </h1>
                 <form id="queryForm" method="post">
