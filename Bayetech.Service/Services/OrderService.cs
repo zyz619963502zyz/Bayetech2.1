@@ -29,7 +29,7 @@ namespace Bayetech.Service.Services
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
-                    ret.Add(ResultInfo.Content,JProperty.FromObject((count > 0 ? "" :Properties.Resources.Error_NoOrderNo)));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject((count > 0 ? "" : Properties.Resources.Error_NoOrderNo)));
                 }
                 else
                 {
@@ -46,43 +46,43 @@ namespace Bayetech.Service.Services
         /// <returns></returns>
         public JObject GetOrderInfo(vw_MallOrderInfo order)
         {
-            using (var db = new RepositoryBase().BeginTrans())
+            using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
                 List<vw_MallOrderInfo> orderInfos;
                 List<object> ResultGames = new List<object>();
-                Expression<Func<vw_MallOrderInfo,bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
-                if (order!=null)
+                Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
+                if (order != null)
                 {
-                    if (order.GameId <= 0 && order.GameId != null)
+                    if (order.GameId >= 0 || order.GameId != null)
                     {
-                        expressions.And(t => t.GameId == order.GameId);
+                        expressions = expressions.And(t => t.GameId == order.GameId);
                     }
                     if (!string.IsNullOrEmpty(order.GoodType))
                     {
-                        expressions.And(t => t.GoodType == order.GoodType);
+                        expressions = expressions.And(t => t.GoodType == order.GoodType);
                     }
-                    if (!string.IsNullOrEmpty(order.GroupName))
+                    if (order.GameGroupId != null&&order.GameGroupId>=0)
                     {
-                        expressions.And(t => t.GroupName == order.GroupName);
+                        expressions = expressions.And(t => t.GameGroupId == order.GameGroupId);
                     }
-                    if (!string.IsNullOrEmpty(order.ServerName))
+                    if (order.GameServerId != null&&order.GameServerId>=0)
                     {
-                        expressions.And(t => t.ServerName == order.ServerName);
+                        expressions = expressions.And(t => t.GameServerId == order.GameServerId);
                     }
                     if (order.OrderCreatTime != null && !string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
                     {
-                        expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
+                        expressions = expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
                     }
                     if (!string.IsNullOrEmpty(order.OrderNo))
                     {
-                        expressions.And(t => t.OrderNo == order.OrderNo);
+                        expressions = expressions.And(t => t.OrderNo == order.OrderNo);
                     }
                     if (!string.IsNullOrEmpty(order.GameName))
                     {
-                        expressions.And(t => t.OrderStatus == order.OrderStatus);
+                        expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
-                    orderInfos = db.FindList(expressions,GetDefaultPagination("OrderNo")).ToList();
+                    orderInfos = db.FindList(expressions, GetDefaultPagination("OrderNo")).ToList();
                 }
                 else
                 {
@@ -92,7 +92,7 @@ namespace Bayetech.Service.Services
                 //查询结果封装
                 if (orderInfos.Count > 0)
                 {
-                    var Games = orderInfos.Select(c => new { GameId = c.GameId , GameName = c.GameName })
+                    var Games = orderInfos.Select(c => new { GameId = c.GameId, GameName = c.GameName })
                         .GroupBy(q => new { q.GameId, q.GameName });
                     foreach (var item in Games)
                     {

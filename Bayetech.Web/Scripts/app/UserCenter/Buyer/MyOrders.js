@@ -50,7 +50,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li>
                                 订单编号：
                                 <input  :value="OrderNum" />
-                                <input type="button" class="cxFormtime" @click="QueryOrders" value="查询" />
+                                <input type="button" class="cxFormtime" @click="GetOrderInfo" value="查询" />
                                 <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
                             </li>
                         </ul>
@@ -190,10 +190,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var param={
                     GameId: self.GameSelected,
                     GoodTypeId: self.TypeSelected,//先默认账号
-                    Group: self.GroupSelected,
-                    Server:self.ServerSelected,
-                    //Time: "",//等待日历控件
+                    GameGroupId: self.GroupSelected,
+                    GameServerId: self.ServerSelected,
                     OrderNum:self.OrderNum
+                    //Time: "",//等待日历控件
                 };
                 common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
@@ -203,13 +203,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     }
                 });
             },
-            QueryOrders() {//订单查询
-                var self=this;
-                var param={};
-                common.getWebJson(_GetOrdersUrl, param, function () {
-
-                });
-            }
         }
     };
     return components;
