@@ -188,12 +188,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetOrderInfo() {//获取订单信息
                 var self= this;
                 var param={
-                    GameId: GameSelected,
-                    GoodTypeId: TypeSelected,//先默认账号
-                    Group: GroupSelected,
-                    Server:ServerSelected,
+                    GameId: self.GameSelected,
+                    GoodTypeId: self.TypeSelected,//先默认账号
+                    Group: self.GroupSelected,
+                    Server:self.ServerSelected,
                     //Time: "",//等待日历控件
-                    OrderNum:OrderNum
+                    OrderNum:self.OrderNum
                 };
                 common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
                     if (data.result) {

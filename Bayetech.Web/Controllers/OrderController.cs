@@ -28,9 +28,11 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public JObject GetOrderInfo(JObject json)
         {
+            //DateTime startTime = Convert.ToDateTime(json[""].ToString());//开始日期
+            //DateTime endTime = Convert.ToDateTime(json[""].ToString());//结束日期
             vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.First.Path);
             return service.GetOrderInfo(order);
         }
