@@ -42,7 +42,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 </ul>
                             </li>
                             <li class ="dropdown">
-								<a href="#">网站导航 <span class ="caret"></span></a>
+								<a href="#" style="color:#3d86ea">网站导航 <span class ="caret"></span></a>
 								<ul class ="dropdown-menu">
                                     <li class="homebg"><a href="#">首页</a></li>
                                     <li><a href="#">金币交易</a></li>

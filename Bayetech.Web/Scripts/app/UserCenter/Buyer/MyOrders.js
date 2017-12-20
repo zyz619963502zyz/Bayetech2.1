@@ -1,7 +1,7 @@
 ﻿//我购买的订单
 define(jsconfig.baseArr, function (Vue, $, common) {
     var html=`
-        <div class="personal_right">
+        <div class="col-md-9">
             <div class="ddgl">
                 <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span>
                     <a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>

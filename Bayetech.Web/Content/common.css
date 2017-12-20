@@ -5,11 +5,13 @@
  *说明：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
  */
 @charset"UTF-8";
-body,h1,h2,h3,h4,h5,h6,hr,p,dl,dt,dd,ul,ol,li,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+*{box-sizing:border-box;}
+
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li, form, label,table, caption, tbody, tfoot, thead, tr, th, td{margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent;}
 fieldset,img{border:0;}
 ul,ol,li{list-style:none;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: normal;}
-
+a{text-decoration:none;color: #333;}
 img{display:inline-block;}
 /*padding*/
 .p-n{padding:0;}
@@ -61,13 +63,6 @@ img{display:inline-block;}
 /*letter-spacing*/
 .ls-2{letter-spacing:2px;}
 .ls-10{letter-spacing:10px;}
-
-
-@media (max-width:991px){
-    .nav>li>a{
-        padding:5px 8px;
-    }
-}
 
 /*navbar*/
 .nav-t .dropdown:hover > .dropdown-menu {display: block;}
@@ -194,4 +189,8 @@ img{display:inline-block;}
 .nav-justified>a {color:#fff;}
  
 
-/*查询搜索优化*/
+@media (max-width:991px){
+    .nav>li>a{
+        padding:5px 8px;
+    }
+}
