@@ -10,6 +10,7 @@ var jsconfig = {
         'jquery': 'Scripts/jquery-1.10.2',
         'bootstrap': 'Scripts/bootstrap',
         'bootstrapValidator': 'Scripts/bootstrapValidator',
+        'bootstrap-paginator':'Scripts/bootstrap-paginator',
         'swiper': 'Scripts/swiper',
         'common': 'Scripts/common',
         'text': "Scripts/text",
@@ -84,6 +85,10 @@ var jsconfig = {
         'bootstrapValidator': {
             deps: ['jquery', 'bootstrap'],
             exports: 'validate'
+        },
+        'bootstrap-paginator':{
+            deps: ['jquery', 'bootstrap'],
+            exports: 'paginator'
         },
         'swiper': {
             deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],

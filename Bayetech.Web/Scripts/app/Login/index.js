@@ -1,5 +1,4 @@
-﻿jsconfig.baseArr.push("bootstrap");
-jsconfig.baseArr.push("bootstrapValidator");
+﻿jsconfig.baseArr.push("bootstrapValidator");
 require(jsconfig.baseArr, function ($, Vue, common, aaaa, validate) {
     var _loginUrl = "/api/Account/LoginIn"
 
