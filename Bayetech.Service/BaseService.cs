@@ -93,7 +93,7 @@ namespace Bayetech.Service
             Pagination pages = new Pagination();
             pages.rows = 9999999;
             pages.page = 1;
-            pages.sidx = sidx;
+            pages.order = sidx;
             pages.sord = sord;
             pages.records = 9999999;
             return pages;
