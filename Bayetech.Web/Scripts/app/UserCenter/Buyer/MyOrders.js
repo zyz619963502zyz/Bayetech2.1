@@ -1,79 +1,109 @@
 ﻿//我购买的订单
-define(jsconfig.baseArr, function (Vue, $, common) {
-    var html=`<div class="personal_right">
-            <div class="ddgl">
-                <h1>我购买的订单 <span style="margin-left: 5px;font-weight: normal;font-style:italic;font:8px;">切换 </span><a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a> <a id="queryHelp" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。" style="font-weight: lighter;color:black;"><img src="../../market/images/common/helper.png" style="height: 15px;width: 15px;;" alt="" /></a></h1>
-                <form id="queryForm" method="post">
-                    <!-- 标识查询方式：1最近查询 2历史查询 -->
-                    <div class="yxddcx">
-                        <ul>
-                            <li>
-                                &nbsp;&nbsp;游 戏：
-                                <select id="gameid" class="js-states js-example-events form-control">
+jsconfig.baseArr.push("bootstrap-paginator");
+define(jsconfig.baseArr, function (Vue, $, common,paginator) {
+    var html=`
+        <div class="col-md-9 col-lg-10">
+            <div class ="panel panel-default">
+				<div class ="panel-heading">
+					<h5 class ="right-buy-title">我购买的订单 <span style="margin-left: 5px;font-style:italic;font:8px;">切换 </span>
+						<a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>
+						<a id="queryHelp" style="font-weight: lighter;color:black;">
+							<span class ="fa fa-question-circle" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。"></span>
+						</a>
+					</h5>
+				</div>
+				<div class ="panel-body">
+					<form id="queryForm" method="post" class="form-horizontal" role="form">
+
+                <!--搜索框组件的位置 start-->
+						<div class ="form-group form-group-sm">
+							<label for="" class ="col-md-2 control-label">游戏</label>
+							<div class ="col-md-4">
+								<select  v-model="GameSelected" class ="form-control" @change="GetTypes(GameSelected)">
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                 </select>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                商品类型：
-                                <select name="procureOrderBean.gtid" id="newgid" class="sec-border">
-                                    <option v-for="item in Types" :value="item.Id" selected="selected">{{item.Name}}</option>
+							</div>
+							<label for="" class ="col-md-2 control-label">商品类型</label>
+							<div class ="col-md-4">
+								<select v-model="TypeSelected" class ="form-control" @change="GetServers(0)">
+                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.TypeName}}</option>
                                 </select>
-                            </li>
-                            <li>
-                                &nbsp; &nbsp; 游 戏 区：
-                                <select id="groupid" class ="sec-border">
+							</div>
+						</div>
+						<div class ="form-group form-group-sm">
+							<label for="" class ="col-md-2 control-label">游戏区</label>
+							<div class ="col-md-4">
+								<select v-model="GroupSelected" class ="form-control" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
-                                </select> &nbsp; &nbsp; &nbsp;
-                                &nbsp; 游 戏 服：
-                                <select id="serverid" v-for="item in Servers" :value="item.Id" class ="sec-border">
-                                    <option value="">{{item.Name}}</option>
                                 </select>
-                            </li>
-                            <li>
-                                订 单 时 间：
-                                <input id="starttime" name="procureOrderBean.starttime" size="20" readonly="readonly" value="2017-11-13 00:00:00" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
-                                &nbsp;&nbsp;到&nbsp;&nbsp;
-                                <input id="endtime" name="procureOrderBean.endtime" size="20" readonly="readonly" value="2017-12-13 23:59:59" class="Wdate time" style=" width:140px;" onclick="WdatePicker({startDate:'%y-%M-%d',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
-                                <span style="margin-left:10px"></span>
-                                <span class="search_time_span" id="today" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">今天</a></span>
-                                <span class="search_time_span" id="oneMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">最近1个月</a></span>
-                                <span class="search_time_span" id="threeMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">3个月</a></span>
-                                <span class="search_time_span" id="sixMonth" onclick="searchSelectTimeZone(this)"><a href="javascript:void(0);">6个月</a></span>
-                                <span style="display:none;">自定义</span>
-                            </li>
-                            <li>
-                                订 单 编 号：
-                                <input name="procureOrderBean.superbillid" size="28" value="" onkeyup="this.value=this.value.replace(/\s+/g, '');" />
-                                <input type="button" class="cxFormtime" id="btnQuery" value="查询" />
-                                <p class="tjcg"><span class="jetj">统计金额</span>累计成功 <span>2</span> 笔订单，共 <span>250.00</span> 元</p>
-                            </li>
-                        </ul>
                     </div>
-                    <!-- 	<span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：亲，目前只能查询2015年的订单哦，后期将为您恢复，给您带来不便，敬请谅解。</span> -->
-                    <div class="yxddlb">
+							<label for="" class ="col-md-2 control-label">游戏服</label>
+							<div class ="col-md-4">
+								<select v-model="ServerSelected" class ="form-control">
+                                    <option  v-for="item in Servers" :value="item.Id">{{item.Name}}</option>
+                                </select>
+							</div>
+						</div>
+						<div class ="form-group form-group-sm">
+							<label class ="col-md-2 control-label">订单时间</label>
+							<div class ="col-md-6">
+								<div class ="input-daterange input-group" id="">
+									<input type="text" class ="input-sm form-control" name="start" value="">
+									<span class ="input-group-addon">to</span>
+									<input type="text" class ="input-sm form-control" name="end" value="">
+								</div>
+							</div>
+							<div class ="col-md-4">
+								<div class ="btn-group btn-group-justified">
+									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">今天</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-primary">近1个月</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">3个月</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">6个月</button></div>
+								</div>
+							</div>
+						</div>
+						<div class ="form-group form-group-sm">
+							<label class ="col-md-2 control-label">订单编号</label>
+							<div class ="col-md-4">
+								<div class ="input-group">
+									<input type="text" value="" class ="form-control"/>
+									<span class ="input-group-btn">
+										<button type="button" class ="btn btn-warning btn-sm">查询</button>
+									</span>
+								</div>
+							</div>
+							<div class ="col-md-4 col-md-offset-2">haha</div>
+						</div>
 
-                        <div class="myxssl"><span>每页显示数量：</span><a type="pageSize" size="10">10</a> <a type="pageSize" size="20">20</a> <a type="pageSize" size="30">30</a></div>
-                        <div id="nave">
-                            <ol querystatus=""><a class="a_hover">全部</a></ol>
-                            <ol querystatus="6,60"><a class="">成功订单</a></ol>
-                            <ol querystatus="4,40"><a class="">撤销订单</a></ol>
-                            <ol querystatus="1"><a class="">等待付款</a></ol>
-                            <ol querystatus="5"><a class="">等待取货</a></ol>
+                <!--搜索框组件的位置 end-->
+
+                    <div class ="yxddlb">
+                        <div class ="myxssl">
+                            <span>每页显示数量：</span>
+                            <a type="pageSize" size="10">10</a>
+                            <a type="pageSize" size="20">20</a>
+                            <a type="pageSize" size="30">30</a>
                         </div>
-                        <div class="ddxq">
+                        <div id="nave">
+                            <ol querystatus=""><a class ="a_hover">全部</a></ol>
+                            <ol querystatus="6,60"><a class ="">成功订单</a></ol>
+                            <ol querystatus="4,40"><a class ="">撤销订单</a></ol>
+                            <ol querystatus="1"><a class ="">等待付款</a></ol>
+                            <ol querystatus="5"><a class ="">等待取货</a></ol>
+                        </div>
+                        <div class ="ddxq">
                             <ul>
-                                <li class="spmc">商品名称</li>
-                                <li class="zj">总价</li>
-                                <li class="sl">数量</li>
-                                <li class="khfw">客户服务</li>
-                                <li class="ddzt">订单状态</li>
+                                <li class ="spmc">商品名称</li>
+                                <li class ="zj">总价</li>
+                                <li class ="sl">数量</li>
+                                <li class ="khfw">客户服务</li>
+                                <li class ="ddzt">订单状态</li>
                             </ul>
                         </div>
                         <div id="menud_con">
-
-                
-                            <div class="ddlb" v-for="item in Orders">
+                            <div class ="ddlb" v-for="item in Orders">
                                 <h1>
-                                    订单编号：{{item.OrderNo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：{{item.OrderCreatTime}}
+                                    订单编号：{{item.OrderNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.OrderCreatTime}}
                                     <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
                                         <a href="../goods-buying-G10-100001-1.html">
                                             <span class ="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;">
@@ -81,63 +111,60 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                         </a>
                                     </span>
                                 </h1>
-                                <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="item.OrderNo" sellertype="B" billstatus="4">
-                                    <ol class="spmc">
+                                <ul class ="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="item.OrderNo" sellertype="B" billstatus="4">
+                                    <ol class ="spmc">
                                         <span style="color:#36c">
-                                            <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />
-                                            {{item.GoodTitle}}
+                                            <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />{{item.GoodTitle}}
                                         </span>
                                         <br />
                                         游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}
                                     </ol>
-                                    <ol class="zj"><span style="color:#F90">{{item.OrderPrice}}</span>元</ol>
-                                    <ol class="sl">1
+                                    <ol class ="zj"><span style="color:#F90">{{item.OrderPrice}}</span>元</ol>
+                                    <ol class ="sl">1
                                         <br />
-                                        <span class="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html' style='background:url(http://pic.7881.com/7881/market/images/huodong/20150805-qixi/zlyd.png) no-repeat;margin-top:26px;color:#ffffff;width:69px;height:21px;line-height:21px;display:inline-block;'>再来一单</a></span>
+                                        <span class ="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html'>再来一单</a></span>
                                     </ol>
-                                    <ol class="khfw">
-                                        <a href="javascript:void(0)" class="list-kf" kfid="" gameId="G10" gtId="100001"
+                                    <ol class ="khfw">
+                                        <a href="javascript:void(0)" class ="list-kf" kfid="" gameId="G10" gtId="100001"
                                            tradeType="db" salerId="112348969" substatus="1"
                                            subbillId="117121015129162378667633">
                                             <img src="http://pic.7881.com/7881/market/images/list-kf-icon.png" alt="" />
                                         </a>
                                     </ol>
-                                    <ol class="ddzt">取消
+                                    <ol class ="ddzt">取消
                                         <div class ="tsgrzx">
                                             <img src="http://pic.7881.com/7881/market/images/Personal/qxyy.png" />
                                         </div>
-                                        <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
+                                        <a class ="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">订单详情</a>
                                     </ol>
-                                    <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
+                                    <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class ="prompt" superbillid="127121015129162378197536">
                                         <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
                                     </ol>
                                 </ul>
                             </div>
-                
-
                         </div>
-                        <div class="cpfy">
-                            <dl currentNo="0" pageCount="1" totalRecords="9">
-                                <dd class="fy_l">上一页</dd>
-                                <dd class="fy2" onclick="return locatePage(0);">1</dd>
-                                <dd class="fy_r">下一页</dd>
-                                <dd><span>共1页 到第 <input id="pageNumber" maxlength="4" /> 页 <img src="http://pic.7881.com/7881/market/images/pageLook.png" onclick="return gotoPage()" /></span></dd>
-                            </dl>
-                        </div>
-                        <div class="clear"></div>
+                        <div id="paginator-test" class ="pagination"></div>
                     </div>
                 </form>
+            </div>
             </div>
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
-    var _GetMallTypeUrl = "/api/Order/GetMallType";//交易类别
+    var _GetMallTypeUrl="/api/Order/GetMallType";//交易类别
+    var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
-        Games: [{GameId:"",GameName:""}],
-        Orders:[],//订单信息表
+        times:0,
+        Games: [{ GameId: "", GameName: "" }],
+        GameSelected:"",
+        Orders: [],//订单信息表 
         Types: [],//交易类别
+        TypeSelected:"",
         Groups: [],
-        Servers:[],
+        GroupSelected: "",
+        Servers: [],
+        ServerSelected: "",
+        OrderNum:""//订单编号
     };
     var components={
         name: "MyOrders",
@@ -148,35 +175,73 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         created(){
             this.GetOrderInfo();
         },
+        mounted(){
+            var container=$('#paginator-test');
+            options = {
+                    containerClass:"pagination"
+                    , currentPage:1
+                    , numberOfPages: 3
+                    , totalPages: 11
+                    , pageUrl:function(type,page){
+                        return null;
+                    }
+                    , onPageClicked: function (e,originalEvent,type,page) {
+                         var  typeAct = type
+                         var  pageAct = page
+                         var originalEventAct=originalEvent;
+
+                    }
+                    , onPageChanged: function (e) {
+                        var b =1;
+                    }
+                };
+            container.bootstrapPaginator(options);
+        },
         methods: {
-            GetTypes(){
+            GetTypes(gameId){
                 var self=this;
-                var param={};
+                var param={gameId:gameId};
                 common.getWebJson(_GetMallTypeUrl, param, function (data) {
                     if (data.result) {
                        self.Types = data.content;
                     }
                 });
             },
-            GetServers(type){
+            GetServers(gourp){
                 var self=this;
-                var param={};
+                var gameId = self.GameSelected;
+                var param={gameId:gameId,parentId:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
-                       type = "Group"? self.Groups = data.content : self.Servers =data.content;
+                       gourp == 0? self.Groups = data.content : self.Servers =data.content;
                     }
                 });
             },
-            GetOrderInfo() {//获取收发信息
+            GetOrderInfo() {//获取订单信息
                 var self= this;
-                var param={};
-                common.getWebJson(_GetOrderInfoUrl, param, function (data) {
+                var param={
+                    GameId: self.GameSelected,
+                    GoodTypeId: self.TypeSelected,//先默认账号
+                    GameGroupId: self.GroupSelected,
+                    GameServerId: self.ServerSelected,
+                    OrderNum: self.OrderNum,
+                    //Time: "",//等待日历控件
+                    PageObj: {
+                        rows: 10,//每页行数
+                        page: 1,//当前页
+                        order: "GameId",//排序字段
+                        records: 1000,//总记录数
+                        total:10000 //总页数
+                    }
+                };
+                common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         self.Orders = data.content;
-                        self.Games = data.Games;
+                        self.times == 0?self.Games=data.Games:"";
+                        self.times++;
                     }
                 });
-            }
+            },
         }
     };
     return components;

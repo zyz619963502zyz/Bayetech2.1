@@ -1,7 +1,7 @@
 ﻿//搜索框
 define(["common", "search-dropdown"], function (common, dropdown) {
     var html=`
-         <div class ="game_select game_select_main clearfix" id="gameSelectV2">
+         <div class ="game_select clearfix" id="gameSelectV2">
         <form id="gsForm" method="get" class ="clearfix">
             <div class ="game_select_box" id="gameSelectBox">
                 <ul class ="tab_menu">
@@ -11,10 +11,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 <div class ="tab_box clearfix" id="multipleSearch" v-show="!IsSimple">
 
                     <ul class ="gs_menu" id="gsMenu">
-                        <li id="gs_game" class ="gs_name arrow" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
-                        <li id="gs_area" class ="gs_area arrow" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
-                        <li id="gs_server" class ="gs_server arrow" :title="'选择'+Param.GameServerName" @click="GameServerName(3)">{{Param.GameServerName}}</li>
-                        <li id="gs_type" class ="gs_type arrow" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)">{{Param.GoodTypeName}}</li>
+                        <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
+                        <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
+                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="GameServerName(3)">{{Param.GameServerName}}</li>
+                        <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)">{{Param.GoodTypeName}}</li>
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
                         </li>

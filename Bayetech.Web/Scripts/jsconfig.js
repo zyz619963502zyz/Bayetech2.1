@@ -3,13 +3,14 @@
 var webUrl = window.document.location.pathname.indexOf("Bayetech.Web") > -1 ? window.document.location.pathname.split("Bayetech.Web")[0] + "Bayetech.Web/" : "/";
 var jsconfig = {
     baseUrl: webUrl,
-    //urlArgs: 'v=' + (new Date()).getTime(),//清楚缓存
+    //urlArgs: 'v=' + (new Date()).getTime(),//清除缓存
     baseArr: ['vue', 'jquery', 'common'],
     paths: {
         'vue': 'Scripts/vue',
         'jquery': 'Scripts/jquery-1.10.2',
         'bootstrap': 'Scripts/bootstrap',
         'bootstrapValidator': 'Scripts/bootstrapValidator',
+        'bootstrap-paginator':'Scripts/bootstrap-paginator',
         'swiper': 'Scripts/swiper',
         'common': 'Scripts/common',
         'text': "Scripts/text",
@@ -20,6 +21,7 @@ var jsconfig = {
         'v-menu': "Scripts/app/Shared/menu",
         'v-partner': "Scripts/app/Home/partner",
         "v-search": "Scripts/app/Search/Search",
+        "nav-top": "Scripts/app/Shared/nav-top",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
         'footer-server': 'Scripts/app/Shared/footer-server',
         'footer-nav': 'Scripts/app/Shared/footer-nav',
@@ -83,6 +85,10 @@ var jsconfig = {
         'bootstrapValidator': {
             deps: ['jquery', 'bootstrap'],
             exports: 'validate'
+        },
+        'bootstrap-paginator':{
+            deps: ['jquery', 'bootstrap'],
+            exports: 'paginator'
         },
         'swiper': {
             deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],

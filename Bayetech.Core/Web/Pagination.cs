@@ -23,7 +23,7 @@ namespace Bayetech.Core
         /// <summary>
         /// 排序列
         /// </summary>
-        public string sidx { get; set; }
+        public string order { get; set; }
         /// <summary>
         /// 排序类型
         /// </summary>

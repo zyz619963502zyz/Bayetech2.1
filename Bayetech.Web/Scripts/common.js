@@ -163,6 +163,7 @@
     common.LogJS=function (vue) {
         return eval('('+JSON.stringify(vue)+')');
     };
+
     /**
      * 合并对象空值不覆盖
     */
@@ -174,6 +175,10 @@
         }
         return a;
     };
+
+    /**
+      * 
+     */
 
     return common;
 })

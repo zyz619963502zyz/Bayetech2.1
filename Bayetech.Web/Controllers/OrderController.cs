@@ -15,7 +15,7 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         OrderService service = ctx.GetObject("OrderService") as OrderService;
         BaseService<Server> serverService = new BaseService<Server>();
-        BaseService<vw_GameServers> typeService = new BaseService<vw_GameServers>();
+        BaseService<vw_GameTypes> typeService = new BaseService<vw_GameTypes>();
         [HttpPost]
         public JObject CreatOrder(JObject json)
         {
@@ -28,9 +28,11 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public JObject GetOrderInfo(JObject json)
         {
+            //DateTime startTime = Convert.ToDateTime(json[""].ToString());//开始日期
+            //DateTime endTime = Convert.ToDateTime(json[""].ToString());//结束日期
             vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.First.Path);
             return service.GetOrderInfo(order);
         }
@@ -44,30 +46,30 @@ namespace Bayetech.Web.Controllers
         public JObject GetMallType(int gameId)
         {
             JObject ret = new JObject();
-            List<vw_GameServers> types = typeService.FindList(c => c.GameId == gameId).ToList();
+            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId, "GameId");
             if (types.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);
                 ret.Add(ResultInfo.Content, JProperty.FromObject(types));
-                //ret.Add("Games", JProperty.FromObject(Games));
             }
             else
             {
                 ret.Add(ResultInfo.Result, false);
             }
-            return ret;
+            return ret; 
         }
 
         /// <summary>
         /// 获取区服列表
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="gameId">游戏Id</param>
+        /// <param name="parentId">父级ID,0的时候为服务器，其他的时候为区名称</param>
         /// <returns></returns>
         [HttpGet]
-        public JObject GetServers(int parentId=0)
+        public JObject GetServers(int gameId,int parentId)
         {
             JObject ret = new JObject();
-            List<Server> servers = serverService.FindList(c => c.ParentId == parentId).ToList();
+            List<Server> servers = serverService.FindList(c => c.ParentId == parentId&&c.GameId == gameId).ToList();
             if (servers.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);
@@ -79,5 +81,6 @@ namespace Bayetech.Web.Controllers
             }
             return ret;
         }
+
     }  
 }

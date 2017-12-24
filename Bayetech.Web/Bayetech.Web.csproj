@@ -273,6 +273,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -671,6 +673,7 @@
     <Content Include="Content\OlderCss\Personal.css" />
     <Content Include="Content\OlderCss\popLayer.css" />
     <Content Include="Content\OlderCss\Public.css" />
+    <Content Include="Content\personal.css" />
     <Content Include="Content\swiper\animate.css" />
     <Content Include="Content\swiper\animate.min.css" />
     <Content Include="Content\swiper\swiper.css" />
@@ -719,6 +722,7 @@
     <Content Include="Scripts\app\PlaceOrder\OrderPay.js" />
     <Content Include="Scripts\app\PlaceOrder\SureBuy.js" />
     <Content Include="Scripts\app\Search\StyleSheet1.css" />
+    <Content Include="Scripts\app\Shared\nav-top.js" />
     <Content Include="Scripts\app\Shared\nav.js" />
     <Content Include="Scripts\app\Home\old\nav-dropdown.js" />
     <Content Include="Scripts\app\Home\old\nav.js" />
@@ -808,6 +812,7 @@
     <Content Include="Scripts\app\UserCenter\Seller\OrdersManage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />
     <Content Include="Scripts\app\UserCenter\router.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
