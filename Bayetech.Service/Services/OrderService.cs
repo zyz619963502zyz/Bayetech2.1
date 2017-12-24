@@ -92,7 +92,7 @@ namespace Bayetech.Service.Services
                 if (orderInfos.Count > 0)
                 {
                     List<dynamic> Games = orderInfos.Select(c => new { GameId = c.GameId , GameName = c.GameName })
-                        .GroupBy(q => new { q.GameId, q.GameName }).ToList<dynamic>();
+                        .GroupBy(q => new { q.GameId, q.GameName }).ToList<dynamic>();//此处会生成三个集合回头在做处理。
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
                     ret.Add("Games", JProperty.FromObject(Games));

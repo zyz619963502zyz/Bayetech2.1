@@ -11,7 +11,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 &nbsp;&nbsp;游 戏：
                                 <select id="gameid" class="js-states js-example-events form-control">
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
-                                    <option value="G10">D - 地下城与勇士</option>
                                 </select>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 商品类型：
