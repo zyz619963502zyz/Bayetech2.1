@@ -68,11 +68,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 								<div class ="input-group">
 									<input type="text" value="" class ="form-control"/>
 									<span class ="input-group-btn">
-										<button type="button" class ="btn btn-warning btn-sm">查询</button>
+										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-sm">查询</button>
 									</span>
 								</div>
 							</div>
-							<div class ="col-md-4 col-md-offset-2">haha</div>
 						</div>
 
                 <!--搜索框组件的位置 end-->
