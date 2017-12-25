@@ -175,7 +175,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     , onPageClicked: function (e,originalEvent,type,page) {
                          var  typeAct = type
                          var  pageAct = page
-                         var originalEventAct=originalEvent;
+                         var originalEventAct=originalEvent; 
 
                     }
                     , onPageChanged: function (e) {

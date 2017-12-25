@@ -138,7 +138,7 @@ namespace Bayetech.DAL
         public List<TEntity> FindList<TEntity>(Pagination pagination) where TEntity : class,new()
         {
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
-            string[] _order = pagination.sidx.Split(',');
+            string[] _order = pagination.order.Split(',');
             MethodCallExpression resultExp = null;
             var tempData = dbcontext.Set<TEntity>().AsQueryable();
             foreach (string item in _order)
@@ -166,7 +166,7 @@ namespace Bayetech.DAL
         public List<TEntity> FindList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination) where TEntity : class,new()
         {
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
-            string[] _order = pagination.sidx.Split(',');
+            string[] _order = pagination.order.Split(',');
             MethodCallExpression resultExp = null;
             var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
             foreach (string item in _order)
