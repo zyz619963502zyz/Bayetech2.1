@@ -2,6 +2,7 @@
 define(['Scripts/app/UserCenter/Home',
     'Scripts/app/UserCenter/Buyer/ToBuy',
     'Scripts/app/UserCenter/Buyer/MyOrders',
+    'Scripts/app/UserCenter/Buyer/MyGetRoles',//我的收货角色
     'Scripts/app/UserCenter/Buyer/MyDlOrder',
     'Scripts/app/UserCenter/Buyer/MyDlRequire',
     'Scripts/app/UserCenter/Buyer/BuyerDlOrder',
@@ -18,8 +19,9 @@ define(['Scripts/app/UserCenter/Home',
         var routes=[{ path: '/', redirect: '/Home' }];
     for (var i=0; i<arguments.length; i++) {
         routes.push({
-            path: '/'+arguments[i].name,
-            component: arguments[i]
+            path: `/${arguments[i].name}`,
+            name: arguments[i].name,
+            component: arguments[i],
         })
     }
 

@@ -40,6 +40,7 @@ define(["common"], function (common) {
                     <li id="drop_search_input" class ="drop_search_input">
                         <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
+                    <li><button type="button" class ="btn btn-xs">CLOSE</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav">
                     <li class ="first_line"></li>
