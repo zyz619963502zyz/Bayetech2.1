@@ -17,29 +17,29 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 
                 <!--搜索框组件的位置 start-->
 						<div class ="form-group form-group-sm">
-							<label for="" class ="col-md-2 control-label">游戏</label>
+							<label for="game" class ="col-md-2 control-label">游戏</label>
 							<div class ="col-md-4">
-								<select  v-model="GameSelected" class ="form-control" @change="GetTypes(GameSelected)">
+								<select  v-model="GameSelected" id="game" class ="form-control" @change="GetTypes(GameSelected)">
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                 </select>
 							</div>
-							<label for="" class ="col-md-2 control-label">商品类型</label>
+							<label for="goodsType" class ="col-md-2 control-label">商品类型</label>
 							<div class ="col-md-4">
-								<select v-model="TypeSelected" class ="form-control" @change="GetServers(0)">
+								<select v-model="TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
                                     <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.TypeName}}</option>
                                 </select>
 							</div>
 						</div>
 						<div class ="form-group form-group-sm">
-							<label for="" class ="col-md-2 control-label">游戏区</label>
+							<label for="gameArea" class ="col-md-2 control-label">游戏区</label>
 							<div class ="col-md-4">
-								<select v-model="GroupSelected" class ="form-control" @change="GetServers(GroupSelected)">
+								<select v-model="GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select>
                     </div>
-							<label for="" class ="col-md-2 control-label">游戏服</label>
+							<label for="gameServer" class ="col-md-2 control-label">游戏服</label>
 							<div class ="col-md-4">
-								<select v-model="ServerSelected" class ="form-control">
+								<select v-model="ServerSelected" id="gameServer" class ="form-control">
                                     <option  v-for="item in Servers" :value="item.Id">{{item.Name}}</option>
                                 </select>
 							</div>
@@ -142,7 +142,9 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                                 </ul>
                             </div>
                         </div>
-                        <div id="paginator-test" class ="pagination"></div>
+                        <nav aria-label="fenye" class="text-center">
+							<ul id="paginator-test" class ="pagination"></ul>
+						</nav>
                     </div>
                 </form>
             </div>
@@ -175,9 +177,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo();
         },
         mounted(){
-            var container=$('#paginator-test');
+            var container = $('#paginator-test');
             options = {
-                    containerClass:"pagination"
+				size:'small',
+            	bootstrapMajorVersion: 3            	
                     , currentPage:1
                     , numberOfPages: 3
                     , totalPages: 11
