@@ -273,6 +273,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -671,12 +673,14 @@
     <Content Include="Content\OlderCss\Personal.css" />
     <Content Include="Content\OlderCss\popLayer.css" />
     <Content Include="Content\OlderCss\Public.css" />
+    <Content Include="Content\personal.css" />
     <Content Include="Content\swiper\animate.css" />
     <Content Include="Content\swiper\animate.min.css" />
     <Content Include="Content\swiper\swiper.css" />
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\GoodList\GoodToBuy.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
@@ -809,6 +813,7 @@
     <Content Include="Scripts\app\UserCenter\Seller\OrdersManage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />
     <Content Include="Scripts\app\UserCenter\router.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />

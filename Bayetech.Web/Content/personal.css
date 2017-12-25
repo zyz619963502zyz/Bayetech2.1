@@ -1,0 +1,32 @@
+﻿@charset"utf-8";
+.personal-center a:hover{color:#fff;text-decoration:underline;}
+
+/***当前位置***/
+.b-link{height: 30px;line-height: 30px;margin:15px 0;}
+.b-link a:not(:first-child){color:#f90;}
+.b-link .b-home:hover{color:#f90;text-decoration:underline;}
+
+/***左边导航***/
+.left-nav-title {    color: #fff;
+    background-color: #3b83e8;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px 0;}
+.left-nav a:hover {color: #f90;text-decoration: underline;}
+.left-nav>a{
+    display:block;
+    padding:5px 10px;
+    background:-moz-linear-gradient(#fff,#eee);
+    background: linear-gradient(#fff,#eee);
+    border: 1px solid #eee;
+}
+.left-nav ul{margin-bottom:0;}
+.left-nav ul li{text-align:left;}
+.left-nav .list-group-item:last-child{border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
+.left-nav .list-group-item:first-child{border-top-right-radius: 0;border-top-left-radius: 0;}
+
+/***右边表单***/
+
+.right-buy-title{
+    margin:0;
+}
