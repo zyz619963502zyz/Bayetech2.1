@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service.IServices
@@ -7,7 +8,7 @@ namespace Bayetech.Service.IServices
     {
         JObject CreatOrder(MallOrder order);
 
-        JObject GetOrderInfo(vw_MallOrderInfo order);
+        JObject GetOrderInfo(vw_MallOrderInfo order,Pagination page = null);
     }
 
 }

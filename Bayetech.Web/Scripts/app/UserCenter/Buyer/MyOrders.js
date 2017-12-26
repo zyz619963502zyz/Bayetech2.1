@@ -168,14 +168,16 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         OrderNum: "",//订单编号,
         Pagination:{
              size: "small",
-             bootstrapMajorVersion:3,
+             bootstrapMajorVersion: 3,
+             numberOfPages: 5,//控件显示出来的页码可以写死
+
+             //后端分页字段
              rows: 10,//每页行数，
              page: 1,//当前页码
-             order: "OrderNum",//排序字段
+             order: "OrderNo",//排序字段
              sord: "asc",//排序类型
-             records : 10,//总记录数
-             numberOfPages: 5,//控件显示出来的页码可以写死
-             totalPages:10//总页数。
+             records: 10,//总记录数
+             total: 10//总页数。
         }
     };
     var components={
@@ -200,7 +202,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     return null;
                 },
                 onPageClicked: function (e, originalEvent, type, page) {
-                    self.page = page;//获取当前页
+                    self.Pagination.page = page;//获取当前页
                     self.GetOrderInfo();//再次查询
                 },
                 onPageChanged: function (e) {
@@ -240,7 +242,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     //Time: "",//等待日历控件
                     PageObj: self.Pagination
                 };
-                common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
+                common.postWebJson(_GetOrderInfoUrl, param, function (data) {
                     if (data.result) {
                         self.Orders = data.content;
                         self.times == 0?self.Games=data.Games:"";

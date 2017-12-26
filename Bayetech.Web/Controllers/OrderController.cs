@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.Services;
 using Newtonsoft.Json;
@@ -33,8 +34,9 @@ namespace Bayetech.Web.Controllers
         {
             //DateTime startTime = Convert.ToDateTime(json[""].ToString());//开始日期
             //DateTime endTime = Convert.ToDateTime(json[""].ToString());//结束日期
-            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.First.Path);
-            return service.GetOrderInfo(order);
+            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.ToString());
+            Pagination page = JsonConvert.DeserializeObject<Pagination>(json["PageObj"].ToString());
+            return service.GetOrderInfo(order, page);
         }
 
         /// <summary>

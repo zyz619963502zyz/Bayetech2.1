@@ -44,11 +44,12 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JObject GetOrderInfo(vw_MallOrderInfo order)
+        public JObject GetOrderInfo(vw_MallOrderInfo order,Pagination page=null)
         {
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
+                Pagination resultPage = new Pagination();
                 List<vw_MallOrderInfo> orderInfos;
                 List<object> ResultGames = new List<object>();
                 Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
@@ -82,11 +83,11 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
-                    orderInfos = db.FindList(expressions, GetDefaultPagination("OrderNo")).ToList();
+                    orderInfos = db.FindList(expressions, page == null?GetDefaultPagination("OrderNo"):page).ToList();
                 }
                 else
                 {
-                    orderInfos = db.FindList<vw_MallOrderInfo>(GetDefaultPagination("OrderNo")).ToList();
+                    orderInfos = db.FindList<vw_MallOrderInfo>(page == null ? GetDefaultPagination("OrderNo") : page).ToList();
                 }
 
                 //查询结果封装
@@ -98,8 +99,12 @@ namespace Bayetech.Service.Services
                     {
                         ResultGames.Add(item.FirstOrDefault());
                     }
+
                     //计算分页
-               
+                    if (page!=null)
+                    {
+                        page.records = orderInfos.Count;
+                    }
 
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
