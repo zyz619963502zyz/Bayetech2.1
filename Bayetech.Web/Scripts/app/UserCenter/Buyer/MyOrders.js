@@ -36,7 +36,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 								<select v-model="GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select>
-                    </div>
+                            </div>
 							<label for="gameServer" class ="col-md-2 control-label">游戏服</label>
 							<div class ="col-md-4">
 								<select v-model="ServerSelected" id="gameServer" class ="form-control">
@@ -165,7 +165,18 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         GroupSelected: "",
         Servers: [],
         ServerSelected: "",
-        OrderNum:""//订单编号
+        OrderNum: "",//订单编号,
+        Pagination:{
+             size: "small",
+             bootstrapMajorVersion:3,
+             rows: 10,//每页行数，
+             page: 1,//当前页码
+             order: "OrderNum",//排序字段
+             sord: "asc",//排序类型
+             records : 10,//总记录数
+             numberOfPages: 5,//控件显示出来的页码可以写死
+             totalPages:10//总页数。
+        }
     };
     var components={
         name: "MyOrders",
@@ -177,26 +188,25 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo();
         },
         mounted(){
-            var container = $('#paginator-test');
+            var container=$('#paginator-test');
+            var self = this;
             options = {
 				size:'small',
-            	bootstrapMajorVersion: 3            	
-                    , currentPage:1
-                    , numberOfPages: 3
-                    , totalPages: 11
-                    , pageUrl:function(type,page){
-                        return null;
-                    }
-                    , onPageClicked: function (e,originalEvent,type,page) {
-                         var  typeAct = type
-                         var  pageAct = page
-                         var originalEventAct=originalEvent; 
-
-                    }
-                    , onPageChanged: function (e) {
-                        var b =1;
-                    }
-                };
+            	bootstrapMajorVersion: self.Pagination.bootstrapMajorVersion,          	
+                currentPage:self.Pagination.page,
+                numberOfPages: self.Pagination.numberOfPages,
+                totalPages:self.Pagination.totalPages,
+                pageUrl:function(type,page){
+                    return null;
+                },
+                onPageClicked: function (e, originalEvent, type, page) {
+                    self.page = page;//获取当前页
+                    self.GetOrderInfo();//再次查询
+                },
+                onPageChanged: function (e) {
+                    var b =1;
+                }
+             };
             container.bootstrapPaginator(options);
         },
         methods: {
@@ -228,13 +238,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     GameServerId: self.ServerSelected,
                     OrderNum: self.OrderNum,
                     //Time: "",//等待日历控件
-                    PageObj: {
-                        rows: 10,//每页行数
-                        page: 1,//当前页
-                        order: "GameId",//排序字段
-                        records: 1000,//总记录数
-                        total:10000 //总页数
-                    }
+                    PageObj: self.Pagination
                 };
                 common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
                     if (data.result) {

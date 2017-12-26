@@ -98,6 +98,9 @@ namespace Bayetech.Service.Services
                     {
                         ResultGames.Add(item.FirstOrDefault());
                     }
+                    //计算分页
+               
+
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
                     ret.Add("Games", JProperty.FromObject(ResultGames));

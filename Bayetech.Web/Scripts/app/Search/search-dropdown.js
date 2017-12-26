@@ -40,7 +40,7 @@ define(["common"], function (common) {
                     <li id="drop_search_input" class ="drop_search_input">
                         <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
-                    <li><button type="button" class ="btn btn-xs">CLOSE</button></li>
+                    <li class="btn-close"><button type="button" @click="HideModal" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav">
                     <li class ="first_line"></li>
@@ -95,6 +95,9 @@ define(["common"], function (common) {
                     }
                 });
             },
+            HideModal: function () {//隐藏当前模态框
+                this.$parent.$data.IsShow = false;
+            }
         }
     };
     return components;
