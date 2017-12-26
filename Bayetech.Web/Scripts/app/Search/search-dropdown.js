@@ -30,8 +30,8 @@ define(["common"], function (common) {
     var html=`
         <div class ="gs_box" id="gsBox">
             <div class ="gs_box_inner">
-                <ul id="gsSort" class ="gs_sort">
-                    <li id="sortall" class ="">
+                <ul id="gsSort" class ="gs_sort" v-if="data.Type <= 1">
+                    <li id="sortall" class ="" >
                         <a href="javascript: void (0); " :class ="{active:gameType==0}" @click="changeGameType(0)">网络游戏</a>
                     </li>
                     <li id="mobilegame">
@@ -42,9 +42,9 @@ define(["common"], function (common) {
                     </li>
                     <li><button type="button" class ="btn btn-xs">CLOSE</button></li>
                 </ul>
-                <ul id="gsNav" class ="gs_nav">
+                <ul id="gsNav" class ="gs_nav" v-if="data.Type <= 1">
                     <li class ="first_line"></li>
-                    <li id="fastletter" class ="w_70" v-if="data.Type <= 1"><a href="javascript: void (0); ">搜索结果</a></li>
+                    <li id="fastletter" class ="w_70"><a href="javascript: void (0); ">搜索结果</a></li>
                     <li class ="w_70"><a class ="active" href="javascript: void (0); ">热门游戏</a></li>
                     <li v-for="item in alphabet">
                        <a href="javascript: void (0); " @click="getGameListByLetter(item,data.Type)">{{item}}</a>
