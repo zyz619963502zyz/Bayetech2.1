@@ -804,6 +804,7 @@
     <Content Include="Scripts\app\UserCenter\AccountSetting\PhoneBinding.js" />
     <Content Include="Scripts\app\UserCenter\AccountSetting\ValidateLogin.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\BuyerDlOrder.js" />
+    <Content Include="Scripts\app\UserCenter\Buyer\MyGetRoles.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyDlOrder.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyDlRequire.js" />
     <Content Include="Scripts\app\UserCenter\Buyer\MyOrders.js" />
