@@ -169,7 +169,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         Servers: [],
         ServerSelected: "",
         OrderNum: "",//订单编号,
-        startTime: (new Date()).Format("yyyy-MM-dd"),
+        startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
         endTime: (new Date()).Format("yyyy-MM-dd"),
         Pagination:{
              //后端分页字段
