@@ -159,10 +159,10 @@ img{display:inline-block;}
 .game_select .gs_search_btn {width:80px;height:36px;background-color:#faa426;color:#fff;font-size:14px;letter-spacing:4px;text-indent:4px;border:none;outline:none;}
 
 .gs_sort {padding:5px 15px 0;background-color:#1ea5ff;margin-bottom:0;}
-.gs_sort li {display:inline-block;border-bottom:0 none;font-size:14px;}
+.gs_sort li {display:inline-block;font-size:14px;}
 .gs_sort li.drop_search_input {margin-left:3%;}
 .gs_sort li.drop-close{float:right;}
-.gs_sort .drop_search_input > input {padding:0 10px;font-size:12px;font-family:\5b8b\4f53;width:200px;}
+.gs_sort .drop_search_input > input {padding:0 10px;font-size:12px;font-family:\5b8b\4f53;width:200px;height:26px;}
 .gs_sort .drop_search_input > input::-webkit-input-placeholder {color:#777;}
 .gs_sort li a {color:#fff;padding:0 30px;display:block;line-height:32px;}
 .gs_sort li a:hover {text-decoration:underline;}
