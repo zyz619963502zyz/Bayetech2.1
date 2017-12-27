@@ -142,7 +142,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                                 </ul>
                             </div>
                         </div>
-                        <nav aria-label="fenye" class="text-center">
+                        <nav aria-label="fenye" class="text-center right">
 							<ul id="paginator-test" class ="pagination"></ul>
 						</nav>
                     </div>
@@ -225,32 +225,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                         self.Orders = data.content.datas;
                         self.times==0?self.Games=data.Games:"";
                         self.Pagination=data.content.pagination;
-                        self.SetPagination(self.Pagination);
+                        common.SetPagination($('#paginator-test'),self,self.GetOrderInfo);
                         self.times++;
                     }
                 });
-            },
-            SetPagination(page) {
-                 var self = this;
-                 var container=$('#paginator-test');
-                 options = {
-				        size:'small',
-            	        bootstrapMajorVersion:3,     	
-                        currentPage:page==undefined?1:page.page,
-                        numberOfPages: 5,//控件显示出来的页码可以写死,默认5
-                        totalPages:page==undefined?1:page.total,//根据实际查询数据算出总页码
-                        pageUrl:function(type,page){
-                            return null;
-                        },
-                        onPageClicked: function (e, originalEvent, type, page) {
-                            self.Pagination.page = page;//获取当前页
-                            self.GetOrderInfo();//再次查询
-                        },
-                        //onPageChanged: function (e) {
-                        //    var b =1;
-                        //}
-                   };
-                 container.bootstrapPaginator(options);
             }
         }
     };

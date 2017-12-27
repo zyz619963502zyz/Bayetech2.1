@@ -177,8 +177,42 @@
     };
 
     /**
-      * 
+      * 分页方法
      */
+    //1.$contain对应的dom对象
+    //2.self，vue的组件对象
+    //3.callback查询回调
+    common.SetPagination = function($,self,callback) {
+            var container=$;
+            options = {
+            	bootstrapMajorVersion:3,     	
+                currentPage:self.Pagination == undefined?1:self.Pagination.page,
+                numberOfPages: 5,//控件显示出来的页码可以写死,默认5
+                itemTexts: function (type, page, current) {  
+                    switch (type) {  
+                        case "first":  
+                            return "首页";  
+                        case "prev":  
+                            return "上一页";  
+                        case "next":  
+                            return "下一页";  
+                        case "last":  
+                            return "末页";  
+                        case "page":  
+                            return page;  
+                    }  
+                },
+                totalPages:self.Pagination == undefined?1:self.Pagination.total,//根据实际查询数据算出总页码
+                pageUrl:function(type,page){
+                    return null;
+                },
+                onPageClicked: function (e, originalEvent, type, page) {
+                    self.Pagination.page = page;//获取当前页
+                    callback();//再次查询
+                }
+            };
+            container.bootstrapPaginator(options);
+    }
 
     return common;
 })
