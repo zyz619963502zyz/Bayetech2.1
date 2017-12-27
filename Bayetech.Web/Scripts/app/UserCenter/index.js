@@ -19,7 +19,7 @@ require(UserCenterRequireArr, function () {
             Title: "个人中心",
             List: [{
                 Title: "我是买家",
-                Items: [{ Id: 0, Title: "我要买", Name: "ToBuy" },
+                Items: [{ Id: 0, Title: "我要买", Url: "../Game/List.html", Type: "url" },
                     { Id: 0, Title: "我购买的订单", Name: "MyOrders", Params: {id:190} },
                     { Id: 0, Title: "我的代练订单", Name: "BuyerDlOrder" },//BuyerDlOrder代练订单和购买订单类似。
                     { Id: 0, Title: "我发布的代练需求", Name: "MyDlRequire" },

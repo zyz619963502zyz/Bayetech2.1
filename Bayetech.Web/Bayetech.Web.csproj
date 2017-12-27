@@ -320,6 +320,7 @@
     <Content Include="Content\CommonCss\xqgd.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\sa-regular.svg" />
+    <Content Include="Content\Goods\Publish.css" />
     <Content Include="Content\helpcenter.css" />
     <Content Include="Content\homepage.css" />
     <Content Include="Content\Images\001.jpg" />
@@ -682,6 +683,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
+    <Content Include="Page\Good\Publish\Step1.html" />
+    <Content Include="Page\Good\Publish.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
@@ -719,6 +722,7 @@
     <Content Include="Scripts\app\GoodInfo\GoodInfo.js" />
     <Content Include="Scripts\app\GoodInfo\Nav.js" />
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
+    <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
@@ -772,7 +776,6 @@
     <Content Include="Scripts\app\Search\search-dropdown.js" />
     <Content Include="Scripts\app\Search\search.js" />
     <Content Include="Scripts\app\Shared\menu.js" />
-    <Content Include="Scripts\app\Shared\second-level-menu.js" />
     <Content Include="Scripts\app\Sign\index.js" />
     <Content Include="Scripts\app\Sign\signRight.js" />
     <Content Include="Scripts\app\Sign\signLeft.js" />

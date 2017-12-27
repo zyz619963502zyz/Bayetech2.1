@@ -4,7 +4,7 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
 	    new Vue({
 	        el: '#app',
 	        data() {
-	            return { }
+	            return {}
 	        },
 	        components: {
 	            "v-header": header,
@@ -14,7 +14,7 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
 
 	        },
 	        methods: {
-                //跳转商品列表
+	            //跳转商品列表
 	            ToGoodList: function (id, name) {
 	                localStorage.SearchParam=JSON.stringify({
 	                    GameId: id,
@@ -24,5 +24,8 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
 	                window.open(url);
 	            },
 	        },
+
+
 	    });
+
 	});

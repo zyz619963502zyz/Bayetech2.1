@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service
@@ -9,6 +10,6 @@ namespace Bayetech.Service
 
         JObject GetGoodInfoDetail(string goodNo);
 
-        JObject GetGoodList(vw_MallGoodMainInfo goodInfo);
+        JObject GetGoodList(vw_MallGoodMainInfo goodInfo, Pagination page);
     }
 }
