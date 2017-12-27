@@ -40,28 +40,6 @@ namespace Bayetech.Web.Controllers
         }
 
         /// <summary>
-        /// 获取类别
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public JObject GetMallType(int gameId)
-        {
-            JObject ret = new JObject();
-            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId, "GameId");
-            if (types.Count>0)
-            {
-                ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JProperty.FromObject(types));
-            }
-            else
-            {
-                ret.Add(ResultInfo.Result, false);
-            }
-            return ret; 
-        }
-
-        /// <summary>
         /// 获取区服列表
         /// </summary>
         /// <param name="gameId">游戏Id</param>

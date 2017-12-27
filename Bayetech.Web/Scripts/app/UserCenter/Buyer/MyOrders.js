@@ -155,7 +155,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
-    var _GetMallTypeUrl="/api/Order/GetMallType";//交易类别
+    var _GetMallTypeUrl = "/api/GoodType/GetGoodTypeByGameId";//交易类别
     var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
         times:0,
@@ -169,8 +169,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         Servers: [],
         ServerSelected: "",
         OrderNum: "",//订单编号,
-        startTime: (new Date),
-        endTime: (new Date).getDate(),
+        startTime: (new Date()).Format("yyyy-MM-dd"),
+        endTime: (new Date()).Format("yyyy-MM-dd"),
         Pagination:{
              //后端分页字段
              rows: 10,//每页行数，
