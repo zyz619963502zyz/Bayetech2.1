@@ -40,11 +40,11 @@ define(["common"], function (common) {
                     <li id="drop_search_input" class ="drop_search_input">
                         <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
-                    <li class="drop-close"><button type="button" class ="btn btn-xs btn-default">CLOSE</button></li>
+                    <li class="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
-                <ul id="gsNav" class ="gs_nav">
+                <ul id="gsNav" class ="gs_nav" v-if="data.Type <= 1">
                     <li class ="first_line"></li>
-                    <li id="fastletter" class ="w_70" v-if="data.Type <= 1"><a href="javascript: void (0); ">搜索结果</a></li>
+                    <li id="fastletter" class ="w_70"><a href="javascript: void (0); ">搜索结果</a></li>
                     <li class ="w_70"><a class ="active" href="javascript: void (0); ">热门游戏</a></li>
                     <li v-for="item in alphabet">
                        <a href="javascript: void (0); " @click="getGameListByLetter(item,data.Type)">{{item}}</a>
@@ -95,6 +95,9 @@ define(["common"], function (common) {
                     }
                 });
             },
+            CloseDropdown: function () {//隐藏当前模态框
+                this.$parent.$data.IsShow = false;
+            }
         }
     };
     return components;

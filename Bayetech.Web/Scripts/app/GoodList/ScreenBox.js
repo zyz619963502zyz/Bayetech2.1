@@ -22,7 +22,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                         <span class ="check-icon"></span>
                                         <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain">{{item.Name}}</span>
                                     </a>
-                                </li>
+                                </li> 
 
                             </ul>
                         </div>

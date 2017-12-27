@@ -50,8 +50,8 @@ define(jsconfig.baseArr, function (Vue,$,common) {
                             <dd class="wdshjs" title="启明星的碎片">
                                 启明星的碎片
                             </dd>
-                            <dd class="dj" style="width:110px">null</dd>
-                            <dd class="cz" prid="1904240" rolename="启明星的碎片" dj="null">
+                            <dd class="dj" style="width:110px">90</dd>
+                            <dd class="cz" prid="1904240" rolename="启明星的碎片" dj="90">
                                 <a type="update" style="cursor:pointer;">修改</a> | <a type="delete" style="cursor:pointer;">删除</a>
                             </dd>
                         </dl>

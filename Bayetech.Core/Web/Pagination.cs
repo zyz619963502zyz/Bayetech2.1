@@ -8,7 +8,7 @@
 namespace Bayetech.Core
 {
     /// <summary>
-    /// 分页信息
+    /// 非泛型分页
     /// </summary>
     public class Pagination
     {
@@ -49,5 +49,19 @@ namespace Bayetech.Core
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 泛型分页类
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class PaginationResult<T> where T : class
+    {
+        /// <summary>
+        /// 泛型实体
+        /// </summary>
+        public T datas { get; set; }
+
+        public Pagination pagination { get; set; }
     }
 }
