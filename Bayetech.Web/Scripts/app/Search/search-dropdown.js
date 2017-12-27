@@ -32,15 +32,15 @@ define(["common"], function (common) {
             <div class ="gs_box_inner">
                 <ul id="gsSort" class ="gs_sort" v-if="data.Type <= 1">
                     <li id="sortall" class ="" >
-                        <a href="javascript: void (0); " :class ="{active:gameType==0}" @click="changeGameType(0)">网络游戏</a>
+                        <a href="javascript: void (0); " :class ="{hover:gameType==0}" @click="changeGameType(0)">网络游戏</a>
                     </li>
                     <li id="mobilegame">
-                       <a href="javascript: void (0); " :class ="{active:gameType==1}" @click="changeGameType(1)">手机游戏</a>
+                       <a href="javascript: void (0); " :class ="{hover:gameType==1}" @click="changeGameType(1)">手机游戏</a>
                     </li>
                     <li id="drop_search_input" class ="drop_search_input">
                         <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
-                    <li class="btn-close"><button type="button" @click="HideModal" class ="btn btn-xs">X</button></li>
+                    <li class="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav" v-if="data.Type <= 1">
                     <li class ="first_line"></li>
@@ -95,7 +95,7 @@ define(["common"], function (common) {
                     }
                 });
             },
-            HideModal: function () {//隐藏当前模态框
+            CloseDropdown: function () {//隐藏当前模态框
                 this.$parent.$data.IsShow = false;
             }
         }

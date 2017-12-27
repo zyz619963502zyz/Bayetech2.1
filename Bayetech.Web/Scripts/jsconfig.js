@@ -71,6 +71,7 @@ var jsconfig = {
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
         'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
         'VueRouter': 'Scripts/vue-router.min',
+        'game-list': 'Scripts/app/Game/List',
     },
     map: {
         '*': {
