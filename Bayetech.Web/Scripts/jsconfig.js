@@ -11,7 +11,7 @@ var jsconfig = {
         'bootstrap': 'Scripts/bootstrap.min',
         'bootstrapValidator': 'Scripts/bootstrapValidator',
         'bootstrap-paginator': 'Scripts/bootstrap-paginator',
-        'datetimepicker': 'Scripts/datetimepicker.min',
+        'datepicker': 'Scripts/bootstrap-datepicker',
         'swiper': 'Scripts/swiper',
         'common': 'Scripts/common',
         'text': "Scripts/text",
@@ -93,9 +93,9 @@ var jsconfig = {
             deps: ['jquery', 'bootstrap'],
             exports: 'paginator'
         },
-        'datetimepicker':{
+        'datepicker': {
         	deps: ['jquery', 'bootstrap'],
-        	exports: 'datetimepicker'
+        	exports: 'datepicker'
         },
         'swiper': {
             deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],

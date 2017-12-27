@@ -1,6 +1,6 @@
 ﻿//我购买的订单
 jsconfig.baseArr.push("bootstrap-paginator");
-jsconfig.baseArr.push("datetimepicker"); 
+jsconfig.baseArr.push("datepicker"); 
 define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var html=`
         <div class="col-md-9 col-lg-10">
@@ -48,10 +48,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 						<div class ="form-group form-group-sm">
 							<label class ="col-md-2 control-label">订单时间</label>
 							<div class ="col-md-6">
-								<div class ="input-daterange input-group" id="datetimepicker">
-									<input type="text" class ="input-sm form-control" name="start" value="">
+								<div class ="input-daterange input-group" id="datepicker">
+									<input type="text" class ="input-sm form-control" name="start" value="20/11/2017">
 									<span class ="input-group-addon">to</span>
-									<input type="text" class ="input-sm form-control" name="end" value="">
+									<input type="text" class ="input-sm form-control" name="end" value="27/12/2017">
 								</div>
 							</div>
 							<div class ="col-md-4">
@@ -188,13 +188,9 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-        	$("#datetimepicker").datetimepicker({
-        		language: 'zh-CN',
-        		todayBtn: "linked",
-        		format: 'yyyy-mm-dd',
+        	$("#datepicker").datepicker({
         		keyboardNavigation: false,
         		forceParse: false,
-        		calendarWeeks: true,
         		autoclose: true
         	});
         },
