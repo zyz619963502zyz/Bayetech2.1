@@ -16,11 +16,12 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="goodInfo"></param>
         /// <returns></returns>
-        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo,Pagination page)
         {
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
+                PaginationResult<List<vw_MallGoodMainInfo>> ResultPage = new PaginationResult<List<vw_MallGoodMainInfo>>();
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
                 if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
                 {
@@ -42,13 +43,18 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
-                List<vw_MallGoodMainInfo> test = db.FindList(expression, GetDefaultPagination("GoodNo"));
-                List <vw_MallGoodMainInfo> ListMain = db.FindList(expression, GetDefaultPagination("GoodNo")).ToList();//暂时以GoodNo排序，以后做活。
 
-                if (ListMain.Count>0)
+                ResultPage.datas = db.FindList(expression, page,out page).ToList();//暂时以GoodNo排序，以后做活。
+
+                if (page!=null)
+                {
+                    ResultPage.pagination = page;
+                }
+
+                if (ResultPage.datas.Count>0)
                 {
                     ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject(ListMain));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
                 }
                 else
                 {

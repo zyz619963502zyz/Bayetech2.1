@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.Core.Enum;
 using Bayetech.Service;
 using Bayetech.Service.Services;
@@ -70,8 +71,9 @@ namespace Bayetech.Web.Controllers
         public JObject GetList(JObject json)
         {
             //vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());两个外层括号导致无法反序列化
-            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.First.Path);
-            return service.GetGoodList(goodInfo);
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json["param"].ToString());
+            Pagination page = JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString()); 
+            return service.GetGoodList(goodInfo, page);
         }
 
         /// <summary>
