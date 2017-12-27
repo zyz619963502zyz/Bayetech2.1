@@ -151,6 +151,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             GetLikeGoods() {
                 var self = this;
                 self.SearchParam.param.GoodKeyWord = self.keyword;
+                self.SearchParam.Pagination.page = 1;
                 self.findList();
             }
         },
