@@ -52,6 +52,68 @@ namespace Bayetech.Service
             return repository.FindList<TEntity>(predicate,GetDefaultPagination(page));
         }
 
+        /// <summary>
+        /// 查找单个对象
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public JObject GetObject(object keyValue)
+        {
+            var jObect = new JObject();
+            var result = repository.FindEntity<TEntity>(keyValue);
+            if (result!=null)
+            {
+                jObect.Add(ResultInfo.Result, true);
+                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
+            }
+            else
+            {
+                jObect.Add(ResultInfo.Result, false);
+            }
+            return jObect;
+        }
+
+        /// <summary>
+        /// 查找集合
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public JObject GetList(Expression<Func<TEntity, bool>> predicate)
+        {
+            var jObect = new JObject();
+            var result = repository.IQueryable<TEntity>(predicate).ToList();
+            if (result.Count > 0)
+            {
+                jObect.Add(ResultInfo.Result, true);
+                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
+            }
+            else
+            {
+                jObect.Add(ResultInfo.Result, false);
+            }
+            return jObect;
+        }
+
+        /// <summary>
+        /// 查找集合
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public JObject GetList(Expression<Func<TEntity, bool>> predicate, string page)
+        {
+            var jObect = new JObject();
+            var result = repository.FindList(predicate, GetDefaultPagination(page));
+            if (result.Count > 0)
+            {
+                jObect.Add(ResultInfo.Result, true);
+                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
+            }
+            else
+            {
+                jObect.Add(ResultInfo.Result, false);
+            }
+            return jObect;
+        }
 
         /// <summary>
         /// 新增
