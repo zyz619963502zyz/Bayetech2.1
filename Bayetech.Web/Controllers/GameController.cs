@@ -18,7 +18,7 @@ namespace Bayetech.Web.Controllers
         /// <returns></returns>
         public IHttpActionResult GetGameList(int type)
         {
-            var data = gameService.FindList(g=> !g.IsDelete).ToList();
+            var data = gameService.FindList(g=> g.Platform == type && !g.IsDelete).ToList();
             return Json(data);
         }
 
@@ -54,7 +54,7 @@ namespace Bayetech.Web.Controllers
         /// <returns></returns>
         public IHttpActionResult GetGameListByLetter(int type,string letter)
         {
-            var list = gameService.FindList(a => a.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && a.Platform == type && !a.IsDelete).ToList();
+            var list = gameService.FindList(g => g.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && g.Platform == type && !g.IsDelete).ToList();
             return Json(list);
         }
 
@@ -64,6 +64,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="type"></param>
         /// <param name="str"></param>
         /// <returns></returns>
+        [HttpGet]
         public IHttpActionResult GetGameListByHotAndLetter(int type,string str)
         {
             var result = (string.IsNullOrEmpty(str) || str == "hot") ? GetGameList(type) : GetGameListByLetter(type, str);
@@ -77,7 +78,7 @@ namespace Bayetech.Web.Controllers
         /// <returns></returns>
         public IHttpActionResult GetGameByName(int type, string name)
         {
-            var list = gameService.FindList(a => a.Platform == type && a.Name.Contains(name) && !a.IsDelete).ToList();
+            var list = gameService.FindList(g => g.Platform == type && g.Name.Contains(name) && !g.IsDelete).ToList();
             return Json(list);
         }
     }

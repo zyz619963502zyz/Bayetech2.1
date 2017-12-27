@@ -712,7 +712,7 @@
     </Content>
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\Game\GameList.js" />
+    <Content Include="Scripts\app\Game\index.js" />
     <Content Include="Scripts\app\Game\List.js" />
     <Content Include="Scripts\app\GoodInfo\GoodPictures.js" />
     <Content Include="Scripts\app\GoodInfo\index.js" />

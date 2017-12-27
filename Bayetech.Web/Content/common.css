@@ -89,7 +89,7 @@ img{display:inline-block;}
 
 .gs_menu .hide {display:none;width:0;height:0;overflow:hidden;}
 .game_select .btn_box {float:left;display:inline;margin-left:10px;}
-.gs_box {width:1000px;position:absolute;left:-394px;top:64px;z-index:998;color:#333;font-family:arial;line-height:1.5;font-size:12px;box-shadow:0 5px 5px rgba(0,0,0,0.3);}
+.gs_box {width:1000px;position:absolute;/*left:-394px;*/top:64px;z-index:998;color:#333;font-family:arial;line-height:1.5;font-size:12px;box-shadow:0 5px 5px rgba(0,0,0,0.3);}
 .gs_box_inner {border:2px solid #1ea5ff;padding:0 0 15px;position:relative;background:#fff;z-index:1000;}
 .game_select_arrow {width:12px;height:8px;display:none;background-repeat:no-repeat;overflow:hidden;position:absolute;z-index:1000;bottom:33px;}
 .gs_box .hide {display:none;}
