@@ -1,5 +1,6 @@
 ﻿//我购买的订单
 jsconfig.baseArr.push("bootstrap-paginator");
+jsconfig.baseArr.push("datetimepicker"); 
 define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var html=`
         <div class="col-md-9 col-lg-10">
@@ -47,7 +48,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 						<div class ="form-group form-group-sm">
 							<label class ="col-md-2 control-label">订单时间</label>
 							<div class ="col-md-6">
-								<div class ="input-daterange input-group" id="">
+								<div class ="input-daterange input-group" id="datetimepicker">
 									<input type="text" class ="input-sm form-control" name="start" value="">
 									<span class ="input-group-addon">to</span>
 									<input type="text" class ="input-sm form-control" name="end" value="">
@@ -187,7 +188,15 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-
+        	$("#datetimepicker").datetimepicker({
+        		language: 'zh-CN',
+        		todayBtn: "linked",
+        		format: 'yyyy-mm-dd',
+        		keyboardNavigation: false,
+        		forceParse: false,
+        		calendarWeeks: true,
+        		autoclose: true
+        	});
         },
         methods: {
             GetTypes(gameId){

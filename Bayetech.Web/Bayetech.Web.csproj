@@ -817,7 +817,7 @@
     <Content Include="Scripts\app\UserCenter\Seller\OrdersManage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />
     <Content Include="Scripts\app\UserCenter\router.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
