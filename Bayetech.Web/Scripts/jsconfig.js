@@ -8,9 +8,10 @@ var jsconfig = {
     paths: {
         'vue': 'Scripts/vue',
         'jquery': 'Scripts/jquery-1.10.2',
-        'bootstrap': 'Scripts/bootstrap',
+        'bootstrap': 'Scripts/bootstrap.min',
         'bootstrapValidator': 'Scripts/bootstrapValidator',
-        'bootstrap-paginator':'Scripts/bootstrap-paginator',
+        'bootstrap-paginator': 'Scripts/bootstrap-paginator',
+        'datepicker': 'Scripts/bootstrap-datepicker',
         'swiper': 'Scripts/swiper',
         'common': 'Scripts/common',
         'text': "Scripts/text",
@@ -71,7 +72,8 @@ var jsconfig = {
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
         'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
         'VueRouter': 'Scripts/vue-router.min',
-        'game-list': 'Scripts/app/Game/List',
+        'game-list': 'Scripts/app/Game/List'
+       
     },
     map: {
         '*': {
@@ -90,6 +92,10 @@ var jsconfig = {
         'bootstrap-paginator':{
             deps: ['jquery', 'bootstrap'],
             exports: 'paginator'
+        },
+        'datepicker': {
+        	deps: ['jquery', 'bootstrap'],
+        	exports: 'datepicker'
         },
         'swiper': {
             deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],

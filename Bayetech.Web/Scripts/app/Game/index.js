@@ -24,8 +24,5 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
 	                window.open(url);
 	            },
 	        },
-
-           
 	    });
-
 	});

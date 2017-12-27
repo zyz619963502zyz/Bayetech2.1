@@ -1,4 +1,5 @@
-﻿define(jsconfig.baseArr, function (Vue, $, common) {
+﻿jsconfig.baseArr.push("bootstrap-paginator");
+define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var middleHtml = `<div class="list-box list-type-03">
         <div class ="list-item"  v-for="item in ListObj">
                 <div class ="list-item-box" >
@@ -39,7 +40,11 @@
                     </div>
                 </div>
             </div>
-          </div>`
+          <nav aria-label="fenye" class="text-center right">
+			 <ul id="paginator-test" class ="pagination"></ul>
+		  </nav>
+          </div>
+          `
 
     //Api
     var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
@@ -58,6 +63,17 @@
                 GoodPrice: ""
             }
         ],
+        SearchParam:{
+            param:eval('('+localStorage.SearchParam+')'),
+            Pagination:{//分页对象
+            rows: 10,//每页行数，
+            page: 1,//当前页码
+            order: "GoodNo",//排序字段
+            sord: "asc",//排序类型
+            records: 10,//总记录数
+            total: 10//总页数。
+        }
+      },
     }
 
     //中间模板
@@ -66,17 +82,18 @@
         data(){
             return data;
         },
-        created(){
-            this.findList();
-            this.$root.FindListCopy = this.findList;//把方法克隆到index
+        created() {
+            var self = this;
+            self.findList();
         },
         methods: {
             findList() {
                 var self = this;
-                //var param=common.GetUrlParam();
-                common.postWebJson(GoodListUrl, localStorage.SearchParam, function (data) {
+                common.postWebJson(GoodListUrl,self.SearchParam, function (data) {
                     if (data.result) {
-                        self.ListObj = data.content;
+                        self.ListObj=data.content.datas;
+                        self.SearchParam.Pagination = data.content.pagination
+                        common.SetPagination($('#paginator-test'),self.SearchParam,self.findList);
                     }
                 });
             },

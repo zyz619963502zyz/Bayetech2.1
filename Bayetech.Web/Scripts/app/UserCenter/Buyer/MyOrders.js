@@ -1,5 +1,6 @@
 ﻿//我购买的订单
 jsconfig.baseArr.push("bootstrap-paginator");
+jsconfig.baseArr.push("datepicker"); 
 define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var html=`
         <div class="col-md-9 col-lg-10">
@@ -17,7 +18,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 
                 <!--搜索框组件的位置 start-->
 						<div class ="form-group form-group-sm">
-							<label for="game" class ="col-md-2 control-label">游戏</label>
+							<label for="game" class ="col-md-1 control-label">游戏</label>
 							<div class ="col-md-4">
 								<select  v-model="GameSelected" id="game" class ="form-control" @change="GetTypes(GameSelected)">
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
@@ -31,7 +32,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							</div>
 						</div>
 						<div class ="form-group form-group-sm">
-							<label for="gameArea" class ="col-md-2 control-label">游戏区</label>
+							<label for="gameArea" class ="col-md-1 control-label">游戏区</label>
 							<div class ="col-md-4">
 								<select v-model="GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
@@ -45,14 +46,16 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							</div>
 						</div>
 						<div class ="form-group form-group-sm">
-							<label class ="col-md-2 control-label">订单时间</label>
-							<div class ="col-md-6">
-								<div class ="input-daterange input-group" id="">
-									<input type="text" class ="input-sm form-control" name="start" value="">
-									<span class ="input-group-addon">to</span>
-									<input type="text" class ="input-sm form-control" name="end" value="">
+                          
+							<label class ="col-md-1 control-label">订单时间</label>
+							<div class ="col-md-4">
+								<div class ="input-daterange input-group datepicker">
+									<input type="text" class ="input-sm form-control " name="start" value="2017-11-20">
+									<span class ="input-group-addon">到</span>
+									<input type="text" class ="input-sm form-control" name="end" value="2017-12-27">
 								</div>
 							</div>
+                            <div  class ="col-md-2"></div>
 							<div class ="col-md-4">
 								<div class ="btn-group btn-group-justified">
 									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">今天</button></div>
@@ -63,7 +66,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							</div>
 						</div>
 						<div class ="form-group form-group-sm">
-							<label class ="col-md-2 control-label">订单编号</label>
+							<label class ="col-md-1 control-label">订单编号</label>
 							<div class ="col-md-4">
 								<div class ="input-group">
 									<input type="text" value="" class ="form-control"/>
@@ -187,7 +190,13 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-
+            $(".datepicker").datepicker({
+                language: 'zh-CN',
+                fomart:'yyyy-mm-dd',
+        		keyboardNavigation: false,
+        		forceParse: false,
+        		autoclose: true
+        	});
         },
         methods: {
             GetTypes(gameId){
