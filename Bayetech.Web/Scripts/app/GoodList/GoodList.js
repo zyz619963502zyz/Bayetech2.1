@@ -35,15 +35,15 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             <div class ="slobar-02 clearfix">
                 <div class ="sch keyWord-sch">
                     <span>关键字：</span>
-                    <input type="text" class ="common-input h-30" :value="keyword" placeholder="输入您要搜索的关键字" />
-                    <a href="javascript:void(0)">确定</a>
+                    <input type="text" class ="common-input h-30" v-model:value="keyword" placeholder="输入您要搜索的关键字" />
+                    <a href="javascript:void(0)" @click="GetLikeGoods">确定</a>
                 </div>
                 <div class ="sch pr-sch">
                     <span>价格筛选：</span>
                     <input type="text" class ="common-input h-30 onlynums minPrice" placeholder="¥" />
                     <em>-</em>
                     <input type="text" class ="common-input h-30 onlynums maxPrice" placeholder="¥" />
-                    <a href="javascript:void(0)" @click="GetLikeGoods" >确定</a>
+                    <a href="#">确定</a>
                 </div>
             </div>
         </div>
@@ -149,6 +149,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 window.open(this.BaseUrl + goodNo);
             },
             GetLikeGoods() {
+                var self = this;
                 self.SearchParam.param.GoodKeyWord = self.keyword;
                 self.findList();
             }
