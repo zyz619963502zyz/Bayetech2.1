@@ -38,7 +38,7 @@ define(["common"], function (common) {
                        <a href="javascript: void (0); " >手机游戏</a>
                     </li>
                     <li id="drop_search_input" class ="drop_search_input">
-                        <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
+                        <input type="text" placeholder="请输入游戏名称" class ="form-control" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
                     <li class="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
