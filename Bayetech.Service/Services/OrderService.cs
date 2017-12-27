@@ -49,8 +49,8 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                Pagination resultPage = new Pagination();
-                List<vw_MallOrderInfo> orderInfos;
+                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
+                
                 List<object> ResultGames = new List<object>();
                 Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order != null)
@@ -83,17 +83,17 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
-                    orderInfos = db.FindList(expressions, page == null?GetDefaultPagination("OrderNo"):page).ToList();
+                    ResultPage.datas = db.FindList(expressions, page == null?GetDefaultPagination("OrderNo"):page,out page).ToList();
                 }
                 else
                 {
-                    orderInfos = db.FindList<vw_MallOrderInfo>(page == null ? GetDefaultPagination("OrderNo") : page).ToList();
+                    ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? GetDefaultPagination("OrderNo") : page).ToList();
                 }
 
                 //查询结果封装
-                if (orderInfos.Count > 0)
+                if (ResultPage.datas.Count > 0)
                 {
-                    var Games = orderInfos.Select(c => new { GameId = c.GameId, GameName = c.GameName })
+                    var Games = ResultPage.datas.Select(c => new { GameId = c.GameId, GameName = c.GameName })
                         .GroupBy(q => new { q.GameId, q.GameName });
                     foreach (var item in Games)
                     {
@@ -103,11 +103,11 @@ namespace Bayetech.Service.Services
                     //计算分页
                     if (page!=null)
                     {
-                        page.records = orderInfos.Count;
+                        ResultPage.pagination = page;
                     }
 
                     ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject(orderInfos));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
                     ret.Add("Games", JProperty.FromObject(ResultGames));
                 }
                 else
