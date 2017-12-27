@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using Bayetech.Service.Services;
 using Bayetech.Core.Enum;
-using System.Text.RegularExpressions;
 using Bayetech.Service;
 using Bayetech.Core.Entity;
 
@@ -12,7 +10,7 @@ namespace Bayetech.Web.Controllers
     {
         BaseService<Game> gameService = new BaseService<Game>();
         BaseService<Server> serverService = new BaseService<Server>();
-        MallTypeService mallTypeService = new MallTypeService();
+        BaseService<vw_GameTypes> mallTypeService = new BaseService<vw_GameTypes>();
         //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
         public IHttpActionResult GetData(int type, int id)
@@ -44,13 +42,13 @@ namespace Bayetech.Web.Controllers
                     data.Title = "服务器";
                     data.Type = (int)enumType;
                     data.Child = (int)SearchType.MallType;
-                    data.List = serverService.FindList(a => a.ParentId != 0 && a.ParentId == id && !a.IsDelete).ToList();
+                    data.List = serverService.FindList(a => a.ParentId == id && !a.IsDelete).ToList();
                     break;
                 case SearchType.MallType:
                     data.Title = "交易类型";
                     data.Type = (int)enumType;
                     data.Child = 5;
-                    data.List = mallTypeService.GetDataByGameId(id);
+                    data.List = mallTypeService.FindList(t => t.GameId == id).ToList();
                     break;
             }
             return Json(data);

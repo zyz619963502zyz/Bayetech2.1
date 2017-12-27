@@ -1,6 +1,5 @@
 ﻿//个人中心路由配置
 define(['Scripts/app/UserCenter/Home',
-    'Scripts/app/UserCenter/Buyer/ToBuy',
     'Scripts/app/UserCenter/Buyer/MyOrders',
     'Scripts/app/UserCenter/Buyer/MyGetRoles',//我的收货角色
     'Scripts/app/UserCenter/Buyer/MyDlOrder',
