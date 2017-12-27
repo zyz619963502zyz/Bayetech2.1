@@ -167,17 +167,16 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         ServerSelected: "",
         OrderNum: "",//订单编号,
         Pagination:{
-             size: "small",
-             bootstrapMajorVersion:3,
+             //后端分页字段
              rows: 10,//每页行数，
              page: 1,//当前页码
-             order: "OrderNum",//排序字段
+             order: "OrderNo",//排序字段
              sord: "asc",//排序类型
-             records : 10,//总记录数
-             numberOfPages: 5,//控件显示出来的页码可以写死
-             totalPages:10//总页数。
+             records: 10,//总记录数
+             total: 10//总页数。
         }
     };
+   
     var components={
         name: "MyOrders",
         template: html,
@@ -185,29 +184,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             return data;
         },
         created(){
-            this.GetOrderInfo();
+            this.GetOrderInfo(self.Pagination);
         },
-        mounted(){
-            var container=$('#paginator-test');
-            var self = this;
-            options = {
-				size:'small',
-            	bootstrapMajorVersion: self.Pagination.bootstrapMajorVersion,          	
-                currentPage:self.Pagination.page,
-                numberOfPages: self.Pagination.numberOfPages,
-                totalPages:self.Pagination.totalPages,
-                pageUrl:function(type,page){
-                    return null;
-                },
-                onPageClicked: function (e, originalEvent, type, page) {
-                    self.page = page;//获取当前页
-                    self.GetOrderInfo();//再次查询
-                },
-                onPageChanged: function (e) {
-                    var b =1;
-                }
-             };
-            container.bootstrapPaginator(options);
+        mounted() {
+
         },
         methods: {
             GetTypes(gameId){
@@ -240,14 +220,38 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     //Time: "",//等待日历控件
                     PageObj: self.Pagination
                 };
-                common.postWebJson(_GetOrderInfoUrl, JSON.stringify(param), function (data) {
+                common.postWebJson(_GetOrderInfoUrl, param, function (data) {
                     if (data.result) {
-                        self.Orders = data.content;
-                        self.times == 0?self.Games=data.Games:"";
+                        self.Orders = data.content.datas;
+                        self.times==0?self.Games=data.Games:"";
+                        self.Pagination=data.content.pagination;
+                        self.SetPagination(self.Pagination);
                         self.times++;
                     }
                 });
             },
+            SetPagination(page) {
+                 var self = this;
+                 var container=$('#paginator-test');
+                 options = {
+				        size:'small',
+            	        bootstrapMajorVersion:3,     	
+                        currentPage:page==undefined?1:page.page,
+                        numberOfPages: 5,//控件显示出来的页码可以写死,默认5
+                        totalPages:page==undefined?1:page.total,//根据实际查询数据算出总页码
+                        pageUrl:function(type,page){
+                            return null;
+                        },
+                        onPageClicked: function (e, originalEvent, type, page) {
+                            self.Pagination.page = page;//获取当前页
+                            self.GetOrderInfo();//再次查询
+                        },
+                        //onPageChanged: function (e) {
+                        //    var b =1;
+                        //}
+                   };
+                 container.bootstrapPaginator(options);
+            }
         }
     };
     return components;
