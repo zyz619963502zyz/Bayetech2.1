@@ -6,14 +6,17 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
     <div v-for="(value,index) in data.List" class="left-nav">
         <a @click="toggleTab(index)" href="javascript:void(0)">
             <img :id="'pic'+index" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> {{ value.Title }}
-        </a>
-        <ul :id="'tab'+index" class ="list-group"> 
-            <li v-for="item in value.Items" class ="list-group-item"><router-link :to="{ name: item.Name, params: item.Params}">{{ item.Title }}</router-link></li>
+        </a>     
+        <ul :id="'tab'+index" class ="list-group">
+            <li v-for="item in value.Items" class ="list-group-item">
+                <a :href="item.Url" target="_blank" v-if="item.Type&&item.Type=='url'">{{item.Title}}</a>
+                <router-link :to="{ name: item.Name, params: item.Params}" v-else >{{item.Title}}</router-link>
+
+            </li>
         </ul>
     </div>
 </div>`;
 
-    //<a @click="view(item.Id)">{{ item.Title }}</a>
     var components = {
         props: ['data'],
         name: "v-menu",
