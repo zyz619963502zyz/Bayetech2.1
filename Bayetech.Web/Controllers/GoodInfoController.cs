@@ -76,6 +76,7 @@ namespace Bayetech.Web.Controllers
             return service.GetGoodList(goodInfo, page);
         }
 
+
         /// <summary>
         /// 获取详情页信息
         /// </summary>

@@ -772,7 +772,6 @@
     <Content Include="Scripts\app\Login\index.js" />
     <Content Include="Scripts\app\GoodList\index.js" />
     <Content Include="Scripts\app\GoodList\GoodList.js" />
-    <Content Include="Scripts\app\GoodList\Screen.js" />
     <Content Include="Scripts\app\Shared\footer.js" />
     <Content Include="Scripts\app\Shared\footer-nav.js" />
     <Content Include="Scripts\app\Shared\header.js" />

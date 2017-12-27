@@ -50,9 +50,9 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							<label class ="col-md-1 control-label">订单时间</label>
 							<div class ="col-md-4">
 								<div class ="input-daterange input-group datepicker">
-									<input type="text" class ="input-sm form-control " name="start" value="2017-11-20">
+									<input type="text" class ="input-sm form-control " name="start" :value="startTime">
 									<span class ="input-group-addon">到</span>
-									<input type="text" class ="input-sm form-control" name="end" value="2017-12-27">
+									<input type="text" class ="input-sm form-control" name="end" :value="endTime">
 								</div>
 							</div>
                             <div  class ="col-md-2"></div>
@@ -169,6 +169,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         Servers: [],
         ServerSelected: "",
         OrderNum: "",//订单编号,
+        startTime: (new Date),
+        endTime: (new Date).getDate(),
         Pagination:{
              //后端分页字段
              rows: 10,//每页行数，
