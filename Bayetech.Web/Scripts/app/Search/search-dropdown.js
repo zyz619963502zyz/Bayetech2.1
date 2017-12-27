@@ -31,16 +31,16 @@ define(["common"], function (common) {
         <div class ="gs_box" id="gsBox">
             <div class ="gs_box_inner">
                 <ul id="gsSort" class ="gs_sort">
-                    <li id="sortall" class ="">
-                        <a href="javascript: void (0); " :class ="{active:gameType==0}" @click="changeGameType(0)">网络游戏</a>
+                    <li id="sortall" :class ="{active:gameType==0}" @click="changeGameType(0)">
+                        <a href="javascript: void (0); " >网络游戏</a>
                     </li>
-                    <li id="mobilegame">
-                       <a href="javascript: void (0); " :class ="{active:gameType==1}" @click="changeGameType(1)">手机游戏</a>
+                    <li id="mobilegame" :class ="{active:gameType==1}" @click="changeGameType(1)">
+                       <a href="javascript: void (0); " >手机游戏</a>
                     </li>
                     <li id="drop_search_input" class ="drop_search_input">
                         <input type="text" placeholder="请输入游戏名称" class ="" @keyup="searchGameByName" v-model="searchGameName">
                     </li>
-                    <li><button type="button" class ="btn btn-xs">CLOSE</button></li>
+                    <li class="drop-close"><button type="button" class ="btn btn-xs btn-default">CLOSE</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav">
                     <li class ="first_line"></li>
@@ -52,7 +52,7 @@ define(["common"], function (common) {
                     <li class ="last_line"></li>
                 </ul>
                 <ul id="gsList" class ="gs_list gs_name">
-                    <li lang="netgame" style="display: list-item; " v-for="item in data.List" @click="loadDropdown(data.Child,item.Id,item.Name)" ><a class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a></li>
+                    <li v-for="item in data.List" @click="loadDropdown(data.Child,item.Id,item.Name)" ><a :class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a></li>
                 </ul><ul id="gsFastSearch" class="gs_list gs_name"></ul>
             </div>
             <s id="searchbar_arrow" class ="game_select_arrow" style="left: 37px;"></s>
