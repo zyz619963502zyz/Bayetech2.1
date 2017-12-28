@@ -13,7 +13,10 @@ define(jsconfig.baseArr, function (Vue,$,common,order) {
             return data;
         },
         created: function () {
-
+           var aaaa = 1;
+        },
+        mounted:function(){
+           var bbbb =1;
         },
         methods: {
         }

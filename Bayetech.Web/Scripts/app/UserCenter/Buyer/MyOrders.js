@@ -1,7 +1,9 @@
 ﻿//我购买的订单
 jsconfig.baseArr.push("bootstrap-paginator");
 jsconfig.baseArr.push("datepicker"); 
-define(jsconfig.baseArr, function (Vue, $, common,paginator) {
+jsconfig.baseArr.push("VueRouter"); 
+define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
+    //Vue.use(VueRouter);
     var html=`
         <div class="col-md-9 col-lg-10">
             <div class ="panel panel-default">
@@ -187,11 +189,12 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         data() {
             return data;
         },
-        created(){
+        created() {
+            this.$router.go(0);
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-                
+            var aaa = 1; 
         },
         methods: {
             GetTypes(gameId){
