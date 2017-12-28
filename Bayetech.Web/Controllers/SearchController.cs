@@ -3,6 +3,7 @@ using System.Web.Http;
 using Bayetech.Core.Enum;
 using Bayetech.Service;
 using Bayetech.Core.Entity;
+using Bayetech.Service.Services;
 
 namespace Bayetech.Web.Controllers
 {
@@ -10,7 +11,7 @@ namespace Bayetech.Web.Controllers
     {
         BaseService<Game> gameService = new BaseService<Game>();
         BaseService<Server> serverService = new BaseService<Server>();
-        BaseService<vw_GameTypes> mallTypeService = new BaseService<vw_GameTypes>();
+        MallTypeService mallTypeService = new MallTypeService();
         //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
         public IHttpActionResult GetData(int type, int id)
@@ -48,7 +49,7 @@ namespace Bayetech.Web.Controllers
                     data.Title = "交易类型";
                     data.Type = (int)enumType;
                     data.Child = 5;
-                    data.List = mallTypeService.FindList(t => t.GameId == id).ToList();
+                    data.List = mallTypeService.GetDataByGameId(id);
                     break;
             }
             return Json(data);
