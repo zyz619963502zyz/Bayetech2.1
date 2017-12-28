@@ -45,7 +45,7 @@ require(UserCenterRequireArr, function () {
             }]
             
         },
-    }
+    } 
 
     Vue.use(VueRouter)
     /* 创建路由器  */
