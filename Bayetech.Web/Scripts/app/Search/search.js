@@ -150,6 +150,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //设置下拉框数据
             setData: function (type,pid,self) {
                 common.getWebJson("/api/Search/GetData", { type: type, id: pid }, function (data) {
+                    debugger;
                     self.DropdownData = data;
                 });
             },
