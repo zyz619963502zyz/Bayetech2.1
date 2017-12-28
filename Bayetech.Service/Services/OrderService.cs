@@ -44,18 +44,17 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JObject GetOrderInfo(vw_MallOrderInfo order,Pagination page=null)
+        public JObject GetOrderInfo(vw_MallOrderInfo order,DateTime startTime,DateTime endTime,Pagination page=null)
         {
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
-                
                 List<object> ResultGames = new List<object>();
+                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
                 Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order != null)
                 {
-                    if (order.GameId >= 0 || order.GameId != null)
+                    if (order.GameId != null&&order.GameId >= 0)
                     {
                         expressions = expressions.And(t => t.GameId == order.GameId);
                     }
@@ -67,13 +66,17 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.GameGroupId == order.GameGroupId);
                     }
-                    if (order.GameServerId != null&&order.GameServerId>=0)
+                     if (order.GameServerId != null&&order.GameServerId>=0)
                     {
                         expressions = expressions.And(t => t.GameServerId == order.GameServerId);
                     }
-                    if (order.OrderCreatTime != null && !string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
+                    if (startTime != null && !string.IsNullOrEmpty(startTime.ToString()))//订单开始时间
                     {
-                        expressions = expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
+                        expressions = expressions.And(t => t.OrderCreatTime >= startTime);
+                    }
+                    if (endTime != null && !string.IsNullOrEmpty(endTime.ToString()))//订单结束时间
+                    {
+                        expressions = expressions.And(t => t.OrderCreatTime <= endTime);
                     }
                     if (!string.IsNullOrEmpty(order.OrderNo))
                     {
