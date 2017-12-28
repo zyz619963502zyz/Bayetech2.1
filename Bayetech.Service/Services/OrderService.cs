@@ -49,13 +49,12 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
-                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
-                
                 List<object> ResultGames = new List<object>();
+                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
                 Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order != null)
                 {
-                    if (order.GameId >= 0 || order.GameId != null)
+                    if (order.GameId != null&&order.GameId >= 0)
                     {
                         expressions = expressions.And(t => t.GameId == order.GameId);
                     }
@@ -67,7 +66,7 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.GameGroupId == order.GameGroupId);
                     }
-                    if (order.GameServerId != null&&order.GameServerId>=0)
+                     if (order.GameServerId != null&&order.GameServerId>=0)
                     {
                         expressions = expressions.And(t => t.GameServerId == order.GameServerId);
                     }
