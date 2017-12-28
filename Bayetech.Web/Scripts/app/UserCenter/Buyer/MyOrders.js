@@ -159,6 +159,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var _GetMallTypeUrl = "/api/GoodType/GetGoodTypeByGameId";//交易类别
     var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
+        menuType:"",
         times:0,
         Games: [{ GameId: "", GameName: "" }],
         GameSelected:"",
@@ -196,7 +197,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             return data;
         },
         created() {
-            this.$router.go(0);
+            //this.menuType =this.$route.params.id;
             this.GetOrderInfo(self.Pagination);
         },
 
@@ -204,6 +205,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             var aaa = 1; 
         },
         methods: {
+            ConfirmTypes(){
+            
+            },
             GetTypes(gameId){
                 var self=this;
                 var param={gameId:gameId};
@@ -224,7 +228,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 });
             },
             GetOrderInfo() {//获取订单信息
-                var self= this;
+                var self=this;
+                self.menuType = self.$route.params.id;//获取到交易类型（代练还是购买）
                 var param={
                     GameId: self.GameSelected,
                     GoodTypeId: self.TypeSelected,//先默认账号
@@ -242,6 +247,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                         self.Pagination=data.content.pagination;
                         common.SetPagination($('#paginator-test'),self,self.GetOrderInfo);
                         self.times++;
+                        //self.$router.go(0);
                     }
                 });
             },

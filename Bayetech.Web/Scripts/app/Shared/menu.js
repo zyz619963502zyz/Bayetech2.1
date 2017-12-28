@@ -8,10 +8,9 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
             <img :id="'pic'+index" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> {{ value.Title }}
         </a>     
         <ul :id="'tab'+index" class ="list-group">
-            <li v-for="item in value.Items" class ="list-group-item">
+            <li v-for="item in value.Items" @click="RefreshRoute" class ="list-group-item">
                 <a :href="item.Url" target="_blank" v-if="item.Type&&item.Type=='url'">{{item.Title}}</a>
                 <router-link :to="{ name: item.Name, params: item.Params}" v-else >{{item.Title}}</router-link>
-
             </li>
         </ul>
     </div>
@@ -38,6 +37,13 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
                 this.$parent.view(itemId);
                 //this.$emit('view', itemId);
             },
+            RefreshRoute() {
+                var a=1;
+                if (this.$root.$route.params.id) {
+                     localStorage.setItem('menuTypes',this.$root.$route.params.id);
+                }
+                //this.$root.$router.go(0);
+            }
         }
     };
     return components;
