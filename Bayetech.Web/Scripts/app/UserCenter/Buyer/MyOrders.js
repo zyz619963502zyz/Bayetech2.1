@@ -50,11 +50,12 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							<label class ="col-md-1 control-label">订单时间</label>
 							<div class ="col-md-4">
 								<div class ="input-daterange input-group datepicker">
-									<input type="text" class ="input-sm form-control " name="start" value="2017-11-20">
+									<input type="text" class ="input-sm form-control " name="start" :value="startTime">
 									<span class ="input-group-addon">到</span>
-									<input type="text" class ="input-sm form-control" name="end" value="2017-12-27">
+									<input type="text" class ="input-sm form-control" name="end" :value="endTime">
 								</div>
 							</div>
+
                             <div  class ="col-md-2"></div>
 							<div class ="col-md-4">
 								<div class ="btn-group btn-group-justified">
@@ -155,7 +156,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
-    var _GetMallTypeUrl="/api/Order/GetMallType";//交易类别
+    var _GetMallTypeUrl = "/api/GoodType/GetGoodTypeByGameId";//交易类别
     var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
         times:0,
@@ -169,6 +170,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         Servers: [],
         ServerSelected: "",
         OrderNum: "",//订单编号,
+        startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
+        endTime: (new Date()).Format("yyyy-MM-dd"),
         Pagination:{
              //后端分页字段
              rows: 10,//每页行数，
@@ -190,13 +193,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-            $(".datepicker").datepicker({
-                language: 'zh-CN',
-                fomart:'yyyy-mm-dd',
-        		keyboardNavigation: false,
-        		forceParse: false,
-        		autoclose: true
-        	});
+                
         },
         methods: {
             GetTypes(gameId){
@@ -226,7 +223,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     GameGroupId: self.GroupSelected,
                     GameServerId: self.ServerSelected,
                     OrderNum: self.OrderNum,
-                    //Time: "",//等待日历控件
+                    startTime: self.startTime,
+                    endTime : self.endTime,
                     PageObj: self.Pagination
                 };
                 common.postWebJson(_GetOrderInfoUrl, param, function (data) {
@@ -241,5 +239,15 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             }
         }
     };
+
+    //时间控件默认初始化
+    $(".datepicker").datepicker({
+            language: 'zh-CN',
+            fomart:'yyyy-mm-dd',
+        	keyboardNavigation: false,
+        	forceParse: false,
+        	autoclose: true
+     });
+
     return components;
 });

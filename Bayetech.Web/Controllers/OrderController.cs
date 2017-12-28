@@ -32,33 +32,11 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetOrderInfo(JObject json)
         {
-            //DateTime startTime = Convert.ToDateTime(json[""].ToString());//开始日期
-            //DateTime endTime = Convert.ToDateTime(json[""].ToString());//结束日期
+            DateTime startTime = Convert.ToDateTime(json["startTime"].ToString());//开始日期
+            DateTime endTime = Convert.ToDateTime(json["endTime"].ToString());//结束日期
             vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.ToString());
             Pagination page = JsonConvert.DeserializeObject<Pagination>(json["PageObj"].ToString());
-            return service.GetOrderInfo(order, page);
-        }
-
-        /// <summary>
-        /// 获取类别
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public JObject GetMallType(int gameId)
-        {
-            JObject ret = new JObject();
-            List<vw_GameTypes> types = typeService.FindList(c => c.GameId == gameId, "GameId");
-            if (types.Count>0)
-            {
-                ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JProperty.FromObject(types));
-            }
-            else
-            {
-                ret.Add(ResultInfo.Result, false);
-            }
-            return ret; 
+            return service.GetOrderInfo(order, startTime, endTime, page);
         }
 
         /// <summary>

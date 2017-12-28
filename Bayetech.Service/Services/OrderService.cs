@@ -44,7 +44,7 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JObject GetOrderInfo(vw_MallOrderInfo order,Pagination page=null)
+        public JObject GetOrderInfo(vw_MallOrderInfo order,DateTime startTime,DateTime endTime,Pagination page=null)
         {
             using (var db = new RepositoryBase())
             {
@@ -71,9 +71,13 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.GameServerId == order.GameServerId);
                     }
-                    if (order.OrderCreatTime != null && !string.IsNullOrEmpty(order.OrderCreatTime.ToString()))//订单时间
+                    if (startTime != null && !string.IsNullOrEmpty(startTime.ToString()))//订单开始时间
                     {
-                        expressions = expressions.And(t => t.OrderCreatTime == order.OrderCreatTime);
+                        expressions = expressions.And(t => t.OrderCreatTime >= startTime);
+                    }
+                    if (endTime != null && !string.IsNullOrEmpty(endTime.ToString()))//订单结束时间
+                    {
+                        expressions = expressions.And(t => t.OrderCreatTime <= endTime);
                     }
                     if (!string.IsNullOrEmpty(order.OrderNo))
                     {
