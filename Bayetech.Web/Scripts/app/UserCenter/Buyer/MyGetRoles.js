@@ -25,7 +25,7 @@ define(jsconfig.baseArr, function (Vue,$,common) {
 						<label for="" class ="col-md-2 control-label">商品类型</label>
 						<div class ="col-md-4">
 							<select v-model="TypeSelected" class ="form-control" @change="GetServers(0)">
-                                <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.TypeName}}</option>
+                                <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.Name}}</option>
                             </select>
 						</div>
 					</div>

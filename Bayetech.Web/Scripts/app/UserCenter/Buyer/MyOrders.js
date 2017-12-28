@@ -1,7 +1,9 @@
 ﻿//我购买的订单
 jsconfig.baseArr.push("bootstrap-paginator");
 jsconfig.baseArr.push("datepicker"); 
-define(jsconfig.baseArr, function (Vue, $, common,paginator) {
+jsconfig.baseArr.push("VueRouter"); 
+define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
+    //Vue.use(VueRouter);
     var html=`
         <div class="col-md-9 col-lg-10">
             <div class ="panel panel-default">
@@ -26,7 +28,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 							<label for="goodsType" class ="col-md-2 control-label">商品类型</label>
 							<div class ="col-md-4">
 								<select v-model="TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
-                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.TypeName}}</option>
+                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.Name}}</option>
                                 </select>
 							</div>
 						</div>
@@ -184,14 +186,22 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var components={
         name: "MyOrders",
         template: html,
+        watch: {
+            '$route' (to, from) {
+                //这样就可以获取到变化的参数了，然后执行参数变化后相应的逻辑就行了
+                console.log(this.$route.params)
+            },
+        },
         data() {
             return data;
         },
-        created(){
+        created() {
+            this.$router.go(0);
             this.GetOrderInfo(self.Pagination);
         },
+
         mounted() {
-                
+            var aaa = 1; 
         },
         methods: {
             GetTypes(gameId){

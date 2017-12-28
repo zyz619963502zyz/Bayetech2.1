@@ -80,7 +80,11 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
 
-    public virtual DbSet<vw_GameTypes> vw_GameTypes { get; set; }
+    public virtual DbSet<Settings> Settings { get; set; }
+
+    public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
+
+    public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
 
 }
 

@@ -16,7 +16,6 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         OrderService service = ctx.GetObject("OrderService") as OrderService;
         BaseService<Server> serverService = new BaseService<Server>();
-        BaseService<vw_GameTypes> typeService = new BaseService<vw_GameTypes>();
         [HttpPost]
         public JObject CreatOrder(JObject json)
         {

@@ -7,7 +7,7 @@ namespace Bayetech.Web.Controllers
 {
     public class GoodTypeController : ApiController
     {
-        BaseService<vw_GameTypes> mallTypeService = new BaseService<vw_GameTypes>();
+        BaseService<vw_GoodTypes> mallTypeService = new BaseService<vw_GoodTypes>();
         public JObject GetGoodTypeByGameId(int gameId)
         {
             return mallTypeService.GetList(t=>t.GameId==gameId);
