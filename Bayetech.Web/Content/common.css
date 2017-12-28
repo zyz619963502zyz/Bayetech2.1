@@ -1,5 +1,5 @@
 ﻿/*！
- *公共样式
+ *common style
  *作者：liuzy
  *时间：2017-10-27
  *说明：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
@@ -90,6 +90,10 @@ img{display:inline-block;}
 .gs_menu li::after {content:'|';right:0;}
 .gs_menu li:last-child::before{border:none;}
 .gs_menu li:last-child::after{content:'';}
+.game_select .gs_menu {width:max-content;height:40px;border:4px solid #3983E8;float:left;margin-bottom:0;}
+.game_select .gs_menu .gs_search_box {width:175px;height:100%;color:#999;padding:3px 8px;border:none;outline:none;}
+.game_select .gs_menu .gs_search_item {width:auto;}
+.game_select .gs_search_btn {width:80px;height:36px;background-color:#faa426;color:#fff;font-size:14px;letter-spacing:4px;text-indent:4px;border:none;outline:none;}
 
 .gs_box {width:1100px;position:absolute;left:-344px;top:82px;z-index:998;color:#333;font-family:arial;line-height:1.5;font-size:14px;box-shadow:0 5px 5px rgba(0,0,0,0.3);}
 .gs_box .hide {display:none;}
@@ -130,10 +134,6 @@ img{display:inline-block;}
 .game_select .hot_game_list li {float:left;padding-right:12px;}
 .game_select .hot_game_list a {color:#999;font-family:simsun;white-space:nowrap;}
 .game_select .hot_game_list a:hover {color:#f60;}
-.game_select .gs_menu {width:max-content;height:40px;border:4px solid #3983E8;float:left;margin-bottom:0;}
-.game_select .gs_menu .gs_search_box {width:175px;height:100%;color:#999;padding:3px 8px;border:none;outline:none;}
-.game_select .gs_menu .gs_search_item {width:auto;}
-.game_select .gs_search_btn {width:80px;height:36px;background-color:#faa426;color:#fff;font-size:14px;letter-spacing:4px;text-indent:4px;border:none;outline:none;}
 .gs_sort {padding:5px 15px 0;background-color:#1ea5ff;margin-bottom:0;}
 .gs_sort li {display:inline-block;font-size:14px;}
 .gs_sort li.drop_search_input {margin-left:3%;}
