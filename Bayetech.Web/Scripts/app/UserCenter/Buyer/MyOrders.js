@@ -15,7 +15,6 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 				</div>
 				<div class ="panel-body">
 					<form id="queryForm" method="post" class="form-horizontal" role="form">
-
                 <!--搜索框组件的位置 start-->
 						<div class ="form-group form-group-sm">
 							<label for="game" class ="col-md-1 control-label">游戏</label>
@@ -58,11 +57,11 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 
                             <div  class ="col-md-2"></div>
 							<div class ="col-md-4">
-								<div class ="btn-group btn-group-justified">
-									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">今天</button></div>
-									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-primary">近1个月</button></div>
-									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">3个月</button></div>
-									<div class ="btn-group btn-group-sm"><button type="button" class ="btn btn-default">6个月</button></div>
+								<div id="btnGroup" class ="btn-group btn-group-justified">
+									<div class ="btn-group btn-group-sm"><button type="button" id="today" @click="SetOrderTime('today')" class ="btn btn-default">今天</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" id="1month" @click="SetOrderTime(1)" class ="btn btn-default">近1个月</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" id="3month" @click="SetOrderTime(3)" class ="btn btn-primary">近3个月</button></div>
+									<div class ="btn-group btn-group-sm"><button type="button" id="12month" @click="SetOrderTime(12)" class ="btn btn-default">近1年</button></div>
 								</div>
 							</div>
 						</div>
@@ -79,7 +78,6 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 						</div>
 
                 <!--搜索框组件的位置 end-->
-
                     <div class ="yxddlb">
                         <div class ="myxssl">
                             <span>每页显示数量：</span>
@@ -106,7 +104,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                         <div id="menud_con">
                             <div class ="ddlb" v-for="item in Orders">
                                 <h1>
-                                    订单编号：{{item.OrderNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.OrderCreatTime}}
+                                    订单编号：{{item.OrderNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.OrderCreatTime.replace('T',' ')}}
                                     <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
                                         <a href="../goods-buying-G10-100001-1.html">
                                             <span class ="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;">
@@ -236,6 +234,20 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                         self.times++;
                     }
                 });
+            },
+            SetOrderTime(flag) {//设置查询时间查询
+                var self=this;
+                var btnId = "";
+                if (flag == "today") {
+                    self.startTime=(new Date()).Format("yyyy-MM-dd");
+                    btnId = "today";
+                } else {
+                    self.startTime=(new Date((new Date()).getTime()-(parseInt(flag))*30*3600*24*1000)).Format("yyyy-MM-dd");
+                    btnId= flag + "month";
+                }
+                $("#"+btnId).removeClass("btn-default").addClass("btn-primary");
+                $("#btnGroup button[id!='"+btnId+"']").removeClass("btn-primary").addClass("btn-default");
+                self.GetOrderInfo(self.Pagination)
             }
         }
     };
