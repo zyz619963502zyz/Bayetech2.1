@@ -18,7 +18,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 				<div class ="panel-body">
 					<form id="queryForm" method="post" class="form-horizontal" role="form">
                 <!--搜索框组件的位置 start-->
-						<div class ="form-group form-group-sm">
+						<div class ="form-group form-group-xs">
 							<label for="game" class ="col-md-1 control-label">游戏</label>
 							<div class ="col-md-4">
 								<select  v-model="GameSelected" id="game" class ="form-control" @change="GetTypes(GameSelected)">
@@ -32,7 +32,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                 </select>
 							</div>
 						</div>
-						<div class ="form-group form-group-sm">
+						<div class ="form-group form-group-xs">
 							<label for="gameArea" class ="col-md-1 control-label">游戏区</label>
 							<div class ="col-md-4">
 								<select v-model="GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
@@ -46,7 +46,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                 </select>
 							</div>
 						</div>
-						<div class ="form-group form-group-sm">
+						<div class ="form-group form-group-xs">
                           
 							<label class ="col-md-1 control-label">订单时间</label>
 							<div class ="col-md-4">
@@ -67,13 +67,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 								</div>
 							</div>
 						</div>
-						<div class ="form-group form-group-sm">
+						<div class ="form-group form-group-xs">
 							<label class ="col-md-1 control-label">订单编号</label>
 							<div class ="col-md-4">
 								<div class ="input-group">
 									<input type="text" value="" class ="form-control"/>
 									<span class ="input-group-btn">
-										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-sm">查询</button>
+										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-xs">查询</button>
 									</span>
 								</div>
 							</div>

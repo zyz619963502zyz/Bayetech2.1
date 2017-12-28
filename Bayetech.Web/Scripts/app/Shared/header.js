@@ -1,8 +1,8 @@
 ﻿define(['v-search'], function (vsearch) {
     var html=`<div id="home-nav-box" class="com-header">
-            <div class="head-search clearfix">
+            <div class="head-search">
                 <!--logo-->
-                <div class="logo">
+                <div class ="logo clearfix">
                     <a href="#">
                         <img src="/Content/Images/logo1.png" alt="Alternate Text" />
                     </a>
