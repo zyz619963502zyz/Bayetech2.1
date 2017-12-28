@@ -12,10 +12,10 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_GameTypes
+    public partial class vw_GoodTypes
     {
-        public long TypeId { get; set; }
-        public string TypeName { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
         public string GameName { get; set; }
         public long GameId { get; set; }
         public string Unit { get; set; }
