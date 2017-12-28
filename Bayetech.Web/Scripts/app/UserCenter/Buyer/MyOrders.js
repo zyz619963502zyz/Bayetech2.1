@@ -55,6 +55,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
 									<input type="text" class ="input-sm form-control" name="end" :value="endTime">
 								</div>
 							</div>
+
                             <div  class ="col-md-2"></div>
 							<div class ="col-md-4">
 								<div class ="btn-group btn-group-justified">
@@ -192,13 +193,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             this.GetOrderInfo(self.Pagination);
         },
         mounted() {
-            $(".datepicker").datepicker({
-                language: 'zh-CN',
-                fomart:'yyyy-mm-dd',
-        		keyboardNavigation: false,
-        		forceParse: false,
-        		autoclose: true
-        	});
+                
         },
         methods: {
             GetTypes(gameId){
@@ -228,7 +223,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     GameGroupId: self.GroupSelected,
                     GameServerId: self.ServerSelected,
                     OrderNum: self.OrderNum,
-                    //Time: "",//等待日历控件
+                    startTime: self.startTime,
+                    endTime : self.endTime,
                     PageObj: self.Pagination
                 };
                 common.postWebJson(_GetOrderInfoUrl, param, function (data) {
@@ -243,5 +239,15 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             }
         }
     };
+
+    //时间控件默认初始化
+    $(".datepicker").datepicker({
+            language: 'zh-CN',
+            fomart:'yyyy-mm-dd',
+        	keyboardNavigation: false,
+        	forceParse: false,
+        	autoclose: true
+     });
+
     return components;
 });
