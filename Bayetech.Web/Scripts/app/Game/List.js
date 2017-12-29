@@ -1,7 +1,7 @@
 ﻿//搜索框下拉
 define(["common"], function (common) {
     var html=`
-        <div class ="gs_box" id="gsBox">
+        <div class ="" id="gsBox">
             <div class ="gs_box_inner">
                 <ul id="gsSort" class ="gs_sort">
                     <li>
