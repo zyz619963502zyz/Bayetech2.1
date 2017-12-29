@@ -700,7 +700,7 @@
     <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\GoodList\GoodList.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
-    <Content Include="Page\ServiceCenter\AdviceCentre.html" />
+    <Content Include="Page\ServiceCenter\AdviceCenter.html" />
     <Content Include="Page\ServiceCenter\anquan.html" />
     <Content Include="Page\ServiceCenter\CallCenter.html" />
     <Content Include="Page\ServiceCenter\helpcenter.html" />
