@@ -1,11 +1,6 @@
 ﻿using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
@@ -18,9 +13,17 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="gameId"></param>
         /// <returns></returns>
-        public JObject GetGroupByGameId(int gameId)
+        public JObject GetGroup(int gameId,string name = "")
         {
-            return serverService.GetList(a => a.ParentId == 0 && a.GameId == gameId && !a.IsDelete);
+            name = Core.Common.Trim(name);
+            if (string.IsNullOrEmpty(name))
+            {
+                return serverService.GetList(a => a.ParentId == 0 && a.GameId == gameId && !a.IsDelete);
+            }
+            else
+            {
+                return serverService.GetList(a => a.ParentId == 0 && a.GameId == gameId && !a.IsDelete&&a.Name.Contains(name));
+            }
         }
 
         /// <summary>
@@ -28,9 +31,18 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="pid"></param>
         /// <returns></returns>
-        public JObject GetServerByParentId(int parenId)
+        public JObject GetServer(int parenId, string name = null)
         {
-            return serverService.GetList(a => a.ParentId == parenId && !a.IsDelete);
+            name = Core.Common.Trim(name);
+            if (string.IsNullOrEmpty(name))
+            {
+                return serverService.GetList(a => a.ParentId == parenId && !a.IsDelete);
+            }
+            else
+            {
+                return serverService.GetList(a => a.ParentId == parenId && !a.IsDelete&&a.Name.Contains(name));
+            }
+            
         }
     }
 }

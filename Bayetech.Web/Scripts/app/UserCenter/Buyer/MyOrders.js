@@ -156,7 +156,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         </div>`;
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
-    var _GetMallTypeUrl = "/api/GoodType/GetGoodTypeByGameId";//交易类别
+    var _GetMallTypeUrl="/api/GoodType/GetGoodType";//交易类别
     var _GetOrdersUrl = "/api/Order/GetOrders"
     var data={
         times:0,

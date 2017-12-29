@@ -169,5 +169,12 @@ namespace Bayetech.Core
                 throw new Exception(ex.Message + "发生错误!");
             }
         }
+
+        /// <summary>
+        /// trim方法增加null判断
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string Trim(string str) => str == null ? "" : str.Trim();
     }
 }
