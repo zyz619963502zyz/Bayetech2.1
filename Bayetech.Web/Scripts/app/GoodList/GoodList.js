@@ -54,7 +54,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                         <div class="img-box">
                             <a v-bind:href="item.ScreenshotsCertification" target="_blank">
                                 <img v-bind:src="item.GoodFirstPicture" />
-                                <h3 class="authenticate">截图认证</h3>
+                                <h3 class ="authenticate">截图认证</h3>
                                 <h3>149图</h3>
                             </a>
                         </div>
