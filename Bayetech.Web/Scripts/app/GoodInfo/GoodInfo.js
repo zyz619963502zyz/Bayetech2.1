@@ -134,7 +134,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.CancelNum = data.content.CancelNum;
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
 
-                        _self.$parent.$emit('GoodInfoHere', data);//触发事件并传播
+                        _self.$root.$emit('GoodInfoHere', data);//触发事件并传播
                     }
                 });
             },

@@ -197,8 +197,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             return data;
         },
         created() {
-            //this.menuType =this.$route.params.id;
-            this.GetOrderInfo(self.Pagination);
+            var self = this;
+            self.menuType = localStorage.menuType;//获取到交易类型（代练还是购买）
+            self.GetOrderInfo(self.Pagination);
         },
 
         mounted() {
@@ -229,7 +230,6 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             },
             GetOrderInfo() {//获取订单信息
                 var self=this;
-                self.menuType = self.$route.params.id;//获取到交易类型（代练还是购买）
                 var param={
                     GameId: self.GameSelected,
                     GoodTypeId: self.TypeSelected,//先默认账号
