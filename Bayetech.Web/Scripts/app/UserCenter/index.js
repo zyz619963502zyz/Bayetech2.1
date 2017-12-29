@@ -20,8 +20,8 @@ require(UserCenterRequireArr, function () {
             List: [{
                 Title: "我是买家",
                 Items: [{ Id: 0, Title: "我要买", Url: "../Game/List.html", Type: "url" },
-                    { Id: 0, Title: "我购买的订单", Name: "MyOrders", Params: { flag: 100 } },
-                    { Id: 0, Title: "我的代练订单", Name: "MyDlOrder", Params: { flag:"MyDlOrders"} },//BuyerDlOrder代练订单和购买订单类似。
+                    { Id: "MyOrders", Title: "我购买的订单", Name: "MyOrders" },
+                    { Id: "MyDlOrders", Title: "我的代练订单", Name: "MyOrders" },//BuyerDlOrder代练订单和购买订单类似。
                     { Id: 0, Title: "我发布的代练需求", Name: "MyDlRequire" },
                     { Id: 0, Title: "买家代练订单", Name: "BuyerDlOrder" }],
             }, {
@@ -55,11 +55,11 @@ require(UserCenterRequireArr, function () {
         el: '#app',
         data: data,
         router: router,
-        watch: {
-            '$route' (to, from) {
-                debugger;
-            },
-        },
+        //watch: {
+        //    '$route' (to, from) {
+        //        debugger;
+        //    },
+        //},
         components: components,
     });
 
