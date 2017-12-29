@@ -16,12 +16,7 @@ define([
     'Scripts/app/UserCenter/AccountSetting/PhoneBinding',
     'Scripts/app/UserCenter/AccountSetting/Certification',
     'Scripts/app/UserCenter/AccountSetting/ValidateLogin',], function () {
-        var routes=[{ path: '/', redirect: '/Home' }];
-    routes.push({
-        path: "/MyOrders/:id",
-        name: "MyOrders",
-        component: arguments[0],
-    })
+    var routes=[{ path: '/', redirect: '/Home' }];
     for (var i=1; i<arguments.length; i++) {
         routes.push({
             path: `/${arguments[i].name}`,
@@ -29,6 +24,10 @@ define([
             component: arguments[i],
         });
     }
-
+    routes.push({
+        path: "/MyOrders",
+        name: "MyOrders",
+        component: arguments[0],
+    });
     return { routes: routes };
 });

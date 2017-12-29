@@ -10,7 +10,7 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
         <ul :id="'tab'+index" class ="list-group">
             <li v-for="item in value.Items" class ="list-group-item">
                 <a :href="item.Path" target="_blank" v-if="item.Type&&item.Type=='url'">{{item.Title}}</a>
-                <router-link :to="{ path: item.Path, params: item.Params}" v-else >{{item.Title}}</router-link>
+                <router-link :to="{ path: item.Path, query:item.Params}" v-else >{{item.Title}}</router-link>
             </li>
         </ul>
     </div>
