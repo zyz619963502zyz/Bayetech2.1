@@ -85,14 +85,14 @@ define(["common"], function (common) {
             getGameListByLetter: function (letter, type) {
                 var _self = this;
                 common.getWebJson("/api/Game/GetGameListByLetter", { letter:letter, type: type }, function (data) {
-                    _self.$props.data.List = data;
+                    _self.$props.data.List=data.content;
                 });
             },
             searchGameByName: function () {
                 var _self = this;
                 common.getWebJson("/api/Game/GetGameByName", { type: this.gameType, name: this.searchGameName }, function (data) {
                     if (data.length > 0) {
-                        _self.$props.data.List = data;
+                        _self.$props.data.List=data.content;
                     }
                 });
             },
