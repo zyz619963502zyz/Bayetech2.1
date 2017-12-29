@@ -128,11 +128,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
                 });
-            },
+            }, 
             GetSearchAgain() {//条件增加重新搜索
                 var self=this;
                 var param=common.GetUrlParam();
-                common.postWebJson(GoodListUrl, JSON.stringify(param), function (data) {
+                common.postWebJson(GoodListUrl, param, function (data) {
                     if (data.result) {
                         data.content=data.content.slice(0, 8);
                         self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表

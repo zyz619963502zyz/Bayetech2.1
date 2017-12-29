@@ -216,7 +216,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetNavBar: function () {
                 common.getWebJson(_GetGoodInfo, { accountName: this.$props.value.Iphone }, function (data) {
                     if (data == false) {
-                        this.data = data;
+                        this.data=data;
+
                     }
                 });
             },

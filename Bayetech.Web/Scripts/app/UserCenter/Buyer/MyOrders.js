@@ -83,9 +83,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     <div class ="yxddlb">
                         <div class ="myxssl">
                             <span>每页显示数量：</span>
-                            <a type="pageSize" size="10">10</a>
-                            <a type="pageSize" size="20">20</a>
-                            <a type="pageSize" size="30">30</a>
+                            <a type="pageSize" size="10" @click="GetSizePage(10)">10</a>
+                            <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
+                            <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>
                         <div id="nave">
                             <ol querystatus=""><a class ="a_hover">全部</a></ol>
@@ -189,16 +189,14 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         template: html,
         watch: {
             '$route' (to, from) {
-                console.log(this.$route.query);
-                //console.log(this.$route.params);
+                self.menuType=this.$route.query.flag;//判断是代练还是普通订单
+                //self.GetOrderInfo(self.Pagination);
             },
         },
         data() {
             return data;
         },
         created() {
-            var self = this;
-            self.menuType = localStorage.menuType;//获取到交易类型（代练还是购买）
             self.GetOrderInfo(self.Pagination);
         },
 
@@ -251,7 +249,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     }
                 });
             },
-            SetOrderTime(flag) {//设置查询时间查询
+            SetOrderTime(flag) {//设置查询时间查询1月，6月，1年
                 var self=this;
                 var btnId = "";
                 if (flag == "today") {
@@ -264,6 +262,16 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 $("#"+btnId).removeClass("btn-default").addClass("btn-primary");
                 $("#btnGroup button[id!='"+btnId+"']").removeClass("btn-primary").addClass("btn-default");
                 self.GetOrderInfo(self.Pagination)
+            },
+            GetSizePage(size) {//设置页面的大小去查询页面数据
+                var self=this;
+                if (size) {
+                    self.Pagination.rows = size;
+                    self.GetOrderInfo(self.Pagination);
+                }
+            },
+            GetDiffOrder(satus) {//查询不同状态的订单
+
             }
         }
     };

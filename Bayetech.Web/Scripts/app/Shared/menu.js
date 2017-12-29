@@ -36,12 +36,6 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
             view:function(itemId) {
                 this.$parent.view(itemId);
                 //this.$emit('view', itemId);
-            },
-            RefreshRoute(id) {
-                if (id) {
-                    localStorage.setItem("menuType", id);
-                    this.$router.go(0);
-                }
             }
         }
     };
