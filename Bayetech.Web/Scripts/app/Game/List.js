@@ -64,14 +64,14 @@ define(["common"], function (common) {
                 letter=letter||"";
                 var _self=this;
                 $.get("/api/Game/GetGameListByHotAndLetter", { type: type, str: letter}, function (data) {
-                    _self.List=data;
+                    _self.List=data.content;
                 });
             },
             SearchByName: function () {
                 var _self=this;
                 $.get("/api/Game/GetGameByName", { type: this.Type, name: this.SearchName }, function (data) {
                     if (data.length>0) {
-                        _self.List=data;
+                        _self.List=data.content;
                     }
                 });
             },
