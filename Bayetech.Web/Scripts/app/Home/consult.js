@@ -31,7 +31,7 @@ define([], function (common) {
                 },
                 {
                     url: 'http://www.7881.com/article-412787552612033870-0.html',
-                    title: ' 关于7881充值问题说明'
+                    title: ' 关于游戏联盟充值问题说明'
                 },
                 {
                     url: 'http://www.7881.com/article-110792784092213880-0.html',

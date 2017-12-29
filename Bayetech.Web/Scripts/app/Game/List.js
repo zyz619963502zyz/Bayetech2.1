@@ -1,7 +1,7 @@
 ﻿//搜索框下拉
 define(["common"], function (common) {
     var html=`
-        <div class ="gs_box" id="gsBox">
+        <div class ="" id="gsBox">
             <div class ="gs_box_inner">
                 <ul id="gsSort" class ="gs_sort">
                     <li>
@@ -64,14 +64,14 @@ define(["common"], function (common) {
                 letter=letter||"";
                 var _self=this;
                 $.get("/api/Game/GetGameListByHotAndLetter", { type: type, str: letter}, function (data) {
-                    _self.List=data;
+                    _self.List=data.content;
                 });
             },
             SearchByName: function () {
                 var _self=this;
                 $.get("/api/Game/GetGameByName", { type: this.Type, name: this.SearchName }, function (data) {
                     if (data.length>0) {
-                        _self.List=data;
+                        _self.List=data.content;
                     }
                 });
             },
