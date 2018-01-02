@@ -28,7 +28,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label for="goodsType" class ="col-md-2 control-label">商品类型</label>
 							<div class ="col-md-4">
 								<select v-model="TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
-                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.Name}}</option>
+                                    <option v-for="item in Types" :value="item.Id" >{{item.Name}}</option>
                                 </select>
 							</div>
 						</div>
@@ -197,6 +197,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             return data;
         },
         created() {
+            var self = this;
             self.GetOrderInfo(self.Pagination);
         },
 
@@ -246,6 +247,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                         common.SetPagination($('#paginator-test'),self,self.GetOrderInfo);
                         self.times++;
                         //self.$router.go(0);
+                    } else {
+
                     }
                 });
             },

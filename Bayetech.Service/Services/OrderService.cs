@@ -58,9 +58,9 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.GameId == order.GameId);
                     }
-                    if (!string.IsNullOrEmpty(order.GoodType))
+                    if (order.GoodTypeId!=null&&order.GoodTypeId>=0)
                     {
-                        expressions = expressions.And(t => t.GoodType == order.GoodType);
+                        expressions = expressions.And(t => t.GoodTypeId == order.GoodTypeId);
                     }
                     if (order.GameGroupId != null&&order.GameGroupId>=0)
                     {
@@ -93,9 +93,9 @@ namespace Bayetech.Service.Services
                     ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? GetDefaultPagination("OrderNo") : page).ToList();
                 }
 
-                //查询结果封装
-                if (ResultPage.datas.Count > 0)
-                {
+                ////查询结果封装
+                //if (ResultPage.datas.Count > 0)
+                //{
                     var Games = ResultPage.datas.Select(c => new { GameId = c.GameId, GameName = c.GameName })
                         .GroupBy(q => new { q.GameId, q.GameName });
                     foreach (var item in Games)
@@ -112,12 +112,12 @@ namespace Bayetech.Service.Services
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
                     ret.Add("Games", JProperty.FromObject(ResultGames));
-                }
-                else
-                {
-                    ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, Properties.Resources.Reminder_NoInfo);
-                }
+                //}
+                //else
+                //{
+                //    ret.Add(ResultInfo.Result, true);
+                //    ret.Add(ResultInfo.Content, Properties.Resources.Reminder_NoInfo);
+                //}
                 return ret;
             }
         }
