@@ -15,7 +15,7 @@ namespace Bayetech.Core.Entity
     public partial class MallOrderStatus
     {
         public int StatusId { get; set; }
-        public Nullable<int> ParentId { get; set; }
+        public int ParentId { get; set; }
         public string StatusName { get; set; }
         public string StatusAlias { get; set; }
     }

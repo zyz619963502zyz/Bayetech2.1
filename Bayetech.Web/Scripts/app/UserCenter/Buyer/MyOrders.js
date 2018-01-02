@@ -47,7 +47,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							</div>
 						</div>
 						<div class ="form-group form-group-xs">
-                          
+
 							<label class ="col-md-1 control-label">订单时间</label>
 							<div class ="col-md-4">
 								<div class ="input-daterange input-group datepicker">
@@ -87,14 +87,10 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                             <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
                             <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>
-                        <div id="nave" @click = "GetStatusOrder">
-                            //<ol querystatus=""><a class ="a_hover">全部</a></ol>
-                            //<ol querystatus="1"><a class ="">等待付款</a></ol>
-                            //<ol querystatus="2"><a class ="">等待取货</a></ol>
-                            //<ol querystatus="3"><a class ="">成功订单</a></ol>
-                            //<ol querystatus="4"><a class ="">撤销订单</a></ol>
-
-                            <ol querystatus="item.StatusName" v-for="var item in Status"><a class ="">item.StatusAlias</a></ol>
+                        <div id="nave">
+                            <ol v-for="item in Status"  @click ="GetStatusOrder(item.StatusId,item.StatusName)">
+                                <a :id="item.StatusName"  :class="{a_hover:item.StatusName == 'orderall'}">{{item.StatusAlias}}</a>
+                            </ol>
                         </div>
                         <div class ="ddxq">
                             <ul>
@@ -156,11 +152,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             </div>
             </div>
         </div>`;
+    //Api
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
     var _GetMallTypeUrl="/api/GoodType/GetGoodType";//交易类别
     var _GetOrdersUrl="/api/Order/GetOrders";
-    var _GetOrderStatus = "api/Order/GetOrderStatus";
+    var _GetOrderStatus="/api/Order/GetOrderStatus";
+
     var data={
         menuType:"",
         times:0,
@@ -172,7 +170,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         Groups: [],
         GroupSelected: "",
         Servers: [],
-        Status:[],//订单状态
+        Status: [],//订单状态
+        StatusSelected:"",
         ServerSelected: "",
         OrderNo: "",//订单编号,
         startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
@@ -203,8 +202,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         created() {
             var self = this;
             self.GetOrderInfo(self.Pagination);
+            self.GetOrderStatus(0);
         },
-
         mounted() {
             var aaa = 1; 
         },
@@ -232,7 +231,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 });
             },
             GetOrderStatus(parentId) {
-                common.getWebJson()
+                var self = this;
+                var param = {parentId:parentId == undefined?0:parentId};
+                common.getWebJson(_GetOrderStatus, param, function (data) {
+                    if (data.result) {
+                        self.Status = data.content;
+                    }
+                });
             },
             GetOrderInfo() {//获取订单信息
                 var self=this;
@@ -241,9 +246,10 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     GoodTypeId: self.TypeSelected,//先默认账号
                     GameGroupId: self.GroupSelected,
                     GameServerId: self.ServerSelected,
+                    OrderStatus: self.StatusSelected,
                     OrderNo: self.OrderNo,
                     startTime: self.startTime,
-                    endTime : self.endTime,
+                    endTime: self.endTime,
                     PageObj: self.Pagination
                 };
                 common.postWebJson(_GetOrderInfoUrl, param, function (data) {
@@ -280,8 +286,14 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     self.GetOrderInfo(self.Pagination);
                 }
             },
-            GetStatusOrder(satus) {//查询不同状态的订单
-
+            GetStatusOrder(satus,name) {//查询不同状态的订单
+                var self = this;
+                if (satus>=0) {
+                    self.StatusSelected = satus;
+                    self.GetOrderInfo(self.Pagination);
+                    $("#"+name).addClass("a_hover");
+                    $("#nave a[id!='"+ name +"']").removeClass("a_hover");
+                }
             }
         }
     };
