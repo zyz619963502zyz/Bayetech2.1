@@ -687,7 +687,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
+    <Content Include="Page\Good\Publish.html" />
     <Content Include="Page\Good\Publish\Step1.html" />
+    <Content Include="Page\Good\Publish\Step2.html" />
+    <Content Include="Page\Good\Publish\Step3.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
@@ -725,6 +728,8 @@
     <Content Include="Scripts\app\GoodInfo\GoodInfo.js" />
     <Content Include="Scripts\app\GoodInfo\Nav.js" />
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
+    <Content Include="Scripts\app\GoodPublish\AccountInfo\Gold.js" />
+    <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />
     <Content Include="Scripts\app\GoodPublish\Step2.js" />

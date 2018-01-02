@@ -17,17 +17,12 @@ define([
     'Scripts/app/UserCenter/AccountSetting/Certification',
     'Scripts/app/UserCenter/AccountSetting/ValidateLogin',], function () {
     var routes=[{ path: '/', redirect: '/Home' }];
-    for (var i=1; i<arguments.length; i++) {
+    for (var i=0; i<arguments.length; i++) {
         routes.push({
             path: `/${arguments[i].name}`,
             name: arguments[i].name,
             component: arguments[i],
         });
     }
-    routes.push({
-        path: "/MyOrders",
-        name: "MyOrders",
-        component: arguments[0],
-    });
     return { routes: routes };
 });
