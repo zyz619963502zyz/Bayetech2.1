@@ -300,11 +300,11 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 
     //时间控件默认初始化
     $(".datepicker").datepicker({
-            language: 'zh-CN',
-            fomart:'yyyy-mm-dd',
-        	keyboardNavigation: false,
-        	forceParse: false,
-        	autoclose: true
+        language: 'zh-CN',
+        fomart:'yyyy-mm-dd',
+        keyboardNavigation: false,
+        forceParse: false,
+        autoclose: true
      });
 
     return components;
