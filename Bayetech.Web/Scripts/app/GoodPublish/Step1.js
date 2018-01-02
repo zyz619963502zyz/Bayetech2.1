@@ -1,4 +1,4 @@
-﻿//模块之间的操作
+﻿//step1
 define(['jquery', 'common'], function ($, common) {
     var html=`<div>
             <div class="release_search W980" style="margin-top:20px;">
@@ -88,7 +88,7 @@ define(['jquery', 'common'], function ($, common) {
                     <input type="hidden" id="goodsTypeName" name="goodsTypeName">
                     <input type="hidden" id="camp" name="camp">
                 </form>
-                <p><a id="hlkNext" class="btn btn-orange3">好了，继续发布</a><a target="_blank" href="/toQuFuCollection.action?entrance=2" style="font-size: 14px;float: right;">找不到您要的游戏或区服？</a></p>
+                <div class ="publish-btn"><a href="javascript:void(0)" class ="com-btn-01 color01 btn-pub">好了，继续发布</a></div>
             </div>
         </div>`;
 	    var data={

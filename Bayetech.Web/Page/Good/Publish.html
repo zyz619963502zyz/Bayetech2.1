@@ -7,12 +7,17 @@
     <link href="../../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../../Content/CommonCss/7881.common.css" rel="stylesheet" />
     <link href="../../../Content/Goods/Publish.css" rel="stylesheet" />
-        <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
+    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/goods-publish/publish.css">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/goods-publish/publish-type-01.css?v=0.0.1">
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
+
+
     <script src="../../../Scripts/require.js"></script>
     <script src="../../../Scripts/jsconfig.js"></script>
-    <script src="../../../Scripts/app/GoodPublish/index.js"></script>
+    <script src="../../../Scripts/app/GoodPublish/Step2.js"></script>
+    <!--<script src="../../../Scripts/app/GoodPublish/index.js"></script>-->
+
 </head>
 <body>
     <div id="app">
@@ -27,7 +32,7 @@
                 </ul>
             </div>
         </div>
-        <step1></step1>
+        <router-view></router-view>
         <div class="footer-content footer-01">
             <div class="footer-server-box">
                 <div class="footer-server">
@@ -79,3 +84,5 @@
     </div>
 </body>
 </html>
+
+
