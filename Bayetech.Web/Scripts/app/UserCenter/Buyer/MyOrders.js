@@ -71,7 +71,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label class ="col-md-1 control-label">订单编号</label>
 							<div class ="col-md-4">
 								<div class ="input-group">
-									<input type="text" value="" class ="form-control"/>
+									<input type="text" :value="OrderNo" class ="form-control"/>
 									<span class ="input-group-btn">
 										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-xs">查询</button>
 									</span>
@@ -170,7 +170,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         GroupSelected: "",
         Servers: [],
         ServerSelected: "",
-        OrderNum: "",//订单编号,
+        OrderNo: "",//订单编号,
         startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
         endTime: (new Date()).Format("yyyy-MM-dd"),
         Pagination:{
@@ -234,7 +234,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     GoodTypeId: self.TypeSelected,//先默认账号
                     GameGroupId: self.GroupSelected,
                     GameServerId: self.ServerSelected,
-                    OrderNum: self.OrderNum,
+                    OrderNo: self.OrderNo,
                     startTime: self.startTime,
                     endTime : self.endTime,
                     PageObj: self.Pagination
