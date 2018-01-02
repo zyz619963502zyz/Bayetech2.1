@@ -28,7 +28,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label for="goodsType" class ="col-md-2 control-label">商品类型</label>
 							<div class ="col-md-4">
 								<select v-model="TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
-                                    <option v-for="item in Types" :value="item.TypeId" selected="selected">{{item.Name}}</option>
+                                    <option v-for="item in Types" :value="item.Id" >{{item.Name}}</option>
                                 </select>
 							</div>
 						</div>
@@ -71,7 +71,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label class ="col-md-1 control-label">订单编号</label>
 							<div class ="col-md-4">
 								<div class ="input-group">
-									<input type="text" value="" class ="form-control"/>
+									<input type="text" :value="OrderNo" class ="form-control"/>
 									<span class ="input-group-btn">
 										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-xs">查询</button>
 									</span>
@@ -83,16 +83,18 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     <div class ="yxddlb">
                         <div class ="myxssl">
                             <span>每页显示数量：</span>
-                            <a type="pageSize" size="10">10</a>
-                            <a type="pageSize" size="20">20</a>
-                            <a type="pageSize" size="30">30</a>
+                            <a type="pageSize" size="10" @click="GetSizePage(10)">10</a>
+                            <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
+                            <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>
-                        <div id="nave">
-                            <ol querystatus=""><a class ="a_hover">全部</a></ol>
-                            <ol querystatus="6,60"><a class ="">成功订单</a></ol>
-                            <ol querystatus="4,40"><a class ="">撤销订单</a></ol>
-                            <ol querystatus="1"><a class ="">等待付款</a></ol>
-                            <ol querystatus="5"><a class ="">等待取货</a></ol>
+                        <div id="nave" @click = "GetStatusOrder">
+                            //<ol querystatus=""><a class ="a_hover">全部</a></ol>
+                            //<ol querystatus="1"><a class ="">等待付款</a></ol>
+                            //<ol querystatus="2"><a class ="">等待取货</a></ol>
+                            //<ol querystatus="3"><a class ="">成功订单</a></ol>
+                            //<ol querystatus="4"><a class ="">撤销订单</a></ol>
+
+                            <ol querystatus="item.StatusName" v-for="var item in Status"><a class ="">item.StatusAlias</a></ol>
                         </div>
                         <div class ="ddxq">
                             <ul>
@@ -157,7 +159,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
     var _GetMallTypeUrl="/api/GoodType/GetGoodType";//交易类别
-    var _GetOrdersUrl = "/api/Order/GetOrders"
+    var _GetOrdersUrl="/api/Order/GetOrders";
+    var _GetOrderStatus = "api/Order/GetOrderStatus";
     var data={
         menuType:"",
         times:0,
@@ -169,8 +172,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         Groups: [],
         GroupSelected: "",
         Servers: [],
+        Status:[],//订单状态
         ServerSelected: "",
-        OrderNum: "",//订单编号,
+        OrderNo: "",//订单编号,
         startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
         endTime: (new Date()).Format("yyyy-MM-dd"),
         Pagination:{
@@ -189,8 +193,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         template: html,
         watch: {
             '$route' (to, from) {
-                console.log(this.$route.query);
-                //console.log(this.$route.params);
+                self.menuType=this.$route.query.flag;//判断是代练还是普通订单
+                //self.GetOrderInfo(self.Pagination);
             },
         },
         data() {
@@ -198,7 +202,6 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         },
         created() {
             var self = this;
-            self.menuType = localStorage.menuType;//获取到交易类型（代练还是购买）
             self.GetOrderInfo(self.Pagination);
         },
 
@@ -228,6 +231,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     }
                 });
             },
+            GetOrderStatus(parentId) {
+                common.getWebJson()
+            },
             GetOrderInfo() {//获取订单信息
                 var self=this;
                 var param={
@@ -235,7 +241,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     GoodTypeId: self.TypeSelected,//先默认账号
                     GameGroupId: self.GroupSelected,
                     GameServerId: self.ServerSelected,
-                    OrderNum: self.OrderNum,
+                    OrderNo: self.OrderNo,
                     startTime: self.startTime,
                     endTime : self.endTime,
                     PageObj: self.Pagination
@@ -248,10 +254,12 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                         common.SetPagination($('#paginator-test'),self,self.GetOrderInfo);
                         self.times++;
                         //self.$router.go(0);
+                    } else {
+
                     }
                 });
             },
-            SetOrderTime(flag) {//设置查询时间查询
+            SetOrderTime(flag) {//设置查询时间查询1月，6月，1年
                 var self=this;
                 var btnId = "";
                 if (flag == "today") {
@@ -264,6 +272,16 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 $("#"+btnId).removeClass("btn-default").addClass("btn-primary");
                 $("#btnGroup button[id!='"+btnId+"']").removeClass("btn-primary").addClass("btn-default");
                 self.GetOrderInfo(self.Pagination)
+            },
+            GetSizePage(size) {//设置页面的大小去查询页面数据
+                var self=this;
+                if (size) {
+                    self.Pagination.rows = size;
+                    self.GetOrderInfo(self.Pagination);
+                }
+            },
+            GetStatusOrder(satus) {//查询不同状态的订单
+
             }
         }
     };

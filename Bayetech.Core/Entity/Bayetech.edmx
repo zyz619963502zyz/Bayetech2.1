@@ -232,7 +232,7 @@
             <PropertyRef Name="StatusId" />
           </Key>
           <Property Name="StatusId" Type="int" Nullable="false" />
-          <Property Name="ParentId" Type="int" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
           <Property Name="StatusName" Type="varchar" MaxLength="20" />
           <Property Name="StatusAlias" Type="nvarchar" MaxLength="20" />
         </EntityType>
@@ -310,6 +310,8 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_GoodTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_GoodTypes">
           <Key>
+            
+            
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" />
@@ -777,7 +779,7 @@
             <PropertyRef Name="StatusId" />
           </Key>
           <Property Name="StatusId" Type="Int32" Nullable="false" />
-          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
           <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>

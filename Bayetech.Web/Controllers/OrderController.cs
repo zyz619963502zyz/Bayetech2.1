@@ -16,6 +16,8 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         OrderService service = ctx.GetObject("OrderService") as OrderService;
         BaseService<Server> serverService = new BaseService<Server>();
+        BaseService<MallOrderStatus> orderService = new BaseService<MallOrderStatus>();
+
         [HttpPost]
         public JObject CreatOrder(JObject json)
         {
@@ -53,6 +55,27 @@ namespace Bayetech.Web.Controllers
             {
                 ret.Add(ResultInfo.Result, true);
                 ret.Add(ResultInfo.Content, JProperty.FromObject(servers));
+            }
+            else
+            {
+                ret.Add(ResultInfo.Result, false);
+            }
+            return ret;
+        }
+
+
+        /// <summary>
+        /// 获得订单的默认状态
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public JObject GetOrderStatus(int parentId) {
+            JObject ret = new JObject();
+            List<MallOrderStatus> status = orderService.FindList(c => c.ParentId == parentId).ToList();
+            if (status.Count > 0)
+            {
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JProperty.FromObject(status));
             }
             else
             {
