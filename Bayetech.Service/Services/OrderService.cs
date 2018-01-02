@@ -82,7 +82,7 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.OrderNo == order.OrderNo);
                     }
-                    if (!string.IsNullOrEmpty(order.GameName))
+                    if (order.OrderStatus!=null&& order.OrderStatus>0)
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
