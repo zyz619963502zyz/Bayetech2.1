@@ -87,12 +87,14 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                             <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
                             <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>
-                        <div id="nave">
-                            <ol querystatus=""><a class ="a_hover">全部</a></ol>
-                            <ol querystatus="6,60"><a class ="">成功订单</a></ol>
-                            <ol querystatus="4,40"><a class ="">撤销订单</a></ol>
-                            <ol querystatus="1"><a class ="">等待付款</a></ol>
-                            <ol querystatus="5"><a class ="">等待取货</a></ol>
+                        <div id="nave" @click = "GetStatusOrder">
+                            //<ol querystatus=""><a class ="a_hover">全部</a></ol>
+                            //<ol querystatus="1"><a class ="">等待付款</a></ol>
+                            //<ol querystatus="2"><a class ="">等待取货</a></ol>
+                            //<ol querystatus="3"><a class ="">成功订单</a></ol>
+                            //<ol querystatus="4"><a class ="">撤销订单</a></ol>
+
+                            <ol querystatus="item.StatusName" v-for="var item in Status"><a class ="">item.StatusAlias</a></ol>
                         </div>
                         <div class ="ddxq">
                             <ul>
@@ -157,7 +159,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
     var _GetServersUrl="/api/Order/GetServers";
     var _GetMallTypeUrl="/api/GoodType/GetGoodType";//交易类别
-    var _GetOrdersUrl = "/api/Order/GetOrders"
+    var _GetOrdersUrl="/api/Order/GetOrders";
+    var _GetOrderStatus = "api/Order/GetOrderStatus";
     var data={
         menuType:"",
         times:0,
@@ -169,6 +172,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         Groups: [],
         GroupSelected: "",
         Servers: [],
+        Status:[],//订单状态
         ServerSelected: "",
         OrderNo: "",//订单编号,
         startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
@@ -227,6 +231,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     }
                 });
             },
+            GetOrderStatus(parentId) {
+                common.getWebJson()
+            },
             GetOrderInfo() {//获取订单信息
                 var self=this;
                 var param={
@@ -273,7 +280,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     self.GetOrderInfo(self.Pagination);
                 }
             },
-            GetDiffOrder(satus) {//查询不同状态的订单
+            GetStatusOrder(satus) {//查询不同状态的订单
 
             }
         }
