@@ -8,12 +8,11 @@ require(UserCenterRequireArr, function () {
     var $=arguments[1];
     var common=arguments[2];
     var VueRouter=arguments[3];
-    var router=arguments[4];
+    var routes=arguments[4];
     var components={};
     for (var i=4; i<arguments.length; i++){
         components[arguments[i].name]=arguments[i];
     }
-    var a1 = arguments[11];
     var data={
         menuData: {
             Title: "个人中心",
@@ -49,7 +48,7 @@ require(UserCenterRequireArr, function () {
 
     Vue.use(VueRouter)
     /* 创建路由器  */
-    var router=new VueRouter(router);
+    var router=new VueRouter(routes);
 
     var vm = new Vue({
         el: '#app',

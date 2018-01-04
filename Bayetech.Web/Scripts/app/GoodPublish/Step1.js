@@ -63,32 +63,14 @@ define(['jquery', 'common'], function ($, common) {
             <div class="go_ahead W980">
                 <p class="orange">
                     您当前选择的是：
-                    <span id="span_game" gameid="G10">{{GameName}}</span>
-                    <span class="span_gt"></span>
-                    <span id="span_carrier" carrierid="" goodstype=""></span>
-                    <span class="span_gt"> &gt; </span>
-                    <span id="span_gtid" gtid="100001">{{GoodTypeName}}</span>
-                    <span class="span_gt"> &gt; </span>
-                    <span id="span_group" groupid="G10P001">{{GameGroupName}}</span>
-                    <span class ="span_gt">&gt; </span>
-                    <span id="span_server" serverid="">{{GameServerName}}</span>
-                    <span class="span_gt"></span>
-                    <span id="span_camp"></span>
+                    <span>{{$parent.GameName}}</span><span> &gt; </span>
+                    <span>{{$parent.GoodTypeName}}</span><span> &gt; </span>
+                    <span>{{$parent.GroupName}}</span><span>&gt; </span>
+                    <span>{{$parent.ServerName}}</span>
                 </p>
-                <form id="releaseForm" action="http://search.7881.com/publish.html" method="get">
-                    <input type="hidden" id="gtid" name="gtId">
-                    <input type="hidden" id="gameid" name="gameId">
-                    <input type="hidden" id="gamename" name="gameName">
-                    <input type="hidden" id="carrierid" name="carrierId">
-                    <input type="hidden" id="carriername" name="carrierName">
-                    <input type="hidden" id="groupid" name="groupId">
-                    <input type="hidden" id="groupname" name="groupName">
-                    <input type="hidden" id="serverid" name="serverId">
-                    <input type="hidden" id="servername" name="serverName">
-                    <input type="hidden" id="goodsTypeName" name="goodsTypeName">
-                    <input type="hidden" id="camp" name="camp">
-                </form>
-                <div class ="publish-btn"><a href="javascript:void(0)" class ="com-btn-01 color01 btn-pub">好了，继续发布</a></div>
+                <div class ="publish-btn">
+                   <a href="javascript:void(0)" class ="com-btn-01 color01 btn-pub" @click="Next('step2')">好了，继续发布</a>
+                </div>
             </div>
         </div>`;
 	    var data={
@@ -97,14 +79,6 @@ define(['jquery', 'common'], function ($, common) {
 	        TypeList: [],
 	        GroupList: [],
 	        ServerList: [],
-	        GameId: 0,
-	        GameName: "",
-	        GameGroupId: 0,
-	        GameGroupName: "",
-	        GameServerId: 0,
-	        GameServerName: "",
-	        GoodTypeId: 0,
-	        GoodTypeName: "",
 	        SearchGameName: "",
 	        SearchGameGroupName: "",
 	        SearchGameServerName: "",
@@ -127,27 +101,30 @@ define(['jquery', 'common'], function ($, common) {
 	            this.GetGameList(0);
 	        },
 	        methods: {
+	            Next:function(to){
+	                this.$parent.Next(to);
+	            },
 	            ClickLoad:function(type,id,name){
 	                switch (type) {
 	                    case this.TypeModel.Game:
 	                        this. GetTypeList(id);
 	                        this.GetGroupList(id);
-	                        this.ServerList
-	                        this.GameId=id;
-	                        this.GameName=name;
+	                        this.ServerList=[];
+	                        this.$parent.GameId=id;
+	                        this.$parent.GameName=name;
 	                        break;
 	                    case this.TypeModel.Group:
 	                        this.GetServerList(id);
-	                        this.GameGroupId=id;
-	                        this.GameGroupName=name;
+	                        this.$parent.GroupId=id;
+	                        this.$parent.GroupName=name;
 	                        break;
 	                    case this.TypeModel.Server:
-	                        this.GameServerId=id
-	                        this.GameServerName=name;
+	                        this.$parent.ServerId=id
+	                        this.$parent.ServerName=name;
 	                        break;
 	                    case this.TypeModel.Type:
-	                        this.GoodTypeId=id;
-	                        this.GoodTypeName=name;
+	                        this.$parent.GoodTypeId=id;
+	                        this.$parent.GoodTypeName=name;
 	                        break;
 	                }
 	            },
@@ -157,13 +134,13 @@ define(['jquery', 'common'], function ($, common) {
 	                        this.GetGameByName(this.SearchGameName);
 	                        break;
 	                    case this.TypeModel.Group:
-	                        this.GetGroupList(this.GameId, this.SearchGameGroupName);
+	                        this.GetGroupList(this.$parent.GameId, this.SearchGameGroupName);
 	                        break;
 	                    case this.TypeModel.Server:
-	                        this.GetServerList(this.GameGroupId, this.SearchGameServerName);
+	                        this.GetServerList(this.$parent.GroupId, this.SearchGameServerName);
 	                        break;
 	                    case this.TypeModel.Type:
-	                        this.GetTypeList(this.GameId, this.SearchGoodTypeName);
+	                        this.GetTypeList(this.$parent.GameId, this.SearchGoodTypeName);
 	                        break;
 	                }
 	            },

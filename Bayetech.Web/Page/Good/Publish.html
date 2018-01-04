@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>发布商品-游戏联盟</title>
     <meta charset="utf-8" />
     <link href="../../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../../Content/CommonCss/7881.common.css" rel="stylesheet" />
@@ -10,13 +10,9 @@
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/goods-publish/publish.css">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/goods-publish/publish-type-01.css?v=0.0.1">
-    <link rel="icon" type="image/png" href="/static/favicon.ico">
-
-
     <script src="../../../Scripts/require.js"></script>
     <script src="../../../Scripts/jsconfig.js"></script>
-    <script src="../../../Scripts/app/GoodPublish/Step2.js"></script>
-    <!--<script src="../../../Scripts/app/GoodPublish/index.js"></script>-->
+    <script src="../../../Scripts/app/GoodPublish/index.js"></script>
 
 </head>
 <body>
@@ -32,7 +28,8 @@
                 </ul>
             </div>
         </div>
-        <router-view></router-view>
+        <component v-bind:is="Step"></component>
+        <!--<router-view></router-view>-->
         <div class="footer-content footer-01">
             <div class="footer-server-box">
                 <div class="footer-server">
