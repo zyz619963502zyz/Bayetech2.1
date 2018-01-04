@@ -1,8 +1,6 @@
-﻿//金币
-//模块之间的操作
+﻿//DNF金币
 define(['jquery', 'common'], function ($, common) {
-    var html=`<div class="account-info-con">
-    <div class="common-form height-30" id="gameAccountInfo">
+    var html=`<div class="common-form height-30" id="gameAccountInfo">
         <div class="form-item clearfix">
             <div class="form-item-l">
                 <i>*</i>
@@ -69,10 +67,9 @@ define(['jquery', 'common'], function ($, common) {
                 </div>
             </div>
         </div>
-    </div>
-</div>`;
+    </div>`;
     var components={
-        name: "step1",
+        name: "Gold",
         template: html,
     };
     return components;

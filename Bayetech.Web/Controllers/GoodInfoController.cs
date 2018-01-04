@@ -106,5 +106,13 @@ namespace Bayetech.Web.Controllers
             }
             return result;
         }
+
+        [HttpPost]
+        public bool PublicGood(JObject json)
+        {
+
+            return false;
+        }
+
     }  
 }

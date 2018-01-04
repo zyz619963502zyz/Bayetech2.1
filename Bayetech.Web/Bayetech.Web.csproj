@@ -728,12 +728,16 @@
     <Content Include="Scripts\app\GoodInfo\GoodInfo.js" />
     <Content Include="Scripts\app\GoodInfo\Nav.js" />
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
+    <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
+    <Content Include="Scripts\app\GoodPublish\GoodInfo\Common.js" />
     <Content Include="Scripts\app\GoodPublish\AccountInfo\Gold.js" />
+    <Content Include="Scripts\app\GoodPublish\AccountInfo\SecurityCode.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />
     <Content Include="Scripts\app\GoodPublish\Step2.js" />
     <Content Include="Scripts\app\GoodPublish\Step3.js" />
+    <Content Include="Scripts\app\GoodPublish\TradeType.js" />
     <Content Include="Scripts\app\HelpCenter\buttom.js" />
     <Content Include="Scripts\app\HelpCenter\content.js" />
     <Content Include="Scripts\app\HelpCenter\head.js" />
