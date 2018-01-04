@@ -69,6 +69,7 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HttpGet]
         public JObject GetOrderStatus(int parentId) {
             JObject ret = new JObject();
             List<MallOrderStatus> status = orderService.FindList(c => c.ParentId == parentId).ToList();
