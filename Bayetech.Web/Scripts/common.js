@@ -237,6 +237,19 @@
         return fmt;
     }
 
+
+
+    //添加选中样式
+    common.AddSelectedClass=function (selector, addClass,fn) {
+        $(document).on("click", selector, function () {
+            $(selector).not(this).removeClass(addClass);
+            $(this).addClass(addClass);
+            if (fn) {
+                fn(this);
+            }
+        });
+    };
+
     return common;
 })
 

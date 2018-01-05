@@ -1,7 +1,7 @@
 ﻿//交易方式
 define(['jquery', 'common'], function ($, common) {
     var html=`<div class="gold-type-deal">
-                      <dl :class ="class1" @click="ChangeTradeType(0)">
+                      <dl :class ="class1" @click="ChangeTradeType(0)" name="tradeType">
                           <dt>
                               <img src="http://pic.7881.com/7881-2016/images/goods-publish/jspicon.png" class="ritag">
                               <img src="http://pic.7881.com/7881-2016/images/goods-publish/jsdealon-icon.png" class="gray">
@@ -12,7 +12,7 @@ define(['jquery', 'common'], function ($, common) {
                               <p>商品被购买后，7881客服会登录账号，替您和买家完成交易。我们承诺您的账号资料经过5星加密保存，保障您的账号安全！</p>
                           </dd>
                       </dl>
-                      <dl class ="right" :class ="class2" @click="ChangeTradeType(1)">
+                      <dl class ="right" :class ="class2" @click="ChangeTradeType(1)" name="tradeType">
                           <dt>
                               <img src="http://pic.7881.com/7881-2016/images/goods-publish/dbpic.png" class="ritag">
                               <img src="http://pic.7881.com/7881-2016/images/goods-publish/dbdeal-icon.png" class="gray">
@@ -27,7 +27,6 @@ define(['jquery', 'common'], function ($, common) {
                   </div>`;
     var components={
         props: ['fn'],
-
         template: html,
         data:function(){
             return {

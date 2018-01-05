@@ -70,8 +70,8 @@ var jsconfig = {
         'ServicePusht': "Scripts/app/ServiceCenter/servicepusht",
         'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
         'VueRouter': 'Scripts/vue-router.min',
-        'game-list': 'Scripts/app/Game/List'
-       
+        'game-list': 'Scripts/app/Game/List',
+        'GameController': 'Scripts/app/Controllers/Game',
     },
     map: {
         '*': {

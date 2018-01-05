@@ -48,7 +48,12 @@ define(['jquery', 'common'], function ($, common) {
     var components={
         name: "step3",
         template: html,
+        created() {
+            //进度显示修改
+            $("[name=process]").eq(2).removeClass('bg').addClass('gc');
+        },
         methods: {
+            //点击下一步
             Next: function (to) {
                 this.$parent.Next(to);
             },

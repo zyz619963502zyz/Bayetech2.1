@@ -68,9 +68,6 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
                 percent: 0.02,
             }
         },
-        created() {
-            this.$parent.account_info_com="GoldAccountInfo";
-        },
         methods: {
             ChangeTradeType: function (type) {
                 this.$parent.account_info_com=type===1?"SecurityCode":"GoldAccountInfo"; 

@@ -30,15 +30,8 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	    //});
 
 	    var data={
-	        Step:step1,
-	        GameId: 0,
-	        GameName: "",
-	        GroupId: 0,
-	        GroupName: "",
-	        ServerId: 0,
-	        ServerName: "",
-	        GoodTypeId: 0,
-	        GoodTypeName: "",
+	        Step: step1,
+            GameInfo:{},
 	    };
 
 	    var vm = new Vue({
@@ -51,22 +44,23 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	            "v-header": header,
 	        },
 	        methods: {
+                //下一步
 	            Next: function (to) {
 	                switch (to) {
 	                    case "step2":
-	                        if (!this.GameId) {
+	                        if (!this.GameInfo.GameId) {
 	                            alert("请选择游戏！");
 	                            return;
 	                        }
-	                        if (!this.GroupId) {
+	                        if (!this.GameInfo.GroupId) {
 	                            alert("请选择区服！");
 	                            return;
 	                        }
-	                        if (!this.ServerId) {
+	                        if (!this.GameInfo.ServerId) {
 	                            alert("请选择服务器！");
 	                            return;
 	                        }
-	                        if (!this.GoodTypeId) {
+	                        if (!this.GameInfo.GoodTypeId) {
 	                            alert("交易类型！");
 	                            return;
 	                        }
@@ -80,6 +74,7 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                            if (result) {
 	                                slef.Step=step3;
 	                            }
+	                            slef.Step=step3;
 	                        })
 	                        break;
 	                    default:

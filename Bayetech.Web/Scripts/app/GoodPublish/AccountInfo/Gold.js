@@ -8,7 +8,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="text" class="common-input h-30" name="gameaccount" id="" value="" placeholder="请输入游戏帐号">
+                    <input type="text" class ="common-input h-30" name="gameaccount" id="gameaccount" value="" placeholder="请输入游戏帐号">
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="password" class="common-input h-30" name="password" id="" value="" placeholder="请输入游戏密码">
+                    <input type="password" class ="common-input h-30" name="password" id="password" value="" placeholder="请输入游戏密码">
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="text" class="common-input h-30" name="2Password" id="" value="" placeholder="请输入二级密码">
+                    <input type="text" class ="common-input h-30" name="2Password" id="2Password" value="" placeholder="请输入二级密码">
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="text" class="common-input h-30" name="rolename" id="" value="" placeholder="请输入角色名称">
+                    <input type="text" class ="common-input h-30" name="rolename" id="rolename" value="" placeholder="请输入角色名称">
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="text" class="common-input h-30" name="Shipclass" id="" value="" placeholder="请输入发货号等级">
+                    <input type="text" class ="common-input h-30" name="Shipclass" id="Shipclass" value="" placeholder="请输入发货号等级">
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="form-item-r">
                 <div class="game-ipt">
-                    <input type="password" class="common-input h-30" name="WarehousePassword" id="" value="" placeholder="请输入仓库密码">
+                    <input type="password" class ="common-input h-30" name="WarehousePassword" id="WarehousePassword" value="" placeholder="请输入仓库密码">
                 </div>
             </div>
         </div>

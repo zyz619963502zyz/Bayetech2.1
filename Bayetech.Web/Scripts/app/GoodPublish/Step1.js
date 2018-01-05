@@ -1,13 +1,13 @@
 ﻿//step1
-define(['jquery', 'common'], function ($, common) {
+define(['jquery', 'common', 'GameController'], function ($, common,Game) {
     var html=`<div>
             <div class="release_search W980" style="margin-top:20px;">
                 <div class="gametitle">
-                    <a id="gametitle_hlk_network" class="on" @click="GetGameList(0)">网络游戏</a>
-                    <a id="gametitle_hlk_ios" @click="GetGameList(1)">手机游戏</a>
+                    <a name="gametitle" class ="on" value="0">网络游戏</a>
+                    <a name="gametitle" value="1">手机游戏</a>
                 </div>
                 <div class="right">
-                    <input type="text" id="txt_gamename_search" class ="release_search_input" placeholder="请输入您要搜索游戏名" @keyup="SearchByName(TypeModel.Game)" v-model="SearchGameName">
+                    <input type="text" id="txt_gamename_search" class ="release_search_input" placeholder="请输入您要搜索游戏名" @keyup="SearchByName('Game')" v-model="SearchGameName">
                     <a onclick="return game_search_quickly();" class="btn btn-dBlue1 pushl">快速查询</a>
                 </div>
                 <div id="light" class="white_content_2">
@@ -24,36 +24,36 @@ define(['jquery', 'common'], function ($, common) {
                 <div class="relcon">
                     <dl type="game">
                         <dt class="orange">请选择游戏</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称"  v-model="SearchGameName" @keyup="SearchByName(TypeModel.Game)"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称"  v-model="SearchGameName" @keyup="SearchByName('Game')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="gamelist">
-                            <a class ="" @click="ClickLoad(TypeModel.Game,item.Id,item.Name)" v-for="item in GameList">
-                                <span class="left">{{item.Name}}</span>
+                            <a class ="" @click="ClickLoad('Game',item.Id,item.Name)" v-for="item in GameList">
+                                <span class="left" name="game">{{item.Name}}</span>
                             </a>
                         </dd>
                     </dl>
                     <dl type="gtid" style="">
                         <dt class="orange">请选择商品类型</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName(TypeModel.Type)"><label style="display: none;">正在努力查询中...</label></dt>
-                        <dd id="gtidlist">
-                            <a gtid="item.Id" @click="ClickLoad(TypeModel.Type,item.Id,item.Name)" class ="" v-for="item in TypeList">
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('Type')"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dd id="goodtypelist">
+                            <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" class ="" v-for="item in GoodTypeList">
                                 <span class="left">{{item.Name}}</span>
                             </a>
                         </dd>
                     </dl>
                     <dl type="group" style="">
                         <dt class="orange">请选择所在的游戏区</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGameGroupName" @keyup="SearchByName(TypeModel.Group)"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGroupName" @keyup="SearchByName('Group')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="grouplist">
-                            <a groupid="item.Id" @click="ClickLoad(TypeModel.Group,item.Id,item.Name)" class ="" v-for="item in GroupList">
+                            <a groupid="item.Id" @click="ClickLoad('Group',item.Id,item.Name)" class ="" v-for="item in GroupList">
                                 <span class="left reduce">{{item.Name}}</span>
                             </a>
                         </dd>
                     </dl>
                     <dl type="server" style="">
                         <dt class="orange">请选择所在服务器</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGameServerName" @keyup="SearchByName(TypeModel.Server)"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchServerName" @keyup="SearchByName('Server')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="serverlist">
-                            <a serverid="item.Id" class ="reduce" @click="ClickLoad(TypeModel.Server,item.Id,item.Name)" v-for="item in ServerList">
+                            <a serverid="item.Id" class ="reduce" @click="ClickLoad('Server',item.Id,item.Name)" v-for="item in ServerList">
                                 <span class="reduce">{{item.Name}}</span>
                             </a>
                         </dd>
@@ -62,11 +62,11 @@ define(['jquery', 'common'], function ($, common) {
             </div>
             <div class="go_ahead W980">
                 <p class="orange">
-                    您当前选择的是：
-                    <span>{{$parent.GameName}}</span><span> &gt; </span>
-                    <span>{{$parent.GoodTypeName}}</span><span> &gt; </span>
-                    <span>{{$parent.GroupName}}</span><span>&gt; </span>
-                    <span>{{$parent.ServerName}}</span>
+                    您当前选择的是：{{GameInfo.ServerName}}
+                    <span>{{GameInfo.GameName}}</span><span> &gt; </span>
+                    <span>{{GameInfo.GoodTypeName}}</span><span> &gt; </span>
+                    <span>{{GameInfo.GroupName}}</span><span>&gt; </span>
+                    <span>{{GameInfo.ServerName}}</span>
                 </p>
                 <div class ="publish-btn">
                    <a href="javascript:void(0)" class ="com-btn-01 color01 btn-pub" @click="Next('step2')">好了，继续发布</a>
@@ -76,112 +76,88 @@ define(['jquery', 'common'], function ($, common) {
 	    var data={
 	        GameType: 0,
 	        GameList: [],
-	        TypeList: [],
+	        GoodTypeList: [],
 	        GroupList: [],
 	        ServerList: [],
 	        SearchGameName: "",
-	        SearchGameGroupName: "",
-	        SearchGameServerName: "",
+	        SearchGroupName: "",
+	        SearchServerName: "",
 	        SearchGoodTypeName: "",
-	        TypeModel: {
-	            Game: 0,
-	            Group: 1,
-	            Server: 2,
-	            Type: 4,
-	        },
+            GoodTypeName:"",
+            GameInfo: {//游戏信息
+                GameId: 0,
+                GameName: "",
+                GroupId: 0,
+                GroupName: "",
+                ServerId: 0,
+                ServerName: "",
+                GoodTypeId: 0,
+                GoodTypeName: "",
+            },
 	    }
 
 	    var components={
 	        name: "step1",
 	        template: html,
 	        data() {
-	            return data
+	            return data;
 	        },
 	        created() {
-	            this.GetGameList(0);
+	            var self=this;
+	            self.GetList('Game', 0);//加载游戏列表
+                //添加选中样式
+	            common.AddSelectedClass("#gamelist a", "cur");
+	            common.AddSelectedClass("#goodtypelist a", "cur");
+	            common.AddSelectedClass("#grouplist a", "cur");
+	            common.AddSelectedClass("#serverlist a", "cur");
+	            common.AddSelectedClass("[name=gametitle]", "on", function (e) {
+	                self.ChangeGameType($(e).attr('value'));
+	            });
 	        },
 	        methods: {
-	            Next:function(to){
+	            //点击下一步
+	            Next: function (to) {
+                    this.$parent.GameInfo=this.GameInfo;
 	                this.$parent.Next(to);
 	            },
-	            ClickLoad:function(type,id,name){
+                //更改游戏类型
+	            ChangeGameType:function(type){
+	                this.GameType=type;
+	                this.GetList('Game', type);
+	            },
+	            //选择框点击事件
+	            ClickLoad: function (type, id, name) {
+	                this.GameInfo[`${type}Id`]=id;
+	                this.GameInfo[`${type}Name`]=name;
 	                switch (type) {
-	                    case this.TypeModel.Game:
-	                        this. GetTypeList(id);
-	                        this.GetGroupList(id);
+	                    case "Game":
+	                        this.GetList('GoodType', id);
+	                        this.GetList('Group', id);
 	                        this.ServerList=[];
-	                        this.$parent.GameId=id;
-	                        this.$parent.GameName=name;
+	                        this.GameInfo.GroupId=0;
+	                        this.GameInfo.GroupName="";
+	                        this.GameInfo.ServerId=0
+	                        this.GameInfo.ServerName="";
+                            this.GameInfo.GoodTypeId=0;
+                            this.GameInfo.GoodTypeName="";
 	                        break;
-	                    case this.TypeModel.Group:
-	                        this.GetServerList(id);
-	                        this.$parent.GroupId=id;
-	                        this.$parent.GroupName=name;
-	                        break;
-	                    case this.TypeModel.Server:
-	                        this.$parent.ServerId=id
-	                        this.$parent.ServerName=name;
-	                        break;
-	                    case this.TypeModel.Type:
-	                        this.$parent.GoodTypeId=id;
-	                        this.$parent.GoodTypeName=name;
+	                    case "Group":
+	                        this.GetList('Server', id);
+                            this.GameInfo.ServerId=0
+	                        this.GameInfo.ServerName="";
 	                        break;
 	                }
 	            },
+	            //根据名字检索
 	            SearchByName: function (type) {
-	                switch (type) {
-	                    case this.TypeModel.Game:
-	                        this.GetGameByName(this.SearchGameName);
-	                        break;
-	                    case this.TypeModel.Group:
-	                        this.GetGroupList(this.$parent.GameId, this.SearchGameGroupName);
-	                        break;
-	                    case this.TypeModel.Server:
-	                        this.GetServerList(this.$parent.GroupId, this.SearchGameServerName);
-	                        break;
-	                    case this.TypeModel.Type:
-	                        this.GetTypeList(this.$parent.GameId, this.SearchGoodTypeName);
-	                        break;
-	                }
+	                this.GetList(type, this.GameInfo[`${Game.GetParentType(type)}Id`], this[`Search${type}Name`]);
 	            },
-	            GetGameList: function (gameType) {
-	                var self=this;
-	                $.get("/api/Game/GetGameList", { type: gameType }, function (data) {
-	                    self.GameList=data.content;
-	                });
-	            },
-	            GetGameByName: function (name) {
-	                name=name.trim();
-	                if (name) {
-	                    var self=this;
-	                    $.get("/api/Game/GetGameByName", { type: this.GameType, name: name }, function (data) {
-	                        self.GameList=data.content;
-	                    });
-	                } else {
-	                    this.GetGameList(this.GameType);
-	                }
-	            },
-	            GetTypeList: function (gameId,name) {
+	            //获取数据
+	            GetList: function (type, id, name) {
 	                var self=this;
 	                name=name||"";
-	                $.get("/api/GoodType/GetGoodType", { gameId: gameId, name, name }, function (data) {
-	                    self.TypeList=data.content;
-	                });
-	            },
-
-	            GetGroupList: function (gameId,name) {
-	                var self=this;
-	                name=name||"";
-	                $.get("/api/GameServer/GetGroup", { gameId: gameId, name: name }, function (data) {
-	                    self.GroupList=data.content;
-	                });
-	            },
-
-	            GetServerList: function (groupId, name) {
-	                var self=this;
-	                name=name||"";
-	                $.get("/api/GameServer/GetServer", { parenId: groupId, name: name }, function (data) {
-	                    self.ServerList=data.content;
+	                Game[`Get${type}List`](id, name, function (result) {
+	                    self[`${type}List`]=result.content;
 	                });
 	            },
 	        },

@@ -9,7 +9,7 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
       <div class="form-item-r">
         <input datatype="n,onenine" type="text" class="common-input role-ranking title-prefix w120 h-30" name="parameters[50232]" id="" value="" nullmsg="请输入角色等级">
         <span class="form-tips-r">
-          <i>级</i>　0≤等级≤90</span>
+          <i>级</i></span>
         <span class="Validform_checktip"></span>
       </div>
     </div>

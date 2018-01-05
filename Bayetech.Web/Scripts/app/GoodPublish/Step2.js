@@ -1,18 +1,18 @@
 ﻿//step2
-define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode'],
-    function (Vue, $, common, GoldGoldInfo, GoldAccountInfo, SecurityCode) {
+define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Common', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode'],
+    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, CommonGoodInfo, GoldAccountInfo, SecurityCode) {
         var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
       <div class="publish-box w1190">
-        <input type="hidden" name="gameId" :value="$parent.GameId">
-        <input type="hidden" name="gameName" :value="$parent.GameName">
-        <input type="hidden" name="groupId" :value="$parent.GroupId">
-        <input type="hidden" name="groupName" :value="$parent.GroupName">
-        <input type="hidden" name="serverId" :value="$parent.ServerId">
-        <input type="hidden" name="serverName" :value="$parent.ServerName">
-        <input type="hidden" name="goodTypeId" :value="$parent.GoodTypeId">
-        <input type="hidden" name="goodTypeName" :value="$parent.GoodTypeName">
+        <input type="hidden" name="gameId" :value="GameInfo.GameId">
+        <input type="hidden" name="gameName" :value="GameInfo.GameName">
+        <input type="hidden" name="groupId" :value="GameInfo.GroupId">
+        <input type="hidden" name="groupName" :value="GameInfo.GroupName">
+        <input type="hidden" name="serverId" :value="GameInfo.ServerId">
+        <input type="hidden" name="serverName" :value="GameInfo.ServerName">
+        <input type="hidden" name="goodTypeId" :value="GameInfo.GoodTypeId">
+        <input type="hidden" name="goodTypeName" :value="GameInfo.GoodTypeName">
         <div class="publish-header w980">
           <h2>
             <span>
@@ -20,10 +20,10 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
           </h2>
           <h3>
             <a class="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
-            <span>《{{$parent.GameName}}》{{$parent.GroupName}}/{{$parent.ServerName}}/{{$parent.GoodTypeName}}</span></h3>
+            <span>《{{GameInfo.GameName}}》{{GameInfo.GroupName}}/{{GameInfo.ServerName}}/{{GameInfo.GoodTypeName}}</span></h3>
           <p class="orange-stip">
             <span>7881温馨提示：</span>
-            <br>{{tip}}</p></div>
+            <br><span v-html="tip"></span></p></div>
         <div class="publish-step-01 fill-goods-info">
           <div class="pub-tit">
             <div class="line-left"></div>
@@ -151,14 +151,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>联系手机：</span></div>
                 <div class="form-item-r w170">
                   <div class="game-ipt">
-                    <input type="text" class="common-input h-30" placeholder="请输入手机号码" name="phone" id="" value="" datatype="m" nullmsg="请留下可以联系到您的手机号码" errormsg="请留下可以联系到您的手机号码"></div>
+                    <input type="text" class ="common-input h-30" placeholder="请输入手机号码" name="phone" id="phone" value="" datatype="m" nullmsg="请留下可以联系到您的手机号码" errormsg="请留下可以联系到您的手机号码"></div>
                 </div>
                 <div class="form-item-l w110">
                   <i>*</i>
                   <span>联系QQ：</span></div>
                 <div class="form-item-r game-ipt w170">
                   <div class="game-ipt">
-                    <input type="text" class="common-input h-30" placeholder="请输入QQ号码" name="qq" id="" value="" datatype="n6-11" nullmsg="请留下可以联系到您的QQ号" errormsg="请留下可以联系到您的QQ号"></div>
+                    <input type="text" class ="common-input h-30" placeholder="请输入QQ号码" name="qq" id="qq" value="" datatype="n6-11" nullmsg="请留下可以联系到您的QQ号" errormsg="请留下可以联系到您的QQ号"></div>
                 </div>
               </div>
             </div>
@@ -171,9 +171,10 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
   </form>
 </div>`;
     var data={
-        good_info_com: "",
+        good_info_com: "CommonGoodInfo",
         account_info_com: "",
-        tip: "",
+        tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
+            私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
     }
 
     var components={
@@ -183,27 +184,46 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             return data
         },
         created() {
-            var type = this.$parent.GoodTypeId;
-            var gameid = this.$parent.GameId;
-            if (type==1) {//金币
-                this.good_info_com="GoldGoldInfo";
+            //进度显示修改
+            $("[name=process]").eq(1).removeClass('bg').addClass('gc');
+            //加载组件
+            LoadComponent();
+            //变更交易方式
+            $(document).on('click', "[name=tradeType]", function () {
                 this.account_info_com="GoldAccountInfo";
-                this.tip=`1.DNF每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
+            });
+        },
+        components: {
+            CommonGoodInfo:CommonGoodInfo,
+            GoldGoodInfo: GoldGoodInfo,
+            AccountGoodInfo: AccountGoodInfo,
+            GoldAccountInfo: GoldAccountInfo,
+            SecurityCode: SecurityCode,
+        },
+        methods: {
+            //点击下一步
+            Next: function (to) {
+                this.$parent.Next(to);
+            },
+            //加载组件
+            LoadComponent: function () {
+                this.account_info_com="GoldAccountInfo",
+                this.GameInfo=this.$parent.GameInfo;
+                var type=this.GameInfo.GoodTypeId;
+                var gameid=this.GameInfo.GameId;
+                if (type==1) {//金币
+                    this.good_info_com="GoldGoodInfo";
+                    //this.account_info_com="GoldAccountInfo";
+                    this.tip=`1.DNF每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
               2.如果您使用多角色发货，请在“游戏角色名”处填写每个角色发货的金额，例：A角色3000W，B角色4000W。<br>
               3.因游戏限制，请绑定正确的密保工具。<br>
               涉及钱财莫大意，电话确认才放心，谨防诈骗！`;
-            }else if(type == 3){
-
-            }
-        },
-        components: {
-            "GoldGoldInfo": GoldGoldInfo,
-            "GoldAccountInfo": GoldAccountInfo,
-            "SecurityCode": SecurityCode,
-        },
-        methods: {
-            Next: function (to) {
-                this.$parent.Next(to);
+                } else if (type==3) {//账号
+                    this.good_info_com="AccountGoodInfo";
+                    this.tip=`为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟7天打款，此期间请勿修改帐号资料，否则将号财两空。<br>
+                如果您出售的帐号出现找回情况，我们将把您在7881登记的所有信息提供给买家，由买家在各大网站公布并向公安机关报案。<br>
+                被骗用户都有出现被假客服联系的情况，因此有客服联系时，可点击【 客服验证中心】验证客服真假或者联系QQ 4001877881为您验证客服真假。`;
+                }
             },
         },
     };

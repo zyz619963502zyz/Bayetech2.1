@@ -17,10 +17,17 @@ namespace Bayetech.Web.Controllers
         /// <param name="type">类型</param>
         /// <param name="count">条数</param>
         /// <returns></returns>
-        public JObject GetGameList(int type)
+        public JObject GetGameList(int type,string name=null)
         {
-            var data = gameService.GetList(g=> g.Platform == type && !g.IsDelete);
-            return data;
+            name = Core.Common.Trim(name);
+            if (string.IsNullOrEmpty(name))
+            {
+                return gameService.GetList(g => g.Platform == type && !g.IsDelete);
+            }
+            else
+            {
+                return gameService.GetList(g => g.Platform == type && g.Name.Contains(name) && !g.IsDelete);
+            }
         }
 
         /// <summary>
