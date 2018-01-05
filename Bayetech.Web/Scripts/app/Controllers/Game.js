@@ -8,6 +8,13 @@ define(['jquery', 'common'], function () {
             fn(data);
         });
     };
+    // 根据字母获取游戏列表（不传letter取所有游戏）
+    Game.GetGameListByLetter=function (type, letter,fn) {
+        letter=letter||"";
+        $.get("/api/Game/GetGameListByHotAndLetter", { type: type, str: letter }, function (data) {
+            fn(data);
+        });
+    };
     // 获取游戏区服列表
     Game.GetGroupList=function (gameId, name, fn) {
         name=name||"";

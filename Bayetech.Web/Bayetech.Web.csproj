@@ -688,9 +688,6 @@
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
-    <Content Include="Page\Good\Publish\Step1.html" />
-    <Content Include="Page\Good\Publish\Step2.html" />
-    <Content Include="Page\Good\Publish\Step3.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />

@@ -171,7 +171,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
   </form>
 </div>`;
     var data={
-        good_info_com: "CommonGoodInfo",
+        good_info_com: "UniversalGoodInfo",
         account_info_com: "",
         tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
@@ -194,7 +194,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             });
         },
         components: {
-            CommonGoodInfo:CommonGoodInfo,
+            UniversalGoodInfo: UniversalGoodInfo,
             GoldGoodInfo: GoldGoodInfo,
             AccountGoodInfo: AccountGoodInfo,
             GoldAccountInfo: GoldAccountInfo,

@@ -55,11 +55,13 @@ define(["common"], function (common) {
             return data;
         },
         methods: {
+            //更改游戏类型
             ChangeType: function (type) {
                 this.Type=type;
                 this.GetList(type);
                 this.SearchName="";
             },
+            //获取数据
             GetList: function (type, letter) {
                 letter=letter||"";
                 var _self=this;
@@ -67,6 +69,7 @@ define(["common"], function (common) {
                     _self.List=data.content;
                 });
             },
+            //按名称检索
             SearchByName: function () {
                 var _self=this;
                 $.get("/api/Game/GetGameByName", { type: this.Type, name: this.SearchName }, function (data) {
