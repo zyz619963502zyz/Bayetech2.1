@@ -135,7 +135,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         _self.$data.mallGoodInfo = data.content.mallGoodInfo;
 
                         _self.$root.$emit('GoodInfoHere', data);//触发事件并传播
-                    }
+                    } 
                 });
             },
             GetNavBar() {
