@@ -685,8 +685,6 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
-    <Content Include="Page\DLService\DLList.html" />
-    <Content Include="Page\DLService\index.html" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
@@ -732,7 +730,7 @@
     <Content Include="Scripts\app\GoodInfo\Nav.js" />
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
-    <Content Include="Scripts\app\GoodPublish\GoodInfo\Common.js" />
+    <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
     <Content Include="Scripts\app\GoodPublish\AccountInfo\Gold.js" />
     <Content Include="Scripts\app\GoodPublish\AccountInfo\SecurityCode.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
