@@ -184,10 +184,8 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             return data
         },
         created() {
-            //进度显示修改
-            $("[name=process]").eq(1).removeClass('bg').addClass('gc');
             //加载组件
-            LoadComponent();
+            this.LoadComponent();
             //变更交易方式
             $(document).on('click', "[name=tradeType]", function () {
                 this.account_info_com="GoldAccountInfo";

@@ -47,6 +47,12 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
                 //下一步
 	            Next: function (to) {
 	                switch (to) {
+	                    case "step1":
+	                        //进度显示修改
+	                        $("[name=process]").removeClass('gc').addClass('bg');
+	                        $("[name=process]").eq(0).removeClass('bg').addClass('gc');
+	                        this.Step=step1;
+	                        break;
 	                    case "step2":
 	                        if (!this.GameInfo.GameId) {
 	                            alert("请选择游戏！");
@@ -64,9 +70,13 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                            alert("交易类型！");
 	                            return;
 	                        }
+	                        //进度显示修改
+	                        $("[name=process]").eq(1).removeClass('bg').addClass('gc');
 	                        this.Step=step2;
 	                        break;
 	                    case "step3":
+	                        //进度显示修改
+	                        $("[name=process]").eq(2).removeClass('bg').addClass('gc');
 	                        debugger;
 	                        var slef=this;
 	                        var data=$("form").serialize();
@@ -80,7 +90,8 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                    default:
 	                        this.Step=step1;
 	                        break;
-                    }
+	                }
+	                window.scrollTo(0, 0);//返回顶部
 	            },
 	        },
 	    });
