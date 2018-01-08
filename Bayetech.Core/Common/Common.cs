@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json.Linq;
+using System.Xml.Linq;
 
 namespace Bayetech.Core
 {
@@ -176,5 +178,14 @@ namespace Bayetech.Core
         /// <param name="str"></param>
         /// <returns></returns>
         public static string Trim(string str) => str == null ? "" : str.Trim();
+
+
+        public static JObject PackageJObect(bool bol,object result= null)
+        {
+            var jObect = new JObject();
+            jObect.Add("result", bol);
+            jObect.Add("content", JToken.FromObject(result));
+            return jObect;
+        }
     }
 }

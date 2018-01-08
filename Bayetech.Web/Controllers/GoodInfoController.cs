@@ -107,9 +107,26 @@ namespace Bayetech.Web.Controllers
             return result;
         }
 
+        /// <summary>
+        /// 获取商品需要的账号输入框
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <param name="goodTypeId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetAccountComponents(int gameId, int goodTypeId)
+        {
+            var list = service.GetAccountComponents(gameId, goodTypeId);
+            return Core.Common.PackageJObect(list.Count > 0, list);
+        }
+
         [HttpPost]
         public bool PublicGood(JObject json)
         {
+            MallGoodInfo goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>(json.First.Path);
+            var goodInfo2 = new MallGoodInfo();
+            var gameId = json.Property("gameId").Value;
+            var propertyList = new List<GoodProperty>();
 
             return false;
         }

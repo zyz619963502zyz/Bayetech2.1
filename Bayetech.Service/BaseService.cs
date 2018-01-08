@@ -60,17 +60,9 @@ namespace Bayetech.Service
         public JObject GetObject(object keyValue)
         {
             var jObect = new JObject();
+
             var result = repository.FindEntity<TEntity>(keyValue);
-            if (result!=null)
-            {
-                jObect.Add(ResultInfo.Result, true);
-                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
-            }
-            else
-            {
-                jObect.Add(ResultInfo.Result, false);
-            }
-            return jObect;
+            return Common.PackageJObect(result != null, result);
         }
 
         /// <summary>
@@ -82,16 +74,7 @@ namespace Bayetech.Service
         {
             var jObect = new JObject();
             var result = repository.IQueryable<TEntity>(predicate).ToList();
-            if (result.Count > 0)
-            {
-                jObect.Add(ResultInfo.Result, true);
-                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
-            }
-            else
-            {
-                jObect.Add(ResultInfo.Result, false);
-            }
-            return jObect;
+            return Common.PackageJObect(result.Count > 0, result);
         }
 
         /// <summary>
@@ -103,16 +86,7 @@ namespace Bayetech.Service
         {
             var jObect = new JObject();
             var result = repository.FindList(predicate, GetDefaultPagination(page));
-            if (result.Count > 0)
-            {
-                jObect.Add(ResultInfo.Result, true);
-                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
-            }
-            else
-            {
-                jObect.Add(ResultInfo.Result, false);
-            }
-            return jObect;
+            return Common.PackageJObect(result.Count > 0, result);
         }
 
         /// <summary>

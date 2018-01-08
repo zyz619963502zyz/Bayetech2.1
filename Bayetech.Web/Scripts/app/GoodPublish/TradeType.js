@@ -23,7 +23,7 @@ define(['jquery', 'common'], function ($, common) {
                               <p>商品被购买后，7881客服会在第一时间通过电话或微信通知您，由您自己登陆游戏，和买家完成交易。</p>
                           </dd>
                       </dl>
-                      <input type="hidden" name="tradeType" :value="tradeType">
+                      <input type="hidden" name="TradeType": value="tradeType">
                   </div>`;
     var components={
         props: ['fn'],

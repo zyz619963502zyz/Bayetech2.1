@@ -135,5 +135,21 @@ namespace Bayetech.Service.Services
             }
             return ret;
         }
+
+        /// <summary>
+        /// 获取商品需要的账号输入框
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <param name="goodTypeId"></param>
+        /// <returns></returns>
+        public List<GoodProperty> GetAccountComponents(int gameId, int goodTypeId)
+        {
+            var db = GetContext();
+            var query = (from r in db.Relationship
+                         join p in db.GoodProperty on r.Key equals p.Id
+                         where r.Type == 2 && r.ParentKey == gameId && r.Value == goodTypeId.ToString()
+                         select p);
+            return query.ToList();
+        }
     }
 }

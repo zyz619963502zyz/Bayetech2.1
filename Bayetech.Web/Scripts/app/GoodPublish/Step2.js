@@ -38,8 +38,20 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             <div class="steptit">02-填写账号资料</div>
             <div class="line-right"></div>
           </div>
-          <div class="account-info-con account-info-con">
-            <component class="common-form height-30" v-bind:is="account_info_com"></component>
+          <div class ="account-info-con account-info-con">
+               <div class ="common-form height-30" id="gameAccountInfo">
+                   <div class ="form-item clearfix" v-for="item in AccountInfoInputList">
+                       <div class="form-item-l">
+                           <i>*</i>
+                           <span>{{item.Name}}：</span>
+                       </div>
+                       <div class="form-item-r">
+                           <div class="game-ipt">
+                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Value" value="" :placeholder="'请输入'+item.Name">
+                           </div>
+                       </div>
+                   </div>
+               </div>
           </div>
         </div>
         <div class="publish-step-03 perfect-deal-info">
@@ -56,7 +68,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>商品有效期：</span></div>
                 <div class="form-item-r">
                   <div class="comselect h-30">
-                    <select>
+                    <select id="GoodValidityTime" name="GoodValidityTime">
                       <option value="">选择有效期</option>
                       <option value="1">1天</option>
                       <option value="3">3天</option>
@@ -151,14 +163,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>联系手机：</span></div>
                 <div class="form-item-r w170">
                   <div class="game-ipt">
-                    <input type="text" class ="common-input h-30" placeholder="请输入手机号码" name="phone" id="phone" value="" datatype="m" nullmsg="请留下可以联系到您的手机号码" errormsg="请留下可以联系到您的手机号码"></div>
+                    <input type="text" class ="common-input h-30" placeholder="请输入手机号码" name="Phone" id="Phone" value="" datatype="m" nullmsg="请留下可以联系到您的手机号码" errormsg="请留下可以联系到您的手机号码"></div>
                 </div>
                 <div class="form-item-l w110">
                   <i>*</i>
                   <span>联系QQ：</span></div>
                 <div class="form-item-r game-ipt w170">
                   <div class="game-ipt">
-                    <input type="text" class ="common-input h-30" placeholder="请输入QQ号码" name="qq" id="qq" value="" datatype="n6-11" nullmsg="请留下可以联系到您的QQ号" errormsg="请留下可以联系到您的QQ号"></div>
+                    <input type="text" class ="common-input h-30" placeholder="请输入QQ号码" name="QQ" id="QQ" value="" datatype="n6-11" nullmsg="请留下可以联系到您的QQ号" errormsg="请留下可以联系到您的QQ号"></div>
                 </div>
               </div>
             </div>
@@ -170,9 +182,19 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
     </div>
   </form>
 </div>`;
+
+   var SecurityCode=` <div class="form-item clearfix" style="z-index: 1;">
+      <div class="form-item-l">
+        <i>*</i>
+        <span>安全交易码：</span></div>
+      <div class="form-item-r" style="z-index: 1;">
+        <div class="game-ipt">
+          <input type="text" name="tradeCode" id="" value="" placeholder="请输入安全交易码" maxlength="16" class="common-input h-30"></div>
+      </div>
+    </div>`;
     var data={
         good_info_com: "UniversalGoodInfo",
-        account_info_com: "",
+        AccountInfoInputList: [],
         tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
     }
@@ -184,44 +206,51 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             return data
         },
         created() {
+            this.GameInfo=this.$parent.GameInfo;
             //加载组件
-            this.LoadComponent();
+            this.LoadGoodInfo();
+            this.LoadAccountInfo(this.GameInfo.GameId, this.GameInfo.GoodTypeId);
             //变更交易方式
             $(document).on('click', "[name=tradeType]", function () {
-                this.account_info_com="GoldAccountInfo";
+                this.account_info_com=SecurityCode;
             });
         },
         components: {
             UniversalGoodInfo: UniversalGoodInfo,
             GoldGoodInfo: GoldGoodInfo,
             AccountGoodInfo: AccountGoodInfo,
-            GoldAccountInfo: GoldAccountInfo,
-            SecurityCode: SecurityCode,
         },
         methods: {
             //点击下一步
             Next: function (to) {
                 this.$parent.Next(to);
             },
-            //加载组件
-            LoadComponent: function () {
-                this.account_info_com="GoldAccountInfo",
-                this.GameInfo=this.$parent.GameInfo;
+            //加载商品信息模块
+            LoadGoodInfo: function () {
                 var type=this.GameInfo.GoodTypeId;
                 var gameid=this.GameInfo.GameId;
                 if (type==1) {//金币
                     this.good_info_com="GoldGoodInfo";
                     //this.account_info_com="GoldAccountInfo";
-                    this.tip=`1.DNF每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
+                    this.tip=`1.${this.GameInfo.GameName}每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
               2.如果您使用多角色发货，请在“游戏角色名”处填写每个角色发货的金额，例：A角色3000W，B角色4000W。<br>
               3.因游戏限制，请绑定正确的密保工具。<br>
               涉及钱财莫大意，电话确认才放心，谨防诈骗！`;
                 } else if (type==3) {//账号
                     this.good_info_com="AccountGoodInfo";
-                    this.tip=`为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟7天打款，此期间请勿修改帐号资料，否则将号财两空。<br>
+                    this.tip=`为保障${this.GameInfo.GameName}交易安全，您出售的帐号将进行延迟7天打款，此期间请勿修改帐号资料，否则将号财两空。<br>
                 如果您出售的帐号出现找回情况，我们将把您在7881登记的所有信息提供给买家，由买家在各大网站公布并向公安机关报案。<br>
                 被骗用户都有出现被假客服联系的情况，因此有客服联系时，可点击【 客服验证中心】验证客服真假或者联系QQ 4001877881为您验证客服真假。`;
-                }
+                };
+            },
+            //加载账号信息模块
+            LoadAccountInfo: function (gameId, goodTypeId) {
+                var self=this;
+                $.get("/api/GoodInfo/GetAccountComponents", { gameId: gameId, goodTypeId: goodTypeId }, function (data) {
+                    if (data) {
+                        self.AccountInfoInputList=data.content;
+                    }
+                });
             },
         },
     };

@@ -48,9 +48,6 @@ define(['jquery', 'common'], function ($, common) {
     var components={
         name: "step3",
         template: html,
-        created() {
-
-        },
         methods: {
             //点击下一步
             Next: function (to) {
