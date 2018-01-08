@@ -86,7 +86,7 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
-                    ResultPage.datas = db.FindList(expressions, page == null?GetDefaultPagination("OrderNo"):page,out page).ToList();
+                    ResultPage.datas = db.FindList(page == null?GetDefaultPagination("OrderNo"):page,out page,expressions).ToList();
                 }
                 else
                 {

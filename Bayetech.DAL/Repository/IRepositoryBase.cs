@@ -29,8 +29,7 @@ namespace Bayetech.DAL
         IQueryable<TEntity> IQueryable<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
         List<TEntity> FindList<TEntity>(string strSql) where TEntity : class;
         List<TEntity> FindList<TEntity>(string strSql, DbParameter[] dbParameter) where TEntity : class;
-        List<TEntity> FindList<TEntity>(Pagination pagination) where TEntity : class,new();
-        List<TEntity> FindList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination) where TEntity : class,new();
-        List<TEntity> FindList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination, out Pagination newPage) where TEntity : class, new();
+        List<TEntity> FindList<TEntity>(Pagination pagination,Expression<Func<TEntity, bool>> predicate) where TEntity : class,new();
+        List<TEntity> FindList<TEntity>(Pagination pagination, out Pagination newPage,Expression<Func<TEntity, bool>> predicate) where TEntity : class, new();
     }
 }

@@ -32,6 +32,10 @@
         <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="12.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="14.375" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="14.375" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="16.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallWorkerType" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLType" Width="1.5" PointX="16.375" PointY="16.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="12.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

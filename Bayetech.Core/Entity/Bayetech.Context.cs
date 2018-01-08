@@ -86,6 +86,14 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
 
+    public virtual DbSet<MallDLInfo> MallDLInfo { get; set; }
+
+    public virtual DbSet<MallWorkerType> MallWorkerType { get; set; }
+
+    public virtual DbSet<MallDLType> MallDLType { get; set; }
+
+    public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
+
 }
 
 }
