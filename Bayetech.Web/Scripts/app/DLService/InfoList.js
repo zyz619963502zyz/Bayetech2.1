@@ -25,7 +25,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var data = {
         PicTitle: "代练套餐",
         PicDetailTitle: "平台的代练套餐数量",
-        PicNum: "3841",
+        PicNum: 3841,
         ListTitle: "最新代练套餐",
         ListObj: []
     }
