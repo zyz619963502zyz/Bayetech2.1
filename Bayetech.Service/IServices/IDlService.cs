@@ -8,7 +8,7 @@ namespace Bayetech.Service.IServices
     {
         JObject GetNewDlInfoList(JObject json);
 
-        JObject GetDlInfoList(JObject json);
+        JObject GetDlInfoList();
 
     }
 }

@@ -30,6 +30,12 @@ namespace Bayetech.DAL
     {
         private BayetechEntities dbcontext = new BayetechEntities();
         private DbTransaction dbTransaction { get; set; }
+
+        public BayetechEntities GetContext()
+        {
+            return dbcontext;
+        }
+
         public IRepositoryBase BeginTrans()
         {
             DbConnection dbConnection = ((IObjectContextAdapter)dbcontext).ObjectContext.Connection;
@@ -257,23 +263,29 @@ namespace Bayetech.DAL
         /// <returns></returns>
         public JObject GetList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination, out Pagination NewPage) where TEntity : class, new()
         {
-            var jObect = new JObject();
-            var result = FindList(predicate, pagination,out NewPage);
-            if (result.Count > 0)
+            var ret = new JObject();
+            var result = new List<TEntity>() ;
+            if (pagination!=null)
             {
-                jObect.Add(ResultInfo.Result, true);
-                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
+                 result = FindList(predicate, pagination, out NewPage);
             }
             else
             {
-                jObect.Add(ResultInfo.Result, false);
+                 result = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable().ToList();
             }
-            return jObect;
-        }
 
-        public BayetechEntities GetContext()
-        {
-            return dbcontext;
+            //查询结果集封装
+            if (result.Count > 0)
+            {
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JToken.FromObject(result));
+            }
+            else
+            {
+                ret.Add(ResultInfo.Result, false);
+            }
+            NewPage = null;
+            return ret;
         }
     }
 }
