@@ -7,6 +7,7 @@
 
 using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -243,6 +244,31 @@ namespace Bayetech.DAL
             tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
             NewPage = pagination;
             return tempData.ToList();
+        }
+
+        /// <summary>
+        /// 通用获取JObject类型的内容不适合列表,
+        /// 对上面方法FindList进行进一步封装，供列表使用
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="pagination"></param>
+        /// <param name="NewPage"></param>
+        /// <returns></returns>
+        public JObject GetList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination, out Pagination NewPage) where TEntity : class, new()
+        {
+            var jObect = new JObject();
+            var result = FindList(predicate, pagination,out NewPage);
+            if (result.Count > 0)
+            {
+                jObect.Add(ResultInfo.Result, true);
+                jObect.Add(ResultInfo.Content, JToken.FromObject(result));
+            }
+            else
+            {
+                jObect.Add(ResultInfo.Result, false);
+            }
+            return jObect;
         }
 
         public BayetechEntities GetContext()
