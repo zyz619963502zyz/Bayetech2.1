@@ -1,10 +1,15 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bayetech.Core.Entity;
+using Bayetech.Service;
+using Bayetech.Service.IServices;
+using Newtonsoft.Json.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
 {
     public class DlController : ApiController
     {
+        IDlService IDlian = new DlService();
+
         /// <summary>
         /// 获取最新的列表
         /// </summary>
@@ -13,6 +18,7 @@ namespace Bayetech.Web.Controllers
         public JObject GetNewDlInfoList(JObject json)
         {
             JObject ret = new JObject();
+            IDlian.GetNewDlInfoList(json);
             return ret;
         }
 

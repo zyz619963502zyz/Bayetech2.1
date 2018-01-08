@@ -49,7 +49,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate,string page)
         {
-            return repository.FindList<TEntity>(predicate,GetDefaultPagination(page));
+            return repository.FindList<TEntity>(GetDefaultPagination(page), predicate);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate, string page)
         {
             var jObect = new JObject();
-            var result = repository.FindList(predicate, GetDefaultPagination(page));
+            var result = repository.FindList(GetDefaultPagination(page), predicate);
             if (result.Count > 0)
             {
                 jObect.Add(ResultInfo.Result, true);

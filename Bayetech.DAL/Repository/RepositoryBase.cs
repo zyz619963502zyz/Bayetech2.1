@@ -144,53 +144,19 @@ namespace Bayetech.DAL
         }
         
         /// <summary>
-        /// 无条件直接分页查找
-        /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="pagination"></param>
-        /// <returns></returns>
-        public List<TEntity> FindList<TEntity>(Pagination pagination) where TEntity : class,new()
-        {
-            bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
-            string[] _order = pagination.order.Split(',');
-            MethodCallExpression resultExp = null;
-            var tempData = dbcontext.Set<TEntity>().AsQueryable();
-            foreach (string item in _order)
-            {
-                string _orderPart = item;
-                _orderPart = Regex.Replace(_orderPart, @"\s+", " ");
-                string[] _orderArry = _orderPart.Split(' ');
-                string _orderField = _orderArry[0];
-                bool sort = isAsc;
-                if (_orderArry.Length == 2)
-                {
-                    isAsc = _orderArry[1].ToUpper() == "ASC" ? true : false;
-                }
-                var parameter = Expression.Parameter(typeof(TEntity), "t");
-                var property = typeof(TEntity).GetProperty(_orderField);
-                var propertyAccess = Expression.MakeMemberAccess(parameter, property);
-                var orderByExp = Expression.Lambda(propertyAccess, parameter);
-                resultExp = Expression.Call(typeof(Queryable), isAsc ? "OrderBy" : "OrderByDescending", new Type[] { typeof(TEntity), property.PropertyType }, tempData.Expression, Expression.Quote(orderByExp));
-            }
-            tempData = tempData.Provider.CreateQuery<TEntity>(resultExp);
-            pagination.records = tempData.Count();
-            tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
-            return tempData.ToList();
-        }
-
-        /// <summary>
-        /// 不需要返回分页的FindList
+        /// 分页查找，返回List
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="predicate"></param>
         /// <param name="pagination"></param>
         /// <returns></returns>
-        public List<TEntity> FindList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination) where TEntity : class,new()
+        public List<TEntity> FindList<TEntity>(Pagination pagination,Expression<Func<TEntity, bool>> predicate = null) where TEntity : class,new()
         {
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
             string[] _order = pagination.order.Split(',');
             MethodCallExpression resultExp = null;
-            var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
+            var tempData = predicate == null? dbcontext.Set<TEntity>().AsQueryable()
+                 : dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
             foreach (string item in _order)
             {
                 string _orderPart = item;
@@ -222,7 +188,7 @@ namespace Bayetech.DAL
         /// <param name="pagination"></param>
         /// <param name="NewPage"></param>
         /// <returns></returns>
-        public List<TEntity> FindList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination, out Pagination NewPage) where TEntity : class, new()
+        public List<TEntity> FindList<TEntity>(Pagination pagination, out Pagination NewPage,Expression<Func<TEntity, bool>> predicate = null) where TEntity : class, new()
         {
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
             string[] _order = pagination.order.Split(',');
@@ -265,16 +231,11 @@ namespace Bayetech.DAL
         {
             var ret = new JObject();
             var result = new List<TEntity>() ;
-            if (pagination!=null)
-            {
-                 result = FindList(predicate, pagination, out NewPage);
-            }
-            else
-            {
-                 result = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable().ToList();
-            }
 
-            //查询结果集封装
+            result = FindList(pagination, out NewPage, predicate);
+
+
+            //查询结果集
             if (result.Count > 0)
             {
                 ret.Add(ResultInfo.Result, true);

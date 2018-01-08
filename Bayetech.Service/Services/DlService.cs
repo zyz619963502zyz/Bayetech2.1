@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class DlService : IDlService
     {
@@ -27,7 +27,8 @@ namespace Bayetech.Service.Services
                 {
                     Random ran = new Random();
                     Pagination page = new Pagination();
-                    page.order = "";
+                    page.order = "CreatTime";
+                    page.sord = "desc";
                     page.rows = 5;
                     page.page = ran.Next(1, 20);
                     page.records = 1000;
@@ -46,7 +47,7 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public JObject GetDlInfoList()
+        public JObject GetDlInfoList(JObject json)
         {
             try
             {
