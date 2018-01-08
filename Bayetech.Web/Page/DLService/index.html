@@ -5,12 +5,16 @@
     <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <title>游戏联盟&#28216;&#25103;&#20195;&#32451;&#24179;&#21488;|&#22320;&#19979;&#22478;&#19982;&#21191;&#22763;&#20195;&#32451;|DNF&#20195;&#32451;|&#31561;&#32423;&#20195;&#32451;|&#28145;&#28170;&#20195;&#32451;</title>
+    <title>&#28216;&#25103;&#20195;&#32451;&#24179;&#21488;|&#22320;&#19979;&#22478;&#19982;&#21191;&#22763;&#20195;&#32451;|DNF&#20195;&#32451;|&#31561;&#32423;&#20195;&#32451;|&#28145;&#28170;&#20195;&#32451;</title>
     <meta name="keywords" content="代练" />
     <meta name="description" content="代练" />
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css" />
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/dnf-index.css" />
+
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/DLService/index.js"></script>
 </head>
 <body style="background: #fff;">
     <!-- 通用顶部 Start -->
@@ -71,7 +75,6 @@
                                 <a href="http://www.7881.com/helpCenter.html" rel="nofollow">帮助中心</a>
                                 <a href="http://www.7881.com/articlelist4-0-0.html" rel="nofollow">资讯中心</a>
                                 <a href="http://www.7881.com/tradesafe.html" rel="nofollow">安全中心</a>
-
                             </div>
                         </div>
                     </li>
@@ -137,8 +140,7 @@
                         <div class="dnfdl-percenter-item p-player p-studio" style="display: none">
                             <h5><span>作为打手</span><a href="/goods/b/publish" target="_blank">发套餐<em>></em></a></h5>
                             <h4>
-                                <img src="http://pic.7881.com/7881-2016/images/dl-dnf/tiao-02.png" width="210" height="8"
-                                     alt="" />
+                                <img src="http://pic.7881.com/7881-2016/images/dl-dnf/tiao-02.png" width="210" height="8" alt="" />
                             </h4>
                             <div class="dnfdl-percenter-dlbox">
                                 <dl>
@@ -433,8 +435,8 @@
     </div>
     <!-- adv End -->
     <!-- newres Start -->
-    <div class="newres clearfix">
-        <div class="newres-item clearfix">
+    <div class="newres clearfix" id="DlInfo">
+        <!--<div class="newres-item clearfix">
             <div class="newres-item-l">
                 <h2>代练套餐</h2>
                 <h3>平台的代练套餐数量</h3>
@@ -475,7 +477,10 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>-->
+
+        <infolist></infolist>
+
         <div class="newres-item newres-item-02 clearfix">
             <div class="newres-item-l">
                 <h2>寻找代练</h2>
@@ -640,7 +645,7 @@
     <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/7881-2016.js"></script>
     <!-- 通用Js库 End -->
     <!--业务js开始-->
-    <script type="text/javascript" src="/static/js/home/home.js"></script>
+    <!--<script type="text/javascript" src="/static/js/home/home.js"></script>-->
     <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/slide.js"></script>
     <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/dl-dnf/dnf-index.js"></script>
     <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/float-menu-mm.js"></script>

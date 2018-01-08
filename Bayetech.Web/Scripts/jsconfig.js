@@ -72,6 +72,7 @@ var jsconfig = {
         'VueRouter': 'Scripts/vue-router.min',
         'game-list': 'Scripts/app/Game/List',
         'GameController': 'Scripts/app/Controllers/Game',
+        'InfoList':'Scripts/app/DLService/InfoList',
     },
     map: {
         '*': {

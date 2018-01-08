@@ -1,7 +1,9 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
@@ -18,7 +20,14 @@ namespace Bayetech.Web.Controllers
         public JObject GetNewDlInfoList(JObject json)
         {
             JObject ret = new JObject();
-            IDlian.GetNewDlInfoList(json);
+            Random ran = new Random();
+            Pagination page = new Pagination();
+            page.order = "CreatTime";
+            page.sord = "desc";
+            page.rows = 5;
+            page.page = ran.Next(1, 20);
+            page.records = 1000;
+            IDlian.GetNewDlInfoList(page);
             return ret;
         }
 
