@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         </div>`
 
     //Api
-    var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
+    var DlListUrl = "/api/Dl/GetNewDlInfoList"; //查询列表
     //筛选和列表整合数据
     var data = {
         PicTitle: "代练套餐",
@@ -38,12 +38,11 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         },
         created() {
             var self = this;
-            self.findList(); 
         },
         methods: {
             findList() {
                 var self = this;
-                common.postWebJson(GoodListUrl,self.SearchParam, function (data) {
+                common.postWebJson(DlListUrl,self.SearchParam, function (data) {
                     if (data.result) {
                         self.ListObj=data.content.datas;
                     }

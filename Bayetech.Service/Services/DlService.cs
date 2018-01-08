@@ -19,19 +19,12 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public JObject GetNewDlInfoList(JObject json)
+        public JObject GetNewDlInfoList(Pagination page)
         {
             try
             {
                 using (var db = new RepositoryBase())
                 {
-                    Random ran = new Random();
-                    Pagination page = new Pagination();
-                    page.order = "CreatTime";
-                    page.sord = "desc";
-                    page.rows = 5;
-                    page.page = ran.Next(1, 20);
-                    page.records = 1000;
                     JObject ret = db.GetList<vw_MallDLInfo>(c => c.GameId == 1, page, out page);
                     return ret;
                 }
