@@ -37,12 +37,13 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             return data;
         },
         created() {
-            var self = this;
+            var self=this;
+            self.findList();
         },
         methods: {
             findList() {
-                var self = this;
-                common.postWebJson(DlListUrl,self.SearchParam, function (data) {
+                var self=this;
+                common.postWebJson(DlListUrl, self.$data , function (data) {
                     if (data.result) {
                         self.ListObj=data.content.datas;
                     }

@@ -10,13 +10,14 @@ namespace Bayetech.Web.Controllers
 {
     public class DlController : ApiController
     {
-        IDlService IDlian = new DlService();
+        IDlService Dlian = new DlService();
 
         /// <summary>
         /// 获取最新的列表
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject GetNewDlInfoList(JObject json)
         {
             JObject ret = new JObject();
@@ -25,9 +26,10 @@ namespace Bayetech.Web.Controllers
             page.order = "CreatTime";
             page.sord = "desc";
             page.rows = 5;
-            page.page = ran.Next(1, 20);
+            //page.page = ran.Next(1, 20);//以后改20页随机，现在定位第一页
+            page.page = 1;
             page.records = 1000;
-            IDlian.GetNewDlInfoList(page);
+            ret = Dlian.GetNewDlInfoList(page);
             return ret;
         }
 
@@ -36,6 +38,7 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject GetDlInfoList(JObject json)
         {
             JObject ret = new JObject();
