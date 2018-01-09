@@ -86,11 +86,11 @@ namespace Bayetech.Service.Services
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }
-                    ResultPage.datas = db.FindList(page == null?GetDefaultPagination("OrderNo"):page,out page,expressions).ToList();
+                    ResultPage.datas = db.FindList(page == null? Pagination.GetDefaultPagination("OrderNo"):page,out page,expressions).ToList();
                 }
                 else
                 {
-                    ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? GetDefaultPagination("OrderNo") : page).ToList();
+                    ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? Pagination.GetDefaultPagination("OrderNo") : page).ToList();
                 }
 
                 ////查询结果封装

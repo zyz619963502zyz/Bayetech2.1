@@ -23,9 +23,8 @@ namespace Bayetech.Core.Entity
         public string GameService { get; set; }
         public Nullable<int> GameGroupId { get; set; }
         public Nullable<int> GameServerId { get; set; }
-        public Nullable<int> TotalNum { get; set; }
+        public Nullable<int> Stock { get; set; }
         public string UserName { get; set; }
-        public Nullable<int> BuyNum { get; set; }
         public Nullable<int> HistoryAccount { get; set; }
         public Nullable<int> ListOrder { get; set; }
         public Nullable<System.DateTime> EditTime { get; set; }

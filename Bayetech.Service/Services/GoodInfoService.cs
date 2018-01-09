@@ -78,22 +78,22 @@ namespace Bayetech.Service.Services
                 JObject ret = new JObject();
                 if (!string.IsNullOrEmpty(goodNo))
                 {
-                    List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(GetDefaultPagination("GoodInfoId"),c =>c.GoodInfoId == goodNo).ToList();
+                    List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(Pagination.GetDefaultPagination("GoodInfoId"),c =>c.GoodInfoId == goodNo).ToList();
                     if (goodInfo != null)
                     {
                         ret.Add(ResultInfo.Result, true);
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
+                        ret.Add(ResultInfo.Content, JToken.FromObject(goodInfo));
                     }
                     else
                     {
                         ret.Add(ResultInfo.Result,false);
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
+                        ret.Add(ResultInfo.Content, JToken.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }
                 else
                 {
                     ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空,请重新输入!"));
+                    ret.Add(ResultInfo.Content, JToken.FromObject("商品编号为空,请重新输入!"));
                 }
                 return ret;
             }
@@ -118,12 +118,12 @@ namespace Bayetech.Service.Services
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))//找到了此笔商品编号的数据。
                     {
                         ret.Add(ResultInfo.Result, true);
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(goodInfo));
+                        ret.Add(ResultInfo.Content, JToken.FromObject(goodInfo));
                     }
                     else
                     {
                         ret.Add(ResultInfo.Result, false);
-                        ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
+                        ret.Add(ResultInfo.Content, JToken.FromObject(Properties.Resources.Reminder_NoInfo));
                     }
                 }
                 else
@@ -151,5 +151,8 @@ namespace Bayetech.Service.Services
                          select p);
             return query.ToList();
         }
+
+
+        
     }
 }

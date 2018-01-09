@@ -49,6 +49,23 @@ namespace Bayetech.Core
                 }
             }
         }
+
+
+        /// <summary>
+        /// 默认分页参数
+        /// </summary>
+        /// <param name="sidx">分页字段</param>
+        /// <returns></returns>
+        public static Pagination GetDefaultPagination(string sidx, string sord = "asc")
+        {
+            Pagination pages = new Pagination();
+            pages.rows = 9999999;
+            pages.page = 1;
+            pages.order = sidx;
+            pages.sord = sord;
+            pages.records = 9999999;
+            return pages;
+        }
     }
 
     /// <summary>
@@ -64,4 +81,5 @@ namespace Bayetech.Core
 
         public Pagination pagination { get; set; }
     }
+
 }

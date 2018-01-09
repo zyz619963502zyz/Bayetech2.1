@@ -1,13 +1,11 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
-using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service
 {
@@ -25,7 +23,7 @@ namespace Bayetech.Service
             {
                 using (var db = new RepositoryBase())
                 {
-                    JObject ret = db.GetList<vw_MallDLInfo>(c => c.GameId == 1, page, out page);
+                    JObject ret = db.GetList<vw_MallDLInfo>(page,out page, c => c.GameId == 1);
                     return ret;
                 }
             }
@@ -40,14 +38,47 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public JObject GetDlInfoList(JObject json)
+        public JObject GetDlInfoList(vw_MallDLInfo mallDlInfo, Pagination page)
         {
             try
             {
                 using (var db = new RepositoryBase())
                 {
-                    Pagination page = new Pagination();
-                    JObject ret = db.GetList<vw_MallDLInfo>(c => c.GameId == 1, page, out page);
+                    JObject ret = new JObject();
+                    PaginationResult<List<vw_MallDLInfo>> ResultPage = new PaginationResult<List<vw_MallDLInfo>>();
+                    Expression<Func<vw_MallDLInfo,bool>> expressions = PredicateExtensions.True<vw_MallDLInfo>();
+                    if (mallDlInfo!=null)
+                    {
+                        if (mallDlInfo.GameId!=null&& mallDlInfo.GameId>0)
+                        {
+                            expressions = expressions.And(c => c.GameId == mallDlInfo.GameId);
+                        }
+                        if (mallDlInfo.GroupId!=null&&mallDlInfo.GroupId>0)
+                        {
+                            expressions = expressions.And(c => c.GroupId == mallDlInfo.GroupId);
+                        }
+                        if (mallDlInfo.ServerId != null && mallDlInfo.ServerId > 0)
+                        {
+                            expressions = expressions.And(c => c.ServerId == mallDlInfo.ServerId);
+                        }
+                        if (!string.IsNullOrEmpty(mallDlInfo.DlType))
+                        {
+                            expressions = expressions.And(c => c.DlType == mallDlInfo.DlType);
+                        }
+                        if (!string.IsNullOrEmpty(mallDlInfo.WorkerType))
+                        {
+                            expressions = expressions.And(c => c.WorkerType == mallDlInfo.WorkerType);
+                        }
+                        ResultPage.datas = db.FindList(page, out page, expressions);
+                        ResultPage.pagination = page;
+                       
+                    }
+                    else
+                    {
+                        ResultPage.datas = db.FindList<vw_MallDLInfo>(page == null ? Pagination.GetDefaultPagination("GoodNo") : page).ToList();
+                    }
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                     return ret;
                 }
             }

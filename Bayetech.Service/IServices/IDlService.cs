@@ -9,7 +9,7 @@ namespace Bayetech.Service
     {
         JObject GetNewDlInfoList(Pagination page);
 
-        JObject GetDlInfoList(JObject json);
+        JObject GetDlInfoList(vw_MallDLInfo mallDlInfo,Pagination page);
 
     }
 }

@@ -227,12 +227,12 @@ namespace Bayetech.DAL
         /// <param name="pagination"></param>
         /// <param name="NewPage"></param>
         /// <returns></returns>
-        public JObject GetList<TEntity>(Expression<Func<TEntity, bool>> predicate, Pagination pagination, out Pagination NewPage) where TEntity : class, new()
+        public JObject GetList<TEntity>(Pagination pagination, out Pagination NewPage, Expression<Func<TEntity, bool>> predicate=null) where TEntity : class, new()
         {
             var ret = new JObject();
             var result = new List<TEntity>() ;
 
-            result = FindList(pagination, out NewPage, predicate);
+            result = FindList(pagination, out pagination, predicate);
 
 
             //查询结果集
