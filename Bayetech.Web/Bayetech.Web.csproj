@@ -687,6 +687,8 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\DLService\DLList.html" />
+    <Content Include="Page\DLService\index.html" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />

@@ -71,6 +71,10 @@ img{display:inline-block;}
 .nav-justified>a {color:#fff;}
 .com-header .head-search {width:1200px;margin:0 auto;}
 .com-header .head-search .logo {width:315px;float:left;height:100%;line-height:100px;}
+.com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
+.com-module .nav-justified > li {width:147px;}
+.com-module .nav-justified a {color:#fff;border-radius:0;}
+.com-module .nav-justified a:hover {background-color:#206ef1;}
 /*serach 通用头部搜索*/
 .f_999 {color:#999;}
 .g-select {float:right;width:823px;position:relative;z-index:10;padding:6px 0 0 0;}
@@ -145,8 +149,8 @@ img{display:inline-block;}
 
 
 /*查询搜索优化*/
-#GoodList .nav-justified {padding-left:466px;background-color:#3b83e8;}
-#GoodList .nav-justified li>a {color:#fff;}
+/*#GoodList .nav-justified {padding-left:466px;background-color:#3b83e8;}
+#GoodList .nav-justified li>a {color:#fff;}*/
 
 /*----部分bootstrap重写和添加专区----*/
 .form-group .form-control:focus{box-shadow:none;border-color:#3d86ea;}

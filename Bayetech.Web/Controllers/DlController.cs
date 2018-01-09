@@ -2,6 +2,7 @@
 using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.IServices;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Web.Http;
@@ -42,6 +43,9 @@ namespace Bayetech.Web.Controllers
         public JObject GetDlInfoList(JObject json)
         {
             JObject ret = new JObject();
+            vw_MallDLInfo dlInfo = JsonConvert.DeserializeObject<vw_MallDLInfo>(json["param"].ToString());
+            Pagination page = JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+            ret = Dlian.GetDlInfoList(dlInfo,page);
             return ret;
         }
     }

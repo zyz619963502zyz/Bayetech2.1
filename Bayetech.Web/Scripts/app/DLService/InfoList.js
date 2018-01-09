@@ -12,7 +12,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                     <li class="clearfix" v-for="item in ListObj">
                         <em>·</em>
                         <a href="/goods/detail/22769" target="_blank">{{item.Title}}</a>
-                        <i>{{item.CreatTime}}前 </i>
+                        <!--i>{{item.CreatTime}}前 </i-->
+                        <i>10秒前 </i>
                         <span>{{item.Price}} 元</span>
                     </li>
                 </ul>
@@ -45,7 +46,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 var self=this;
                 common.postWebJson(DlListUrl, self.$data , function (data) {
                     if (data.result) {
-                        self.ListObj=data.content.datas;
+                        self.ListObj=data.content;
                     }
                 });
             }

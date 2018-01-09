@@ -39,7 +39,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public IQueryable<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
         {
-            return repository.IQueryable<TEntity>(predicate);
+            return repository.IQueryable(predicate);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate,string page)
         {
-            return repository.FindList<TEntity>(GetDefaultPagination(page), predicate);
+            return repository.FindList<TEntity>(Pagination.GetDefaultPagination(page), predicate);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate)
         {
             var jObect = new JObject();
-            var result = repository.IQueryable<TEntity>(predicate).ToList();
+            var result = repository.IQueryable(predicate).ToList();
             return Common.PackageJObect(result.Count > 0, result);
         }
 
@@ -85,7 +85,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate, string page)
         {
             var jObect = new JObject();
-            var result = repository.FindList(GetDefaultPagination(page), predicate);
+            var result = repository.FindList(Pagination.GetDefaultPagination(page), predicate);
             return Common.PackageJObect(result.Count > 0, result);
         }
 
