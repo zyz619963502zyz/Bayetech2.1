@@ -85,7 +85,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate, string page)
         {
             var jObect = new JObject();
-            var result = repository.FindList(predicate, GetDefaultPagination(page));
+            var result = repository.FindList(GetDefaultPagination(page), predicate);
             return Common.PackageJObect(result.Count > 0, result);
         }
 
