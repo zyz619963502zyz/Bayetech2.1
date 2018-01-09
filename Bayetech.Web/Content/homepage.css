@@ -10,13 +10,13 @@
 /*all content
  *content navigation
  */
-.home-all-module .nav {display: table;background-color: #3b83e8;text-align: center;}
-.home-all-module .nav-justified > li {width:147px;}
-.home-all-module .nav-justified a {color:#fff;border-radius:0;}
-.home-all-module .nav-justified a:hover {background-color:#206ef1;}
-.home-all-module .tab-content {width:1200px;margin:0 auto;}
-.home-all-module .tab-content ul {margin-bottom:0;}
-.home-all-module .index-content {width:100%;height:auto;position:relative;margin:0;}
+.com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
+.com-module .nav-justified > li {width:147px;}
+.com-module .nav-justified a {color:#fff;border-radius:0;}
+.com-module .nav-justified a:hover {background-color:#206ef1;}
+.com-module .tab-content {width:1200px;margin:0 auto;}
+.com-module .tab-content ul {margin-bottom:0;}
+.com-module .index-content {width:100%;height:auto;position:relative;margin:0;}
 
 /*index content*/
 .index-content .left-panel,.index-content .right-panel {float:left;height:auto;padding:10px;}
