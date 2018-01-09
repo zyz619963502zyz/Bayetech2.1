@@ -18,6 +18,8 @@ namespace Bayetech.Web.Controllers
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
         BaseService<GameProfession> proBase = new BaseService<GameProfession>();
         BaseService<Server> severBase = new BaseService<Server>();
+        BaseService<MallGoodInfo> goodInfoService = new BaseService<MallGoodInfo>();
+        BaseService<GoodPropertyValue> goodPropertyValueService = new BaseService<GoodPropertyValue>();
 
         /// <summary>
         /// 获取区服名称
@@ -120,14 +122,27 @@ namespace Bayetech.Web.Controllers
             return Core.Common.PackageJObect(list.Count > 0, list);
         }
 
+        /// <summary>
+        /// 添加商品
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
-        public bool PublicGood(JObject json)
+        public bool AddGood(JObject json)
         {
-            MallGoodInfo goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>(json.First.Path);
-            var goodInfo2 = new MallGoodInfo();
-            var gameId = json.Property("gameId").Value;
-            var propertyList = new List<GoodProperty>();
+            var goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>(json.ToString());
+            goodInfo.GoodNo = Core.Common.CreatGoodNo();
+            goodInfo.AddTime = DateTime.Now;
+            var validDay = int.Parse(json.Property("validDay").Value.ToString());
+            goodInfo.GoodValidityTime = DateTime.Now.AddDays(validDay);//商品过期时间
+            var result = goodInfoService.Insert(goodInfo);//添加商品
 
+            if (result > 0)
+            {
+                //添加商品动态属性
+                var accountInfo = JsonConvert.DeserializeObject<List<GoodPropertyValue>>(json.Property("accountInfo").Value.ToString()).Select(a => new GoodPropertyValue() { GoodId = goodInfo.GoodNo, PropertyId = a.PropertyId, PropertyValue = a.PropertyValue }).ToList();
+                goodPropertyValueService.Insert(accountInfo);
+            }
             return false;
         }
 

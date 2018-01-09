@@ -80,14 +80,14 @@ namespace Bayetech.DAL
         }
         public int Insert<TEntity>(TEntity entity) where TEntity : class
         {
-            dbcontext.Entry<TEntity>(entity).State = EntityState.Added;
+            dbcontext.Entry<TEntity>(entity).State = System.Data.Entity.EntityState.Added;
             return dbTransaction == null ? this.Commit() : 0;
         }
         public int Insert<TEntity>(List<TEntity> entitys) where TEntity : class
         {
             foreach (var entity in entitys)
             {
-                dbcontext.Entry<TEntity>(entity).State = EntityState.Added;
+                dbcontext.Entry<TEntity>(entity).State = System.Data.Entity.EntityState.Added;
             }
             return dbTransaction == null ? this.Commit() : 0;
         }
@@ -109,13 +109,13 @@ namespace Bayetech.DAL
         public int Delete<TEntity>(TEntity entity) where TEntity : class
         {
             dbcontext.Set<TEntity>().Attach(entity);
-            dbcontext.Entry<TEntity>(entity).State = EntityState.Deleted;
+            dbcontext.Entry<TEntity>(entity).State = System.Data.Entity.EntityState.Deleted;
             return dbTransaction == null ? this.Commit() : 0;
         }
         public int Delete<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
         {
             var entitys = dbcontext.Set<TEntity>().Where(predicate).ToList();
-            entitys.ForEach(m => dbcontext.Entry<TEntity>(m).State = EntityState.Deleted);
+            entitys.ForEach(m => dbcontext.Entry<TEntity>(m).State = System.Data.Entity.EntityState.Deleted);
             return dbTransaction == null ? this.Commit() : 0;
         }
         public TEntity FindEntity<TEntity>(object keyValue) where TEntity : class
@@ -140,6 +140,7 @@ namespace Bayetech.DAL
         }
         public List<TEntity> FindList<TEntity>(string strSql, DbParameter[] dbParameter) where TEntity : class
         {
+
             return dbcontext.Database.SqlQuery<TEntity>(strSql, dbParameter).ToList<TEntity>();
         }
         
@@ -247,6 +248,21 @@ namespace Bayetech.DAL
             }
             NewPage = null;
             return ret;
+        }
+
+        public bool BulkInsert<TEntity>(List<TEntity> list) where TEntity : class
+        {
+            try
+            {
+                dbcontext.BulkInsert(list);
+                dbcontext.BulkSaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
     }
 }

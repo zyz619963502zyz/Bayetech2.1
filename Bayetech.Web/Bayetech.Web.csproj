@@ -264,6 +264,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -723,6 +724,7 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\Game.js" />
+    <Content Include="Scripts\app\Controllers\Setting.js" />
     <Content Include="Scripts\app\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\Index.js" />

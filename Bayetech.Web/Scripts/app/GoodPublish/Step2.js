@@ -5,14 +5,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
       <div class="publish-box w1190">
-        <input type="hidden" name="gameId" :value="GameInfo.GameId">
-        <input type="hidden" name="gameName" :value="GameInfo.GameName">
-        <input type="hidden" name="groupId" :value="GameInfo.GroupId">
-        <input type="hidden" name="groupName" :value="GameInfo.GroupName">
-        <input type="hidden" name="serverId" :value="GameInfo.ServerId">
-        <input type="hidden" name="serverName" :value="GameInfo.ServerName">
-        <input type="hidden" name="goodTypeId" :value="GameInfo.GoodTypeId">
-        <input type="hidden" name="goodTypeName" :value="GameInfo.GoodTypeName">
+        <input type="hidden" name="GameId" :value="GameInfo.GameId">
+        <input type="hidden" name="GameName" :value="GameInfo.GameName">
+        <input type="hidden" name="GameGroupId" :value="GameInfo.GroupId">
+        <input type="hidden" name="GameGroupName" :value="GameInfo.GroupName">
+        <input type="hidden" name="GameServerId" :value="GameInfo.ServerId">
+        <input type="hidden" name="GameServerName" :value="GameInfo.ServerName">
+        <input type="hidden" name="GoodTypeId" :value="GameInfo.GoodTypeId">
+        <input type="hidden" name="GoodTypeName" :value="GameInfo.GoodTypeName">
         <div class="publish-header w980">
           <h2>
             <span>
@@ -47,7 +47,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                        </div>
                        <div class="form-item-r">
                            <div class="game-ipt">
-                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Value" value="" :placeholder="'请输入'+item.Name">
+                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Id" value="" :placeholder="'请输入'+item.Name">
                            </div>
                        </div>
                    </div>
@@ -68,7 +68,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>商品有效期：</span></div>
                 <div class="form-item-r">
                   <div class="comselect h-30">
-                    <select id="GoodValidityTime" name="GoodValidityTime">
+                    <select id="validDay" name="validDay">
                       <option value="">选择有效期</option>
                       <option value="1">1天</option>
                       <option value="3">3天</option>
