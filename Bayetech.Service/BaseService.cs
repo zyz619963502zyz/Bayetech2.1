@@ -39,7 +39,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public IQueryable<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
         {
-            return repository.IQueryable<TEntity>(predicate);
+            return repository.IQueryable(predicate);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate,string page)
         {
-            return repository.FindList<TEntity>(GetDefaultPagination(page), predicate);
+            return repository.FindList<TEntity>(Pagination.GetDefaultPagination(page), predicate);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate)
         {
             var jObect = new JObject();
-            var result = repository.IQueryable<TEntity>(predicate).ToList();
+            var result = repository.IQueryable(predicate).ToList();
             return Common.PackageJObect(result.Count > 0, result);
         }
 
@@ -85,7 +85,7 @@ namespace Bayetech.Service
         public JObject GetList(Expression<Func<TEntity, bool>> predicate, string page)
         {
             var jObect = new JObject();
-            var result = repository.FindList(GetDefaultPagination(page), predicate);
+            var result = repository.FindList(Pagination.GetDefaultPagination(page), predicate);
             return Common.PackageJObect(result.Count > 0, result);
         }
 
@@ -118,21 +118,5 @@ namespace Bayetech.Service
             return repository.GetContext();
         }
 
-
-        /// <summary>
-        /// 默认分页参数
-        /// </summary>
-        /// <param name="sidx">分页字段</param>
-        /// <returns></returns>
-        public static Pagination GetDefaultPagination(string sidx,string sord ="asc" )
-        {
-            Pagination pages = new Pagination();
-            pages.rows = 9999999;
-            pages.page = 1;
-            pages.order = sidx;
-            pages.sord = sord;
-            pages.records = 9999999;
-            return pages;
-        }
     }
 }

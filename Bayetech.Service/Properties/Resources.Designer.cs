@@ -88,6 +88,15 @@ namespace Bayetech.Service.Properties {
         }
         
         /// <summary>
+        ///   查找类似 查询对象为空，无法查询 的本地化字符串。
+        /// </summary>
+        internal static string Error_NoSearch {
+            get {
+                return ResourceManager.GetString("Error_NoSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 提示样式，为提示信息的前面+ Reminder_XXXX 的本地化字符串。
         /// </summary>
         internal static string Reminder_AAA {

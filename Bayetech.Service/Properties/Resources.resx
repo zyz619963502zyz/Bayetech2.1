@@ -129,6 +129,10 @@
     <value>订单编号生成失败，请稍后再试。</value>
     <comment>订单编号创建失败</comment>
   </data>
+  <data name="Error_NoSearch" xml:space="preserve">
+    <value>查询对象为空，无法查询</value>
+    <comment>序列化出来的对象为空，连基本的游戏都没找到</comment>
+  </data>
   <data name="Reminder_AAA" xml:space="preserve">
     <value>提示样式，为提示信息的前面+ Reminder_XXXX</value>
     <comment>提示信息格式</comment>
