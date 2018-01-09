@@ -255,6 +255,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\DlController.cs" />
     <Compile Include="Controllers\GameServerController.cs" />
     <Compile Include="Controllers\GoodTypeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -719,6 +720,8 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\Game.js" />
+    <Content Include="Scripts\app\DLService\Index.js" />
+    <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
     <Content Include="Scripts\app\Game\List.js" />
     <Content Include="Scripts\app\GoodInfo\GoodPictures.js" />

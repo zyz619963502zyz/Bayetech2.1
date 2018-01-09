@@ -106,6 +106,12 @@
     <Compile Include="Entity\Login.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\MallDLInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallDLType.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -119,6 +125,9 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\MallType.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MallWorkerType.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Module.cs">
@@ -142,6 +151,9 @@
     <Compile Include="Entity\vw_LoginInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vw_MallDLInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vw_MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -160,6 +172,7 @@
     <Compile Include="Enum\GamePlatform.cs" />
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
+    <Compile Include="Enum\ResultInfo.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Md5.cs" />

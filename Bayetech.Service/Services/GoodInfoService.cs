@@ -44,7 +44,7 @@ namespace Bayetech.Service.Services
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
 
-                ResultPage.datas = db.FindList(expression, page,out page).ToList();//暂时以GoodNo排序，以后做活。
+                ResultPage.datas = db.FindList(page,out page,expression).ToList();//暂时以GoodNo排序，以后做活。
 
                 if (page!=null)
                 {
@@ -78,7 +78,7 @@ namespace Bayetech.Service.Services
                 JObject ret = new JObject();
                 if (!string.IsNullOrEmpty(goodNo))
                 {
-                    List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(c=>c.GoodInfoId == goodNo,GetDefaultPagination("GoodInfoId")).ToList();
+                    List<vw_MallGoodInfo> goodInfo = db.FindList<vw_MallGoodInfo>(GetDefaultPagination("GoodInfoId"),c =>c.GoodInfoId == goodNo).ToList();
                     if (goodInfo != null)
                     {
                         ret.Add(ResultInfo.Result, true);

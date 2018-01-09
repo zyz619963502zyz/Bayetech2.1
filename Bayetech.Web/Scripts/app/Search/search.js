@@ -1,7 +1,7 @@
 ﻿//搜索框
 define(["common", "search-dropdown"], function (common, dropdown) {
     var html=`
-         <div class ="game_select clearfix" >
+         <div class ="g-select clearfix" >
         <form id="gsForm" method="get" class ="clearfix">
             <div class ="game_select_box" id="gameSelectBox">
                 <ul class ="tab_menu">
