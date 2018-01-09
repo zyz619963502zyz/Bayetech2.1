@@ -1,8 +1,8 @@
 ﻿/*！
  *common style
- *作者：liuzy
- *时间：2017-10-27
- *说明：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
+ *author：liuzy
+ *date：2017-10-27
+ *explain：此部分为所有页面公用样式部分，对一些公用重构以及添加请在以下编辑修改，为不影响整体效果，请谨慎修改或编辑
  */
 @charset"UTF-8";
 *{box-sizing:border-box;}
@@ -65,6 +65,7 @@ img{display:inline-block;}
 .ls-10{letter-spacing:10px;}
 
 /*navbar 通用头部导航*/
+.nav-t{border-bottom: 1px solid #eee;}
 .nav-t .dropdown:hover > .dropdown-menu {display: block;}
 .nav-t .navbar-right .dropdown-menu {left: 5px;right: auto;}
 .nav-justified>li {width:147px;}

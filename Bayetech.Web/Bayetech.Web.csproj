@@ -323,6 +323,7 @@
     <Content Include="Content\CommonCss\shouyou-index.css" />
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
     <Content Include="Content\CommonCss\xqgd.css" />
+    <Content Include="Content\dailian.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\Goods\Publish.css" />
@@ -722,6 +723,8 @@
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\Game.js" />
+    <Content Include="Scripts\app\DLLists\DLList.js" />
+    <Content Include="Scripts\app\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\Index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
