@@ -80,7 +80,12 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                        debugger;
 	                        var slef=this;
 	                        var data=$("form").serialize();
-	                        $.post("/api/GoodInfo/PublicGood", data, function (result) {
+	                        var accountInfo=[];
+	                        $("#gameAccountInfo :input").each(function () {
+	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
+	                        });
+	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+	                        $.post("/api/GoodInfo/AddGood", data, function (result) {
 	                            if (result) {
 	                                slef.Step=step3;
 	                            }

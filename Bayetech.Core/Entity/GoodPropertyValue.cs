@@ -15,7 +15,7 @@ namespace Bayetech.Core.Entity
     public partial class GoodPropertyValue
     {
         public long Id { get; set; }
-        public long GoodId { get; set; }
+        public string GoodId { get; set; }
         public long PropertyId { get; set; }
         public string PropertyValue { get; set; }
     }

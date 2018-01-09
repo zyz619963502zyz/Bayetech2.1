@@ -100,6 +100,15 @@ namespace Bayetech.Service
         }
 
         /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public int Insert(List<TEntity> entity)
+        {
+            return repository.Insert(entity);
+        }
+        /// <summary>
         /// 更新
         /// </summary>
         /// <param name="json"></param>
@@ -133,6 +142,11 @@ namespace Bayetech.Service
             pages.sord = sord;
             pages.records = 9999999;
             return pages;
+        }
+
+        public bool BulkInsert(List<TEntity> list)
+        {
+            return repository.BulkInsert(list);
         }
     }
 }

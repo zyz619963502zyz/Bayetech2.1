@@ -24,16 +24,20 @@
         <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="13.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.GameProfession" Width="1.5" PointX="3.375" PointY="13.75" />
         <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="3.875" PointY="10.625" />
-        <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="0.75" PointY="12.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="9.625" PointY="12" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="15.75" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="5.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="12.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="14.375" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="14.375" PointY="13.75" />
         <EntityTypeShape EntityType="BayetechModel.GoodProperty" Width="1.5" PointX="16.375" PointY="8.75" />
-        <EntityTypeShape EntityType="BayetechModel.GoodPropertyValue" Width="1.5" PointX="16.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="16.375" PointY="15.75" />
+        <EntityTypeShape EntityType="BayetechModel.GoodPropertyValue" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="12.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallWorkerType" Width="1.5" PointX="16.375" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLType" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="18.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="15.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

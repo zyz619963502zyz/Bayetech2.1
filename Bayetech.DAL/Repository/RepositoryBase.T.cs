@@ -145,5 +145,20 @@ namespace Bayetech.DAL
             tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
             return tempData.ToList();
         }
+
+        public bool BulkInsert(List<TEntity> list)
+        {
+            try
+            {
+                dbcontext.BulkInsert(list);
+                dbcontext.BulkSaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
     }
 }

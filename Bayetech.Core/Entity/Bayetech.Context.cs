@@ -44,15 +44,19 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<MallOrder> MallOrder { get; set; }
         public virtual DbSet<GameProfession> GameProfession { get; set; }
         public virtual DbSet<Server> Server { get; set; }
-        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
-        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
-        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
         public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
         public virtual DbSet<GoodProperty> GoodProperty { get; set; }
-        public virtual DbSet<GoodPropertyValue> GoodPropertyValue { get; set; }
         public virtual DbSet<Relationship> Relationship { get; set; }
+        public virtual DbSet<GoodPropertyValue> GoodPropertyValue { get; set; }
+        public virtual DbSet<MallDLInfo> MallDLInfo { get; set; }
+        public virtual DbSet<MallWorkerType> MallWorkerType { get; set; }
+        public virtual DbSet<MallDLType> MallDLType { get; set; }
+        public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
+        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
+        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
     }
 }

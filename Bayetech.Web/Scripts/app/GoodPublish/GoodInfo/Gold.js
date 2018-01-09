@@ -45,7 +45,7 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
                           <h3>
                               <span><i>*</i>商品标题：</span>
                               <em class ="typedl" id="titleLText">【{{dealway}}】</em>
-                              <input type="hidden" name="GoodTitle": value="'【'+dealway+'】'">
+                              <input type="hidden" name="GoodTitle" :value="'【'+dealway+'】'">
                               <em class="typepr" id="titleRText"></em>
                           </h3>
                       </div>
