@@ -14,7 +14,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
                         <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
                         <li id="gs_server" :title="'选择'+Param.GameServerName" @click="GameServerName(3)">{{Param.GameServerName}}</li>
-                        <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)">{{Param.GoodTypeName}}</li>
+                        <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
                         </li>
@@ -40,6 +40,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         template: html,
         data:function() {
             return {
+                DL:window.location.href.indexOf("DLService")>0?true:false,
                 IsSimple: false,
                 IsShow: false,
                 DropdownData: {},
@@ -127,9 +128,37 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //搜索
             search: function () {
-                var url=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=${this.Param.GameGroupId}&GameGroupName=${this.Param.GameGroupName}&GameServerId=${this.Param.GameServerId}&&GameServerName=${this.Param.GameServerName}GoodTypeId=${this.Param.GoodTypeId}&GoodTypeName=${this.Param.GoodTypeName}&GoodKeyWord=${this.Param.GoodKeyWord.trim()}`);
+                //判断search跳转
+                var _type=common.GetSearchType();
+                var TargetUrl= "";
+                switch (_type) {
+                    case "index":
+                        TargetUrl=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=
+                        ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
+                        ${this.Param.GameGroupId}&GameGroupName=
+                        ${this.Param.GameGroupName}&GameServerId=
+                        ${this.Param.GameServerId}&&GameServerName=
+                        ${this.Param.GameServerName}GoodTypeId=
+                        ${this.Param.GoodTypeId}&GoodTypeName=
+                        ${this.Param.GoodTypeName}&GoodKeyWord=
+                        ${this.Param.GoodKeyWord.trim()}`);
+                        break;
+                    case "GoodList":
+                        TargetUrl = "";
+                        break;
+                    case "DLIndex":
+                        TargetUrl = "";
+                        break;
+                    case "DLList":
+                        TargetUrl = "";
+                        break;
+                    default:
+                        break;
+                }
+
+                
                 localStorage.SearchParam=JSON.stringify(this.Param);
-                window.open(url);
+                window.open(TargetUrl);
                 //var param =  {
                 //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
                 //    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
