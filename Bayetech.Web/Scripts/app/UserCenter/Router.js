@@ -24,5 +24,9 @@ define([
             component: arguments[i],
         });
     }
-    return { mode: 'history', routes: routes };
+    return {
+        //mode: 'history',
+        //base: '/page/UserCenter/Index.html',
+        routes: routes,
+    };
 });
