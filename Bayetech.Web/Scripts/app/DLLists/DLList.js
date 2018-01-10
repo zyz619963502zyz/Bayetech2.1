@@ -42,6 +42,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                         </div>
                         <span></span>
                     </div>
+					<div class ="search-item search-area search-area-f"><input type="text" id="server" value="游戏名称" readonly="readonly" data-id=""> <div class ="arrow-icon"><em class ="iconfont icon-down"> </em><em class="iconfont icon-up">
+                                
+                            </em></div> <span></span></div>
                     <div class ="search-item search-synthesis">
                         <label class ="placeholder">
                             <input type="text" id="goods-input" maxlength="32" />
