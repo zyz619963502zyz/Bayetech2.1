@@ -133,21 +133,28 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var TargetUrl= "";
                 switch (_type) {
                     case "index":
-                        TargetUrl=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=
-                        ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
-                        ${this.Param.GameGroupId}&GameGroupName=
-                        ${this.Param.GameGroupName}&GameServerId=
-                        ${this.Param.GameServerId}&&GameServerName=
-                        ${this.Param.GameServerName}GoodTypeId=
-                        ${this.Param.GoodTypeId}&GoodTypeName=
-                        ${this.Param.GoodTypeName}&GoodKeyWord=
-                        ${this.Param.GoodKeyWord.trim()}`);
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=
+                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
+                                ${this.Param.GameGroupId}&GameGroupName=
+                                ${this.Param.GameGroupName}&GameServerId=
+                                ${this.Param.GameServerId}&&GameServerName=
+                                ${this.Param.GameServerName}GoodTypeId=
+                                ${this.Param.GoodTypeId}&GoodTypeName=
+                                ${this.Param.GoodTypeName}&GoodKeyWord= 
+                                ${this.Param.GoodKeyWord.trim()}`);
                         break;
                     case "GoodList":
-                        TargetUrl = "";
+                       TargetUrl = "";
                         break;
                     case "DLIndex":
-                        TargetUrl = "";
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}DLService/DLList.html?page=1&GameId=
+                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
+                                ${this.Param.GameGroupId}&GameGroupName=
+                                ${this.Param.GameGroupName}&GameServerId=
+                                ${this.Param.GameServerId}&&GameServerName=
+                                ${this.Param.GameServerName}GoodTypeId=
+                                ${this.Param.GoodTypeName}&GoodKeyWord= 
+                                ${this.Param.GoodKeyWord.trim()}`);
                         break;
                     case "DLList":
                         TargetUrl = "";
