@@ -209,7 +209,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             this.GameInfo=this.$parent.GameInfo;
             //加载组件
             this.LoadGoodInfo();
-            this.LoadAccountInfo(this.GameInfo.GameId, this.GameInfo.GoodTypeId);
+            this.LoadAccountInfo();
             //变更交易方式
             $(document).on('click', "[name=tradeType]", function () {
                 this.account_info_com=SecurityCode;
@@ -231,7 +231,6 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                 var gameid=this.GameInfo.GameId;
                 if (type==1) {//金币
                     this.good_info_com="GoldGoodInfo";
-                    //this.account_info_com="GoldAccountInfo";
                     this.tip=`1.${this.GameInfo.GameName}每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
               2.如果您使用多角色发货，请在“游戏角色名”处填写每个角色发货的金额，例：A角色3000W，B角色4000W。<br>
               3.因游戏限制，请绑定正确的密保工具。<br>
@@ -246,7 +245,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             //加载账号信息模块
             LoadAccountInfo: function (gameId, goodTypeId) {
                 var self=this;
-                $.get("/api/GoodInfo/GetAccountComponents", { gameId: gameId, goodTypeId: goodTypeId }, function (data) {
+                $.get("/api/GoodInfo/GetAccountComponents", { gameId: self.GameInfo.GameId, goodTypeId: self.GameInfo.GoodTypeId }, function (data) {
                     if (data) {
                         self.AccountInfoInputList=data.content;
                     }

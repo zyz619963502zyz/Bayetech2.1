@@ -24,5 +24,5 @@ define([
             component: arguments[i],
         });
     }
-    return { routes: routes };
+    return { mode: 'history', routes: routes };
 });
