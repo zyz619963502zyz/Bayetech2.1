@@ -191,7 +191,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         watch: {
             '$route' (to, from) {
                 self.menuType=this.$route.query.flag;//判断是代练还是普通订单,还是商户的订单管理
-                self.menuType == 'Sales'?$("#pending").text("等下买家付款"):"";
+                self.menuType == 'Sales'?$("#pending").text("等待买家付款"):$("#pending").text("等待付款")
                 //self.GetOrderInfo(self.Pagination);
             },
         },
