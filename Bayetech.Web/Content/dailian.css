@@ -17,3 +17,7 @@
 .g-select{
     float:none;
 }
+.list-block {
+    min-height: 545px;
+    overflow: inherit;
+}
