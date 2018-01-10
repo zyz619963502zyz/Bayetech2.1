@@ -205,7 +205,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             self.GetOrderStatus(0);
         },
         mounted() {
-            var aaa = 1; 
+             $(".datepicker").datepicker({
+                language: 'zh-CN',
+                fomart:'yyyy-mm-dd',
+        		keyboardNavigation: false,
+        		forceParse: false,
+        		autoclose: true
+        	});
         },
         methods: {
             ConfirmTypes(){

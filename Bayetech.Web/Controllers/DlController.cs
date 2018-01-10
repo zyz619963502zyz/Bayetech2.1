@@ -48,5 +48,7 @@ namespace Bayetech.Web.Controllers
             ret = Dlian.GetDlInfoList(dlInfo,page);
             return ret;
         }
+
+
     }
 }

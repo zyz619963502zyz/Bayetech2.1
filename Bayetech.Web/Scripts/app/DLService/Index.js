@@ -9,6 +9,9 @@ require(moudule, function (Vue, $, common, infolist) {
         data: function () {
             return data;
         },
+        methods: {
+
+        },
         created: function () {
             
         },
