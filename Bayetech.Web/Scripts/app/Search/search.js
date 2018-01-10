@@ -162,10 +162,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     default:
                         break;
                 }
-
-                
                 localStorage.SearchParam=JSON.stringify(this.Param);
-                window.open(TargetUrl);
+                if (TargetUrl) {
+                    window.open(TargetUrl);
+                }
+              
                 //var param =  {
                 //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
                 //    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
