@@ -25,6 +25,15 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
             <div class ="goods-search-box">
                 <div class ="search-form">
                     <div class ="search-item search-area search-area-q">
+                        <input type="text" data-id="" id='group' value="游戏名称" readonly="readonly" />
+                        <div class ="arrow-icon">
+                            <em class ="iconfont icon-down">&#xe621; </em><em class="iconfont icon-up">
+                                &#xe624;
+                            </em>
+                        </div>
+                        <span></span>
+                    </div>
+                    <div class ="search-item search-area search-area-f">
                         <input type="text" data-id="" id='group' value="全部大区" readonly="readonly" />
                         <div class ="arrow-icon">
                             <em class ="iconfont icon-down">&#xe621; </em><em class="iconfont icon-up">
