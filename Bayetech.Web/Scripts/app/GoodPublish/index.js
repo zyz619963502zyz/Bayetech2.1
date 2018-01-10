@@ -51,7 +51,7 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                        //进度显示修改
 	                        $("[name=process]").removeClass('gc').addClass('bg');
 	                        $("[name=process]").eq(0).removeClass('bg').addClass('gc');
-	                        this.Step=step1;
+	                        this.Step=step1;//切换组件
 	                        break;
 	                    case "step2":
 	                        if (!this.GameInfo.GameId) {
@@ -70,17 +70,22 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                            alert("交易类型！");
 	                            return;
 	                        }
-	                        //进度显示修改
 	                        $("[name=process]").eq(1).removeClass('bg').addClass('gc');
 	                        this.Step=step2;
 	                        break;
 	                    case "step3":
-	                        //进度显示修改
 	                        $("[name=process]").eq(2).removeClass('bg').addClass('gc');
 	                        debugger;
 	                        var slef=this;
 	                        var data=$("form").serialize();
-	                        $.post("/api/GoodInfo/PublicGood", data, function (result) {
+                            //组装账号信息
+	                        var accountInfo=[];
+	                        $("#gameAccountInfo :input").each(function () {
+	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
+	                        });
+	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+                            //添加商品
+	                        $.post("/api/GoodInfo/AddGood", data, function (result) {
 	                            if (result) {
 	                                slef.Step=step3;
 	                            }

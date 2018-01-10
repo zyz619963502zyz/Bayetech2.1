@@ -130,7 +130,7 @@ namespace Bayetech.Core
         /// 商品编号机制（18位）
         /// </summary>
         /// <returns></returns>
-        public static string CreatGoodInfo()
+        public static string CreatGoodNo()
         {
             try
             {

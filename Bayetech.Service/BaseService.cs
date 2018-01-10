@@ -100,6 +100,15 @@ namespace Bayetech.Service
         }
 
         /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public int Insert(List<TEntity> entity)
+        {
+            return repository.Insert(entity);
+        }
+        /// <summary>
         /// 更新
         /// </summary>
         /// <param name="json"></param>
@@ -118,5 +127,26 @@ namespace Bayetech.Service
             return repository.GetContext();
         }
 
+
+        /// <summary>
+        /// 默认分页参数
+        /// </summary>
+        /// <param name="sidx">分页字段</param>
+        /// <returns></returns>
+        public static Pagination GetDefaultPagination(string sidx,string sord ="asc" )
+        {
+            Pagination pages = new Pagination();
+            pages.rows = 9999999;
+            pages.page = 1;
+            pages.order = sidx;
+            pages.sord = sord;
+            pages.records = 9999999;
+            return pages;
+        }
+
+        public bool BulkInsert(List<TEntity> list)
+        {
+            return repository.BulkInsert(list);
+        }
     }
 }

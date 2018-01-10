@@ -5,14 +5,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
       <div class="publish-box w1190">
-        <input type="hidden" name="gameId" :value="GameInfo.GameId">
-        <input type="hidden" name="gameName" :value="GameInfo.GameName">
-        <input type="hidden" name="groupId" :value="GameInfo.GroupId">
-        <input type="hidden" name="groupName" :value="GameInfo.GroupName">
-        <input type="hidden" name="serverId" :value="GameInfo.ServerId">
-        <input type="hidden" name="serverName" :value="GameInfo.ServerName">
-        <input type="hidden" name="goodTypeId" :value="GameInfo.GoodTypeId">
-        <input type="hidden" name="goodTypeName" :value="GameInfo.GoodTypeName">
+        <input type="hidden" name="GameId" :value="GameInfo.GameId">
+        <input type="hidden" name="GameName" :value="GameInfo.GameName">
+        <input type="hidden" name="GameGroupId" :value="GameInfo.GroupId">
+        <input type="hidden" name="GameGroupName" :value="GameInfo.GroupName">
+        <input type="hidden" name="GameServerId" :value="GameInfo.ServerId">
+        <input type="hidden" name="GameServerName" :value="GameInfo.ServerName">
+        <input type="hidden" name="GoodTypeId" :value="GameInfo.GoodTypeId">
+        <input type="hidden" name="GoodTypeName" :value="GameInfo.GoodTypeName">
         <div class="publish-header w980">
           <h2>
             <span>
@@ -47,7 +47,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                        </div>
                        <div class="form-item-r">
                            <div class="game-ipt">
-                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Value" value="" :placeholder="'请输入'+item.Name">
+                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Id" value="" :placeholder="'请输入'+item.Name">
                            </div>
                        </div>
                    </div>
@@ -68,7 +68,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>商品有效期：</span></div>
                 <div class="form-item-r">
                   <div class="comselect h-30">
-                    <select id="GoodValidityTime" name="GoodValidityTime">
+                    <select id="validDay" name="validDay">
                       <option value="">选择有效期</option>
                       <option value="1">1天</option>
                       <option value="3">3天</option>
@@ -209,7 +209,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             this.GameInfo=this.$parent.GameInfo;
             //加载组件
             this.LoadGoodInfo();
-            this.LoadAccountInfo(this.GameInfo.GameId, this.GameInfo.GoodTypeId);
+            this.LoadAccountInfo();
             //变更交易方式
             $(document).on('click', "[name=tradeType]", function () {
                 this.account_info_com=SecurityCode;
@@ -231,7 +231,6 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                 var gameid=this.GameInfo.GameId;
                 if (type==1) {//金币
                     this.good_info_com="GoldGoodInfo";
-                    //this.account_info_com="GoldAccountInfo";
                     this.tip=`1.${this.GameInfo.GameName}每日06:00更新当日游戏币交易限制，请您注意【角色交易上限】 。<br>
               2.如果您使用多角色发货，请在“游戏角色名”处填写每个角色发货的金额，例：A角色3000W，B角色4000W。<br>
               3.因游戏限制，请绑定正确的密保工具。<br>
@@ -246,7 +245,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             //加载账号信息模块
             LoadAccountInfo: function (gameId, goodTypeId) {
                 var self=this;
-                $.get("/api/GoodInfo/GetAccountComponents", { gameId: gameId, goodTypeId: goodTypeId }, function (data) {
+                $.get("/api/GoodInfo/GetAccountComponents", { gameId: self.GameInfo.GameId, goodTypeId: self.GameInfo.GoodTypeId }, function (data) {
                     if (data) {
                         self.AccountInfoInputList=data.content;
                     }

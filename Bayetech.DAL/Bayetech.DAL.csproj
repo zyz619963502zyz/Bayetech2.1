@@ -45,6 +45,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Extensions.EF5, Version=3.14.5.0, Culture=neutral, PublicKeyToken=d31b8ef807ad148e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Extensions.EF5.3.14.5\lib\net45\Z.EntityFramework.Extensions.EF5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DbHelper.cs" />
