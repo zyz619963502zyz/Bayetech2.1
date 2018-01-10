@@ -1,0 +1,19 @@
+﻿@charset"utf-8";
+.com-breadcrumb {
+    height: 34px;
+    line-height: 34px;
+    margin: 0 auto;
+    width: 1190px;
+}
+.main-content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.panel-body .goods-search-box {
+    width: 950px;
+    float: left;
+}
+
+.g-select{
+    float:none;
+}
