@@ -1,6 +1,6 @@
-﻿var module = ['vue', 'jquery', 'common', 'DLList','nav-top']
+﻿var dlmodule = ['vue', 'jquery', 'common', 'DLList', 'nav-top'];
 
-require(module,function(Vue, $, common, dllist, nav){
+require(dlmodule, function (Vue, $, common, dllist, nav) {
 	var data = {};
 
 	var vm = new Vue({
@@ -13,9 +13,9 @@ require(module,function(Vue, $, common, dllist, nav){
 		},
 		components: {
 			'dllist': dllist,
-			'nav-top':nav
+			'nav-top': nav
 		}
 
-	})
+	});
 		
 })
