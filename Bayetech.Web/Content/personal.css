@@ -1,12 +1,12 @@
 ﻿@charset"utf-8";
 /*.personal-center a:hover{color:#f90;text-decoration:none;}*/
 
-/***当前位置***/
+/*====当前位置====*/
 .b-link{height: 30px;line-height: 30px;margin:15px 0;}
 .b-link a:not(:first-child){color:#f90;}
 .b-link .b-home:hover{color:#f90;text-decoration:underline;}
 
-/***左边导航***/
+/*====左边导航====*/
 .left-nav-title {color: #fff;background-color: #3b83e8;font-size: 14px;margin: 0;padding: 10px 0;}
 .left-nav a:hover {color: #f90;text-decoration: underline;}
 .left-nav>a{display:block;padding:5px 10px;background:-moz-linear-gradient(#fff,#eee);background: linear-gradient(#fff,#eee);border: 1px solid #eee;}
@@ -15,18 +15,50 @@
 .left-nav .list-group-item:last-child{border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
 .left-nav .list-group-item:first-child{border-top-right-radius: 0;border-top-left-radius: 0;}
 
-/***右边表单***/
+/*====右边表单====*/
 .right-buy-title{margin:0;}
 
 .game-order-list{
     padding:0;
+}
+.game-order-list .list-num-group{
+    float:right;
 }
 .game-order-list .pagination{
     margin:0;
     cursor:pointer;
 }
 .game-order-list .nave{
-    height:31px;
+    width:100%;
+    height:32px;
+    border-bottom: #d2e6ff solid 1px;
+}
+.game-order-list .nave ul{
+    margin-bottom:0;
+    height: 30px;
+    line-height: 30px;
+}
+.game-order-list .nave ul li{
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    background: #e8f2ff;
+    border: #d2e6ff solid 1px;
+    margin-right: 5px;
+    cursor:pointer;
+}
+.game-order-list .nave ul li.active{
+    background: #FFFFFF;
+    color: #000000;
+    border-bottom: #FFFFFF solid 1px;
+    font-weight: bold;
+}
+.game-order-list .nave ul li>a{
+    color:#3366cc;
 }
 
 
+/*====bootstrap 样式重构区=====*/
+.personal-center .btn-sm,.personal-center .btn-group-sm>.btn{
+    padding:3px 10px;
+}
