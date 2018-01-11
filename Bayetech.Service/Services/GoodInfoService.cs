@@ -137,22 +137,19 @@ namespace Bayetech.Service.Services
         }
 
         /// <summary>
-        /// 获取商品需要的账号输入框
+        /// 获取商品额外属性
         /// </summary>
         /// <param name="gameId"></param>
         /// <param name="goodTypeId"></param>
         /// <returns></returns>
-        public List<GoodProperty> GetAccountComponents(int gameId, int goodTypeId)
+        public List<ExtraProperty> GetExtraProperty(int gameId, int goodTypeId)
         {
             var db = GetContext();
             var query = (from r in db.Relationship
-                         join p in db.GoodProperty on r.Key equals p.Id
-                         where r.Type == 2 && r.ParentKey == gameId && r.Value == goodTypeId.ToString()
+                         join p in db.ExtraProperty on r.Key equals p.Id
+                         where r.Type == 2 && r.ParentKey == gameId && r.Value == goodTypeId.ToString()&&p.Type=="good"
                          select p);
             return query.ToList();
-        }
-
-
-        
+        } 
     }
 }
