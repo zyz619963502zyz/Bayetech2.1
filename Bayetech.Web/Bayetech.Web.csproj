@@ -739,8 +739,6 @@
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
-    <Content Include="Scripts\app\GoodPublish\AccountInfo\Gold.js" />
-    <Content Include="Scripts\app\GoodPublish\AccountInfo\SecurityCode.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />

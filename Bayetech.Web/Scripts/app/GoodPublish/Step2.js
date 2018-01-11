@@ -1,6 +1,6 @@
 ﻿//step2
-define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode', 'API', 'DynamicInput'],
-    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, GoldAccountInfo, SecurityCode, API, DynamicInput) {
+define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'API', 'DynamicInput'],
+    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, API, DynamicInput) {
         var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">

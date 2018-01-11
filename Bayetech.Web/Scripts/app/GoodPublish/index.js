@@ -1,34 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3'],
-	function (Vue, $, common, VueRouter, header, step1, step2, step3) {
-	    //var routes={routes: [{ path: '/', redirect: '/step1' },
-	    //    { path: '/step1', name: 'step1', component: step1 },
-	    //    { path: '/step2', name: 'step2', component: step2 },
-	    //    { path: '/step3', name: 'step3', component: step3 }, ]};
-
-	    ///* 创建路由器  */
-	    //Vue.use(VueRouter)
-	    //var router=new VueRouter(routes);
-        ////下一步校验
-	    //router.beforeEach((to, from, next) => {
-	    //    debugger;
-	    //    switch (from.path) {
-	    //        case "/":
-	    //        case "/step1":
-	    //            ValiteStep1();
-	    //            next();
-	    //            break;
-	    //        case "/step2":
-	    //            next();
-	    //        case "/step3":
-	    //            next();
-	    //            break;
-	    //        default:
-	    //            next();
-	    //            break;
-	    //    }
-	    //});
-
+require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3'],
+	function (Vue, $, common, header, step1, step2, step3) {
 	    var data={
 	        Step: step1,
             GameInfo:{},
