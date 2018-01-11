@@ -96,7 +96,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     //Api
     var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
     //筛选和列表整合数据
-    var data = {
+    var data={
         BaseUrl: common.GetBaseUrl() + "GoodInfo/GoodInfo.html?GoodNo=",
         BaseTarget: "_blank",
         keyword : "",
@@ -134,6 +134,12 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             var self = this;
             self.findList();
         },
+        mounted(){
+            var self = this;
+            self.$root.$on("SearchAgain", function (data) {
+                self.findList();
+            });
+        },
         methods: {
             findList() {
                 var self = this;
@@ -153,8 +159,13 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 self.SearchParam.param.GoodKeyWord = self.keyword;
                 self.SearchParam.Pagination.page = 1;
                 self.findList();
-            }
+            },
         },
+        watch: {
+            ceshi() {
+               var aaa = 1;
+            }
+        }
     };
     return goodComponent;
 });

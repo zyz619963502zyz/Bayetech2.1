@@ -22,7 +22,7 @@
 .index-content .left-panel,.index-content .right-panel {float:left;height:auto;padding:10px;}
 .index-content .left-panel {width:900px;}
 .index-content .right-panel {width:300px;}
-.index-content .left-panel .left-panel-one {width:880px;height:350px;position:relative;}
+.index-content .left-panel .left-panel-one {width:880px;height:auto;position:relative;}
 .index-content .right-panel .right-panel-one {width:280px;}
 .index-content .right-panel .right-panel-one:first-child,.index-content .right-panel .right-panel-one:nth-child(2) {height:50px;}
 .index-content .swiper-container {width:100%;height:100%;margin-left:auto;margin-right:auto;}
@@ -35,7 +35,7 @@
 .buy-sale-area {overflow:hidden;margin-bottom:10px;}
 .buy-sale-area a {display:block;width:127px;font-family:"microsoft yahei";height:45px;line-height:45px;float:left;background:#eb6100;color:#fff;font-size:20px;text-align:center;}
 .buy-sale-area a.sale-btn {background:#22ac38;float:right;}
-.buy-sale-area a:hover {background:#ff700b;}
+.buy-sale-area a:hover {background:#ff700b;color:#fff;}
 .buy-sale-area a.sale-btn:hover {background:#20bb39;}
 /*qq验证*/
 .qq-yz label {position:relative;height:36px;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;*margin-top:-2px;}
@@ -86,19 +86,18 @@
 .txtScroll-top .infoList li em {color:#aaa;float:right;}
 .txtScroll-top .infoList li em i {color:#ed6d34;}
 /*广告位*/
-.index-adv-box {float:left;width:880px;}
-.index-adv-box .index-adv {margin-left:-10px;}
-.index-adv-box .index-adv .adv-item {width:435px;height:265px;float:left;margin-left:10px;margin-bottom:10px;}
-.index-adv-box .index-adv .adv-item:hover {-moz-box-shadow:0px 2px 5px rgba(0,0,0,0.1);-webkit-box-shadow:0px 2px 5px rgba(0,0,0,0.1);box-shadow:0px 4px 6px rgba(0,0,0,0.1);}
-.index-adv-box .index-adv .adv-item a.img-a {display:block;width:435px;height:180px;}
-.index-adv-box .index-adv .adv-item dl {width:435px;height:86px;border:#eee 1px solid;border-top:none;overflow:hidden;}
-.index-adv-box .index-adv .adv-item dl dt {float:left;width:300px;margin-left:17px;margin-top:21px;}
-.index-adv-box .index-adv .adv-item dl dt h2 {width:300px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;}
-.index-adv-box .index-adv .adv-item dl dt h2 a {color:#333;font-size:20px;font-family:"microsoft yahei";font-weight:normal;}
-.index-adv-box .index-adv .adv-item dl dt p {width:300px;color:#999;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;}
-.index-adv-box .index-adv .adv-item dl dd {float:right;width:88px;height:30px;margin-right:25px;margin-top:28px;}
-.index-adv-box .index-adv .adv-item dl dd a {display:block;width:86px;height:28px;line-height:28px;text-align:center;border:#99ccff 1px solid;border-radius:28px;color:#3399ff;}
-.index-adv-box .index-adv .adv-item dl dd a:hover {background:#3399ff;color:#fff;border:#3399ff 1px solid;}
+ .index-adv .adv-item {width:435px;height:265px;float:left;margin-bottom:10px;}
+ .index-adv .adv-item:nth-child(2n){margin-left:10px;}
+ .index-adv .adv-item:hover {-moz-box-shadow:0px 2px 5px rgba(0,0,0,0.1);-webkit-box-shadow:0px 2px 5px rgba(0,0,0,0.1);box-shadow:0px 4px 6px rgba(0,0,0,0.1);}
+ .index-adv .adv-item a.img-a {display:block;width:435px;height:180px;}
+ .index-adv .adv-item dl {width:435px;height:85px;border:#eee 1px solid;border-top:none;overflow:hidden;margin-bottom:0;}
+ .index-adv .adv-item dl dt {float:left;width:300px;margin-left:17px;}
+ .index-adv .adv-item dl dt h2 {width:300px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;}
+ .index-adv .adv-item dl dt h2 a {color:#333;font-size:20px;font-family:"microsoft yahei";font-weight:normal;}
+ .index-adv .adv-item dl dt p {color:#999;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;font-weight:400;}
+ .index-adv .adv-item dl dd {float:right;width:88px;height:30px;margin-right:25px;margin-top:28px;}
+ .index-adv .adv-item dl dd a {display:block;width:86px;height:28px;line-height:28px;text-align:center;border:#99ccff 1px solid;border-radius:28px;color:#3399ff;}
+ .index-adv .adv-item dl dd a:hover {background:#3399ff;color:#fff;border:#3399ff 1px solid;}
 /*游戏交易排行*/
 .deal-top-box {width:218px;margin:0 auto;}
 .deal-top-box ul {*padding-top:3px;}

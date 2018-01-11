@@ -136,10 +136,10 @@
 .jsmc dl dd.szid{ width:150px;}
 .jsmc dl dd.cz{ width:150px;}
 
-#nave{ width:100%; height:30px; border-bottom:#d2e6ff solid 1px;}
-#nave ol{float:left; width:104px; height:29px;line-height:29px;margin-right:5px;text-align:center;}
-#nave ol a{display:block;cursor:pointer; background:#e8f2ff; border-right:#d2e6ff solid 1px; border:#d2e6ff solid 1px; color:#3366cc;}
-#nave ol .a_hover{ background:#FFFFFF; color:#000000; border-bottom:#FFFFFF solid 1px; font-weight:bold;}
+.nave{ width:100%; height:30px; border-bottom:#d2e6ff solid 1px;}
+.nave ol{float:left; width:104px; height:29px;line-height:29px;margin-right:5px;text-align:center;}
+.nave ol a{display:block;cursor:pointer; background:#e8f2ff; border-right:#d2e6ff solid 1px; border:#d2e6ff solid 1px; color:#3366cc;}
+.nave ol .a_hover{ background:#FFFFFF; color:#000000; border-bottom:#FFFFFF solid 1px; font-weight:bold;}
 #menue_con{ width:100%}
 
 .cpxz{ border:solid #dfdfdf 1px; padding:5px; margin-top:10px;}
