@@ -80,17 +80,32 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 						</div>
 
                 <!--搜索框组件的位置 end-->
-                    <div class ="yxddlb">
-                        <div class ="myxssl">
+                    <div class ="game-order-list">
+                        <!--<div class ="myxssl">
                             <span>每页显示数量：</span>
                             <a type="pageSize" size="10" @click="GetSizePage(10)">10</a>
                             <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
                             <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
-                        </div>
-                        <div id="nave">
-                            <ol v-for="item in Status"  @click ="GetStatusOrder(item.StatusId,item.StatusName)">
-                                <a :id="item.StatusName"  :class="{a_hover:item.StatusName == 'orderall'}">{{item.StatusAlias}}</a>
-                            </ol>
+                        </div>-->
+						<nav aria-label="show number" class ="text-center">
+							<ul id="" class ="pagination">
+								<li>
+									<span>10 <span class ="sr-only">(current) </span></span>
+								</li>
+								<li>
+									<span>20 <span class ="sr-only">(current) </span></span>
+								</li>
+								<li>
+									<span>30 <span class ="sr-only">(current) </span></span>
+								</li>
+							</ul>
+						</nav>
+                        <div id="nave" class="nave">
+                            <ul>
+                                <li v-for="item in Status" @click ="GetStatusOrder(item.StatusId,item.StatusName)">
+									<a :id="item.StatusName" :class ="{a_hover:item.StatusName == 'orderall'}">{{item.StatusAlias}}</a>
+								</li>
+                            </ul>
                         </div>
                         <div class ="ddxq">
                             <ul>
@@ -142,7 +157,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                 </ul>
                             </div>
                         </div>
-                        <nav aria-label="fenye" class="text-center right">
+                        <nav aria-label="fenye" class="text-center ">
 							<ul id="paginator-test" class ="pagination"></ul>
 						</nav>
                     </div>
