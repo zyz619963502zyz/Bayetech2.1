@@ -49,7 +49,7 @@ namespace Bayetech.Service
         /// <returns></returns>
         public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate,string page)
         {
-            return repository.FindList<TEntity>(Pagination.GetDefaultPagination(page), predicate);
+            return repository.FindList(Pagination.GetDefaultPagination(page), predicate);
         }
 
         /// <summary>

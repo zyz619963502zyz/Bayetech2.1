@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\DlService.cs" />
+    <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\SettingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">

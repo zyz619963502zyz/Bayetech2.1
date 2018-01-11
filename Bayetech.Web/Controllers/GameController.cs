@@ -1,7 +1,9 @@
 ﻿using Bayetech.Core.Entity;
 using Bayetech.Service;
+using Bayetech.Service.Services;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -9,7 +11,10 @@ namespace Bayetech.Web.Controllers
 {
     public class GameController : BaseController
     {
-        BaseService<Game> gameService = new BaseService<Game>();
+        GameService gameService = new GameService();
+        SettingService settingService = new SettingService();
+        BaseService<GameProfession> professionInfoService = new BaseService<GameProfession>();
+
 
         /// <summary>
         /// 获取游戏
@@ -89,6 +94,42 @@ namespace Bayetech.Web.Controllers
             name = Core.Common.Trim(name);
             var list = gameService.GetList(g => g.Platform == type && g.Name.Contains(name) && !g.IsDelete);
             return list;
+        }
+
+        /// <summary>
+        /// 获取商品需要的账号输入框
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <param name="goodTypeId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetAccountComponents(int gameId)
+        {
+            var list = gameService.GetExtraProperty(gameId);
+            //为下拉框组装数据
+            var jObject = Core.Common.PackageJObect(list.Count > 0, list);
+            if (list.Count > 0)
+            {
+                foreach (JToken item in jObject.Property("content").Value)
+                {
+                    if (item.Value<string>("Flag") == "select")
+                    {
+                        var key = item.Value<string>("Key");
+                        List< Settings> value= null;
+                        if (key == "level")
+                        {
+                            value = professionInfoService.FindList(p => p.GameId == gameId).Select(s => new Settings() { Id = s.Id, Value = s.ProfessionName }).ToList();
+                        }
+                        else
+                        {
+                            value = settingService.GetListByType(key);
+                        }
+                        item["Value"] = JToken.FromObject(value);
+                    }
+
+                }
+            }
+            return jObject;
         }
     }
 }

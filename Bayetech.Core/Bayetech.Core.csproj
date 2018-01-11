@@ -82,6 +82,12 @@
     <Compile Include="Entity\Category.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\ExtraProperty.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExtraPropertyValue.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -95,12 +101,6 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\GoodAndDescription.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\GoodProperty.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\GoodPropertyValue.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">

@@ -1,6 +1,6 @@
 ﻿//step2
-define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode'],
-    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, GoldAccountInfo, SecurityCode) {
+define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode', 'SettingController'],
+    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, GoldAccountInfo, SecurityCode, SettingController) {
         var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
@@ -22,7 +22,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             <a class="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
             <span>《{{GameInfo.GameName}}》{{GameInfo.GroupName}}/{{GameInfo.ServerName}}/{{GameInfo.GoodTypeName}}</span></h3>
           <p class="orange-stip">
-            <span>7881温馨提示：</span>
+            <span>温馨提示：</span>
             <br><span v-html="tip"></span></p></div>
         <div class="publish-step-01 fill-goods-info">
           <div class="pub-tit">
@@ -40,14 +40,19 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
           </div>
           <div class ="account-info-con account-info-con">
                <div class ="common-form height-30" id="gameAccountInfo">
-                   <div class ="form-item clearfix" v-for="item in AccountInfoInputList">
+                   <div class ="form-item clearfix" v-for="data in AccountInfoInputList">
                        <div class="form-item-l">
                            <i>*</i>
-                           <span>{{item.Name}}：</span>
+                           <span>{{data.Name}}：</span>
                        </div>
                        <div class="form-item-r">
-                           <div class="game-ipt">
-                               <input :type="item.Flag=='password'?'password':'text'" class ="common-input h-30" :name="item.Value" :valid="item.Flag" :id="item.Id" value="" :placeholder="'请输入'+item.Name">
+                           <div class ="game-ipt">
+                            <input v-if="data.Flag=='string'||data.type=='int'" type="text" class ="common-input h-30" :name="data.Key" :id="data.Key" :placeholder="'请输入'+data.Name" :valid="data.Flag">
+        <input v-else-if="data.Flag=='password'" type="password" class ="common-input h-30" :name="data.Key" :id="data.Key" :placeholder="'请输入'+data.Name" :valid="data.Flag">
+        <select v-else-if="data.Flag=='select'" :id="data.Key" :name="data.Key" :valid="data.Flag">
+            <option value="">请选择</option>
+            <option v-for="item in data.Value" :value="item.Value">{{item.Value}}</option>
+        </select>
                            </div>
                        </div>
                    </div>
@@ -197,6 +202,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
         AccountInfoInputList: [],
         tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
+        SecurityQuestion:[],
     }
 
     var components={
@@ -206,6 +212,10 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             return data
         },
         created() {
+            var self=this;
+            SettingController.GetListByType("密保问题", function (data) {
+                self.SecurityQuestion=data.content;
+            });
             this.GameInfo=this.$parent.GameInfo;
             //加载组件
             this.LoadGoodInfo();
@@ -238,7 +248,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                 } else if (type==3) {//账号
                     this.good_info_com="AccountGoodInfo";
                     this.tip=`为保障${this.GameInfo.GameName}交易安全，您出售的帐号将进行延迟7天打款，此期间请勿修改帐号资料，否则将号财两空。<br>
-                如果您出售的帐号出现找回情况，我们将把您在7881登记的所有信息提供给买家，由买家在各大网站公布并向公安机关报案。<br>
+                如果您出售的帐号出现找回情况，我们将把您在${config.siteName}登记的所有信息提供给买家，由买家在各大网站公布并向公安机关报案。<br>
                 被骗用户都有出现被假客服联系的情况，因此有客服联系时，可点击【 客服验证中心】验证客服真假或者联系QQ 4001877881为您验证客服真假。`;
                 };
             },
