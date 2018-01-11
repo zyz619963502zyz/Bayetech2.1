@@ -130,6 +130,17 @@
     }
 
     /**
+     * 获取静态页面的名称
+     *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)
+     */
+    common.GetSearchType=function () {
+        var _url=document.location.href;
+        var _urlArray = document.location.href.split("/");
+        var type = document.location.href.split("/")[_urlArray.length-1].replace(".html", "");
+        return type;
+    }
+
+    /**
      * 判断当前浏览类型
      */
     common.BrowserType = function () {

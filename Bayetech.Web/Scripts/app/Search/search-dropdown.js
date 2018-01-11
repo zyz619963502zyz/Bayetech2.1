@@ -74,7 +74,10 @@ define(["common"], function (common) {
             return data;
         },
         methods: {
-            loadDropdown: function (type,id,name) {
+            loadDropdown: function (type, id, name) {
+                if (type==4&&this.$parent.DL) {
+                     this.$parent.IsShow = false;
+                } 
                 this.$parent.loadDropdown(type, id,name);
             },
             changeGameType: function (type) {

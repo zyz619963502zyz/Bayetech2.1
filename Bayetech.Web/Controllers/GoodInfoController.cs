@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Helpers;
 using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
@@ -19,7 +20,8 @@ namespace Bayetech.Web.Controllers
         BaseService<GameProfession> proBase = new BaseService<GameProfession>();
         BaseService<Server> severBase = new BaseService<Server>();
         BaseService<MallGoodInfo> goodInfoService = new BaseService<MallGoodInfo>();
-        BaseService<GoodPropertyValue> goodPropertyValueService = new BaseService<GoodPropertyValue>();
+        BaseService<ExtraPropertyValue> goodPropertyValueService = new BaseService<ExtraPropertyValue>();
+        SettingService settingService = new SettingService();
 
         /// <summary>
         /// 获取区服名称
@@ -118,8 +120,31 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public JObject GetAccountComponents(int gameId, int goodTypeId)
         {
-            var list = service.GetAccountComponents(gameId, goodTypeId);
-            return Core.Common.PackageJObect(list.Count > 0, list);
+            var list = service.GetExtraProperty(gameId, goodTypeId);
+            //为下拉框组装数据
+            var key = "";
+            JToken value = "";
+            var jObject = Core.Common.PackageJObect(list.Count > 0, list);
+            if(list.Count > 0)
+            {
+                foreach (JToken item in jObject.Property("content").Value)
+                {
+                    if (item.Value<string>("Flag") == "select")
+                    {
+                        if (item.Value<string>("Remark") == key)
+                        {
+                            item["Value"] = value;
+                        }
+                        else
+                        {
+                            key = item.Value<string>("Remark");
+                            value = JToken.FromObject(settingService.GetListByType(key));
+                            item["Value"] = value;
+                        }
+                    }
+                }
+            }
+            return jObject;
         }
 
         /// <summary>
@@ -140,7 +165,7 @@ namespace Bayetech.Web.Controllers
             if (result > 0)
             {
                 //添加商品动态属性
-                var accountInfo = JsonConvert.DeserializeObject<List<GoodPropertyValue>>(json.Property("accountInfo").Value.ToString()).Select(a => new GoodPropertyValue() { GoodId = goodInfo.GoodNo, PropertyId = a.PropertyId, PropertyValue = a.PropertyValue }).ToList();
+                var accountInfo = JsonConvert.DeserializeObject<List<ExtraPropertyValue>>(json.Property("accountInfo").Value.ToString()).Select(a => new ExtraPropertyValue() { GoodId = goodInfo.GoodNo, PropertyId = a.PropertyId, PropertyValue = a.PropertyValue }).ToList();
                 goodPropertyValueService.Insert(accountInfo);
             }
             return false;

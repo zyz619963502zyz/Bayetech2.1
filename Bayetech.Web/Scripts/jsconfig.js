@@ -72,8 +72,9 @@ var jsconfig = {
         'VueRouter': 'Scripts/vue-router.min',
         'game-list': 'Scripts/app/Game/List',
         'GameController': 'Scripts/app/Controllers/Game',
+        'SettingController': 'Scripts/app/Controllers/Setting',
         'InfoList': 'Scripts/app/DLService/InfoList',
-        'DLList': 'Scripts/app/DLLists/DLList'
+        'DLList': 'Scripts/app/DLService/DLLists/DLList'
     },
     map: {
         '*': {
@@ -105,34 +106,11 @@ var jsconfig = {
 };
 require.config(jsconfig);
 
-var requireManage={
-    libArr: ['vue', 'jquery', 'common'],
-    moduleArr: [],
-    cssArr: [],
-    textArr: [],
-    requireArr: ['vue', 'jquery', 'common'],
-    addLib: function (arr) {
-        requireManage.libArr = requireManage.libArr.concat(arr);
-        requireManage.requireArr = requireManage.requireArr.concat(arr);
-    },
-    addModule: function (arr) {
-       // q.concat(b)
-        requireManage.moduleArr = requireManage.moduleArr.concat(arr);
-        requireManage.requireArr = requireManage.requireArr.concat(arr);
-    },
-    addCss: function (arr) {
-        requireManage.cssAr = requireManage.cssArr.concat(arr);
-        requireManage.requireArr = requireManage.requireArr.concat(arr);
-    },
-    addText: function (arr) {
-        requireManage.textArr = requireManage.textArr.concat(arr);
-        requireManage.requireArr= requireManage.requireArr.concat(arr);
-    },
-    getrequire: function () {
-        return requireManage.requireArr;
-    },
-    getModule: function () {
-        return requireManage.requireArr;
-    },
-}
+var config={
+    siteName: "游戏联盟",
+    baseUrl: webUrl,
+    location: window.location.href||'', 
+    width: document.documentElement.clientWidth>0?document.documentElement.clientWidth:document.body.clientWidth,
+    height: document.documentElement.clientHeight>0?document.documentElement.clientHeight:document.body.clientHeight,
+};
 

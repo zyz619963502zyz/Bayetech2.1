@@ -91,6 +91,30 @@
           <Property Name="group_add" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="img" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <EntityType Name="ExtraProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Key" Type="nvarchar" MaxLength="20" />
+          <Property Name="Length" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="50" />
+          <Property Name="Need" Type="bit" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtraPropertyValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PropertyId" Type="bigint" Nullable="false" />
+          <Property Name="PropertyValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Game">
           <Key>
             <PropertyRef Name="Id" />
@@ -146,28 +170,6 @@
           <Property Name="DescriptionId" Type="bigint" />
           <Property Name="DescriptionValue" Type="nvarchar" MaxLength="50" />
           <Property Name="GameId" Type="bigint" />
-        </EntityType>
-        <EntityType Name="GoodProperty">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="20" />
-          <Property Name="Value" Type="nvarchar" MaxLength="20" />
-          <Property Name="Length" Type="int" />
-          <Property Name="Type" Type="int" />
-          <Property Name="Flag" Type="nvarchar" MaxLength="50" />
-          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
-          <Property Name="IsDelete" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GoodPropertyValue">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GoodId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PropertyId" Type="bigint" Nullable="false" />
-          <Property Name="PropertyValue" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
@@ -561,12 +563,12 @@
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtraProperty" EntityType="Self.ExtraProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtraPropertyValue" EntityType="Self.ExtraPropertyValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameInfoDescription" EntityType="Self.GameInfoDescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameProfession" EntityType="Self.GameProfession" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameRequirements" EntityType="Self.GameRequirements" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GoodProperty" EntityType="Self.GoodProperty" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GoodPropertyValue" EntityType="Self.GoodPropertyValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" Schema="dbo" store:Type="Tables" />
@@ -962,9 +964,7 @@
           <EntitySet Name="Settings" EntityType="BayetechModel.Settings" />
           <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
           <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
-          <EntitySet Name="GoodProperty" EntityType="BayetechModel.GoodProperty" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
-          <EntitySet Name="GoodPropertyValue" EntityType="BayetechModel.GoodPropertyValue" />
           <EntitySet Name="MallDLInfo" EntityType="BayetechModel.MallDLInfo" />
           <EntitySet Name="MallWorkerType" EntityType="BayetechModel.MallWorkerType" />
           <EntitySet Name="MallDLType" EntityType="BayetechModel.MallDLType" />
@@ -972,6 +972,8 @@
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
           <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
+          <EntitySet Name="ExtraProperty" EntityType="BayetechModel.ExtraProperty" />
+          <EntitySet Name="ExtraPropertyValue" EntityType="BayetechModel.ExtraPropertyValue" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1136,19 +1138,6 @@
           <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" />
         </EntityType>
-        <EntityType Name="GoodProperty">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Value" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Length" Type="Int32" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Relationship">
           <Key>
             <PropertyRef Name="Id" />
@@ -1161,15 +1150,6 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ModifyTime" Type="DateTime" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GoodPropertyValue">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyId" Type="Int64" Nullable="false" />
-          <Property Name="PropertyValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MallDLInfo">
           <Key>
@@ -1331,6 +1311,30 @@
           <Property Name="DescriptionId" Type="Int64" />
           <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExtraProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Key" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="Int32" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Need" Type="Boolean" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtraPropertyValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyId" Type="Int64" Nullable="false" />
+          <Property Name="PropertyValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1686,20 +1690,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GoodProperty">
-            <EntityTypeMapping TypeName="BayetechModel.GoodProperty">
-              <MappingFragment StoreEntitySet="GoodProperty">
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Flag" ColumnName="Flag" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Length" ColumnName="Length" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Relationship">
             <EntityTypeMapping TypeName="BayetechModel.Relationship">
               <MappingFragment StoreEntitySet="Relationship">
@@ -1710,16 +1700,6 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GoodPropertyValue">
-            <EntityTypeMapping TypeName="BayetechModel.GoodPropertyValue">
-              <MappingFragment StoreEntitySet="GoodPropertyValue">
-                <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
-                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
-                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1888,6 +1868,32 @@
                 <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtraProperty">
+            <EntityTypeMapping TypeName="BayetechModel.ExtraProperty">
+              <MappingFragment StoreEntitySet="ExtraProperty">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Need" ColumnName="Need" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtraPropertyValue">
+            <EntityTypeMapping TypeName="BayetechModel.ExtraPropertyValue">
+              <MappingFragment StoreEntitySet="ExtraPropertyValue">
+                <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
