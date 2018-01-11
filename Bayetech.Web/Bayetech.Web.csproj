@@ -721,10 +721,11 @@
     <Content Include="Resource\Spring\SpringObjects.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\app\API\All.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\Controllers\Game.js" />
-    <Content Include="Scripts\app\Controllers\Setting.js" />
+    <Content Include="Scripts\app\API\Game.js" />
+    <Content Include="Scripts\app\API\Setting.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\Index.js" />
@@ -738,8 +739,6 @@
     <Content Include="Scripts\app\GoodList\ScreenBox.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
-    <Content Include="Scripts\app\GoodPublish\AccountInfo\Gold.js" />
-    <Content Include="Scripts\app\GoodPublish\AccountInfo\SecurityCode.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />

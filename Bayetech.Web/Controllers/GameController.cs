@@ -97,13 +97,13 @@ namespace Bayetech.Web.Controllers
         }
 
         /// <summary>
-        /// 获取商品需要的账号输入框
+        /// 获取游戏额外属性输入框
         /// </summary>
         /// <param name="gameId"></param>
         /// <param name="goodTypeId"></param>
         /// <returns></returns>
         [HttpGet]
-        public JObject GetAccountComponents(int gameId)
+        public JObject GetGameExtPropsInput(int gameId)
         {
             var list = gameService.GetExtraProperty(gameId);
             //为下拉框组装数据
@@ -114,17 +114,16 @@ namespace Bayetech.Web.Controllers
                 {
                     if (item.Value<string>("Flag") == "select")
                     {
-                        var key = item.Value<string>("Key");
                         List< Settings> value= null;
-                        if (key == "level")
+                        if (item.Value<string>("Key") == "profession")
                         {
-                            value = professionInfoService.FindList(p => p.GameId == gameId).Select(s => new Settings() { Id = s.Id, Value = s.ProfessionName }).ToList();
+                            value = professionInfoService.FindList(p => p.GameId == gameId).ToList().Select(s => new Settings() { Id = s.Id, Value = s.ProfessionName }).ToList();
                         }
                         else
                         {
-                            value = settingService.GetListByType(key);
+                            value = settingService.GetListByType(item.Value<string>("Remark"));
                         }
-                        item["Value"] = JToken.FromObject(value);
+                        item["Value"] = JToken.FromObject(value??new List<Settings>());
                     }
 
                 }

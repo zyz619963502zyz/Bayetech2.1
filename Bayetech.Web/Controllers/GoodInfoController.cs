@@ -112,13 +112,13 @@ namespace Bayetech.Web.Controllers
         }
 
         /// <summary>
-        /// 获取商品需要的账号输入框
+        /// 获取商品额外属性输入框
         /// </summary>
         /// <param name="gameId"></param>
         /// <param name="goodTypeId"></param>
         /// <returns></returns>
         [HttpGet]
-        public JObject GetAccountComponents(int gameId, int goodTypeId)
+        public JObject GetGoodExtPropsInput(int gameId, int goodTypeId)
         {
             var list = service.GetExtraProperty(gameId, goodTypeId);
             //为下拉框组装数据
@@ -158,14 +158,21 @@ namespace Bayetech.Web.Controllers
             var goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>(json.ToString());
             goodInfo.GoodNo = Core.Common.CreatGoodNo();
             goodInfo.AddTime = DateTime.Now;
-            var validDay = int.Parse(json.Property("validDay").Value.ToString());
+            var validDay = int.Parse(json.Property("validDay").Value.ToString()??"0");
             goodInfo.GoodValidityTime = DateTime.Now.AddDays(validDay);//商品过期时间
             var result = goodInfoService.Insert(goodInfo);//添加商品
 
             if (result > 0)
             {
-                //添加商品动态属性
+                //添加商品附加属性
                 var accountInfo = JsonConvert.DeserializeObject<List<ExtraPropertyValue>>(json.Property("accountInfo").Value.ToString()).Select(a => new ExtraPropertyValue() { GoodId = goodInfo.GoodNo, PropertyId = a.PropertyId, PropertyValue = a.PropertyValue }).ToList();
+                
+                //添加游戏账号附加属性
+                if (goodInfo.GoodTypeId == 3)
+                {
+                    var gamePropsInfo = JsonConvert.DeserializeObject<List<ExtraPropertyValue>>(json.Property("gamePropsInfo").Value.ToString()).Select(a => new ExtraPropertyValue() { GoodId = goodInfo.GoodNo, PropertyId = a.PropertyId, PropertyValue = a.PropertyValue }).ToList();
+                    accountInfo = accountInfo.Concat(gamePropsInfo).ToList();
+                }
                 goodPropertyValueService.Insert(accountInfo);
             }
             return false;

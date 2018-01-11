@@ -1,5 +1,5 @@
 ﻿//step1
-define(['jquery', 'common', 'GameController'], function ($, common,Game) {
+define(['jquery', 'common', 'API'], function ($, common, API) {
     var html=`<div>
             <div class="release_search W980" style="margin-top:20px;">
                 <div class="gametitle">
@@ -156,7 +156,7 @@ define(['jquery', 'common', 'GameController'], function ($, common,Game) {
 	            GetList: function (type, id, name) {
 	                var self=this;
 	                name=name||"";
-	                Game[`Get${type}List`](id, name, function (result) {
+	                API.Game[`Get${type}List`](id, name, function (result) {
 	                    self[`${type}List`]=result.content;
 	                });
 	            },

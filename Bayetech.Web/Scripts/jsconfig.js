@@ -71,10 +71,10 @@ var jsconfig = {
         'ServiceInfa': "Scripts/app/ServiceCenter/serviceinfo",
         'VueRouter': 'Scripts/vue-router.min',
         'game-list': 'Scripts/app/Game/List',
-        'GameController': 'Scripts/app/Controllers/Game',
-        'SettingController': 'Scripts/app/Controllers/Setting',
+        'API': 'Scripts/app/API/All',
         'InfoList': 'Scripts/app/DLService/InfoList',
-        'DLList': 'Scripts/app/DLService/DLLists/DLList'
+        'DLList': 'Scripts/app/DLService/DLLists/DLList',
+        'DynamicInput': 'Scripts/app/Shared/dynamicInput',
     },
     map: {
         '*': {

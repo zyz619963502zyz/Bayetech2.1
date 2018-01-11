@@ -40,7 +40,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
         template: html,
         data:function() {
             return {
-                DL:window.location.href.indexOf("DLService")>0?true:false,
+                DL: window.location.href.indexOf("DLService")>0?true:false,
+                SearchIndex:0,
                 IsSimple: false,
                 IsShow: false,
                 DropdownData: {},
@@ -126,13 +127,12 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 }
                 this.setData(type, pid, this);
             },
-            //搜索
-            search: function () {
-                //判断search跳转
+            GetTurnPageType:function(){
+                  //判断search跳转
                 var _type=common.GetSearchType();
                 var TargetUrl= "";
                 switch (_type) {
-                    case "index":
+                    case "NewIndex":
                        TargetUrl=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=
                                 ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
                                 ${this.Param.GameGroupId}&GameGroupName=
@@ -162,16 +162,23 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     default:
                         break;
                 }
+                return TargetUrl;
+            },
+            //搜索
+            search: function () {
+                var self = this;
+                var TargetUrl = self.GetTurnPageType();
                 localStorage.SearchParam=JSON.stringify(this.Param);
-                if (TargetUrl) {
+                if (TargetUrl!="") {
                     window.open(TargetUrl);
+                } else {
+                   self.$root.$emit("SearchAgain",111);//兄弟组件通信方式。
+                   //var param =  {
+                   //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
+                   //    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
+                   //};
+                   //common.postWebJson("/api/GoodInfo/GetList", JSON.stringify(param), function (data) { });
                 }
-              
-                //var param =  {
-                //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
-                //    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
-                //};
-                //common.postWebJson("/api/GoodInfo/GetList", JSON.stringify(param), function (data) { });
             },           
             getParentTypeName: function (type) {
                 var parentTypeObj = {
