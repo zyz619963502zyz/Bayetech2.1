@@ -1,6 +1,6 @@
 ﻿//首页广告
 define([], function () {
-    var html = `<div class="index-adv-box">
+    var html = `
     <div class="index-adv clearfix">
         <div class="adv-item" v-for="item in object">
             <a :href="item.url" class ="img-a"><img :src="item.img" width="435" height="180" alt="" /></a>
@@ -12,8 +12,7 @@ define([], function () {
                 <dd><a :href="item.url" target="_blank">{{item.fnname}}</a></dd>
             </dl>
         </div>
-    </div>
-</div>`;
+    </div>`;
 
     var data = {
         object: [{
