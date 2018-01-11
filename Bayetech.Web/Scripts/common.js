@@ -136,7 +136,7 @@
     common.GetSearchType=function () {
         var _url=document.location.href;
         var _urlArray = document.location.href.split("/");
-        var type = document.location.href.split("/")[_urlArray.length-1].replace(".html", "");
+        var type = document.location.href.split("/")[_urlArray.length-1].split('.')[0];
         return type;
     }
 
