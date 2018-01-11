@@ -16,11 +16,11 @@ namespace Bayetech.Web.Controllers
         /// <summary>
         /// 根据类型获取配置
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
-        public JObject GetListByType(string name)
+        public JObject GetListByType(string type)
         {
-            var parent = service.FindList(s => s.Value == name || s.key == name).FirstOrDefault();
+            var parent = service.FindList(s => s.Value == type || s.key == type).FirstOrDefault();
             var data = service.GetList(s => s.ParentId == parent.Id);
             return data;
         }

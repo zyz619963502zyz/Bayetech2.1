@@ -14,15 +14,6 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
 
 	        },
 	        methods: {
-                //跳转商品列表
-	            ToGoodList: function (id, name) {
-	                localStorage.SearchParam=JSON.stringify({
-	                    GameId: id,
-	                    GameName: name,
-	                });
-	                var url=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html`);
-	                window.open(url);
-	            },
 	        },
 	    });
 	});

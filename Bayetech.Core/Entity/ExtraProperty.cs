@@ -12,11 +12,17 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class GoodPropertyValue
+    public partial class ExtraProperty
     {
         public long Id { get; set; }
-        public string GoodId { get; set; }
-        public long PropertyId { get; set; }
-        public string PropertyValue { get; set; }
+        public string Name { get; set; }
+        public string Key { get; set; }
+        public Nullable<int> Length { get; set; }
+        public string Type { get; set; }
+        public string Flag { get; set; }
+        public bool Need { get; set; }
+        public string Value { get; set; }
+        public string Remark { get; set; }
+        public bool IsDelete { get; set; }
     }
 }
