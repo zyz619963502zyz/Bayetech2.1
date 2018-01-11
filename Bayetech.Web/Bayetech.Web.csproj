@@ -721,10 +721,11 @@
     <Content Include="Resource\Spring\SpringObjects.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\app\API\All.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\Controllers\Game.js" />
-    <Content Include="Scripts\app\Controllers\Setting.js" />
+    <Content Include="Scripts\app\API\Game.js" />
+    <Content Include="Scripts\app\API\Setting.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\Index.js" />

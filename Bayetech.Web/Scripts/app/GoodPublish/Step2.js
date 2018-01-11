@@ -1,6 +1,6 @@
 ﻿//step2
-define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode', 'SettingController'],
-    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, GoldAccountInfo, SecurityCode, SettingController) {
+define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'Scripts/app/GoodPublish/AccountInfo/Gold', 'Scripts/app/GoodPublish/AccountInfo/SecurityCode', 'API', 'DynamicInput'],
+    function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, GoldAccountInfo, SecurityCode, API, DynamicInput) {
         var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
@@ -40,19 +40,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
           </div>
           <div class ="account-info-con account-info-con">
                <div class ="common-form height-30" id="gameAccountInfo">
-                   <div class ="form-item clearfix" v-for="data in AccountInfoInputList">
+                   <div class ="form-item clearfix" v-for="data in GoodExtProps">
                        <div class="form-item-l">
                            <i>*</i>
                            <span>{{data.Name}}：</span>
                        </div>
                        <div class="form-item-r">
                            <div class ="game-ipt">
-                            <input v-if="data.Flag=='string'||data.type=='int'" type="text" class ="common-input h-30" :name="data.Key" :id="data.Key" :placeholder="'请输入'+data.Name" :valid="data.Flag">
-        <input v-else-if="data.Flag=='password'" type="password" class ="common-input h-30" :name="data.Key" :id="data.Key" :placeholder="'请输入'+data.Name" :valid="data.Flag">
-        <select v-else-if="data.Flag=='select'" :id="data.Key" :name="data.Key" :valid="data.Flag">
-            <option value="">请选择</option>
-            <option v-for="item in data.Value" :value="item.Value">{{item.Value}}</option>
-        </select>
+                              <DynamicInput :data="data"></DynamicInput>
                            </div>
                        </div>
                    </div>
@@ -80,7 +75,8 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                       <option value="5">5天</option>
                       <option value="7">7天</option>
                       <option value="15">15天</option>
-                      <option value="30">30天</option></select>
+                      <option value="30">30天</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -197,13 +193,14 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
           <input type="text" name="tradeCode" id="" value="" placeholder="请输入安全交易码" maxlength="16" class="common-input h-30"></div>
       </div>
     </div>`;
-    var data={
-        good_info_com: "UniversalGoodInfo",
-        AccountInfoInputList: [],
-        tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
+   var data={
+       GameInfo: { },
+       good_info_com: "UniversalGoodInfo",
+       GoodExtProps: [],
+       tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
-        SecurityQuestion:[],
-    }
+       SecurityQuestion: [],
+   }
 
     var components={
         name: "step1",
@@ -213,7 +210,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
         },
         created() {
             var self=this;
-            SettingController.GetListByType("密保问题", function (data) {
+            API.Setting.GetListByType("密保问题", function (data) {
                 self.SecurityQuestion=data.content;
             });
             this.GameInfo=this.$parent.GameInfo;
@@ -229,6 +226,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             UniversalGoodInfo: UniversalGoodInfo,
             GoldGoodInfo: GoldGoodInfo,
             AccountGoodInfo: AccountGoodInfo,
+            DynamicInput: DynamicInput,
         },
         methods: {
             //点击下一步
@@ -255,9 +253,9 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             //加载账号信息模块
             LoadAccountInfo: function (gameId, goodTypeId) {
                 var self=this;
-                $.get("/api/GoodInfo/GetAccountComponents", { gameId: self.GameInfo.GameId, goodTypeId: self.GameInfo.GoodTypeId }, function (data) {
+                $.get("/api/GoodInfo/GetGoodExtPropsInput", { gameId: self.GameInfo.GameId, goodTypeId: self.GameInfo.GoodTypeId }, function (data) {
                     if (data) {
-                        self.AccountInfoInputList=data.content;
+                        self.GoodExtProps=data.content;
                     }
                 });
             },

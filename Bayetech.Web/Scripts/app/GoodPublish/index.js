@@ -84,6 +84,14 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
 	                        });
 	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+	                        //组装游戏额外属性对象
+	                        if (this.GameInfo.GoodTypeId == 3) {
+	                            var gameProps=[];
+	                            $("#GameProps :input").each(function () {
+	                                gameProps.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
+	                            });
+	                            data+=`&gamePropsInfo=${JSON.stringify(gameProps)}`;
+	                        }
                             //添加商品
 	                        $.post("/api/GoodInfo/AddGood", data, function (result) {
 	                            if (result) {

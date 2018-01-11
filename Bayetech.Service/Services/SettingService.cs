@@ -17,10 +17,13 @@ namespace Bayetech.Service.Services
         public List<Settings> GetListByType(string type)
         {
             List<Settings> data = null;
-            var parent = FindList(s => s.Value == type || s.key == type).FirstOrDefault();
-            if (parent != null)
+            if (!string.IsNullOrEmpty(type))
             {
-                data = FindList(s => s.ParentId == parent.Id).ToList();
+                var parent = FindList(s => s.Value == type || s.key == type).FirstOrDefault();
+                if (parent != null)
+                {
+                    data = FindList(s => s.ParentId == parent.Id).ToList();
+                }
             }
             return data;
         }

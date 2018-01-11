@@ -1,6 +1,7 @@
 ﻿//获取配置信息
 define(['jquery', 'common'], function () {
     var self={};
+    self.Name="Setting";
     // 根据父级获取配置列表
     self.GetListByParentId=function (pid, fn) {
         name=name||"";
