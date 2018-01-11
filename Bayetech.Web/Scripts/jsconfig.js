@@ -74,7 +74,7 @@ var jsconfig = {
         'GameController': 'Scripts/app/Controllers/Game',
         'SettingController': 'Scripts/app/Controllers/Setting',
         'InfoList': 'Scripts/app/DLService/InfoList',
-        'DLList': 'Scripts/app/DLLists/DLList'
+        'DLList': 'Scripts/app/DLService/DLLists/DLList'
     },
     map: {
         '*': {

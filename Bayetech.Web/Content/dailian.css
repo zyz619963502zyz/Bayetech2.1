@@ -17,3 +17,14 @@
 .g-select{
     float:none;
 }
+.list-block {
+    min-height: 545px;
+    overflow: inherit;
+}
+.panel-body .goods-search-box .search-form .search-item.search-btn {
+    margin-left: 20px;
+}
+
+.recommend-area span{
+    z-index:1;
+}

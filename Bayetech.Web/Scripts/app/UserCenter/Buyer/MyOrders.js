@@ -126,9 +126,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                         <span class ="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html'>再来一单</a></span>
                                     </ol>
                                     <ol class ="khfw">
-                                        <a href="javascript:void(0)" class ="list-kf" kfid="" gameId="G10" gtId="100001"
-                                           tradeType="db" salerId="112348969" substatus="1"
-                                           subbillId="117121015129162378667633">
+                                        <a href="javascript:void(0)" class ="list-kf" >
                                             <img src="http://pic.7881.com/7881/market/images/list-kf-icon.png" alt="" />
                                         </a>
                                     </ol>
@@ -192,7 +190,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         template: html,
         watch: {
             '$route' (to, from) {
-                self.menuType=this.$route.query.flag;//判断是代练还是普通订单
+                self.menuType=this.$route.query.flag;//判断是代练还是普通订单,还是商户的订单管理
+                self.menuType == 'Sales'?$("#pending").text("等待买家付款"):$("#pending").text("等待付款")
                 //self.GetOrderInfo(self.Pagination);
             },
         },
@@ -205,7 +204,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             self.GetOrderStatus(0);
         },
         mounted() {
-            var aaa = 1; 
+             $(".datepicker").datepicker({
+                language: 'zh-CN',
+                fomart:'yyyy-mm-dd',
+        		keyboardNavigation: false,
+        		forceParse: false,
+        		autoclose: true
+        	});
         },
         methods: {
             ConfirmTypes(){

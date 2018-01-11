@@ -689,7 +689,7 @@
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
     <Content Include="Page\DLService\DLList.html" />
-    <Content Include="Page\DLService\index.html" />
+    <Content Include="Page\DLService\DLIndex.html" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\GoodList\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
@@ -725,8 +725,8 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\Game.js" />
     <Content Include="Scripts\app\Controllers\Setting.js" />
-    <Content Include="Scripts\app\DLLists\DLList.js" />
-    <Content Include="Scripts\app\DLLists\index.js" />
+    <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
+    <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\Index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
