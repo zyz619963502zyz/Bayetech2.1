@@ -8,6 +8,9 @@ require(dlmodule, function (Vue, $, common, nav, search) {
 		data: function () {
 			return data;
 		},
+		methods: {
+
+        },
 		created: function () {
 
 		},
