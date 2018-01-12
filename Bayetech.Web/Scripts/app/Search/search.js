@@ -166,18 +166,14 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //搜索
             search: function () {
-                var self = this;
+                var self=this;
+                var _type=common.GetSearchType();//获取页面的类型。
                 var TargetUrl = self.GetTurnPageType();
                 localStorage.SearchParam=JSON.stringify(this.Param);
                 if (TargetUrl!="") {
                     window.open(TargetUrl);
                 } else {
-                   self.$root.$emit("SearchAgain",111);//兄弟组件通信方式。
-                   //var param =  {
-                   //    GameId: this.gameId, GameGroupId: this.groupId, GameServerId: this.serverId,
-                   //    GoodType: this.typeId, GoodKeyWord: this.keyword.trim(),
-                   //};
-                   //common.postWebJson("/api/GoodInfo/GetList", JSON.stringify(param), function (data) { });
+                   self.$root.$emit("SearchAgain",_type);//兄弟组件通信方式。
                 }
             },           
             getParentTypeName: function (type) {

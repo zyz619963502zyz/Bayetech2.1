@@ -727,6 +727,7 @@
     <Content Include="Scripts\app\Controllers\Setting.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
+    <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />
     <Content Include="Scripts\app\DLService\Index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
