@@ -1,43 +1,87 @@
 ﻿jsconfig.baseArr.push("bootstrap-paginator");
 define(jsconfig.baseArr, function (Vue, $, common, paginator) {
-	var dlhtml = `<div class="list-block">
-                        <div class="expand-goods-list">
-                            <ul class="clearfix recgoods"></ul>
-                        </div>
-                        <div class="goods-list">
-                            <table border="0" cellspacing="0" cellpadding="0" id="goods_box_list">
-                                <thead>
-                                <tr>
-                                    <th width="430">代练标题</th>
-                                    <th width="140">代练价格</th>
-                                    <th width="170">保证金</th>
-                                    <th width="86">完成时间</th>
-                                    <th width="124">操作</th>
-                                </tr>
-                                </thead>
-                                <tbody><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22905">任意-黄金①星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>50.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>1天22小时</p></td><td><a class="btn btn-buy" href="buying/22905">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22904">任意-黄金②星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>60.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>1天22小时</p></td><td><a class="btn btn-buy" href="buying/22904">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22903">任意-黄金③星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>70.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>1天22小时</p></td><td><a class="btn btn-buy" href="buying/22903">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22902">任意-黄金④星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>80.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>1天22小时</p></td><td><a class="btn btn-buy" href="buying/22902">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22901">任意-钻石①星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>100.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>2天22小时</p></td><td><a class="btn btn-buy" href="buying/22901">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22900">任意-钻石②星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>120.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>2天22小时</p></td><td><a class="btn btn-buy" href="buying/22900">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22899">任意-钻石③星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>140.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>2天22小时</p></td><td><a class="btn btn-buy" href="buying/22899">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22898">任意-钻石④星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>160.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>2天22小时</p></td><td><a class="btn btn-buy" href="buying/22898">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22897">任意-泰拉①星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>180.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>3天22小时</p></td><td><a class="btn btn-buy" href="buying/22897">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22896">任意-泰拉②星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>220.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>3天22小时</p></td><td><a class="btn btn-buy" href="buying/22896">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22895">任意-泰拉③星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>260.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>3天22小时</p></td><td><a class="btn btn-buy" href="buying/22895">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22894">任意-泰拉④星</a></h2><p>代练类型：PK场代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>﹏浅水？？</span><b></b></div></td><td class="tr"><div class="goods-price"><span>300.00</span>元</div></td><td><p>安全保证金：10.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>3天22小时</p></td><td><a class="btn btn-buy" href="buying/22894">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22865">【7881官方认证】纯手工1-86（包左右槽1觉2觉）认证工作室</a></h2><p>代练类型：等级代练</p><p>游戏区服：地下城与勇士/全区/全服</p><div class="buyer-name"><span><em></em>BNS网游专营店</span><b></b></div></td><td class="tr"><div class="goods-price"><span>168.00</span>元</div></td><td><p>安全保证金：20.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>17天0小时</p></td><td><a class="btn btn-buy" href="buying/22865">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22927">纯手动代练 预约角色：1-90  150元</a></h2><p>代练类型：等级代练</p><p>游戏区服：地下城与勇士/广东区/广东8区</p></td><td class="tr"><div class="goods-price"><span>150.00</span>元</div></td><td><p>安全保证金：20.00元</p><p>效率保证金：15.00元</p></td><td class="pad-0"><p>30天0小时</p></td><td><a class="btn btn-buy" href="buying/22927">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22919">纯手打 一条疲劳10元</a></h2><p>代练类型：等级代练</p><p>游戏区服：地下城与勇士/广东区/广东1区</p></td><td class="tr"><div class="goods-price"><span>10.00</span>元</div></td><td><p>安全保证金：20.00元</p><p>效率保证金：15.00元</p></td><td class="pad-0"><p>0天10小时</p></td><td><a class="btn btn-buy" href="buying/22919">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22886">承接网通大区 预约1~90级与各个等级代练</a></h2><p>代练类型：等级代练</p><p>游戏区服：地下城与勇士/北京区/北京1区</p></td><td class="tr"><div class="goods-price"><span>200.00</span>元</div></td><td><p>安全保证金：50.00元</p><p>效率保证金：50.00元</p></td><td class="pad-0"><p>15天0小时</p></td><td><a class="btn btn-buy" href="buying/22886">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22862">新人打手接全区深渊，156/188，纯手打，包月可优惠，绝对信誉</a></h2><p>代练类型：深渊代练</p><p>游戏区服：地下城与勇士/西北区/西北2/3区</p></td><td class="tr"><div class="goods-price"><span>10.00</span>元</div></td><td><p>安全保证金：50.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>1天0小时</p></td><td><a class="btn btn-buy" href="buying/22862">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22848">纯手工代练全区全服1-85级任意角色，包左右一二觉</a></h2><p>代练类型：等级代练</p><p>游戏区服：地下城与勇士/安徽区/安徽2区</p></td><td class="tr"><div class="goods-price"><span>99.00</span>元</div></td><td><p>安全保证金：20.00元</p><p>效率保证金：15.00元</p></td><td class="pad-0"><p>20天0小时</p></td><td><a class="btn btn-buy" href="buying/22848">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22763">全区纯手工代练深渊主线158/188PL 10元一角色</a></h2><p>代练类型：深渊代练</p><p>游戏区服：地下城与勇士/北京区/北京1区</p></td><td class="tr"><div class="goods-price"><span>10.00</span>元</div></td><td><p>安全保证金：50.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>30天0小时</p></td><td><a class="btn btn-buy" href="buying/22763">立即购买</a></td></tr><tr><td class="goods-title tl pad-l-15"><h2><a href="/goods/detail/22742">全区最低价代刷深渊，包您满意。有意者加好友细聊。</a></h2><p>代练类型：深渊代练</p><p>游戏区服：地下城与勇士/北京区/北京1区</p></td><td class="tr"><div class="goods-price"><span>10.00</span>元</div></td><td><p>安全保证金：50.00元</p><p>效率保证金：10.00元</p></td><td class="pad-0"><p>20天0小时</p></td><td><a class="btn btn-buy" href="buying/22742">立即购买</a></td></tr></tbody>
-                            </table>
-                            <div class="com-page">
-                                <div class="com-page-l"><span>共24条</span><span>20条/页</span><span>共2页</span></div>
-                                <div class="page-con">
-                                    <div id="pages-box"><div name="laypage1.3" class="laypage_main laypageskin_default" id="laypage_0"><span class="laypage_curr">1</span><a href="javascript:void(0)" onclick="return false" data-page="2">2</a><a href="javascript:void(0)" onclick="return false" class="laypage_next" data-page="2">下一页</a><span class="laypage_total"><label>到第</label><input type="number" min="1" onkeyup="this.value=this.value.replace(/\D/, '');" class="laypage_skip"><label>页</label><button type="button" class="laypage_btn">确定</button></span></div></div>
+    var dlhtml=`
+        <div class="list-block">
+            <div class="expand-goods-list">
+                <ul class="clearfix recgoods"></ul>
+            </div>
+            <div class="goods-list">
+                <table border="0" cellspacing="0" cellpadding="0" id="goods_box_list">
+                    <thead>
+                        <tr>
+                            <th width="430">代练标题</th>
+                            <th width="140">代练价格</th>
+                            <th width="170">保证金</th>
+                            <th width="86">完成时间</th>
+                            <th width="124">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in content">
+                            <td class="goods-title tl pad-l-15">
+                                <h2>
+                                    <a href="/goods/detail/22905">{{item.Title}}</a>
+                                </h2>
+                                <p>代练类型：PK场代练</p><p>游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}</p>
+                                <div class ="buyer-name">
+                                    <span><em></em>﹏浅水？？</span>
+                                    <b></b>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="goods-no-data" style="display: none">
-                            <dl>
-                                <dt><img src="http://pic.7881.com/7881-2016/images/dl-dnf/list/no-data.png"></dt>
-                                <dd>
-                                    <h2>天呐，居然没有找到任何信息！ </h2>
-                                    <p>您也可以减少限制条件继续寻找...</p>
-                                </dd>
-                            </dl>
-                        </div>
+                                <p>信誉：五颗星</p>
+                            </td>
+                            <td class="tr"><div class="goods-price"><span>{{item.Price}}</span>元</div></td>
+                            <td class="pad-0"><p>1天22小时{{item.CompleteTime - item.CreatTime}}</p></td>
+                            <td><a class="btn btn-buy" href="buying/22905" @click="BuyNow">立即购买</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="com-page">
+                    <div class="com-page-l"><span>共24条</span><span>20条/页</span><span>共2页</span></div>
+                    <div class="page-con">
+                        <div id="pages-box"><div name="laypage1.3" class="laypage_main laypageskin_default" id="laypage_0"><span class="laypage_curr">1</span><a href="javascript:void(0)" onclick="return false" data-page="2">2</a><a href="javascript:void(0)" onclick="return false" class="laypage_next" data-page="2">下一页</a><span class="laypage_total"><label>到第</label><input type="number" min="1" onkeyup="this.value=this.value.replace(/\D/, '');" class="laypage_skip"><label>页</label><button type="button" class="laypage_btn">确定</button></span></div></div>
                     </div>
-		        `;
-	var module = {
+                </div>
+            </div>
+            <div class="goods-no-data" style="display: none">
+                <dl>
+                    <dt><img src="http://pic.7881.com/7881-2016/images/dl-dnf/list/no-data.png"></dt>
+                    <dd>
+                        <h2>天呐，居然没有找到任何信息！ </h2>
+                        <p>您也可以减少限制条件继续寻找...</p>
+                    </dd>
+                </dl>
+              </div>
+            </div>`;
+
+    var DLLlistUrl = "/api/Dl/GetDlInfoList";
+
+    var data={
+        listObj:[],//列表数据
+    };
+
+	var DLLlistcomponent = {
 		name:'DLList',
 		template: dlhtml,
+		data(){
+		    return data;
+		},
+		created() {
+
+		},
+		mounted() {
+
+		},
+		methods: {
+		    GetDlInfoList() {//获取列表
+                var self = this;
+                common.postWebJson(DLLlistUrl, self.data, function (data) {
+                 
+                });
+		    },
+		    BuyNow() {//立刻够买
+
+		    }
+		}
 	};
 	return module;
 })

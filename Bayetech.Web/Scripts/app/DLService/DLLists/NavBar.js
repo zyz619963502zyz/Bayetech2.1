@@ -19,9 +19,19 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
             </div>
         </div>`;
 
-	    var module = {
-		    name:'DLList',
+        
+	    var Navcomponent = {
+		    name:'NavBar',
 		    template: NavBarHtml,
+		    created(){
+
+		    },
+		    mounted(){
+		    
+		    },
+		    methods:{
+		    
+		    }
 	    };
-	    return module;
+	    return Navcompnent;
 })

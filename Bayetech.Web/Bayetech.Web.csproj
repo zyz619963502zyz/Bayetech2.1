@@ -754,7 +754,6 @@
     <Content Include="Scripts\app\Home\consult.js" />
     <Content Include="Scripts\app\PlaceOrder\OrderPay.js" />
     <Content Include="Scripts\app\PlaceOrder\SureBuy.js" />
-    <Content Include="Scripts\app\Search\StyleSheet1.css" />
     <Content Include="Scripts\app\Shared\dynamicInput.js" />
     <Content Include="Scripts\app\Shared\nav-top.js" />
     <Content Include="Scripts\app\Shared\nav.js" />
