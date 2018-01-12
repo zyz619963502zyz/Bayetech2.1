@@ -75,7 +75,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
 		    GetDlInfoList() {//获取列表
                 var self = this;
                 common.postWebJson(DLLlistUrl, self.data, function (data) {
-                 
+                	if (data.Result) {
+                		data.listObj = data.content.datas;
+                	}
                 });
 		    },
 		    BuyNow() {//立刻够买

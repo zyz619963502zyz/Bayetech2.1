@@ -14,24 +14,27 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_MallDLInfo
     {
-        public long Id { get; set; }
         public string Title { get; set; }
+        public string TimeDiff { get; set; }
+        public string DLAlias { get; set; }
+        public string DLIntroduce { get; set; }
+        public string WorkAlias { get; set; }
+        public string WorkIntroduce { get; set; }
         public Nullable<System.DateTime> CreatTime { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> SavePrice { get; set; }
+        public Nullable<decimal> EfficiencyPrice { get; set; }
         public string WorkerType { get; set; }
         public string DlType { get; set; }
         public Nullable<long> GameId { get; set; }
         public Nullable<long> GroupId { get; set; }
         public Nullable<long> ServerId { get; set; }
-        public string TimeDiff { get; set; }
-        public Nullable<int> PeriodYears { get; set; }
+        public Nullable<System.DateTime> CompleteTime { get; set; }
         public Nullable<int> PeriodDays { get; set; }
         public Nullable<int> PeriodHours { get; set; }
-        public string GoodNo { get; set; }
+        public Nullable<int> PeriodYears { get; set; }
+        public string DlNo { get; set; }
         public string Description { get; set; }
-        public string DLAlias { get; set; }
-        public string DLIntroduce { get; set; }
-        public string WorkAlias { get; set; }
-        public string WorkIntroduce { get; set; }
+        public long Id { get; set; }
     }
 }
