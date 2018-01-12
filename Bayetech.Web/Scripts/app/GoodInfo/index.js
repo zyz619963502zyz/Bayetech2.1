@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-var moudule = ['vue', 'jquery', 'common', 'GoodInfo', 'Nav']
-require(moudule, function (Vue, $, common, goodInfo, orderNav) {
+var moudule = ['vue', 'jquery', 'common', 'GoodInfo', 'Nav',"nav-top", "v-header"]
+require(moudule, function (Vue, $, common, goodInfo, orderNav, navt, header) {
     //数据为左右整合数据
     var data = {};
 
@@ -18,7 +18,9 @@ require(moudule, function (Vue, $, common, goodInfo, orderNav) {
         },
         components: {
             'ordernav': orderNav,
-            'ordergoodinfo': goodInfo
+            'ordergoodinfo': goodInfo,
+            'nav-top': navt,
+			'v-header':header
         }
     });
 });
