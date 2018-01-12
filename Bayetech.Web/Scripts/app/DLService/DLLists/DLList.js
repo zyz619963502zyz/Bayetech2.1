@@ -17,7 +17,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in content">
+                        <tr v-for="item in ListObj">
                             <td class="goods-title tl pad-l-15">
                                 <h2>
                                     <a href="/goods/detail/22905">{{item.Title}}</a>
@@ -56,34 +56,62 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
     var DLLlistUrl = "/api/Dl/GetDlInfoList";
 
     var data={
-        listObj:[],//列表数据
-    };
+        BaseUrl: common.GetBaseUrl() + "GoodInfo/GoodInfo.html?GoodNo=",
+        BaseTarget: "_blank",
+        keyword : "",
+        ListObj:[
+                {
+                    Title: "",
+                    GameName: "",
+                    GroupName: "",
+                    ServerName:"",
+                    Price: ""
+                }
+            ],
+        SearchParam:{
+            param:eval('('+localStorage.SearchParam+')'),
+            Pagination:{//分页对象
+            rows: 10,//每页行数，
+            page: 1,//当前页码
+            order: "DlNo",//排序字段
+            sord: "asc",//排序类型
+            records: 10,//总记录数
+            total: 10//总页数。
+        }
+      },
+    }
 
 	var DLLlistcomponent = {
-		name:'DLList',
+		name:'dllist',
 		template: dlhtml,
 		data(){
 		    return data;
 		},
 		created() {
-
+            var self = this;
+            self.GetDlInfoList();
 		},
 		mounted() {
-
+            var self = this;
+            self.$root.$on("SearchAgain", function (_type) {
+                if (_type == "DLList") {
+                    self.GetDlInfoList();
+                }
+            });       
 		},
 		methods: {
 		    GetDlInfoList() {//获取列表
                 var self = this;
-                common.postWebJson(DLLlistUrl, self.data, function (data) {
-                	if (data.Result) {
-                		data.listObj = data.content.datas;
+                common.postWebJson(DLLlistUrl, self.SearchParam, function (data) {
+                	if (data.result) {
+                		data.ListObj = data.content.datas;
                 	}
-                });
+                }); 
 		    },
 		    BuyNow() {//立刻够买
 
 		    }
 		}
 	};
-	return module;
+	return DLLlistcomponent;
 })

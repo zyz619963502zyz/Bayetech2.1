@@ -74,6 +74,7 @@ var jsconfig = {
         'API': 'Scripts/app/API/All',
         'InfoList': 'Scripts/app/DLService/InfoList',
         'DLList': 'Scripts/app/DLService/DLLists/DLList',
+        'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
     },
     map: {
