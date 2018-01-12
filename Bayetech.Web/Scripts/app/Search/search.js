@@ -1,7 +1,7 @@
 ﻿//搜索框
 define(["common", "search-dropdown"], function (common, dropdown) {
     var html=`
-         <div class ="g-select clearfix" >
+         <div class ="g-select clearfix" id="SelectBox">
         <form id="gsForm" method="get" class ="clearfix">
             <div class ="game_select_box" id="gameSelectBox">
                 <ul class ="tab_menu">
@@ -71,6 +71,15 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             if (location.href.split('?')[0].split('Page/')[1]==="GoodList/GoodList.html") {
                 common.MergeObj(this.Param, JSON.parse(localStorage.SearchParam));
             }
+            //显示框点击框外隐藏效果
+            var self=this;
+            $(document).click(function () {
+                self.IsShow=false;
+            });
+            $(document).on('click', '#SelectBox', function (event) {
+                event=event||window.event;
+                event.stopPropagation();
+            });
         },
         methods: {
             //显示精确搜索框
