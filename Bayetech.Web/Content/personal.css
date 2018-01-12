@@ -23,11 +23,16 @@
 }
 .game-order-list .list-num-group{
     float:right;
+    margin-top:0;
 }
-.game-order-list .pagination{
+.game-order-list .list-num-group .pagination{
     margin:0;
     cursor:pointer;
 }
+.list-num-group .pagination>li>a,.list-num-group .pagination>li>span{
+    padding:4px 10px;
+}
+
 .game-order-list .nave{
     width:100%;
     height:32px;
@@ -48,15 +53,16 @@
     cursor:pointer;
 }
 .game-order-list .nave ul li.active{
-    background: #FFFFFF;
-    color: #000000;
-    border-bottom: #FFFFFF solid 1px;
+    background: #FFF;
+    border-bottom: #FFF solid 1px;
     font-weight: bold;
 }
 .game-order-list .nave ul li>a{
     color:#3366cc;
 }
-
+.game-order-list .nave ul li.active>a{
+    color:#000;
+}
 
 /*====bootstrap 样式重构区=====*/
 .personal-center .btn-sm,.personal-center .btn-group-sm>.btn{

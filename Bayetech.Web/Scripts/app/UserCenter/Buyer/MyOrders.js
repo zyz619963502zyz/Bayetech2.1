@@ -87,8 +87,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                             <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
                             <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>-->
-						<nav aria-label="show number" class ="text-center list-numb-group">
+						<nav aria-label="show number" class ="text-center list-num-group">
 							<ul id="" class ="pagination">
+								<li><span>每页显示数量</span></li>
 								<li>
 									<a type="pageSize" size="10" @click="GetSizePage(10)">10 <span class ="sr-only">(current) </span></a>
 								</li>
