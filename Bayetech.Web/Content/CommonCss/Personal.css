@@ -1,18 +1,6 @@
 ﻿@charset "utf-8";
-.personal_left{ float:left; border:#dfdfdf solid 1px; width:180px;}
-.personal_left h1{ height:30px; line-height:30px; color:#FFF; font-size:14px; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_1.png) no-repeat; padding-left:10px;text-shadow:1px 1px #333;}
-.personal_left ol{ height:30px; font-weight:bold; background:url(http://pic.ofcard.com/7881/market/images/Personal/personal_left_2.png) no-repeat; padding-left:20px;}
-.personal_left ol a{display:block; padding-top:8px;}
-.personal_left li{ height:30px; line-height:30px; padding-left:20px; border-bottom:#efefef dotted 1px;}
-.personal_left li span{ color:#ff7800; font-weight:bold;}
-.personal_right{ width:790px; float:right; overflow:hidden}
-.personal_center{ border:solid #efe0b2 1px; background:#fffce9; _float:left;overflow:hidden;}
-.personal_center ul{ float:left;padding-right:20px;}
-.personal_center ul ol{ padding:5px; background:#FFF; border:#dfdfdf solid 1px;}
-.personal_center ul li{padding:10px 0; width:600px; line-height:22px}
-.personal_center ul li.mjxx{ border:solid #efe0b2 1px; background:#fff;padding-bottom:10px; padding-top:10px; width:600px; text-indent:20px;}
-.online_ico{ display:block; position:relative; height:22px; float:left}
-.online_con{ overflow:hidden; position:absolute; top:22px; left:0; border:1px solid #9DC5E8; background:#fff; display:none; width:83px}
+
+
 .showcontent{ display:block}
 .online_ico ul {padding:0}
 .online_ico ul li{ line-height:20px;padding:0; overflow:hidden;}
@@ -136,10 +124,10 @@
 .jsmc dl dd.szid{ width:150px;}
 .jsmc dl dd.cz{ width:150px;}
 
-.nave{ width:100%; height:30px; border-bottom:#d2e6ff solid 1px;}
+/*.nave{ width:100%; height:30px; border-bottom:#d2e6ff solid 1px;}
 .nave ol{float:left; width:104px; height:29px;line-height:29px;margin-right:5px;text-align:center;}
 .nave ol a{display:block;cursor:pointer; background:#e8f2ff; border-right:#d2e6ff solid 1px; border:#d2e6ff solid 1px; color:#3366cc;}
-.nave ol .a_hover{ background:#FFFFFF; color:#000000; border-bottom:#FFFFFF solid 1px; font-weight:bold;}
+.nave ol .a_hover{ background:#FFFFFF; color:#000000; border-bottom:#FFFFFF solid 1px; font-weight:bold;}*/
 #menue_con{ width:100%}
 
 .cpxz{ border:solid #dfdfdf 1px; padding:5px; margin-top:10px;}
