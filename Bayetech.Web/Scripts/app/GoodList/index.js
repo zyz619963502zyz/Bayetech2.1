@@ -1,7 +1,7 @@
 ﻿//模块之间的操作
-var GoodListMoudule=['vue', 'jquery', 'common','v-header', 'v-nav', 'GoodList', "ScreenBox"]
+var GoodListMoudule=['vue', 'jquery', 'common','v-header', 'v-nav', 'GoodList', "ScreenBox","nav-top"]
 //alert(1);
-require(GoodListMoudule, function (Vue, $, common, header, nav, goodlist, screenbox) {
+require(GoodListMoudule, function (Vue, $, common, header, nav, goodlist, screenbox ,navt) {
         var vm = new Vue({
             el: document.URL.indexOf("GoodToBuy")>=0?'#GoodToBuy':'#GoodList',
             data: {
@@ -19,7 +19,8 @@ require(GoodListMoudule, function (Vue, $, common, header, nav, goodlist, screen
                 "v-header": header,
                 "v-nav": nav,
                 "screenbox": screenbox,
-                "goodlist": goodlist
+                "goodlist": goodlist,
+				"nav-top": navt
             },
             watch: {
                 SearchResult: function () {//监听参数的变化

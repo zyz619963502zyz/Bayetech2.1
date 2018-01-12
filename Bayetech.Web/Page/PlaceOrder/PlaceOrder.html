@@ -1,44 +1,30 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>游戏联盟-游戏交易站-下订单</title>
+    <!--需要被替换的部分-->
+    <link href="../../Content/CommonCss/common-2016.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/global.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/Public.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/buy.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/popLayer.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/sell.css" rel="stylesheet" />
+    <!--改写的css-->
+    <link href="../../Content/bootstrap/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/common.css" rel="stylesheet" />
+    <!--改写的js-->
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>    <script src="../../Scripts/app/PlaceOrder/index.js"></script>
     <link href="../../Content/OlderCss/lbui.phonevalidator.css" rel="stylesheet" />
-    <!--[if lte IE 6]>
-    <style type="text/css">
-    body { behavior:url("/market/css/csshover.htc");}
-    </style>
-    <![endif]-->
-    <style type="text/css">
-        .txcpdd ul li span {
-            width: 90px;
-        }
-
-        #dxk {
-            margin-left: 90px;
-        }
-
-        .shuoming {
-            border: #dfdfdf solid 1px;
-            line-height: 22px;
-            margin-left: 100px;
-            padding-left: 10px;
-            width: 570px;
-            background: #F9FCFD;
-        }
-    </style>
+    
 </head>
 <body>
     <div id="PlaceOrderDiv">
+        <nav-top></nav-top>
         <!--头部开始-->
-        <div class="top">
+        <!--<div class="top">
             <div class="width980_top">
                 <div class="welcome">欢迎来到游戏联盟&nbsp;&nbsp;<span id="span_user"><a href="/7881_touristlogin.jsp" class="dlzc" rel="nofollow">请登录</a> - <a href="/reg.jsp" class="dlzc" rel="nofollow">免费注册</a></span></div>
                 <div class="right obtainTop top_index" id="div_blog">
@@ -91,8 +77,8 @@
                 <span class="right_top3">|</span>
                 <span class="right_top"><a href="/" target="_blank" rel="nofollow">首页</a></span>
             </div>
-        </div>
-        <div id="div_popup_layer">
+        </div>-->
+        <!--<div id="div_popup_layer">
             <div class="box">
                 <div id="div_light" class="pops" style="display: none;">
                     <h2><span>友情提示</span><a href="/goods-201612377253013.html"></a></h2>
@@ -104,10 +90,10 @@
                 </div>
             </div>
             <div id="div_fade" class="mask" style="display: none;"></div>
-        </div>
+        </div>-->
         <div class="center logo">
             <div class="left">
-                <a id="logoid"><img src="http://pic.ofcard.com/7881/market/images/7881_logo.jpg" title="7881-游戏交易站" /></a>
+                <a id="logoid"><img src="../../Content/Images/logo1.png" title="游戏联盟-游戏交易站" /></a>
             </div>
             <div>
                 <div class="gm_lc">
@@ -120,21 +106,16 @@
                     <div id="div3" class="gm_lc_wz_3 gm_lc_2">
                         3.确认收货
                     </div>
-                    <!--<div id="div4" class="gm_lc_wz_4 gm_lc_2">
-                    4.完成
-                </div>-->
                 </div>
             </div>
         </div>
-        <!--头部结束-->
-        <div class="clear"></div>
 
         <!--确认购买信息-->
         <surebuy></surebuy>
-    <!--确认购买信息-->
+        <!--确认购买信息-->
 
 
-    <order></order>
+        <order></order>
 
     <div class="clear"></div>
     <div class="center">
@@ -164,7 +145,7 @@
             <a href="http://www.7881.com/cooperation.html" target="_blank" class="hs" rel="nofollow">&nbsp;商务合作&nbsp;</a> |
             <a href="http://www.7881.com/sitemap.html" target="_blank" class="hs">&nbsp;网站地图&nbsp;</a> |
             <a href="http://www.7881.com/articlelist9-0-0.html" target="_blank" class="hs">&nbsp;媒体声音&nbsp;</a> <br />
-            Copyright Reserved 2008-2016 &copy; 7881游戏交易   网络文化经营许可证：
+            Copyright Reserved 2017-2018 &copy; 游戏联盟游戏交易   网络文化经营许可证：
             <a href="http://www.7881.com/contectus/lianxiwomen.jsp" target="_blank" class="hs" rel="nofollow">苏网文[2015]2034-038号</a>
             网站备案-<a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" class="hs">苏B1-20110004-4</a>
         </div>
@@ -179,9 +160,8 @@
         <div class="tleft"></div>
     </div>
     <!--底部结束-->
-    <DIV style="DISPLAY: none" id="goTopBtn"><IMG border=0 src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部" /></DIV>
-    <div style="display: none;">
-    </div>
+    <div style="display: none" id="goTopBtn"><img border=0 src="http://pic.ofcard.com/7881/market/images/index_top.jpg" alt="返回头部" /></div>
+    
 </div>
 </body>
 </html>
