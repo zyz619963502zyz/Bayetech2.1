@@ -53,7 +53,7 @@ define(["common"], function (common) {
                        <a href="javascript: void (0);" @click="getGameListByLetter(item,data.Type)">{{item}}</a>
                     </li>
                 </ul>
-                <ul id="gsList" class ="gs_list gs_name">
+                 <ul id="gsList" class ="gs_list gs_name">
                     <li v-for="item in data.List" @click="loadDropdown(data.Child,item.Id,item.Name)" ><a :class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a></li>
                 </ul>
             </div>

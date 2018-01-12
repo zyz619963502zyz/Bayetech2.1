@@ -13,6 +13,7 @@ define([], function () {
 
         },
         methods: {
+ 
         }
     };
     return components;

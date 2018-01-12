@@ -1,64 +1,117 @@
 ﻿jsconfig.baseArr.push("bootstrap-paginator");
 define(jsconfig.baseArr, function (Vue, $, common, paginator) {
-	var dlhtml = `
-			 <div class ="goods-search-box">
-                    <div class ="search-form">
-                        <div class ="search-item search-area search-area-q">
-                            <input type="text" data-id="" id='group' value="全部大区" readonly="readonly" />
-                            <div class ="arrow-icon">
-                                <em class ="iconfont icon-down">&#xe621; </em><em class="iconfont icon-up">
-                                    &#xe624;
-                                </em>
-                            </div>
-                            <span></span>
-                        </div>
-                        <div class ="search-item search-area search-area-f">
-                            <input type="text" id="server" value="全部服务器" readonly="readonly" data-id="" />
-                            <div class ="arrow-icon">
-                                <em class ="iconfont icon-down">&#xe621; </em><em class="iconfont icon-up">
-                                    &#xe624;
-                                </em>
-                            </div>
-                            <span></span>
-                        </div>
-                        <div class ="search-item search-area search-area-f">
-                            <input type="text" id="server" value="游戏名称" readonly="readonly" data-id=""> <div class ="arrow-icon">
-                                <em class ="iconfont icon-down"> </em><em class="iconfont icon-up">
-                                    
-                                </em>
-                            </div> <span></span>
-                        </div>
-                        <div class ="search-item search-synthesis">
-                            <label class ="placeholder">
-                                <input type="text" id="goods-input" maxlength="32" />
-                                <span>请输入搜索内容, 支持商品编号</span>
-                            </label>
-                        </div>
-                        <div class ="search-item search-icon">
-                            <em class ="iconfont">&#xe964; </em>
-                            <span>搜索</span>
-                        </div>
-                        <div class ="search-item search-btn">
-                            <a class ="btn-public" href="#"><em class ="iconfont">&#xe6f6; </em><span class="qdl ">我想发套餐</span></a>
-                        </div>
-                    </div>
-
-                    <div class ="select-box select-q">
-                        <div class ="arrow-icon"><em class ="iconfont icon-up">&#xe604; </em></div>
-                        <ul id="glist"></ul>
-                    </div>
-                    <div class ="select-box select-f">
-                        <div class ="arrow-icon"><em class ="iconfont icon-up">&#xe604; </em></div>
-                        <ul></ul>
+    var dlhtml=`
+        <div class="list-block">
+            <div class="expand-goods-list">
+                <ul class="clearfix recgoods"></ul>
+            </div>
+            <div class="goods-list">
+                <table border="0" cellspacing="0" cellpadding="0" id="goods_box_list">
+                    <thead>
+                        <tr>
+                            <th width="430">代练标题</th>
+                            <th width="140">代练价格</th>
+                            <th width="170">保证金</th>
+                            <th width="86">完成时间</th>
+                            <th width="124">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in ListObj">
+                            <td class="goods-title tl pad-l-15">
+                                <h2>
+                                    <a href="/goods/detail/22905">{{item.Title}}</a>
+                                </h2>
+                                <p>代练类型：PK场代练</p><p>游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}</p>
+                                <div class ="buyer-name">
+                                    <span><em></em>﹏浅水？？</span>
+                                    <b></b>
+                                </div>
+                                <p>信誉：五颗星</p>
+                            </td>
+                            <td class="tr"><div class="goods-price"><span>{{item.Price}}</span>元</div></td>
+                            <td class="pad-0"><p>1天22小时{{item.CompleteTime - item.CreatTime}}</p></td>
+                            <td><a class="btn btn-buy" href="buying/22905" @click="BuyNow">立即购买</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="com-page">
+                    <div class="com-page-l"><span>共24条</span><span>20条/页</span><span>共2页</span></div>
+                    <div class="page-con">
+                        <div id="pages-box"><div name="laypage1.3" class="laypage_main laypageskin_default" id="laypage_0"><span class="laypage_curr">1</span><a href="javascript:void(0)" onclick="return false" data-page="2">2</a><a href="javascript:void(0)" onclick="return false" class="laypage_next" data-page="2">下一页</a><span class="laypage_total"><label>到第</label><input type="number" min="1" onkeyup="this.value=this.value.replace(/\D/, '');" class="laypage_skip"><label>页</label><button type="button" class="laypage_btn">确定</button></span></div></div>
                     </div>
                 </div>
-            
-		`;
-	var dlmodule = {
-		name:'DLList',
+            </div>
+            <div class="goods-no-data" style="display: none">
+                <dl>
+                    <dt><img src="http://pic.7881.com/7881-2016/images/dl-dnf/list/no-data.png"></dt>
+                    <dd>
+                        <h2>天呐，居然没有找到任何信息！ </h2>
+                        <p>您也可以减少限制条件继续寻找...</p>
+                    </dd>
+                </dl>
+              </div>
+            </div>`;
+
+    var DLLlistUrl = "/api/Dl/GetDlInfoList";
+
+    var data={
+        BaseUrl: common.GetBaseUrl() + "GoodInfo/GoodInfo.html?GoodNo=",
+        BaseTarget: "_blank",
+        keyword : "",
+        ListObj:[
+                    {
+                        Title: "",
+                        GameName: "",
+                        GroupName: "",
+                        ServerName:"",
+                        Price: ""
+                    }
+            ],
+        SearchParam:{
+            param:eval('('+localStorage.SearchParam+')'),
+            Pagination:{//分页对象
+            rows: 10,//每页行数，
+            page: 1,//当前页码
+            order: "DlNo",//排序字段
+            sord: "asc",//排序类型
+            records: 10,//总记录数
+            total: 10//总页数。
+        }
+      },
+    }
+
+	var DLLlistcomponent = {
+		name:'dllist',
 		template: dlhtml,
+		data(){
+		    return data;
+		},
+		created() {
+            var self = this;
+            self.GetDlInfoList();
+		},
+		mounted() {
+            var self = this;
+            self.$root.$on("SearchAgain", function (_type) {
+                if (_type == "DLList") {
+                    self.GetDlInfoList();
+                }
+            });       
+		},
+		methods: {
+		    GetDlInfoList() {//获取列表
+                var self = this;
+                common.postWebJson(DLLlistUrl, self.SearchParam, function (data) {
+                	if (data.result) {
+                		data.ListObj = data.content.datas;
+                	}
+                }); 
+		    },
+		    BuyNow() {//立刻够买
 
+		    }
+		}
 	};
-	return dlmodule;
-
+	return DLLlistcomponent;
 })

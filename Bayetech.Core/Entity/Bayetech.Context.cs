@@ -49,14 +49,14 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
         public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
         public virtual DbSet<Relationship> Relationship { get; set; }
-        public virtual DbSet<MallDLInfo> MallDLInfo { get; set; }
         public virtual DbSet<MallWorkerType> MallWorkerType { get; set; }
         public virtual DbSet<MallDLType> MallDLType { get; set; }
-        public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
         public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
         public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
         public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
         public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
         public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
+        public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }
+        public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
     }
 }

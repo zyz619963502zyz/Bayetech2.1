@@ -2,13 +2,13 @@
 define(jsconfig.baseArr, function (Vue,$,common) {
     var navHtml = `<div class="com-breadcrumb"  template="OrderNav">
                         <ul class ="clearfix">
-                            <li v-for="item in object"><a :href="item.href">{{item.title}}</a><em>&gt;</em></li>
+                            <li v-for="item in object"><a :href="item.href" target="_blank">{{item.title}}</a><em>&gt;</em></li>
                         </ul>
                    </div>`
     var data = {
         object: [{
             title: "首页",
-            href: "http://www.7881.com/"
+            href: "../Home/NewIndex.html"
         }]
     };
 

@@ -1,6 +1,7 @@
 ﻿jsconfig.baseArr.push("SureBuy");
 jsconfig.baseArr.push("OrderPay");
-require(jsconfig.baseArr, function (Vue, $, common, surebuy, order) {
+jsconfig.baseArr.push("nav-top");
+require(jsconfig.baseArr, function (Vue, $, common, surebuy, order, navt) {
     var OrderUrl="api/Order/CreatOrder";
     var vm = new Vue({
         el: '#PlaceOrderDiv',
@@ -13,6 +14,7 @@ require(jsconfig.baseArr, function (Vue, $, common, surebuy, order) {
         components: {
             'surebuy': surebuy,
             'order': order,
+			'nav-top': navt
        }
     });
 });

@@ -156,7 +156,7 @@ namespace Bayetech.Web.Controllers
         public bool AddGood(JObject json)
         {
             var goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>(json.ToString());
-            goodInfo.GoodNo = Core.Common.CreatGoodNo();
+            goodInfo.GoodNo = Core.Common.CreatGoodNo("G");
             goodInfo.AddTime = DateTime.Now;
             var validDay = int.Parse(json.Property("validDay").Value.ToString()??"0");
             goodInfo.GoodValidityTime = DateTime.Now.AddDays(validDay);//商品过期时间

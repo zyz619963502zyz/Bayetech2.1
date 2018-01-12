@@ -18,15 +18,18 @@ namespace Bayetech.Core.Entity
         public string Title { get; set; }
         public Nullable<System.DateTime> CreatTime { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> SavePrice { get; set; }
+        public Nullable<decimal> EfficiencyPrice { get; set; }
         public string WorkerType { get; set; }
         public string DlType { get; set; }
         public Nullable<long> GameId { get; set; }
         public Nullable<long> GroupId { get; set; }
         public Nullable<long> ServerId { get; set; }
+        public Nullable<System.DateTime> CompleteTime { get; set; }
         public Nullable<int> PeriodYears { get; set; }
         public Nullable<int> PeriodDays { get; set; }
         public Nullable<int> PeriodHours { get; set; }
-        public string GoodNo { get; set; }
+        public string DlNo { get; set; }
         public string Description { get; set; }
     }
 }
