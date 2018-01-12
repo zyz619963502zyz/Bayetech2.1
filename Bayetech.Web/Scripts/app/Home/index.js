@@ -4,8 +4,6 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
     , 'v-partner', 'index-slidebox', 'nav-top', 'css!../Content/bootstrap/font-awesome.min', 'css!../Content/common', 'css!../Content/homepage'],
 	function (Vue, $, common, bootstrap, header, nav, search, notice, consult,
 		convenience, hotgamelist, banner, tabsListbox, tab, gameranking, adv, mgamelist, partner, slidebox, navt) {
-     
-	    debugger;
     new Vue({
         el: '#app',
         data() {

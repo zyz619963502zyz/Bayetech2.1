@@ -13,7 +13,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     <ul class ="gs_menu" id="gsMenu">
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
                         <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
-                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="GameServerName(3)">{{Param.GameServerName}}</li>
+                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
                         <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
@@ -85,7 +85,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //显示下拉框
             showDropdown: function (type) {
                 this.IsShow = true;
-                pid = this[`${this.getParentTypeName(type)}Id`] || 0;
+                pid=this.Param[`${this.getParentTypeName(type)}Id`]||0;
                 if (type == 4) {
                     pid = this.GameId;
                 }

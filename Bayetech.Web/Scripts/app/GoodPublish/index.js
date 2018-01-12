@@ -47,7 +47,6 @@ require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1',
 	                        break;
 	                    case "step3":
 	                        $("[name=process]").eq(2).removeClass('bg').addClass('gc');
-	                        debugger;
 	                        var slef=this;
 	                        var data=$("form").serialize();
                             //组装账号信息
