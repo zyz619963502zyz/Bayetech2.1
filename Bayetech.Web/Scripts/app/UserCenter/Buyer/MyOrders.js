@@ -87,23 +87,23 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                             <a type="pageSize" size="20" @click="GetSizePage(20)">20</a>
                             <a type="pageSize" size="30" @click="GetSizePage(30)">30</a>
                         </div>-->
-						<nav aria-label="show number" class ="text-center">
+						<nav aria-label="show number" class ="text-center list-numb-group">
 							<ul id="" class ="pagination">
 								<li>
-									<span>10 <span class ="sr-only">(current) </span></span>
+									<a type="pageSize" size="10" @click="GetSizePage(10)">10 <span class ="sr-only">(current) </span></a>
 								</li>
 								<li>
-									<span>20 <span class ="sr-only">(current) </span></span>
+									<a type="pageSize" size="20" @click="GetSizePage(20)">20 <span class ="sr-only">(current) </span></a>
 								</li>
 								<li>
-									<span>30 <span class ="sr-only">(current) </span></span>
+									<a type="pageSize" size="30" @click="GetSizePage(30)">30 <span class ="sr-only">(current) </span></a>
 								</li>
 							</ul>
 						</nav>
-                        <div id="nave" class="nave">
-                            <ul>
-                                <li v-for="item in Status" @click ="GetStatusOrder(item.StatusId,item.StatusName)">
-									<a :id="item.StatusName" :class ="{a_hover:item.StatusName == 'orderall'}">{{item.StatusAlias}}</a>
+                        <div class="nave">
+                            <ul id="nave">
+                                <li v-for="item in Status" :id="item.StatusName" @click ="GetStatusOrder(item.StatusId,item.StatusName)" :class ="{active:item.StatusName == 'orderall'}">
+									<a href="javascript:void(0)">{{item.StatusAlias}}</a>
 								</li>
                             </ul>
                         </div>
@@ -311,8 +311,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 if (satus>=0) {
                     self.StatusSelected = satus;
                     self.GetOrderInfo(self.Pagination);
-                    $("#"+name).addClass("a_hover");
-                    $("#nave a[id!='"+ name +"']").removeClass("a_hover");
+                    $("#" + name).addClass("active");
+                    $("#nave li[id!='" + name + "']").removeClass("active");
                 }
             }
         }

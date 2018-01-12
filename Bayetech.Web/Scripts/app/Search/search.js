@@ -1,7 +1,7 @@
 ﻿//搜索框
 define(["common", "search-dropdown"], function (common, dropdown) {
     var html=`
-         <div class ="g-select clearfix" >
+         <div class ="g-select clearfix" id="SelectBox">
         <form id="gsForm" method="get" class ="clearfix">
             <div class ="game_select_box" id="gameSelectBox">
                 <ul class ="tab_menu">
@@ -13,7 +13,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     <ul class ="gs_menu" id="gsMenu">
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
                         <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
-                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="GameServerName(3)">{{Param.GameServerName}}</li>
+                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
                         <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
@@ -71,6 +71,15 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             if (location.href.split('?')[0].split('Page/')[1]==="GoodList/GoodList.html") {
                 common.MergeObj(this.Param, JSON.parse(localStorage.SearchParam));
             }
+            //显示框点击框外隐藏效果
+            var self=this;
+            $(document).click(function () {
+                self.IsShow=false;
+            });
+            $(document).on('click', '#SelectBox', function (event) {
+                event=event||window.event;
+                event.stopPropagation();
+            });
         },
         methods: {
             //显示精确搜索框
@@ -85,7 +94,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //显示下拉框
             showDropdown: function (type) {
                 this.IsShow = true;
-                pid = this[`${this.getParentTypeName(type)}Id`] || 0;
+                pid=this.Param[`${this.getParentTypeName(type)}Id`]||0;
                 if (type == 4) {
                     pid = this.GameId;
                 }

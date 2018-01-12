@@ -1,4 +1,4 @@
-﻿//金币
+﻿//通用
 define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, common, TradeType) {
     var html=`<div class="one-step-con">
     <div class="ftitle">为了帮助您更快的出售商品，请仔细填写以下信息</div>
@@ -60,11 +60,6 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
     var components={
         name: "Common",
         template: html,
-        watch: {
-            num: function (newQuestion) {
-                // this.price;
-            },
-        },
         data: function () {
             return {
                 dealway: "邮寄交易",
@@ -73,12 +68,10 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
             }
         },
         created() {
-            this.$parent.account_info_com="GoldAccountInfo";
+
         },
         methods: {
-            ChangeTradeType: function (type) {
-                this.$parent.account_info_com=type===1?"SecurityCode":"GoldAccountInfo";
-            },
+
         },
         computed: {
             // 计算属性的 getter

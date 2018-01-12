@@ -1,34 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3'],
-	function (Vue, $, common, VueRouter, header, step1, step2, step3) {
-	    //var routes={routes: [{ path: '/', redirect: '/step1' },
-	    //    { path: '/step1', name: 'step1', component: step1 },
-	    //    { path: '/step2', name: 'step2', component: step2 },
-	    //    { path: '/step3', name: 'step3', component: step3 }, ]};
-
-	    ///* 创建路由器  */
-	    //Vue.use(VueRouter)
-	    //var router=new VueRouter(routes);
-        ////下一步校验
-	    //router.beforeEach((to, from, next) => {
-	    //    debugger;
-	    //    switch (from.path) {
-	    //        case "/":
-	    //        case "/step1":
-	    //            ValiteStep1();
-	    //            next();
-	    //            break;
-	    //        case "/step2":
-	    //            next();
-	    //        case "/step3":
-	    //            next();
-	    //            break;
-	    //        default:
-	    //            next();
-	    //            break;
-	    //    }
-	    //});
-
+require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3'],
+	function (Vue, $, common, header, step1, step2, step3) {
 	    var data={
 	        Step: step1,
             GameInfo:{},
@@ -75,7 +47,6 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                        break;
 	                    case "step3":
 	                        $("[name=process]").eq(2).removeClass('bg').addClass('gc');
-	                        debugger;
 	                        var slef=this;
 	                        var data=$("form").serialize();
                             //组装账号信息
@@ -84,6 +55,14 @@ require(['vue', 'jquery', 'common', 'VueRouter', 'v-header', 'Scripts/app/GoodPu
 	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
 	                        });
 	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+	                        //组装游戏额外属性对象
+	                        if (this.GameInfo.GoodTypeId == 3) {
+	                            var gameProps=[];
+	                            $("#GameProps :input").each(function () {
+	                                gameProps.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
+	                            });
+	                            data+=`&gamePropsInfo=${JSON.stringify(gameProps)}`;
+	                        }
                             //添加商品
 	                        $.post("/api/GoodInfo/AddGood", data, function (result) {
 	                            if (result) {
