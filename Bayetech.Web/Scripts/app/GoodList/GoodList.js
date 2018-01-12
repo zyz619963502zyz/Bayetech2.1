@@ -136,8 +136,10 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         },
         mounted(){
             var self = this;
-            self.$root.$on("SearchAgain", function (data) {
-                self.findList();
+            self.$root.$on("SearchAgain", function (_type) {
+                if (_type == "NewIndex") {
+                    self.findList(); 
+                }
             });
         },
         methods: {
@@ -160,11 +162,6 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 self.SearchParam.Pagination.page = 1;
                 self.findList();
             },
-        },
-        watch: {
-            ceshi() {
-               var aaa = 1;
-            }
         }
     };
     return goodComponent;
