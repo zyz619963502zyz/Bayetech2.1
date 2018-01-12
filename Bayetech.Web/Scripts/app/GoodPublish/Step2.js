@@ -183,25 +183,17 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
     </div>
   </form>
 </div>`;
-
-   var SecurityCode=` <div class="form-item clearfix" style="z-index: 1;">
-      <div class="form-item-l">
-        <i>*</i>
-        <span>安全交易码：</span></div>
-      <div class="form-item-r" style="z-index: 1;">
-        <div class="game-ipt">
-          <input type="text" name="tradeCode" id="" value="" placeholder="请输入安全交易码" maxlength="16" class="common-input h-30"></div>
-      </div>
-    </div>`;
    var data={
        GameInfo: { },
        good_info_com: "UniversalGoodInfo",
        GoodExtProps: [],
+       BackGoodExtProps: [],
        tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
        SecurityQuestion: [],
-   }
 
+   }
+    var SecurityCode=[{ Flag: "string", Name: "安全交易码", Key: "securitycode", Length: 50, Need: 1 }];
     var components={
         name: "step1",
         template: html,
@@ -218,8 +210,13 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             this.LoadGoodInfo();
             this.LoadAccountInfo();
             //变更交易方式
-            $(document).on('click', "[name=tradeType]", function () {
-                this.account_info_com=SecurityCode;
+            $(document).on('click', "[name=seltradeType]", function () {
+                var type=$("#TradeType").val();
+                if ($("#TradeType").val()==1) {
+                    self.GoodExtProps=self.BackGoodExtProps;
+                } else {
+                    self.GoodExtProps=SecurityCode;
+                }
             });
         },
         components: {
@@ -256,6 +253,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                 $.get("/api/GoodInfo/GetGoodExtPropsInput", { gameId: self.GameInfo.GameId, goodTypeId: self.GameInfo.GoodTypeId }, function (data) {
                     if (data) {
                         self.GoodExtProps=data.content;
+                        self.BackGoodExtProps=data.content;
                     }
                 });
             },

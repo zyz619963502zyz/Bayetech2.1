@@ -2,7 +2,7 @@
 define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, common, TradeType) {
     var html=`<div class="one-step-con">
                   <div class="ftitle">为了帮助您更快的出售商品，请仔细填写以下信息</div>
-                  <TradeType :fn="ChangeTradeType"></TradeType>
+                  <TradeType></TradeType>
                   <div class="gold-way-deal">
                       <h3>
                           <span><i>*</i>交易方式：</span>
@@ -73,9 +73,6 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType'], function ($, c
             this.GameInfo=this.$parent.GameInfo;
         },
         methods: {
-            ChangeTradeType: function (type) {
-                this.$parent.account_info_com=type===1?"SecurityCode":"GoldAccountInfo"; 
-            },
         },
         computed: {
             // 计算属性的 getter
