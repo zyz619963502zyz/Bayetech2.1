@@ -60,13 +60,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
         BaseTarget: "_blank",
         keyword : "",
         ListObj:[
-                {
-                    Title: "",
-                    GameName: "",
-                    GroupName: "",
-                    ServerName:"",
-                    Price: ""
-                }
+                    {
+                        Title: "",
+                        GameName: "",
+                        GroupName: "",
+                        ServerName:"",
+                        Price: ""
+                    }
             ],
         SearchParam:{
             param:eval('('+localStorage.SearchParam+')'),
