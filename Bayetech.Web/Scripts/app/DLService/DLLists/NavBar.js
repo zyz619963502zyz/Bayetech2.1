@@ -33,5 +33,5 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
 		    
 		    }
 	    };
-	    return Navcompnent;
+	    return Navcomponent;
 })
