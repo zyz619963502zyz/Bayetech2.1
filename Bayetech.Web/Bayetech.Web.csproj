@@ -730,6 +730,7 @@
     <Content Include="Scripts\app\API\Game.js" />
     <Content Include="Scripts\app\API\Setting.js" />
     <Content Include="Scripts\app\DLService\DLDetail\DLDetail.js" />
+    <Content Include="Scripts\app\DLService\DLDetail\Index.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />

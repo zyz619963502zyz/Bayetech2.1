@@ -118,7 +118,7 @@
             return data;
         },
         created() {
-            this.GetGoodInfo(common.GetUrlParam("","DlNo"));//获取商品信息。
+            //this.GetDlInfo(common.GetUrlParam("", "DlNo"));//获取商品信息。
         },
         methods: {
             GetDlInfo(goodno) {
