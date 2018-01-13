@@ -730,11 +730,11 @@
     <Content Include="Scripts\app\API\Game.js" />
     <Content Include="Scripts\app\API\Setting.js" />
     <Content Include="Scripts\app\DLService\DLDetail\DLDetail.js" />
-    <Content Include="Scripts\app\DLService\DLDetail\Index.js" />
+    <Content Include="Scripts\app\DLService\DLDetail\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />
-    <Content Include="Scripts\app\DLService\Index.js" />
+    <Content Include="Scripts\app\DLService\index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
     <Content Include="Scripts\app\Game\List.js" />
