@@ -575,9 +575,11 @@
         <EntityType Name="vw_NoToProperty">
           <Key>
             <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="No" />
             <PropertyRef Name="PropertyValue" />
           </Key>
           <Property Name="PropertyId" Type="bigint" Nullable="false" />
+          <Property Name="No" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PropertyName" Type="nvarchar" MaxLength="20" />
           <Property Name="PropertyValue" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IsDelete" Type="bit" />
@@ -804,6 +806,7 @@
           <EntitySet Name="vw_NoToProperty" EntityType="Self.vw_NoToProperty" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_NoToProperty].[PropertyId] AS [PropertyId], 
+    [vw_NoToProperty].[No] AS [No], 
     [vw_NoToProperty].[PropertyName] AS [PropertyName], 
     [vw_NoToProperty].[PropertyValue] AS [PropertyValue], 
     [vw_NoToProperty].[IsDelete] AS [IsDelete], 
@@ -1395,6 +1398,7 @@
           <Key>
             <PropertyRef Name="PropertyId" />
             <PropertyRef Name="PropertyValue" />
+            <PropertyRef Name="No" />
           </Key>
           <Property Name="PropertyId" Type="Int64" Nullable="false" />
           <Property Name="PropertyName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -1402,6 +1406,7 @@
           <Property Name="IsDelete" Type="Boolean" />
           <Property Name="PropertyKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="PropertyRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1978,6 +1983,7 @@
           <EntitySetMapping Name="vw_NoToProperty">
             <EntityTypeMapping TypeName="BayetechModel.vw_NoToProperty">
               <MappingFragment StoreEntitySet="vw_NoToProperty">
+                <ScalarProperty Name="No" ColumnName="No" />
                 <ScalarProperty Name="PropertyRemark" ColumnName="PropertyRemark" />
                 <ScalarProperty Name="PropertyKey" ColumnName="PropertyKey" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />

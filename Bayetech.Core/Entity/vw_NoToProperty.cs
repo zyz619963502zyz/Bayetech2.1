@@ -20,5 +20,6 @@ namespace Bayetech.Core.Entity
         public Nullable<bool> IsDelete { get; set; }
         public string PropertyKey { get; set; }
         public string PropertyRemark { get; set; }
+        public string No { get; set; }
     }
 }

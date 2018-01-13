@@ -110,7 +110,14 @@
     }
     
     //获取商品信息的链接
-    var _GetDlInfoUrl = "/api/Dl/GetDlInfoUrl";
+    var _GetDlDetailInfo = "/api/Dl/GetDlDetailInfo";
+
+    var data = {
+        resultObj: {//主信息模板
+
+        },
+        propertys: [],//动态属性部分
+    };
 
     var dlInfoComponent = {//全局注册
         template: DetailHtml,
@@ -118,15 +125,15 @@
             return data;
         },
         created() {
-            //this.GetDlInfo(common.GetUrlParam("", "DlNo"));//获取商品信息。
+            var self = this;
+            self.GetDlInfo("S201711151714130029");//获取商品信息。
         },
         methods: {
-            GetDlInfo(goodno) {
+            GetDlInfo(dlNo) {
                 var _self = this;
-                common.getWebJson(_GetDlInfoUrl, { goodNo: goodno }, function (data) {
+                common.getWebJson(_GetDlDetailInfo, { dlNo: dlNo }, function (data) {
                     if (data.result) {
                         _self.DlObj = data.content;
-                        _self.$root.$emit('GoodInfoHere', data);//触发事件并传播
                     } 
                 });
             },
