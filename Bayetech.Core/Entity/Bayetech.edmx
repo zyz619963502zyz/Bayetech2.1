@@ -437,6 +437,8 @@
           <Property Name="DlNo" Type="varchar" MaxLength="30" />
           <Property Name="Description" Type="nchar" MaxLength="500" />
           <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServerName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -667,7 +669,9 @@
     [vw_MallDLInfo].[PeriodYears] AS [PeriodYears], 
     [vw_MallDLInfo].[DlNo] AS [DlNo], 
     [vw_MallDLInfo].[Description] AS [Description], 
-    [vw_MallDLInfo].[Id] AS [Id]
+    [vw_MallDLInfo].[Id] AS [Id], 
+    [vw_MallDLInfo].[GroupName] AS [GroupName], 
+    [vw_MallDLInfo].[ServerName] AS [ServerName]
     FROM [dbo].[vw_MallDLInfo] AS [vw_MallDLInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallGoodInfo" EntityType="Self.vw_MallGoodInfo" store:Type="Views" store:Schema="dbo">
@@ -1352,6 +1356,8 @@
           <Property Name="DlNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1895,6 +1901,8 @@
           <EntitySetMapping Name="vw_MallDLInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallDLInfo">
               <MappingFragment StoreEntitySet="vw_MallDLInfo">
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DlNo" ColumnName="DlNo" />
