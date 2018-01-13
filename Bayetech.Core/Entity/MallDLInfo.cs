@@ -31,5 +31,7 @@ namespace Bayetech.Core.Entity
         public Nullable<int> PeriodHours { get; set; }
         public string DlNo { get; set; }
         public string Description { get; set; }
+        public string GameAward { get; set; }
+        public string SocietyUnion { get; set; }
     }
 }

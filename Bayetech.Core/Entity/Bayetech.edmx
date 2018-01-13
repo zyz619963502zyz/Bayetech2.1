@@ -199,6 +199,8 @@
           <Property Name="GameId" Type="bigint" />
           <Property Name="GroupId" Type="bigint" />
           <Property Name="ServerId" Type="bigint" />
+          <Property Name="GameAward" Type="nvarchar" MaxLength="30" />
+          <Property Name="SocietyUnion" Type="nvarchar" MaxLength="30" />
           <Property Name="CompleteTime" Type="datetime" />
           <Property Name="PeriodYears" Type="int" />
           <Property Name="PeriodDays" Type="int" />
@@ -568,6 +570,22 @@
           <Property Name="GoodNo" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="GoodPictureUrl" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.vw_NoToProperty”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_NoToProperty">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="No" />
+            <PropertyRef Name="PropertyValue" />
+          </Key>
+          <Property Name="PropertyId" Type="bigint" Nullable="false" />
+          <Property Name="No" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PropertyName" Type="nvarchar" MaxLength="20" />
+          <Property Name="PropertyValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="PropertyKey" Type="nvarchar" MaxLength="20" />
+          <Property Name="PropertyRemark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
@@ -785,6 +803,17 @@
     [vw_MallPictureInfo].[GoodPictureUrl] AS [GoodPictureUrl]
     FROM [dbo].[vw_MallPictureInfo] AS [vw_MallPictureInfo]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_NoToProperty" EntityType="Self.vw_NoToProperty" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_NoToProperty].[PropertyId] AS [PropertyId], 
+    [vw_NoToProperty].[No] AS [No], 
+    [vw_NoToProperty].[PropertyName] AS [PropertyName], 
+    [vw_NoToProperty].[PropertyValue] AS [PropertyValue], 
+    [vw_NoToProperty].[IsDelete] AS [IsDelete], 
+    [vw_NoToProperty].[PropertyKey] AS [PropertyKey], 
+    [vw_NoToProperty].[PropertyRemark] AS [PropertyRemark]
+    FROM [dbo].[vw_NoToProperty] AS [vw_NoToProperty]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -990,6 +1019,7 @@
           <EntitySet Name="ExtraPropertyValue" EntityType="BayetechModel.ExtraPropertyValue" />
           <EntitySet Name="MallDLInfoes" EntityType="BayetechModel.MallDLInfo" />
           <EntitySet Name="vw_MallDLInfo" EntityType="BayetechModel.vw_MallDLInfo" />
+          <EntitySet Name="vw_NoToProperty" EntityType="BayetechModel.vw_NoToProperty" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1330,6 +1360,8 @@
           <Property Name="PeriodHours" Type="Int32" />
           <Property Name="DlNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="GameAward" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SocietyUnion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vw_MallDLInfo">
           <Key>
@@ -1361,6 +1393,20 @@
           <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_NoToProperty">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+            <PropertyRef Name="PropertyValue" />
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="PropertyId" Type="Int64" Nullable="false" />
+          <Property Name="PropertyName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="PropertyKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1881,6 +1927,8 @@
           <EntitySetMapping Name="MallDLInfoes">
             <EntityTypeMapping TypeName="BayetechModel.MallDLInfo">
               <MappingFragment StoreEntitySet="MallDLInfo">
+                <ScalarProperty Name="SocietyUnion" ColumnName="SocietyUnion" />
+                <ScalarProperty Name="GameAward" ColumnName="GameAward" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DlNo" ColumnName="DlNo" />
                 <ScalarProperty Name="PeriodHours" ColumnName="PeriodHours" />
@@ -1929,6 +1977,19 @@
                 <ScalarProperty Name="DLAlias" ColumnName="DLAlias" />
                 <ScalarProperty Name="TimeDiff" ColumnName="TimeDiff" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_NoToProperty">
+            <EntityTypeMapping TypeName="BayetechModel.vw_NoToProperty">
+              <MappingFragment StoreEntitySet="vw_NoToProperty">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="PropertyRemark" ColumnName="PropertyRemark" />
+                <ScalarProperty Name="PropertyKey" ColumnName="PropertyKey" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
