@@ -15,11 +15,11 @@ a:link, a:visited{text-decoration:none;outline:none;}
 a:hover{color:#39f;}
 @font-face {
   font-family: 'iconfont';
-  src: url('http://at.alicdn.com/t/font_5j0vxig6aud6lxr.eot');
-  src: url('http://at.alicdn.com/t/font_5j0vxig6aud6lxr.eot') format('embedded-opentype'),
-  url('http://at.alicdn.com/t/font_5j0vxig6aud6lxr.woff') format('woff'),
-  url('http://at.alicdn.com/t/font_5j0vxig6aud6lxr.ttf') format('truetype'),
-  url('http://at.alicdn.com/t/font_5j0vxig6aud6lxr.svg#iconfont') format('svg');
+  src: url('http://at.alicdn.com/t/font_58409_p7tz3knuo3xwp14i.eot');
+  src: url('http://at.alicdn.com/t/font_58409_p7tz3knuo3xwp14i.eot') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_58409_p7tz3knuo3xwp14i.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_58409_p7tz3knuo3xwp14i.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_58409_p7tz3knuo3xwp14i.svg#iconfont') format('svg');
 }
 .iconfont {font-family: iconfont!important;speak: none;font-style: normal;font-weight: 400;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
@@ -83,17 +83,7 @@ a:hover{color:#39f;}
 .header-02 h1.logo em{display: block; float: left; height: 20px; width:1px; background:#ddd; margin: 15px 25px 0 25px;}
 .header-02 h1.logo span{color: #818181; font-size: 24px; float: left; margin-top: 6px; font-family: "microsoft yahei";}
 .header-02 .steps-com {margin-top: 30px;}
-.header-03-box { width: 100%; background: #fff; min-width: 1190px; border-bottom: #3399fe 2px solid;}
-.header-03 { width: 1190px; height: 120px; margin: 0 auto;}
-.header-03 h1.logo { float: left;}
-.header-03 h1.logo a { display: block; height: 120px; overflow: hidden;}
-.header-03-right { float: right;}
-.header-03-right ul.advantage { overflow: hidden; float: left; margin-top: 36px;}
-.header-03-right ul.advantage li { float: left; margin-left: 22px;}
-.header-03-right ul.advantage li em { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; color: #888; font-size: 50px; margin-right: 8px;}
-.header-03-right ul.advantage li span { font-size: 16px; font-family: "microsoft yahei";}
-.header-03-right .header-03-line { float: left; height: 37px; width: 1px; background: #ededed; margin: 39px 30px 0 30px;}
-.header-03-right .dnfdl-percenter { float: left; margin-top: 39px; position: relative; z-index: 20;}
+
 .header-04-box { width: 100%; background: #fff; min-width: 1190px; border-bottom: #ff9900 2px solid;}
 .header-04 { width: 1190px; height: 88px; margin: 0 auto;}
 .header-04 h1.logo { float: left;}
@@ -145,16 +135,7 @@ a:hover{color:#39f;}
 .other-info p em.swi-box i {display:inline-block; *display: inline; *zoom:1; width: 36px; height: 20px; cursor: pointer;}
 .other-info p em.swi-box i.swi-on { background:url(http://pic.7881.com/7881-2016/images/dl-dnf/swi-on.png) no-repeat;}
 .other-info p em.swi-box i.swi-off { background:url(http://pic.7881.com/7881-2016/images/dl-dnf/swi-off.png) no-repeat;}
-.nav-03-box { height: 50px; background: #333; min-width: 1190px; margin-bottom: -2px;}
-.nav-03 { width: 1190px; margin: 0 auto;}
-.nav-03 ul.main-ul li{ margin: 0 28px; float: left;}
-.nav-03 ul.main-ul li a { font-size: 16px; display: inline-block; *display: inline; *zoom:1; height: 48px; line-height:  48px; color: #fff; font-family: "microsoft yahei";}
-.nav-03 ul.main-ul li a:hover { color: #ff6600;}
-.nav-03 ul.main-ul li.on a { color: #ff6600; border-bottom: #ff6600 2px solid;}
-.nav-03 .nav-line { float: left; height: 20px; width: 1px; background: #555;  margin: 0 2px; margin-top: 15px;}
-.nav-03 ul.sub-ul li{ margin: 0 28px; float: left;}
-.nav-03 ul.sub-ul li a { font-size: 14px; display: inline-block; *display: inline; *zoom:1; line-height: 50px; color: #bbb; font-family: "microsoft yahei";}
-.nav-03 ul.sub-ul li a:hover { color: #ff6600;}
+
 
 .search-box {width: 794px; height: 95px; float: right; margin-top: 14px;}
 .nav-01 { border-top: #3399ff 3px solid; width: 100%; height: 44px; background: #4e5c6b; min-width: 1190px;}
@@ -248,8 +229,8 @@ a:hover{color:#39f;}
 .top_search .hotsearch.new-hot a:hover{color:#3399ff;}
 .top_search .hotsearch.new-hot dl{float:left;}
 .top_search .hotsearch.new-hot dl dt,.top_search .hotsearch.new-hot dl dd{ float:left; line-height:30px; margin-right:10px}
-.top_search .arrow{ position:absolute; z-index:10006; top:72px; left:60px;width:11px; height:6px;background:url(http://pic.7881.com/7881-2016/images/icon-com.png) 0 -247px no-repeat;}
-.top_search .b_blue_box{ border:2px solid #3399fe;overflow:hidden; width:1186px; position:absolute;top:78px;left:-490px; background:#fff; z-index:10001;text-align:left;}
+.top_search .arrow{ position:absolute; z-index:10006; top:72px; left:60px;width:11px; height:6px;background:url(http://pic.7881.com/7881-2016/images/icon-com.png) 0 -247px no-repeat; display:none}
+.top_search .b_blue_box{ border:2px solid #3399fe;overflow:hidden; width:1186px; position:absolute;top:78px;left:-490px; background:#fff; z-index:10001; display:none; text-align:left;}
 .main_con{ float:left; width:1186px;overflow:hidden;}
 .gamename_quicksearch{ height:28px; overflow:hidden; position: absolute; left: 380px; top:4px}
 .q_input{ width:178px; height:28px; border: none; padding:0 30px 0 12px; line-height:28px\9; float: left; font-family:\5b8b\4f53; background:#fff url(http://pic.7881.com/7881-2016/images/icon-com.png) 197px -202px no-repeat;}
@@ -593,20 +574,22 @@ a.blue:hover { color: #ff6600!important;}
 .com-btn-03.color03.dis { background: #99ccff;}
 
 @keyframes rotateing{
-	0%{transform:rotate(0deg);}
-	100%{transform:rotate(360deg);}
+	0%{transform:rotate(0deg);
+	}
+	100%{transform:rotate(360deg);
+	}
 }
 @-webkit-keyframes rotateing{
-  0% {transform:rotate(0deg);}
-  100% {transform:rotate(360deg);}
+　　0%{-webkit-transform:rotate(0deg);}
+　　100%{-webkit-transform:rotate(360deg);}
 }
 @-moz-keyframes rotateing{
-  0% {transform:rotate(0deg);}
-  100% {transform:rotate(360deg);}
+　　0%{-moz-transform:rotate(0deg);}
+　　100%{-moz-transform:rotate(360deg);}
 }
 @-ms-keyframes rotateing{
-  0% {transform:rotate(0deg);}
-  100% {transform:rotate(360deg);}
+　　0%{-ms-transform:rotate(0deg);}
+　　100%{-ms-transform:rotate(360deg);}
 }
 
 /* 通用提示 */
@@ -695,6 +678,31 @@ p.popup-btn a { margin: 0 8px;}
 .com-page-l span { color: #aaa; margin-left: 10px;}
 .com-page .page-con { float: right; margin-right: -13px;}
 .com-page .page-con .laypage_main { margin: 0;}
+.laypage_main a,.laypage_main span{height:36px;text-align: center; line-height:36px; font-size: 14px;}
+.laypage_main button,.laypage_main input,.laypageskin_default a{border:1px solid #e8e8e8;background-color:#fff}
+.laypage_main{font-size:0;clear:both;color:#666; margin: 10px 0;}
+.laypage_main *{display:inline-block;vertical-align:top;font-size:12px}
+.laypage_main a{text-decoration:none;color:#666; padding: 0 14px; position: relative;}
+.laypage_main a:hover { border: #ff6700 1px solid; color:#ff6700; z-index: 99;}
+.laypage_main a,.laypage_main span{margin:0 -1px 0 0px; position: relative; z-index: 9;}
+.laypage_main a.laypage_prev,.laypage_main a.laypage_last,.laypage_main a.laypage_first,.laypage_main a.laypage_next { font-size: 12px;}
+.laypage_main input{width:40px;margin:0 5px;padding:0 5px}
+.laypage_main button{height:28px;line-height:26px;margin-left:10px;padding:0 10px;color:#666; vertical-align: middle; cursor: pointer;}
+.laypage_main button:hover {border: #ff6700 1px solid; color:#ff6700;}
+.laypageskin_default span{height:36px;line-height:36px;color:#999;border:1px solid #e8e8e8; padding: 0 14px;}
+.laypageskin_default .laypage_curr{color:#666; background: #ff6700; padding: 0 15px; height: 38px;border: none; color: #fff; z-index: 98;}
+.laypageskin_molv a,.laypageskin_molv span{padding:0 12px;border-radius:2px}
+.laypageskin_molv a{background-color:#f1eff0}
+.laypageskin_molv .laypage_curr{background-color:#00AA91;color:#fff}
+.laypageskin_molv input{height:24px;line-height:24px}
+.laypageskin_molv button{height:26px;line-height:26px}
+.laypageskin_yahei{color:#333}
+.laypageskin_yahei a,.laypageskin_yahei span{padding:0 13px;border-radius:2px;color:#333}
+.laypageskin_yahei .laypage_curr{background-color:#333;color:#fff}
+.laypageskin_flow{text-align:center}
+.laypageskin_flow .page_nomore{color:#999}
+.laypage_main .laypage_total { border: none;}
+.laypage_main input { height: 26px; vertical-align: middle;}
 
 /********** tag图标 **********/
 .tags { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; width: 16px; height: 16px; background: url(http://pic.7881.com/7881-2016/images/tags-icon.png) no-repeat;}
@@ -729,8 +737,9 @@ p.popup-btn a { margin: 0 8px;}
 .tags.icon-ptdf { background-position: 0 -672px; width: 49px;}
 .tags.icon-wl { background-position: 0 -696px; }
 .tags.icon-zhyz { background-position: 0 -720px; }
-
-
+.tags.icon-gfzh { background-position: 0 -744px; }
+.tags.icon-zyzh { background-position: 0 -767px; }
+.tags.icon-dhbp { background-position: 0 -792px; }
 /********** 星级图标 **********/
 .stars-box { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; margin-top: -2px; width: 78px; height: 15px;background: url(http://pic.7881.com/7881-2016/images/stars.png) no-repeat;}
 .stars-box.s5 {background-position: 0px 0px;}

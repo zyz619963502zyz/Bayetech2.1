@@ -674,6 +674,8 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
+    <Content Include="Content\NewImages\re-img-01.jpg" />
+    <Content Include="Content\NewImages\yxlm.ico" />
     <Content Include="Content\OlderCss\buy.css" />
     <Content Include="Content\OlderCss\cashier.css" />
     <Content Include="Content\OlderCss\global.css" />

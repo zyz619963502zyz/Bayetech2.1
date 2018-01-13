@@ -8,8 +8,8 @@
     <title>&#21830;&#21697;&#21015;&#34920;</title>
     <meta name="keywords" content="代练" />
     <meta name="description" content="代练" />
-    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css" />
-    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/list.css" />
+    <link href="../../Content/NewImages/yxlm.ico" rel="icon" />
+    <link type="text/css" rel="stylesheet" href="../../Content/CommonCss/common-2016.css" />
     <link rel="stylesheet" href="../../Content/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../Content/common.css"/>
     <link href="../../Content/dailian.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div>
+    <div id="VueApp" class="dlgroup">
         <!-- 通用顶部 Start -->
         <nav-top></nav-top>
         
@@ -27,9 +27,8 @@
         <div class="header-03-box">
             <div class="header-03 clearfix">
                 <h1 class="logo" style="margin:0;">
-                    <a href="/" title="游戏金币交易平台">
-                        <img src="../../Content/Images/logo1.png" width="268" height="120"
-                             alt="游戏金币交易平台" />
+                    <a href="/" title="游戏交易平台">
+                        <img src="../../Content/Images/logo1.png" alt="游戏交易平台" />
                     </a>
                 </h1> 
                 <div class="header-03-right clearfix">
@@ -148,10 +147,10 @@
         </div>
         <!-- 通用头部03 End -->
         <!-- 主体部分 Strat-->
-        <div class="panel-body" id="VueApp">
+        <div class="container">
             <div class="com-breadcrumb">
                 <ul class="clearfix">
-                    <li><a href="http://www.7881.com">7881首页</a><em>></em></li>
+                    <li><a href="../../Page/Home/NewIndex.html">游戏联盟首页</a><em>></em></li>
                     <li><a href="/">DNF代练</a><em>></em></li>
                     <li><a href="#" class="h-qdl">求代练区</a></li>
                 </ul>
@@ -160,7 +159,7 @@
             <div class="main-content">
                 <div class="recommend-area">
                     <h2>
-                        <img src="../../Content/Images/dnf.png" width="100%" />
+                        <img src="../../Content/NewImages/re-img-01.jpg" />
                         <span class="imgx">代练套餐</span>
                     </h2>
                     <div class="recommend-list">
@@ -178,9 +177,9 @@
                         <a data-value='10' href="javascript:void(0);">活动站街</a>
                     </div>
                 </div>
-         
+                <!--搜索-->
                 <v-search></v-search>
-
+                <!--导航-->
                 <dlnavbar></dlnavbar>
 
                 <!--列表-->

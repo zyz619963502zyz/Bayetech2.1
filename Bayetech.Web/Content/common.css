@@ -86,11 +86,12 @@ img{display:inline-block;}
 .g-select .tab_menu .current {padding:5px 10px;background-color:#3983E8;}
 .g-select .tab_menu .current a {color:#fff;font-weight:400;}
 .g-select .tab_menu .current a:hover {color: #fff;text-decoration: underline;}
-.g-select .btn_box {float:left;display:inline;margin-left:10px;}
+.g-select .btn_box {float:left;display:inline;margin-left:10px;margin-top: 2px;}
 .g-select .gs_menu {width:max-content;height:40px;border:4px solid #3983E8;float:left;margin-bottom:0;}
 .g-select .gs_menu .gs_search_box {width:175px;height:100%;color:#999;padding:3px 8px;border:none;outline:none;}
 .g-select .gs_menu .gs_search_item {width:auto;}
 .g-select .gs_search_btn {width:80px;height:36px;background-color:#faa426;color:#fff;font-size:14px;letter-spacing:4px;text-indent:4px;border:none;outline:none;}
+
 .gs_menu li {position:relative;font-size:12px;display:inline-block;height:100%;line-height:32px;cursor:pointer;width:100px;text-align:center;}
 .gs_menu li:before,.gs_menu li:after {position:absolute;color:#999;}
 .gs_menu li:before {content:'';top:50%;right:7px;width:0;height:0;border-top:4px dashed;border-right:4px solid transparent;border-left:4px solid transparent;}
@@ -131,12 +132,12 @@ img{display:inline-block;}
 .gs_search_item .FED_suggest .current,.simple_search_box .FED_suggest .current {background:#4c8bf8;color:#fff;}
 .g-select .simple_search_box {float:left;position:relative;width:591px;height:40px;border:4px solid #3983E8;}
 .g-select .simple_search_input {width:100%;border:0 none;padding:3px 5px;color:#999;height:100%;}
-
-.simple_search_box .FED_suggest {width:488px;position:absolute;top:23px;left:-1px;border:1px solid #4c8bf8;}
 .g-select .hot_game_list {display:block;width:588px;height:18px;padding-top:7px;padding-left:20px;overflow:hidden;clear:both;display:none;}
 .g-select .hot_game_list li {float:left;padding-right:12px;}
 .g-select .hot_game_list a {color:#999;font-family:simsun;white-space:nowrap;}
 .g-select .hot_game_list a:hover {color:#f60;}
+
+.simple_search_box .FED_suggest {width:488px;position:absolute;top:23px;left:-1px;border:1px solid #4c8bf8;}
 .gs_sort {padding:5px 15px 0;background-color:#1ea5ff;margin-bottom:0;}
 .gs_sort li {display:inline-block;font-size:14px;}
 .gs_sort li.drop_search_input {margin-left:3%;}
@@ -165,7 +166,9 @@ img{display:inline-block;}
 @media (max-width:991px){
     .nav>li>a{padding:5px 8px;}
 }
-
+@media(min-width:1440px){
+    .container{width:1220px;}
+}
 .btn-close {
     float:right;
     color:red;

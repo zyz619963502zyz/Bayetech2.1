@@ -439,6 +439,7 @@
           <Property Name="Id" Type="bigint" Nullable="false" />
           <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
           <Property Name="ServerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -671,7 +672,8 @@
     [vw_MallDLInfo].[Description] AS [Description], 
     [vw_MallDLInfo].[Id] AS [Id], 
     [vw_MallDLInfo].[GroupName] AS [GroupName], 
-    [vw_MallDLInfo].[ServerName] AS [ServerName]
+    [vw_MallDLInfo].[ServerName] AS [ServerName], 
+    [vw_MallDLInfo].[GameName] AS [GameName]
     FROM [dbo].[vw_MallDLInfo] AS [vw_MallDLInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallGoodInfo" EntityType="Self.vw_MallGoodInfo" store:Type="Views" store:Schema="dbo">
@@ -1358,6 +1360,7 @@
           <Property Name="Id" Type="Int64" Nullable="false" />
           <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1901,6 +1904,7 @@
           <EntitySetMapping Name="vw_MallDLInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallDLInfo">
               <MappingFragment StoreEntitySet="vw_MallDLInfo">
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
                 <ScalarProperty Name="ServerName" ColumnName="ServerName" />
                 <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
