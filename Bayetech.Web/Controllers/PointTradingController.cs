@@ -9,21 +9,21 @@ namespace Bayetech.Web.Controllers
 {
     public class PointTradingController : BaseController
     {
-        GameRequirementsService gameRequirementsService = new GameRequirementsService();
+        //GameRequirementsService gameRequirementsService = new GameRequirementsService();
 
        // GET: PointTrading
-       [HttpGet]
-        public IHttpActionResult GameRequirementsList(int value)
-        {
-            try
-            {
-                var list = gameRequirementsService.GameRequirementsList();
-                return Json(list);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+       //[HttpGet]
+       // public IHttpActionResult GameRequirementsList(int value)
+       // {
+       //     try
+       //     {
+       //         var list = gameRequirementsService.GameRequirementsList();
+       //         return Json(list);
+       //     }
+       //     catch (Exception ex)
+       //     {
+       //         throw new Exception(ex.Message);
+       //     }
+       // }
     }
 }

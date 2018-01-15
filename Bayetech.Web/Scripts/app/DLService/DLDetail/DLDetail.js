@@ -4,7 +4,7 @@
                 <div class="jiaobiao jb01"></div>
                 <div class="info-pic">
                     <div class="picFocus">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg" width="338" height="338">
+                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg1" width="338" height="338">
                     </div>
                     <div class="good-id">
                         <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
@@ -30,14 +30,14 @@
                         </div>
                         <div class="dltj">
                             <p>游戏奖励：<em>{{DlObj.GameAward}} </em></p>
-                            <p class="lastp">加工会：<em>{{SocietyUion}}  </em></p>
+                            <p class="lastp">加工会：<em>{{DlObj.SocietyUion}}  </em></p>
                         </div>
                     </div>
                     <div class="game-ensure">
-                        <p><span>代练类型：</span>{{DlObj.}}</p>
-                        <p><span>游戏区服：</span>&#22320;&#19979;&#22478;&#19982;&#21191;&#22763;/&#35199;&#21271;&#21306;/&#35199;&#21271;2/3&#21306;</i></p>
+                        <p><span>代练类型：</span>{{DlObj.DlTypeName}}</p>
+                        <p><span>游戏区服：</span>{{DlObj.GameName}}/{{DlObj.GroupName}}/{{DlObj.ServerName}}</i></p>
                         <p>
-                            <span>代练时间：</span><em>  1</em>天<em>0</em>小时
+                            <span>代练时间：</span><em>  {{DlObj.PeriodDays}}</em>天<em>{{DlObj.PeriodHours}}</em>小时
                         </p>
                     </div>
                     <div class="rent-btn">
@@ -117,13 +117,6 @@
     //获取商品信息的链接
     var _GetDlDetailInfo = "/api/Dl/GetDlDetailInfo";
 
-    var data = {
-        resultObj: {//主信息模板
-
-        },
-        propertys: [],//动态属性部分
-    };
-
     var dlInfoComponent = {//全局注册
         template: DetailHtml,
         data() {
@@ -131,7 +124,7 @@
         },
         created() {
             var self = this;
-            self.GetDlInfo("S201711151714130029");//获取商品信息。
+            self.GetDlDetailInfo("S201711151714130029");//获取商品信息。
         },
         methods: {
             GetDlDetailInfo(dlNo) {

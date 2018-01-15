@@ -42,8 +42,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<Game> Game { get; set; }
 
-    public virtual DbSet<GameRequirements> GameRequirements { get; set; }
-
     public virtual DbSet<Login> Login { get; set; }
 
     public virtual DbSet<MallOrderStatus> MallOrderStatus { get; set; }
@@ -86,19 +84,19 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
 
-    public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
-
     public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
 
     public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }
-
-    public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
 
     public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
 
     public virtual DbSet<MallType> MallType { get; set; }
 
     public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
+
+    public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
+
+    public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
 
 }
 

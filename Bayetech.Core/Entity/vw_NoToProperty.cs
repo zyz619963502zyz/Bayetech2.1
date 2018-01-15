@@ -15,11 +15,10 @@ namespace Bayetech.Core.Entity
     public partial class vw_NoToProperty
     {
         public long PropertyId { get; set; }
+        public string No { get; set; }
         public string PropertyName { get; set; }
         public string PropertyValue { get; set; }
-        public Nullable<bool> IsDelete { get; set; }
         public string PropertyKey { get; set; }
         public string PropertyRemark { get; set; }
-        public string No { get; set; }
     }
 }

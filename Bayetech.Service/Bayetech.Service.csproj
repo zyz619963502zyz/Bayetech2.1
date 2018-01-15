@@ -48,7 +48,6 @@
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
-    <Compile Include="IServices\IGameRequirementsService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\IDlService.cs" />
     <Compile Include="IServices\Interface1.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Services\DlService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
-    <Compile Include="Services\GameRequirementsService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallService.cs" />
