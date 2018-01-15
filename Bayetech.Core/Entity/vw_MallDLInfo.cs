@@ -39,5 +39,7 @@ namespace Bayetech.Core.Entity
         public string GroupName { get; set; }
         public string ServerName { get; set; }
         public string GameName { get; set; }
+        public string GameAward { get; set; }
+        public string SocietyUnion { get; set; }
     }
 }
