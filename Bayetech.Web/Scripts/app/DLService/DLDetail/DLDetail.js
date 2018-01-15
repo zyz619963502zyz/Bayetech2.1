@@ -7,7 +7,7 @@
                         <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg" width="338" height="338">
                     </div>
                     <div class="good-id">
-                        <p>商品编号：<span>{{DlNo}}</span></p>
+                        <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
                         <div class="sharep">
                             <div class="bdsharebuttonbox">
                                 <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#"
@@ -19,22 +19,22 @@
                     <h3 class="title">&#26032;&#20154;&#25171;&#25163;&#25509;&#20840;&#21306;&#28145;&#28170;&#65292;156/188&#65292;&#32431;&#25163;&#25171;&#65292;&#21253;&#26376;&#21487;&#20248;&#24800;&#65292;&#32477;&#23545;&#20449;&#35465;</h3>
                     <div class="package-price">
                         <div class="price-con">
-                            <p>套餐价格：<span class="prnum">￥<em>{{Price}}</em></span></p>
+                            <p>套餐价格：<span class="prnum">￥<em>{{DlObj.Price}}</em></span></p>
                             <p>
                                 为保障玩家利益，工作室已预缴
-                                <span v-for="item in Terms">
+                                <span v-for="item in DlObj.Terms">
                                     <em class ="iconfont">&#xe903; </em>
                                     <i>安全保证金<b>{{item.PropertyValue}}</b>元</i>
                                 </span>
                             </p>
                         </div>
                         <div class="dltj">
-                            <p>游戏奖励：<em>{{GameAward}} </em></p>
+                            <p>游戏奖励：<em>{{DlObj.GameAward}} </em></p>
                             <p class="lastp">加工会：<em>{{SocietyUion}}  </em></p>
                         </div>
                     </div>
                     <div class="game-ensure">
-                        <p><span>代练类型：</span>{{}}</p>
+                        <p><span>代练类型：</span>{{DlObj.}}</p>
                         <p><span>游戏区服：</span>&#22320;&#19979;&#22478;&#19982;&#21191;&#22763;/&#35199;&#21271;&#21306;/&#35199;&#21271;2/3&#21306;</i></p>
                         <p>
                             <span>代练时间：</span><em>  1</em>天<em>0</em>小时
@@ -134,7 +134,7 @@
             self.GetDlInfo("S201711151714130029");//获取商品信息。
         },
         methods: {
-            GetDlInfo(dlNo) {
+            GetDlDetailInfo(dlNo) {
                 var _self = this;
                 common.getWebJson(_GetDlDetailInfo, { dlNo: dlNo }, function (data) {
                     if (data.result) {

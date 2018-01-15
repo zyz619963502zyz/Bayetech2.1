@@ -39,7 +39,7 @@ namespace Bayetech.Core.Entity
         public string GameName { get; set; }
         public string GameAward { get; set; }
         public string SocietyUnion { get; set; }
-        public string Name { get; set; }
+        public string DlTypeName { get; set; }
         public Nullable<int> Order { get; set; }
         public string Unit { get; set; }
     }

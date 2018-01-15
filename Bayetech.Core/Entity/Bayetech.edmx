@@ -439,7 +439,7 @@
           <Property Name="GameName" Type="nvarchar" MaxLength="50" />
           <Property Name="GameAward" Type="nvarchar" MaxLength="30" />
           <Property Name="SocietyUnion" Type="nvarchar" MaxLength="30" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="DlTypeName" Type="nvarchar" MaxLength="100" />
           <Property Name="Order" Type="int" />
           <Property Name="Unit" Type="nvarchar" MaxLength="20" />
         </EntityType>
@@ -692,7 +692,7 @@
     [vw_MallDLInfo].[GameName] AS [GameName], 
     [vw_MallDLInfo].[GameAward] AS [GameAward], 
     [vw_MallDLInfo].[SocietyUnion] AS [SocietyUnion], 
-    [vw_MallDLInfo].[Name] AS [Name], 
+    [vw_MallDLInfo].[DlTypeName] AS [DlTypeName], 
     [vw_MallDLInfo].[Order] AS [Order], 
     [vw_MallDLInfo].[Unit] AS [Unit]
     FROM [dbo].[vw_MallDLInfo] AS [vw_MallDLInfo]</DefiningQuery>
@@ -1409,7 +1409,7 @@
           <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GameAward" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="SocietyUnion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DlTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Order" Type="Int32" />
           <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1970,7 +1970,7 @@
               <MappingFragment StoreEntitySet="vw_MallDLInfo">
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DlTypeName" ColumnName="DlTypeName" />
                 <ScalarProperty Name="SocietyUnion" ColumnName="SocietyUnion" />
                 <ScalarProperty Name="GameAward" ColumnName="GameAward" />
                 <ScalarProperty Name="GameName" ColumnName="GameName" />
