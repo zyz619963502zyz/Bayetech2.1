@@ -4,7 +4,7 @@
                 <div class="jiaobiao jb01"></div>
                 <div class="info-pic">
                     <div class="picFocus">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg1" width="338" height="338">
+                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg" width="338" height="338">
                     </div>
                     <div class="good-id">
                         <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="info-good yjs">
-                    <h3 class="title">&#26032;&#20154;&#25171;&#25163;&#25509;&#20840;&#21306;&#28145;&#28170;&#65292;156/188&#65292;&#32431;&#25163;&#25171;&#65292;&#21253;&#26376;&#21487;&#20248;&#24800;&#65292;&#32477;&#23545;&#20449;&#35465;</h3>
+                    <h3 class="title">{{DlObj.Title}}</h3>
                     <div class="package-price">
                         <div class="price-con">
                             <p>套餐价格：<span class="prnum">￥<em>{{DlObj.Price}}</em></span></p>
@@ -41,7 +41,7 @@
                         </p>
                     </div>
                     <div class="rent-btn">
-                        <a href="/goods/buying/22862" class="com-btn-o color01">我要购买</a>
+                        <a href="/goods/buying/22862" class="com-btn-o color01" @click ="WantBuy">我要购买</a>
                     </div>
                 </div>
                 <div class="sotre-info">
@@ -109,9 +109,7 @@
             level: "stars-box",
             Terms: []//条款
         },
-        mallGoodInfo: [
-            { DescriptionName: "", DescriptionValue: "" }
-        ]
+        Terms: []
     }
     
     //获取商品信息的链接
@@ -130,9 +128,12 @@
             GetDlDetailInfo(dlNo) {
                 var _self = this;
                 common.getWebJson(_GetDlDetailInfo, { dlNo: dlNo }, function (data) {
-                    if (data.result) {
-                        _self.DlObj = data.content;
-                    } 
+                    if (data.main.result) {
+                        _self.DlObj = data.main.content.datas[0];
+                    }
+                    if (data.detail.result) {
+                        _self.Terms = data.detail.content;
+                    }
                 });
             },
             GetNavBar() {
@@ -142,7 +143,7 @@
                     }
                 });
             },
-            BuyNow(GoodNo) {//立即购买
+            WantBuy(DlNo) {//立即购买
                 window.open(this.BaseUrl + GoodNo);
             }
         }
