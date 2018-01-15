@@ -22,7 +22,7 @@
                             <p>套餐价格：<span class="prnum">￥<em>{{DlObj.Price}}</em></span></p>
                             <p>
                                 为保障玩家利益，工作室已预缴
-                                <span v-for="item in DlObj.Terms">
+                                <span v-for="item in Terms">
                                     <em class ="iconfont">&#xe903; </em>
                                     <i>安全保证金<b>{{item.PropertyValue}}</b>元</i>
                                 </span>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="dltj">
                             <p>游戏奖励：<em>{{DlObj.GameAward}} </em></p>
-                            <p class="lastp">加工会：<em>{{DlObj.SocietyUion}}  </em></p>
+                            <p class="lastp">加工会：<em>{{DlObj.SocietyUnion}}  </em></p>
                         </div>
                     </div>
                     <div class="game-ensure">
@@ -105,7 +105,7 @@
             DLAlias: "",
             CancelNum: "",
             GameAward: "",
-            SocietyUion:"",
+            SocietyUnion:"",
             level: "stars-box",
             Terms: []//条款
         },
