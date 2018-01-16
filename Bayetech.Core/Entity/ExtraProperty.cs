@@ -23,6 +23,5 @@ namespace Bayetech.Core.Entity
         public bool Need { get; set; }
         public string Value { get; set; }
         public string Remark { get; set; }
-        public bool IsDelete { get; set; }
     }
 }

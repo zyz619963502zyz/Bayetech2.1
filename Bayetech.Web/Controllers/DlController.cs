@@ -49,6 +49,22 @@ namespace Bayetech.Web.Controllers
             return ret;
         }
 
+        /// <summary>
+        /// 获取代练明细列表
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetDlDetailInfo(string DlNo)
+        {
+            JObject ret = new JObject();
+            vw_MallDLInfo dlInfo = new vw_MallDLInfo();
+            dlInfo.DlNo = DlNo;
+            Pagination page = Pagination.GetDefaultPagination("DlNo");
+            ret.Add("main",JProperty.FromObject(Dlian.GetDlInfoList(dlInfo, page))) ;
+            ret.Add("detail", JProperty.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
+            return ret;
+        }
 
     }
 }

@@ -672,6 +672,8 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
+    <Content Include="Content\NewImages\re-img-01.jpg" />
+    <Content Include="Content\NewImages\yxlm.ico" />
     <Content Include="Content\OlderCss\buy.css" />
     <Content Include="Content\OlderCss\cashier.css" />
     <Content Include="Content\OlderCss\global.css" />
@@ -688,6 +690,7 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\DLService\DLDetail.html" />
     <Content Include="Page\DLService\DLList.html" />
     <Content Include="Page\DLService\DLIndex.html" />
     <Content Include="Page\Game\List.html" />
@@ -727,10 +730,12 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\API\Game.js" />
     <Content Include="Scripts\app\API\Setting.js" />
+    <Content Include="Scripts\app\DLService\DLDetail\DLDetail.js" />
+    <Content Include="Scripts\app\DLService\DLDetail\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />
-    <Content Include="Scripts\app\DLService\Index.js" />
+    <Content Include="Scripts\app\DLService\index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />
     <Content Include="Scripts\app\Game\List.js" />

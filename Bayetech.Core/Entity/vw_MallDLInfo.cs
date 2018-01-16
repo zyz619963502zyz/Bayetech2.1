@@ -16,8 +16,6 @@ namespace Bayetech.Core.Entity
     {
         public string Title { get; set; }
         public string TimeDiff { get; set; }
-        public string DLAlias { get; set; }
-        public string DLIntroduce { get; set; }
         public string WorkAlias { get; set; }
         public string WorkIntroduce { get; set; }
         public Nullable<System.DateTime> CreatTime { get; set; }
@@ -36,5 +34,13 @@ namespace Bayetech.Core.Entity
         public string DlNo { get; set; }
         public string Description { get; set; }
         public long Id { get; set; }
+        public string GroupName { get; set; }
+        public string ServerName { get; set; }
+        public string GameName { get; set; }
+        public string GameAward { get; set; }
+        public string SocietyUnion { get; set; }
+        public string DlTypeName { get; set; }
+        public Nullable<int> Order { get; set; }
+        public string Unit { get; set; }
     }
 }

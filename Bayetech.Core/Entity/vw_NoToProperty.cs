@@ -12,13 +12,13 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class GameRequirements
+    public partial class vw_NoToProperty
     {
-        public int Id { get; set; }
-        public string ScreenshotsCertification { get; set; }
-        public string PlatformUndertakes { get; set; }
-        public string GameArea { get; set; }
-        public string AccountSecurity { get; set; }
-        public Nullable<decimal> Money { get; set; }
+        public long PropertyId { get; set; }
+        public string No { get; set; }
+        public string PropertyName { get; set; }
+        public string PropertyValue { get; set; }
+        public string PropertyKey { get; set; }
+        public string PropertyRemark { get; set; }
     }
 }

@@ -69,9 +69,12 @@ namespace Bayetech.Service
                         {
                             expressions = expressions.And(c => c.WorkerType == mallDlInfo.WorkerType);
                         }
+                        if (!string.IsNullOrEmpty(mallDlInfo.DlNo))
+                        {
+                            expressions = expressions.And(c => c.DlNo == mallDlInfo.DlNo);
+                        }
                         ResultPage.datas = db.FindList(page, out page, expressions);
                         ResultPage.pagination = page;
-                       
                     }
                     else
                     {
@@ -85,6 +88,26 @@ namespace Bayetech.Service
             catch (Exception ex)
             {
                 throw new Exception(ex.Message + "处发生了错误!");
+            }
+        }
+
+
+        /// <summary>
+        /// 获取商品编号下的代练信息
+        /// </summary>
+        /// <param name="No"></param>
+        /// <returns></returns>
+        public JObject GetDlDetaiInfo(string No)
+        {
+            using (var db = new RepositoryBase())
+            {
+                JObject ret = new JObject();
+                if (!string.IsNullOrEmpty(No))
+                {
+                    var page = Pagination.GetDefaultPagination("PropertyId");
+                    ret = db.GetList<vw_NoToProperty>(page, out page,c=>c.No == No);
+                }
+                return ret;
             }
         }
     }

@@ -1,10 +1,7 @@
 ﻿jsconfig.baseArr.push("bootstrap-paginator");
 define(jsconfig.baseArr, function (Vue, $, common, paginator) {
-    var dlhtml=`
+    var dlhtml = `
         <div class="list-block">
-            <div class="expand-goods-list">
-                <ul class="clearfix recgoods"></ul>
-            </div>
             <div class="goods-list">
                 <table border="0" cellspacing="0" cellpadding="0" id="goods_box_list">
                     <thead>
@@ -22,14 +19,15 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                                 <h2>
                                     <a href="/goods/detail/22905">{{item.Title}}</a>
                                 </h2>
-                                <p>代练类型：PK场代练</p><p>游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}</p>
+                                <p>代练类型：{{item.WorkAlias}}</p><p>游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}</p>
                                 <div class ="buyer-name">
                                     <span><em></em>﹏浅水？？</span>
                                     <b></b>
                                 </div>
                                 <p>信誉：五颗星</p>
                             </td>
-                            <td class="tr"><div class="goods-price"><span>{{item.Price}}</span>元</div></td>
+                            <td class ="tr"><div class ="goods-price"><span>{{item.Price}}</span>元</div></td>
+                            <td>安全保证金：{{item.SavePrice}}<br/>效率保证金：{{item.EfficiencyPrice}}</td>
                             <td class="pad-0"><p>1天22小时{{item.CompleteTime - item.CreatTime}}</p></td>
                             <td><a class="btn btn-buy" href="buying/22905" @click="BuyNow">立即购买</a></td>
                         </tr>
@@ -104,7 +102,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 var self = this;
                 common.postWebJson(DLLlistUrl, self.SearchParam, function (data) {
                 	if (data.result) {
-                		data.ListObj = data.content.datas;
+                		self.ListObj = data.content.datas;
                 	}
                 }); 
 		    },
