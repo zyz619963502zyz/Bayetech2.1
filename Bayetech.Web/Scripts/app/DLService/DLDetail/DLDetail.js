@@ -122,7 +122,7 @@
         },
         created() {
             var self = this;
-            self.GetDlDetailInfo("S201711151714130029");//获取商品信息。
+            self.GetDlDetailInfo(common.GetUrlParam("","DlNo"));//获取商品信息。
         },
         methods: {
             GetDlDetailInfo(dlNo) {

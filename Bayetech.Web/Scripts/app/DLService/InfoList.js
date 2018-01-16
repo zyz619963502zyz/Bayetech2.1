@@ -7,7 +7,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 <p>3841</p>
             </div>
             <div class="newres-item-r">
-                <h2 class="tit"><span>最新代练套餐</span><a href="/goods/list?s=b" target="_blank">更多套餐></a></h2>
+                <h2 class="tit"><span>最新代练套餐</span><a href="/goods/list?s=b" target="_blank" @click="GetMoreInfo">更多套餐></a></h2>
                 <ul>
                     <li class="clearfix" v-for="item in ListObj">
                         <em>·</em>
@@ -49,6 +49,9 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                         self.ListObj=data.content;
                     }
                 });
+            },
+            GetMoreInfo() {
+                window.open(this.BaseUrl + goodNo);
             }
         },
     };

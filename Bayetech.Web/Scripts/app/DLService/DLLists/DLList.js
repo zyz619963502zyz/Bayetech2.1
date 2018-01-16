@@ -29,7 +29,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                             <td class ="tr"><div class ="goods-price"><span>{{item.Price}}</span>元</div></td>
                             <td>安全保证金：{{item.SavePrice}}<br/>效率保证金：{{item.EfficiencyPrice}}</td>
                             <td class="pad-0"><p>1天22小时{{item.CompleteTime - item.CreatTime}}</p></td>
-                            <td><a class="btn btn-buy" href="buying/22905" @click="BuyNow">立即购买</a></td>
+                            <td><a class="btn btn-buy" href="buying/22905" @click="GotoDetail(item.DlNo)">立即购买</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -54,12 +54,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
     var DLLlistUrl = "/api/Dl/GetDlInfoList";
 
     var data={
-        BaseUrl: common.GetBaseUrl() + "GoodInfo/GoodInfo.html?GoodNo=",
+        BaseUrl: common.GetBaseUrl() + "DLService/DLDetail.html?DlNo=",
         BaseTarget: "_blank",
         keyword : "",
         ListObj:[
                     {
                         Title: "",
+                        DlNo:"",
                         GameName: "",
                         GroupName: "",
                         ServerName:"",
@@ -106,9 +107,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 	}
                 }); 
 		    },
-		    BuyNow() {//立刻够买
-
-		    }
+		    GotoDetail(dlNo) {//详情页跳转 
+                window.open(this.BaseUrl + dlNo);
+            },
 		}
 	};
 	return DLLlistcomponent;
