@@ -76,7 +76,8 @@ var jsconfig = {
         'DLList': 'Scripts/app/DLService/DLLists/DLList',
         'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
-        'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail'
+        'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
+        'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow'
     },
     map: {
         '*': {

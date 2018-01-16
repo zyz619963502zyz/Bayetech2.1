@@ -4,7 +4,7 @@
                 <div class="jiaobiao jb01"></div>
                 <div class="info-pic">
                     <div class="picFocus">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg" width="338" height="338">
+                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg1" width="338" height="338">
                     </div>
                     <div class="good-id">
                         <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
@@ -24,7 +24,7 @@
                                 为保障玩家利益，工作室已预缴
                                 <span v-for="item in Terms">
                                     <em class ="iconfont">&#xe903; </em>
-                                    <i>安全保证金<b>{{item.PropertyValue}}</b>元</i>
+                                    <i>{{item.PropertyName}}<b>{{item.PropertyValue}}</b>元</i>
                                 </span>
                             </p>
                         </div>
@@ -115,7 +115,7 @@
     //获取商品信息的链接
     var _GetDlDetailInfo = "/api/Dl/GetDlDetailInfo";
 
-    var dlInfoComponent = {//全局注册
+    var dlInfoComponent = {
         template: DetailHtml,
         data() {
             return data;

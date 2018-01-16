@@ -692,6 +692,7 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="Page\DLService\DLBuyNow.html" />
     <Content Include="Page\DLService\DLDetail.html" />
     <Content Include="Page\DLService\DLList.html" />
     <Content Include="Page\DLService\DLIndex.html" />
@@ -731,6 +732,8 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\API\Game.js" />
     <Content Include="Scripts\app\API\Setting.js" />
+    <Content Include="Scripts\app\DLService\DLBuyNow\DLBuyNow.js" />
+    <Content Include="Scripts\app\DLService\DLBuyNow\index.js" />
     <Content Include="Scripts\app\DLService\DLDetail\DLDetail.js" />
     <Content Include="Scripts\app\DLService\DLDetail\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
