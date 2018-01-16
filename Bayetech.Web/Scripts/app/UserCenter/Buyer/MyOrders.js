@@ -210,6 +210,10 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 self.menuType == 'Sales'?$("#pending").text("等待买家付款"):$("#pending").text("等待付款")
                 //self.GetOrderInfo(self.Pagination);
             },
+            'TypeSelected'(value) {
+                debugger;
+                console.log(value)
+            }
         },
         data() {
             return data;
