@@ -262,10 +262,8 @@
     <Compile Include="Controllers\GoodInfoController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PointTradingController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -698,7 +696,7 @@
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
-    <Content Include="Page\GoodInfo\GoodInfo.html" />
+    <Content Include="Models\GoodInfo\GoodInfo.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
     <Content Include="Page\Home\PhonePage.html" />
@@ -715,6 +713,7 @@
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
     <Content Include="Page\UserCenter\Index.html" />
+    <Content Include="Page\UserCenter\tpl\GoodsManage.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\ServiceCenter\index.html" />
