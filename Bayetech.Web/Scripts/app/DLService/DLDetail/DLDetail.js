@@ -41,7 +41,7 @@
                         </p>
                     </div>
                     <div class="rent-btn">
-                        <a href="/goods/buying/22862" class="com-btn-o color01" @click ="WantBuy">我要购买</a>
+                        <a href="/goods/buying/22862" class="com-btn-o color01" @click ="WantBuy(DlObj.DlNo)">我要购买</a>
                     </div>
                 </div>
                 <div class="sotre-info">
@@ -91,9 +91,9 @@
             </div>`;
 
         //定义数据
-    var data={
-        DlObj:{
-            BaseUrl: common.GetBaseUrl()+"PlaceOrder/PlaceOrder.html?GoodNo=",
+      var data={
+         BaseUrl: common.GetBaseUrl()+"DLService/DLBuyNow.html?DlNo=",
+         DlObj:{
             AddTime: "",
             DlNo: "",
             Title: "",
@@ -115,14 +115,15 @@
     //获取商品信息的链接
     var _GetDlDetailInfo = "/api/Dl/GetDlDetailInfo";
 
-    var dlInfoComponent = {
+    var dlInfoComponent={
+        BaseUrl: common.GetBaseUrl() + "DLBuyNow/DLBuyNow.html?DlNo=",
         template: DetailHtml,
         data() {
             return data;
         },
         created() {
             var self = this;
-            self.GetDlDetailInfo(common.GetUrlParam("","DlNo"));//获取商品信息。
+            self.GetDlDetailInfo(common.GetUrlParam("","DlNo"));
         },
         methods: {
             GetDlDetailInfo(dlNo) {
@@ -143,8 +144,8 @@
                     }
                 });
             },
-            WantBuy(DlNo) {//立即购买
-                window.open(this.BaseUrl + GoodNo);
+            WantBuy(DlNo) {//要购买
+                window.open(this.BaseUrl + DlNo);
             }
         }
     }

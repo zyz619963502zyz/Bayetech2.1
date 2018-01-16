@@ -32,6 +32,8 @@
     var _buyNowUrl="/api/Dl/GetDlDetailInfo";
 
     var data={
+        GroupSelected: "",
+        ServerSelected:"",
         DlInfo:{
             Title: "",
             DlTypeName: "",
@@ -41,7 +43,8 @@
         },
         Terms: [],
         DlForm: {
-            
+            GameId: "",
+
         },
     };
 
@@ -53,7 +56,7 @@
         },
         created() {
             var self = this;
-            self.BuyNowInfo("S201711151714130029");
+            self.BuyNowInfo(common.GetUrlParam("","DlNo"));
         },
         methods: {
             BuyNowInfo(dlNo) {
