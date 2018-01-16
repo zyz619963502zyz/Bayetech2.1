@@ -6,7 +6,24 @@ require(moudule, function (Vue, $, common ,dlBuyInfo) {
         GroupSelected: "",
         ServerSelected: "",
         subMitObj: {
-
+            DlNo: "",
+            OrderPrice:"",
+            Price: 0,
+            DlType: 3,
+            DlTypeName: "账号",
+            BuyNum: "1",
+            InternalTypeId:"1",//内部交易类型：
+            （拍卖交易，邮寄交易等等）
+            GameName: "",
+            GameAccount: "",
+            GameAccountAgain: "",
+            GroupName: "",
+            InternalTypeId:"",
+            ServerName: "",
+            BuyerPhone: "18717708731",
+            BuyerQQ: "619963501",
+            Signal:"",
+            PromoNum: "1111",
         }
     };
 
