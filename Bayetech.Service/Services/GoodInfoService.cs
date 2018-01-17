@@ -16,7 +16,7 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="goodInfo"></param>
         /// <returns></returns>
-        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo,Pagination page)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo, DateTime? StartTime, DateTime? EndTime, Pagination page)
         {
             using (var db = new RepositoryBase())
             {
@@ -43,7 +43,22 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
                 }
-
+                if (goodInfo.StatusId != null) //商品状态
+                {
+                    expression = expression.And(t => t.StatusId == goodInfo.StatusId);
+                }
+                //if (goodInfo.UserName != null && goodInfo.UserName > 0) //
+                //{
+                //    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
+                //}
+                if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
+                {
+                    expression = expression.And(t => t.AddTime >= StartTime);
+                }
+                if (EndTime != null && !string.IsNullOrEmpty(EndTime.ToString()))//结束时间
+                {
+                    expression = expression.And(t => t.AddTime <= EndTime);
+                }
                 ResultPage.datas = db.FindList(page,out page,expression).ToList();//暂时以GoodNo排序，以后做活。
 
                 if (page!=null)

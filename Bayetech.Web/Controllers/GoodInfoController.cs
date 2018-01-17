@@ -74,10 +74,23 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetList(JObject json)
         {
-            //vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());两个外层括号导致无法反序列化
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json["param"].ToString());
+
+
+            DateTime? startTime = null;
+            if (!string.IsNullOrEmpty(json["startTime"].ToString()))
+            {
+                startTime = Convert.ToDateTime(json["startTime"].ToString());
+            }
+
+            DateTime? endTime = null;
+            if (!string.IsNullOrEmpty(json["endTime"].ToString()))
+            {
+                endTime = Convert.ToDateTime(json["endTime"].ToString());
+            }
+
             Pagination page = JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString()); 
-            return service.GetGoodList(goodInfo, page);
+            return service.GetGoodList(goodInfo, startTime, endTime, page);
         }
 
 

@@ -42,6 +42,6 @@ namespace Bayetech.Core.Entity
         public Nullable<System.DateTime> GoodValidityTime { get; set; }
         public Nullable<int> QQ { get; set; }
         public string Phone { get; set; }
-        public Nullable<decimal> Status { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }

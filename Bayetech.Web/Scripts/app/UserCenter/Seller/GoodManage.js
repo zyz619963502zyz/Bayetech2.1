@@ -1,15 +1,8 @@
 ﻿//商品管理
 define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodManage.html', 'bootstrap-paginator', 'datepicker'], function (Vue, $, common, API, html, paginator) {
     var html=html;
-
-    //Api
-    var _GetOrderInfoUrl="/api/Order/GetOrderInfo";
-    var _GetOrdersUrl="/api/Order/GetOrders";
-    var _GetOrderStatus="/api/Order/GetOrderStatus";
-
     var data={
         times: 0,
-        Games: [{ GameId: "", GameName: "" }],
         Param:{
             GameId: "",
             GoodTypeId: "",
@@ -17,15 +10,14 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             GameServerId: "",
             OrderStatus: "",
             Status:0,
-            KeyWord: "",
-        },
+            GoodKeyWord: "",
+            },
+        Games: [{ GameId: "1", GameName: "地下城与勇士" }],
         Goods: [],//商品信息表 
         Types: [],//交易类别
         Groups: [],
         Servers: [],
-        Status: [],//商品状态
-        Pagination: {
-            //后端分页字段
+        Pagination: {//后端分页字段
             rows: 10,//每页行数，
             page: 1,//当前页码
             order: "OrderNo",//排序字段
@@ -60,8 +52,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
         },
         created() {
             var self=this;
-            self.GetOrderInfo(self.Pagination);
-            self.GetOrderStatus(0);
+            self.GetList(self.Pagination);
         },
         mounted() {
             $(".datepicker").datepicker({
@@ -73,10 +64,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             });
         },
         methods: {
-            ConfirmTypes() {
-
-            },
-            GetOrderInfo() {//获取订单信息
+            GetList() {//获取订单信息
                 var self=this;
                 debugger;
                 var param=self.Param;
@@ -113,26 +101,17 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                     self.GetOrderInfo(self.Pagination);
                 }
             },
-            GetStatusOrder(satus, name) {//查询不同状态的订单
+            ChangeStatus(satus, name) {//查询不同状态的订单
                 var self=this;
+                $(`[sttatus]`).removeClass("active");
+                $(`[sttatus=${name}]`).addClass("active");
+                
                 if (satus>=0) {
                     self.StatusSelected=satus;
                     self.GetOrderInfo(self.Pagination);
-                    $("#"+name).addClass("active");
-                    $("#nave li[id!='"+name+"']").removeClass("active");
                 }
             }
         }
     };
-
-    //时间控件默认初始化
-    $(".datepicker").datepicker({
-        language: 'zh-CN',
-        fomart: 'yyyy-mm-dd',
-        keyboardNavigation: false,
-        forceParse: false,
-        autoclose: true
-    });
-
     return components;
 });

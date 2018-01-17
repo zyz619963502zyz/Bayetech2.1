@@ -14,7 +14,7 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_MallGoodMainInfo
     {
-        public int Id { get; set; }
+        public int Expr1 { get; set; }
         public string GoodTitle { get; set; }
         public Nullable<decimal> GoodPrice { get; set; }
         public Nullable<decimal> GoodSinglePrice { get; set; }
@@ -41,5 +41,7 @@ namespace Bayetech.Core.Entity
         public Nullable<long> GoodTypeId { get; set; }
         public string ProfessionName { get; set; }
         public Nullable<long> ProfessionId { get; set; }
+        public Nullable<int> StatusId { get; set; }
+        public string StatusName { get; set; }
     }
 }
