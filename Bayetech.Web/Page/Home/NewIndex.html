@@ -40,14 +40,14 @@
                         </div>
                         <!--right box-->
                         <div class="right-panel">
-                            <div class="right-panel-one m-b-md">
+                            <div class="r-panel-tab m-b-md">
                                 <!--我要买我要卖-->
                                 <div class="buy-sale-area">
                                     <a href="http://www.7881.com/gamelistshow.html">我要买</a>
                                     <a onclick="javascript:checkLogin();" href="javascript:void(0);" class="sale-btn">我要卖</a>
                                 </div>
                             </div>
-                            <div class="right-panel-one m-b-md">
+                            <div class="r-panel-tab m-b-md">
                                 <!--验证-->
                                 <div class="input-group">
                                     <input type="text" placeholder="输入客服QQ，验证真假" value="" class="form-control" />
@@ -60,14 +60,14 @@
                                     <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
                                 </div>-->
                             </div>
-                            <div class="right-panel-one m-b-md">
+                            <div class="r-panel-tab m-b-md">
                                 <!--公告-->
                                 <v-tab :data="notice">
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
                             </div>
 
-                            <div class="right-panel-one m-b-md">
+                            <div class="r-panel-tab m-b-md">
                                 <!--咨询、建议、投诉-->
                                 <!-- 没造数据，跟数据现在公告一样 -->
                                 <v-tab :data="consult">
@@ -75,14 +75,14 @@
                                 </v-tab>
                             </div>
 
-                            <div class="right-panel-one m-b-md">
+                            <div class="r-panel-tab m-b-md">
                                 <!--交易榜单-->
                                 <v-tab :data="gameranking">
                                     <template slot-scope="props">
                                         <div class="c1 top3">{{ props.obj.no}}.</div>
                                         <div class="c2">{{ props.obj.title}}</div>
                                         <div class="c3">成交{{ props.obj.quantity}}笔</div>
-                                        <div class="c4">昨日单笔最高成交额：<em class="org">{{ props.obj.maxMoney}}</em>元</div>
+                                        <div class="c4">昨日单笔最高成交额：<em class="text-primary">{{ props.obj.maxMoney}}</em>元</div>
                                     </template>
                                 </v-tab>
                             </div>

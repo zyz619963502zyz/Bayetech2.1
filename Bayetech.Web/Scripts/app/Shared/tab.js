@@ -1,6 +1,6 @@
 ﻿//通用tab
 define(['common'], function (common) {
-    var html = `<div class="index-tab" :class="data.boxclass">
+    var html = `<div class="index-tab">
         <div class="index-tab-top">
             <ul>
                 <li v-for="item in data.type" @click="switchtab(item.id)" :data-active="item.id">
@@ -10,7 +10,7 @@ define(['common'], function (common) {
         </div>
         <div class="index-tab-bot">
             <div class="index-tab-item" >
-                <div :class="data.cententclass">
+                <div class="gg-box" :class="data.boxclass">
                     <ul>
                         <li v-for="item in list">
                            <slot :obj="item"></slot>

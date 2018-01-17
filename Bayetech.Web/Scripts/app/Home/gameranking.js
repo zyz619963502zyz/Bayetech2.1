@@ -2,7 +2,6 @@
 define([], function (common) {
     var data = {
         boxclass:"deal-top",
-        cententclass: "deal-top-box",
         default: "1",
         type: [{
             id: "2",
