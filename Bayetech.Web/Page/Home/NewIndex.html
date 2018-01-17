@@ -21,8 +21,6 @@
             <v-nav></v-nav>
             <!-- all content -->
             <div class="tab-content">
-                <!--home page-->
-                <div role="tabpanel" class="tab-pane active" id="home0">
                     <!--index content-->
                     <div class="index-content">
                         <!--left box-->
@@ -32,7 +30,7 @@
                                 <index-slidebox></index-slidebox>
                             </div>
                             <div class="left-panel-one m-b-sm">
-                            <!--手风琴轮循-->
+                                <!--手风琴轮循-->
                                 <index-tabsList></index-tabsList>
                             </div>
                             <div class="left-panel-one m-b-sm">
@@ -51,12 +49,16 @@
                             </div>
                             <div class="right-panel-one m-b-md">
                                 <!--验证-->
-                                <div class="qq-yz">
-                                    <label class="placeholder">
-                                        <input type="text" class="qq-input onlynum" id="qq_number" placeholder="输入客服QQ，验证真假" />
-                                    </label>
-                                    <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                                <div class="input-group">
+                                    <input type="text" placeholder="输入客服QQ，验证真假" value="" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary">验证</button>
+                                    </span>
                                 </div>
+                                <!--<div class="qq-check">
+                                    <input type="text" class="qq-input onlynum" id="qq_number" placeholder="输入客服QQ，验证真假" />
+                                    <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                                </div>-->
                             </div>
                             <div class="right-panel-one m-b-md">
                                 <!--公告-->
@@ -64,7 +66,7 @@
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
                             </div>
-                            
+
                             <div class="right-panel-one m-b-md">
                                 <!--咨询、建议、投诉-->
                                 <!-- 没造数据，跟数据现在公告一样 -->
@@ -72,7 +74,7 @@
                                     <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                                 </v-tab>
                             </div>
-                            
+
                             <div class="right-panel-one m-b-md">
                                 <!--交易榜单-->
                                 <v-tab :data="gameranking">
@@ -93,9 +95,7 @@
                             <!--合作等-->
                             <v-partner></v-partner>
                         </div>
-                        
                     </div>
-                </div>
             </div>
         </div>
     </div>
