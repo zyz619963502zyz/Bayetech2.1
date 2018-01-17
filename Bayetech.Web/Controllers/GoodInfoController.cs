@@ -78,13 +78,13 @@ namespace Bayetech.Web.Controllers
 
 
             DateTime? startTime = null;
-            if (!string.IsNullOrEmpty(json["startTime"].ToString()))
+            if (json["startTime"] != null)
             {
                 startTime = Convert.ToDateTime(json["startTime"].ToString());
             }
 
             DateTime? endTime = null;
-            if (!string.IsNullOrEmpty(json["endTime"].ToString()))
+            if (json["endTime"] != null)
             {
                 endTime = Convert.ToDateTime(json["endTime"].ToString());
             }

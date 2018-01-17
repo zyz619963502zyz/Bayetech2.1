@@ -3,6 +3,13 @@ define(['jquery', 'common'], function () {
     var self={};
     self.Name="Good";
    
+    //获取商品列表
+    self.GetList=function (param, fn) {
+        $.get("/api/GoodInfo/GetList", param, function (data) {
+            fn(data);
+        });
+    };
+
     // 获取商品交易类型列表
     self.GetGoodTypeList=function (gameId, name, fn) {
         name=name||"";

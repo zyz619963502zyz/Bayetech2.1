@@ -2,7 +2,6 @@
 define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodManage.html', 'bootstrap-paginator', 'datepicker'], function (Vue, $, common, API, html, paginator) {
     var html=html;
     var data={
-        times: 0,
         Param:{
             GameId: "",
             GoodTypeId: "",
@@ -70,35 +69,18 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                 var param=self.Param;
                 param["StartTime"]=$("#StartTime").val();
                 param["EndTime"]=$("#EndTime").val();
-                //var param={
-                //    GameId: self.GameSelected,
-                //    GoodTypeId: self.TypeSelected,//先默认账号
-                //    GameGroupId: self.GroupSelected,
-                //    GameServerId: self.ServerSelected,
-                //    OrderStatus: self.StatusSelected,
-                //    KeyWord: self.KeyWord,
-                //    startTime: self.startTime,
-                //    endTime: self.endTime,
-                //    PageObj: self.Pagination
-                //};
-                //common.postWebJson(_GetOrderInfoUrl, param, function (data) {
-                //    if (data.result) {
-                //        //self.Orders=data.content.datas;
-                //        //self.times==0?self.Games=data.Games:"";
-                //        //self.Pagination=data.content.pagination;
-                //        //common.SetPagination($('#paginator-test'), self, self.GetOrderInfo);
-                //        //self.times++;
-                //        //self.$router.go(0);
-                //    } else {
-
-                //    }
-                //});
+                param["PageObj"]=self.Pagination;
+                API.Good.GetList(param, function () {
+                    self.Goods=data.content.datas;
+                    self.Pagination=data.content.pagination;
+                    common.SetPagination($('#paginator-test'), self, self.GetList);
+                });
             },
             GetSizePage(size) {//设置页面的大小去查询页面数据
                 var self=this;
                 if (size) {
                     self.Pagination.rows=size;
-                    self.GetOrderInfo(self.Pagination);
+                    self.GetList(self.Pagination);
                 }
             },
             ChangeStatus(satus, name) {//查询不同状态的订单
