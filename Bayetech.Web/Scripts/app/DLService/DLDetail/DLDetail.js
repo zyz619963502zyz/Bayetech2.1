@@ -4,7 +4,7 @@
                 <div class="jiaobiao jb01"></div>
                 <div class="info-pic">
                     <div class="picFocus">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg" width="338" height="338">
+                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg1" width="338" height="338">
                     </div>
                     <div class="good-id">
                         <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
@@ -24,7 +24,7 @@
                                 为保障玩家利益，工作室已预缴
                                 <span v-for="item in Terms">
                                     <em class ="iconfont">&#xe903; </em>
-                                    <i>安全保证金<b>{{item.PropertyValue}}</b>元</i>
+                                    <i>{{item.PropertyName}}<b>{{item.PropertyValue}}</b>元</i>
                                 </span>
                             </p>
                         </div>
@@ -41,7 +41,7 @@
                         </p>
                     </div>
                     <div class="rent-btn">
-                        <a href="/goods/buying/22862" class="com-btn-o color01" @click ="WantBuy">我要购买</a>
+                        <a href="/goods/buying/22862" class="com-btn-o color01" @click ="WantBuy(DlObj.DlNo)">我要购买</a>
                     </div>
                 </div>
                 <div class="sotre-info">
@@ -91,9 +91,9 @@
             </div>`;
 
         //定义数据
-    var data={
-        DlObj:{
-            BaseUrl: common.GetBaseUrl()+"PlaceOrder/PlaceOrder.html?GoodNo=",
+      var data={
+         BaseUrl: common.GetBaseUrl()+"DLService/DLBuyNow.html?DlNo=",
+         DlObj:{
             AddTime: "",
             DlNo: "",
             Title: "",
@@ -115,14 +115,15 @@
     //获取商品信息的链接
     var _GetDlDetailInfo = "/api/Dl/GetDlDetailInfo";
 
-    var dlInfoComponent = {//全局注册
+    var dlInfoComponent={
+        BaseUrl: common.GetBaseUrl() + "DLBuyNow/DLBuyNow.html?DlNo=",
         template: DetailHtml,
         data() {
             return data;
         },
         created() {
             var self = this;
-            self.GetDlDetailInfo("S201711151714130029");//获取商品信息。
+            self.GetDlDetailInfo(common.GetUrlParam("","DlNo"));
         },
         methods: {
             GetDlDetailInfo(dlNo) {
@@ -143,8 +144,8 @@
                     }
                 });
             },
-            WantBuy(DlNo) {//立即购买
-                window.open(this.BaseUrl + GoodNo);
+            WantBuy(DlNo) {//要购买
+                window.open(this.BaseUrl + DlNo);
             }
         }
     }
