@@ -12,8 +12,7 @@ require(moudule, function (Vue, $, common ,dlBuyInfo) {
             DlType: 3,
             DlTypeName: "账号",
             BuyNum: "1",
-            InternalTypeId:"1",//内部交易类型：
-            （拍卖交易，邮寄交易等等）
+            InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
             GameName: "",
             GameAccount: "",
             GameAccountAgain: "",
