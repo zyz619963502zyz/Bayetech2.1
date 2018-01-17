@@ -59,7 +59,7 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.AddTime <= EndTime);
                 }
-                ResultPage.datas = db.FindList(page,out page,expression).ToList();//暂时以GoodNo排序，以后做活。
+                ResultPage.datas = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page,expression).ToList();//暂时以GoodNo排序，以后做活。
 
                 if (page!=null)
                 {
@@ -69,7 +69,7 @@ namespace Bayetech.Service.Services
                 if (ResultPage.datas.Count>0)
                 {
                     ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
+                    ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                 }
                 else
                 {

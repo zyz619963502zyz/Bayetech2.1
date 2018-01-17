@@ -8,7 +8,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             GameGroupId: "",
             GameServerId: "",
             OrderStatus: "",
-            Status:0,
+            StatusId:0,
             GoodKeyWord: "",
             },
         Games: [{ GameId: "1", GameName: "地下城与勇士" }],
@@ -19,7 +19,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
         Pagination: {//后端分页字段
             rows: 10,//每页行数，
             page: 1,//当前页码
-            order: "OrderNo",//排序字段
+            order: "GoodNo",//排序字段
             sord: "asc",//排序类型
             records: 10,//总记录数
             total: 10//总页数。
@@ -65,12 +65,11 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
         methods: {
             GetList() {//获取订单信息
                 var self=this;
-                debugger;
                 var param=self.Param;
                 param["StartTime"]=$("#StartTime").val();
                 param["EndTime"]=$("#EndTime").val();
-                param["PageObj"]=self.Pagination;
-                API.Good.GetList(param, function () {
+                param["Pagination"]=self.Pagination;
+                API.Good.GetList(param, function (data) {
                     self.Goods=data.content.datas;
                     self.Pagination=data.content.pagination;
                     common.SetPagination($('#paginator-test'), self, self.GetList);
@@ -83,15 +82,12 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                     self.GetList(self.Pagination);
                 }
             },
-            ChangeStatus(satus, name) {//查询不同状态的订单
+            ChangeStatus(status, name) {//查询不同状态的订单
                 var self=this;
                 $(`[sttatus]`).removeClass("active");
                 $(`[sttatus=${name}]`).addClass("active");
-                
-                if (satus>=0) {
-                    self.StatusSelected=satus;
-                    self.GetOrderInfo(self.Pagination);
-                }
+                self.Param.StatusId=status==="all"?"": status;
+                self.GetList();
             }
         }
     };

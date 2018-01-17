@@ -111,16 +111,15 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 GoodPrice: ""
             }
         ],
-        SearchParam:{
-            param:eval('('+localStorage.SearchParam+')'),
-            Pagination:{//分页对象
+        Pagination:{//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
             order: "GoodNo",//排序字段
             sord: "asc",//排序类型
             records: 10,//总记录数
             total: 10//总页数。
-        }
+        },
+        SearchParam:{
       },
     }
 
@@ -144,11 +143,13 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
         },
         methods: {
             findList() {
-                var self = this;
+                var self=this;
+                self.SearchParam=JSON.parse(localStorage.SearchParam)||{};
+                self.SearchParam["Pagination"]=self.Pagination;
                 common.postWebJson(GoodListUrl,self.SearchParam, function (data) {
                     if (data.result) {
                         self.ListObj=data.content.datas;
-                        self.SearchParam.Pagination = data.content.pagination
+                        self.Pagination=data.content.pagination;
                         common.SetPagination($('#paginator-test'),self.SearchParam,self.findList);
                     }
                 });
@@ -158,8 +159,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
             },
             GetLikeGoods() {
                 var self = this;
-                self.SearchParam.param.GoodKeyWord = self.keyword;
-                self.SearchParam.Pagination.page = 1;
+                self.SearchParam.GoodKeyWord = self.keyword;
+                self.Pagination.page = 1;
                 self.findList();
             },
         }

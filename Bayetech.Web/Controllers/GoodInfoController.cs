@@ -70,12 +70,10 @@ namespace Bayetech.Web.Controllers
         /// 获取列表页数据
         /// </summary>
         /// <param name="json"></param>
-        /// <returns></returns>
         [HttpPost]
         public JObject GetList(JObject json)
         {
-            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json["param"].ToString());
-
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
 
             DateTime? startTime = null;
             if (json["startTime"] != null)
@@ -89,7 +87,7 @@ namespace Bayetech.Web.Controllers
                 endTime = Convert.ToDateTime(json["endTime"].ToString());
             }
 
-            Pagination page = JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString()); 
+            Pagination page = json["Pagination"] ==null ? Pagination.GetDefaultPagination("GoodNo"):JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString()); 
             return service.GetGoodList(goodInfo, startTime, endTime, page);
         }
 
