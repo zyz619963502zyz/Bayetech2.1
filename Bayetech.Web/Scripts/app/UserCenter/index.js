@@ -27,9 +27,7 @@ require(UserCenterRequireArr, function () {
                 Title: "我是卖家",
                 Items: [{ Id: 0, Title: "我要卖", Path: "../Good/Publish.html", Type: "url" },
                     { Id: 0, Title: "我的订单管理", Path: "/MyOrders", Params: {flag:"Sales"} },
-                    { Id: 0, Title: "出售中的商品", Path: "/GoodsManage" },//合并成商品管理
-                    { Id: 0, Title: "仓库中的商品", Path: "/GoodsManage" },//合并成商品管理
-                    //{ Id: 0, Title: "我的出货订单", Path: "/About" },合并到订单管理
+                    { Id: 0, Title: "商品管理", Path: "/GoodManage" },//合并成商品管理
                     { Id: 0, Title: "我发布的代练套餐", Path: "/DlPackage" },
                     { Id: 0, Title: "我接的代练需求", Path: "/MyAcceptDlRequire" },
                 ],

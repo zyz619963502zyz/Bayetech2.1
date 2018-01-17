@@ -716,7 +716,7 @@
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
     <Content Include="Page\UserCenter\Index.html" />
-    <Content Include="Page\UserCenter\tpl\GoodsManage.html" />
+    <Content Include="Page\UserCenter\tpl\GoodManage.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\ServiceCenter\index.html" />
@@ -726,6 +726,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\app\API\All.js" />
+    <Content Include="Scripts\app\API\Good.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\API\Game.js" />
@@ -842,7 +843,7 @@
     <Content Include="Scripts\app\UserCenter\Home.js" />
     <Content Include="Scripts\app\UserCenter\index.js" />
     <Content Include="Scripts\app\UserCenter\Seller\DlPackage.js" />
-    <Content Include="Scripts\app\UserCenter\Seller\GoodsManage.js" />
+    <Content Include="Scripts\app\UserCenter\Seller\GoodManage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\MyAcceptDlRequire.js" />
     <Content Include="Scripts\app\UserCenter\Seller\OrdersManage.js" />
     <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />

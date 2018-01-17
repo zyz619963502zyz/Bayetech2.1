@@ -8,7 +8,7 @@ define([
     'Scripts/app/UserCenter/Buyer/BuyerDlOrder',
     'Scripts/app/UserCenter/Seller/ToSeller',
     'Scripts/app/UserCenter/Seller/OrdersManage',
-    'Scripts/app/UserCenter/Seller/GoodsManage',
+    'Scripts/app/UserCenter/Seller/GoodManage',
     'Scripts/app/UserCenter/Seller/DlPackage',
     'Scripts/app/UserCenter/Seller/MyAcceptDlRequire',
     'Scripts/app/UserCenter/AccountSetting/ChangePassword',
