@@ -75,7 +75,7 @@ img{display:inline-block;}
 .com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
 .com-module .nav-justified > li {width:147px;}
 .com-module .nav-justified a {color:#fff;border-radius:0;}
-.com-module .nav-justified a:hover {background-color:#206ef1;}
+.com-module .nav-justified a:hover {background-color:#3399ff;}
 /*serach 通用头部搜索*/
 .f_999 {color:#999;}
 .g-select {float:right;width:823px;position:relative;z-index:10;padding:6px 0 0 0;}

@@ -1,16 +1,16 @@
 ﻿//通用tab
 define(['common'], function (common) {
-    var html = `<div class="index-tab" :class="data.boxclass">
-        <div class="index-tab-top" :class="typeclass">
+    var html = `<div class="index-tab">
+        <div class="index-tab-top">
             <ul>
-                <li v-for="item in data.type">
-                   <a target="_blank"  @click="switchtab(item.id)">{{item.name}}</a>
+                <li v-for="item in data.type" @click="switchtab(item.id)" :data-active="item.id">
+                   <a target="_blank" >{{item.name}}</a>
                 </li>
             </ul>
         </div>
         <div class="index-tab-bot">
             <div class="index-tab-item" >
-                <div :class="data.cententclass">
+                <div class="gg-box" :class="data.boxclass">
                     <ul>
                         <li v-for="item in list">
                            <slot :obj="item"></slot>
@@ -27,7 +27,6 @@ define(['common'], function (common) {
         props: ['data'],
         data() {
             return {
-                typeclass: "tab-0" + this.data.type.length,
                 list: {},
             };
         },
@@ -41,6 +40,8 @@ define(['common'], function (common) {
                  
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
                 this.list = obj.content;
+                $("[data-active]").removeClass("active");
+                $("[data-active='" + itemId + "']").addClass("active");
             },
             view(itemId) {
                 //this.$emit('view', itemId);
