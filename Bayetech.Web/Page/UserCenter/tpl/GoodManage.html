@@ -50,14 +50,13 @@
                         </div>
                     </div>
                 </div>
-                <input type="text" v-model="Param.KeyWord" class="form-control" />
                 <div class="form-group form-group-xs">
                     <label class="col-md-1 control-label">标题关键字</label>
                     <div class="col-md-4">
                         <div class="input-group">
-                            
+                            <input type="text" v-model="Param.GoodKeyWord" class="form-control" />
                             <span class="input-group-btn">
-                                <button type="button" @click="GetOrderInfo" class="btn btn-warning btn-xs">查询</button>
+                                <button type="button" @click="GetList" class="btn btn-warning btn-xs">查询</button>
                             </span>
                         </div>
                     </div>
@@ -86,10 +85,10 @@
                     </nav>
                     <div class="nave">
                         <ul id="nave">
-                            <li @click="GetStatusOrder('all')" class=""><a href="javascript:void(0)">全部</a></li>
-                            <li @click="GetStatusOrder(0)" class="active"><a href="javascript:void(0)">出售中</a></li>
-                            <li @click="GetStatusOrder(-1)" class=""><a href="javascript:void(0)">审核中</a></li>
-                            <li @click="GetStatusOrder(1)" class=""><a href="javascript:void(0)">已下架</a></li>
+                            <li @click="ChangeStatus('all')" class="" status="all"><a href="javascript:void(0)">全部</a></li>
+                            <li @click="ChangeStatus(0)" class="active" status="0"><a href="javascript:void(0)">出售中</a></li>
+                            <li @click="ChangeStatus(-1)" class="" status="-1"><a href="javascript:void(0)">审核中</a></li>
+                            <li @click="ChangeStatus(1)" class="" status="1"><a href="javascript:void(0)">已下架</a></li>
                         </ul>
                     </div>
                     <div class="ddxq">
@@ -102,7 +101,7 @@
                         </ul>
                     </div>
                     <div id="menud_con">
-                        <div class="ddlb" v-for="item in Orders">
+                        <div class="ddlb" v-for="item in goods">
                             <h1>
                                 订单编号：{{item.OrderNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.OrderCreatTime.replace('T',' ')}}
                                 <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
