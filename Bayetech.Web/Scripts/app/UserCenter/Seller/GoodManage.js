@@ -64,7 +64,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             });
         },
         methods: {
-            GetList() {//获取订单信息
+            GetList() {//获取商品信息
                 var self=this;
                 var param=self.Param;
                 param["StartTime"]=$("#StartTime").val();
@@ -83,12 +83,31 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                     self.GetList(self.Pagination);
                 }
             },
-            ChangeStatus(status, name) {//查询不同状态的订单
+            GetListByStatus(status) {//查询不同状态的sp商品
                 var self=this;
-                $(`[sttatus]`).removeClass("active");
-                $(`[sttatus=${name}]`).addClass("active");
+                $(`[status]`).removeClass("active");
+                $(`[status=${status}]`).addClass("active");
                 self.Param.StatusId=status==="all"?"":status;
                 self.GetList();
+            },
+            ChangeStatus(goodNo,statusId) {//更改商品状态
+                var self=this;
+                API.Good.ChangeeStatus(goodNo, statusId, function (data) {
+                    if (data) {
+                        var statusName="修改";
+                        switch (statusId) {
+                            case 0:
+                                statusName="上架"
+                                break;
+                            case 1:
+                                statusName="下架"
+                                break;
+                        }
+                        alert(statusName+"成功");
+                        self.Param.StatusId=statusId;
+                        self.GetListByStatus(statusId);
+                    }
+                });
             },
         }
     };

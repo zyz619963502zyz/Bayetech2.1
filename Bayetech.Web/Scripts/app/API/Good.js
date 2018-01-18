@@ -17,5 +17,12 @@ define(['jquery', 'common'], function () {
             fn(data);
         });
     };
+
+    // 更改商品状态
+    self.ChangeeStatus=function (goodNo, statusId, fn) {
+        $.post("/api/GoodInfo/ChangeeStatus", { goodNo: goodNo, statusId: statusId }, function (data) {
+            fn(data);
+        });
+    };
     return self;
 })

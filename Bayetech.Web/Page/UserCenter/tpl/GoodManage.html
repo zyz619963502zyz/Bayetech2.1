@@ -85,10 +85,10 @@
                     </nav>
                     <div class="nave">
                         <ul id="nave">
-                            <li @click="ChangeStatus('all')" class="" status="all"><a href="javascript:void(0)">全部</a></li>
-                            <li @click="ChangeStatus(0)" class="active" status="0"><a href="javascript:void(0)">出售中</a></li>
-                            <li @click="ChangeStatus(-1)" class="" status="-1"><a href="javascript:void(0)">审核中</a></li>
-                            <li @click="ChangeStatus(1)" class="" status="1"><a href="javascript:void(0)">已下架</a></li>
+                            <li @click="GetListByStatus('all')" class="" status="all"><a href="javascript:void(0)">全部</a></li>
+                            <li @click="GetListByStatus(0)" class="active" status="0"><a href="javascript:void(0)">出售中</a></li>
+                            <li @click="GetListByStatus(-1)" class="" status="-1"><a href="javascript:void(0)">审核中</a></li>
+                            <li @click="GetListByStatus(1)" class="" status="1"><a href="javascript:void(0)">已下架</a></li>
                         </ul>
                     </div>
                     <div class="ddxq">
@@ -119,7 +119,9 @@
                                 <ol class="sl">{{item.Stock}}</ol>
                                 <ol class="khfw">{{item.StatusName}}</ol>
                                 <ol class="ddzt">
-                                    <a class="ls" href="#" target="_blank"></a>
+                                    <a v-if="item.StatusId =='1'" class="ls" href="javascript:void(0);" @click="ChangeStatus(item.GoodNo,0)">上架</a>
+                                    <a v-if="item.StatusId =='0'" class="ls" href="javascript:void(0);"  @click="ChangeStatus(item.GoodNo,1)">下架</a>
+                                    <!--<a v-if="item.StatusId ==0||item.StatusId ==1" class="ls" href="javascript:void(0);" target="_blank">修改价格</a>-->
                                 </ol>
                                 <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
                                     <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
