@@ -7,7 +7,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 <p>3841</p>
             </div>
             <div class="newres-item-r">
-                <h2 class="tit"><span>最新代练套餐</span><a href="/goods/list?s=b" target="_blank" @click="GetMoreInfo">更多套餐></a></h2>
+                <h2 class ="tit"><span>最新代练套餐</span><a href="#" @click="GetMoreInfo">更多套餐></a></h2>
                 <ul>
                     <li class="clearfix" v-for="item in ListObj">
                         <em>·</em>
@@ -23,7 +23,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     //Api
     var DlListUrl = "/api/Dl/GetNewDlInfoList"; //查询列表
     //筛选和列表整合数据
-    var data={
+    var data = {
         BaseUrl: common.GetBaseUrl() + "DLService/DLList.html",
         PicTitle: "代练套餐",
         PicDetailTitle: "平台的代练套餐数量",
@@ -33,7 +33,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     }
 
     //中间模板
-    var goodComponent={
+    var goodComponent = {
         template: middleHtml,
         data(){
             return data;

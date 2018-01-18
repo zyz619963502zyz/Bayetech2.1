@@ -5,7 +5,7 @@ define(['jquery', 'common'], function () {
    
     //获取商品列表
     self.GetList=function (param, fn) {
-        $.get("/api/GoodInfo/GetList", param, function (data) {
+        $.post("/api/GoodInfo/GetList", param, function (data) {
             fn(data);
         });
     };
