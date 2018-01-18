@@ -33,6 +33,16 @@ namespace Bayetech.Service
         }
 
         /// <summary>
+        /// 查询单个对象
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <returns></returns>
+        public TEntity FindEntity(Expression<Func<TEntity, bool>> predicate)
+        {
+            return repository.FindEntity<TEntity>(predicate);
+        }
+
+        /// <summary>
         ///查询集合延迟加载 
         /// </summary>
         /// <param name="predicate"></param>

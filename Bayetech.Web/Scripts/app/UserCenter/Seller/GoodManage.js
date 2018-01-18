@@ -25,6 +25,10 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             total: 10//总页数。
         },
         DetialUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+        PriceSetObj: {//价格设置对象
+            goodNo: "",
+            price: "",
+        }    
     };
 
     var components={
@@ -64,7 +68,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             });
         },
         methods: {
-            GetList() {//获取订单信息
+            GetList() {//获取商品信息
                 var self=this;
                 var param=self.Param;
                 param["StartTime"]=$("#StartTime").val();
@@ -83,12 +87,50 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                     self.GetList(self.Pagination);
                 }
             },
-            ChangeStatus(status, name) {//查询不同状态的订单
+            GetListByStatus(status) {//查询不同状态的sp商品
                 var self=this;
-                $(`[sttatus]`).removeClass("active");
-                $(`[sttatus=${name}]`).addClass("active");
+                $(`[status]`).removeClass("active");
+                $(`[status=${status}]`).addClass("active");
                 self.Param.StatusId=status==="all"?"":status;
                 self.GetList();
+            },
+            ChangeStatus(goodNo, statusId) {//更改商品状态
+                var statusName="修改";
+                switch (statusId) {
+                    case 0:
+                        statusName="上架"
+                        break;
+                    case 1:
+                        statusName="下架"
+                        break;
+                }
+                confirm("是否"+statusName);
+                var self=this;
+                API.Good.ChangeeStatus(goodNo, statusId, function (data) {
+                    if (data) {
+                        alert(statusName+"成功");
+                        self.Param.StatusId=statusId;
+                        self.GetListByStatus(statusId);
+                    }
+                });
+            },
+            ShowPriceSetModal(goodNo, price) {//显示价格设置模态框
+                var self=this;
+                self.PriceSetObj={
+                    goodNo: goodNo,
+                    price: price
+                };
+                $('#PriceSetModal').modal();
+            },
+            SetPrice() {//设置价格
+                var self=this;
+                API.Good.ChangePrice(self.PriceSetObj.goodNo, self.PriceSetObj.price, function (data) {
+                    if (data) {
+                        alert("修改成功");
+                        $('#PriceSetModal').modal('hide');
+                        self.GetList();
+                    }
+                });
             },
         }
     };
