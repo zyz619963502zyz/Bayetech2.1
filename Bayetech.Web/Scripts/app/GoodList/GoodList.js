@@ -97,7 +97,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
     //筛选和列表整合数据
     var data={
-        BaseUrl: common.GetBaseUrl() + "GoodInfo/GoodInfo.html?GoodNo=",
+        BaseUrl: common.GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
         BaseTarget: "_blank",
         keyword : "",
         ListObj:[

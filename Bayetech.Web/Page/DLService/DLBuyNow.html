@@ -216,7 +216,7 @@
                                         <div class="comselect-val">
 
                                             <select v-model="GroupSelected" id="gameArea" class="form-control" @change="GetServers(GameId)">
-                                                <option v-for="item in Groups" value="item.Id">{{item.Name}}</option>
+                                                <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                             </select>
 
                                         </div>
@@ -226,7 +226,7 @@
                                         <div class="comselect-val">
 
                                             <select v-model="ServerSelected" id="gameArea" class="form-control" @change="GetServers(GroupSelected)">
-                                                <option v-for="item in Groups" value="item.Id">{{item.Name}}</option>
+                                                <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                             </select>
 
                                         </div>
@@ -237,14 +237,14 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>游戏账号：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" :value="" />
+                                    <input type="text" class="common-input h-36" value="" />
                                     <span class="span-item-tips"><em>请填写您的游戏账号</em></span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>游戏密码：</span></div>
                                 <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" :value="" />
+                                    <input type="password" class="common-input h-36" value="" />
                                     <span class="span-item-tips"><em>请填写您的游戏密码，我们会保障信息安全</em></span>
                                 </div>
                             </div>

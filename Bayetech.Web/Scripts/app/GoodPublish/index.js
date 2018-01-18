@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3'],
-	function (Vue, $, common, header, step1, step2, step3) {
+require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3','API'],
+	function (Vue, $, common, header, step1, step2, step3,API) {
 	    var data={
 	        Step: step1,
             GameInfo:{},
@@ -54,7 +54,7 @@ require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1',
 	                        $("#gameAccountInfo :input").each(function () {
 	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
 	                        });
-	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+	                        data+=`&Status=-1&accountInfo=${JSON.stringify(accountInfo)}`;
 	                        //组装游戏额外属性对象
 	                        if (this.GameInfo.GoodTypeId == 3) {
 	                            var gameProps=[];
@@ -64,7 +64,7 @@ require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1',
 	                            data+=`&gamePropsInfo=${JSON.stringify(gameProps)}`;
 	                        }
                             //添加商品
-	                        $.post("/api/GoodInfo/AddGood", data, function (result) {
+	                        API.Good.AddGood(data, function (result) {
 	                            if (result) {
 	                                slef.Step=step3;
 	                            }

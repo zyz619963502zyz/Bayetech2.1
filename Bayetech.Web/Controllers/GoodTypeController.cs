@@ -14,16 +14,16 @@ namespace Bayetech.Web.Controllers
         /// <param name="gameId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public JObject GetGoodType(int gameId, string name = null)
+        public JObject GetGoodType(int gameId,int type, string name = null)
         {
             name = Core.Common.Trim(name);
             if (string.IsNullOrEmpty(name))
             {
-                return mallTypeService.GetList(t => t.GameId == gameId);
+                return mallTypeService.GetList(t => t.GameId == gameId && t.Type== type);
             }
             else
             {
-                return mallTypeService.GetList(t => t.GameId == gameId && t.Name.Contains(name));
+                return mallTypeService.GetList(t => t.GameId == gameId && t.Type == type && t.Name.Contains(name));
             }
         }
     }

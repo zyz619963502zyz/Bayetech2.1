@@ -11,10 +11,11 @@ namespace Bayetech.Web.Controllers
     {
         BaseService<Game> gameService = new BaseService<Game>();
         BaseService<Server> serverService = new BaseService<Server>();
+        BaseService<vw_GoodTypes> typeService = new BaseService<vw_GoodTypes>();
         MallTypeService mallTypeService = new MallTypeService();
         //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
-        public IHttpActionResult GetData(int type, int id)
+        public IHttpActionResult GetData(int type, int id, int ?serviceType=1)
         {
             Models.DropDownModels data = new Models.DropDownModels();
             var enumType = (SearchType)type;
@@ -48,8 +49,15 @@ namespace Bayetech.Web.Controllers
                 case SearchType.MallType:
                     data.Title = "交易类型";
                     data.Type = (int)enumType;
-                    data.Child = 5;
-                    data.List = mallTypeService.GetDataByGameId(id);
+                    data.Child = 5;//隐藏下拉
+                    if (serviceType == 1)
+                    {
+                        data.List = mallTypeService.GetDataByGameId(id);
+                    }
+                    else
+                    {
+                        data.List = typeService.FindList(c => c.GameId == id && c.Type == serviceType).ToList();
+                    }
                     break;
             }
             return Json(data);
