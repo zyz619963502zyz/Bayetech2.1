@@ -18,6 +18,14 @@ define(['jquery', 'common'], function () {
         });
     };
 
+    //添加商品
+    self.AddGood=function (param, fn) {
+        name=name||"";
+        $.get("/api/GoodInfo/AddGood", param, function (data) {
+            fn(data);
+        });
+    };
+
     // 更改商品状态
     self.ChangeeStatus=function (goodNo, statusId, fn) {
         $.post("/api/GoodInfo/ChangeStatus", { goodNo: goodNo, statusId: statusId }, function (data) {

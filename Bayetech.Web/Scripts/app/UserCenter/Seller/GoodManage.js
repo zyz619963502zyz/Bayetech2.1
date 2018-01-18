@@ -25,7 +25,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             total: 10//总页数。
         },
         DetialUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-        PriceSetObj: {
+        PriceSetObj: {//价格设置对象
             goodNo: "",
             price: "",
         }    
