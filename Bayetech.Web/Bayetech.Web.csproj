@@ -695,7 +695,8 @@
     <Content Include="Page\DLService\DLList.html" />
     <Content Include="Page\DLService\DLIndex.html" />
     <Content Include="Page\Game\List.html" />
-    <Content Include="Page\GoodList\GoodToBuy.html" />
+    <Content Include="Page\Good\GoodInfo.html" />
+    <Content Include="Page\Good\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
@@ -707,7 +708,7 @@
     <Content Include="Page\Login\Login.html" />
     <Content Include="Page\Login\Loging.html" />
     <Content Include="Page\PersonalCenter\index.html" />
-    <Content Include="Page\GoodList\GoodList.html" />
+    <Content Include="Page\Good\GoodList.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
     <Content Include="Page\ServiceCenter\AdviceCenter.html" />
     <Content Include="Page\ServiceCenter\anquan.html" />
@@ -908,6 +909,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
+    <Folder Include="Page\GoodList\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
