@@ -104,17 +104,13 @@
                         <div class="ddlb" v-for="item in Goods">
                             <h1>
                                 商品编号：{{item.GoodNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.AddTime.replace('T',' ')}}
-                                <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
-                                    <a href="../goods-buying-G10-100001-1.html">
-                                        <span class="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;">
-                                        </span>
-                                    </a>
-                                </span>
                             </h1>
                             <ul class="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" orderid="item.OrderNo" sellertype="B" billstatus="4">
                                 <ol class="spmc">
                                     <span style="color:#36c">
-                                        <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />{{item.GoodTitle}}
+                                        <a :href="DetialUrl+item.GoodNo" target="_Blank">
+                                            <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />{{item.GoodTitle}}
+                                        </a>
                                     </span>
                                     <br />
                                     游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}
@@ -123,7 +119,7 @@
                                 <ol class="sl">{{item.Stock}}</ol>
                                 <ol class="khfw">{{item.StatusName}}</ol>
                                 <ol class="ddzt">
-                                    <a class="ls" href="/payment/endPayout.action?orderid=127121015129162378197536&source=list" target="_blank">商品详情</a>
+                                    <a class="ls" href="#" target="_blank"></a>
                                 </ol>
                                 <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
                                     <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
