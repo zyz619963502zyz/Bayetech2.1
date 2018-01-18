@@ -54,14 +54,14 @@ require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1',
 	                        $("#gameAccountInfo :input").each(function () {
 	                            accountInfo.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
 	                        });
-	                        data+=`&accountInfo=${JSON.stringify(accountInfo)}`;
+	                        data+=`&Status=-1&accountInfo=${JSON.stringify(accountInfo)}`;
 	                        //组装游戏额外属性对象
 	                        if (this.GameInfo.GoodTypeId == 3) {
 	                            var gameProps=[];
 	                            $("#GameProps :input").each(function () {
 	                                gameProps.push({ PropertyId: $(this).attr("id"), PropertyValue: $(this).val() })
 	                            });
-	                            data+=`&Status=-1&gamePropsInfo=${JSON.stringify(gameProps)}`;
+	                            data+=`&gamePropsInfo=${JSON.stringify(gameProps)}`;
 	                        }
                             //添加商品
 	                        API.Good.AddGood(data, function (result) {
