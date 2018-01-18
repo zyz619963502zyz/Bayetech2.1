@@ -327,6 +327,7 @@
     <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\Goods\Publish.css" />
     <Content Include="Content\good_info.css" />
+    <Content Include="Content\good_list.css" />
     <Content Include="Content\helpcenter.css" />
     <Content Include="Content\homepage.css" />
     <Content Include="Content\Images\001.jpg" />
