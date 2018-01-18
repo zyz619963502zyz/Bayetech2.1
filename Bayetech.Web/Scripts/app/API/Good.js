@@ -21,7 +21,7 @@ define(['jquery', 'common'], function () {
     //添加商品
     self.AddGood=function (param, fn) {
         name=name||"";
-        $.get("/api/GoodInfo/AddGood", param, function (data) {
+        $.post("/api/GoodInfo/AddGood", param, function (data) {
             fn(data);
         });
     };
