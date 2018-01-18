@@ -23,7 +23,8 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     //Api
     var DlListUrl = "/api/Dl/GetNewDlInfoList"; //查询列表
     //筛选和列表整合数据
-    var data = {
+    var data={
+        BaseUrl: common.GetBaseUrl() + "DLService/DLList.html",
         PicTitle: "代练套餐",
         PicDetailTitle: "平台的代练套餐数量",
         PicNum: 3841,
@@ -51,7 +52,7 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 });
             },
             GetMoreInfo() {
-                window.open(this.BaseUrl + goodNo);
+                window.open(this.BaseUrl);
             }
         },
     };
