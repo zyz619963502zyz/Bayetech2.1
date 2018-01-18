@@ -14,8 +14,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
                         <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
                         <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
-                        <li id="gs_type": title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
-                        <li id="gs_type": title="'选择'+Param.GoodTypeName" @click="showDropdown(5)" v-show="DL">{{Param.GoodTypeName}}</li>
+                        <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
+                       
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
                         </li>
@@ -69,7 +69,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             };
         },
         created: function () {
-            if (location.href.split('?')[0].split('Page/')[1]==="GoodList/GoodList.html") {
+            if (location.href.split('?')[0].split('Page/')[1]==="Good/GoodList.html") {
                 common.MergeObj(this.Param, JSON.parse(localStorage.SearchParam));
             }
             //显示框点击框外隐藏效果
@@ -143,7 +143,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var TargetUrl= "";
                 switch (_type) {
                     case "NewIndex":
-                       TargetUrl=encodeURI(`${common.GetBaseUrl()}GoodList/GoodList.html?page=1&GameId=
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}Good/GoodList.html?page=1&GameId=
                                 ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
                                 ${this.Param.GameGroupId}&GameGroupName=
                                 ${this.Param.GameGroupName}&GameServerId=
