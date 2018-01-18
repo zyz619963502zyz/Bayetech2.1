@@ -23,7 +23,8 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             sord: "asc",//排序类型
             records: 10,//总记录数
             total: 10//总页数。
-        }
+        },
+        DetialUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     };
 
     var components={
@@ -86,9 +87,9 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                 var self=this;
                 $(`[sttatus]`).removeClass("active");
                 $(`[sttatus=${name}]`).addClass("active");
-                self.Param.StatusId=status==="all"?"": status;
+                self.Param.StatusId=status==="all"?"":status;
                 self.GetList();
-            }
+            },
         }
     };
     return components;

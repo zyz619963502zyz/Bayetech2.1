@@ -909,7 +909,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
-    <Folder Include="Page\GoodList\" />
     <Folder Include="Page\Use\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
