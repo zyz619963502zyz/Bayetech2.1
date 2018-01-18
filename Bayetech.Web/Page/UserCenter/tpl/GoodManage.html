@@ -121,7 +121,7 @@
                                 <ol class="ddzt">
                                     <a v-if="item.StatusId =='1'" class="ls" href="javascript:void(0);" @click="ChangeStatus(item.GoodNo,0)">上架</a>
                                     <a v-if="item.StatusId =='0'" class="ls" href="javascript:void(0);"  @click="ChangeStatus(item.GoodNo,1)">下架</a>
-                                    <!--<a v-if="item.StatusId ==0||item.StatusId ==1" class="ls" href="javascript:void(0);" target="_blank">修改价格</a>-->
+                                    <a v-if="item.StatusId ==0||item.StatusId ==1" class="ls" href="javascript:void(0);"  @click="ShowPriceSetModal(item.GoodNo,item.GoodPrice)">修改价格</a>
                                 </ol>
                                 <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
                                     <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>
@@ -134,6 +134,24 @@
                     </nav>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="modal fade" id="PriceSetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">价格修改</h4>
+                </div>
+                <div class="modal-body">
+                    <span>新的价格：</span>
+                    <input type="text" id="newPrice" value="" v-model="PriceSetObj.price"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" @click="SetPrice">提交修改</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

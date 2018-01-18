@@ -196,12 +196,27 @@ namespace Bayetech.Web.Controllers
         /// <param name="statusId"></param>
         /// <returns></returns>
         [HttpPost]
-        public int ChangeeStatus(JObject json)
+        public int ChangeStatus(JObject json)
         {
             var goodNo = json["goodNo"].ToString();
             var statusId = json.Value<int>("statusId");
             var obj = goodInfoService.FindEntity(g => g.GoodNo == goodNo);
             obj.Status = statusId;
+            return goodInfoService.Update(obj);
+        }
+
+        /// <summary>
+        /// 更改商品价格
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int ChangePrice(JObject json)
+        {
+            var goodNo = json["goodNo"].ToString();
+            var price = json.Value<decimal>("price");
+            var obj = goodInfoService.FindEntity(g => g.GoodNo == goodNo);
+            obj.GoodPrice = price;
             return goodInfoService.Update(obj);
         }
     }  

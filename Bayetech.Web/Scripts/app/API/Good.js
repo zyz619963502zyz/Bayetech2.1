@@ -20,7 +20,14 @@ define(['jquery', 'common'], function () {
 
     // 更改商品状态
     self.ChangeeStatus=function (goodNo, statusId, fn) {
-        $.post("/api/GoodInfo/ChangeeStatus", { goodNo: goodNo, statusId: statusId }, function (data) {
+        $.post("/api/GoodInfo/ChangeStatus", { goodNo: goodNo, statusId: statusId }, function (data) {
+            fn(data);
+        });
+    };
+
+    // 更改商品价格
+    self.ChangePrice=function (goodNo, price, fn) {
+        $.post("/api/GoodInfo/ChangePrice", { goodNo: goodNo, price: price }, function (data) {
             fn(data);
         });
     };

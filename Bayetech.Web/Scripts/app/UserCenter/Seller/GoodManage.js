@@ -25,6 +25,10 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             total: 10//总页数。
         },
         DetialUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+        PriceSetObj: {
+            goodNo: "",
+            price: "",
+        }    
     };
 
     var components={
@@ -90,22 +94,41 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                 self.Param.StatusId=status==="all"?"":status;
                 self.GetList();
             },
-            ChangeStatus(goodNo,statusId) {//更改商品状态
+            ChangeStatus(goodNo, statusId) {//更改商品状态
+                var statusName="修改";
+                switch (statusId) {
+                    case 0:
+                        statusName="上架"
+                        break;
+                    case 1:
+                        statusName="下架"
+                        break;
+                }
+                confirm("是否"+statusName);
                 var self=this;
                 API.Good.ChangeeStatus(goodNo, statusId, function (data) {
                     if (data) {
-                        var statusName="修改";
-                        switch (statusId) {
-                            case 0:
-                                statusName="上架"
-                                break;
-                            case 1:
-                                statusName="下架"
-                                break;
-                        }
                         alert(statusName+"成功");
                         self.Param.StatusId=statusId;
                         self.GetListByStatus(statusId);
+                    }
+                });
+            },
+            ShowPriceSetModal(goodNo, price) {//显示价格设置模态框
+                var self=this;
+                self.PriceSetObj={
+                    goodNo: goodNo,
+                    price: price
+                };
+                $('#PriceSetModal').modal();
+            },
+            SetPrice() {//设置价格
+                var self=this;
+                API.Good.ChangePrice(self.PriceSetObj.goodNo, self.PriceSetObj.price, function (data) {
+                    if (data) {
+                        alert("修改成功");
+                        $('#PriceSetModal').modal('hide');
+                        self.GetList();
                     }
                 });
             },
