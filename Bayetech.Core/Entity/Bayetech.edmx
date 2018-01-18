@@ -370,10 +370,9 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_GoodTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_GoodTypes">
           <Key>
-            <PropertyRef Name="GameName" />
-            <PropertyRef Name="GameId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="GameName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GameId" Type="bigint" Nullable="false" />
@@ -1381,10 +1380,9 @@
         </EntityType>
         <EntityType Name="vw_GoodTypes">
           <Key>
-            <PropertyRef Name="GameName" />
-            <PropertyRef Name="GameId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GameName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GameId" Type="Int64" Nullable="false" />
