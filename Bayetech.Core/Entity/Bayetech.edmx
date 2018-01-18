@@ -982,7 +982,6 @@
           <EntitySet Name="MallDLType" EntityType="BayetechModel.MallDLType" />
           <EntitySet Name="ExtraPropertyValue" EntityType="BayetechModel.ExtraPropertyValue" />
           <EntitySet Name="MallDLInfoes" EntityType="BayetechModel.MallDLInfo" />
-          <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
           <EntitySet Name="MallType" EntityType="BayetechModel.MallType" />
           <EntitySet Name="vw_MallDLInfo" EntityType="BayetechModel.vw_MallDLInfo" />
           <EntitySet Name="vw_NoToProperty" EntityType="BayetechModel.vw_NoToProperty" />
@@ -990,6 +989,7 @@
           <EntitySet Name="MallGoodInfoes" EntityType="BayetechModel.MallGoodInfo" />
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
+          <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1206,19 +1206,6 @@
           <Property Name="GameAward" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="SocietyUnion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vw_GoodTypes">
-          <Key>
-            <PropertyRef Name="GameName" />
-            <PropertyRef Name="GameId" />
-          </Key>
-          <Property Name="Id" Type="Int64" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int64" Nullable="false" />
-          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="Int32" />
-        </EntityType>
         <EntityType Name="MallType">
           <Key>
             <PropertyRef Name="Id" />
@@ -1391,6 +1378,19 @@
           <Property Name="ProfessionId" Type="Int64" />
           <Property Name="StatusId" Type="Int32" />
           <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_GoodTypes">
+          <Key>
+            <PropertyRef Name="GameName" />
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="Id" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1778,19 +1778,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_GoodTypes">
-            <EntityTypeMapping TypeName="BayetechModel.vw_GoodTypes">
-              <MappingFragment StoreEntitySet="vw_GoodTypes">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MallType">
             <EntityTypeMapping TypeName="BayetechModel.MallType">
               <MappingFragment StoreEntitySet="MallType">
@@ -1964,6 +1951,19 @@
                 <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_GoodTypes">
+            <EntityTypeMapping TypeName="BayetechModel.vw_GoodTypes">
+              <MappingFragment StoreEntitySet="vw_GoodTypes">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
