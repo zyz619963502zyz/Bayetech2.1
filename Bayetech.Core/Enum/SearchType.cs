@@ -17,5 +17,7 @@ namespace Bayetech.Core.Enum
         Server,
         [Description("交易类型")]
         MallType,
+        [Description("代练类型")]
+        DlType
     };
 }

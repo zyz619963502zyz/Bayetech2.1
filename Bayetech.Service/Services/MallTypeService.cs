@@ -17,5 +17,6 @@ namespace Bayetech.Service.Services
                          select new { m });
             return query.ToList().Select(m=>new MallType {Id = m.m.Id,Name = m.m.Name, }).ToList();
         }
+
     }
 }

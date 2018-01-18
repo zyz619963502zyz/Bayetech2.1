@@ -234,7 +234,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             },
             GetTypes(gameId){
                 var self=this;
-                var param={gameId:gameId};
+                var param={gameId:gameId,type:1};
                 common.getWebJson(_GetMallTypeUrl, param, function (data) {
                     if (data.result) {
                        self.Types = data.content;
