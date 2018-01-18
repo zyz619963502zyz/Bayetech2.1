@@ -14,8 +14,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
                         <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
                         <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
-                        <li id="gs_type" :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-show="!DL">{{Param.GoodTypeName}}</li>
-                       
+
+                        <li id="gs_type"  :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-if="!DL">{{Param.GoodTypeName}}</li>
+                        <li id="gs_DlType" :title="'选择'+Param.DlTypeName" @click="showDropdown(5)" v-if="DL">{{Param.DlTypeName}}</li>
+
                         <li class ="gs_search_item">
                             <input class ="gs_search_box holderfont" id="gsSearchBox" type="text" placeholder="请输入任意关键字" autocomplete="off" v-model="Param.GoodKeyWord">
                         </li>
@@ -62,6 +64,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     GameServerName: "服务器",
                     GoodTypeId: 0,
                     GoodTypeName: "物品类型",
+                    DlTypeName:"代练类型",
                     GoodKeyWord: "",
                 },
                 SimpleClass: "gray",
@@ -96,7 +99,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             showDropdown: function (type) {
                 this.IsShow = true;
                 pid=this.Param[`${this.getParentTypeName(type)}Id`]||0;
-                if (type == 4) {
+                if (type == 4||type == 5) {
                     pid = this.GameId;
                 }
                 this.setData(type, pid, this);
@@ -128,12 +131,12 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         this.Param.GameServerId=0;
                         this.Param.GameServerName="服务器";
                         break;
-                    case 4:
+                    case 4://交易类型
                         pid=this.Param.GameId;
                         break;
                     case 5:
-                        this.hideDropdown();
-                        return;
+                         this.hideDropdown();
+                        break;
                 }
                 this.setData(type, pid, this);
             },
@@ -187,19 +190,20 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 }
             },           
             getParentTypeName: function (type) {
+                var self =this;
                 var parentTypeObj = {
                     0: "",
                     1: "",
                     2: "Game",
                     3: "GameGroup",
                     4: "GameServer",
-                    5: "GoodType",
+                    5: self.DL?"DlType":"GoodType",
                 };
                 return parentTypeObj[type];
             },
             //设置下拉框数据
             setData: function (type,pid,self) {
-                common.getWebJson("/api/Search/GetData", { type: type, id: pid }, function (data) {
+                common.getWebJson("/api/Search/GetData", { type: type, id: pid,serviceType:(self.DL?4:1) }, function (data) {
                     self.DropdownData = data;
                 });
             },
