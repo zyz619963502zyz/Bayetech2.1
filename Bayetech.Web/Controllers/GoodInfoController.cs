@@ -73,6 +73,7 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetList(JObject json)
         {
+            json = json ?? new JObject();
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
 
             DateTime? startTime = null;
