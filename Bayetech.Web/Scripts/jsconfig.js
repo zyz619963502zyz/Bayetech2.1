@@ -86,23 +86,23 @@ var jsconfig = {
     },
     shim: {
         'bootstrap': {
-            deps: ['jquery'],
+            deps: ['jquery', 'css!../Content/bootstrap/bootstrap.min'],
             exports: 'aaaa'
         },
         'bootstrapValidator': {
-            deps: ['jquery', 'bootstrap'],
+            deps: ['bootstrap'],
             exports: 'validate'
         },
         'bootstrap-paginator':{
-            deps: ['jquery', 'bootstrap'],
+            deps: ['bootstrap'],
             exports: 'paginator'
         },
         'datepicker': {
-        	deps: ['jquery', 'bootstrap'],
+        	deps: [ 'bootstrap'],
         	exports: 'datepicker'
         },
         'swiper': {
-            deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],
+            deps: ['bootstrap', 'css!../Content/swiper/swiper.min'],
             exports: 'Swiper',
         }
     }
