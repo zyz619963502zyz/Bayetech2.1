@@ -1,4 +1,25 @@
 ﻿@charset"UTF-8";
-
+.info-pic {
+    float: left;
+    padding: 30px 0 0 30px;
+    width: 377px;
+}
+.baseinfo {
+    width: 100%;
+    background: #f5f5f5;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+.com-breadcrumb {
+    height: 33px;
+    line-height: 33px;
+    margin: 0 auto;
+    width: 1190px;
+    font-family: simsun;
+}
+.detail_ico .ico_text p i {
+    float: left;
+    margin-right: 4px;
+}
 
 
