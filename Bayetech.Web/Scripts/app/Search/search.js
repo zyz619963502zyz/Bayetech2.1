@@ -23,13 +23,16 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         </li>
                     </ul>
                     <div class ="btn_box">
-                        <input class ="gs_search_btn" id="gsSearchBtn" type="submit" value="搜索" @click="search">
+                        <input class ="gs_search_btn" type="submit" value="搜索" @click="search">
                     </div>
                 </div>
                 <div class ="tab_box clearfix tab_box_reset" id="simpleSearch" v-show="IsSimple">
 
                     <div class ="simple_search_box">
                         <input type="text" class ="simple_search_input holderfont" id="simpleSearchInput" placeholder="关键字找游戏、搜区服、寻商品" autocomplete="off" v-model="Param.GoodKeyWord">
+                    </div>
+					<div class ="btn_box">
+                        <input class ="gs_search_btn" type="submit" value="搜索" @click="search">
                     </div>
                 </div>
             </div>

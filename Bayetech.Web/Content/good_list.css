@@ -1,0 +1,55 @@
+﻿@charset "utf-8";
+/*===游戏列表===*/
+.list-wrap { width: 1180px; margin: 0 auto;}
+.scrumb { margin: 10px 0;}
+.scrumb em { float: left; margin-top: 2px;}
+.scrumb i { font-family: \5b8b\4f53; margin: 0 8px; float: left; margin-top: 3px;}
+.scrumb a.qk { float: left; line-height: 1.5; margin-top: 1px; color: #ff6700;}
+
+.screen-box {
+    border: #e7e7e7 1px solid;
+}
+
+
+/*===bootstrap样式覆盖===*/
+/*--分页样式修改--*/
+.list-wrap .pagination>li>a,.list-wrap .pagination>li>span{
+    min-width: 32px;
+    height: 32px;
+    line-height: 31px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    margin: 0 5px;
+    text-align: center;
+    padding: 0px 5px;
+    color: #4c8bf8;
+}
+.list-wrap .pagination>.active>a,
+.list-wrap .pagination>.active>span,
+.list-wrap .pagination>.active>a:hover,
+.list-wrap .pagination>.active>span:hover, 
+.list-wrap .pagination>.active>a:focus, 
+.list-wrap .pagination>.active>span:focus{
+    background-color: #4c8bf8;
+    border-color: #4c8bf8;
+    color:#fff;
+}
+.list-wrap .pagination>li:first-child >a,
+.list-wrap .pagination>li:first-child >span{
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+.list-wrap .pagination>li:last-child >a, 
+.list-wrap .pagination>li:last-child >span,
+.list-wrap .pagination>li:nth-last-child(2) > a, 
+.list-wrap .pagination>li:nth-last-child(2) > span{
+    border-radius: 32px;
+}
+.list-wrap .pagination>li>a:hover, 
+.list-wrap .pagination>li>span:hover, 
+.list-wrap .pagination>li>a:focus, 
+.list-wrap .pagination>li>span:focus{
+    color: #fff;
+    background-color: #4c8bf8;
+    border-color: #4c8bf8;
+}

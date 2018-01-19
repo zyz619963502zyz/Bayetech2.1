@@ -1,8 +1,7 @@
 ﻿//顶部导航
 
 define(jsconfig.baseArr, function (Vue, $, common) {
-	var html = `
-			<nav class ="nav navbar-default nav-t">
+    var tophtml = `<nav class ="nav navbar-default nav-t">
                 <div class ="container">
                     <div class ="navbar-header">
                         <button type="button" class ="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -59,10 +58,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                 </div>
             </nav>`;
-	var components = {
-		name: "nav-top",
-		template: html
-		
-	};
-	return components;
-})
+
+    var components = {
+        name: "nav-top",
+        template: tophtml
+
+    };
+    return components;
+});
