@@ -86,7 +86,7 @@ var jsconfig = {
     },
     shim: {
         'bootstrap': {
-            deps: ['jquery', , 'css!../Content/bootstrap/bootstrap.min'],
+            deps: ['jquery'],
             exports: 'aaaa'
         },
         'bootstrapValidator': {
@@ -102,7 +102,7 @@ var jsconfig = {
         	exports: 'datepicker'
         },
         'swiper': {
-            deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],
+            deps: ['jquery', 'bootstrap'],
             exports: 'Swiper',
         }
     }
