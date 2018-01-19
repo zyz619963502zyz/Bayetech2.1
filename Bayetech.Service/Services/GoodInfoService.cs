@@ -59,8 +59,11 @@ namespace Bayetech.Service.Services
                 {
                     expression = expression.And(t => t.AddTime <= EndTime);
                 }
-                ResultPage.datas = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page,expression).ToList();//暂时以GoodNo排序，以后做活。
+                var query = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page, expression);
 
+                var Games = query.GroupBy(g => g.GameId).Select(g => new { Id = g.FirstOrDefault().GameId, Name = g.FirstOrDefault().GameName }).ToList();
+                ret.Add("Games", JToken.FromObject(Games));
+                ResultPage.datas = query.ToList();//暂时以GoodNo排序，以后做活。
                 if (page!=null)
                 {
                     ResultPage.pagination = page;
@@ -74,7 +77,7 @@ namespace Bayetech.Service.Services
                 else
                 {
                     ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject(Properties.Resources.Reminder_NoInfo));
+                    ret.Add(ResultInfo.Content, JToken.FromObject(Properties.Resources.Reminder_NoInfo));
                 }
                 return ret;
             }

@@ -11,7 +11,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
             StatusId:0,
             GoodKeyWord: "",
             },
-        Games: [{ GameId: "1", GameName: "地下城与勇士" }],
+        Games: [],
         Goods: [],//商品信息表 
         Types: [],//交易类别
         Groups: [],
@@ -75,6 +75,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
                 param["EndTime"]=$("#EndTime").val();
                 param["Pagination"]=self.Pagination;
                 API.Good.GetList(param, function (data) {
+                    self.Games = data.Games;
                     self.Goods=data.content.datas;
                     self.Pagination=data.content.pagination;
                     common.SetPagination($('#paginator-test'), self, self.GetList);

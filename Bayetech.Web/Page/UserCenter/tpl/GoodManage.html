@@ -16,7 +16,7 @@
                     <label for="game" class="col-md-1 control-label">游戏</label>
                     <div class="col-md-4">
                         <select v-model="Param.GameId" id="game" class="form-control">
-                            <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
+                            <option v-for="item in Games" :value="item.Id">{{item.Name}}</option>
                         </select>
                     </div>
                     <label for="goodsType" class="col-md-2 control-label">商品类型</label>
