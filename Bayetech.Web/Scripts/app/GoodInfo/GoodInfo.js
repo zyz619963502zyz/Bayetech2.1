@@ -6,7 +6,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
     //模板
     var goodInfoHtml=`
-        <div>
+        <div class="w1190 dnfbuess">
         <div class ="info-pic">
                 <div class="picFocus">
                     <ul>

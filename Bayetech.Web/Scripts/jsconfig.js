@@ -86,7 +86,7 @@ var jsconfig = {
     },
     shim: {
         'bootstrap': {
-            deps: ['jquery', , 'css!../Content/bootstrap/bootstrap.min'],
+            deps: ['jquery'],
             exports: 'aaaa'
         },
         'bootstrapValidator': {
