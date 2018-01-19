@@ -70,9 +70,11 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodMana
         methods: {
             GetList() {//获取商品信息
                 var self=this;
-                var param=self.Param;
-                param["StartTime"]=$("#StartTime").val();
-                param["EndTime"]=$("#EndTime").val();
+
+                var param={};
+                param["Param"]=self.Param;
+                param["Param"]["StartTime"]=$("#StartTime").val();
+                param["Param"]["EndTime"]=$("#EndTime").val();
                 param["Pagination"]=self.Pagination;
                 API.Good.GetList(param, function (data) {
                     self.Games = data.Games;

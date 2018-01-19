@@ -102,7 +102,7 @@ var jsconfig = {
         	exports: 'datepicker'
         },
         'swiper': {
-            deps: ['jquery', 'bootstrap'],
+            deps: ['jquery', 'bootstrap', 'css!../Content/swiper/swiper.min'],
             exports: 'Swiper',
         }
     }
