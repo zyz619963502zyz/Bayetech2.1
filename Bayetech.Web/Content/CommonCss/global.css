@@ -23,7 +23,15 @@
 /* --头部区域--*/
 .header{ height:91px;color:#818181;}
 .header .logo{float:left;}
-.header .logo_wri{height:27px; border-left:1px solid #d4d4d4; float:left; margin-top:31px; padding:0 0 0 15px;font-family:"微软雅黑"; font-size:22px;}
+.header .logo_wri {
+    height: 45px;
+    border-left: 1px solid #d4d4d4;
+    float: left;
+    padding: 0 0 0 15px;
+    font-family: "微软雅黑";
+    font-size: 22px;
+    line-height: 45px;
+}
 .place{height:32px; padding-top:4px; line-height:32px;}/* --您的位置--*/
 
 /* --常用底部区域--*/

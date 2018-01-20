@@ -150,7 +150,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	            },
 	            //根据名字检索
 	            SearchByName: function (type) {
-	                this.GetList(type, this.GameInfo[`${Game.GetParentType(type)}Id`], this[`Search${type}Name`]);
+	                this.GetList(type, this.GameInfo[`${API.Game.GetParentType(type)}Id`], this[`Search${type}Name`]);
 	            },
 	            //获取数据
 	            GetList: function (type, id, name) {

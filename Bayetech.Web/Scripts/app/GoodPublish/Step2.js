@@ -68,7 +68,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>商品有效期：</span></div>
                 <div class="form-item-r">
                   <div class="comselect h-30">
-                    <select id="validDay" name="validDay">
+                    <select id="validDay" name="validDay" class="form-control">
                       <option value="">选择有效期</option>
                       <option value="1">1天</option>
                       <option value="3">3天</option>
