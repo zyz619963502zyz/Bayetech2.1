@@ -92,7 +92,7 @@
   .index-adv .adv-item a:hover{text-decoration:none;}
  .index-adv .adv-item a.img-a {display:block;width:435px;height:180px;}
  .index-adv .adv-item dl {width:435px;height:85px;border:#eee 1px solid;border-top:none;overflow:hidden;margin-bottom:0;}
- .index-adv .adv-item dl dt {float:left;width:300px;margin-left:17px;}
+ .index-adv .adv-item dl dt {float:left;width:300px;margin-left:17px;padding-top:22px;}
  .index-adv .adv-item dl dt h2 {width:300px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;}
  .index-adv .adv-item dl dt h2 a {color:#333;font-size:20px;font-family:"microsoft yahei";font-weight:normal;}
  .index-adv .adv-item dl dt p {color:#999;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;font-weight:400;}
