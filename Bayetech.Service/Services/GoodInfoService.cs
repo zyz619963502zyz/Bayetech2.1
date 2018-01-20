@@ -43,7 +43,7 @@ namespace Bayetech.Service.Services
                     }
                     if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
                     {
-                        expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
+                        expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord));
                     }
                     if (goodInfo.StatusId != null) //商品状态
                     {
