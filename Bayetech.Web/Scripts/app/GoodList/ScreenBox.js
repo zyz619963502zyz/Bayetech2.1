@@ -4,8 +4,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var html=`
             <div class ="screen-box">
                 <div class ="screen-tit">
-                    <div class ="l"><b>商品筛选</b><span>共找到<em>579</em>个商品</span></div>
-                    <div class ="r">
+                    <div class ="pull-left"><b>商品筛选</b><span>共找到<em>579</em>个商品</span></div>
+                    <div class ="pull-right">
                         <a href="http://www.7881.com/release-G10-0-100003-1-1.html" class ="sell-a"><em><img src="http://pic.7881.com/7881-2016/images/list/sell-icon.png" width="16" height="16" alt="" /></em>我要出售</a>
 
                         <a href="http://www.7881.com/procurement-complete-G10-0-0-100003.html" class ="dealfin-a"><em><img src="http://pic.7881.com/7881-2016/images/list/dealfin-icon.png" width="16" height="16" alt="" /></em>交易完成</a>
