@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="14.375" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="16.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.MallWorkerType" Width="1.5" PointX="16.375" PointY="12.75" />
-        <EntityTypeShape EntityType="BayetechModel.MallDLType" Width="1.5" PointX="18.375" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.ExtraPropertyValue" Width="1.5" PointX="9.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="11.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="9.375" PointY="0.75" />

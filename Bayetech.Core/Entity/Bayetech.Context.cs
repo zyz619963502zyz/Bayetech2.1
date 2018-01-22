@@ -76,8 +76,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<MallWorkerType> MallWorkerType { get; set; }
 
-    public virtual DbSet<MallDLType> MallDLType { get; set; }
-
     public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
 
     public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }

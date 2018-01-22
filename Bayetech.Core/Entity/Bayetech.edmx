@@ -198,15 +198,6 @@
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.MallDLType”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="MallDLType">
-          <Key>
-            <PropertyRef Name="TypeId" />
-          </Key>
-          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TypeName" Type="varchar" MaxLength="20" />
-          <Property Name="TypeAlias" Type="nvarchar" MaxLength="30" />
-          <Property Name="Introduce" Type="nvarchar" MaxLength="100" />
-        </EntityType>
         <EntityType Name="MallGoodInfo">
           <Key>
             <PropertyRef Name="GoodNo" />
@@ -605,14 +596,6 @@
     [GoodAndDescription].[GameId] AS [GameId]
     FROM [dbo].[GoodAndDescription] AS [GoodAndDescription]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="MallDLType" EntityType="Self.MallDLType" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [MallDLType].[TypeId] AS [TypeId], 
-    [MallDLType].[TypeName] AS [TypeName], 
-    [MallDLType].[TypeAlias] AS [TypeAlias], 
-    [MallDLType].[Introduce] AS [Introduce]
-    FROM [dbo].[MallDLType] AS [MallDLType]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="MallGoodPictures" EntityType="Self.MallGoodPictures" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [MallGoodPictures].[id] AS [id], 
@@ -978,7 +961,6 @@
           <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
           <EntitySet Name="MallWorkerType" EntityType="BayetechModel.MallWorkerType" />
-          <EntitySet Name="MallDLType" EntityType="BayetechModel.MallDLType" />
           <EntitySet Name="ExtraPropertyValue" EntityType="BayetechModel.ExtraPropertyValue" />
           <EntitySet Name="MallDLInfoes" EntityType="BayetechModel.MallDLInfo" />
           <EntitySet Name="MallType" EntityType="BayetechModel.MallType" />
@@ -1162,15 +1144,6 @@
           <Property Name="TypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="TypeAlias" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Introduce" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="MallDLType">
-          <Key>
-            <PropertyRef Name="TypeId" />
-          </Key>
-          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TypeAlias" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Introduce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ExtraPropertyValue">
           <Key>
@@ -1724,16 +1697,6 @@
           <EntitySetMapping Name="MallWorkerType">
             <EntityTypeMapping TypeName="BayetechModel.MallWorkerType">
               <MappingFragment StoreEntitySet="MallWorkerType">
-                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
-                <ScalarProperty Name="TypeAlias" ColumnName="TypeAlias" />
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MallDLType">
-            <EntityTypeMapping TypeName="BayetechModel.MallDLType">
-              <MappingFragment StoreEntitySet="MallDLType">
                 <ScalarProperty Name="Introduce" ColumnName="Introduce" />
                 <ScalarProperty Name="TypeAlias" ColumnName="TypeAlias" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
