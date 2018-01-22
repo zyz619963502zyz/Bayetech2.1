@@ -33,11 +33,15 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public JObject GetOrderInfo(JObject json)
         {
-            DateTime startTime = Convert.ToDateTime(json["startTime"].ToString());//开始日期
-            DateTime endTime = Convert.ToDateTime(json["endTime"].ToString());//结束日期
-            vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json==null? "" : json.ToString());
-            Pagination page = JsonConvert.DeserializeObject<Pagination>(json["PageObj"].ToString());
-            return service.GetOrderInfo(order, startTime, endTime, page);
+            if (json!=null)
+            {
+                DateTime startTime = Convert.ToDateTime(json["Param"]["startTime"].ToString());//开始日期
+                DateTime endTime = Convert.ToDateTime(json["Param"]["endTime"].ToString());//结束日期
+                vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json == null ? "" : json["Param"].ToString());
+                Pagination page = JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+                return service.GetOrderInfo(order, startTime, endTime, page);
+            }
+            return null;
         }
 
         /// <summary>
