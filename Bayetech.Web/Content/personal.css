@@ -12,8 +12,34 @@
 .left-nav>a{display:block;padding:5px 10px;background:-moz-linear-gradient(#fff,#eee);background: linear-gradient(#fff,#eee);border: 1px solid #eee;}
 .left-nav ul{margin-bottom:0;}
 .left-nav ul li{text-align:left;}
+.left-nav ul li.text-center{text-align:center;}
 .left-nav .list-group-item:last-child{border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
 .left-nav .list-group-item:first-child{border-top-right-radius: 0;border-top-left-radius: 0;}
+
+.left-nav.personal-info{
+    margin-bottom:10px;
+}
+.personal-info .info-list{
+    border:1px solid #ddd;
+    padding:8px 10px;
+}
+.personal-info .info-list >li{
+    padding:5px 0;
+}
+.personal-info .info-list a.enter-account{
+    display: block;
+    border: 1px solid #3399ff;
+    text-align: center;
+    color: #3399ff;
+}
+.personal-info .info-list .user-name{
+    font-weight:bold;
+}
+.personal-info .info-list .balance{
+    font-weight:bold;
+    color:#ff9b00;
+}
+
 
 /*====右边表单====*/
 .right-buy-title{margin:0;}
@@ -68,3 +94,4 @@
 .personal-center .btn-sm,.personal-center .btn-group-sm>.btn{
     padding:3px 10px;
 }
+

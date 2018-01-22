@@ -2,7 +2,25 @@
 define(['vue', 'jquery', 'common'], function (Vue, $, common) {
 
     var html=`<div class="col-md-3 col-lg-2">
-    <router-link to="/"><h5 class="left-nav-title text-center">{{data.Title}}</h5></router-link>
+    <router-link to="/"><h5 class ="left-nav-title text-center">{{data.Title}}</h5></router-link>
+
+	<div class="left-nav personal-info">
+        <a href="javascript:void(0)">
+            <img id="" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> 用户信息
+        </a>
+        <ul class="info-list">
+			<li><span class="user-name">liuzy1110</span> &nbsp;&nbsp;[<span class="current-state">在线</span>]</li>
+            <li>买家成交数：<span></span></li>
+            <li>卖家成交数：<span></span></li>
+            <li>芝麻信用：<span></span></li>
+            <li>我的余额：<span><a href="#" traget="_blank" class="balance">0.00</a></span></li>
+            <li><a href="#" target="_blank" class="enter-account">进入我的账户</a></li>
+            <li class="text-center">
+                <a href="#" class="my-game">我的yxlm</a>
+                <a href="#" class="sign-out">退出登录</a>
+            </li>
+        </ul>
+    </div>
     <div v-for="(value,index) in data.List" class="left-nav">
         <a @click="toggleTab(index)" href="javascript:void(0)">
             <img :id="'pic'+index" src="http://pic.ofcard.com/7881/market/images/Personal/bit_2.gif"> {{ value.Title }}
