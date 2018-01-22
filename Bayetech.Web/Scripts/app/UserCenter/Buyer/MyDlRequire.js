@@ -1,6 +1,6 @@
 ﻿//我发布的代练需求
 define([], function () {
-    var html=`<p>我发布的代练需求</P>`;
+    var html=`<p>我的代练订单</P>`;
 
     var data={};
     var components={
