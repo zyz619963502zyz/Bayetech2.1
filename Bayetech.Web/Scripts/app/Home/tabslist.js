@@ -1,14 +1,14 @@
 ﻿//广告位1
 define(['jquery'], function ($) {
-    var html = `<div class="tabsList-box">
+    var html=`<div class="tabsList-box">
     <ul class="tabsList" id="TabBox">
-        <li class="tit" v-for="item in object" style="width: 170px; overflow: hidden;">
+        <li class ="tit" v-for="(item,index) in object" @mouseover="SwitchTab(index)" style="overflow: hidden" :style="{width:(nowTab==index?540:170)+'px'}">
             <h4><img :src="item.img" width="170" height="350"/></h4>
             <div class="tabBody" >
                 <h2><span>商品类型</span><a :href="item.url" target="_blank">进入游戏专题页 ></a></h2>
                 <div class="shop-type">
                     <ul>
-                        <li v-for="type in item.typeList"><a href="type.url" target="_blank">{{type.title}} </a></li>
+                        <li v-for="(type,index) in item.typeList"><a href="type.url" target="_blank">{{type.title}}</a></li>
                     </ul>
                 </div>
                 <h2 class="new-cj-tit"><span>最新成交信息</span></h2>
@@ -23,7 +23,6 @@ define(['jquery'], function ($) {
         </li>
     </ul>
 </div>`;
-    //width: 539px; @click="javascript:window.open('item.url','_blank')" width: 190px; overflow: hidden;
 
     var data = {
         asd:"11",
@@ -94,6 +93,7 @@ define(['jquery'], function ($) {
         tabObject: {
 
         },
+        nowTab:0,
     };
 
     var components = {
@@ -102,27 +102,12 @@ define(['jquery'], function ($) {
             return data;
         },
         mounted: function () {
-            $("#TabBox > li")[0].style.width = '540px';
-            $("#TabBox > li").mouseover(function () {
-                $(this).width(540).siblings().not(this).width(170);
-            });
         },
         template: html,
         methods: {
-            showTab(e) {
-                // 
-                var a = $(e);
-                //$(e).width(540).parent().find("list").not(e).width(190);
-                
-                //this.show = !this.show;
-                //this.hide = !this.hide;
-                //$(this).siblings("li").removeClass("on").stop().animate({
-                //    width: "190px"
-                //}, 250);
-                //$(this).addClass("on").stop().animate({
-                //    width: "538px"
-                //}, 250);
-            }
+            SwitchTab(index) {
+                this.nowTab=index;
+            },
         }
     };
     return components;
