@@ -17,9 +17,10 @@ namespace Bayetech.Core.Entity
         public long Id { get; set; }
         public string Name { get; set; }
         public string GameName { get; set; }
-        public long GameId { get; set; }
+        public Nullable<long> GameId { get; set; }
         public string Unit { get; set; }
         public string Alias { get; set; }
         public Nullable<int> Type { get; set; }
+        public string En_Name { get; set; }
     }
 }
