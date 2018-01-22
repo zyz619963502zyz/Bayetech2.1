@@ -20,7 +20,6 @@ define(['common'], function (common) {
             </div>
         </div>
     </div>`;
-    //gg-box qa-box deal-top-box <a :href="item.htmlurl" target="_blank">{{item.urltext}}</a> <slot name="centent" :obj="item"></slot>
 
     var components = {
         name: "v-tab",
@@ -42,8 +41,6 @@ define(['common'], function (common) {
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
                 this.list=obj.content;
                 this.flag=itemId;
-                //$("[data-active]").removeClass("active");
-                //$("[data-active='" + itemId + "']").addClass("active");
             },
             view(itemId) {
                 //this.$emit('view', itemId);
