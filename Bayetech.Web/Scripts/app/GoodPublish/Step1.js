@@ -33,7 +33,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                     </dl>
                     <dl type="gtid" style="">
                         <dt class="orange">请选择商品类型</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('Type')"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('GoodType')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="goodtypelist">
                             <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" class ="" v-for="item in GoodTypeList">
                                 <span class="left">{{item.Name}}</span>
@@ -74,7 +74,6 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
             </div>
         </div>`;
 	    var data={
-	        GameType: 0,
 	        GameList: [],
 	        GoodTypeList: [],
 	        GroupList: [],
@@ -85,6 +84,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	        SearchGoodTypeName: "",
             GoodTypeName:"",
             GameInfo: {//游戏信息
+                GameTypeId: 0,
                 GameId: 0,
                 GameName: "",
                 GroupId: 0,
@@ -122,7 +122,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	            },
                 //更改游戏类型
 	            ChangeGameType:function(type){
-	                this.GameType=type;
+	                this.GameInfo.GameTypeId=type;
 	                this.GetList('Game', type);
 	            },
 	            //选择框点击事件

@@ -40,7 +40,7 @@ define(['jquery', 'common'], function () {
     //获取父级类型
     self.GetParentType=function (type) {
         var obj={
-            Game:"",
+            Game: "GameType",
             Group: "Game",
             Server: "Group",
             GoodType: "Game",
