@@ -18,7 +18,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="package-con-line"></div>
+                    <div class="package-con-line"></div> 
                     <div class="package-con-r">
                         <h5>如果代练出现问题，玩家可获得赔付：</h5>
                         <p>

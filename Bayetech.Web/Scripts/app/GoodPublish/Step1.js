@@ -3,8 +3,8 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
     var html=`<div>
             <div class="release_search W980" style="margin-top:20px;">
                 <div class="gametitle">
-                    <a name="gametitle" class ="on" value="0">网络游戏</a>
-                    <a name="gametitle" value="1">手机游戏</a>
+                    <a name="gametitle" :class ="{'on':GameInfo.GameTypeId==0}" @click="ChangeGameType(0)">网络游戏</a>
+                    <a name="gametitle" :class ="{'on':GameInfo.GameTypeId==1}" @click="ChangeGameType(1)">手机游戏</a>
                 </div>
                 <div class="right">
                     <input type="text" id="txt_gamename_search" class ="release_search_input" placeholder="请输入您要搜索游戏名" @keyup="SearchByName('Game')" v-model="SearchGameName">
@@ -26,16 +26,16 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                         <dt class="orange">请选择游戏</dt>
                         <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称"  v-model="SearchGameName" @keyup="SearchByName('Game')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="gamelist">
-                            <a class ="" @click="ClickLoad('Game',item.Id,item.Name)" v-for="item in GameList">
+                            <a class ="" @click="ClickLoad('Game',item.Id,item.Name)" v-for="item in GameList" :class="{'cur':GameInfo.GameId==item.Id}">
                                 <span class="left" name="game">{{item.Name}}</span>
                             </a>
                         </dd>
                     </dl>
                     <dl type="gtid" style="">
                         <dt class="orange">请选择商品类型</dt>
-                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('Type')"><label style="display: none;">正在努力查询中...</label></dt>
+                        <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('GoodType')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="goodtypelist">
-                            <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" class ="" v-for="item in GoodTypeList">
+                            <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" class ="" v-for="item in GoodTypeList" :class ="{'cur':GameInfo.GoodTypeId==item.Id}">
                                 <span class="left">{{item.Name}}</span>
                             </a>
                         </dd>
@@ -44,7 +44,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                         <dt class="orange">请选择所在的游戏区</dt>
                         <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGroupName" @keyup="SearchByName('Group')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="grouplist">
-                            <a groupid="item.Id" @click="ClickLoad('Group',item.Id,item.Name)" class ="" v-for="item in GroupList">
+                            <a groupid="item.Id" @click="ClickLoad('Group',item.Id,item.Name)" class ="" v-for="item in GroupList" :class="{'cur':GameInfo.GroupId==item.Id}">
                                 <span class="left reduce">{{item.Name}}</span>
                             </a>
                         </dd>
@@ -53,7 +53,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                         <dt class="orange">请选择所在服务器</dt>
                         <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchServerName" @keyup="SearchByName('Server')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="serverlist">
-                            <a serverid="item.Id" class ="reduce" @click="ClickLoad('Server',item.Id,item.Name)" v-for="item in ServerList">
+                            <a serverid="item.Id" class ="reduce" @click="ClickLoad('Server',item.Id,item.Name)" v-for="item in ServerList" :class="{'cur':GameInfo.ServerId==item.Id}">
                                 <span class="reduce">{{item.Name}}</span>
                             </a>
                         </dd>
@@ -74,7 +74,6 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
             </div>
         </div>`;
 	    var data={
-	        GameType: 0,
 	        GameList: [],
 	        GoodTypeList: [],
 	        GroupList: [],
@@ -83,8 +82,8 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	        SearchGroupName: "",
 	        SearchServerName: "",
 	        SearchGoodTypeName: "",
-            GoodTypeName:"",
             GameInfo: {//游戏信息
+                GameTypeId: 0,
                 GameId: 0,
                 GameName: "",
                 GroupId: 0,
@@ -105,14 +104,6 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	        created() {
 	            var self=this;
 	            self.GetList('Game', 0);//加载游戏列表
-                //添加选中样式
-	            common.AddSelectedClass("#gamelist a", "cur");
-	            common.AddSelectedClass("#goodtypelist a", "cur");
-	            common.AddSelectedClass("#grouplist a", "cur");
-	            common.AddSelectedClass("#serverlist a", "cur");
-	            common.AddSelectedClass("[name=gametitle]", "on", function (e) {
-	                self.ChangeGameType($(e).attr('value'));
-	            });
 	        },
 	        methods: {
 	            //点击下一步
@@ -122,7 +113,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	            },
                 //更改游戏类型
 	            ChangeGameType:function(type){
-	                this.GameType=type;
+	                this.GameInfo.GameTypeId=type;
 	                this.GetList('Game', type);
 	            },
 	            //选择框点击事件
@@ -150,7 +141,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
 	            },
 	            //根据名字检索
 	            SearchByName: function (type) {
-	                this.GetList(type, this.GameInfo[`${Game.GetParentType(type)}Id`], this[`Search${type}Name`]);
+	                this.GetList(type, this.GameInfo[`${API.Game.GetParentType(type)}Id`], this[`Search${type}Name`]);
 	            },
 	            //获取数据
 	            GetList: function (type, id, name) {

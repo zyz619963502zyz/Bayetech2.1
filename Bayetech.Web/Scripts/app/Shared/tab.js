@@ -3,7 +3,7 @@ define(['common'], function (common) {
     var html = `<div class="index-tab">
         <div class="index-tab-top">
             <ul>
-                <li v-for="item in data.type" @click="switchtab(item.id)" :data-active="item.id">
+                <li v-for="item in data.type" @click="switchtab(item.id)" :class ="{'active':seleced==item.id}">
                    <a target="_blank" >{{item.name}}</a>
                 </li>
             </ul>
@@ -20,7 +20,6 @@ define(['common'], function (common) {
             </div>
         </div>
     </div>`;
-    //gg-box qa-box deal-top-box <a :href="item.htmlurl" target="_blank">{{item.urltext}}</a> <slot name="centent" :obj="item"></slot>
 
     var components = {
         name: "v-tab",
@@ -28,6 +27,7 @@ define(['common'], function (common) {
         data() {
             return {
                 list: {},
+                seleced: "",
             };
         },
         created() {
@@ -37,11 +37,9 @@ define(['common'], function (common) {
         template: html,
         methods: {
             switchtab(itemId) {
-                 
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
-                this.list = obj.content;
-                $("[data-active]").removeClass("active");
-                $("[data-active='" + itemId + "']").addClass("active");
+                this.list=obj.content;
+                this.seleced=itemId;
             },
             view(itemId) {
                 //this.$emit('view', itemId);

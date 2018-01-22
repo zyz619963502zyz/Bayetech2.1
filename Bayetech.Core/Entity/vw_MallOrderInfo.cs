@@ -39,5 +39,7 @@ namespace Bayetech.Core.Entity
         public Nullable<int> GameGroupId { get; set; }
         public Nullable<int> GameServerId { get; set; }
         public Nullable<long> GoodTypeId { get; set; }
+        public string OrderTypeValue { get; set; }
+        public string OrderTypeKey { get; set; }
     }
 }

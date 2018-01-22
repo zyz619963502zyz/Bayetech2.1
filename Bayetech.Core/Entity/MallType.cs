@@ -18,5 +18,6 @@ namespace Bayetech.Core.Entity
         public string Name { get; set; }
         public string Unit { get; set; }
         public Nullable<int> Order { get; set; }
+        public string En_Name { get; set; }
     }
 }

@@ -21,13 +21,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 						<div class ="form-group form-group-xs">
 							<label for="game" class ="col-md-1 control-label">游戏</label>
 							<div class ="col-md-4">
-								<select  v-model="GameSelected" id="game" class ="form-control" @change="GetTypes(GameSelected)">
+								<select  v-model="SearchParam.Param.GameSelected" id="game" class ="form-control" @change="GetTypes(GameSelected)">
                                     <option v-for="item in Games" :value="item.GameId">{{item.GameName}}</option>
                                 </select>
 							</div>
 							<label for="goodsType" class ="col-md-2 control-label">商品类型</label>
 							<div class ="col-md-4">
-								<select v-model="TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
+								<select v-model="SearchParam.Param.TypeSelected" id="goodsType" class ="form-control" @change="GetServers(0)">
                                     <option v-for="item in Types" :value="item.Id" >{{item.Name}}</option>
                                 </select>
 							</div>
@@ -35,13 +35,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 						<div class ="form-group form-group-xs">
 							<label for="gameArea" class ="col-md-1 control-label">游戏区</label>
 							<div class ="col-md-4">
-								<select v-model="GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
+								<select v-model="SearchParam.Param.GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select>
                             </div>
 							<label for="gameServer" class ="col-md-2 control-label">游戏服</label>
 							<div class ="col-md-4">
-								<select v-model="ServerSelected" id="gameServer" class ="form-control">
+								<select v-model="SearchParam.Param.ServerSelected" id="gameServer" class ="form-control">
                                     <option  v-for="item in Servers" :value="item.Id">{{item.Name}}</option>
                                 </select>
 							</div>
@@ -51,9 +51,9 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label class ="col-md-1 control-label">订单时间</label>
 							<div class ="col-md-4">
 								<div class ="input-daterange input-group datepicker">
-									<input type="text" class ="input-sm form-control " name="start" :value="startTime">
+									<input type="text" class ="input-sm form-control " name="start" :value="SearchParam.Param.startTime">
 									<span class ="input-group-addon">到</span>
-									<input type="text" class ="input-sm form-control" name="end" :value="endTime">
+									<input type="text" class ="input-sm form-control" name="end" :value="SearchParam.Param.endTime">
 								</div>
 							</div>
 
@@ -71,7 +71,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 							<label class ="col-md-1 control-label">订单编号</label>
 							<div class ="col-md-4">
 								<div class ="input-group">
-									<input type="text" :value="OrderNo" class ="form-control"/>
+									<input type="text" :value="SearchParam.Param.OrderNo" class ="form-control"/>
 									<span class ="input-group-btn">
 										<button type="button" @click="GetOrderInfo" class ="btn btn-warning btn-xs">查询</button>
 									</span>
@@ -173,32 +173,34 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var _GetOrdersUrl="/api/Order/GetOrders";
     var _GetOrderStatus="/api/Order/GetOrderStatus";
 
-    var data={
+    var data={   
         menuType:"",
-        times:0,
-        Games: [{ GameId: "", GameName: "" }],
-        GameSelected:"",
+        times:0,//次数标识位
+        Games: [],
         Orders: [],//订单信息表 
         Types: [],//交易类别
-        TypeSelected:"",
-        Groups: [],
-        GroupSelected: "",
-        Servers: [],
         Status: [],//订单状态
-        StatusSelected:"",
-        ServerSelected: "",
-        OrderNo: "",//订单编号,
-        startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
-        endTime: (new Date()).Format("yyyy-MM-dd"),
-        Pagination:{
-             //后端分页字段
-             rows: 10,//每页行数，
-             page: 1,//当前页码
-             order: "OrderNo",//排序字段
-             sord: "asc",//排序类型
-             records: 10,//总记录数
-             total: 10//总页数。
-        }
+        SearchParam:{
+            Param: {
+                OrderNo: "",//订单编号,
+                StatusSelected: "",
+                GroupSelected: "",
+                ServerSelected:"",
+                GameSelected: "",
+                TypeSelected: "",
+                startTime: (new Date((new Date()).getTime() - 90 * 3600 * 24 * 1000)).Format("yyyy-MM-dd"),
+                endTime: (new Date()).Format("yyyy-MM-dd"),
+            },
+            Pagination:{
+                 //后端分页字段
+                 rows: 10,//每页行数，
+                 page: 1,//当前页码
+                 order: "OrderNo",//排序字段
+                 sord: "asc",//排序类型
+                 records: 10,//总记录数
+                 total: 10//总页数。
+            }
+        },
     };
    
     var components={
@@ -262,18 +264,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             },
             GetOrderInfo() {//获取订单信息
                 var self=this;
-                var param={
-                    GameId: self.GameSelected,
-                    GoodTypeId: self.TypeSelected,//先默认账号
-                    GameGroupId: self.GroupSelected,
-                    GameServerId: self.ServerSelected,
-                    OrderStatus: self.StatusSelected,
-                    OrderNo: self.OrderNo,
-                    startTime: self.startTime,
-                    endTime: self.endTime,
-                    PageObj: self.Pagination
-                };
-                common.postWebJson(_GetOrderInfoUrl, param, function (data) {
+                common.postWebJson(_GetOrderInfoUrl, self.SearchParam, function (data) {
                     if (data.result) {
                         self.Orders = data.content.datas;
                         self.times==0?self.Games=data.Games:"";

@@ -74,7 +74,7 @@ namespace Bayetech.Web.Controllers
         public JObject GetList(JObject json)
         {
             json = json ?? new JObject();
-            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>(json.ToString());
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"]??"").ToString());
 
             DateTime? startTime = null;
             if (json["startTime"] != null)
@@ -113,7 +113,7 @@ namespace Bayetech.Web.Controllers
                 model = JsonConvert.DeserializeObject<MallGoodInfoModels>(resultGoodInfo["content"].ToString());
                 model.mallGoodInfo = (List<vw_MallGoodInfo>)JsonConvert.DeserializeObject(resultGoodDetailInfo["content"].ToString(), typeof(List<vw_MallGoodInfo>));
                 result.Add(ResultInfo.Result,true);
-                result.Add(ResultInfo.Content,JProperty.FromObject(model));
+                result.Add(ResultInfo.Content, JToken.FromObject(model));
             }
             else
             {

@@ -1,6 +1,6 @@
 ﻿jsconfig.baseArr.push("bootstrap-paginator");
-define(jsconfig.baseArr, function (Vue, $, common,paginator) {
-    var middleHtml = `
+define(jsconfig.baseArr, function (Vue, $, common, paginator) {
+    var middleHtml=`
         <div>
          <div>
             <div class ="slobar-01 clearfix">
@@ -97,21 +97,22 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
     var GoodListUrl = "/api/GoodInfo/GetList"; //查询列表
     //筛选和列表整合数据
     var data={
-        BaseUrl: common.GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
+        BaseUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
         BaseTarget: "_blank",
-        keyword : "",
-        ListObj:[
+        keyword: "",
+        ListObj: [
             {
                 GoodNo: "",
                 GoodFirstPicture: "",
                 aurl: "",
                 GoodTitle: "",
                 GroupName: "",
-                ServerName:"",
+                ServerName: "",
                 GoodPrice: ""
             }
         ],
         SearchParam: {
+            Param: eval('('+localStorage.SearchParam+')'),
             Pagination: {//分页对象
                 rows: 10,//每页行数，
                 page: 1,//当前页码
@@ -119,46 +120,45 @@ define(jsconfig.baseArr, function (Vue, $, common,paginator) {
                 sord: "asc",//排序类型
                 records: 10,//总记录数
                 total: 10//总页数。
-            },
-      },
+            }
+        },
     }
 
     //中间模板
     var goodComponent={
         template: middleHtml,
-        data(){
+        data() {
             return data;
         },
         created() {
-            var self = this;
+            var self=this;
             self.findList();
         },
-        mounted(){
-            var self = this;
+        mounted() {
+            var self=this;
             self.$root.$on("SearchAgain", function (_type) {
-                if (_type == "NewIndex") {
-                    self.findList(); 
+                if (_type=="NewIndex") {
+                    self.findList();
                 }
             });
         },
         methods: {
             findList() {
                 var self=this;
-                self.SearchParam=$.extend(self.SearchParam, JSON.parse(localStorage.SearchParam||"{}"));
-                common.postWebJson(GoodListUrl,self.SearchParam, function (data) {
+                common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
                     if (data.result) {
                         self.ListObj=data.content.datas;
                         self.SearchParam.Pagination=data.content.pagination;
-                        common.SetPagination($('#paginator-test'),self.SearchParam,self.findList);
+                        common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                     }
                 });
             },
             GotoDetail(goodNo) {//详情页跳转 
-                window.open(this.BaseUrl + goodNo);
+                window.open(this.BaseUrl+goodNo);
             },
             GetLikeGoods() {
-                var self = this;
-                self.SearchParam.GoodKeyWord = self.keyword;
+                var self=this;
+                self.SearchParam.Param.GoodKeyWord=self.keyword;
                 self.SearchParam.Pagination.page=1;
                 self.findList();
             },

@@ -1,7 +1,7 @@
 ﻿//step2
 define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scripts/app/GoodPublish/GoodInfo/Account', 'Scripts/app/GoodPublish/GoodInfo/Universal', 'API', 'DynamicInput'],
     function (Vue, $, common, GoldGoodInfo, AccountGoodInfo, UniversalGoodInfo, API, DynamicInput) {
-        var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
+   var html=`<div class="panel-body" style="background: url(http://pic.7881.com/7881-2016/images/goods-publish/publish-account-bg.png) center top no-repeat;">
   <form id="publishForm" action="/publish" method="post">
     <div class="main-content">
       <div class="publish-box w1190">
@@ -68,7 +68,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                   <span>商品有效期：</span></div>
                 <div class="form-item-r">
                   <div class="comselect h-30">
-                    <select id="validDay" name="validDay">
+                    <select id="validDay" name="validDay" class="form-control">
                       <option value="">选择有效期</option>
                       <option value="1">1天</option>
                       <option value="3">3天</option>

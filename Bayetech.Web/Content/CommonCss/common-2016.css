@@ -464,7 +464,7 @@ a.blue:hover { color: #ff6600!important;}
 
 
 /* 通用下拉框 */
-.comselect{ width: 448px;height:38px; font-size: 14px; cursor: pointer;position:relative;border: #ccc 1px solid; display: inline-block; *display: inline; *zoom:1; vertical-align: middle;}
+.comselect{ width: 448px;height:38px; font-size: 14px; cursor: pointer;position:relative;display: inline-block; *display: inline; *zoom:1; vertical-align: middle;}
 .comselect .comselect-val{float:left; width: 100%; color: #333; font-size: 12px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;display: block;}
 .comselect .comselect-val input { border: none;*border:0;height:38px;*height:37px;line-height: 38px\9; width: 87%; cursor: pointer; text-indent: 15px; font-size: 14px; font-family:arial,\5b8b\4f53; font-weight: bold; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;word-wrap: normal;}
 .comselect .comselect-val input::-webkit-input-placeholder {color: #333 !important; font-weight: normal;}
@@ -511,6 +511,7 @@ a.blue:hover { color: #ff6600!important;}
 .comselect.h-30 .comselect-icon em { margin-top: 4px; font-size: 22px;}
 .comselect.h-30 .comselect-menu { top:29px;}
 .comselect.h-30 .comselect-menu li { text-indent: 10px; height: 30px; line-height: 30px; font-size: 12px;}
+.comselect.h-30 select{width:100%;height:100%;}
 /* 通用按钮 */
 .com-btn-01 { display: inline-block; *display: inline; *zoom:1; width:130px; height: 48px; font-size: 18px; font-family: "microsoft yahei"; text-align: center; line-height: 48px; color: #fff;}
 .com-btn-01:hover { text-decoration: none; color: #fff;}

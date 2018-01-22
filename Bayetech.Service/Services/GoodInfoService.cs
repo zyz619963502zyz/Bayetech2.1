@@ -23,41 +23,44 @@ namespace Bayetech.Service.Services
                 JObject ret = new JObject();
                 PaginationResult<List<vw_MallGoodMainInfo>> ResultPage = new PaginationResult<List<vw_MallGoodMainInfo>>();
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
-                if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
+                if (goodInfo != null)
                 {
-                    expression = expression.And(t => t.GameId == goodInfo.GameId);
-                }
-                if (goodInfo.GameGroupId != null && goodInfo.GameGroupId > 0)//大区Id
-                {
-                    expression = expression.And(t => t.GameGroupId == goodInfo.GameGroupId);
-                }
-                if (goodInfo.GameServerId != null && goodInfo.GameServerId > 0)//服务器Id
-                {
-                    expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
-                }
-                if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id
-                {
-                    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
-                }
-                if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
-                {
-                    expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord) || t.GoodKeyWord.Contains(goodInfo.GoodKeyWord));
-                }
-                if (goodInfo.StatusId != null) //商品状态
-                {
-                    expression = expression.And(t => t.StatusId == goodInfo.StatusId);
-                }
-                //if (goodInfo.UserName != null && goodInfo.UserName > 0) //
-                //{
-                //    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
-                //}
-                if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
-                {
-                    expression = expression.And(t => t.AddTime >= StartTime);
-                }
-                if (EndTime != null && !string.IsNullOrEmpty(EndTime.ToString()))//结束时间
-                {
-                    expression = expression.And(t => t.AddTime <= EndTime);
+                    if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
+                    {
+                        expression = expression.And(t => t.GameId == goodInfo.GameId);
+                    }
+                    if (goodInfo.GameGroupId != null && goodInfo.GameGroupId > 0)//大区Id
+                    {
+                        expression = expression.And(t => t.GameGroupId == goodInfo.GameGroupId);
+                    }
+                    if (goodInfo.GameServerId != null && goodInfo.GameServerId > 0)//服务器Id
+                    {
+                        expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
+                    }
+                    if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id
+                    {
+                        expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
+                    }
+                    if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
+                    {
+                        expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord));
+                    }
+                    if (goodInfo.StatusId != null) //商品状态
+                    {
+                        expression = expression.And(t => t.StatusId == goodInfo.StatusId);
+                    }
+                    //if (goodInfo.UserName != null && goodInfo.UserName > 0) //
+                    //{
+                    //    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
+                    //}
+                    if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
+                    {
+                        expression = expression.And(t => t.AddTime >= StartTime);
+                    }
+                    if (EndTime != null && !string.IsNullOrEmpty(EndTime.ToString()))//结束时间
+                    {
+                        expression = expression.And(t => t.AddTime <= EndTime);
+                    }
                 }
                 var query = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page, expression);
 
