@@ -3,7 +3,7 @@ define(['common'], function (common) {
     var html = `<div class="index-tab">
         <div class="index-tab-top">
             <ul>
-                <li v-for="item in data.type" @click="switchtab(item.id)" :data-active="item.id">
+                <li v-for="item in data.type" @click="switchtab(item.id)" :class ="{'active':flag==item.id}">
                    <a target="_blank" >{{item.name}}</a>
                 </li>
             </ul>
@@ -28,6 +28,7 @@ define(['common'], function (common) {
         data() {
             return {
                 list: {},
+                flag: "",
             };
         },
         created() {
@@ -39,9 +40,10 @@ define(['common'], function (common) {
             switchtab(itemId) {
                  
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
-                this.list = obj.content;
-                $("[data-active]").removeClass("active");
-                $("[data-active='" + itemId + "']").addClass("active");
+                this.list=obj.content;
+                this.flag=itemId;
+                //$("[data-active]").removeClass("active");
+                //$("[data-active='" + itemId + "']").addClass("active");
             },
             view(itemId) {
                 //this.$emit('view', itemId);
