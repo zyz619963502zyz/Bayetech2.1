@@ -106,9 +106,6 @@
     <Compile Include="Entity\MallDLInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MallDLType.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\MallGoodInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
