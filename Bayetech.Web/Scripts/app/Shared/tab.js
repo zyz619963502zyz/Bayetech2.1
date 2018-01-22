@@ -37,7 +37,6 @@ define(['common'], function (common) {
         template: html,
         methods: {
             switchtab(itemId) {
-                 
                 var obj = common.FindObjByProp(this.data.obj, "id", itemId);
                 this.list=obj.content;
                 this.flag=itemId;
