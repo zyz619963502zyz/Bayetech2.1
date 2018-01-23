@@ -35,7 +35,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 						<div class ="form-group form-group-xs">
 							<label for="gameArea" class ="col-md-1 control-label">游戏区</label>
 							<div class ="col-md-4">
-								<select v-model="SearchParam.Param.GroupSelected" id="gameArea" class ="form-control" @change="GetServers(GroupSelected)">
+								<select v-model="SearchParam.Param.GroupSelected" id="gameArea" class ="form-control" @change="GetServers(SearchParam.Param.GroupSelected)">
                                     <option v-for="item in Groups" :value="item.Id">{{item.Name}}</option>
                                 </select>
                             </div>
@@ -180,9 +180,10 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 		GameSelected: [],//已选游戏
         Orders: [],//订单信息表 
         Types: [],//交易类别
-		Groups: [],//游戏区
-        Servers: [],//游戏服务器		
-        Status: [],//订单状态
+        Groups: [],//游戏区
+		GroupSelected: [],//已选择的区
+		Servers: [],//游戏服务器	
+		Status: [],//订单状态
         SearchParam:{
             Param: {
                 OrderNo: "",//订单编号,
@@ -221,7 +222,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
         },
         created() {
             var self = this;
-            self.GetOrderInfo(self.Pagination);
+            self.GetOrderInfo(self.SearchParam.Pagination);
             self.GetOrderStatus(0);
         },
         mounted() {
@@ -247,8 +248,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 });
             },
             GetServers(gourp){
-                var self=this;
-                var gameId = self.GameSelected;
+            	var self = this;
+				var gameId = self.SearchParam.Param.GameSelected;
                 var param={gameId:self.SearchParam.Param.GameSelected,parentId:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
@@ -271,7 +272,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                     if (data.result) {
                         self.Orders = data.content.datas;
                         self.times==0?self.Games=data.Games:"";
-                        self.Pagination=data.content.pagination;
+                        self.SearchParam.Pagination = data.content.pagination;
                         common.SetPagination($('#paginator-test'),self,self.GetOrderInfo);
                         self.times++;
                         //self.$router.go(0);
@@ -284,28 +285,28 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                 var self=this;
                 var btnId = "";
                 if (flag == "today") {
-                    self.startTime=(new Date()).Format("yyyy-MM-dd");
+                    self.SearchParam.Param.startTime=(new Date()).Format("yyyy-MM-dd");
                     btnId = "today";
                 } else {
-                    self.startTime=(new Date((new Date()).getTime()-(parseInt(flag))*30*3600*24*1000)).Format("yyyy-MM-dd");
+                    self.SearchParam.Param.startTime=(new Date((new Date()).getTime()-(parseInt(flag))*30*3600*24*1000)).Format("yyyy-MM-dd");
                     btnId= flag + "month";
                 }
                 $("#"+btnId).removeClass("btn-default").addClass("btn-primary");
                 $("#btnGroup button[id!='"+btnId+"']").removeClass("btn-primary").addClass("btn-default");
-                self.GetOrderInfo(self.Pagination)
+                self.GetOrderInfo(self.SearchParam.Pagination)
             },
             GetSizePage(size) {//设置页面的大小去查询页面数据
                 var self=this;
                 if (size) {
-                    self.Pagination.rows = size;
-                    self.GetOrderInfo(self.Pagination);
+                    self.SearchParam.Pagination.rows = size;
+                    self.GetOrderInfo(self.SearchParam.Pagination);
                 }
             },
             GetStatusOrder(satus,name) {//查询不同状态的订单
                 var self = this;
                 if (satus>=0) {
-                    self.StatusSelected = satus;
-                    self.GetOrderInfo(self.Pagination);
+                    self.SearchParam.Param.StatusSelected = satus;
+                    self.GetOrderInfo(self.SearchParam.Pagination);
                     $("#" + name).addClass("active");
                     $("#nave li[id!='" + name + "']").removeClass("active");
                 }
