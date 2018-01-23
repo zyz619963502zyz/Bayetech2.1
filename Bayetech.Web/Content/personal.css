@@ -1,12 +1,22 @@
 ﻿@charset"utf-8";
-/*.personal-center a:hover{color:#f90;text-decoration:none;}*/
+/*.per-mid a:hover{color:#f90;text-decoration:none;}*/
 
+.per-mid .main-row .wd-sm{
+    width:240px;
+}
+.per-mid .main-row .wd-lg{
+    width:960px;
+}
+.per-mid .main-row .wd-sm a{
+    color:#3d86ea;
+}
 /*====当前位置====*/
 .b-link{height: 30px;line-height: 30px;margin:15px 0;}
 .b-link a:not(:first-child){color:#f90;}
 .b-link .b-home:hover{color:#f90;text-decoration:underline;}
 
 /*====左边导航====*/
+.left-nav{margin-bottom:10px;}
 .left-nav-title {color: #fff;background-color: #3b83e8;font-size: 14px;margin: 0;padding: 10px 0;}
 .left-nav a:hover {color: #f90;text-decoration: underline;}
 .left-nav>a{display:block;padding:5px 10px;background:-moz-linear-gradient(#fff,#eee);background: linear-gradient(#fff,#eee);border: 1px solid #eee;}
@@ -16,9 +26,7 @@
 .left-nav .list-group-item:last-child{border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
 .left-nav .list-group-item:first-child{border-top-right-radius: 0;border-top-left-radius: 0;}
 
-.left-nav.personal-info{
-    margin-bottom:10px;
-}
+
 .personal-info .info-list{
     border:1px solid #ddd;
     padding:8px 10px;
@@ -92,7 +100,7 @@
 }
 
 /*====bootstrap 样式重构区=====*/
-.personal-center .btn-sm,.personal-center .btn-group-sm>.btn{
+.per-mid .btn-sm,.per-mid .btn-group-sm>.btn{
     padding:3px 10px;
 }
 

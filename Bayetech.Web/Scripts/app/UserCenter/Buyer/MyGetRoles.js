@@ -1,7 +1,7 @@
 ﻿//我的代练订单
 define(jsconfig.baseArr, function (Vue,$,common) {
        var html=`
-        <div class="col-md-9 col-lg-10">
+        <div class="col-md-9 wd-lg">
             <div class ="panel panel-default">
 				<div class ="panel-heading">
 					<h5 class ="right-buy-title">收货角色管理 <span style="margin-left: 5px;font-style:italic;font:8px;">切换 </span>

@@ -5,11 +5,11 @@ jsconfig.baseArr.push("VueRouter");
 define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     //Vue.use(VueRouter);
     var html=`
-        <div class="col-md-9 col-lg-10">
+        <div class="col-md-9 wd-lg">
             <div class ="panel panel-default">
 				<div class ="panel-heading">
 					<h5 class ="right-buy-title">我购买的订单 <span style="margin-left: 5px;font-style:italic;font:8px;">切换 </span>
-						<a href="javascript:void(0);" id="queryType" style="color:#3D86EA;font:12px;" onclick="changeQueryType()">历史查询</a>
+						<a href="javascript:void(0);" id="queryType" style="color:#3d86ea;font:12px;">历史查询</a>
 						<a id="queryHelp" style="font-weight: lighter;color:black;">
 							<span class ="fa fa-question-circle" title="为了方便您的查询，在您切换到历史查询状态时，您可以查询您的所有历史订单明细。"></span>
 						</a>
@@ -176,9 +176,12 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var data={   
         menuType:"",
         times:0,//次数标识位
-        Games: [],
+        Games: [{ GameId: "", GameName: "" }],        
+		GameSelected: [],//已选游戏
         Orders: [],//订单信息表 
         Types: [],//交易类别
+		Groups: [],//游戏区
+        Servers: [],//游戏服务器		
         Status: [],//订单状态
         SearchParam:{
             Param: {
