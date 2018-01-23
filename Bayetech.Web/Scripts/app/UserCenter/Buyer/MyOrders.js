@@ -239,7 +239,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             },
             GetTypes(gameId){
                 var self=this;
-                var param={gameId:gameId,type:1};
+                var param={gameId:self.SearchParam.Param.GameSelected,type:1};
                 common.getWebJson(_GetMallTypeUrl, param, function (data) {
                     if (data.result) {
                        self.Types = data.content;
@@ -249,7 +249,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
             GetServers(gourp){
                 var self=this;
                 var gameId = self.GameSelected;
-                var param={gameId:gameId,parentId:gourp};
+                var param={gameId:self.SearchParam.Param.GameSelected,parentId:gourp};
                 common.getWebJson(_GetServersUrl, param, function (data) {
                     if (data.result) {
                        gourp == 0? self.Groups = data.content : self.Servers =data.content;
