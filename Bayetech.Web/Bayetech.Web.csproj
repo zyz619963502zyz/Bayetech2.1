@@ -673,10 +673,11 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
-    <Content Include="Content\NewImages\jinbi.png" />
+    <Content Include="Content\NewImages\gold-coin.png" />
+    <Content Include="Content\NewImages\logo.ico" />
     <Content Include="Content\NewImages\re-img-01.jpg" />
     <Content Include="Content\NewImages\yxlm.ico" />
-    <Content Include="Content\NewImages\zhima.gif" />
+    <Content Include="Content\NewImages\zhima.png" />
     <Content Include="Content\NewImages\zmxy.jpg" />
     <Content Include="Content\OlderCss\buy.css" />
     <Content Include="Content\OlderCss\cashier.css" />
