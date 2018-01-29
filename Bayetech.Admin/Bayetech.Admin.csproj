@@ -225,6 +225,12 @@
     <Content Include="Content\calendar.css" />
     <Content Include="Content\file-manager.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\icons\icon.svg" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Light-webfont.svg" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Regular-webfont.svg" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.svg" />
     <Content Include="Content\form.css" />
     <Content Include="Content\generics.css" />
     <Content Include="Content\icons.css" />
@@ -552,6 +558,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\icons\icon.ttf" />
+    <Content Include="Content\fonts\icons\icon.woff" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Light-webfont.eot" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Light-webfont.ttf" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Light-webfont.woff" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Regular-webfont.eot" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Regular-webfont.ttf" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.eot" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
+    <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
