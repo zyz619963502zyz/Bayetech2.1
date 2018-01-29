@@ -65,6 +65,5 @@ namespace Bayetech.Web.Controllers
             ret.Add("detail", JProperty.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
             return ret;
         }
-
     }
 }

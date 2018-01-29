@@ -83,6 +83,7 @@ namespace Bayetech.Service
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                     return ret;
+
                 }
             }
             catch (Exception ex)
