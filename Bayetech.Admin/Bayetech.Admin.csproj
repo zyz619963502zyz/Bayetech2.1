@@ -218,10 +218,46 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\calendar.css" />
+    <Content Include="Content\file-manager.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\form.css" />
+    <Content Include="Content\generics.css" />
+    <Content Include="Content\icons.css" />
+    <Content Include="Content\lightbox.css" />
+    <Content Include="Content\media-player.css" />
+    <Content Include="Content\media\flashmediaelement.swf" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Page\404.html" />
+    <Content Include="Page\alerts.html" />
+    <Content Include="Page\buttons.html" />
+    <Content Include="Page\calendar.html" />
+    <Content Include="Page\charts.html" />
+    <Content Include="Page\components.html" />
+    <Content Include="Page\content-widgets.html" />
+    <Content Include="Page\file-manager.html" />
+    <Content Include="Page\form-components.html" />
+    <Content Include="Page\form-elements.html" />
+    <Content Include="Page\form-examples.html" />
+    <Content Include="Page\form-validation.html" />
+    <Content Include="Page\images-icons.html" />
+    <Content Include="Page\index.html" />
+    <Content Include="Page\labels.html" />
+    <Content Include="Page\list-view.html" />
+    <Content Include="Page\login.html" />
+    <Content Include="Page\media.html" />
+    <Content Include="Page\messages.html" />
+    <Content Include="Page\other-components.html" />
+    <Content Include="Page\profile-page.html" />
+    <Content Include="Page\sa.html" />
+    <Content Include="Page\tables.html" />
+    <Content Include="Page\typography.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -273,7 +309,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Page\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
