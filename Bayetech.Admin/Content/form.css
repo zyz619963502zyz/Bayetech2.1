@@ -73,7 +73,7 @@ select:not([multiple]){
    text-indent: 1px;
    text-overflow: '';
    line-height: normal !important;
-   background-image: url(../img/select-bg.png);
+   background-image: url(../Content/img/select-bg.png);
    background-repeat: no-repeat;
    background-position: right center;
    color: 
@@ -821,7 +821,7 @@ input[type="checkbox"], input[type="radio"]{
 .colorpicker-saturation {
 	width: 100px;
 	height: 100px;
-	background-image: url(../img/color-picker/saturation.png);
+	background-image: url(../Content/img/color-picker/saturation.png);
 	cursor: crosshair;
 	float: left;
 }
@@ -861,10 +861,10 @@ input[type="checkbox"], input[type="radio"]{
 	margin-top: -1px;
 }
 .colorpicker-hue {
-	background-image: url(../img/color-picker/hue.png);
+	background-image: url(../Content/img/color-picker/hue.png);
 }
 .colorpicker-alpha {
-	background-image: url(../img/color-picker/alpha.png);
+	background-image: url(../Content/img/color-picker/alpha.png);
 	display: none;
 }
 .colorpicker {
@@ -888,7 +888,7 @@ input[type="checkbox"], input[type="radio"]{
 	height: 10px;
 	margin-top: 5px;
 	clear: both;
-	background-image: url(../img/color-picker/alpha.png);
+	background-image: url(../Content/img/color-picker/alpha.png);
 	background-position: 0 100%;
 }
 .colorpicker-color div {

@@ -6,7 +6,7 @@
 
 				<!-- Add Slide Outs -->
 				<script src="http://code.jquery.com/jquery-1.9.1.js"></script>        
-				<script src="http://suspended.hostgator.com/js/simple-expand.min.js"></script>
+				<script src="http://suspended.hostgator.com//Scripts/simple-expand.min.js"></script>
         
         <style type="text/css">
         body{padding:0;margin:0;font-family:helvetica;}
