@@ -12,9 +12,9 @@ define(["common", "search-dropdown"], function (common, dropdown) {
 
                     <ul class ="gs_menu" id="gsMenu">
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
-                        <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
-                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
-
+                        <li id="gs_area" v-if="!IsAcross" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
+                        <li id="gs_server" v-if="!IsAcross" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
+                        <li id="gs_server" v-if="IsAcross" :title="'选择'+Param.AcrossName" @click="showDropdown(6)">{{Param.AcrossName}}</li>
                         <li id="gs_type"  :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-if="!DL">{{Param.GoodTypeName}}</li>
                         <li id="gs_DlType" :title="'选择'+Param.DlTypeName" @click="showDropdown(5)" v-if="DL">{{Param.DlTypeName}}</li>
 
@@ -69,9 +69,12 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     GoodTypeName: "物品类型",
                     DlTypeName:"代练类型",
                     GoodKeyWord: "",
+                    AcrossId: 0,
+                    AcrossName:"跨区",
                 },
                 SimpleClass: "gray",
                 AccurateClass: "hover",
+                IsAcross: false,
             };
         },
         created: function () {
@@ -114,13 +117,23 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //下拉框内点击加载数据
             loadDropdown: function (type, pid, pname) {
                 pid = pid || 0;
-                var typeName = this.getParentTypeName(type);
-                if (type) {
-                    this.Param[`${typeName}Id`] = pid;
+                if (this.IsAcross) {
+                    if (type) {
+                        this.Param[`AcrossId`] = pid;
+                    }
+                    if (pname) {
+                        this.Param[`AcrossName`] = pname;
+                    }
+                } else {
+                    var typeName = this.getParentTypeName(type);
+                    if (type) {
+                        this.Param[`${typeName}Id`] = pid;
+                    }
+                    if (pname) {
+                        this.Param[`${typeName}Name`] = pname;
+                    }
                 }
-                if (pname) {
-                    this.Param[`${typeName}Name`]=pname;
-                }
+                
                 switch (type) {
                     case 2:
                         this.Param.GameGroupId=0;
@@ -154,11 +167,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                                 ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
                                 ${this.Param.GameGroupId}&GameGroupName=
                                 ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&&GameServerName=
-                                ${this.Param.GameServerName}GoodTypeId=
+                                ${this.Param.GameServerId}&GameServerName=
+                                ${this.Param.GameServerName}&GoodTypeId=
                                 ${this.Param.GoodTypeId}&GoodTypeName=
                                 ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}`);
+                                ${this.Param.GoodKeyWord.trim()}&AcrossId=
+                                ${this.Param.AcrossId}&AcrossName=
+                                ${this.Param.Across}`);
                         break;
                     case "GoodList":
                        TargetUrl = "";

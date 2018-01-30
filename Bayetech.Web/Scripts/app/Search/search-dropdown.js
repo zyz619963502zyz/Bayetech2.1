@@ -54,10 +54,8 @@ define(["common"], function (common) {
             }
         },
         watch: {
-            data: function() {
-                if (this.$parent.Param.GameId == 1 && this.$props.data.Type == 2) {
-                    this.hasAcross = true;
-                }
+            data: function () {
+                this.hasAcross = this.$parent.Param.GameId == 1 && this.$props.data.Type == 2;
             },
         },
         methods: {
@@ -90,6 +88,7 @@ define(["common"], function (common) {
                 this.$parent.$data.IsShow = false;
             },
             SwitchAcross: function (bol) {
+                this.$parent.IsAcross = bol;
                 this.loadDropdown(bol ? 6 : 2, 1, "地下城与勇士");
             },
         }
