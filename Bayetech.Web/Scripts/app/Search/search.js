@@ -117,7 +117,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //下拉框内点击加载数据
             loadDropdown: function (type, pid, pname) {
                 pid = pid || 0;
-                if (this.IsAcross) {
+                if (this.IsAcross && type==4) {
                     if (type) {
                         this.Param[`AcrossId`] = pid;
                     }
