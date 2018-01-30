@@ -128,11 +128,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         this.Param.GameServerId=0;
                         this.Param.GameServerName="服务器";
                         this.Param.GoodTypeId=0;
-                        this.Param.GoodTypeName="物品类型";
+                        this.Param.GoodTypeName = "物品类型";
                         break;
                     case 3:
                         this.Param.GameServerId=0;
-                        this.Param.GameServerName="服务器";
+                        this.Param.GameServerName = "服务器";
                         break;
                     case 4://交易类型
                         pid=this.Param.GameId;

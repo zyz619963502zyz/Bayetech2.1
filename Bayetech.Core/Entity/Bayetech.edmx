@@ -330,6 +330,7 @@
           <Property Name="Order" Type="smallint" />
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="GameId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Settings">
@@ -961,7 +962,6 @@
           <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
           <EntitySet Name="vw_MallPictureInfo" EntityType="BayetechModel.vw_MallPictureInfo" />
           <EntitySet Name="GameProfession" EntityType="BayetechModel.GameProfession" />
-          <EntitySet Name="Server" EntityType="BayetechModel.Server" />
           <EntitySet Name="Settings" EntityType="BayetechModel.Settings" />
           <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
@@ -978,6 +978,7 @@
           <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
           <EntitySet Name="MallOrders" EntityType="BayetechModel.MallOrder" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
+          <EntitySet Name="Servers" EntityType="BayetechModel.Server" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1033,19 +1034,6 @@
           <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ParentId" Type="Int64" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Server">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="Order" Type="Int16" />
-          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int32" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Settings">
           <Key>
@@ -1375,6 +1363,20 @@
           <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Order" Type="Int16" />
+          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1589,20 +1591,6 @@
                 <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
                 <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Server">
-            <EntityTypeMapping TypeName="BayetechModel.Server">
-              <MappingFragment StoreEntitySet="Server">
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Img" ColumnName="Img" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Letter" ColumnName="Letter" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1942,6 +1930,21 @@
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servers">
+            <EntityTypeMapping TypeName="BayetechModel.Server">
+              <MappingFragment StoreEntitySet="Server">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Letter" ColumnName="Letter" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
