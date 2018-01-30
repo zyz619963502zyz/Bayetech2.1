@@ -18,6 +18,8 @@ namespace Bayetech.Core.Enum
         [Description("交易类型")]
         MallType,
         [Description("代练类型")]
-        DlType
+        DlType,
+        [Description("跨区")]
+        Across,
     };
 }

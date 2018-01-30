@@ -29,6 +29,7 @@
           <Property Name="Security" Type="nvarchar" MaxLength="500" />
           <Property Name="Tname" Type="nvarchar" MaxLength="20" />
           <Property Name="EnableMark" Type="bit" />
+          <Property Name="AccountType" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -91,6 +92,31 @@
           <Property Name="group_add" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="img" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.DLRequire”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="DLRequire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Price" Type="money" />
+          <Property Name="DLPeriod" Type="int" />
+          <Property Name="GameId" Type="bigint" />
+          <Property Name="GroupId" Type="bigint" />
+          <Property Name="ServerId" Type="bigint" />
+          <Property Name="EfficiencyDeposit" Type="money" />
+          <Property Name="SecurityDeposit" Type="money" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="300" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="QQ" Type="int" />
+          <Property Name="ValidityPeriod" Type="int" />
+          <Property Name="SecretCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tip" Type="money" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
         <EntityType Name="ExtraProperty">
           <Key>
             <PropertyRef Name="Id" />
@@ -129,6 +155,16 @@
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“Bayetech.dbo.GameAccount”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="GameAccount">
+          <Property Name="Id" Type="bigint" />
+          <Property Name="Account" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Level2Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleLevel" Type="int" />
+        </EntityType>-->
         <EntityType Name="GameInfoDescription">
           <Key>
             <PropertyRef Name="DescriptionId" />
@@ -330,6 +366,7 @@
           <Property Name="Order" Type="smallint" />
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="GameId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Settings">
@@ -342,6 +379,7 @@
           <Property Name="ParentId" Type="bigint" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_GameServers”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -591,6 +629,28 @@
           <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Server" EntityType="Self.Server" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DLRequire" EntityType="Self.DLRequire" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DLRequire].[Id] AS [Id], 
+    [DLRequire].[Title] AS [Title], 
+    [DLRequire].[Type] AS [Type], 
+    [DLRequire].[Price] AS [Price], 
+    [DLRequire].[DLPeriod] AS [DLPeriod], 
+    [DLRequire].[GameId] AS [GameId], 
+    [DLRequire].[GroupId] AS [GroupId], 
+    [DLRequire].[ServerId] AS [ServerId], 
+    [DLRequire].[EfficiencyDeposit] AS [EfficiencyDeposit], 
+    [DLRequire].[SecurityDeposit] AS [SecurityDeposit], 
+    [DLRequire].[Remark] AS [Remark], 
+    [DLRequire].[AccountId] AS [AccountId], 
+    [DLRequire].[Phone] AS [Phone], 
+    [DLRequire].[QQ] AS [QQ], 
+    [DLRequire].[ValidityPeriod] AS [ValidityPeriod], 
+    [DLRequire].[SecretCode] AS [SecretCode], 
+    [DLRequire].[Tip] AS [Tip], 
+    [DLRequire].[Status] AS [Status]
+    FROM [dbo].[DLRequire] AS [DLRequire]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GoodAndDescription].[Id] AS [Id], 
@@ -825,6 +885,7 @@
           <Property Name="Security" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Tname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="EnableMark" Type="Boolean" />
+          <Property Name="AccountType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -961,7 +1022,6 @@
           <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
           <EntitySet Name="vw_MallPictureInfo" EntityType="BayetechModel.vw_MallPictureInfo" />
           <EntitySet Name="GameProfession" EntityType="BayetechModel.GameProfession" />
-          <EntitySet Name="Server" EntityType="BayetechModel.Server" />
           <EntitySet Name="Settings" EntityType="BayetechModel.Settings" />
           <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
@@ -978,6 +1038,8 @@
           <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
           <EntitySet Name="MallOrders" EntityType="BayetechModel.MallOrder" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
+          <EntitySet Name="Servers" EntityType="BayetechModel.Server" />
+          <EntitySet Name="DLRequires" EntityType="BayetechModel.DLRequire" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1034,19 +1096,6 @@
           <Property Name="ParentId" Type="Int64" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Server">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="Order" Type="Int16" />
-          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int32" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Settings">
           <Key>
             <PropertyRef Name="Id" />
@@ -1057,6 +1106,7 @@
           <Property Name="ParentId" Type="Int64" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vw_GameServers">
           <Key>
@@ -1375,6 +1425,43 @@
           <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Letter" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Order" Type="Int16" />
+          <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DLRequire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DLPeriod" Type="Int32" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GroupId" Type="Int64" />
+          <Property Name="ServerId" Type="Int64" />
+          <Property Name="EfficiencyDeposit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SecurityDeposit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="Int32" />
+          <Property Name="ValidityPeriod" Type="Int32" />
+          <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tip" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1384,6 +1471,7 @@
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="BayetechModel.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -1593,23 +1681,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Server">
-            <EntityTypeMapping TypeName="BayetechModel.Server">
-              <MappingFragment StoreEntitySet="Server">
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Img" ColumnName="Img" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Letter" ColumnName="Letter" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Settings">
             <EntityTypeMapping TypeName="BayetechModel.Settings">
               <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
@@ -1942,6 +2017,45 @@
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servers">
+            <EntityTypeMapping TypeName="BayetechModel.Server">
+              <MappingFragment StoreEntitySet="Server">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Letter" ColumnName="Letter" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DLRequires">
+            <EntityTypeMapping TypeName="BayetechModel.DLRequire">
+              <MappingFragment StoreEntitySet="DLRequire">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="SecretCode" ColumnName="SecretCode" />
+                <ScalarProperty Name="ValidityPeriod" ColumnName="ValidityPeriod" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SecurityDeposit" ColumnName="SecurityDeposit" />
+                <ScalarProperty Name="EfficiencyDeposit" ColumnName="EfficiencyDeposit" />
+                <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="DLPeriod" ColumnName="DLPeriod" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

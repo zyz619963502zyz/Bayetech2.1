@@ -1,32 +1,5 @@
 ﻿//搜索框下拉
 define(["common"], function (common) {
-    //var html = `<div class="b_blue_box" id="dropdown">
-    //<div class="main_con">
-    //    <ul v-if="data.Type > 1" class ="box_title">
-    //        选择{{data.Title}}
-    //        <a onclick="">全部{{data.Title}}</a>
-    //        <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
-    //    </ul>
-    //    <ul v-if="data.Type <= 1" class ="main_name_select">
-    //        <a href="javascript:void(0)" :class ="{hover:gameType==0}"  @click="changeGameType(0)">网络游戏</a>
-    //        <a href="javascript:void(0)" :class ="{hover:gameType==1}" @click="changeGameType(1)">手机游戏</a>
-    //        <ul class="gamename_quicksearch">
-    //            <input type="text" placeholder="请输入游戏关键字或拼音" id="sselect_gamename" class ="q_input gray_a" @keyup="searchGameByName" v-model="searchGameName">
-    //        </ul>
-    //        <a target="_blank" href="/toQuFuCollection.action?entrance=0" class="qf-tips">找不到您要的游戏或区服？</a>
-    //    </ul>
-
-    //    <ul v-if="data.Type <= 1" class ="main_letter_select">
-    //        <a href="javascript:void(0)" id="hotgame" class ="current" @click="loadDropdown(gameType)">热门游戏</a>
-    //        <a v-for="item in alphabet" href="javascript:void(0)" @click="getGameListByLetter(item,data.Type)">{{item}}</a>
-    //    </ul>
-    //    <dl class="con_list">
-    //        <dt v-for="item in data.List">
-    //            <a href="javascript:void(0)" @click="loadDropdown(data.Child,item.Id,item.Name)">{{item.Name}}</a>
-    //        </dt>
-    //    </dl>
-    //</div>
-    //</div>`;
     var html=`
         <div class ="gs_box" id="gsBox">
             <div class ="gs_box_inner">
@@ -43,12 +16,13 @@ define(["common"], function (common) {
                     <li class="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsSort" class ="gs_sort" v-else>
-                    <li><a href="javascript: void (0);">选择{{data.Title}}</a></li>
+                    <li><a href="javascript: void (0);" @click="SwitchAcross(false)">选择{{data.Title}}</a></li> 
+                    <li v-if="hasAcross"><a href="javascript: void (0);" @click="SwitchAcross(true)">选择跨区</a></li>
                     <li class ="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav" v-if="data.Type <= 1">
-                    <li id="fastletter" class ="w_70"><a href="javascript: void (0); ">搜索结果</a></li>
-                    <li class ="w_70"><a class ="active" href="javascript: void (0); ">热门游戏</a></li>
+                    <li id="fastletter" class ="w_70"><a href="javascript: void (0);">搜索结果</a></li>
+                    <li class ="w_70"><a class ="active" href="javascript: void (0);">热门游戏</a></li>
                     <li v-for="item in alphabet">
                        <a href="javascript: void (0);" @click="getGameListByLetter(item,data.Type)">{{item}}</a>
                     </li>
@@ -63,7 +37,8 @@ define(["common"], function (common) {
         alphabet: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
         list: [],
         searchGameName: "",
-        gameType:0,
+        gameType: 0,
+        hasAcross: false,
     }
 
     var components = {
@@ -72,6 +47,16 @@ define(["common"], function (common) {
         template: html,
         data: function () {
             return data;
+        },
+        mounted: function () {
+            if (this.$parent.Param.GameId === 1 && this.$props.data.type === 2) {
+                this.hasAcross = true;
+            }
+        },
+        watch: {
+            data: function () {
+                this.hasAcross = this.$parent.Param.GameId === 1 && this.$props.data.Type === 2;
+            },
         },
         methods: {
             loadDropdown: function (type, id, name) {
@@ -101,7 +86,11 @@ define(["common"], function (common) {
             },
             CloseDropdown: function () {//隐藏当前模态框
                 this.$parent.$data.IsShow = false;
-            }
+            },
+            SwitchAcross: function (bol) {
+                this.$parent.IsAcross = bol;
+                this.loadDropdown(bol ? 6 : 2, 1, "地下城与勇士");
+            },
         }
     };
     return components;

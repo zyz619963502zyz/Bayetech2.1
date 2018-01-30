@@ -82,6 +82,9 @@
     <Compile Include="Entity\Category.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\DLRequire.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ExtraProperty.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

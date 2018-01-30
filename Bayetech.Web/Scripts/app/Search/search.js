@@ -12,9 +12,9 @@ define(["common", "search-dropdown"], function (common, dropdown) {
 
                     <ul class ="gs_menu" id="gsMenu">
                         <li id="gs_game" :title="'选择'+Param.GameName" @click="showDropdown(0)">{{Param.GameName}}</li>
-                        <li id="gs_area" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
-                        <li id="gs_server" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
-
+                        <li id="gs_area" v-if="!IsAcross" :title="'选择'+Param.GameGroupName" @click="showDropdown(2)">{{Param.GameGroupName}}</li>
+                        <li id="gs_server" v-if="!IsAcross" :title="'选择'+Param.GameServerName" @click="showDropdown(3)">{{Param.GameServerName}}</li>
+                        <li id="gs_server" v-if="IsAcross" :title="'选择'+Param.AcrossName" @click="showDropdown(6)">{{Param.AcrossName}}</li>
                         <li id="gs_type"  :title="'选择'+Param.GoodTypeName" @click="showDropdown(4)" v-if="!DL">{{Param.GoodTypeName}}</li>
                         <li id="gs_DlType" :title="'选择'+Param.DlTypeName" @click="showDropdown(5)" v-if="DL">{{Param.DlTypeName}}</li>
 
@@ -69,9 +69,12 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     GoodTypeName: "物品类型",
                     DlTypeName:"代练类型",
                     GoodKeyWord: "",
+                    AcrossId: 0,
+                    AcrossName:"跨区",
                 },
                 SimpleClass: "gray",
                 AccurateClass: "hover",
+                IsAcross: false,
             };
         },
         created: function () {
@@ -102,7 +105,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             showDropdown: function (type) {
                 this.IsShow = true;
                 pid=this.Param[`${this.getParentTypeName(type)}Id`]||0;
-                if (type == 4||type == 5) {
+                if (type === 4||type === 5) {
                     pid = this.GameId;
                 }
                 this.setData(type, pid, this);
@@ -114,13 +117,23 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //下拉框内点击加载数据
             loadDropdown: function (type, pid, pname) {
                 pid = pid || 0;
-                var typeName = this.getParentTypeName(type);
-                if (type) {
-                    this.Param[`${typeName}Id`] = pid;
+                if (this.IsAcross && type===4) {
+                    if (type) {
+                        this.Param[`AcrossId`] = pid;
+                    }
+                    if (pname) {
+                        this.Param[`AcrossName`] = pname;
+                    }
+                } else {
+                    var typeName = this.getParentTypeName(type);
+                    if (type) {
+                        this.Param[`${typeName}Id`] = pid;
+                    }
+                    if (pname) {
+                        this.Param[`${typeName}Name`] = pname;
+                    }
                 }
-                if (pname) {
-                    this.Param[`${typeName}Name`]=pname;
-                }
+                
                 switch (type) {
                     case 2:
                         this.Param.GameGroupId=0;
@@ -128,11 +141,12 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         this.Param.GameServerId=0;
                         this.Param.GameServerName="服务器";
                         this.Param.GoodTypeId=0;
-                        this.Param.GoodTypeName="物品类型";
+                        this.Param.GoodTypeName = "物品类型";
                         break;
                     case 3:
+                    case 6:
                         this.Param.GameServerId=0;
-                        this.Param.GameServerName="服务器";
+                        this.Param.GameServerName = "服务器";
                         break;
                     case 4://交易类型
                         pid=this.Param.GameId;
@@ -153,11 +167,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                                 ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
                                 ${this.Param.GameGroupId}&GameGroupName=
                                 ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&&GameServerName=
-                                ${this.Param.GameServerName}GoodTypeId=
+                                ${this.Param.GameServerId}&GameServerName=
+                                ${this.Param.GameServerName}&GoodTypeId=
                                 ${this.Param.GoodTypeId}&GoodTypeName=
                                 ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}`);
+                                ${this.Param.GoodKeyWord.trim()}&AcrossId=
+                                ${this.Param.AcrossId}&AcrossName=
+                                ${this.Param.Across}`);
                         break;
                     case "GoodList":
                        TargetUrl = "";
@@ -186,7 +202,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var _type=common.GetSearchType();//获取页面的类型。
                 var TargetUrl = self.GetTurnPageType();
                 localStorage.SearchParam=JSON.stringify(this.Param);
-                if (TargetUrl!="") {
+                if (TargetUrl!=="") {
                     window.open(TargetUrl);
                 } else {
                    self.$root.$emit("SearchAgain",_type);//兄弟组件通信方式。

@@ -67,6 +67,7 @@
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ServerService.cs" />
     <Compile Include="Services\SettingService.cs" />
   </ItemGroup>
   <ItemGroup>
