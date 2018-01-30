@@ -14,6 +14,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr v-for="item in ListObj">
                             <td class="goods-title tl pad-l-15">
                                 <h2>

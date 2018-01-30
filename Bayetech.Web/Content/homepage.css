@@ -12,7 +12,7 @@
  */
 .com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
 .com-module .nav-justified > li {width:147px;}
-.com-module .nav-justified a {color:#fff;border-radius:0;}
+.com-module .nav-justified a {color:#fff;border-radius:0;font-size:16px;}
 .com-module .tab-content {width:1200px;margin:0 auto;}
 .com-module .index-content {width:100%;height:auto;position:relative;margin:0;}
 
@@ -33,10 +33,8 @@
 
 /*---买卖button---*/
 .buy-sale-area {overflow:hidden;}
-.buy-sale-area a {display:block;width:127px;font-family:"microsoft yahei";height:45px;line-height:45px;float:left;background:#eb6100;color:#fff;font-size:20px;text-align:center;}
-.buy-sale-area a.sale-btn {background:#22ac38;float:right;}
-.buy-sale-area a:hover {background:#ff700b;color:#fff;}
-.buy-sale-area a.sale-btn:hover {background:#20bb39;}
+.buy-sale-area a {color:#fff;font-size:16px;text-align:center;}
+
 
 /*---qq验证---*/
 .qq-check label {position:relative;height:36px;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;*margin-top:-2px;}
