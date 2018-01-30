@@ -16,13 +16,13 @@ define(["common"], function (common) {
                     <li class="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsSort" class ="gs_sort" v-else>
-                    <li><a href="javascript: void (0);">选择{{data.Title}}</a></li> 
-                    <li v-if="hasAcross"><a href="javascript: void (0);">选择跨区</a></li>
+                    <li><a href="javascript: void (0);" @click="SwitchAcross(false)">选择{{data.Title}}</a></li> 
+                    <li v-if="hasAcross"><a href="javascript: void (0);" @click="SwitchAcross(true)">选择跨区</a></li>
                     <li class ="btn-close"><button type="button" @click="CloseDropdown" class ="btn btn-xs">X</button></li>
                 </ul>
                 <ul id="gsNav" class ="gs_nav" v-if="data.Type <= 1">
-                    <li id="fastletter" class ="w_70"><a href="javascript: void (0); ">搜索结果</a></li>
-                    <li class ="w_70"><a class ="active" href="javascript: void (0); ">热门游戏</a></li>
+                    <li id="fastletter" class ="w_70"><a href="javascript: void (0);">搜索结果</a></li>
+                    <li class ="w_70"><a class ="active" href="javascript: void (0);">热门游戏</a></li>
                     <li v-for="item in alphabet">
                        <a href="javascript: void (0);" @click="getGameListByLetter(item,data.Type)">{{item}}</a>
                     </li>
@@ -89,8 +89,8 @@ define(["common"], function (common) {
             CloseDropdown: function () {//隐藏当前模态框
                 this.$parent.$data.IsShow = false;
             },
-            SwitchAcross: function () {
-
+            SwitchAcross: function (bol) {
+                this.loadDropdown(bol ? 6 : 2, 1, "地下城与勇士");
             },
         }
     };

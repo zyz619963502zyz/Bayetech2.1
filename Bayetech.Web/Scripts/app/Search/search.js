@@ -131,6 +131,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         this.Param.GoodTypeName = "物品类型";
                         break;
                     case 3:
+                    case 6:
                         this.Param.GameServerId=0;
                         this.Param.GameServerName = "服务器";
                         break;
