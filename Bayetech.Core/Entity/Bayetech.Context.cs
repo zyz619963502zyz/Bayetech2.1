@@ -57,5 +57,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<MallOrder> MallOrders { get; set; }
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<Server> Servers { get; set; }
+        public virtual DbSet<DLRequire> DLRequires { get; set; }
     }
 }

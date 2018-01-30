@@ -11,6 +11,9 @@
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css" />
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/dnf-order.css" />
+    <script src="../../../Scripts/require.js"></script>
+    <script src="../../../Scripts/jsconfig.js"></script>
+    <script src="../../../Scripts/app/DLService/DLRequirePublish/index.js"></script>
 </head>
 <body style="background: #fff;">
     <div id="app">
@@ -229,7 +232,7 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>代练需求标题：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" style="width: 720px;" name="param-goodsName" value=""  maxlength="32" placeholder="请输入填写的信息" v-model="Data.Title" />
+                                    <input type="text" class="common-input h-36" style="width: 720px;" name="param-goodsName" value="" maxlength="32" placeholder="请输入填写的信息" v-model="Data.Title" />
                                 </div>
                             </div>
                             <div class="form-item clearfix">
@@ -242,353 +245,333 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l"><i>*</i><span>代练时间：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimed" value="0" maxlength="2" v-model="DLDay"/><span class="span-item-tips">天</span>&nbsp;&nbsp;
-                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimeh"value="0" maxlength="2" v-model="DLHour"/><span class="span-item-tips">小时</span>
+                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimed" value="0" maxlength="2" v-model="DLDay" /><span class="span-item-tips">天</span>&nbsp;&nbsp;
+                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimeh" value="0" maxlength="2" v-model="DLHour" /><span class="span-item-tips">小时</span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>效率保证金：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90 onlynums" name="param-efficiencyDeposit" value="" maxlength="8" v-model="Data.EfficiencyDeposit"/>
+                                    <input type="text" class="common-input h-36 w90 onlynums" name="param-efficiencyDeposit" value="" maxlength="8" v-model="Data.EfficiencyDeposit" />
                                     <span class="span-item-tips">元<em>（打手接单需预付此保证金）</em></span>
-                                    <input type="hidden" class='dl-effMoney'/>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l"><i>*</i><span>安全保障金：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90 onlynums" name="param-safeDeposit" value="" maxlength="8" v-model="Data.SecurityDeposit" />
-                                    <span class="span-item-tips">元<em>（打手接单需预付此保障金）</em></span>
-                                    <input type="hidden" class='dl-safeMoney'/>
+                                    <input type="hidden" class='dl-effMoney' />
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l"><i>*</i><span>安全保障金：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 w90 onlynums" name="param-safeDeposit" value="" maxlength="8" v-model="Data.SecurityDeposit" />
+                                        <span class="span-item-tips">元<em>（打手接单需预付此保障金）</em></span>
+                                        <input type="hidden" class='dl-safeMoney' />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="order-item">
-                        <div class="order-item-tit"><em>2</em><span>填写代练要求</span></div>
-                        <div class="common-form dnf-form-item height-36">
-                            <div class="form-item clearfix hide">
-                                <div class="form-item-l w210"><i>*</i><span>当前角色等级：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-fromLevel" value="" maxlength="4" v-model="Data.SecurityDeposit" />
-                                </div>
-                            </div>
-                            <div class="form-item clearfix to hide">
-                                <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
-                            </div>
-                            <div class="form-item clearfix w600 hide">
-                                <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标等级：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-toLevel" value=""
-                                           maxlength="4" datatype="*|hideYs" />
-                                </div>
-                            </div>
-                            <div class="form-item clearfix hide">
-                                <div class="form-item-l w210"><i>*</i><span>当前职业：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90" name="param-fromJob" value="" maxlength="16" datatype="*|hideYs" />
-                                </div>
-                            </div>
-                            <div class="form-item to hide">
-                                <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
-                            </div>
-                            <div class="form-item clearfix w600 hide">
-                                <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标职业：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 w90" name="param-toJob" value=""
-                                           maxlength="16"
-                                           datatype="*|hideYs" />
-                                </div>
-                            </div>
-                            <div class="form-item clearfix w1000 hide">
-                                <div class="form-item-l w210"><i>*</i><span>技能加点：</span></div>
-                                <div class="form-item-r">
-                                    <div class="sec-operatorlist">
-                                        <ul class="clearfix param-addAbility">
-                                            <li data-id="1"><span>代练加点</span><b class="j-icon"></b></li>
-                                            <li class="on" data-id="2"><span>按要求加点</span><b class="j-icon"></b></li>
-                                        </ul>
+                        <div class="order-item">
+                            <div class="order-item-tit"><em>2</em><span>填写代练要求</span></div>
+                            <div class="common-form dnf-form-item height-36">
+                                <div class="form-item clearfix hide">
+                                    <div class="form-item-l w210"><i>*</i><span>当前角色等级：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 w90 onlynum" name="param-fromLevel" value="" maxlength="4" v-model="Data.SecurityDeposit" />
                                     </div>
-                                    <div class="dnf-form-upload">
-                                        <div class="dnf-form-upload-tit">
-                                            <i class="jt-top"></i>
-                                            <em>
-                                                <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/laba.png"
-                                                     alt="" />
-                                            </em>
-                                            <span>仅支持jpg、jpeg、png格式，文件小于2M（最多可上传<b>5</b>张图片）</span>
+                                </div>
+                                <div class="form-item clearfix to hide">
+                                    <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
+                                </div>
+                                <div class="form-item clearfix w600 hide">
+                                    <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标等级：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 w90 onlynum" name="param-toLevel" value=""
+                                               maxlength="4" datatype="*|hideYs" />
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix hide">
+                                    <div class="form-item-l w210"><i>*</i><span>当前职业：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 w90" name="param-fromJob" value="" maxlength="16" datatype="*|hideYs" />
+                                    </div>
+                                </div>
+                                <div class="form-item to hide">
+                                    <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
+                                </div>
+                                <div class="form-item clearfix w600 hide">
+                                    <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标职业：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 w90" name="param-toJob" value=""
+                                               maxlength="16"
+                                               datatype="*|hideYs" />
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix w1000 hide">
+                                    <div class="form-item-l w210"><i>*</i><span>技能加点：</span></div>
+                                    <div class="form-item-r">
+                                        <div class="sec-operatorlist">
+                                            <ul class="clearfix param-addAbility">
+                                                <li data-id="1"><span>代练加点</span><b class="j-icon"></b></li>
+                                                <li class="on" data-id="2"><span>按要求加点</span><b class="j-icon"></b></li>
+                                            </ul>
                                         </div>
-                                        <div id="uploader" class="bl-uploader-box clearfix">
-                                            <!--用来存放文件信息-->
-                                            <div id="thelist" class="uploader-list clearfix"></div>
-                                            <div class="btns">
-                                                <div id="picker"></div>
+                                        <div class="dnf-form-upload">
+                                            <div class="dnf-form-upload-tit">
+                                                <i class="jt-top"></i>
+                                                <em>
+                                                    <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/laba.png"
+                                                         alt="" />
+                                                </em>
+                                                <span>仅支持jpg、jpeg、png格式，文件小于2M（最多可上传<b>5</b>张图片）</span>
                                             </div>
+                                            <div id="uploader" class="bl-uploader-box clearfix">
+                                                <!--用来存放文件信息-->
+                                                <div id="thelist" class="uploader-list clearfix"></div>
+                                                <div class="btns">
+                                                    <div id="picker"></div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="common-input" name="" value="1" maxlength="16" v-model="Data.Remark" />
                                         </div>
-                                        <input type="hidden" class="common-input" name="" value="1" maxlength="16" v-model="Data.Remark" />
-                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="form-item clearfix w1000 hide">
-                                <div class="form-item-l w210"><i>*</i><span>是否使用游戏奖励：</span></div>
-                                <div class="form-item-r">
-                                    <label class="label-box">
-                                        <input type="radio" name="param-useGameBonus" value="1" checked="checked" />否
-                                    </label>
-                                    <label class="label-box">
-                                        <input type="radio" name="param-useGameBonus" value="0" />是
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix hide">
-                                <div class="form-item-l w210"><i>*</i><span>是否可加工会：</span></div>
-                                <div class="form-item-r">
-                                    <label class="label-box">
-                                        <input type="radio" name="param-joinUnion" value="1" checked="checked" />否
-                                    </label>
-                                    <label class="label-box">
-                                        <input type="radio" name="param-joinUnion" value="0" />是
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>代练备注：</span></div>
-                                <div class="form-item-r">
-                                    <div class="textarea">
-                                        <textarea name="param-dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布"
-                                                  maxlength="500"
-                                                  datatype="*"></textarea>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="order-item">
-                        <div class="order-item-tit"><em>3</em><span>填写账号信息</span></div>
-                        <div class="common-form dnf-form-item height-36">
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>游戏账号：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" name="param-gameAcct" value="" maxlength="32" v-model="Data.Account"/>
-                                    <span class="span-item-tips"><em>请填写您的游戏账号</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>游戏密码：</span></div>
-                                <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" name="gamepassword" value=""
-                                           maxlength="32" datatype="*" v-model="Data.Password"/>
-                                    <span class="span-item-tips"><em>请填写您的游戏密码，我们会保障信息安全</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>确认密码：</span></div>
-                                <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" name="param-gamePwd" value=""
-                                           maxlength="32"
-                                           datatype="*" recheck="gamepassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的密码不一致！" />
-                                    <span class="span-item-tips"><em>请再输入一次密码</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>角色名：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" name="param-roleName" value=""
-                                           maxlength="16"
-                                           datatype="*" v-model="Data.RoleName"/>
-                                    <span class="span-item-tips"><em>请请填写您的游戏角色名</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>角色等级：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 onlynum" name="param-roleLevel" value=""
-                                           maxlength="4"
-                                           datatype="*" v-model="Data.RoleLevel" />
-                                    <span class="span-item-tips"><em>请填写您的角色等级</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix hide pp">
-                                <div class="form-item-l w210"><i>*</i><span>二级密码：</span></div>
-                                <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" name="subpassword" value=""
-                                           datatype="*|hideYs" maxlength="32" v-model="Data.Level2Password"/>
-                                    <span class="span-item-tips"><em>请填写您的二级密码，方便我们需要时使用仓库中的物品</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix hide pp">
-                                <div class="form-item-l w210"><i>*</i><span>确认二级密码：</span></div>
-                                <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" name="param-gamePwd2" value=""
-                                           maxlength="32"
-                                           datatype="*|hideYs" recheck="subpassword" nullmsg="请再输入一次二级密码！"
-                                           errormsg="您两次输入的密码不一致！" />
-                                    <span class="span-item-tips"><em>请再输入一次二级密码</em></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="order-item">
-                        <div class="order-item-tit" style="border-bottom: #eee 1px dashed;"></div>
-                        <div class="common-form dnf-form-item height-30">
-                            <div class="form-item clearfix">
-                                <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;"
-                                           name="param-phone"
-                                           value="" maxlength="11" datatype="*" v-model="Data.Phone" />
-                                </div>
-                            </div>
-                            <div class="form-item clearfix">
-                                <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
-                                <div class="form-item-r">
-                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="param-qq"
-                                          
-                                           value="" maxlength="16" datatype="*" v-model="Data.QQ" />
-                                    <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
-                                </div>
-                            </div>
-                            <div class="form-item clearfix" style="width: 1000px;">
-                                <div class="form-item-l w210"><i>*</i><span>代练有效期：</span></div>
-                                <div class="form-item-r">
-                                    <select v-model="Data.ValidityPeriod">
-                                        <option value="">请选择选项</option>
-                                        <option value="5">5天</option>
-                                        <option value="7">7天</option>
-                                        <option value="10">10天</option>
-                                        <option value="15">15天</option>
-                                        <option value="30">30天</option>
-                                    </select>
-                                    <p class="orange-tip span-item-tips">逾期若无一人接单，商品则会自动下架，代练金额将自动返还至余额账户</p>
-                                </div>
-                            </div>
-                            <div class="w1000 label-hideshow">
-                                <div class="form-item clearfix">
-                                    <div class="form-item-l w210"><i>*</i><span>是否指定打手：</span></div>
+                                <div class="form-item clearfix w1000 hide">
+                                    <div class="form-item-l w210"><i>*</i><span>是否使用游戏奖励：</span></div>
                                     <div class="form-item-r">
                                         <label class="label-box">
-                                            <input type="radio" name="param-isSpecifyHired" value="1"
-                                                   checked="checked"
-                                                   class="no" />否
+                                            <input type="radio" name="param-useGameBonus" value="1" checked="checked" />否
                                         </label>
                                         <label class="label-box">
-                                            <input type="radio" name="param-isSpecifyHired" value="0"
-                                                   class="yes" />是
+                                            <input type="radio" name="param-useGameBonus" value="0" />是
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-item clearfix hide">
-                                    <div class="form-item-l" style="width: 120px;"><span>接单暗码：</span></div>
+                                    <div class="form-item-l w210"><i>*</i><span>是否可加工会：</span></div>
                                     <div class="form-item-r">
-                                        <input type="text" class="common-input h-30 w90 onlynum" name="param-secretSignal"
-                                               value=""
-                                               maxlength="4" minlength="4" v-model="Data.SecretCode"/>
-                                        <span class="span-item-tips"><em>（选择是，请先验证接单暗码，暗码正确才可接单）</em></span>
+                                        <label class="label-box">
+                                            <input type="radio" name="param-joinUnion" value="1" checked="checked" />否
+                                        </label>
+                                        <label class="label-box">
+                                            <input type="radio" name="param-joinUnion" value="0" />是
+                                        </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="w1000 label-hideshow">
                                 <div class="form-item clearfix">
-                                    <div class="form-item-l w210"><i>*</i><span>是否打赏打手：</span></div>
+                                    <div class="form-item-l w210"><i>*</i><span>代练备注：</span></div>
                                     <div class="form-item-r">
-                                        <label class="label-box">
-                                            <input type="radio" name="param-isReward" value="1"
-                                                   checked="checked"
-                                                   class="no" />否
-                                        </label>
-                                        <label class="label-box">
-                                            <input type="radio" name="param-isReward" value="0"
-                                                   class="yes" />是
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-item clearfix hide">
-                                    <div class="form-item-l" style="width: 120px;"><span>打赏金额：</span></div>
-                                    <div class="form-item-r">
-                                        <input type="text" class="common-input h-30 w90 onlynums part-money "
-                                               name="param-reward"
-                                               id="part-reward"
-                                               value="" maxlength="10" datatype="dlReward" v-model="Data.Tip"/>
-                                        <span class="span-item-tips">元<em>（选择是，代练完成后，打手可获得此奖金）</em></span>
+                                        <div class="textarea">
+                                            <textarea name="param-dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布"
+                                                      maxlength="500"
+                                                      datatype="*"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="ord-fk-box">
-                        <span>预支付代练金额：<b class="tot-money">0.00</b> 元</span>
-                        <a href="javascript:void(0)" class="com-btn-01 color01">发布并支付</a>
-                    </div>
+                        <div class="order-item">
+                            <div class="order-item-tit"><em>3</em><span>填写账号信息</span></div>
+                            <div class="common-form dnf-form-item height-36">
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>游戏账号：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36" name="param-gameAcct" value="" maxlength="32" v-model="Data.Account" />
+                                        <span class="span-item-tips"><em>请填写您的游戏账号</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>游戏密码：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="password" class="common-input h-36" name="gamepassword" value=""
+                                               maxlength="32" datatype="*" v-model="Data.Password" />
+                                        <span class="span-item-tips"><em>请填写您的游戏密码，我们会保障信息安全</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>确认密码：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="password" class="common-input h-36" name="param-gamePwd" value=""
+                                               maxlength="32"
+                                               datatype="*" recheck="gamepassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的密码不一致！" />
+                                        <span class="span-item-tips"><em>请再输入一次密码</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>角色名：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36" name="param-roleName" value=""
+                                               maxlength="16"
+                                               datatype="*" v-model="Data.RoleName" />
+                                        <span class="span-item-tips"><em>请请填写您的游戏角色名</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>角色等级：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-36 onlynum" name="param-roleLevel" value=""
+                                               maxlength="4"
+                                               datatype="*" v-model="Data.RoleLevel" />
+                                        <span class="span-item-tips"><em>请填写您的角色等级</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix hide pp">
+                                    <div class="form-item-l w210"><i>*</i><span>二级密码：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="password" class="common-input h-36" name="subpassword" value=""
+                                               datatype="*|hideYs" maxlength="32" v-model="Data.Level2Password" />
+                                        <span class="span-item-tips"><em>请填写您的二级密码，方便我们需要时使用仓库中的物品</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix hide pp">
+                                    <div class="form-item-l w210"><i>*</i><span>确认二级密码：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="password" class="common-input h-36" name="param-gamePwd2" value=""
+                                               maxlength="32"
+                                               datatype="*|hideYs" recheck="subpassword" nullmsg="请再输入一次二级密码！"
+                                               errormsg="您两次输入的密码不一致！" />
+                                        <span class="span-item-tips"><em>请再输入一次二级密码</em></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="order-item">
+                            <div class="order-item-tit" style="border-bottom: #eee 1px dashed;"></div>
+                            <div class="common-form dnf-form-item height-30">
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;"
+                                               name="param-phone"
+                                               value="" maxlength="11" datatype="*" v-model="Data.Phone" />
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
+                                    <div class="form-item-r">
+                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="param-qq"
+                                               value="" maxlength="16" datatype="*" v-model="Data.QQ" />
+                                        <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix" style="width: 1000px;">
+                                    <div class="form-item-l w210"><i>*</i><span>代练有效期：</span></div>
+                                    <div class="form-item-r">
+                                        <select v-model="Data.ValidityPeriod">
+                                            <option value="0">请选择选项</option>
+                                            <option value="5">5天</option>
+                                            <option value="7">7天</option>
+                                            <option value="10">10天</option>
+                                            <option value="15">15天</option>
+                                            <option value="30">30天</option>
+                                        </select>
+                                        <p class="orange-tip span-item-tips">逾期若无一人接单，商品则会自动下架，代练金额将自动返还至余额账户</p>
+                                    </div>
+                                </div>
+                                <div class="w1000 label-hideshow">
+                                    <div class="form-item clearfix">
+                                        <div class="form-item-l w210"><i>*</i><span>是否指定打手：</span></div>
+                                        <div class="form-item-r">
+                                            <label class="label-box">
+                                                <input type="radio" name="IsSpecifyHired" value="false" v-model="IsSpecifyHired" />否
+                                            </label>
+                                            <label class="label-box">
+                                                <input type="radio" name="IsSpecifyHired" value="true" v-model="IsSpecifyHired" />是
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-item clearfix" v-show="IsSpecifyHired">
+                                        <div class="form-item-l" style="width: 120px;"><span>接单暗码：</span></div>
+                                        <div class="form-item-r">
+                                            <input type="text" class="common-input h-30 w90 onlynum" name="SpecifyHired" value="" maxlength="4" minlength="4" v-model="Data.SecretCode" />
+                                            <span class="span-item-tips"><em>（选择是，请先验证接单暗码，暗码正确才可接单）</em></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w1000 label-hideshow">
+                                    <div class="form-item clearfix">
+                                        <div class="form-item-l w210"><i>*</i><span>是否打赏打手：</span></div>
+                                        <div class="form-item-r">
+                                            <label class="label-box">
+                                                <input type="radio" name="IsTip" value="false" v-model="IsReward" />否
+                                            </label>
+                                            <label class="label-box">
+                                                <input type="radio" name="IsTip" value="true" v-model="IsReward" />是
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-item clearfix" v-show="IsTip">
+                                        <div class="form-item-l" style="width: 120px;"><span>打赏金额：</span></div>
+                                        <div class="form-item-r">
+                                            <input type="text" class="common-input h-30 w90 onlynums part-money" name="Tip" id="Tip" value="" maxlength="10" v-model="Data.Tip" />
+                                            <span class="span-item-tips">元<em>（选择是，代练完成后，打手可获得此奖金）</em></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ord-fk-box">
+                            <span>预支付代练金额：<b class="tot-money">0.00</b> 元</span>
+                            <a href="javascript:void(0)" class="com-btn-01 color01">发布并支付</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+            <input type="hidden" id='dltypes' value="{1=等级代练-10-10-10-10, 2=深渊代练-10-10-10-10, 3=传说装备-10-10-10-10, 4=日常代练-10-10-10-10, 5=异界代刷-10-10-10-10, 6=官方活动-10-10-10-10, 7=PK场代练-10-10-10-10, 8=装备强化-10-10-10-10, 9=代合天空-10-10-10-10, 10=活动站街-10-10-10-10, 11=其他代练-10-10-10-10}">
+            <!-- 主体部分 End-->
+            <!-- 通用底部 Start -->
+            <div class="footer-content footer-01">
+                <div class="footer-server-box">
+                    <div class="footer-server">
+                        <div class="footer-server-dl">
+                            <dl>
+                                <dt><em class="iconfont">&#xe62b;</em></dt>
+                                <dd>
+                                    <h2>游戏交易 应有尽有</h2>
+                                    <p>关于游戏你想要的，这里都有</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><em class="iconfont">&#xe62e;</em></dt>
+                                <dd>
+                                    <h2>交易安全 资金保障</h2>
+                                    <p>保障交易安全的事，我们都做</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><em class="iconfont">&#xe62d;</em></dt>
+                                <dd>
+                                    <h2>7*24小时 专属客服</h2>
+                                    <p>时时刻刻想联系我，客服都在</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><em class="iconfont">&#xe62c#xe62c;</em></dt>
+                                <dd>
+                                    <h2>权威认证 安全可靠</h2>
+                                    <p>我是值得信赖平台，大家都造</p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-link">
+                    <div class="footer-link-a">
+                        <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><em>|</em>
+                        <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><em>|</em>
+                        <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><em>|</em>
+                        <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><em>|</em>
+                        <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><em>|</em>
+                        <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商户合作</a><em>|</em>
+                        <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a>
+
+                    </div>
+                    <p>Copyright <i>©</i> 2008-2014 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a></p>
+                </div>
+            </div>
+            <!-- 通用底部 End -->
         </div>
-        <input type="hidden" id='dltypes' value="{1=等级代练-10-10-10-10, 2=深渊代练-10-10-10-10, 3=传说装备-10-10-10-10, 4=日常代练-10-10-10-10, 5=异界代刷-10-10-10-10, 6=官方活动-10-10-10-10, 7=PK场代练-10-10-10-10, 8=装备强化-10-10-10-10, 9=代合天空-10-10-10-10, 10=活动站街-10-10-10-10, 11=其他代练-10-10-10-10}">
-        <!-- 主体部分 End-->
-        <!-- 通用底部 Start -->
-        <div class="footer-content footer-01">
-            <div class="footer-server-box">
-                <div class="footer-server">
-                    <div class="footer-server-dl">
-                        <dl>
-                            <dt><em class="iconfont">&#xe62b;</em></dt>
-                            <dd>
-                                <h2>游戏交易 应有尽有</h2>
-                                <p>关于游戏你想要的，这里都有</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62e;</em></dt>
-                            <dd>
-                                <h2>交易安全 资金保障</h2>
-                                <p>保障交易安全的事，我们都做</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62d;</em></dt>
-                            <dd>
-                                <h2>7*24小时 专属客服</h2>
-                                <p>时时刻刻想联系我，客服都在</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62c#xe62c;</em></dt>
-                            <dd>
-                                <h2>权威认证 安全可靠</h2>
-                                <p>我是值得信赖平台，大家都造</p>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-link">
-                <div class="footer-link-a">
-                    <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><em>|</em>
-                    <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><em>|</em>
-                    <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><em>|</em>
-                    <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><em>|</em>
-                    <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><em>|</em>
-                    <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商户合作</a><em>|</em>
-                    <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a>
-
-                </div>
-                <p>Copyright <i>©</i> 2008-2014 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a></p>
-            </div>
-        </div>
-        <!-- 通用底部 End -->
     </div>
-    <!-- 通用Js库 Start -->
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/js/7881-2016.js"></script>
-    <!-- 通用Js库 End -->
-    <!--业务js开始-->
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/Validform-v5.3.2.min.js"></script>
-    <script type="text/javascript" src="http://pic.7881.com/7881-2016/common/uploader/webuploader.min.js"></script>
-    <script type="text/javascript" src="/static/js/goods/goods-publish.js"></script>
-    <script type="text/javascript" src="/static/js/home/home.js"></script>
 </body>
 </html>
