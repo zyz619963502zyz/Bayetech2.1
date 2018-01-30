@@ -105,7 +105,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             showDropdown: function (type) {
                 this.IsShow = true;
                 pid=this.Param[`${this.getParentTypeName(type)}Id`]||0;
-                if (type == 4||type == 5) {
+                if (type === 4||type === 5) {
                     pid = this.GameId;
                 }
                 this.setData(type, pid, this);
@@ -117,7 +117,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //下拉框内点击加载数据
             loadDropdown: function (type, pid, pname) {
                 pid = pid || 0;
-                if (this.IsAcross && type==4) {
+                if (this.IsAcross && type===4) {
                     if (type) {
                         this.Param[`AcrossId`] = pid;
                     }
@@ -202,7 +202,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var _type=common.GetSearchType();//获取页面的类型。
                 var TargetUrl = self.GetTurnPageType();
                 localStorage.SearchParam=JSON.stringify(this.Param);
-                if (TargetUrl!="") {
+                if (TargetUrl!=="") {
                     window.open(TargetUrl);
                 } else {
                    self.$root.$emit("SearchAgain",_type);//兄弟组件通信方式。

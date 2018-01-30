@@ -49,13 +49,13 @@ define(["common"], function (common) {
             return data;
         },
         mounted: function () {
-            if (this.$parent.Param.GameId == 1 && this.$props.data.type == 2) {
+            if (this.$parent.Param.GameId === 1 && this.$props.data.type === 2) {
                 this.hasAcross = true;
             }
         },
         watch: {
             data: function () {
-                this.hasAcross = this.$parent.Param.GameId == 1 && this.$props.data.Type == 2;
+                this.hasAcross = this.$parent.Param.GameId === 1 && this.$props.data.Type === 2;
             },
         },
         methods: {

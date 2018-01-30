@@ -1,5 +1,5 @@
 ﻿//商品管理
-define(['vue', 'jquery', 'common', 'API', 'text!/../Page/UserCenter/tpl/GoodManage.html', 'bootstrap-paginator', 'datepicker'], function (Vue, $, common, API, html, paginator) {
+define(['vue', 'jquery', 'common', 'API', 'text!/../Page/Good/tpl/GoodManage.html', 'bootstrap-paginator', 'datepicker'], function (Vue, $, common, API, html, paginator) {
     var html=html;
     var data={
         Param:{
