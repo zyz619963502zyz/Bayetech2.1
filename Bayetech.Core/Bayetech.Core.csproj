@@ -94,6 +94,9 @@
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\GameAccount.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\GameInfoDescription.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

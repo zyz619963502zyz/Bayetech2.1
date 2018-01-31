@@ -65,5 +65,40 @@ namespace Bayetech.Web.Controllers
             ret.Add("detail", JProperty.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
             return ret;
         }
+
+        /// <summary>
+        /// 添加需求
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public bool AddRequireMent(JObject json)
+        {
+            try
+            {
+                var result = false;
+                var DLRequireService = new BaseService<DLRequire>();
+                var GameAccountService = new BaseService<GameAccount>();
+                //组装游戏账号对象
+                var GameAccountObj = JsonConvert.DeserializeObject<GameAccount>(json.ToString());
+                GameAccountObj.AccountType = "DLRequire";
+                var bol1 = GameAccountService.Insert(GameAccountObj)>0;
+                if (bol1)
+                {
+                    //组装代练需求对象
+                    var DLRequireObj = JsonConvert.DeserializeObject<DLRequire>(json.ToString());
+                    DLRequireObj.Phone = null;
+                    DLRequireObj.QQ = null;
+                    DLRequireObj.Status = 0;
+                    DLRequireObj.AccountId = GameAccountObj.Id;
+                    result = DLRequireService.Insert(DLRequireObj) > 0;
+                }
+                return result;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

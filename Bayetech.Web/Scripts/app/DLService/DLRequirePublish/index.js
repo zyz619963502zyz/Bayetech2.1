@@ -1,24 +1,24 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'bootstrap', 'v-header'],
-    function (Vue, $, common, bootstrap, header, nav, search, GameList) {
+require(['vue', 'jquery', 'common', 'bootstrap', 'nav-top',"../Scripts/app/API/Game"],
+    function (Vue, $, common, bootstrap, top, GameAPI) {
         var data = {
             GameGroupList: [],
             GameServerList: [],
             DLTypeList: [],
-            DLDay: 0,
-            DLHour: 0,
+            DLDay: "",
+            DLHour: "",
             IsSpecifyHired: false,
             IsTip: false,
             Data: {
                 Title: "",
                 Type: "",
-                Price: 0,
+                Price: "",
                 DLPeriod: 0,
-                GameId: 0,
-                GroupId: 0,
-                ServerId: 0,
-                EfficiencyDeposit: 0,
-                SecurityDeposit: 0,
+                GameId: 1,
+                GroupId: "",
+                ServerId: "",
+                EfficiencyDeposit: "",
+                SecurityDeposit: "",
                 Remark: "",
                 Phone: "",
                 QQ: "",
@@ -28,13 +28,19 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header'],
                 Password: "",
                 Level2Password: "",
                 RoleName: "",
-                RoleLevel: 0,
+                RoleLevel: "",
             },
         }
         new Vue({
             el: '#app',
-            data() {
+            data: function() {
                 return data;
+            },
+            created: function () {
+                var self = this;
+                GameAPI.GetGroupList(this.Data.GameId, null, function (data) {
+                    self.GameGroupList = data.content;
+                });
             },
             watch: {
                 DLDay: function () {
@@ -43,14 +49,20 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header'],
                 DLHour: function () {
                     this.DLPeriod = this.DLDay * 24 + this.DLHour;
                 },
+                "Data.GroupId": function () {
+                    var self = this;
+                    GameAPI.GetServerList(this.Data.GroupId, null, function (data) {
+                        self.GameServerList = data.content;
+                    });
+                },
             },
             components: {
-                "v-header": header,
+                "nav-top": top,
             },
             methods: {
                 Publish: function () {
-                    $.post("", this.Data, function () {
-
+                    $.post("/api/DL/AddRequireMent", this.Data, function (data) {
+                        alert(data);
                     });
                 },
             },

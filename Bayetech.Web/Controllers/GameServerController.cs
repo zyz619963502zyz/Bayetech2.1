@@ -36,7 +36,7 @@ namespace Bayetech.Web.Controllers
             name = Core.Common.Trim(name);
             if (string.IsNullOrEmpty(name))
             {
-                return serverService.GetList(a => a.ParentId == parenId && !a.IsDelete);
+                return serverService.GetList(a => a.ParentId != 0 && a.ParentId == parenId && !a.IsDelete);
             }
             else
             {

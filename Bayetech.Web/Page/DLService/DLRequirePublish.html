@@ -11,6 +11,7 @@
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css" />
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/dnf-order.css" />
+    <link href="../../Content/common.css" rel="stylesheet" />
     <script src="../../../Scripts/require.js"></script>
     <script src="../../../Scripts/jsconfig.js"></script>
     <script src="../../../Scripts/app/DLService/DLRequirePublish/index.js"></script>
@@ -18,80 +19,8 @@
 <body style="background: #fff;">
     <div id="app">
         <!-- 通用顶部 Start -->
-        <div class="top-common-box">
-            <div class="top-common clearfix">
-                <div class="top-common-left">
-                    <div class="already-log">
-                        <span>
-                            <a href="http://www.7881.com/personal.html">
-                                18879703099
-                            </a>
-                            ,
-                            欢迎回来！
-                        </span><em>|</em>
-                        <a href="http://www.7881.com/msg/notReadMsg.action" class="on" rel="nofollow">
-                            <i class="icon-com message"></i>消息（<b class="msg">0</b>）
-                        </a><em>|</em>
-                        <a href="http://www.7881.com/logout.action?comeback=http://dnf.dl.7881.com" rel="nofollow">退出</a>
-                    </div>
-                </div>
-                <div class="top-common-right">
-                    <ul>
-                        <li><a href="http://www.7881.com/personal.html?ver=20140717" rel="nofollow">我的7881</a></li>
-                        <li><a href="http://www.7881.com/financecharge/toAdd.action" class="gre" rel="nofollow">充值</a></li>
-                        <li>
-                            <a href="http://www.7881.com/financecharge/toAddExtractcash.action" class="org"
-                               rel="nofollow">提现</a>
-                        </li>
-                        <li class="top-menu-item">
-                            <div class="top-menu middle-menu">
-                                <a href="http://www.7881.com/personal.html?ver=20140717" class="menu-hd" rel="nofollow">买家中心<i class="icon-com"></i></a>
-                                <div class="top-menu-list">
-                                    <a href="http://www.7881.com/procurement/queryMyProcureOrder.action"
-                                       rel="nofollow">我购买的商品</a>
-                                    <a href="http://www.7881.com/gamelistshow.html" rel="nofollow">我要买</a>
-
-                                </div>
-                            </div>
-                        </li>
-                        <li class="top-menu-item">
-                            <div class="top-menu middle-menu">
-                                <a href="http://www.7881.com/personal.html" class="menu-hd" rel="nofollow">卖家中心<i class="icon-com"></i></a>
-                                <div class="top-menu-list">
-                                    <a href="http://www.7881.com/props/getUserPropsDetail.action" rel="nofollow">我的置顶卡</a>
-                                    <a href="http://www.7881.com/sellertool/queryMySaleOrder.action" rel="nofollow">我的订单管理</a>
-                                    <a href="http://www.7881.com/procurement/showMyGoods.action" rel="nofollow">出售中的宝贝</a>
-                                    <a href="http://www.7881.com/sellertool/queryMyClosedGoods.action" rel="nofollow">仓库中的宝贝</a>
-                                    <a href="http://www.7881.com/release.html" rel="nofollow">我要卖</a>
-
-                                </div>
-                            </div>
-                        </li>
-                        <li class="top-menu-item">
-                            <div class="top-menu">
-                                <a href="#" class="menu-hd" rel="nofollow">服务中心<i class="icon-com"></i></a>
-                                <div class="top-menu-list">
-                                    <a href="http://www.7881.com/sc/sc_index.html" rel="nofollow">客服中心</a>
-                                    <a href="http://www.7881.com/helpCenter.html" rel="nofollow">帮助中心</a>
-                                    <a href="http://www.7881.com/articlelist4-0-0.html" rel="nofollow">资讯中心</a>
-                                    <a href="http://www.7881.com/tradesafe.html" rel="nofollow">安全中心</a>
-
-                                </div>
-                            </div>
-                        </li>
-                        <li class="top-menu-item last-menu-item">
-                            <div class="top-menu">
-                                <a href="#" class="menu-hd">网站导航<i class="icon-com"></i></a>
-                                <div class="top-menu-list">
-                                    <a href="http://www.7881.com/release_admittance.html" target="_blank">商家准入</a>
-                                    <a href="http://sellertools.7881.com" target="_blank">卖家助手</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- 通用头部03 Start -->
+        <nav-top></nav-top>
+        <!-- 通用头部03 Start -->
         <div class="header-03-box">
             <div class="header-03 clearfix">
                 <h1 class="logo">
@@ -209,7 +138,8 @@
                                 <div class="form-item-l w210"><i>*</i><span>游戏区：</span></div>
                                 <div class="form-item-r">
                                     <select v-model="Data.GroupId">
-                                        <option v-for="item in GameGroupList">item.Name</option>
+                                        <option value="">请选择</option>
+                                        <option v-for="item in GameGroupList" :value="item.Id">{{item.Name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -217,7 +147,8 @@
                                 <div class="form-item-l"><i>*</i><span>游戏服：</span></div>
                                 <div class="form-item-r">
                                     <select v-model="Data.ServerId">
-                                        <option v-for="item in GameServerList">item.Name</option>
+                                        <option value="">请选择</option>
+                                        <option v-for="item in GameServerList" :value="item.Id">{{item.Name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -225,7 +156,8 @@
                                 <div class="form-item-l"><i>*</i><span>代练类型：</span></div>
                                 <div class="form-item-r">
                                     <select v-model="Data.Type">
-                                        <option v-for="item in DLTypeList">item.Name</option>
+                                        <option value="">请选择</option>
+                                        <option v-for="item in DLTypeList" :value="item.Id">{{item.Name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -457,7 +389,7 @@
                                     <div class="form-item-l w210"><i>*</i><span>代练有效期：</span></div>
                                     <div class="form-item-r">
                                         <select v-model="Data.ValidityPeriod">
-                                            <option value="0">请选择选项</option>
+                                            <option value="0">请选择</option>
                                             <option value="5">5天</option>
                                             <option value="7">7天</option>
                                             <option value="10">10天</option>
@@ -492,10 +424,10 @@
                                         <div class="form-item-l w210"><i>*</i><span>是否打赏打手：</span></div>
                                         <div class="form-item-r">
                                             <label class="label-box">
-                                                <input type="radio" name="IsTip" value="false" v-model="IsReward" />否
+                                                <input type="radio" name="IsTip" value="false" v-model="IsTip" />否
                                             </label>
                                             <label class="label-box">
-                                                <input type="radio" name="IsTip" value="true" v-model="IsReward" />是
+                                                <input type="radio" name="IsTip" value="true" v-model="IsTip" />是
                                             </label>
                                         </div>
                                     </div>
@@ -511,8 +443,8 @@
                         </div>
 
                         <div class="ord-fk-box">
-                            <span>预支付代练金额：<b class="tot-money">0.00</b> 元</span>
-                            <a href="javascript:void(0)" class="com-btn-01 color01">发布并支付</a>
+                            <span>预支付代练金额：<b class="tot-money">{{Data.Price}}</b> 元</span>
+                            <a href="javascript:void(0)" class="com-btn-01 color01" @click="Publish">发布并支付</a>
                         </div>
 
                     </div>
