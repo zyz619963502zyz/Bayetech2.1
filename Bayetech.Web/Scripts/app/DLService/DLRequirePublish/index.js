@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'bootstrap', 'nav-top',"../Scripts/app/API/Game"],
-    function (Vue, $, common, bootstrap, top, GameAPI) {
+require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
+    function (Vue, $, common, top, GameAPI) {
         var data = {
             GameGroupList: [],
             GameServerList: [],
@@ -9,7 +9,8 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'nav-top',"../Scripts/app/API/G
             DLHour: "",
             IsSpecifyHired: false,
             IsTip: false,
-            Data: {
+            IsLevelDL: true,
+            Data: {//表单实体
                 Title: "",
                 Type: "",
                 Price: "",
@@ -29,6 +30,13 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'nav-top',"../Scripts/app/API/G
                 Level2Password: "",
                 RoleName: "",
                 RoleLevel: "",
+                CurrentLevel: "",
+                TargetLevel: "",
+                CurrentProfession: "",
+                TargertProfession: "",
+                AddAbility: "",
+                IsUseGameBonus:"" ,
+                IsJoinUnion: "",
             },
         }
         new Vue({
@@ -38,29 +46,33 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'nav-top',"../Scripts/app/API/G
             },
             created: function () {
                 var self = this;
+                //加载游戏区列表
                 GameAPI.GetGroupList(this.Data.GameId, null, function (data) {
                     self.GameGroupList = data.content;
                 });
+                //加载代练类型列表
             },
             watch: {
-                DLDay: function () {
-                    this.DLPeriod = this.DLDay * 24 + this.DLHour;
-                },
-                DLHour: function () {
-                    this.DLPeriod = this.DLDay * 24 + this.DLHour;
-                },
-                "Data.GroupId": function () {
+                "Data.GroupId": function () {//加载游戏服务器列表
                     var self = this;
                     GameAPI.GetServerList(this.Data.GroupId, null, function (data) {
                         self.GameServerList = data.content;
                     });
+                },
+                DLPeriod: function() {
+                    this.Data.DLPeriod = this.DLPeriod;
+                },
+            },
+            computed: {
+                DLPeriod: function () { //计算代练时间
+                    return parseInt(this.DLDay) * 24 + parseInt(this.DLHour);
                 },
             },
             components: {
                 "nav-top": top,
             },
             methods: {
-                Publish: function () {
+                Publish: function () {//发布需求
                     $.post("/api/DL/AddRequireMent", this.Data, function (data) {
                         alert(data);
                     });

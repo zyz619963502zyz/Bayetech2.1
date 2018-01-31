@@ -202,40 +202,38 @@
                         <div class="order-item">
                             <div class="order-item-tit"><em>2</em><span>填写代练要求</span></div>
                             <div class="common-form dnf-form-item height-36">
-                                <div class="form-item clearfix hide">
+                                <div class="form-item clearfix" v-show="IsLevelDL">
                                     <div class="form-item-l w210"><i>*</i><span>当前角色等级：</span></div>
                                     <div class="form-item-r">
-                                        <input type="text" class="common-input h-36 w90 onlynum" name="param-fromLevel" value="" maxlength="4" v-model="Data.SecurityDeposit" />
+                                        <input type="text" class="common-input h-36 w90 onlynum" name="param-fromLevel" value="" maxlength="4" v-model="Data.CurrentLevel" />
                                     </div>
                                 </div>
-                                <div class="form-item clearfix to hide">
+                                <div class="form-item clearfix to" v-show="IsLevelDL">
                                     <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
                                 </div>
-                                <div class="form-item clearfix w600 hide">
+                                <div class="form-item clearfix w600" v-show="IsLevelDL">
                                     <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标等级：</span></div>
                                     <div class="form-item-r">
                                         <input type="text" class="common-input h-36 w90 onlynum" name="param-toLevel" value=""
-                                               maxlength="4" datatype="*|hideYs" />
+                                               maxlength="4" datatype="*|hideYs"  v-model="Data.TargetLevel"/>
                                     </div>
                                 </div>
-                                <div class="form-item clearfix hide">
+                                <div class="form-item clearfix" v-show="IsLevelDL">
                                     <div class="form-item-l w210"><i>*</i><span>当前职业：</span></div>
                                     <div class="form-item-r">
-                                        <input type="text" class="common-input h-36 w90" name="param-fromJob" value="" maxlength="16" datatype="*|hideYs" />
+                                        <input type="text" class="common-input h-36 w90" name="param-fromJob" value="" maxlength="16" datatype="*|hideYs"  v-model="Data.CurrentProfession"/>
                                     </div>
                                 </div>
-                                <div class="form-item to hide">
+                                <div class="form-item to" v-show="IsLevelDL">
                                     <img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/to.png" alt="" />
                                 </div>
-                                <div class="form-item clearfix w600 hide">
+                                <div class="form-item clearfix w600" v-show="IsLevelDL">
                                     <div class="form-item-l" style="width: 84px;"><i>*</i><span>目标职业：</span></div>
                                     <div class="form-item-r">
-                                        <input type="text" class="common-input h-36 w90" name="param-toJob" value=""
-                                               maxlength="16"
-                                               datatype="*|hideYs" />
+                                        <input type="text" class="common-input h-36 w90" name="param-toJob" value="" maxlength="16" datatype="*|hideYs"  v-model="Data.TargertProfession"/>
                                     </div>
                                 </div>
-                                <div class="form-item clearfix w1000 hide">
+                                <div class="form-item clearfix w1000" v-show="IsLevelDL">
                                     <div class="form-item-l w210"><i>*</i><span>技能加点：</span></div>
                                     <div class="form-item-r">
                                         <div class="sec-operatorlist">
@@ -243,6 +241,7 @@
                                                 <li data-id="1"><span>代练加点</span><b class="j-icon"></b></li>
                                                 <li class="on" data-id="2"><span>按要求加点</span><b class="j-icon"></b></li>
                                             </ul>
+                                            <input style="display:none" v-model="Data.AddAbility"/>
                                         </div>
                                         <div class="dnf-form-upload">
                                             <div class="dnf-form-upload-tit">
@@ -260,30 +259,30 @@
                                                     <div id="picker"></div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" class="common-input" name="" value="1" maxlength="16" v-model="Data.Remark" />
+                                            <input type="hidden" class="common-input" name="" value="1" maxlength="16" />
                                         </div>
 
                                     </div>
                                 </div>
-                                <div class="form-item clearfix w1000 hide">
+                                <div class="form-item clearfix w1000" v-show="IsLevelDL">
                                     <div class="form-item-l w210"><i>*</i><span>是否使用游戏奖励：</span></div>
                                     <div class="form-item-r">
                                         <label class="label-box">
-                                            <input type="radio" name="param-useGameBonus" value="1" checked="checked" />否
+                                            <input type="radio" name="param-useGameBonus" value="1" checked="checked" v-model="Data.IsUseGameBonus" />否
                                         </label>
                                         <label class="label-box">
-                                            <input type="radio" name="param-useGameBonus" value="0" />是
+                                            <input type="radio" name="param-useGameBonus" value="0" v-model="Data.IsUseGameBonus"/>是
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-item clearfix hide">
+                                <div class="form-item clearfix" v-show="IsLevelDL">
                                     <div class="form-item-l w210"><i>*</i><span>是否可加工会：</span></div>
                                     <div class="form-item-r">
                                         <label class="label-box">
-                                            <input type="radio" name="param-joinUnion" value="1" checked="checked" />否
+                                            <input type="radio" name="param-joinUnion" value="1" checked="checked" v-model="Data.IsJoinUnion" />否
                                         </label>
                                         <label class="label-box">
-                                            <input type="radio" name="param-joinUnion" value="0" />是
+                                            <input type="radio" name="param-joinUnion" value="0" v-model="Data.IsJoinUnion" />是
                                         </label>
                                     </div>
                                 </div>
@@ -293,7 +292,7 @@
                                         <div class="textarea">
                                             <textarea name="param-dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布"
                                                       maxlength="500"
-                                                      datatype="*"></textarea>
+                                                      datatype="*" v-model="Data.Remark"></textarea>
                                         </div>
                                     </div>
                                 </div>
