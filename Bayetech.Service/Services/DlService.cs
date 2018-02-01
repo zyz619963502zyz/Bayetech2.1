@@ -111,5 +111,16 @@ namespace Bayetech.Service
                 return ret;
             }
         }
+
+
+        public JObject SubmitDlInfo(vw_MallDLOrderInfo orderInfo)
+        {
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                var ret = new JObject();
+
+                return ret;
+            }
+        }
     }
 }

@@ -97,7 +97,7 @@
         <div class="header-03 clearfix">
             <h1 class="logo">
                 <a href="/" title="游戏金币交易平台">
-                    <img src="http://pic.7881.com/7881-2016/images/dl-dnf/logo-dnfdl.png" width="268" height="120"
+                    <img src="http://pic.7881.com/7881-2016/images/dl-dnf/logo-dnfdl.png1" width="268" height="120"
                          alt="游戏金币交易平台" />
                 </a>
             </h1>
@@ -273,13 +273,13 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="phone"  value="" maxlength="11" datatype="*" />
+                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;" :value="subMitObj.BuyerQQ" />
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
                                 <div class="form-item-r">
-                                     <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="qq"  value="" maxlength="16" datatype="*" />
+                                     <input type="text" class="common-input h-30 onlynum" style="width: 118px;" :value="subMitObj.BuyerPhone" />
                                     <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
                                 </div>
                             </div>
@@ -287,7 +287,7 @@
                     </div>
 
                     <div class="ord-fk-box">
-                        <span>预支付代练金额：<b class="tot-money">12.00</b> 元</span>
+                        <span>预支付代练金额：<b class="tot-money">{{OrderPrice}}</b> 元</span>
                         <a href="javascript:void(0)" class="com-btn-01 color01">立即支付</a>
                     </div>
 
