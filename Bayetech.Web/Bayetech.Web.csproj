@@ -269,6 +269,7 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DlPayInfoModels.cs" />
     <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MallGoodInfoModels.cs" />
@@ -707,7 +708,6 @@
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
-    <Content Include="Models\GoodInfo\GoodInfo.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
     <Content Include="Page\Home\PhonePage.html" />

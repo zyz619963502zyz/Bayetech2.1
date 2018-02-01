@@ -3,6 +3,7 @@ var moudule = ['vue', 'jquery', 'common', 'DLBuyNow']
 require(moudule, function (Vue, $, common, dlBuyInfo) {
     //api
     var _GetServersUrl="/api/Order/GetServers";
+    var _SubMitForm = "/api/"
 
     //数据为左右整合数据
     var vm = new Vue({
@@ -12,13 +13,18 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
             Servers:[],
             subMitObj: {
                 GameId: 0,
+                GoodNo:"",//编号
+                GroupSelected: "",
+                ServerSelected: "",
                 Account: "",
                 Password: "",
                 PwdAgain: "",
+                OrderPrice:"",
                 RoleName: "",
-                RoleLevel:"",
-                GroupSelected: "",
-                ServerSelected: "",
+                RoleLevel: "",
+                BuyerQQ:"",//联系QQ
+                BuyerPhone: "",//联系手机
+                CurrentUserId:""
             }
         },
         methods: {
