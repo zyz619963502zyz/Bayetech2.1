@@ -16,8 +16,8 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 Price: "",
                 DLPeriod: 0,
                 GameId: 1,
-                GroupId: "",
-                ServerId: "",
+                GroupId: 0,
+                ServerId: 0,
                 EfficiencyDeposit: "",
                 SecurityDeposit: "",
                 Remark: "",
@@ -60,6 +60,7 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                     var self = this;
                     GameAPI.GetServerList(this.Data.GroupId, null, function (data) {
                         self.GameServerList = data.content;
+                        self.Data.ServerId = 0;
                     });
                 },
                 "Data.DLType": function () {
