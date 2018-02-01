@@ -9,10 +9,10 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
             DLHour: "",
             IsSpecifyHired: false,
             IsTip: false,
-            IsLevelDL: true,
+            IsLevelDL: false,
             Data: {//表单实体
                 Title: "",
-                Type: "",
+                DLType: "",
                 Price: "",
                 DLPeriod: 0,
                 GameId: 1,
@@ -51,6 +51,9 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                     self.GameGroupList = data.content;
                 });
                 //加载代练类型列表
+                $.get("/api/GoodType/GetDLType", { gameId: this.Data.GameId }, function (data) {
+                    self.DLTypeList = data.content;
+                });
             },
             watch: {
                 "Data.GroupId": function () {//加载游戏服务器列表
@@ -59,9 +62,13 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                         self.GameServerList = data.content;
                     });
                 },
+                "Data.DLType": function () {
+                    this.IsLevelDL = this.Data.DLType === "levelreplace";
+                },
                 DLPeriod: function() {
                     this.Data.DLPeriod = this.DLPeriod;
                 },
+
             },
             computed: {
                 DLPeriod: function () { //计算代练时间
@@ -74,7 +81,7 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
             methods: {
                 Publish: function () {//发布需求
                     $.post("/api/DL/AddRequireMent", this.Data, function (data) {
-                        alert(data);
+                        alert(data?"发布成功":"发布失败");
                     });
                 },
             },

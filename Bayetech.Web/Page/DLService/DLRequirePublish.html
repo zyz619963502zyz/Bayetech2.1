@@ -155,9 +155,9 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l"><i>*</i><span>代练类型：</span></div>
                                 <div class="form-item-r">
-                                    <select v-model="Data.Type">
+                                    <select v-model="Data.DLType">
                                         <option value="">请选择</option>
-                                        <option v-for="item in DLTypeList" :value="item.Id">{{item.Name}}</option>
+                                        <option v-for="item in DLTypeList" :value="item.En_Name">{{item.Name}}</option>
                                     </select>
                                 </div>
                             </div>
