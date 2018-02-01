@@ -25,7 +25,7 @@ namespace Bayetech.Core.Entity
         public Nullable<decimal> EfficiencyDeposit { get; set; }
         public Nullable<decimal> SecurityDeposit { get; set; }
         public string Remark { get; set; }
-        public Nullable<int> AccountId { get; set; }
+        public Nullable<long> AccountId { get; set; }
         public string Phone { get; set; }
         public Nullable<int> QQ { get; set; }
         public Nullable<int> ValidityPeriod { get; set; }

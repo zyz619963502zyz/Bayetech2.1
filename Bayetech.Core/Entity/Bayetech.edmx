@@ -92,8 +92,6 @@
           <Property Name="group_add" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="img" Type="nvarchar" MaxLength="1000" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“Bayetech.dbo.DLRequire”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="DLRequire">
           <Key>
             <PropertyRef Name="Id" />
@@ -109,7 +107,7 @@
           <Property Name="EfficiencyDeposit" Type="money" />
           <Property Name="SecurityDeposit" Type="money" />
           <Property Name="Remark" Type="nvarchar" MaxLength="300" />
-          <Property Name="AccountId" Type="int" />
+          <Property Name="AccountId" Type="bigint" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="QQ" Type="int" />
           <Property Name="ValidityPeriod" Type="int" />
@@ -155,16 +153,19 @@
           <Property Name="Img" Type="nvarchar" MaxLength="1000" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“Bayetech.dbo.GameAccount”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
         <EntityType Name="GameAccount">
-          <Property Name="Id" Type="bigint" />
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Account" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Level2Password" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleLevel" Type="int" />
-        </EntityType>-->
+          <Property Name="AccountType" Type="nvarchar" MaxLength="20" />
+          <Property Name="BelongerName" Type="nvarchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="GameInfoDescription">
           <Key>
             <PropertyRef Name="DescriptionId" />
@@ -613,9 +614,11 @@
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DLRequire" EntityType="Self.DLRequire" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExtraProperty" EntityType="Self.ExtraProperty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExtraPropertyValue" EntityType="Self.ExtraPropertyValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameAccount" EntityType="Self.GameAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameInfoDescription" EntityType="Self.GameInfoDescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameProfession" EntityType="Self.GameProfession" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
@@ -629,28 +632,6 @@
           <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Server" EntityType="Self.Server" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DLRequire" EntityType="Self.DLRequire" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DLRequire].[Id] AS [Id], 
-    [DLRequire].[Title] AS [Title], 
-    [DLRequire].[Type] AS [Type], 
-    [DLRequire].[Price] AS [Price], 
-    [DLRequire].[DLPeriod] AS [DLPeriod], 
-    [DLRequire].[GameId] AS [GameId], 
-    [DLRequire].[GroupId] AS [GroupId], 
-    [DLRequire].[ServerId] AS [ServerId], 
-    [DLRequire].[EfficiencyDeposit] AS [EfficiencyDeposit], 
-    [DLRequire].[SecurityDeposit] AS [SecurityDeposit], 
-    [DLRequire].[Remark] AS [Remark], 
-    [DLRequire].[AccountId] AS [AccountId], 
-    [DLRequire].[Phone] AS [Phone], 
-    [DLRequire].[QQ] AS [QQ], 
-    [DLRequire].[ValidityPeriod] AS [ValidityPeriod], 
-    [DLRequire].[SecretCode] AS [SecretCode], 
-    [DLRequire].[Tip] AS [Tip], 
-    [DLRequire].[Status] AS [Status]
-    FROM [dbo].[DLRequire] AS [DLRequire]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GoodAndDescription].[Id] AS [Id], 
@@ -1040,6 +1021,7 @@
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
           <EntitySet Name="Servers" EntityType="BayetechModel.Server" />
           <EntitySet Name="DLRequires" EntityType="BayetechModel.DLRequire" />
+          <EntitySet Name="GameAccounts" EntityType="BayetechModel.GameAccount" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1454,13 +1436,26 @@
           <Property Name="EfficiencyDeposit" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SecurityDeposit" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="AccountId" Type="Int32" />
+          <Property Name="AccountId" Type="Int64" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="QQ" Type="Int32" />
           <Property Name="ValidityPeriod" Type="Int32" />
           <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tip" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GameAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Level2Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleLevel" Type="Int32" />
+          <Property Name="AccountType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BelongerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2055,6 +2050,20 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameAccounts">
+            <EntityTypeMapping TypeName="BayetechModel.GameAccount">
+              <MappingFragment StoreEntitySet="GameAccount">
+                <ScalarProperty Name="BelongerName" ColumnName="BelongerName" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="RoleLevel" ColumnName="RoleLevel" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Level2Password" ColumnName="Level2Password" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
