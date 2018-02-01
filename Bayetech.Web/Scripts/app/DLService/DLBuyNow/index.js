@@ -3,7 +3,7 @@ var moudule = ['vue', 'jquery', 'common', 'DLBuyNow']
 require(moudule, function (Vue, $, common, dlBuyInfo) {
     //api
     var _GetServersUrl="/api/Order/GetServers";
-    var _SubMitForm = "/api/"
+    var _SubMitForm = "/api/Dl/SubmitDlInfo"
 
     //数据为左右整合数据
     var vm = new Vue({
@@ -39,7 +39,7 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
                 });
             },
             SubMitForm() {
-
+                
             }
         },
         created: function () {

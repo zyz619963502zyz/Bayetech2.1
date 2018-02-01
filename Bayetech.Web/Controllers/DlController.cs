@@ -2,6 +2,7 @@
 using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.IServices;
+using Bayetech.Web.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -63,6 +64,19 @@ namespace Bayetech.Web.Controllers
             Pagination page = Pagination.GetDefaultPagination("DlNo");
             ret.Add("main",JProperty.FromObject(Dlian.GetDlInfoList(dlInfo, page))) ;
             ret.Add("detail", JProperty.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
+            return ret;
+        }
+
+        /// <summary>
+        /// 提交信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject SubmitDlInfo(JObject json)
+        {
+            JObject ret = new JObject();
+            DlPayInfoModels model = JsonConvert.DeserializeObject<DlPayInfoModels>(json.ToString());
+
             return ret;
         }
 
