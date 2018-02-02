@@ -9,18 +9,19 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
             DLHour: "",
             IsSpecifyHired: false,
             IsTip: false,
-            IsLevelDL: true,
+            IsLevelDL: false,
             Data: {//表单实体
                 Title: "",
-                Type: "",
+                DLType: "",
                 Price: "",
-                DLPeriod: 0,
+                PeriodDays: "",
+                PeriodHours:"",
                 GameId: 1,
-                GroupId: "",
-                ServerId: "",
-                EfficiencyDeposit: "",
-                SecurityDeposit: "",
-                Remark: "",
+                GroupId: 0,
+                ServerId: 0,
+                EfficiencyPrice: "",
+                SavePrice: "",
+                Description: "",
                 Phone: "",
                 QQ: "",
                 ValidityPeriod: 0,
@@ -35,8 +36,8 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 CurrentProfession: "",
                 TargertProfession: "",
                 AddAbility: "",
-                IsUseGameBonus:"" ,
-                IsJoinUnion: "",
+                IsUseGameBonus:0 ,
+                IsJoinUnion: 0,
             },
         }
         new Vue({
@@ -51,17 +52,25 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                     self.GameGroupList = data.content;
                 });
                 //加载代练类型列表
+                $.get("/api/GoodType/GetDLType", { gameId: this.Data.GameId }, function (data) {
+                    self.DLTypeList = data.content;
+                });
             },
             watch: {
                 "Data.GroupId": function () {//加载游戏服务器列表
                     var self = this;
                     GameAPI.GetServerList(this.Data.GroupId, null, function (data) {
                         self.GameServerList = data.content;
+                        self.Data.ServerId = 0;
                     });
+                },
+                "Data.DLType": function () {
+                    this.IsLevelDL = this.Data.DLType === "levelreplace";
                 },
                 DLPeriod: function() {
                     this.Data.DLPeriod = this.DLPeriod;
                 },
+
             },
             computed: {
                 DLPeriod: function () { //计算代练时间
@@ -74,7 +83,7 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
             methods: {
                 Publish: function () {//发布需求
                     $.post("/api/DL/AddRequireMent", this.Data, function (data) {
-                        alert(data);
+                        alert(data.content);
                     });
                 },
             },

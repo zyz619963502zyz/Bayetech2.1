@@ -81,7 +81,7 @@ namespace Bayetech.Web.Controllers
             if (acrossId>0)
             {
                 goodInfo.ServerName = "Across:";
-                var serverList = serverService.GetDNFServerByAcross(json["Param"].Value<int>("AcrossId"));
+                var serverList = serverService.GetDNFServerByAcross(acrossId).ToList();
                 foreach(var item in serverList)
                 {
                     goodInfo.ServerName += item.Id+",";

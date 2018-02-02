@@ -85,32 +85,35 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
-        public bool AddRequireMent(JObject json)
+        public JObject AddRequireMent(JObject json)
         {
             try
             {
                 var result = false;
-                var DLRequireService = new BaseService<DLRequire>();
+                var DLRequireService = new BaseService<MallDLInfo>();
                 var GameAccountService = new BaseService<GameAccount>();
                 //组装游戏账号对象
                 var GameAccountObj = JsonConvert.DeserializeObject<GameAccount>(json.ToString());
                 GameAccountObj.AccountType = "DLRequire";
+                GameAccountObj.BelongerName = "当前用户名";//暂缺
                 var bol1 = GameAccountService.Insert(GameAccountObj)>0;
                 if (bol1)
                 {
                     //组装代练需求对象
-                    var DLRequireObj = JsonConvert.DeserializeObject<DLRequire>(json.ToString());
-                    DLRequireObj.Phone = null;
-                    DLRequireObj.QQ = null;
+                    var DLRequireObj = JsonConvert.DeserializeObject<MallDLInfo>(json.ToString());
+                    DLRequireObj.DlNo = Core.Common.CreatGoodNo("s");
+                    DLRequireObj.CreatTime = DateTime.Now;
+                    DLRequireObj.WorkerType = "individual";
+                    DLRequireObj.Type = "dlRequest";
                     DLRequireObj.Status = 0;
-                    DLRequireObj.AccountId = GameAccountObj.Id;
+                    DLRequireObj.DLAccountId = GameAccountObj.Id;
                     result = DLRequireService.Insert(DLRequireObj) > 0;
                 }
-                return result;
+                return Core.Common.PackageJObect(result, result?"发布成功":"发布失败"); 
             }
-            catch
+            catch(Exception ex)
             {
-                return false;
+                return Core.Common.PackageJObect(false, "发布失败");
             }
         }
     }

@@ -91,6 +91,14 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 event.stopPropagation();
             });
         },
+        watch: {
+            "Param.AcrossId": function () {
+                var acrossId = this.Param.AcrossId;
+                if (acrossId && acrossId > 0) {
+                    this.IsAcross = true;
+                }
+            },
+        },
         methods: {
             //显示精确搜索框
             showAccuratetBox: function () {
