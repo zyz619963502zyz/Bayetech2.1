@@ -39,7 +39,12 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
                 });
             },
             SubMitForm() {
-                
+                var self = this;
+                common.postWebJson(_SubMitForm, self.subMitObj, function (data) {
+                    if (data.result) {
+                       
+                    }
+                });
             }
         },
         created: function () {

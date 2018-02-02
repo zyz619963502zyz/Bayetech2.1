@@ -1,6 +1,7 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -112,13 +113,25 @@ namespace Bayetech.Service
             }
         }
 
-
-        public JObject SubmitDlInfo(vw_MallDLOrderInfo orderInfo)
+        /// <summary>
+        /// 插入订单操作
+        /// </summary>
+        /// <param name="orderInfo"></param>
+        /// <returns></returns>
+        public JObject SubmitDlInfo(JObject orderInfo)
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
+                int flag = 0;
                 var ret = new JObject();
+                Account _account = JsonConvert.DeserializeObject<Account>(orderInfo.ToString());
+                MallDLInfo dlInfo = JsonConvert.DeserializeObject<MallDLInfo>(orderInfo.ToString());
+                flag = db.Insert(_account) + db.Insert(dlInfo);
+                db.Commit();
+                if (flag == 2)//
+                {
 
+                }
                 return ret;
             }
         }

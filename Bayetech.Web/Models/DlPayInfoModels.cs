@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Bayetech.Web.Models
 {
-    public class DlPayInfoModels: MallDLInfo
+    public class DlPayInfoModels: vw_MallDLOrderInfo
     {
 
     }

@@ -13,6 +13,6 @@ namespace Bayetech.Service
 
         JObject GetDlDetaiInfo(string No);
 
-        JObject SubmitDlInfo(vw_MallDLOrderInfo orderInfo);
+        JObject SubmitDlInfo(JObject orderInfo);
     }
 }
