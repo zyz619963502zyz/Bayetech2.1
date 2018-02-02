@@ -130,9 +130,6 @@
     <Compile Include="Entity\MallType.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MallWorkerType.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Module.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

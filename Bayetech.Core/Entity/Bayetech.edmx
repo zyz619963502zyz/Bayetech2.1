@@ -1174,7 +1174,6 @@
           <EntitySet Name="Settings" EntityType="BayetechModel.Settings" />
           <EntitySet Name="vw_GameServers" EntityType="BayetechModel.vw_GameServers" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
-          <EntitySet Name="MallWorkerType" EntityType="BayetechModel.MallWorkerType" />
           <EntitySet Name="ExtraPropertyValue" EntityType="BayetechModel.ExtraPropertyValue" />
           <EntitySet Name="MallType" EntityType="BayetechModel.MallType" />
           <EntitySet Name="vw_NoToProperty" EntityType="BayetechModel.vw_NoToProperty" />
@@ -1285,15 +1284,6 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ModifyTime" Type="DateTime" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MallWorkerType">
-          <Key>
-            <PropertyRef Name="TypeId" />
-          </Key>
-          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TypeAlias" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="Introduce" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ExtraPropertyValue">
           <Key>

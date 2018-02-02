@@ -43,7 +43,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
         public virtual DbSet<Relationship> Relationship { get; set; }
-        public virtual DbSet<MallWorkerType> MallWorkerType { get; set; }
         public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
         public virtual DbSet<MallType> MallType { get; set; }
         public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
