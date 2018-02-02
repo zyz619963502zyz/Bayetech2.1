@@ -91,7 +91,7 @@ namespace Bayetech.Web.Controllers
             try
             {
                 var result = false;
-                var DLRequireService = new BaseService<DLRequire>();
+                var DLRequireService = new BaseService<MallDLInfo>();
                 var GameAccountService = new BaseService<GameAccount>();
                 //组装游戏账号对象
                 var GameAccountObj = JsonConvert.DeserializeObject<GameAccount>(json.ToString());
@@ -100,11 +100,11 @@ namespace Bayetech.Web.Controllers
                 if (bol1)
                 {
                     //组装代练需求对象
-                    var DLRequireObj = JsonConvert.DeserializeObject<DLRequire>(json.ToString());
+                    var DLRequireObj = JsonConvert.DeserializeObject<MallDLInfo>(json.ToString());
                     DLRequireObj.Phone = null;
                     DLRequireObj.QQ = null;
                     DLRequireObj.Status = 0;
-                    DLRequireObj.AccountId = GameAccountObj.Id;
+                    DLRequireObj.DLAccountId = GameAccountObj.Id;
                     result = DLRequireService.Insert(DLRequireObj) > 0;
                 }
                 return result;

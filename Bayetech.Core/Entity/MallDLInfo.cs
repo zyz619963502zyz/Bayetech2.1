@@ -31,8 +31,18 @@ namespace Bayetech.Core.Entity
         public Nullable<int> PeriodHours { get; set; }
         public string DlNo { get; set; }
         public string Description { get; set; }
-        public string GameAward { get; set; }
-        public string SocietyUnion { get; set; }
-        public string DlAccount { get; set; }
+        public Nullable<long> DLAccountId { get; set; }
+        public Nullable<int> CurrentLevel { get; set; }
+        public Nullable<int> TargetLevel { get; set; }
+        public string CurrentProfession { get; set; }
+        public string TargertProfession { get; set; }
+        public string AddAbility { get; set; }
+        public Nullable<bool> IsUseGameBonus { get; set; }
+        public Nullable<bool> IsJoinUnion { get; set; }
+        public string Phone { get; set; }
+        public Nullable<int> QQ { get; set; }
+        public Nullable<int> ValidityPeriod { get; set; }
+        public string SecretCode { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }

@@ -25,9 +25,7 @@
         <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="16.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.MallWorkerType" Width="1.5" PointX="16.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.ExtraPropertyValue" Width="1.5" PointX="9.375" PointY="3.75" />
-        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="11.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="18.375" PointY="17.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_NoToProperty" Width="1.5" PointX="13.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.ExtraProperty" Width="1.5" PointX="16.375" PointY="8.75" />
         <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="0.75" PointY="12.75" />
@@ -42,6 +40,8 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="15.375" PointY="19.75" />
         <EntityTypeShape EntityType="BayetechModel.GoodStatu" Width="1.5" PointX="20.75" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="9.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

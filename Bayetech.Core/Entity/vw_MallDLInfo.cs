@@ -16,8 +16,6 @@ namespace Bayetech.Core.Entity
     {
         public string Title { get; set; }
         public string TimeDiff { get; set; }
-        public string WorkAlias { get; set; }
-        public string WorkIntroduce { get; set; }
         public Nullable<System.DateTime> CreatTime { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> SavePrice { get; set; }
@@ -37,10 +35,22 @@ namespace Bayetech.Core.Entity
         public string GroupName { get; set; }
         public string ServerName { get; set; }
         public string GameName { get; set; }
-        public string GameAward { get; set; }
-        public string SocietyUnion { get; set; }
         public string DlTypeName { get; set; }
         public Nullable<int> Order { get; set; }
         public string Unit { get; set; }
+        public Nullable<long> DLAccountId { get; set; }
+        public Nullable<int> CurrentLevel { get; set; }
+        public string CurrentProfession { get; set; }
+        public string TargertProfession { get; set; }
+        public Nullable<int> TargetLevel { get; set; }
+        public Nullable<bool> IsUseGameBonus { get; set; }
+        public string AddAbility { get; set; }
+        public string Phone { get; set; }
+        public Nullable<bool> IsJoinUnion { get; set; }
+        public Nullable<int> QQ { get; set; }
+        public Nullable<int> ValidityPeriod { get; set; }
+        public string SecretCode { get; set; }
+        public string TypeAlias { get; set; }
+        public string Introduce { get; set; }
     }
 }
