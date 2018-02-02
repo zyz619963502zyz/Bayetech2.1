@@ -61,5 +61,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
         public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

@@ -36,8 +36,8 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 CurrentProfession: "",
                 TargertProfession: "",
                 AddAbility: "",
-                IsUseGameBonus:"" ,
-                IsJoinUnion: "",
+                IsUseGameBonus:0 ,
+                IsJoinUnion: 0,
             },
         }
         new Vue({

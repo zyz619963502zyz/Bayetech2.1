@@ -21,6 +21,7 @@ namespace Bayetech.Core.Entity
         public Nullable<decimal> SavePrice { get; set; }
         public Nullable<decimal> EfficiencyPrice { get; set; }
         public string WorkerType { get; set; }
+        public string Type { get; set; }
         public string DlType { get; set; }
         public Nullable<long> GameId { get; set; }
         public Nullable<long> GroupId { get; set; }

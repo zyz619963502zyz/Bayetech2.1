@@ -232,8 +232,9 @@
           <Property Name="Price" Type="numeric" Precision="18" Scale="2" />
           <Property Name="SavePrice" Type="numeric" Precision="18" Scale="2" />
           <Property Name="EfficiencyPrice" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="WorkerType" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="DlType" Type="varchar" MaxLength="10" />
+          <Property Name="WorkerType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="DlType" Type="varchar" MaxLength="20" />
           <Property Name="GameId" Type="bigint" />
           <Property Name="GroupId" Type="bigint" />
           <Property Name="ServerId" Type="bigint" />
@@ -397,6 +398,16 @@
           <Property Name="IsDelete" Type="bit" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -462,8 +473,8 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_MallDLInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_MallDLInfo">
           <Key>
-            <PropertyRef Name="WorkerType" />
             <PropertyRef Name="Id" />
+            <PropertyRef Name="WorkerType" />
           </Key>
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="TimeDiff" Type="varchar" MaxLength="35" />
@@ -503,6 +514,8 @@
           <Property Name="SecretCode" Type="varchar" MaxLength="50" />
           <Property Name="TypeAlias" Type="nvarchar" MaxLength="50" />
           <Property Name="Introduce" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nchar" MaxLength="10" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallDLOrderInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -733,6 +746,7 @@
           <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Server" EntityType="Self.Server" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -823,7 +837,9 @@
     [vw_MallDLInfo].[ValidityPeriod] AS [ValidityPeriod], 
     [vw_MallDLInfo].[SecretCode] AS [SecretCode], 
     [vw_MallDLInfo].[TypeAlias] AS [TypeAlias], 
-    [vw_MallDLInfo].[Introduce] AS [Introduce]
+    [vw_MallDLInfo].[Introduce] AS [Introduce], 
+    [vw_MallDLInfo].[Type] AS [Type], 
+    [vw_MallDLInfo].[Value] AS [Value]
     FROM [dbo].[vw_MallDLInfo] AS [vw_MallDLInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallDLOrderInfo" EntityType="Self.vw_MallDLOrderInfo" store:Type="Views" store:Schema="dbo">
@@ -1192,6 +1208,7 @@
           <EntitySet Name="Users" EntityType="BayetechModel.User" />
           <EntitySet Name="vw_MallDLInfo" EntityType="BayetechModel.vw_MallDLInfo" />
           <EntitySet Name="MallDLInfoes" EntityType="BayetechModel.MallDLInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="BayetechModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1690,6 +1707,8 @@
           <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TypeAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Introduce" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MallDLInfo">
           <Key>
@@ -1701,8 +1720,9 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="SavePrice" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="EfficiencyPrice" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="WorkerType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="DlType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WorkerType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DlType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="GameId" Type="Int64" />
           <Property Name="GroupId" Type="Int64" />
           <Property Name="ServerId" Type="Int64" />
@@ -1725,6 +1745,16 @@
           <Property Name="ValidityPeriod" Type="Int32" />
           <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2360,6 +2390,8 @@
           <EntitySetMapping Name="vw_MallDLInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallDLInfo">
               <MappingFragment StoreEntitySet="vw_MallDLInfo">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Introduce" ColumnName="Introduce" />
                 <ScalarProperty Name="TypeAlias" ColumnName="TypeAlias" />
                 <ScalarProperty Name="SecretCode" ColumnName="SecretCode" />
@@ -2427,6 +2459,7 @@
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
                 <ScalarProperty Name="DlType" ColumnName="DlType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="WorkerType" ColumnName="WorkerType" />
                 <ScalarProperty Name="EfficiencyPrice" ColumnName="EfficiencyPrice" />
                 <ScalarProperty Name="SavePrice" ColumnName="SavePrice" />
@@ -2434,6 +2467,17 @@
                 <ScalarProperty Name="CreatTime" ColumnName="CreatTime" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BayetechModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

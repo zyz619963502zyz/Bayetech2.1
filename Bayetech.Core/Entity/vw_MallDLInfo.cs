@@ -52,5 +52,7 @@ namespace Bayetech.Core.Entity
         public string SecretCode { get; set; }
         public string TypeAlias { get; set; }
         public string Introduce { get; set; }
+        public string Type { get; set; }
+        public string Value { get; set; }
     }
 }

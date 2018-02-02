@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="0.75" PointY="20.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="18.375" PointY="14.75" />
         <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.sysdiagram" Width="1.5" PointX="20.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

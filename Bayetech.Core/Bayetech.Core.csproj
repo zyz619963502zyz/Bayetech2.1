@@ -142,6 +142,9 @@
     <Compile Include="Entity\Settings.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sysdiagram.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
