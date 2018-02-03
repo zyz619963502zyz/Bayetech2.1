@@ -84,6 +84,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                     </div>
                     <div class="list-v part-05">
                         <h5><a href="#"  @click="GotoDetail(item.GoodNo)" class ="list-btn">查看帐号</a></h5>
+						<h5><span class="btn_jyz"><img src="http://s.img898.com/www/png/opitamz/btn_jyz.gif">正在交易</span></h5>
                     </div>
                 </div>
             </div>

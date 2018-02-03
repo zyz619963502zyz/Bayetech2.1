@@ -130,7 +130,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                 </h1>
                                 <ul class ="clearfix" goodsid="1" ver="72411" gtid="100001" gameid="G10" :orderid="item.OrderNo" sellertype="B" billstatus="4">
                                     <ol class ="spmc">
-                                        <span style="color:#36c">
+                                        <span style="color:#0c82eb">
                                             <img src="http://pic.7881.com/7881/market/images/buy/buy_dan.png" />{{item.GoodTitle}}
                                         </span>
                                         <br />

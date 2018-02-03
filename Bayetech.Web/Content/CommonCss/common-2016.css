@@ -706,7 +706,7 @@ p.popup-btn a { margin: 0 8px;}
 .laypage_main input { height: 26px; vertical-align: middle;}
 
 /********** tag图标 **********/
-.tags { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; width: 16px; height: 16px; background: url(http://pic.7881.com/7881-2016/images/tags-icon.png) no-repeat;}
+.tags { display: inline-block; *display: inline; *zoom:1; vertical-align: middle; width: 16px; height: 20px; background: url(http://pic.7881.com/7881-2016/images/tags-icon.png) no-repeat;}/*2018.2.3*/
 .tags.icon-jsfh { background-position: 0 0; }
 .tags.icon-jpmj { background-position: 0 -24px; }
 .tags.icon-smrz { background-position: 0 -48px; }
