@@ -22,6 +22,7 @@ namespace Bayetech.Web.Controllers
         BaseService<MallGoodInfo> goodInfoService = new BaseService<MallGoodInfo>();
         BaseService<ExtraPropertyValue> goodPropertyValueService = new BaseService<ExtraPropertyValue>();
         SettingService settingService = new SettingService();
+        ServerService serverService = new ServerService();
 
         /// <summary>
         /// 获取区服名称
@@ -76,7 +77,18 @@ namespace Bayetech.Web.Controllers
             json = json ?? new JObject();
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"]??"").ToString());
 
-            DateTime? startTime = null;
+            var acrossId = json["Param"].Value<int>("AcrossId");
+            if (acrossId>0)
+            {
+                goodInfo.ServerName = "Across:";
+                var serverList = serverService.GetDNFServerByAcross(acrossId).ToList();
+                foreach(var item in serverList)
+                {
+                    goodInfo.ServerName += item.Id+",";
+                }
+            }
+
+            DateTime ? startTime = null;
             if (json["startTime"] != null)
             {
                 startTime = Convert.ToDateTime(json["startTime"].ToString());

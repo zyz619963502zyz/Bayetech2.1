@@ -137,7 +137,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
         mounted() {
             var self=this;
             self.$root.$on("SearchAgain", function (_type) {
-                if (_type=="NewIndex") {
+                if (_type==="NewIndex") {
                     self.findList();
                 }
             });

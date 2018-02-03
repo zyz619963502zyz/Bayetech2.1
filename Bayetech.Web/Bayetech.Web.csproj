@@ -269,6 +269,7 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DlPayInfoModels.cs" />
     <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MallGoodInfoModels.cs" />
@@ -699,6 +700,7 @@
     <Content Include="Page\DLService\DLDetail.html" />
     <Content Include="Page\DLService\DLList.html" />
     <Content Include="Page\DLService\DLIndex.html" />
+    <Content Include="Page\DLService\DLRequirePublish.html" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\Good\GoodInfo.html" />
     <Content Include="Page\Good\GoodToBuy.html" />
@@ -706,7 +708,6 @@
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
-    <Content Include="Models\GoodInfo\GoodInfo.html" />
     <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
     <Content Include="Page\Home\PhonePage.html" />
@@ -723,7 +724,7 @@
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
     <Content Include="Page\UserCenter\Index.html" />
-    <Content Include="Page\UserCenter\tpl\GoodManage.html" />
+    <Content Include="Page\Good\tpl\GoodManage.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Page\ServiceCenter\index.html" />
@@ -745,6 +746,7 @@
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />
+    <Content Include="Scripts\app\DLService\Publish\DLRequirePublish.js" />
     <Content Include="Scripts\app\DLService\index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
     <Content Include="Scripts\app\Game\index.js" />

@@ -2,6 +2,7 @@
 using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.IServices;
+using Bayetech.Web.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -66,5 +67,54 @@ namespace Bayetech.Web.Controllers
             return ret;
         }
 
+        /// <summary>
+        /// 提交信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject SubmitDlInfo(JObject json)
+        {
+            JObject ret = new JObject();
+            ret = Dlian.SubmitDlInfo(json);
+            return ret;
+        }
+
+        /// <summary>
+        /// 添加需求
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject AddRequireMent(JObject json)
+        {
+            try
+            {
+                var result = false;
+                var DLRequireService = new BaseService<MallDLInfo>();
+                var GameAccountService = new BaseService<GameAccount>();
+                //组装游戏账号对象
+                var GameAccountObj = JsonConvert.DeserializeObject<GameAccount>(json.ToString());
+                GameAccountObj.AccountType = "DLRequire";
+                GameAccountObj.BelongerName = "当前用户名";//暂缺
+                var bol1 = GameAccountService.Insert(GameAccountObj)>0;
+                if (bol1)
+                {
+                    //组装代练需求对象
+                    var DLRequireObj = JsonConvert.DeserializeObject<MallDLInfo>(json.ToString());
+                    DLRequireObj.DlNo = Core.Common.CreatGoodNo("s");
+                    DLRequireObj.CreatTime = DateTime.Now;
+                    DLRequireObj.WorkerType = "individual";
+                    DLRequireObj.Type = "dlRequest";
+                    DLRequireObj.Status = 0;
+                    DLRequireObj.DLAccountId = GameAccountObj.Id;
+                    result = DLRequireService.Insert(DLRequireObj) > 0;
+                }
+                return Core.Common.PackageJObect(result, result?"发布成功":"发布失败"); 
+            }
+            catch(Exception ex)
+            {
+                return Core.Common.PackageJObect(false, "发布失败");
+            }
+        }
     }
 }

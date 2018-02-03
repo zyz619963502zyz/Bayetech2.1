@@ -1,43 +1,55 @@
 ﻿//模块间操作
 var moudule = ['vue', 'jquery', 'common', 'DLBuyNow']
-require(moudule, function (Vue, $, common ,dlBuyInfo) {
-    //数据为左右整合数据
-    var data={
-        GroupSelected: "",
-        ServerSelected: "",
-        subMitObj: {
-            DlNo: "",
-            OrderPrice:"",
-            Price: 0,
-            DlType: 3,
-            DlTypeName: "账号",
-            BuyNum: "1",
-            InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
-            GameName: "",
-            GameAccount: "",
-            GameAccountAgain: "",
-            GroupName: "",
-            InternalTypeId:"",
-            ServerName: "",
-            BuyerPhone: "18717708731",
-            BuyerQQ: "619963501",
-            Signal:"",
-            PromoNum: "1111",
-        }
-    };
+require(moudule, function (Vue, $, common, dlBuyInfo) {
+    //api
+    var _GetServersUrl="/api/Order/GetServers";
+    var _SubMitForm = "/api/Dl/SubmitDlInfo"
 
+    //数据为左右整合数据
     var vm = new Vue({
         el: '#DlBuyInfo',
-        data: function () {
-            return data;
+        data: {
+            Groups: [],
+            Servers:[],
+            subMitObj: {
+                GameId: 0,
+                GoodNo:"",//编号
+                GroupSelected: "",
+                ServerSelected: "",
+                Account: "",
+                Password: "",
+                PwdAgain: "",
+                OrderPrice:"",
+                RoleName: "",
+                RoleLevel: "",
+                BuyerQQ:"",//联系QQ
+                BuyerPhone: "",//联系手机
+                CurrentUserId:""
+            }
         },
         methods: {
+            GetServers(gourp){
+            	var self = this;
+				var gameId = 1;
+                var param={gameId:gameId,parentId:gourp};
+                common.getWebJson(_GetServersUrl, param, function (data) {
+                    if (data.result) {
+                       gourp == 0? self.Groups = data.content : self.Servers =data.content;
+                    }
+                });
+            },
             SubMitForm() {
-
+                var self = this;
+                common.postWebJson(_SubMitForm, self.subMitObj, function (data) {
+                    if (data.result) {
+                       
+                    }
+                });
             }
         },
         created: function () {
-            
+            var self = this;
+            self.GetServers(0);
         },
         components: {
             'dlbuyinfo': dlBuyInfo

@@ -10,7 +10,7 @@ namespace Bayetech.Web.Controllers
     public class SearchController : BaseController
     {
         BaseService<Game> gameService = new BaseService<Game>();
-        BaseService<Server> serverService = new BaseService<Server>();
+        ServerService serverService = new ServerService();
         BaseService<vw_GoodTypes> typeService = new BaseService<vw_GoodTypes>();
         MallTypeService mallTypeService = new MallTypeService();
         //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
@@ -58,6 +58,12 @@ namespace Bayetech.Web.Controllers
                     {
                         data.List = typeService.FindList(c => c.GameId == id && c.Type == serviceType).ToList();
                     }
+                    break;
+                case SearchType.Across:
+                    data.Title = "跨区";
+                    data.Type = (int)enumType;
+                    data.Child = (int)SearchType.MallType;
+                    data.List = serverService.GetDNFAcross().ToList(); 
                     break;
             }
             return Json(data);
