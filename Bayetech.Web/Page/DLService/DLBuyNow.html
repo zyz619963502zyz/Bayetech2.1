@@ -232,35 +232,35 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>游戏账号：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" :value="subMitObj.Account" />
+                                    <input type="text" class="common-input h-36" v-model="subMitObj.Account" />
                                     <span class="span-item-tips"><em>请填写您的游戏账号</em></span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>游戏密码：</span></div>
                                 <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" :value="subMitObj.Password" />
+                                    <input type="password" class="common-input h-36" v-model="subMitObj.Password" />
                                     <span class="span-item-tips"><em>请填写您的游戏密码，我们会保障信息安全</em></span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>确认密码：</span></div>
                                 <div class="form-item-r">
-                                    <input type="password" class="common-input h-36" :value="subMitObj.PwdAgain" />
+                                    <input type="password" class="common-input h-36" v-model="subMitObj.PwdAgain" />
                                     <span class="span-item-tips"><em>请再输入一次密码</em></span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>角色名：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36" :value="subMitObj.RoleName" />
+                                    <input type="text" class="common-input h-36" v-model="subMitObj.RoleName" />
                                     <span class="span-item-tips"><em>请请填写您的游戏角色名</em></span>
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>角色等级：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-36 onlynum" :value="subMitObj.RoleLevel" />
+                                    <input type="text" class="common-input h-36 onlynum" v-model="subMitObj.RoleLevel" />
                                     <span class="span-item-tips"><em>请填写您的角色等级</em></span>
                                 </div>
                             </div>
@@ -273,13 +273,13 @@
                             <div class="form-item clearfix">
                                 <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
                                 <div class="form-item-r">
-                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;" :value="subMitObj.BuyerQQ" />
+                                    <input type="text" class="common-input h-30 onlynum" style="width: 118px;" v-model="subMitObj.BuyerQQ" />
                                 </div>
                             </div>
                             <div class="form-item clearfix">
                                 <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
                                 <div class="form-item-r">
-                                     <input type="text" class="common-input h-30 onlynum" style="width: 118px;" :value="subMitObj.BuyerPhone" />
+                                     <input type="text" class="common-input h-30 onlynum" style="width: 118px;" v-model="subMitObj.BuyerPhone" />
                                     <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
                                 </div>
                             </div>
@@ -287,8 +287,8 @@
                     </div>
 
                     <div class="ord-fk-box">
-                        <span>预支付代练金额：<b class="tot-money">{{OrderPrice}}</b> 元</span>
-                        <a href="#" class="com-btn-01 color01" >立即支付</a>
+                        <span>预支付代练金额：<b class="tot-money">{{subMitObj.OrderPrice}}</b> 元</span>
+                        <a href="#" class="com-btn-01 color01" @click="SubMitForm">立即支付</a>
                     </div>
 
                 </div>

@@ -124,13 +124,18 @@ namespace Bayetech.Service
             {
                 int flag = 0;
                 var ret = new JObject();
-                Account _account = JsonConvert.DeserializeObject<Account>(orderInfo.ToString());
-                MallDLInfo dlInfo = JsonConvert.DeserializeObject<MallDLInfo>(orderInfo.ToString());
-                flag = db.Insert(_account) + db.Insert(dlInfo);
-                db.Commit();
-                if (flag == 2)//
+                GameAccount _account = JsonConvert.DeserializeObject<GameAccount>(orderInfo.ToString());
+                MallOrder order = JsonConvert.DeserializeObject<MallOrder>(orderInfo.ToString());
+                order.OrderNo = Common.CreatOrderNo(order.GoodNo);
+                if (!string.IsNullOrEmpty(_account.Account)&& !string.IsNullOrEmpty(order.OrderNo))
                 {
-
+                    flag = db.Insert(_account) + db.Insert(order);
+                }
+                db.Commit();
+                if (flag == 0)//两笔都插入成功
+                {
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add(ResultInfo.Content,"提交成功！");
                 }
                 return ret;
             }

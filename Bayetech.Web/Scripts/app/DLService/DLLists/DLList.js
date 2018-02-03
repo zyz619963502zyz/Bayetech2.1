@@ -88,8 +88,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
 		    return data;
 		},
 		created() {
-            //var self = this;
-            //self.GetDlInfoList();
+            var self = this;
+            self.GetDlInfoList();
 		},
 		mounted() {
             var self = this;
