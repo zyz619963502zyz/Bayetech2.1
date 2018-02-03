@@ -12,11 +12,15 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class MallWorkerType
+    public partial class GameAccount
     {
-        public int TypeId { get; set; }
-        public string TypeName { get; set; }
-        public string TypeAlias { get; set; }
-        public string Introduce { get; set; }
+        public long Id { get; set; }
+        public string Account { get; set; }
+        public string Password { get; set; }
+        public string Level2Password { get; set; }
+        public string RoleName { get; set; }
+        public Nullable<int> RoleLevel { get; set; }
+        public string AccountType { get; set; }
+        public string BelongerName { get; set; }
     }
 }

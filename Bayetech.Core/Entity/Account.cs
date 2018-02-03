@@ -33,5 +33,6 @@ namespace Bayetech.Core.Entity
         public string Security { get; set; }
         public string Tname { get; set; }
         public Nullable<bool> EnableMark { get; set; }
+        public string AccountType { get; set; }
     }
 }

@@ -20,5 +20,6 @@ namespace Bayetech.Core.Entity
         public Nullable<long> ParentId { get; set; }
         public System.DateTime CreateTime { get; set; }
         public bool IsDelete { get; set; }
+        public string Remark { get; set; }
     }
 }

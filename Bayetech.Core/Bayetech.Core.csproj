@@ -91,6 +91,9 @@
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\GameAccount.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\GameInfoDescription.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -98,6 +101,9 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\GoodAndDescription.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GoodStatu.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">
@@ -121,9 +127,6 @@
     <Compile Include="Entity\MallType.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MallWorkerType.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Module.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -136,6 +139,9 @@
     <Compile Include="Entity\Settings.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\User.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vw_GameServers.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -146,6 +152,9 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\vw_MallDLInfo.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vw_MallDLOrderInfo.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\vw_MallGoodInfo.cs">

@@ -12,16 +12,18 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Server
+    public partial class User
     {
-        public long Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string Letter { get; set; }
-        public Nullable<int> ParentId { get; set; }
-        public Nullable<short> Order { get; set; }
-        public string Img { get; set; }
-        public Nullable<int> GameId { get; set; }
-        public bool IsDelete { get; set; }
-        public string Remark { get; set; }
+        public string NameAlias { get; set; }
+        public string Password { get; set; }
+        public string Phone { get; set; }
+        public Nullable<int> QQ { get; set; }
+        public Nullable<bool> IsHatchet { get; set; }
+        public Nullable<int> CreditLevel { get; set; }
+        public Nullable<int> BuyTimes { get; set; }
+        public Nullable<int> SellTimes { get; set; }
+        public Nullable<int> HatChetTimes { get; set; }
     }
 }
