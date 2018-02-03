@@ -20,6 +20,6 @@ namespace Bayetech.Core.Enum
         [Description("代练类型")]
         DlType,
         [Description("跨区")]
-        Across,
+        Across
     };
 }

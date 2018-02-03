@@ -40,6 +40,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
         public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
         public virtual DbSet<GameProfession> GameProfession { get; set; }
+        public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
         public virtual DbSet<Relationship> Relationship { get; set; }
@@ -53,14 +54,11 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
         public virtual DbSet<MallOrder> MallOrders { get; set; }
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
-        public virtual DbSet<Server> Servers { get; set; }
-        public virtual DbSet<DLRequire> DLRequires { get; set; }
         public virtual DbSet<GameAccount> GameAccounts { get; set; }
-        public virtual DbSet<vw_MallDLOrderInfo> vw_MallDLOrderInfo { get; set; }
         public virtual DbSet<GoodStatu> GoodStatus { get; set; }
+        public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
-        public virtual DbSet<MallDLInfo> MallDLInfoes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<vw_MallDLOrderInfo> vw_MallDLOrderInfo { get; set; }
     }
 }

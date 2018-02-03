@@ -12,7 +12,5 @@ namespace Bayetech.Service
         JObject GetDlInfoList(vw_MallDLInfo mallDlInfo,Pagination page);
 
         JObject GetDlDetaiInfo(string No);
-
-        JObject SubmitDlInfo(JObject orderInfo);
     }
 }

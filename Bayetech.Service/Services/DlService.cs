@@ -1,7 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -84,7 +83,6 @@ namespace Bayetech.Service
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                     return ret;
-
                 }
             }
             catch (Exception ex)
@@ -108,29 +106,6 @@ namespace Bayetech.Service
                 {
                     var page = Pagination.GetDefaultPagination("PropertyId");
                     ret = db.GetList<vw_NoToProperty>(page, out page,c=>c.No == No);
-                }
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// 插入订单操作
-        /// </summary>
-        /// <param name="orderInfo"></param>
-        /// <returns></returns>
-        public JObject SubmitDlInfo(JObject orderInfo)
-        {
-            using (var db = new RepositoryBase().BeginTrans())
-            {
-                int flag = 0;
-                var ret = new JObject();
-                Account _account = JsonConvert.DeserializeObject<Account>(orderInfo.ToString());
-                MallDLInfo dlInfo = JsonConvert.DeserializeObject<MallDLInfo>(orderInfo.ToString());
-                flag = db.Insert(_account) + db.Insert(dlInfo);
-                db.Commit();
-                if (flag == 2)//
-                {
-
                 }
                 return ret;
             }
