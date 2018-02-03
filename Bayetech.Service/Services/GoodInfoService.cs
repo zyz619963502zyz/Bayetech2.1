@@ -37,6 +37,9 @@ namespace Bayetech.Service.Services
                     {
                         expression = expression.And(t => t.GameServerId == goodInfo.GameServerId);
                     }
+                    if (!string.IsNullOrEmpty(goodInfo.ServerName) && goodInfo.ServerName.Contains("Across:")) {
+                        expression = expression.And(t => goodInfo.ServerName.Contains(t.GameServerId.ToString()));
+                    }
                     if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id
                     {
                         expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
