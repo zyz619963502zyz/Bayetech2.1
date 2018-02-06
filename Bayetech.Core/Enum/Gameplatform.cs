@@ -14,6 +14,6 @@ namespace Bayetech.Core.Enum
         [Description("ps4")]
         PSP,
         [Description("xbox")]
-        Xbox,
+        Xbox, 
     };
 }
