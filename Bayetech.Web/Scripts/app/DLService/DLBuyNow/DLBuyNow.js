@@ -63,7 +63,8 @@
                 var _self = this;
                 common.getWebJson(_buyNowUrl, { dlNo: dlNo }, function (data) {
                     if (data.main.result) {
-                        _self.DlInfo = data.main.content.datas[0];
+                        _self.DlInfo=data.main.content.datas[0];
+                        _self.$root.subMitObj.OrderPrice = _self.DlInfo.Price;
                     }
                     if (data.detail.result) {
                         _self.Terms = data.detail.content;

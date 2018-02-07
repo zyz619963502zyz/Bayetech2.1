@@ -36,7 +36,7 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
                     if (data.result) {
                        gourp == 0? self.Groups = data.content : self.Servers =data.content;
                     }
-                });
+                });  
             },
             SubMitForm() {
                 var self = this;
@@ -48,7 +48,7 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
             }
         },
         created: function () {
-            var self = this;
+            var self=this;
             self.GetServers(0);
         },
         components: {
