@@ -1,0 +1,313 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>发布套餐</title>
+    <meta name="keywords" content="代练">
+    <meta name="description" content="代练">
+    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/dnf-order.css">
+    <script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=421681"></script>
+    <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_16.css">
+    <link href="../../../Content/common.css" rel="stylesheet" />
+    <script src="../../../Scripts/require.js"></script>
+    <script src="../../../Scripts/jsconfig.js"></script>
+    <script src="../../../Scripts/app/DLService/Publish/PackagePublish.js"></script>
+</head>
+<body style="background: #fff;">
+    <div id="app">
+        <!-- 通用顶部 Start -->
+        <nav-top></nav-top>
+        <!-- 通用头部03 Start -->
+        <div class="header-03-box">
+            <div class="header-03 clearfix">
+                <h1 class="logo"><a href="/" title="游戏金币交易平台"><img src="http://pic.7881.com/7881-2016/images/dl-dnf/logo-dnfdl.png" width="268" height="120" alt="游戏金币交易平台"></a></h1>
+                <div class="header-03-right clearfix">
+                    <ul class="advantage">
+                        <li><em class="iconfont"></em><span>交易快捷</span></li>
+                        <li><em class="iconfont"></em><span>手续全免</span></li>
+                        <li><em class="iconfont"></em><span>数据加密</span></li>
+                    </ul>
+                    <div class="header-03-line"></div>
+                    <div class="dnfdl-percenter">
+                        <div class="dnfdl-percenter-top">
+                            <em class="iconfont"></em>
+                            <span>我的代练中心</span>
+                            <b>&gt;</b>
+                            <i class="on-line"></i>
+                        </div>
+                        <div class="dnfdl-percenter-bot">
+                            <input type="hidden" class="credit">
+                            <div class="dnfdl-percenter-item borbot p-owner" style="display: block;">
+                                <h5><span>作为玩家</span><a href="/goods/p/publish" target="_blank">求代练<em>&gt;</em></a></h5>
+                                <h4><img src="http://pic.7881.com/7881-2016/images/dl-dnf/tiao-01.png" width="210" height="8" alt=""></h4>
+                                <div class="dnfdl-percenter-dlbox">
+                                    <dl>
+                                        <a href="http://www.7881.com/levelingDnf/dnfGoodsBuyer.action">
+                                            <dt class="reqs">0</dt>
+                                            <dd>我的代练需求</dd>
+                                        </a>
+                                    </dl>
+                                    <div class="dl-line"></div>
+                                    <dl>
+                                        <a href="http://www.7881.com/levelingDnf/showOrdersBuyer.action">
+                                            <dt class="reqOrderNum">0</dt>
+                                            <dd>我的代练订单</dd>
+                                        </a>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="dnfdl-percenter-item p-player p-studio" style="display: block;">
+                                <h5><span>作为打手</span><a href="/goods/b/publish" target="_blank">发套餐<em>&gt;</em></a></h5>
+                                <h4><img src="http://pic.7881.com/7881-2016/images/dl-dnf/tiao-02.png" width="210" height="8" alt=""></h4>
+                                <div class="dnfdl-percenter-dlbox">
+                                    <dl>
+
+                                        <a href="http://www.7881.com/levelingDnf/showOrdersSaler.action">
+                                            <dt class="mealOrderNum">0</dt>
+                                            <dd>代练订单</dd>
+                                        </a>
+                                    </dl>
+                                    <div class="dl-line"></div>
+                                    <dl>
+                                        <a href="http://www.7881.com/levelingDnf/dnfGoodsSaler.action">
+                                            <dt class="meals">0</dt>
+                                            <dd>代练套餐</dd>
+                                        </a>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="studio-info p-studio" style="display: none">
+                                <h2>
+                                    <span><img src="http://pic.7881.com/7881-2016/images/dl-dnf/studio-icon.png" width="80" height="16" alt=""></span><em><a href="http://www.7881.com/financecharge/toAdd.action" target="_blank">充值</a><a href="http://www.7881.com/financerecord/incomeExpensesList.action" target="_blank">明细</a></em>
+                                </h2>
+                                <p><em>◆ 账户余额</em><span class="balance">¥0.00</span></p>
+                                <p><em>◆ 安全保障金</em><span class="safeDeposit">¥0</span></p>
+                                <p class="last-p"><em>◆ 效率保证金</em><span class="efficiencyDeposit">¥0</span></p>
+                            </div>
+                            <div class="other-info p-player" style="display: block;">
+                                <p><span>普通打手</span><a href="/merchant/index" target="_blank">去认证工作室&gt;</a></p>
+                            </div>
+                            <div class="other-info  p-rz" style="display: none">
+                                <p><span>接单赚钱？申请平台认证</span><a href="/merchant/index" target="_blank">我要认证&gt;</a></p>
+                            </div>
+                            <div class="other-info p-studio" style="display: none">
+                                <p>
+                                    <span>套餐自动上架（代扣双金）</span><em class="swi-box"><input type="hidden" name="dk" id="dk" value="0"><i class="isAuto"></i></em>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 通用头部03 End --><!-- 主体区域 Start -->
+        <div class="dnf-order-box">
+            <div class="dnf-order">
+                <div class="order-tit">
+                    <span class="l"><i></i><em>发布DNF代练套餐</em></span><span class="r"><a href="/"><em>代练首页</em></a><b>&gt;</b><em>发布代练套餐</em></span>
+                </div>
+                <div class="order-con">
+                    <div class="order-item">
+                        <div class="order-item-tit"><em>1</em><span>填写代练条件</span></div>
+                        <div class="common-form dnf-form-item height-36">
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>游戏区：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <select v-model="Data.GroupId">
+                                        <option value="0">请选择</option>
+                                        <option v-for="item in GameGroupList" :value="item.Id">{{item.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l"><i>*</i><span>游戏服：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <select v-model="Data.ServerId">
+                                        <option value="0">请选择</option>
+                                        <option v-for="item in GameServerList" :value="item.Id">{{item.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l"><i>*</i><span>代练类型：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <select v-model="Data.DLType">
+                                        <option value="">请选择</option>
+                                        <option v-for="item in DLTypeList" :value="item.En_Name">{{item.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>代练套餐标题：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <input type="text" class="common-input h-36" style="width: 720px;" name="param-goodsName" id="" maxlength="32" placeholder="请输入填写的信息" v-model="Data.Title">
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>代练价格：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <input type="text" class="common-input h-36 w90 onlynums " name="param-price" id="" v-model="Data.Price">
+                                    <span class="span-item-tips dl-price">元<em>（不得低于<b>10</b>元，玩家需要预支付该金额）</em></span>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l"><i>*</i><span>代练时间：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimed" maxlength="2" v-model="Data.PeriodDays"><span class="span-item-tips">天</span>&nbsp;&nbsp;
+                                    <input type="text" class="common-input h-36 w90 onlynum" name="param-dlTimeh" maxlength="2" v-model="Data.PeriodHours"><span class="span-item-tips">小时</span>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>效率保证金：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <input type="text" class="common-input h-36 w90 onlynums part-money" name="param-efficiencyDeposit" maxlength="8" v-model="Data.EfficiencyPrice">
+                                    <span class="span-item-tips">元<em>（打手需预付此保证金）</em></span>
+
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l"><i>*</i><span>安全保障金：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <input type="text" class="common-input h-36 w90 onlynums part-money" name="param-safeDeposit" maxlength="8" v-model="Data.SavePrice">
+                                    <span class="span-item-tips">元<em>（打手需预付此保障金）</em></span>
+                                </div>
+                            </div>
+
+                            <div class="form-item clearfix" style="width: 1000px; z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>商品有效期：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <div class="comselect h-30 w140">
+                                        <select v-model="Data.ValidityPeriod">
+                                            <option value="0">请选择</option>
+                                            <option value="5">5天</option>
+                                            <option value="7">7天</option>
+                                            <option value="10">10天</option>
+                                            <option value="15">15天</option>
+                                            <option value="30">30天</option>
+                                        </select>
+                                    </div>
+                                    <p class="orange-tip span-item-tips">逾期若无一人下单，商品则会自动下架，保证金返还到余额账户</p>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix" style="z-index: 1;">
+                                <div class="form-item-l w210"><i>*</i><span>代练套餐内容：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <div class="textarea">
+                                        <textarea name="param-dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布" maxlength="500" v-model="Data.Description"></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-item clearfix w1000" style="z-index: 1;">
+                                <div class="form-item-l w210"><span>套餐图片：</span></div>
+                                <div class="form-item-r" style="z-index: 1;">
+                                    <div class="dnf-form-upload" style="margin-top: 0px;">
+                                        <div class="dnf-form-upload-tit">
+                                            <em><img src="http://pic.7881.com/7881-2016/images/dl-dnf/order/laba.png" alt=""></em>
+                                            <span>仅支持jpg、jpeg、png格式，文件小于2M（最多可上传<b>5</b>张图片）</span>
+                                        </div>
+                                        <div id="uploader" class="bl-uploader-box clearfix">
+                                            <!--用来存放文件信息-->
+                                            <div id="thelist" class="uploader-list clearfix"></div>
+                                            <div class="btns">
+                                                <div id="picker" class="webuploader-container"><div class="webuploader-pick"></div><div id="rt_rt_1c5pikr1v13uu1hoj79p1dpl5gr1" style="position: absolute; top: 0px; left: 0px; width: 118px; height: 108px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/jpeg,image/png"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="common-input" name="" id="" value="1" maxlength="16" datatype="imgUp">
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="order-item-tit"><em>1</em><span>填写联系方式</span></div>
+                            <div class="common-form dnf-form-item height-30">
+                                <div class="form-item clearfix" style="z-index: 1;">
+                                    <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
+                                    <div class="form-item-r" style="z-index: 1;">
+                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="param-phone" maxlength="11" v-model="Data.Phone">
+                                    </div>
+                                </div>
+                                <div class="form-item clearfix" style="z-index: 1;">
+                                    <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
+                                    <div class="form-item-r" style="z-index: 1;">
+                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="param-qq" maxlength="16" v-model="Data.QQ">
+                                        <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
+                                    </div>
+                                </div>
+
+                                <div class="ord-fk-box">
+                                    <span>预支付代练金额：<b class="tot-money">{{Data.Price}}</b> 元</span>
+                                    <a href="javascript:void(0)" class="com-btn-01 color01" @click="Publish">发布并支付</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="dltypes" value="{1=等级代练-10-20-15-, 2=深渊代练-10-50-10-, 3=传说装备-10-20-15-, 4=日常代练-10-20-15-, 5=异界代刷-10-20-15-, 6=官方活动-10-20-15-, 7=PK场代练-10-20-15-, 8=装备强化-10-50-10-, 9=代合天空-10-50-10-, 10=活动站街-10-20-15-, 11=其他代练-10-20-15-}">
+
+                    <!-- 主体部分 End-->
+                    <!-- 通用底部 Start -->
+                    <div class="footer-content footer-01">
+                        <div class="footer-server-box">
+                            <div class="footer-server">
+                                <div class="footer-server-dl">
+                                    <dl>
+                                        <dt><em class="iconfont"></em></dt>
+                                        <dd>
+                                            <h2>游戏交易 应有尽有</h2>
+                                            <p>关于游戏你想要的，这里都有</p>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><em class="iconfont"></em></dt>
+                                        <dd>
+                                            <h2>交易安全 资金保障</h2>
+                                            <p>保障交易安全的事，我们都做</p>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><em class="iconfont"></em></dt>
+                                        <dd>
+                                            <h2>7*24小时 专属客服</h2>
+                                            <p>时时刻刻想联系我，客服都在</p>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><em class="iconfont"></em></dt>
+                                        <dd>
+                                            <h2>权威认证 安全可靠</h2>
+                                            <p>我是值得信赖平台，大家都造</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-link">
+                            <div class="footer-link-a">
+                                <a href="http://www.7881.com/aboutus.html" target="_blank" rel="nofollow">关于7881</a><em>|</em>
+                                <a href="http://www.7881.com/contactus.html" target="_blank" rel="nofollow">联系我们</a><em>|</em>
+                                <a href="http://www.7881.com/copyright.html" target="_blank" rel="nofollow">免责声明</a><em>|</em>
+                                <a href="http://www.7881.com/hr.html" target="_blank" rel="nofollow">诚聘英才</a><em>|</em>
+                                <a href="http://www.7881.com/ParentalControls.jsp" target="_blank" rel="nofollow">家长监护</a><em>|</em>
+                                <a href="http://www.7881.com/cooperation.html" target="_blank" rel="nofollow">商户合作</a><em>|</em>
+                                <a href="http://www.7881.com/sitemap.html" target="_blank">网站地图</a>
+
+                            </div>
+                            <p>Copyright <i>©</i> 2008-2014 7881.com版权所有  ICP证：<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">苏B1-20110004-4</a>(江苏猎宝网络科技股份有限公司) <a href="http://www.7881.com/qualification.html" target="_blank">苏网文[2015]2034-038号</a></p>
+                        </div>
+                    </div>
+                    <!-- 通用底部 End --><!-- 通用Js库 Start -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
