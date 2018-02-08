@@ -700,7 +700,8 @@
     <Content Include="Page\DLService\DLDetail.html" />
     <Content Include="Page\DLService\DLList.html" />
     <Content Include="Page\DLService\DLIndex.html" />
-    <Content Include="Page\DLService\DLRequirePublish.html" />
+    <Content Include="Page\DLService\Publish\PackagePublish.html" />
+    <Content Include="Page\DLService\Publish\RequirePublish.html" />
     <Content Include="Page\Game\List.html" />
     <Content Include="Page\Good\GoodInfo.html" />
     <Content Include="Page\Good\GoodToBuy.html" />
@@ -746,9 +747,10 @@
     <Content Include="Scripts\app\DLService\DLLists\DLList.js" />
     <Content Include="Scripts\app\DLService\DLLists\index.js" />
     <Content Include="Scripts\app\DLService\DLLists\NavBar.js" />
-    <Content Include="Scripts\app\DLService\Publish\DLRequirePublish.js" />
+    <Content Include="Scripts\app\DLService\Publish\RequirePublish.js" />
     <Content Include="Scripts\app\DLService\index.js" />
     <Content Include="Scripts\app\DLService\InfoList.js" />
+    <Content Include="Scripts\app\DLService\Publish\PackagePublish.js" />
     <Content Include="Scripts\app\Game\index.js" />
     <Content Include="Scripts\app\Game\List.js" />
     <Content Include="Scripts\app\GoodInfo\GoodPictures.js" />

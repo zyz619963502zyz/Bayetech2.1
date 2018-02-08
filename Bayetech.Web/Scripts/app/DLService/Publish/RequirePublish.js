@@ -1,12 +1,10 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
+require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game"],
     function (Vue, $, common, top, GameAPI) {
         var data = {
             GameGroupList: [],
             GameServerList: [],
             DLTypeList: [],
-            DLDay: "",
-            DLHour: "",
             IsSpecifyHired: false,
             IsTip: false,
             IsLevelDL: false,
@@ -15,7 +13,7 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 DLType: "",
                 Price: "",
                 PeriodDays: "",
-                PeriodHours:"",
+                PeriodHours: "",
                 GameId: 1,
                 GroupId: 0,
                 ServerId: 0,
@@ -36,13 +34,13 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 CurrentProfession: "",
                 TargertProfession: "",
                 AddAbility: "",
-                IsUseGameBonus:0 ,
-                IsJoinUnion: 0,
+                IsUseGameBonus: false,
+                IsJoinUnion: false,
             },
         }
         new Vue({
             el: '#app',
-            data: function() {
+            data: function () {
                 return data;
             },
             created: function () {
@@ -67,22 +65,17 @@ require(['vue', 'jquery', 'common', 'nav-top',"../Scripts/app/API/Game"],
                 "Data.DLType": function () {
                     this.IsLevelDL = this.Data.DLType === "levelreplace";
                 },
-                DLPeriod: function() {
-                    this.Data.DLPeriod = this.DLPeriod;
-                },
 
-            },
-            computed: {
-                DLPeriod: function () { //计算代练时间
-                    return parseInt(this.DLDay) * 24 + parseInt(this.DLHour);
-                },
             },
             components: {
                 "nav-top": top,
             },
             methods: {
                 Publish: function () {//发布需求
-                    $.post("/api/DL/AddRequireMent", this.Data, function (data) {
+                    
+                    this.Data.IsJoinUnion = true;
+                    this.Data.IsUseGameBonus = true;
+                    $.post("/api/DL/RequireMentPublish", this.Data, function (data) {
                         alert(data.content);
                     });
                 },

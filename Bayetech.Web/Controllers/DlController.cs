@@ -86,7 +86,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
-        public JObject AddRequireMent(JObject json)
+        public JObject RequireMentPublish(JObject json)
         {
             try
             {
@@ -113,6 +113,34 @@ namespace Bayetech.Web.Controllers
                 return Core.Common.PackageJObect(result, result?"发布成功":"发布失败"); 
             }
             catch(Exception ex)
+            {
+                return Core.Common.PackageJObect(false, "发布失败");
+            }
+        }
+
+        /// <summary>
+        /// 添加套餐
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject PackagePublish(JObject json)
+        {
+            try
+            {
+                var result = false;
+                var DLRequireService = new BaseService<MallDLInfo>();
+                //组装代练需求对象
+                var DLRequireObj = JsonConvert.DeserializeObject<MallDLInfo>(json.ToString());
+                DLRequireObj.DlNo = Core.Common.CreatGoodNo("s");
+                DLRequireObj.CreatTime = DateTime.Now;
+                DLRequireObj.WorkerType = "individual";
+                DLRequireObj.Type = "dlPackage";
+                DLRequireObj.Status = 0;
+                result = DLRequireService.Insert(DLRequireObj) > 0;
+                return Core.Common.PackageJObect(result, result ? "发布成功" : "发布失败");
+            }
+            catch (Exception ex)
             {
                 return Core.Common.PackageJObect(false, "发布失败");
             }
