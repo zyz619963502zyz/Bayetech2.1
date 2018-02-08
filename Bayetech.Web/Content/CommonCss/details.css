@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 body{background: #fff;}
 .top_search .b_blue_box { left: -396px;}
 /*头部*/
@@ -43,12 +43,12 @@ body{background: #fff;}
 .info-good h3.title{color: #333333; font-size: 20px; font-family: "microsoft yahei"; width: 512px; line-height: 24px; overflow: hidden; font-weight: bold;}
 .package-price{padding: 18px 0; border-bottom: 1px dotted #dfdfdf;}
 .package-price.nobrd{padding: 18px 0 0 0; border-bottom:none;}
-.price-con{background:url(http://pic.7881.com/7881-2016/images/goods-details/pricebg.jpg) no-repeat; height:80px; overflow: hidden; font-family: \5b8b\4f53;}
+.price-con{ height:auto; overflow: hidden; font-family: \5b8b\4f53;}/*2018.2.3*/
 .price-con h3{padding:20px 20px 20px 15px; overflow: hidden;}
 .price-con h3 p{font-size: 12px; color: #999; float: left;}
 .price-con h3 p a{color: #39f;}
-.price-con h3 p.nowprice span{font-size: 30px; font-weight: bold;color: #ff6700; margin-left: 8px; font-family: arial;}
-.price-con h3 p.nowprice span em{font-size: 16px; color: #ff6700; font-family: "microsoft yahei";}
+.price-con h3 p.nowprice span{font-size: 25px; font-weight: bold;color: #ff6700; margin-left: 8px; font-family: arial;}/*2018.2.3*/
+.price-con h3 p.nowprice span em{font-size: 23px; color: #ff6700; font-family: "microsoft yahei";}/*2018.2.3*/
 .price-con h3 p.oldprice{margin: 16px 0 0 30px;}
 .price-con h3 p.oldprice span{font-size: 14px; text-decoration: line-through; margin-left: 8px; font-family: arial;}
 .price-con h3 p.wantprice{ float: right; margin: 16px 0 0 0;}

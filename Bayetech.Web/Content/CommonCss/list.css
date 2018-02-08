@@ -97,7 +97,7 @@
 .screen-item .sl-body ul { width: 910px; padding-left: 8px;}
 .screen-item .sl-body ul li { float: left; position: relative; width: 94px; padding: 8px 0; padding-left: 20px; height: 18px;  margin-right: 15px;}
 .screen-item .sl-body ul li.active a { color: #ff6700;}
-.screen-item .sl-body ul li a { color: #333;}
+.screen-item .sl-body ul li a { color: #0b7bea;}/*2018.2.3*/
 .screen-item .sl-body ul li a span.text {display: inline-block; max-width: 95%; overflow: hidden;text-overflow:ellipsis;white-space: nowrap; cursor: pointer;}
 .screen-item .sl-body ul li a:hover { color: #ff6700;}
 .screen-item.multiple .sl-body ul li.active a { color: #333;}
@@ -208,7 +208,7 @@
 .slobar-02 .sch a:hover { background: #ff6700; border: #ff6700 1px solid; color: #fff;}
 .slobar-02 .sch.pr-sch { float: right;}
 .slobar-02 .sch.pr-sch .rmb { position: absolute;}
-.slobar-02 .sch.pr-sch input { width: 44px;}
+.slobar-02 .sch.pr-sch input { width: 100px;}/*2018.2.3*/
 
 .list-item { display:table; width: 100%; *min-height: 86px; background-color:#fff; padding: 11px 0 10px 0; border-bottom: #e8e8e8 1px solid; position: relative; }
 .list-item:hover { background: #fbfbfb;}
@@ -221,10 +221,10 @@
 .list-v { display:inline-block; vertical-align: middle; *display: inline; *zoom:1; *position:relative; *top:-50%; }
 .list-item-box .part-01 { width: 433px; margin-right: 17px;}
 .list-item-box .part-01 .txt-box h2 { font-size: 14px; font-weight: bold; width: 100%; margin-bottom: 5px; max-height: 42px; overflow: hidden;}
-.list-item-box .part-01 .txt-box h2 a:hover { color: #ff6700;}
-.list-item-box .part-01 .txt-box h2 a em.tags { margin-top: -2px; margin-right: 5px;}
-.list-item-box .part-01 .txt-box h2 a span { margin-left: 3px;}
-.list-item-box .part-01 .txt-box h4 { color: #888; margin-bottom: 6px; overflow: hidden;}
+.list-item-box .part-01 .txt-box h2 a:hover { color: #1d8bf8;}
+.list-item-box .part-01 .txt-box h2 a em.tags { margin-top:1px; margin-right: 5px;}/*2018.2.3*/
+.list-item-box .part-01 .txt-box h2 a span { margin-left: 3px;color:#1d8bf8;}/*2018.2.3*/
+.list-item-box .part-01 .txt-box h4 { color: #888; margin-bottom: 6px; overflow: hidden;font-size:12px;}/*2018.2.3*/
 .list-item-box .part-01 .txt-box h4 i,.list-item-box .part-01 .txt-box h4 span{float: left;}
 .list-item-box .part-01 .txt-box h4 img{float: left; margin-left: 4px;}
 .list-item-box .part-01 .txt-box p { color: #888;}
@@ -261,7 +261,7 @@
 .list-box.list-type-03 .list-item-box .part-05 { width: 148px;}
 .list-box.list-type-03 .list-item:hover { z-index: 99; zoom: 1;}
 .list-box.list-type-03 .list-item:hover .list-item-box .part-01 { *z-index: 99;}
-.list-box.list-type-03 .list-item-box .part-01 h2 { margin-bottom: 5px; max-height: 42px; overflow: hidden;}
+.list-box.list-type-03 .list-item-box .part-01 h2 { margin-bottom: 5px; max-height: 42px; overflow: hidden;color:#1d8bf8;}/*2018.2.3*/
 .list-box.list-type-03 .list-item-box .part-01 .img-box { border: #eee 1px solid; display: inline-block; *display: inline; *zoom:1; vertical-align: middle; width: 86px; height: 86px; line-height: 80px; margin-right: 15px; position: relative;}
 .list-box.list-type-03 .list-item-box .part-01 .img-box a { max-height: 86px; display: block; overflow: hidden;}
 .list-box.list-type-03 .list-item-box .part-01 .img-box a img { width: 86px; display: inline-block; *display: inline; *zoom:1; vertical-align: middle; margin-top: -1px;}

@@ -22,7 +22,7 @@ define(jsconfig.baseArr, function (Vue,$,common) {
             self.$root.$on('GoodInfoHere', function (data) {//接收事件
                 if (data.content.HistoryAccount >= 0) {
                     var _Game = {title: "账号",href:"#"}
-                    var _GameType = { title: data.content.GameName, href: "#" };
+                     var _GameType  = { title: data.content.GameName, href: "#" };
                     var _GroupName = { title: data.content.GroupName, href: "#" };
                     var _ServerName = { title: data.content.ServerName, href: "#" };
                     self.object.push(_Game);

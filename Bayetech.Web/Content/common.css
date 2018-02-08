@@ -64,12 +64,24 @@ img{display:inline-block;}
 .ls-2{letter-spacing:2px;}
 .ls-10{letter-spacing:10px;}
 
-/*navbar 通用头部导航*/
+/*------------------------navbar 通用头部导航---------------------------*/
 .nav-t{border-bottom: 1px solid #eee;}
 .nav-t .dropdown:hover > .dropdown-menu {display: block;}
 .nav-t .navbar-right .dropdown-menu {left: 5px;right: auto;}
+
 .nav-justified>li {width:147px;}
 .nav-justified>a {color:#fff;}
+/*充值提现*/
+.nav-t .label-cash > a.pay,.nav-t .label-cash >a.take-out{display:inline-block;color:#fff;padding:0 10px;margin-top:5px;border-radius:5px;letter-spacing:1px;}
+.nav-t .label-cash >a.pay{background-color:#00b0ff;}
+.nav-t .label-cash >a.take-out{background-color:#f7536e;margin-left:6px;}
+.nav-t .label-cash >a.pay:hover{background-color:#04a4eb;color:#fff;}
+.nav-t .label-cash >a.take-out:hover{background-color:#ed435f;color:#fff;}
+
+
+
+
+
 .com-header .head-search {width:1200px;margin:0 auto;}
 .com-header .head-search .logo {width:315px;float:left;height:100%;line-height:100px;}
 .com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
@@ -225,5 +237,16 @@ img{display:inline-block;}
 }
 .btn-close {
     float:right;
-    color:red;
+    color:#fff;
+}
+.btn-close .btn-xs{
+    background: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    height: 28px;
+    width: 28px;
+    line-height: 26px;
+}
+.btn-close .btn-xs:hover{
+    color:#f0f0f0
 }

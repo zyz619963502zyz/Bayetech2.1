@@ -23,3 +23,59 @@
 }
 
 
+/*-----------详情页结构修改-----------*/
+.info-good h3.title{
+    font-size:18px;
+}
+.pro_property{
+    margin-top:20px;
+}
+.pro_other_price {
+    line-height: 20px;
+}
+.pro_other {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #4f4f4f;
+    position: relative;
+}
+.pro_other span {
+    font-size: 14px;
+    color: #999;
+    float: left;
+    display: block;
+    line-height: 20px;
+}
+.pro_other em {
+    position: relative;
+    padding-left: 10px;
+    float:left;
+    margin-right:10px;
+}
+.pro_other a {
+    color: #02a6ef;
+    float: left;
+}
+.pro_other .stars-box{
+    width:140px;
+    margin-top:1px;
+}
+.pro_other .deal-num{
+    color:#ff6700;
+    font-size:12px;
+}
+.pro_other_price em {
+    font-size: 16px;
+    color: #ff6700;
+    font-weight: bold;
+}
+.pro_more em {
+    padding-left: 5px;
+    color: #666;
+    margin-right: 35px;
+}
+li.gline {
+    border-bottom: 1px dotted #dfdfdf;
+    height: 10px;
+    margin-bottom: 10px;
+}

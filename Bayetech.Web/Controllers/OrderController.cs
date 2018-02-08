@@ -80,7 +80,7 @@ namespace Bayetech.Web.Controllers
             if (status.Count > 0)
             {
                 ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JProperty.FromObject(status));
+                ret.Add(ResultInfo.Content, JToken.FromObject(status));
             }
             else
             {

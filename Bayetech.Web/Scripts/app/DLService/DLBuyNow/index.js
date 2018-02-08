@@ -12,14 +12,14 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
             Groups: [],
             Servers:[],
             subMitObj: {
-                GameId: 0,
-                GoodNo:"",//编号
+                GameId: 1,
+                GoodNo: common.GetUrlParam("", "DlNo"),//编号
                 GroupSelected: "",
                 ServerSelected: "",
                 Account: "",
                 Password: "",
                 PwdAgain: "",
-                OrderPrice:"",
+                OrderPrice: "",
                 RoleName: "",
                 RoleLevel: "",
                 BuyerQQ:"",//联系QQ
@@ -36,14 +36,19 @@ require(moudule, function (Vue, $, common, dlBuyInfo) {
                     if (data.result) {
                        gourp == 0? self.Groups = data.content : self.Servers =data.content;
                     }
-                });
+                });  
             },
             SubMitForm() {
-                
+                var self = this;
+                common.postWebJson(_SubMitForm, self.subMitObj, function (data) {
+                    if (data.result) {
+                        alert(data.content);
+                    }
+                });
             }
         },
         created: function () {
-            var self = this;
+            var self=this;
             self.GetServers(0);
         },
         components: {

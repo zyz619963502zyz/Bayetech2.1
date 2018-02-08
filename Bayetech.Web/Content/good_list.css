@@ -96,3 +96,31 @@
     background-color: #4c8bf8;
     border-color: #4c8bf8;
 }
+
+
+/*----------------正在交易、交易完成状态-----------------*/
+.btn_jywc, .btn_jyz {
+    display: block;
+    margin: 0 auto;
+    width: 105px;
+    height: 31px;
+    line-height: 30px;
+    background: #fffefe;
+    border: 1px solid #aaa;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.btn_jyz {
+    color: #8068fe;
+}
+.btn_jywc {
+    color: #00c100;
+}
+.btn_jyz img, .btn_jywc img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-top: -1px;
+}

@@ -75,8 +75,7 @@ namespace Bayetech.Web.Controllers
         public JObject SubmitDlInfo(JObject json)
         {
             JObject ret = new JObject();
-            DlPayInfoModels model = JsonConvert.DeserializeObject<DlPayInfoModels>(json.ToString());
-
+            ret = Dlian.SubmitDlInfo(json);
             return ret;
         }
 

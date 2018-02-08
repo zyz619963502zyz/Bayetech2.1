@@ -1,6 +1,7 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -112,13 +113,36 @@ namespace Bayetech.Service
             }
         }
 
-
-        public JObject SubmitDlInfo(vw_MallDLOrderInfo orderInfo)
+        /// <summary>
+        /// 插入订单操作
+        /// </summary>
+        /// <param name="orderInfo"></param>
+        /// <returns></returns>
+        public JObject SubmitDlInfo(JObject orderInfo)
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
+                int flag = 0;
                 var ret = new JObject();
-
+                GameAccount _account = JsonConvert.DeserializeObject<GameAccount>(orderInfo.ToString());
+                MallOrder order = JsonConvert.DeserializeObject<MallOrder>(orderInfo.ToString());
+                order.OrderNo = Common.CreatOrderNo(order.GoodNo);
+                if (!string.IsNullOrEmpty(_account.Account)&& !string.IsNullOrEmpty(order.OrderNo))
+                {
+                    db.Insert(_account);
+                    db.Insert(order);
+                }
+                flag = db.Commit();
+                if (flag == 2)//两笔都插入成功
+                {
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add(ResultInfo.Content,"提交成功！");
+                }
+                else
+                {
+                    ret.Add(ResultInfo.Result, false);
+                    ret.Add(ResultInfo.Content, "保存失败请重新尝试！");
+                }
                 return ret;
             }
         }

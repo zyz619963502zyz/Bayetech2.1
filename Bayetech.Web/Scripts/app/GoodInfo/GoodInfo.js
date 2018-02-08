@@ -16,7 +16,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </ul>
                 </div>
                 <div class="good-id">
-                    <p class ="bianhao">编号：<span>{{GoodNo}}</span></p>
+                    <!--<p class ="bianhao">编号：<span>{{GoodNo}}</span></p>-->
                     <p class ="riqi">日期：<span>{{AddTime.split('T')[0]}}</span></p>
                     <div class="sharep">
                         <div class="bdsharebuttonbox bdshare-button-style0-16" data-tag="share_1">
@@ -28,7 +28,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
             <div class ="info-good">
                 <h3 class ="title">{{GoodTitle}}</h3>
-                <div class="package-price">
+
+                <!--<div class="package-price">
                     <div class="price-con">
                         <h3>
                             <p class ="nowprice">价格: <span><em>￥</em>{{GoodPrice}}</span></p>
@@ -36,8 +37,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </h3>
                     </div>
                     <h4>
-                        等级：<em :class ="level"></em>
-                        <span>{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
+                        安全等级：<em :class ="level"></em>
+                        <span class="deal-num">{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
                     </h4>
                 </div>
                 <div class ="game-ensure" >
@@ -48,7 +49,46 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     <ul>
                         <li v-for="item in mallGoodInfo"><span>{{item.DescriptionName}}：</span><em>{{item.DescriptionValue}}</em></li>
                     </ul>
-                </div>
+                </div>-->
+
+				<ul class="pro_property">
+					<li class="pro_other pro_other_price clearfix">
+						<span>商品价格：</span>
+						<em>¥{{GoodPrice}}</em>
+					</li>
+					<li class="pro_other clearfix">
+						<span>安全等级：</span><em :class ="level"></em>
+						<span class="deal-num">{{HistoryAccount == '0'?'此账号首次在游戏联盟出售': '此账号有'+HistoryAccount+'次交易记录'}}</span>
+					</li>
+					<li class="pro_other clearfix">
+						<span>商品类型：</span>
+						<em class="" style="width: 140px; overflow: hidden; height: 20px;">{{GoodTypeName}}</em>
+						<span>浏览次数：</span>
+						<em class="">5555</em>
+					</li>
+					<li class="pro_other clearfix">
+						<span>商品编号：</span>
+						<em class="">{{GoodNo}}</em>
+						<!--<a href="javascript:void();" onclick="copyToClip('ID20180201000040-43574')">【复制编号】</a>-->
+					</li>
+					<li class="pro_other clearfix">
+						<span>游戏区服：</span>
+						<em title="地下城与勇士/广西区/广西1区" class="fcolor_b">地下城与勇士/{{GroupName}}/{{ServerName}}</em>
+					</li>
+					<!--<li class="pro_other pro_more clearfix">
+						<span>商品库存：</span><em>1</em>
+						<span>剩余天数：</span><em>9天</em>
+						<span>方便交易：</span><em>全天</em>
+					</li>-->
+					<li class="gline"></li>
+					<!--<li class="pro_other">
+						<div class="clearfix">
+							<span>诚信保障：</span>
+							<div class="p_dzs clearfix" style="float: left;"><em class="tipso_style" data-tipso="UU898帐号交易"><img src="//s.img898.com/www/png/files/zhangicon.png" alt="账号商品">账号商品</em><em class="tipso_style" data-tipso="卖家保证资料真实，买不到就赔钱"><img src="//s.img898.com/www/png/images/zlbz.png" alt="资料保真">资料保真</em><em class="tipso_style" data-tipso="如有找回，全额赔付"><img src="//s.img898.com/www/png/images/zhbp.png" alt="找回包赔">找回包赔</em></div>
+						</div>
+					</li>-->
+				</ul>
+
                 <div class="detail_ico">
                     <label>服务：</label>
                     <a href="javascript:void(0)" class="curr"><i class="tags icon-wl"></i></a>
@@ -62,6 +102,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <p style="display: none;"><i class="tags icon-jgxs"></i>价格协商：此商品可以联系客服进行议价</p>
                     </div>
                 </div>
+
                 <div class="rent-btn">
                     <a href="#" @click = "BuyNow(GoodNo)">立即购买</a>
                 </div>
@@ -69,7 +110,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
             <div class ="seller-info" style="height: 500px;">
                 <div class ="sellhead">
-                    <img src="../../Content/Images/sellicon.jpg" />
+                    <img src="../../Content/NewImages/10.jpg" />
                 </div>
                 <div class ="sellstar">
                     <p>卖家信誉：<a href="http://www.7881.com/helpcenter/36057564234053938.html" target="_blank">
