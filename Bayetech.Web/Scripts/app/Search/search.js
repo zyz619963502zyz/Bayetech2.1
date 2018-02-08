@@ -41,6 +41,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
     </div>
        `
     var dropdownComponents = dropdown;
+    var Param = common.GetSearchParam();
     var components = {
         name: "v-search",
         template: html,
@@ -58,7 +59,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     3: "GameServer",
                     4: "GoodType",
                 },
-                Param:common.GetSearchParam(),
+                Param: Param,
                 SimpleClass: "gray",
                 AccurateClass: "hover",
                 IsAcross: false,
@@ -201,8 +202,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             //设置下拉框数据
             setData: function (type,pid,self) {
                 common.getWebJson("/api/Search/GetData", { type: type, id: pid, serviceType: (self.DL ? 4 : 1) }, function (data) {
-                    if (data) {
-                        data.unshift({ Id: "", Name:"全部", Child: data[0].Child,})
+                    if (data && data.List) {
+                        data.List.unshift({ Id: "", Name:"全部"})
                     }
                     
                     self.DropdownData = data;
