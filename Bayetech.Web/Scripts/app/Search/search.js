@@ -171,30 +171,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var TargetUrl= "";
                 switch (_type) {
                     case "NewIndex":
-                       TargetUrl=encodeURI(`${common.GetBaseUrl()}Good/GoodList.html?page=1&GameId=
-                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
-                                ${this.Param.GameGroupId}&GameGroupName=
-                                ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&GameServerName=
-                                ${this.Param.GameServerName}&GoodTypeId=
-                                ${this.Param.GoodTypeId}&GoodTypeName=
-                                ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}&AcrossId=
-                                ${this.Param.AcrossId}&AcrossName=
-                                ${this.Param.Across}`);
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`);
                         break;
                     case "GoodList":
                        TargetUrl = "";
                         break;
                     case "DLIndex":
-                       TargetUrl=encodeURI(`${common.GetBaseUrl()}DLService/DLList.html?page=1&GameId=
-                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
-                                ${this.Param.GameGroupId}&GameGroupName=
-                                ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&&GameServerName=
-                                ${this.Param.GameServerName}GoodTypeId=
-                                ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}`);
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}DLService/DLList.html`);
                         break;
                     case "DLList":
                         TargetUrl = "";
