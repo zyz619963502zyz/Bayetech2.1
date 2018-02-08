@@ -274,7 +274,7 @@
             DlTypeName: "代练类型",
             GoodKeyWord: "",
             AcrossId: 0,
-            AcrossName: "跨区",
+            AcrossName: "跨区", 
         };
     };
 
