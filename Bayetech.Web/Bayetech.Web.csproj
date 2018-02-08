@@ -324,8 +324,6 @@
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
     <Content Include="Content\CommonCss\xqgd.css" />
     <Content Include="Content\dailian.css" />
-    <Content Include="Content\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\fonts\sa-regular.svg" />
     <Content Include="Content\Goods\Publish.css" />
     <Content Include="Content\good_info.css" />
     <Content Include="Content\good_list.css" />
@@ -697,6 +695,8 @@
     <Content Include="Content\swiper\swiper.min.css" />
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\sa-regular.svg" />
     <Content Include="Page\DLService\DLBuyNow.html" />
     <Content Include="Page\DLService\DLDetail.html" />
     <Content Include="Page\DLService\DLList.html" />
@@ -871,15 +871,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Configs\log4net.config" />
-    <Content Include="Content\fonts\sa-regular.eot" />
-    <Content Include="Content\fonts\sa-regular.ttf" />
-    <Content Include="Content\fonts\sa-regular.woff" />
-    <Content Include="Content\fonts\sa-regular.woff2" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="fonts\sa-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\sa-regular.eot" />
+    <Content Include="fonts\sa-regular.ttf" />
+    <Content Include="fonts\sa-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\css.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -246,7 +246,7 @@
         for (var k in o)
             if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         return fmt;
-    }
+    };
 
 
     //添加选中样式
@@ -261,22 +261,22 @@
     };
 
     //获取基础搜索条件
-    common.GetSearchParam=function () {
+    common.GetSearchParam = function () {
         return {
-                GameId: 0,
-                GameName: "游戏名称",
-                GameGroupId: 0,
-                GameGroupName: "游戏区",
-                GameServerId: 0,
-                GameServerName: "服务器",
-                GoodTypeId: 0,
-                GoodTypeName: "物品类型",
-                DlTypeName:"代练类型",
-                GoodKeyWord: "",
-                AcrossId: 0,
-                AcrossName:"跨区",
-            };
-    }
+            GameId: 0,
+            GameName: "游戏名称",
+            GameGroupId: 0,
+            GameGroupName: "游戏区",
+            GameServerId: 0,
+            GameServerName: "服务器",
+            GoodTypeId: 0,
+            GoodTypeName: "物品类型",
+            DlTypeName: "代练类型",
+            GoodKeyWord: "",
+            AcrossId: 0,
+            AcrossName: "跨区", 
+        };
+    };
 
     return common;
 })
