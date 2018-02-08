@@ -18,6 +18,7 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
+        [HttpGet]
         public JObject GetListByType(string type)
         {
             var parent = service.FindList(s => s.Value == type || s.key == type).FirstOrDefault();
@@ -30,6 +31,7 @@ namespace Bayetech.Web.Controllers
         /// </summary>
         /// <param name="parentId"></param>
         /// <returns></returns>
+        [HttpGet]
         public JObject GetListByParentId(long parentId)
         {
             var data = service.GetList(s => s.ParentId == parentId);
