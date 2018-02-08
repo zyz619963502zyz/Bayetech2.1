@@ -70,14 +70,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-head"><span title="职业">职业</span>：</div>
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
-
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
                                         <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
-
                             </ul>
                         </div>
                         <div class ="sl-foot">
@@ -90,19 +88,22 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </div>
                         </div>
                     </div>
-
                      <div class ="screen-item">
                         <div class ="sl-head"><span title="职业">身份证</span>：</div>
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
-
-                                <li v-for="item in Professions">
-                                    <a href="javascript:void(0)" :title="item.ProfessionName">
+                                <li>
+                                    <a href="javascript:void(0)">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text">身份证未设置</span>
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text">身份证已设置</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -112,10 +113,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
 
-                                <li v-for="item in Professions">
-                                    <a href="javascript:void(0)" :title="item.ProfessionName">
+                                <li v-for="item in Levels">
+                                    <a href="javascript:void(0)" title="QQ等级">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.key"  @click="SetQQLevel" :key="item.key">{{item.Value}}</span>
                                     </a>
                                 </li>
 
@@ -187,7 +188,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             },
             GetListByParentId(){//获取配置类型
                 var self=this;
-                var param={ type:72 };
+                var param={ parentId:72 };
                 common.getWebJson(LevelsUrl, param, function (data) {
                     self.Levels = data.content;
                 })
@@ -201,6 +202,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
                     }
                 });
+            },
+            SetQQLevel() {//设置等级
+
             }
         }   
     };
