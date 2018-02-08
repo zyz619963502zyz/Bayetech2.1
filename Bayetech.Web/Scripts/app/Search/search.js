@@ -213,7 +213,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //设置下拉框数据
             setData: function (type,pid,self) {
-                common.getWebJson("/api/Search/GetData", { type: type, id: pid,serviceType:(self.DL?4:1) }, function (data) {
+                common.getWebJson("/api/Search/GetData", { type: type, id: pid, serviceType: (self.DL ? 4 : 1) }, function (data) {
+                    if (data) {
+                        data.unshift({ Id: "", Name:"全部", Child: data[0].Child,})
+                    }
+                    
                     self.DropdownData = data;
                 });
             },
