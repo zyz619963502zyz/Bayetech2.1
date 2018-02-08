@@ -249,7 +249,6 @@
     }
 
 
-
     //添加选中样式
     common.AddSelectedClass=function (selector, addClass,fn) {
         $(document).on("click", selector, function () {
@@ -260,6 +259,24 @@
             }
         });
     };
+
+    //获取基础搜索条件
+    common.GetSearchParam=function () {
+        return {
+                GameId: 0,
+                GameName: "游戏名称",
+                GameGroupId: 0,
+                GameGroupName: "游戏区",
+                GameServerId: 0,
+                GameServerName: "服务器",
+                GoodTypeId: 0,
+                GoodTypeName: "物品类型",
+                DlTypeName:"代练类型",
+                GoodKeyWord: "",
+                AcrossId: 0,
+                AcrossName:"跨区",
+            };
+    }
 
     return common;
 })
