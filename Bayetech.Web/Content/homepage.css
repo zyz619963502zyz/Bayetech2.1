@@ -33,8 +33,11 @@
 
 /*---买卖button---*/
 .buy-sale-area {overflow:hidden;}
-.buy-sale-area a {color:#fff;font-size:16px;text-align:center;}
-
+.buy-sale-area a {color:#fff;font-size:16px;text-align:center;display: inline-block;
+    width: 80px;
+    border-radius: 0;}
+.buy-sale-area a i{margin: 10px auto;font-size: 30px;}
+.buy-sale-area a span{display:block;}
 
 /*---qq验证---*/
 .qq-check label {position:relative;height:36px;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;*margin-top:-2px;}
