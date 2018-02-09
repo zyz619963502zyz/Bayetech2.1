@@ -86,6 +86,7 @@ var jsconfig = {
         'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
         'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
         'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow'
+
     },
     map: {
         '*': {

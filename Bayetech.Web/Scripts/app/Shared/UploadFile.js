@@ -1,4 +1,4 @@
-﻿define(['jquery', 'common',], function ($,common) {
+﻿define(['vue','jquery', 'common',], function (vue,$,common) {
     var uploadHtml =`<div class="form-item twochose clearfix" style="z-index: 1;">
                     <div class="form-item-l">
                         <i>*</i>
@@ -149,7 +149,7 @@
 
     var uploadCompment={
         name: "FileUpload",
-        template: html,
+        template: uploadHtml,
         data() {
             return data;
         },
