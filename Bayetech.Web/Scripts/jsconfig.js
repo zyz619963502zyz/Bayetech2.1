@@ -9,23 +9,32 @@ var jsconfig = {
         'vue': 'Scripts/vue',
         'jquery': 'Scripts/jquery-1.10.2',
         'bootstrap': 'Scripts/bootstrap.min',
+        'common': 'Scripts/common',
+
         'bootstrapValidator': 'Scripts/bootstrapValidator',
         'bootstrap-paginator': 'Scripts/bootstrap-paginator',
         'datepicker': 'Scripts/bootstrap-datepicker',
         'swiper': 'Scripts/swiper',
-        'common': 'Scripts/common',
+        
         'text': "Scripts/text",
+        'v-partner': "Scripts/app/Home/partner",
+        "v-search": "Scripts/app/Search/Search",
+        "search-dropdown": "Scripts/app/Search/search-dropdown",
+
+
+        //Shared模块
         'v-header': 'Scripts/app/Shared/header',
         'v-footer': 'Scripts/app/Shared/footer',
         "v-nav": 'Scripts/app/Shared/nav',
         'v-tab': "Scripts/app/Shared/tab",
         'v-menu': "Scripts/app/Shared/menu",
-        'v-partner': "Scripts/app/Home/partner",
-        "v-search": "Scripts/app/Search/Search",
         "nav-top": "Scripts/app/Shared/nav-top",
-        "search-dropdown": "Scripts/app/Search/search-dropdown",
         'footer-server': 'Scripts/app/Shared/footer-server',
         'footer-nav': 'Scripts/app/Shared/footer-nav',
+        'DynamicInput': 'Scripts/app/Shared/dynamicInput',
+        'FileUpload': 'Scripts/app/Shared/FileUpload',
+        //Shared模块
+
         'helpLeft': 'Scripts/app/HelpCenter/left',
         'helpButtom': 'Scripts/app/HelpCenter/bottom',
         'SignLeftModule': 'Scripts/app/Sign/signLeft',
@@ -75,7 +84,6 @@ var jsconfig = {
         'InfoList': 'Scripts/app/DLService/InfoList',
         'DLList': 'Scripts/app/DLService/DLLists/DLList',
         'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
-        'DynamicInput': 'Scripts/app/Shared/dynamicInput',
         'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
         'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow'
     },
@@ -117,3 +125,18 @@ var config={
     height: document.documentElement.clientHeight>0?document.documentElement.clientHeight:document.body.clientHeight,
 };
 
+
+//var RouterConfig = {};
+
+//RouterConfig.Shared = {
+//    'v-header': 'Scripts/app/Shared/header',
+//    'v-footer': 'Scripts/app/Shared/footer',
+//    "v-nav": 'Scripts/app/Shared/nav',
+//    'v-tab': "Scripts/app/Shared/tab",
+//    'v-menu': "Scripts/app/Shared/menu",
+//    "nav-top": "Scripts/app/Shared/nav-top",
+//    'footer-server': 'Scripts/app/Shared/footer-server',
+//    'footer-nav': 'Scripts/app/Shared/footer-nav',
+//    'DynamicInput': 'Scripts/app/Shared/dynamicInput',
+//    'FileUpload': 'Scripts/app/Shared/FileUpload',
+//}

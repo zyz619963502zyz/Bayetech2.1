@@ -264,6 +264,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -762,6 +763,7 @@
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
+    <Content Include="Scripts\app\Shared\UploadFile.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />
     <Content Include="Scripts\app\GoodPublish\Step2.js" />
