@@ -33,9 +33,8 @@
 
 /*---买卖button---*/
 .buy-sale-area {overflow:hidden;}
-.buy-sale-area a {color:#fff;font-size:16px;text-align:center;display: inline-block;
-    width: 80px;
-    border-radius: 0;}
+.buy-sale-area a {color:#fff;font-size:16px;text-align:center;display: inline-block;width: 87px;border-radius: 0;margin-right:5px;}
+.buy-sale-area a:last-child{margin-right:0;}
 .buy-sale-area a i{margin: 10px auto;font-size: 30px;}
 .buy-sale-area a span{display:block;}
 
