@@ -23,7 +23,7 @@ define([
             name: arguments[i].name,
             component: arguments[i],
         });
-    }
+    } 
     return {
         //mode: 'history',
         //base: '/page/UserCenter/Index.html',
