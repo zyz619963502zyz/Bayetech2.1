@@ -115,9 +115,9 @@
                                     <button type="reset" class="btn btn-default">Reset</button>
                                 </form>
                                 //附件上传
-
                                 <hr>
-                                <span class="Validform_checktip"></span>
+                                <span class ="Validform_checktip"></span>
+
                             </div>
                         </div>
                     </div>
