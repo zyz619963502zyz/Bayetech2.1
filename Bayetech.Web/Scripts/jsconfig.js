@@ -113,7 +113,7 @@ var jsconfig = {
             exports: 'Swiper',
         },
         'upload': {
-            deps: ['jquery', 'bootstrap'],
+            deps: ['jquery', 'bootstrap','css!../Content/fileupload/fileinput.css'],
             exports:'upload'
         }
     }
