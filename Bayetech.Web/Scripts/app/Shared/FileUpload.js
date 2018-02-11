@@ -1,4 +1,5 @@
-﻿define(['vue','jquery', 'common',], function (vue,$,common) {
+﻿define(['vue', 'jquery','bootstrap','upload', 'common', ], function (vue, $,bootstrap,upload,common) {
+
     var uploadHtml =`<div class="form-item twochose clearfix" style="z-index: 1;">
                     <div class="form-item-l">
                         <i>*</i>
@@ -103,37 +104,19 @@
                                         <em id="residueNum">10</em>张
                                     </b>
                                 </p>
-                                <div class="upload-area printScreen" datatype="acc_nopic">
-                                    <div id="uploader" class="bl-uploader-box clearfix">
-                                        <div class="uploader-list"></div>
-                                        <div class="uploader-list"></div>
-                                        <!--用来存放文件信息-->
-                                        <div id="thelist" class="uploader-list"></div>
-                                        <div class="btns">
-                                            <div id="picker" class="tppicker webuploader-container">
-                                                <div class="webuploader-pick">
-                                                    <div class="webuploader-pick">
-                                                        <div class="webuploader-pick">
-                                                            <em class="iconfont"></em>
-                                                        </div>
-                                                        <div id="rt_rt_1bopd21qh1im9v8facnor51g2u1" style="position: absolute; top: 0px; left: 0px; width: 118px; height: 118px; overflow: hidden; bottom: auto; right: auto;">
-                                                            <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/jpeg,image/png">
-                                                            <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
-                                                        </div>
-                                                    </div>
-                                                    <div id="rt_rt_1c3070ls4ac96kkbgur5d1c601" style="position: absolute; top: 0px; left: 0px; width: 118px; height: 118px; overflow: hidden; bottom: auto; right: auto;">
-                                                        <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/jpeg,image/png">
-                                                        <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
-                                                    </div>
-                                                </div>
-                                                <div id="rt_rt_1c3070m231epif631f701om910opa" style="position: absolute; top: 0px; left: 0px; width: 118px; height: 118px; overflow: hidden; bottom: auto; right: auto;">
-                                                    <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/jpg,image/jpeg,image/png">
-                                                    <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                              
+                                //附件上传
+                                <form enctype="multipart/form-data">
+                                    <div class="file-loading">
+                                        <input id="file-0c" class="file" type="file" multiple data-min-file-count="3">
                                     </div>
-                                </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-default">Reset</button>
+                                </form>
+                                //附件上传
+
+                                <hr>
                                 <span class="Validform_checktip"></span>
                             </div>
                         </div>
@@ -157,7 +140,7 @@
                 
         },
         mounted() {
-           
+            $("#file-0b").fileinput();
         },
         methods: {
           
