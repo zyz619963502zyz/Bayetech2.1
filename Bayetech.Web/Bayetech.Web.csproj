@@ -882,6 +882,7 @@
     <Content Include="fonts\sa-regular.eot" />
     <Content Include="fonts\sa-regular.ttf" />
     <Content Include="fonts\sa-regular.woff" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\css.min.js" />
     <Content Include="Scripts\fileinput.js" />
