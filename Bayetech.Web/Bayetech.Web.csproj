@@ -882,7 +882,8 @@
     <Content Include="fonts\sa-regular.eot" />
     <Content Include="fonts\sa-regular.ttf" />
     <Content Include="fonts\sa-regular.woff" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\发布到服务器.pubxml" />
+    <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\css.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
