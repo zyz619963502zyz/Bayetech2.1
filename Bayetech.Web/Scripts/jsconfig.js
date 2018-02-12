@@ -9,31 +9,16 @@ var jsconfig = {
         'vue': 'Scripts/vue',
         'jquery': 'Scripts/jquery-1.10.2',
         'bootstrap': 'Scripts/bootstrap.min',
+        'upload':  'Scripts/fileinput',
         'common': 'Scripts/common',
-
         'bootstrapValidator': 'Scripts/bootstrapValidator',
         'bootstrap-paginator': 'Scripts/bootstrap-paginator',
         'datepicker': 'Scripts/bootstrap-datepicker',
         'swiper': 'Scripts/swiper',
-        
         'text': "Scripts/text",
         'v-partner': "Scripts/app/Home/partner",
         "v-search": "Scripts/app/Search/Search",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
-
-
-        //Shared模块
-        'v-header': 'Scripts/app/Shared/header',
-        'v-footer': 'Scripts/app/Shared/footer',
-        "v-nav": 'Scripts/app/Shared/nav',
-        'v-tab': "Scripts/app/Shared/tab",
-        'v-menu': "Scripts/app/Shared/menu",
-        "nav-top": "Scripts/app/Shared/nav-top",
-        'footer-server': 'Scripts/app/Shared/footer-server',
-        'footer-nav': 'Scripts/app/Shared/footer-nav',
-        'DynamicInput': 'Scripts/app/Shared/dynamicInput',
-        'FileUpload': 'Scripts/app/Shared/FileUpload',
-        //Shared模块
 
         'helpLeft': 'Scripts/app/HelpCenter/left',
         'helpButtom': 'Scripts/app/HelpCenter/bottom',
@@ -85,10 +70,23 @@ var jsconfig = {
         'DLList': 'Scripts/app/DLService/DLLists/DLList',
         'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
         'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
-        'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow'
+        'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow',
+
+         //Shared模块
+        'v-header': 'Scripts/app/Shared/header',
+        'v-footer': 'Scripts/app/Shared/footer',
+        "v-nav": 'Scripts/app/Shared/nav',
+        'v-tab': "Scripts/app/Shared/tab",
+        'v-menu': "Scripts/app/Shared/menu",
+        "nav-top": "Scripts/app/Shared/nav-top",
+        'footer-server': 'Scripts/app/Shared/footer-server',
+        'footer-nav': 'Scripts/app/Shared/footer-nav',
+        'DynamicInput': 'Scripts/app/Shared/dynamicInput',
+        'FileUpload': 'Scripts/app/Shared/FileUpload',
+        //Shared模块
 
     },
-    map: {
+    map: { 
         '*': {
             'css': 'Scripts/css.min'
         }
@@ -113,6 +111,10 @@ var jsconfig = {
         'swiper': {
             deps: ['bootstrap', 'css!../Content/swiper/swiper.min'],
             exports: 'Swiper',
+        },
+        'upload': {
+            deps: ['jquery', 'bootstrap','css!../Content/fileupload/fileinput.css'],
+            exports:'upload'
         }
     }
 };

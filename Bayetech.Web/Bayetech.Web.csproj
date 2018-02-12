@@ -325,6 +325,8 @@
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
     <Content Include="Content\CommonCss\xqgd.css" />
     <Content Include="Content\dailian.css" />
+    <Content Include="Content\fileupload\fileinput-rtl.css" />
+    <Content Include="Content\fileupload\fileinput.css" />
     <Content Include="Content\Goods\Publish.css" />
     <Content Include="Content\good_info.css" />
     <Content Include="Content\good_list.css" />
@@ -763,7 +765,7 @@
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
-    <Content Include="Scripts\app\Shared\UploadFile.js" />
+    <Content Include="Scripts\app\Shared\FileUpload.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />
     <Content Include="Scripts\app\GoodPublish\Step2.js" />
@@ -886,6 +888,7 @@
     <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\css.min.js" />
+    <Content Include="Scripts\fileinput.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jsconfig.js" />

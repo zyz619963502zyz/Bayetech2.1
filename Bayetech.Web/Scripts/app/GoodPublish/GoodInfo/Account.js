@@ -1,4 +1,4 @@
-﻿//账号
+﻿//账号ppd微博
 define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType', 'API','DynamicInput','FileUpload'], function ($, common, TradeType, API,DynamicInput,FileUpload) {
     var html=`<div class="one-step-con">
     <div class="title-group-box common-form height-30 clearfix" id="GameProps">
