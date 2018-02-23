@@ -778,6 +778,7 @@
     <Content Include="Scripts\app\PlaceOrder\OrderPay.js" />
     <Content Include="Scripts\app\PlaceOrder\SureBuy.js" />
     <Content Include="Scripts\app\Shared\dynamicInput.js" />
+    <Content Include="Scripts\app\Shared\main-footer.js" />
     <Content Include="Scripts\app\Shared\nav-top.js" />
     <Content Include="Scripts\app\Shared\nav.js" />
     <Content Include="Scripts\app\Home\old\nav-dropdown.js" />

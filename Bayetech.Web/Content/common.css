@@ -78,10 +78,6 @@ img{display:inline-block;}
 .nav-t .label-cash >a.pay:hover{background-color:#04a4eb;color:#fff;}
 .nav-t .label-cash >a.take-out:hover{background-color:#ed435f;color:#fff;}
 
-
-
-
-
 .com-header .head-search {width:1200px;margin:0 auto;}
 .com-header .head-search .logo {width:315px;float:left;height:100%;line-height:100px;}
 .com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
@@ -174,7 +170,7 @@ img{display:inline-block;}
 .footer-server dl dd { float: left; margin-left:18px;}
 .footer-server dl dd h2 { color: #fff; font-size: 18px; font-family: "microsoft yahei"; margin-top: 6px; margin-bottom: 2px;}
 .footer-server dl dd p { color: #1a5998;}
-.footer-nav { width: 1140px; margin: 38px auto 0 auto; padding-bottom: 22px; border-bottom:#e6e6e6 1px solid;}
+
 .footer-nav-dl { margin-left: -60px; float: left;}
 .footer-nav dl { float: left; width: 110px; margin-left: 60px;}
 .footer-nav dl dt { margin-bottom: 12px; font-size: 14px; font-weight: bold;}
@@ -212,10 +208,26 @@ img{display:inline-block;}
 .footer-04 .footer-link p a { color: #666;}
 
 
-/*查询搜索优化*/
-/*#GoodList .nav-justified {padding-left:466px;background-color:#3b83e8;}
-#GoodList .nav-justified li>a {color:#fff;}*/
+/*---------new footer---------*/
+.main-footer{
+    width:100%;
+    background-color:#e7e7e7;
+    padding-bottom:30px;
+}
 
+.footer-nav { margin: 38px auto 0 auto; padding-bottom: 22px; border-bottom:#e6e6e6 1px solid;}
+.footer-link-nav ul li{display:inline-block;position:relative;padding:0 10px;}
+.footer-link-nav ul li:after{
+    position:absolute;
+    content:'|';
+    right:0;
+}
+.footer-link-nav ul li:last-child:after{
+    content:''
+}
+.footer-link-honor{
+
+}
 /*----部分bootstrap重写和添加专区----*/
 .form-group .form-control:focus{box-shadow:none;border-color:#3d86ea;}
 .form-group-xs .form-control {height: 26px;padding: 3px 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;}
