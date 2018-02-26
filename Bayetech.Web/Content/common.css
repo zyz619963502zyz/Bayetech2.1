@@ -100,7 +100,7 @@ img{display:inline-block;}
 .g-select .gs_menu .gs_search_item {width:auto;}
 .g-select .gs_search_btn {width:80px;height:36px;background-color:#faa426;color:#fff;font-size:14px;letter-spacing:4px;text-indent:4px;border:none;outline:none;}
 
-.gs_menu li {position:relative;font-size:12px;display:inline-block;height:100%;line-height:32px;cursor:pointer;width:100px;text-align:center;}
+.gs_menu li {position:relative;font-size:14px;display:inline-block;height:100%;line-height:32px;cursor:pointer;width:100px;text-align:center;}
 .gs_menu li:before,.gs_menu li:after {position:absolute;color:#999;}
 .gs_menu li:before {content:'';top:50%;right:7px;width:0;height:0;border-top:4px dashed;border-right:4px solid transparent;border-left:4px solid transparent;}
 .gs_menu li::after {content:'|';right:0;}
