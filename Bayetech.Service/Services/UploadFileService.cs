@@ -1,12 +1,19 @@
-﻿using System;
+﻿using Bayetech.Core.Entity;
+using Bayetech.DAL;
+using System;
+using System.Collections.Generic;
 
 namespace Bayetech.Service
 {
     public class UploadFileService : IUploadFileService
     {
-        public void AddUploadFile()
+        public bool AddUploadFile(List<Attachment> attachs)
         {
-            throw new NotImplementedException();
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+               int flag = db.Insert(attachs);
+               return true;
+            }
         }
 
         public void DelUploadFile()

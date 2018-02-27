@@ -63,6 +63,15 @@
           <Property Name="ArticleId" Type="bigint" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PicName" Type="nvarchar" MaxLength="30" />
+          <Property Name="PicPath" Type="varchar" MaxLength="50" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="catid" />
@@ -694,6 +703,7 @@
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExtraProperty" EntityType="Self.ExtraProperty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExtraPropertyValue" EntityType="Self.ExtraPropertyValue" Schema="dbo" store:Type="Tables" />
@@ -1172,6 +1182,7 @@
           <EntitySet Name="vw_MallDLInfo" EntityType="BayetechModel.vw_MallDLInfo" />
           <EntitySet Name="vw_MallDLOrderInfo" EntityType="BayetechModel.vw_MallDLOrderInfo" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
+          <EntitySet Name="Attachments" EntityType="BayetechModel.Attachment" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1685,6 +1696,15 @@
           <Property Name="GoodTypeId" Type="Int64" />
           <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PicName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PicPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2373,6 +2393,16 @@
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attachments">
+            <EntityTypeMapping TypeName="BayetechModel.Attachment">
+              <MappingFragment StoreEntitySet="Attachment">
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="PicPath" ColumnName="PicPath" />
+                <ScalarProperty Name="PicName" ColumnName="PicName" />
+                <ScalarProperty Name="PicId" ColumnName="PicId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

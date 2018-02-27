@@ -64,6 +64,9 @@
     <Compile Include="Entity\ArticleContent.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Attachment.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Bayetech.Context.cs">
       <DependentUpon>Bayetech.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>

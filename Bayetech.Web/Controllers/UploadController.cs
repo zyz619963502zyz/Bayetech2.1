@@ -1,5 +1,7 @@
-﻿using Bayetech.Service;
+﻿using Bayetech.Core.Entity;
+using Bayetech.Service;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Http;
 
@@ -9,23 +11,32 @@ namespace Bayetech.Web.Controllers
     {
         IUploadFileService upload = new UploadFileService();
 
-        [SupportCrossDomain]
         [HttpPost]
+        [SupportCrossDomain]
         public string AddUploadFile()
         {
-            string name = HttpContext.Current.Request["name"];
-            string age = HttpContext.Current.Request["age"];
-            string name1 = HttpContext.Current.Request.Params["name"];
-            string age1 = HttpContext.Current.Request.Params["age"];
             HttpFileCollection files = HttpContext.Current.Request.Files;
             foreach (string key in files.AllKeys)
             {
-                HttpPostedFile file1 = files[key];
-                if (string.IsNullOrEmpty(file1.FileName) == false)
-                //file1.SaveAs("http://115.159.211.34/" + file1.FileName);
-                file1.SaveAs(HttpContext.Current.Server.MapPath("~/ceshitupian/") + file1.FileName);
+                HttpPostedFile file = files[key];
+                List<Attachment> attachs = new List<Attachment>();
+                if (!string.IsNullOrEmpty(file.FileName) && file.ContentLength > 0) {
+                    Attachment attach = new Attachment();
+                    attach.GoodNo = "";
+                    attach.PicId  = Core.Common.CreatGoodNo("pic");
+                    attach.PicName = file.FileName;
+                    attach.PicPath = HttpContext.Current.Server.MapPath("~/ceshitupian/");
+                    attachs.Add(attach);
+                    file.SaveAs(attach.PicPath + attach.PicId);
+                }
+
+                //插入到数据库
+
             }
-            return string.Empty;
+
+            //保存参数到数据库
+
+            return "OK";
         }
 
         [HttpPost]
