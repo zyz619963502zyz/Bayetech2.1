@@ -9,6 +9,7 @@ namespace Bayetech.Web.Controllers
     {
         IUploadFileService upload = new UploadFileService();
 
+        [SupportCrossDomain]
         [HttpPost]
         public string AddUploadFile()
         {
@@ -21,7 +22,8 @@ namespace Bayetech.Web.Controllers
             {
                 HttpPostedFile file1 = files[key];
                 if (string.IsNullOrEmpty(file1.FileName) == false)
-                    file1.SaveAs(HttpContext.Current.Server.MapPath("~/App_Data/") + file1.FileName);
+                //file1.SaveAs("http://115.159.211.34/" + file1.FileName);
+                file1.SaveAs(HttpContext.Current.Server.MapPath("~/ceshitupian/") + file1.FileName);
             }
             return string.Empty;
         }
