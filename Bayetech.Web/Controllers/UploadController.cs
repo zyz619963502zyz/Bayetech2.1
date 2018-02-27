@@ -9,7 +9,7 @@ namespace Bayetech.Web.Controllers
         IUploadFileService upload = new UploadFileService();
 
         [HttpPost]
-        public string AddUploadFile(JObject Json)
+        public string AddUploadFile()
         {
             upload.AddUploadFile();
             return string.Empty;

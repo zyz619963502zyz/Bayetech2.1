@@ -53,7 +53,6 @@
                                     </b>
                                 </p>
                               
-                              
                                 <form enctype="multipart/form-data">
                                     <div class="file-loading">
                                         <input id="file-0c" class="file" type="file" multiple data-min-file-count="3">
@@ -62,14 +61,13 @@
               
                                 <hr>
                                 <span class ="Validform_checktip"></span>
-
                             </div>
                         </div>
                     </div>
                     <span class="Validform_checktip"></span>
                 </div>`
-
-    var uplaodUrl="";
+     
+    var uplaodUrl="/api/Upload/AddUploadFile";
 
     var data={
 
@@ -85,9 +83,18 @@
                 
         },
         mounted() {
-            $("#file-0c").fileinput();
-            $("#file-0d").fileinput();
-            $("#file-1").fileinput();
+            $("#file-0c").fileinput({
+                //uploadUrl: "http://filesvr.centaline.com:8081/aist-filesvr-web/servlet/jqueryFileUpload", // server upload action  
+                uploadUrl: uplaodUrl,
+                uploadAsync: true,
+                enctype: 'multipart/form-data',
+                maxFileSize: 9999999,
+                maxFileCount: 5,  
+                showBrowse: false,  
+                browseOnZoneClick: true  
+            });
+            //$("#file-0d").fileinput();
+            //$("#file-1").fileinput();
         },
         methods: {
           
