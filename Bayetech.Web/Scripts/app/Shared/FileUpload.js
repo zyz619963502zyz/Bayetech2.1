@@ -82,7 +82,7 @@
         created() {
                 
         },
-        mounted() {
+        mounted() {//文件4352行查看.
             $("#file-0c").fileinput({
                 //uploadUrl: "http://filesvr.centaline.com:8081/aist-filesvr-web/servlet/jqueryFileUpload", // server upload action  
                 language: 'zh', //设置语言
