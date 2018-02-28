@@ -85,16 +85,34 @@
         mounted() {
             $("#file-0c").fileinput({
                 //uploadUrl: "http://filesvr.centaline.com:8081/aist-filesvr-web/servlet/jqueryFileUpload", // server upload action  
-                uploadUrl: uplaodUrl,
-                uploadAsync: true,
+                language: 'zh', //设置语言
+                browseLabel: '选择图片',
+                removeLabel: '全部清空',
+                uploadLabel: '开始上传',
+                uploadUrl: uplaodUrl, //上传的地址(访问接口地址)
+                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+                uploadAsync: true, //默认异步上传
+                showUpload: true, //是否显示上传按钮
+                showRemove : true, //显示移除按钮
+                showPreview : true, //是否显示预览
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式  
+                dropZoneEnabled: true,//是否显示拖拽区域
+                //minImageWidth: 50, //图片的最小宽度
+                //minImageHeight: 50,//图片的最小高度
+                //maxImageWidth: 1000,//图片的最大宽度
+                //maxImageHeight: 1000,//图片的最大高度
+                //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                maxFileCount: 10, //表示允许同时上传的最大文件个数
                 enctype: 'multipart/form-data',
-                maxFileSize: 9999999,
-                maxFileCount: 5,  
-                showBrowse: false,  
-                browseOnZoneClick: true  
+                validateInitialCount:true,
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                msgFilesTooLess: '你最少选择 <b>{n}</b> {files} 张图片去上传.',
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                msgInvalidFileType: '文件名为: "{name}"的类型图片不支持.仅支持 "{types}" 类型的图片.',
+                msgInvalidFileExtension: '文件名为: "{name}"的类型图片不支持. 仅支持 "{extensions}" 类型的图片.',
             });
-            //$("#file-0d").fileinput();
-            //$("#file-1").fileinput();
         },
         methods: {
           

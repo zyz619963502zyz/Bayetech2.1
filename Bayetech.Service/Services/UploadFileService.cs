@@ -11,8 +11,12 @@ namespace Bayetech.Service
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
-               int flag = db.Insert(attachs);
-               return true;
+                int flag = db.Insert(attachs);
+                if (flag>0)
+                {
+                    return true;
+                }
+                return false;
             }
         }
 
