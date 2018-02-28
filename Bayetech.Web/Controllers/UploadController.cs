@@ -51,6 +51,7 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public string UpdateUploadFile(JObject Json)
         {
+
             upload.UpdateUploadFile();
             return string.Empty;
         }
@@ -58,7 +59,7 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public string DelUploadFile(JObject Json)
         {
-            upload.DelUploadFile();
+            upload.DelUploadFile("111");
             return string.Empty;
         }
     }

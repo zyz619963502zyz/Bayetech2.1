@@ -18,5 +18,6 @@ namespace Bayetech.Core.Entity
         public string PicName { get; set; }
         public string PicPath { get; set; }
         public string GoodNo { get; set; }
+        public Nullable<bool> IsDelete { get; set; }
     }
 }

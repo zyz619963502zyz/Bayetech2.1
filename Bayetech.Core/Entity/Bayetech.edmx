@@ -71,6 +71,7 @@
           <Property Name="PicName" Type="nvarchar" MaxLength="30" />
           <Property Name="PicPath" Type="varchar" MaxLength="50" />
           <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -1705,6 +1706,7 @@
           <Property Name="PicName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="PicPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2399,6 +2401,7 @@
           <EntitySetMapping Name="Attachments">
             <EntityTypeMapping TypeName="BayetechModel.Attachment">
               <MappingFragment StoreEntitySet="Attachment">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
                 <ScalarProperty Name="PicPath" ColumnName="PicPath" />
                 <ScalarProperty Name="PicName" ColumnName="PicName" />

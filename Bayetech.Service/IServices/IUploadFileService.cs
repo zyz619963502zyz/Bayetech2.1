@@ -13,6 +13,6 @@ namespace Bayetech.Service
 
         void UpdateUploadFile();
 
-        void DelUploadFile();
+        bool DelUploadFile(string goodNo);
     }
 }
