@@ -18,7 +18,7 @@
                             </div>
                             <div class="upload-content">
                                 <p class="orange-stip">
-                                    1.据游戏联盟准确数据统计，选择“上号截图认证”服务，可以有效的将出售成功率提升80%以上；
+                                        1.据游戏联盟准确数据统计，选择“上号截图认证”服务，可以有效的将出售成功率提升80%以上；
                                     <br>2.为保证客服顺利上号截图，请您提供正确的密码及密保卡信息，并在发布后半小时内不要登录游戏或修改相关密码；
                                     <br>3.如您的帐号有密保手机，手机令牌或者安全锁，请解除以便账号能够顺利交易，否则可能无法通过审核。
                                 </p>
@@ -53,7 +53,6 @@
                                     </b>
                                 </p>
                               
-                              
                                 <form enctype="multipart/form-data">
                                     <div class="file-loading">
                                         <input id="file-0c" class="file" type="file" multiple data-min-file-count="3">
@@ -62,14 +61,13 @@
               
                                 <hr>
                                 <span class ="Validform_checktip"></span>
-
                             </div>
                         </div>
                     </div>
                     <span class="Validform_checktip"></span>
                 </div>`
-
-    var uplaodUrl="";
+     
+    var uplaodUrl="/api/Upload/AddUploadFile";
 
     var data={
 
@@ -84,10 +82,37 @@
         created() {
                 
         },
-        mounted() {
-            $("#file-0c").fileinput();
-            $("#file-0d").fileinput();
-            $("#file-1").fileinput();
+        mounted() {//文件4352行查看.
+            $("#file-0c").fileinput({
+                //uploadUrl: "http://filesvr.centaline.com:8081/aist-filesvr-web/servlet/jqueryFileUpload", // server upload action  
+                language: 'zh', //设置语言
+                browseLabel: '选择图片',
+                removeLabel: '全部清空',
+                uploadLabel: '开始上传',
+                uploadUrl: uplaodUrl, //上传的地址(访问接口地址)
+                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+                uploadAsync: true, //默认异步上传
+                showUpload: true, //是否显示上传按钮
+                showRemove : true, //显示移除按钮
+                showPreview : true, //是否显示预览
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式  
+                dropZoneEnabled: true,//是否显示拖拽区域
+                //minImageWidth: 50, //图片的最小宽度
+                //minImageHeight: 50,//图片的最小高度
+                //maxImageWidth: 1000,//图片的最大宽度
+                //maxImageHeight: 1000,//图片的最大高度
+                //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                maxFileCount: 10, //表示允许同时上传的最大文件个数
+                enctype: 'multipart/form-data',
+                validateInitialCount:true,
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                msgFilesTooLess: '你最少选择 <b>{n}</b> {files} 张图片去上传.',
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                msgInvalidFileType: '文件名为: "{name}"的类型图片不支持.仅支持 "{types}" 类型的图片.',
+                msgInvalidFileExtension: '文件名为: "{name}"的类型图片不支持. 仅支持 "{extensions}" 类型的图片.',
+            });
         },
         methods: {
           

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Bayetech.Service.IServices
+namespace Bayetech.Service
 {
     public partial interface ILoginSignService
     {

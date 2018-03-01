@@ -40,6 +40,7 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="13.375" PointY="18.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="18.375" PointY="14.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="18.375" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="18.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

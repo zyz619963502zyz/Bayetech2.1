@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bayetech.Core.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Bayetech.Service
 {
     public interface IUploadFileService
     {
-        void AddUploadFile();
+        bool AddUploadFile(List<Attachment> attachs);
 
         void UpdateUploadFile();
 
-        void DelUploadFile();
+        bool DelUploadFile(string goodNo);
     }
 }

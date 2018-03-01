@@ -3,7 +3,7 @@ using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace Bayetech.Service.IServices
+namespace Bayetech.Service
 {
     internal interface IOrderService
     {

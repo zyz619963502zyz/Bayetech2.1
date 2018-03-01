@@ -62,7 +62,6 @@ define(['jquery', 'common', 'Scripts/app/GoodPublish/TradeType', 'API','DynamicI
             </div>
         </div>
 
-       //附件上传
        <FileUpload></FileUpload>
 
     </div>

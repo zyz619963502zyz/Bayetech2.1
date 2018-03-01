@@ -14,7 +14,7 @@ namespace Bayetech.Web.Controllers
         ArticleService articleService = new ArticleService();
         BaseService<Article> articleContentService = new BaseService<Article>();
 
-        [HttpGet]
+        [HttpGet] 
         public IHttpActionResult FindList(int value)
         {
             try
