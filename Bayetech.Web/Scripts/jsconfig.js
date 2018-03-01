@@ -83,7 +83,6 @@ var jsconfig = {
         'footer-nav': 'Scripts/app/Shared/footer-nav',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
         'FileUpload': 'Scripts/app/Shared/FileUpload',
-		'main-footer':'Scripts/app/Shared/main-footer',
         //Shared模块
 
     },
