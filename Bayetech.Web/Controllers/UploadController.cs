@@ -51,7 +51,6 @@ namespace Bayetech.Web.Controllers
         [HttpPost]
         public string UpdateUploadFile(JObject Json)
         {
-
             upload.UpdateUploadFile();
             return string.Empty;
         }
