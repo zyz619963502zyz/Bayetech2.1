@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game"],
-    function (Vue, $, common, top, GameAPI) {
+require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game", "bootstrapValidator"],
+    function (Vue, $, common, top, GameAPI, validate) {
         var data = {
             GameGroupList: [],
             GameServerList: [],
@@ -38,6 +38,9 @@ require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game"],
                     self.DLTypeList = data.content;
                 });
             },
+            mounted: function () {
+                this.FormVlidate();
+            },
             watch: {
                 "Data.GroupId": function () {//加载游戏服务器列表
                     var self = this;
@@ -55,6 +58,26 @@ require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game"],
                 Publish: function () {//发布需求
                     $.post("/api/DL/PackagePublish", this.Data, function (data) {
                         alert(data.content);
+                    });
+                },
+                FormVlidate: function () {
+                    $('#publicForm').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            Phone: {
+                                message: 'The Phone is not valid',
+                                validators: {
+                                    notEmpty: {
+                                        message: '账号不可以为空!'
+                                    },
+                                }
+                            },
+                        }
                     });
                 },
             },
