@@ -19,9 +19,9 @@ namespace Bayetech.Web.Controllers
         {
             try
             {
-                return service.CheckAccount(accountName);
+                return service.CheckAccount(accountName); 
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
                 throw new Exception(ex.Message);
             }

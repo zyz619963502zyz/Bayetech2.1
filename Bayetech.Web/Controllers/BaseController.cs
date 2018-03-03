@@ -15,6 +15,7 @@ namespace Bayetech.Web
         /// </summary>
         public static IApplicationContext ctx = ContextRegistry.GetContext();
 
+
         /// <summary>
         /// JObject
         /// </summary>

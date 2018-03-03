@@ -89,11 +89,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 					</li>-->
 				</ul>
 
-
-
-
-
-
                 <div class="detail_ico">
                     <label>服务：</label>
                     <a href="javascript:void(0)" class="curr"><i class="tags icon-wl"></i></a>

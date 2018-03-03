@@ -70,14 +70,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-head"><span title="职业">职业</span>：</div>
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
-
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
                                         <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
-
                             </ul>
                         </div>
                         <div class ="sl-foot">
@@ -90,6 +88,62 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </div>
                         </div>
                     </div>
+                     <div class ="screen-item">
+                        <div class ="sl-head"><span title="职业">身份证</span>：</div>
+                        <div class ="sl-body clearfix">
+                            <ul class ="clearfix">
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text">身份证未设置</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text">身份证已设置</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class ="screen-item">
+                        <div class ="sl-head"><span title="职业">QQ等级</span>：</div>
+                        <div class ="sl-body clearfix">
+                            <ul class ="clearfix">
+
+                                <li v-for="item in Levels">
+                                    <a href="javascript:void(0)" title="QQ等级">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text" :value="item.key"  @click="SetQQLevel" :key="item.key">{{item.Value}}</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class ="screen-item">
+                        <div class ="sl-head"><span title="职业">QQ好友</span>：</div>
+                        <div class ="sl-body clearfix">
+                            <ul class ="clearfix">
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text">有QQ好友</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span class ="check-icon"></span>
+                                        <span class ="text">无QQ好友</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
              </div>
            `
@@ -97,11 +151,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var GoodListUrl="/api/GoodInfo/GetList"; //查询列表
     var _GetServersUrl="/api/Order/GetServers";//获取区服名称列表
     var ProfessionUrl="/api/GoodInfo/GetProfessions"
+    var LevelsUrl = "/api/Setting/GetListByParentId";
 
     var data={
         Gourps: [],
         Severs: [],
         Professions: [],
+        Levels:[]
     };
 
     var ScreenCompnent={
@@ -113,6 +169,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             var self=this;
             self.GetGroups(1, "0");
             self.GetProfessions(1);
+            self.GetListByParentId();
         },
         methods: {
             GetGroups(gameId, gourp) {
@@ -122,13 +179,20 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     gourp==0?self.Gourps=data.content:self.Severs=data.content;
                 });
             },
-            GetProfessions(gameId) {
+            GetProfessions(gameId) {//获取职业
                 var self=this;
                 var param={ GameId: gameId };
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
                 });
-            }, 
+            },
+            GetListByParentId(){//获取配置类型
+                var self=this;
+                var param={ parentId:72 };
+                common.getWebJson(LevelsUrl, param, function (data) {
+                    self.Levels = data.content;
+                })
+            },
             GetSearchAgain() {//条件增加重新搜索
                 var self=this;
                 var param=common.GetUrlParam();
@@ -138,6 +202,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
                     }
                 });
+            },
+            SetQQLevel() {//设置等级
+
             }
         }   
     };

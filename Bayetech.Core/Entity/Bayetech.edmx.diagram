@@ -33,13 +33,14 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="7.375" PointY="15.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="18.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="3.375" PointY="16.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="18.375" PointY="7.75" />
         <EntityTypeShape EntityType="BayetechModel.GameAccount" Width="1.5" PointX="11.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.GoodStatu" Width="1.5" PointX="9.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="9.375" PointY="16.75" />
         <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="11.375" PointY="18.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="13.375" PointY="18.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="18.375" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="18.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

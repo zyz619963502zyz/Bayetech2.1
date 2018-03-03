@@ -11,10 +11,10 @@
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css" />
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/dl-dnf/dnf-order.css" />
-    <link href="../../Content/common.css" rel="stylesheet" />
+    <link href="../../../Content/common.css" rel="stylesheet" />
     <script src="../../../Scripts/require.js"></script>
     <script src="../../../Scripts/jsconfig.js"></script>
-    <script src="../../../Scripts/app/DLService/Publish/DLRequirePublish.js"></script>
+    <script src="../../../Scripts/app/DLService/Publish/RequirePublish.js"></script>
 </head>
 <body style="background: #fff;">
     <div id="app">
@@ -290,9 +290,7 @@
                                     <div class="form-item-l w210"><i>*</i><span>代练备注：</span></div>
                                     <div class="form-item-r">
                                         <div class="textarea">
-                                            <textarea name="dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布"
-                                                      maxlength="500"
-                                                      datatype="*" v-model="Data.Description"></textarea>
+                                            <textarea name="dlRemark" placeholder="请仔细填写您的备注信息，丰富详细的信息将更有利于您的需求发布" maxlength="500" v-model="Data.Description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -371,16 +369,14 @@
                                 <div class="form-item clearfix">
                                     <div class="form-item-l w210"><i>*</i><span>联系手机：</span></div>
                                     <div class="form-item-r">
-                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;"
-                                               name="phone"
-                                               value="" maxlength="11" datatype="*" v-model="Data.Phone" />
+                                        <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="phone" maxlength="11" v-model="Data.Phone" />
                                     </div>
                                 </div>
                                 <div class="form-item clearfix">
                                     <div class="form-item-l" style="width: 104px;"><i>*</i><span>联系QQ：</span></div>
                                     <div class="form-item-r">
                                         <input type="text" class="common-input h-30 onlynum" style="width: 118px;" name="qq"
-                                               value="" maxlength="16" datatype="*" v-model="Data.QQ" />
+                                               value="" maxlength="16" v-model="Data.QQ" />
                                         <span class="span-item-tips"><em>为了防止在交易异常时，可以及时联系您，请填写联系方式</em></span>
                                     </div>
                                 </div>

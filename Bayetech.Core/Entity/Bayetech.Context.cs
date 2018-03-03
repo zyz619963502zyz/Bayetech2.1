@@ -88,8 +88,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<MallOrder> MallOrders { get; set; }
 
-    public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
-
     public virtual DbSet<GameAccount> GameAccounts { get; set; }
 
     public virtual DbSet<GoodStatu> GoodStatus { get; set; }
@@ -101,6 +99,10 @@ public partial class BayetechEntities : DbContext
     public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
 
     public virtual DbSet<vw_MallDLOrderInfo> vw_MallDLOrderInfo { get; set; }
+
+    public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
+
+    public virtual DbSet<Attachment> Attachments { get; set; }
 
 }
 

@@ -129,13 +129,19 @@ namespace Bayetech.Service
                 order.OrderNo = Common.CreatOrderNo(order.GoodNo);
                 if (!string.IsNullOrEmpty(_account.Account)&& !string.IsNullOrEmpty(order.OrderNo))
                 {
-                    flag = db.Insert(_account) + db.Insert(order);
+                    db.Insert(_account);
+                    db.Insert(order);
                 }
-                db.Commit();
-                if (flag == 0)//两笔都插入成功
+                flag = db.Commit();
+                if (flag == 2)//两笔都插入成功
                 {
                     ret.Add(ResultInfo.Result, true);
                     ret.Add(ResultInfo.Content,"提交成功！");
+                }
+                else
+                {
+                    ret.Add(ResultInfo.Result, false);
+                    ret.Add(ResultInfo.Content, "保存失败请重新尝试！");
                 }
                 return ret;
             }

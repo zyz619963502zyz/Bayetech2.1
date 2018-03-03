@@ -33,8 +33,10 @@
 
 /*---买卖button---*/
 .buy-sale-area {overflow:hidden;}
-.buy-sale-area a {color:#fff;font-size:16px;text-align:center;}
-
+.buy-sale-area a {color:#fff;font-size:16px;text-align:center;display: inline-block;width: 87px;border-radius: 0;margin-right:5px;}
+.buy-sale-area a:last-child{margin-right:0;}
+.buy-sale-area a i{margin: 10px auto;font-size: 30px;}
+.buy-sale-area a span{display:block;}
 
 /*---qq验证---*/
 .qq-check label {position:relative;height:36px;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;*margin-top:-2px;}
@@ -48,14 +50,14 @@
 .index-tab-top ul {overflow:hidden;display:flex;justify-content:space-between;width:280px;margin-bottom:0;flex-direction:row;flex-wrap:wrap;}
 .index-tab-top ul li {height:40px;line-height:38px;flex:auto;width:auto;background-color:#f7f7f7;}
 .index-tab-top ul li a {display:block;border-top:#eee 1px solid;border-bottom:#eee 1px solid;text-align:center;color:#333;letter-spacing:1px;}
-.index-tab-top ul li.active > a{border-top:1px solid #3399ff;border-bottom:1px solid #fff;border-left:#eee 1px solid;border-right:#eee 1px solid;background-color:#fff;color:#3399ff;font-weight:bold;}
+.index-tab-top ul li.active > a{border-top:2px solid #3399ff;border-bottom:1px solid #fff;border-left:#eee 1px solid;border-right:#eee 1px solid;background-color:#fff;color:#3399ff;font-weight:bold;}
 .index-tab-top ul li.on a {color:#ff9900;font-weight:bold;border-top:#ff9900 1px solid;border-left:#eee 1px solid;border-right:#eee 1px solid;border-bottom:#fff 1px solid;background:#fff;}
 
 /*---首页公用右边二级box---*/
 .index-tab-bot {width:280px;border:#eee 1px solid;border-top:none;}
 .index-tab-bot .gg-box {width:226px;margin:0 auto;padding:16px 0 6px 0;}
 .index-tab-bot .gg-box ul li {width:226px;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-wrap:normal;}
-.index-tab-bot .gg-box ul li > a{color:#3399ff;}
+.index-tab-bot .gg-box ul li > a{color:#0b87f6;}
 /*.index-tab-bot .gg-box ul li.on {color:#ed6d34;}*/
 
 /*---手风琴轮循---*/
@@ -117,7 +119,7 @@ body:not(:-moz-handler-blocked) .index-tab-bot .deal-top ul li .c1 {margin-top:0
 
 /*---合作---*/
 .partner-tit {height:42px;line-height:42px;border-bottom:#eee 1px solid;width:1190px;}
-.partner-tit span {float:left;font-size:20px;color:#333;font-family:"microsoft yahei";float:left;border-bottom:#58afff 1px solid;}
+.partner-tit span {float:left;font-size:20px;color:#333;font-family:"microsoft yahei";float:left;border-bottom:#3e9ef6 1px solid;}
 .partner-tit a {float:right;color:#aaa;font-size:14px;}
 .partner-top {margin:20px 0 20px 22px;}
 .partner-top ul {width:1220px;overflow:hidden;}
@@ -128,3 +130,5 @@ body:not(:-moz-handler-blocked) .index-tab-bot .deal-top ul li .c1 {margin-top:0
 .partner-bot .partner-bot-a a {display:inline-block;*display:inline;*zoom:1;margin-bottom:10px;margin-right:12px;color:#999;}
 .partner-bot .partner-bot-a a:hover {color:#666;}
 .partner-bot .partner-bot-a a.more-a {color:#666;}
+
+

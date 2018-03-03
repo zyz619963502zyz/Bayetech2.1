@@ -38,7 +38,7 @@
 .tabCont .tableInfo dl a{color:#3366cc;}
 .tabCont .tableInfo dl dd.even{background:#f8f8f8;}
 /* 搜索 */
-.release_search{ height:35px; overflow: hidden;}
+.release_search{ height:35px;}
 .release_search_input{ width:220px; height:26px; border:1px solid #bbd2f5; line-height:26px; padding:0 5px; color:#333;}
 .pull_down{ width:251px; height:26px; background:#fcffda url(http://pic.7881.com/7881/common_7881/images/release_pic.png) no-repeat right -17px; border:1px solid #b4b4b4;line-height:26px; padding:0 5px; color:#000;display:inline-block;}
 .pull_down:hover{ text-decoration:none; color:#000}
@@ -47,7 +47,7 @@
 .reduce{ width:130px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
 .release_select{float:left; margin-top:3px}
 .release_select .select{ width:150px;}
-.release{ height:370px;border:3px solid #b5cef5;background:#d9e8ff; width:956px; padding:13px 0 0px 18px; margin:0 auto; overflow:hidden}
+.release{ height:370px;border:3px solid #b5cef5;background:#d9e8ff; width:956px; padding:13px 0 0px 18px; margin:0 auto;}
 .release .relcon{width:1140px;}
 .release span.left{width:120px;white-space:nowrap;overflow:hidden;}
 .release dl{ width:183px; height:334px; float:left;margin-right:6px}

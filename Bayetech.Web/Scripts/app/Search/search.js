@@ -41,6 +41,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
     </div>
        `
     var dropdownComponents = dropdown;
+    var Param = common.GetSearchParam();
     var components = {
         name: "v-search",
         template: html,
@@ -58,20 +59,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                     3: "GameServer",
                     4: "GoodType",
                 },
-                Param:{
-                    GameId: 0,
-                    GameName: "游戏名称",
-                    GameGroupId: 0,
-                    GameGroupName: "游戏区",
-                    GameServerId: 0,
-                    GameServerName: "服务器",
-                    GoodTypeId: 0,
-                    GoodTypeName: "物品类型",
-                    DlTypeName:"代练类型",
-                    GoodKeyWord: "",
-                    AcrossId: 0,
-                    AcrossName:"跨区",
-                },
+                Param: Param,
                 SimpleClass: "gray",
                 AccurateClass: "hover",
                 IsAcross: false,
@@ -171,30 +159,13 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                 var TargetUrl= "";
                 switch (_type) {
                     case "NewIndex":
-                       TargetUrl=encodeURI(`${common.GetBaseUrl()}Good/GoodList.html?page=1&GameId=
-                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
-                                ${this.Param.GameGroupId}&GameGroupName=
-                                ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&GameServerName=
-                                ${this.Param.GameServerName}&GoodTypeId=
-                                ${this.Param.GoodTypeId}&GoodTypeName=
-                                ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}&AcrossId=
-                                ${this.Param.AcrossId}&AcrossName=
-                                ${this.Param.Across}`);
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`);
                         break;
                     case "GoodList":
                        TargetUrl = "";
                         break;
                     case "DLIndex":
-                       TargetUrl=encodeURI(`${common.GetBaseUrl()}DLService/DLList.html?page=1&GameId=
-                                ${this.Param.GameId}&GameName=${this.Param.GameName}&GameGroupId=
-                                ${this.Param.GameGroupId}&GameGroupName=
-                                ${this.Param.GameGroupName}&GameServerId=
-                                ${this.Param.GameServerId}&&GameServerName=
-                                ${this.Param.GameServerName}GoodTypeId=
-                                ${this.Param.GoodTypeName}&GoodKeyWord= 
-                                ${this.Param.GoodKeyWord.trim()}`);
+                       TargetUrl=encodeURI(`${common.GetBaseUrl()}DLService/DLList.html`);
                         break;
                     case "DLList":
                         TargetUrl = "";
@@ -230,7 +201,11 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             },
             //设置下拉框数据
             setData: function (type,pid,self) {
-                common.getWebJson("/api/Search/GetData", { type: type, id: pid,serviceType:(self.DL?4:1) }, function (data) {
+                common.getWebJson("/api/Search/GetData", { type: type, id: pid, serviceType: (self.DL ? 4 : 1) }, function (data) {
+                    if (data && data.List) {
+                        data.List.unshift({ Id: "", Name:"全部"})
+                    }
+                    
                     self.DropdownData = data;
                 });
             },
