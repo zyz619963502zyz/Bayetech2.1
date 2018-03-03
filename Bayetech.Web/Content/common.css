@@ -339,7 +339,7 @@ img{display:inline-block;}
     .yx-footer #tcopyright, .yx-footer .tcopyright {
         display: block;
         margin: 0 auto;
-        padding: 50px 0 30px;
+        padding: 30px 0 30px;
         text-align: center;
         font-size: 12px;
         font-family: SimSun,sans-serif;
@@ -444,7 +444,6 @@ img{display:inline-block;}
 @media only screen and (min-width:1260px) {
     .yx-footer-thin .yx-footer-layout {
         width: 1240px;
-        height:220px;
     }
 
     .yx-footer-thin .yx-footer-links ul {
