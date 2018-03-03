@@ -1,0 +1,28 @@
+﻿@charset"utf-8";
+
+
+.release {
+    height: 370px;
+    border: 3px solid #b5cef5;
+    background: #d9e8ff;
+    width: 980px;
+    padding: 13px 0 0px 18px;
+    margin: 0 auto;
+}
+.publish-header h3 a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 84px;
+    height: 26px;
+    border: 1px solid #eaeaea;
+    line-height: 26px;
+    color: #39f;
+    border-radius: 16px;
+    display: inline-block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+.common-form .form-item .form-item-l{
+    width: 156px;
+}
