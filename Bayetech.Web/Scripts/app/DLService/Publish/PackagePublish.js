@@ -63,7 +63,7 @@ require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game", "boots
                 FormVlidate: function () {
                     $('#publicForm').bootstrapValidator({
                         message: 'This value is not valid',
-                        feedbackIcons: {
+                        feedbackIcons: { 
                             valid: 'glyphicon glyphicon-ok',
                             invalid: 'glyphicon glyphicon-remove',
                             validating: 'glyphicon glyphicon-refresh'
