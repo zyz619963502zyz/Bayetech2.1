@@ -694,6 +694,7 @@
     <Content Include="Content\OlderCss\Public.css" />
     <Content Include="Content\personal.css" />
     <Content Include="Content\place_order.css" />
+    <Content Include="Content\publish.css" />
     <Content Include="Content\swiper\animate.css" />
     <Content Include="Content\swiper\animate.min.css" />
     <Content Include="Content\swiper\swiper.css" />
@@ -952,6 +953,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

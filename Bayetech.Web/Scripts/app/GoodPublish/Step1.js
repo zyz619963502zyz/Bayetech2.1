@@ -20,7 +20,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                 </div>
                 <div id="fade" class="black_overlay_2"></div>
             </div>
-            <div class="release" style="overflow-x:scroll;">
+            <div class="release">
                 <div class="relcon">
                     <dl type="game">
                         <dt class="orange">请选择游戏</dt>
