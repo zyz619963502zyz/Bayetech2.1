@@ -524,7 +524,6 @@
     <Content Include="Content\Images\left-phone.png" />
     <Content Include="Content\Images\loading-2.gif" />
     <Content Include="Content\Images\lock-.png" />
-    <Content Include="Content\Images\loding.gif" />
     <Content Include="Content\Images\loginback.jpg" />
     <Content Include="Content\Images\logo-common.png" />
     <Content Include="Content\Images\logo.png" />
@@ -702,6 +701,7 @@
     <Content Include="Content\test.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\sa-regular.svg" />
     <Content Include="Page\DLService\DLBuyNow.html" />
     <Content Include="Page\DLService\DLDetail.html" />
@@ -887,6 +887,10 @@
     <Content Include="fonts\sa-regular.eot" />
     <Content Include="fonts\sa-regular.ttf" />
     <Content Include="fonts\sa-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\发布到服务器.pubxml" />
     <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

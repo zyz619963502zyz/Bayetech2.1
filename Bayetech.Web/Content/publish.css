@@ -26,3 +26,21 @@
 .common-form .form-item .form-item-l{
     width: 156px;
 }
+.fill-goods-info {
+    width: 1180px;
+    margin: 35px auto 0 auto;
+}
+
+.goods-box {
+    width: 1180px;
+    margin-top: 30px;
+}
+
+.upload-box {
+    width: 1000px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+
