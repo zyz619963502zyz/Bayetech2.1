@@ -6,12 +6,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <link href="../../../Content/CommonCss/global.css" rel="stylesheet" />
-    <link href="../../../Content/CommonCss/7881.common.css" rel="stylesheet" />
-    <link href="../../../Content/Goods/Publish.css" rel="stylesheet" />
+    <!--<link href="../../../Content/CommonCss/7881.common.css" rel="stylesheet" />
+    <link href="../../../Content/Goods/Publish.css" rel="stylesheet" />-->
     <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
-    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/goods-publish/publish.css">
-    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/goods-publish/publish-type-01.css?v=0.0.1">
-   
+    <!--<link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/goods-publish/publish.css">
+    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/goods-publish/publish-type-01.css?v=0.0.1">-->
     <link rel="stylesheet" href="../../Content/publish.css"/>
 
     <!--new css-->
@@ -24,10 +23,11 @@
 </head>
 <body>
     <div id="app">
+
         <div class="header">
             <div class="logo"><h1><a href="../../Page/Home/NewIndex.html" title="游戏联盟交易平台"><img src="../../Content/Images/logo1.png" alt="游戏联盟交易平台"></a></h1></div>
             <div class="logo_wri">发布商品</div>
-            <div class="Process right">
+            <div class="Process pull-right">
                 <ul>
                     <li><p class="gc" name="process">1</p><p class="blue">选择游戏</p></li>
                     <li><p class="bg" name="process">2</p><p class="gray_a">填写商品信息</p></li>
@@ -35,8 +35,22 @@
                 </ul>
             </div>
         </div>
-        <component v-bind:is="Step"></component>
+        <!--<component v-bind:is="Step"></component>-->
         <!--<router-view></router-view>-->
+        <div class="container">
+            <form class="">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class=""></label>
+                            <input type="text" value="" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--footer-->
         <div class="footer-content footer-01">
             <div class="footer-server-box">
                 <div class="footer-server">
