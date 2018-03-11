@@ -73,7 +73,7 @@
 .ddxq ul li.ddzt{ width:90px;}
 
 .ddlb{ border:#dfdfdf solid 1px; margin-top:10px;}
-.ddlb h1{ border-bottom:#dfdfdf solid 1px; background:#efefef; font-size:12px; font-weight:normal; padding-bottom:5px; padding-top:5px;}
+.ddlb h1{ border-bottom:#dfdfdf solid 1px; background:#efefef; font-size:12px; font-weight:normal; padding-bottom:5px; padding-top:5px;margin-top:0;}
 .ddlb ul{ margin:10px;display:block;position:relative;}
 .ddlb ul ol{ float:left; line-height:25px;}
 .ddlb ul ol.spmc{ width:490px; cursor: pointer;}/*2018.2.3*/

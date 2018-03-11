@@ -1,5 +1,95 @@
 ﻿@charset"utf-8";
+/*header*/
+.header{
+    width:1200px;
+    margin:0 auto;
+    height:100px;
+}
+.header .logo{
+    width:210px;
+    float:left;
+}
+.header .logo h1{
+    border-right:1px solid #ccc;
+}
+.header .logo_tit{
+    float: left;
+    width: max-content;
+    padding: 29px 20px;
+    font-size: 20px;
+    font-family: Microsoft YaHei UI;
+    color: #9a9a9a;
+}
 
+.form-group-xs textarea.form-control{
+    height:auto;
+}
+
+/*顶部进度条*/
+.process{
+    width: 400px;
+    height:inherit;
+}
+.process ul{
+    display:flex;
+    margin:0;
+    margin-top: 25px;
+}
+.process ul li{
+    position:relative;
+    flex:1;
+    display:inline-block;
+    text-align:center;
+    counter-increment:num;
+    color:#ccc;
+    font-size: 16px;
+}
+.process ul li >p{
+    margin-bottom:0;
+    margin-top: 5px;
+}
+.process ul li.active{
+    color:#39f;
+}
+.process ul li:before{
+    display: inline-block;
+    content: counter(num);
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    color: #ccc;
+}
+.process ul li:after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    background-color: #ccc;
+    width: calc(100% - 25px);
+    top: 12px;
+    left: calc(100%/2 - 121px);
+}
+
+.process ul li.active:before{
+    border-color:#39f;
+    color:#39f;
+}
+.process ul li.active:after{
+    background-color:#39f;
+}
+.process ul li:first-child:after{
+    width:0;
+    background-color:transparent;
+}
+
+
+
+/*但复选框对齐*/
+
+.radio-inline input[type="radio"]{
+    vertical-align:middle;
+    margin-top:2px;
+}
 
 .release {
     height: 370px;
@@ -42,5 +132,56 @@
     vertical-align: middle;
     margin-bottom: 10px;
 }
+
+.m-l-md{
+    margin-left:30px;
+}
+
+.footer-content { background:#f8f8f8; width: 100%; min-width: 1190px;}
+.footer-server-box { background: #3399ff; width: 100%; min-width: 1190px; height: 92px;}
+.footer-server { width: 1190px; margin: 0 auto; overflow: hidden;}
+.footer-server-dl { overflow: hidden; width: 1290px;}
+.footer-server dl { float: left; margin-right: 75px; margin-top: 15px;}
+.footer-server dl dt { float: left;}
+.footer-server dl dt em {font-size:64px ; color: #e6f3ff;}
+.footer-server dl dd { float: left; margin-left:18px;}
+.footer-server dl dd h2 { color: #fff; font-size: 18px; font-family: "microsoft yahei"; margin-top: 6px; margin-bottom: 2px;}
+.footer-server dl dd p { color: #1a5998;}
+.footer-nav { width: 1140px; margin: 38px auto 0 auto; padding-bottom: 22px; border-bottom:#e6e6e6 1px solid;}
+.footer-nav-dl { margin-left: -60px; float: left;}
+.footer-nav dl { float: left; width: 110px; margin-left: 60px;}
+.footer-nav dl dt { margin-bottom: 12px; font-size: 14px; font-weight: bold;}
+.footer-nav dl dd p { margin-bottom: 12px;}
+.wx-item.wx-item-first { margin-left: 0px;}
+.wx-item { float: right; margin-left: 50px; width: 122px; text-align: center; margin-top: -10px;}
+.wx-item img { border: #eee 1px solid;}
+.wx-item h2 { font-weight: bold; font-size: 14px;}
+.wx-item p { color: #aaa;}
+.footer-link { width: 1190px; margin: 0 auto; padding: 26px 0; text-align: center; font-family:\5b8b\4f53;}
+.footer-link em {color: #ccc; margin:0 14px;}
+.footer-link-a { width: 100%; text-align: center; margin-bottom: 14px;}
+.footer-link p { color: #aaa; margin-bottom: 18px;}
+.footer-link p i { font-family: "microsoft yahei";}
+.footer-link p a { color: #aaa;}
+.footer-link p a:hover { color: #666;}
+.footer-link-honor a { display: inline-block; *display: inline; *zoom:1; margin: 0 5px;}
+.footer-01 { margin-top: 40px; border-top: #3399ff 2px solid;}
+.footer-01 .footer-server { border-bottom: #eee 1px solid; padding-bottom: 22px;}
+.footer-01 .footer-server-box { background: #f8f8f8; height: 102px;}
+.footer-01 .footer-server dl dt em { color:#3399ff;}
+.footer-01 .footer-server dl dd h2 { color: #3399ff;}
+.footer-01 .footer-server dl dd p { color: #969696;}
+.footer-01 .footer-link p { margin-bottom: 0;}
+.footer-04 { background: transparent; margin-top: 40px;}
+.footer-04 .footer-server-box { background: #fff; height: 120px;}
+.footer-04 .footer-server-box .footer-server { width: 1050px;}
+.footer-04 .footer-server dl { margin-top: 42px;}
+.footer-04 .footer-server dl dt em { color: #ff6700; font-size: 42px;}
+.footer-04 .footer-server dl dd h2 { font-size: 17px; color: #666;}
+.footer-04 .footer-link-box { width: 100%; min-width: 1190px; background: #323232;} 
+.footer-04 .footer-link { background: #323232; padding-top: 40px;}
+.footer-04 .footer-link .footer-link-a a { color: #b3b5ba;}
+.footer-04 .footer-link p { color: #666;}
+.footer-04 .footer-link p a { color: #666;}
 
 

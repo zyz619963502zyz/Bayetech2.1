@@ -1,6 +1,6 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3','API'],
-	function (Vue, $, common, header, step1, step2, step3,API) {
+require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3', 'API', 'nav-top'],
+	function (Vue, $, common, header, step1, step2, step3, API, navt) {
 	    var data={
 	        Step: step1,
             GameInfo:{},
@@ -14,6 +14,7 @@ require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1',
 	        //router: router,
 	        components: {
 	            "v-header": header,
+                "nav-top": navt,
 	        },
 	        methods: {
                 //下一步

@@ -5,50 +5,85 @@
     <title>发布商品-游戏联盟</title>
     <meta charset="utf-8" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
-    <link href="../../../Content/CommonCss/global.css" rel="stylesheet" />
-    <!--<link href="../../../Content/CommonCss/7881.common.css" rel="stylesheet" />
-    <link href="../../../Content/Goods/Publish.css" rel="stylesheet" />-->
-    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/common/common-2016.css">
-    <link type="text/css" rel="stylesheet" href="http://pic.7881.com/7881-2016/css/goods-publish/publish.css">
-    <link rel="stylesheet" type="text/css" href="http://pic.7881.com/7881-2016/css/goods-publish/publish-type-01.css?v=0.0.1">
-    <link rel="stylesheet" href="../../Content/publish.css"/>
-
-    <!--new css-->
-    <!--<link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet"/>-->
-
+    <link rel="stylesheet" href="../../Content/common.css"/>
     <script src="../../../Scripts/require.js"></script>
+    <link rel="stylesheet" href="../../Content/publish.css" />
     <script src="../../../Scripts/jsconfig.js"></script>
     <script src="../../../Scripts/app/GoodPublish/index.js"></script>
 
 </head>
 <body>
     <div id="app">
-
-        <div class="header">
+        <nav-top></nav-top>
+        <div class="header clearfix">
             <div class="logo"><h1><a href="../../Page/Home/NewIndex.html" title="游戏联盟交易平台"><img src="../../Content/Images/logo1.png" alt="游戏联盟交易平台"></a></h1></div>
-            <div class="logo_wri">发布商品</div>
-            <div class="Process pull-right">
+            <div class="logo_tit">发布商品</div>
+            <div class="process pull-right">
                 <ul>
-                    <li><p class="gc" name="process">1</p><p class="blue">选择游戏</p></li>
-                    <li><p class="bg" name="process">2</p><p class="gray_a">填写商品信息</p></li>
-                    <li><p class="bg" name="process">3</p><p class="gray_a">发布完成</p></li>
+                    <li class="active"><p class="">选择游戏</p></li>
+                    <li class="active"><p class="">填写商品信息</p></li>
+                    <li><p class="">发布完成</p></li>
                 </ul>
             </div>
         </div>
-        <!--<component v-bind:is="Step"></component>-->
+        <component v-bind:is="Step"></component>
         <!--<router-view></router-view>-->
-        <div class="container">
-            <form class="">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class=""></label>
-                            <input type="text" value="" class="form-control"/>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+        
+
+        <!--<div class="row">
+            <div class="form-group form-group-xs" v-for="">
+                <label class="col-md-offset-1 col-md-2 control-label">游戏账号</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">游戏密码</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">确认输入密码</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">游戏角色</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">身份证号</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">密保问题1</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">答案</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">密保问题2</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">答案</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">密保问题</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">答案</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">二级密码</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+            <div class="form-group form-group-xs">
+                <label class="col-md-offset-1 col-md-2 control-label">仓库密码</label>
+                <div class="col-md-3"><input type="text" value="" class="form-control" /></div>
+            </div>
+        </div>-->
 
         <!--footer-->
         <div class="footer-content footer-01">
