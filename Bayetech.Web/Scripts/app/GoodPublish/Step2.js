@@ -184,7 +184,9 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
 //  </form>
         //</div>`;
 
-        var html = `<div class="container">
+    	var html = `<div class="container">
+				<a class ="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
+				<span>《{{GameInfo.GameName}}》{{GameInfo.GroupName}}/{{GameInfo.ServerName}}/{{GameInfo.GoodTypeName}}</span>
             <form class ="form-horizontal">
             <input type="hidden" name="GameId" :value="GameInfo.GameId">
             <input type="hidden" name="GameName" :value="GameInfo.GameName">
@@ -195,7 +197,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             <input type="hidden" name="GoodTypeId" :value="GameInfo.GoodTypeId">
             <input type="hidden" name="GoodTypeName" :value="GameInfo.GoodTypeName">
                 <!--商品信息-->
-                <div class="panel panel-default">
+                <div class ="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="text-center">商品信息</h4>
                     </div>
