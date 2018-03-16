@@ -5,7 +5,7 @@
 .com-breadcrumb ul{height: 100%;width: 80%;float: left;}
 .com-breadcrumb a.btn-public{float: right;line-height: 24px;display: inline-block;*zoom: 1;*display: inline;margin-top: 8px;color: #3399ff;}
 .com-breadcrumb a.btn-public:hover{color: #ff6700;}
-.recommend-area{position: absolute;top: 0;left: 0;width: 230px;}
+.recommend-area{float:left;top: 0;left: 0;width: 230px;}
 .recommend-area h2{width: 230px;height: 140px;background: #fff;position: relative;}
 .recommend-area em{display: inline-block;*zoom: 1;*display: inline;width: 230px;height: 140px;position: absolute;top: 0;left: 0;z-index: 9;background: url(http://pic.7881.com/7881-2016/images/dl-dnf/list/cover-img.png);}
 .recommend-area .recommend-list{padding:15px 0 10px 0;text-align: center;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.06);border-radius: 4px;}
@@ -143,9 +143,6 @@
 /*----new dailian css---*/
 .dlgroup ul,.dlgroup ol{margin-bottom:0;}
 
-
-
-
 .com-breadcrumb {
     height: 34px;
     line-height: 34px;
@@ -153,21 +150,25 @@
     width: 1190px;
 }
 .main-content {
-    position:relative;
-    padding-left: 240px;
     width: 1200px;
     margin: 0 auto;
 }
 
 .g-select{
-    float:none;
+    float:left;
 }
+/*右边搜索和列表开始*/
+.right-info{
+    float: left;
+    width: 960px;
+}
+
+
+/*右边搜索和列表结束*/
 .list-block {
     min-height: 545px;
     overflow: inherit;
 }
-
-
 .recommend-area span {
     display: inline-block;
     width: 230px;
