@@ -27,6 +27,7 @@ namespace Bayetech.Web.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        
 
         [HttpGet]
         public IHttpActionResult FindContent(int value)

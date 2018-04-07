@@ -3,11 +3,18 @@ using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 using Bayetech.Core;
+using Bayetech.DAL;
+using System.Collections.Generic;
 
 namespace Bayetech.Service.Services
 {
     public partial class ArticleService : BaseService<Article> ,IArticleService
     {
+        /// <summary>
+        /// 获取1级目录
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public JArray GetListByModule(int value)
         {
             var arr = new JArray();
@@ -22,6 +29,23 @@ namespace Bayetech.Service.Services
             }
             return arr;
         }
+
+        ///// <summary>
+        ///// 获取整个咨询的信息
+        ///// </summary>
+        ///// <param name="value"></param>
+        ///// <returns></returns>
+        //public JObject GetArticleContents(Pagination page)
+        //{
+        //    using (var db = new RepositoryBase())
+        //    {
+        //        JObject ret = new JObject();
+        //        List<vw_ArticleModule> articles = db.FindList<vw_ArticleModule>(Pagination.GetDefaultPagination("Id"));
+        //        ret.Add(ResultInfo.Result, true);
+        //        ret.Add(ResultInfo.Content, JToken.FromObject(articles));
+        //        return ret;
+        //    }
+        //}
     }
 }
 

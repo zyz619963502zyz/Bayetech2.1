@@ -145,6 +145,9 @@
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vw_ArticleModule.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vw_GameServers.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

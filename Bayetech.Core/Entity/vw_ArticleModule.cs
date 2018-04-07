@@ -12,27 +12,28 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Article
+    public partial class vw_ArticleModule
     {
-        public long Id { get; set; }
         public int ModuleId { get; set; }
         public long CatId { get; set; }
-        public string Title { get; set; }
-        public string Introduce { get; set; }
         public string Author { get; set; }
-        public string Tag { get; set; }
+        public string Introduce { get; set; }
+        public string Title { get; set; }
         public string KeyWord { get; set; }
+        public string Tag { get; set; }
+        public long Id { get; set; }
         public string CopyFrom { get; set; }
         public string FromUrl { get; set; }
-        public Nullable<int> Hits { get; set; }
         public string Thumb { get; set; }
-        public string Creator { get; set; }
+        public Nullable<int> Hits { get; set; }
         public int CreateTime { get; set; }
+        public string Creator { get; set; }
         public string Editor { get; set; }
         public Nullable<int> EditTime { get; set; }
         public string Ip { get; set; }
         public Nullable<byte> IsLink { get; set; }
         public bool IsDelete { get; set; }
         public string Remark { get; set; }
+        public string Content { get; set; }
     }
 }
