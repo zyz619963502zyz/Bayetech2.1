@@ -731,6 +731,7 @@
     <Content Include="Page\ServiceCenter\kefu.html" />
     <Content Include="Page\ServiceCenter\SecurityCenter.html" />
     <Content Include="Page\Sign\signing.html" />
+    <Content Include="Page\Test.html" />
     <Content Include="Page\UserCenter\Index.html" />
     <Content Include="Page\Good\tpl\GoodManage.html" />
     <Content Include="Resource\fonts\glyphicons-halflings-regular.svg" />
