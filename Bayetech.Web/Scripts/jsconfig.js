@@ -16,7 +16,7 @@ var jsconfig = {
         'datepicker': 'Scripts/bootstrap-datepicker',
         'swiper': 'Scripts/swiper',
         'text': "Scripts/text",
-        'v-partner': "Scripts/app/Home/partner",
+        //'v-partner': "Scripts/app/Home/partner",
         "v-search": "Scripts/app/Search/Search",
         "search-dropdown": "Scripts/app/Search/search-dropdown",
 
@@ -80,7 +80,6 @@ var jsconfig = {
         'v-menu': "Scripts/app/Shared/menu",
         "nav-top": "Scripts/app/Shared/nav-top",
         'footer-server': 'Scripts/app/Shared/footer-server',
-        'footer-nav': 'Scripts/app/Shared/footer-nav',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
         'FileUpload': 'Scripts/app/Shared/FileUpload',
         //Shared模块

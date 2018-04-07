@@ -1,41 +1,119 @@
 ﻿define([], function () {
-    var html = `<div class="footer-server-box">
-                <div class="footer-server">
-                    <div class="footer-server-dl">
-                        <dl>
-                            <dt><em class="iconfont">&#xe62b;</em></dt>
-                            <dd>
-                                <h2>游戏交易 应有尽有</h2>
-                                <p>关于游戏你想要的，这里都有</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62e;</em></dt>
-                            <dd>
-                                <h2>交易安全 资金保障</h2>
-                                <p>保障交易安全的事，我们都做</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62d;</em></dt>
-                            <dd>
-                                <h2>7*24小时 专属客服</h2>
-                                <p>时时刻刻想联系我，客服都在</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt><em class="iconfont">&#xe62c;</em></dt>
-                            <dd>
-                                <h2>权威认证 安全可靠</h2>
-                                <p>我是值得信赖平台，大家都造</p>
-                            </dd>
-                        </dl>
-                    </div>
+    var html = ` <div class="yx-footer yx-footer-thin">
+            <div class="yx-footer-links" bosszone="SY_Bottomnav">
+                <div class="yx-footer-layout">
+                    <a href="javascript:window.scrollTo(0,0);" class="yx-footer-gotop" target="_self"><i class="fa fa-sort-up"></i></a>
+                    <ul>
+                        <li><a href="">合作伙伴</a></li>
+                        <li v-for='item in partnerimg'>
+                            <a :href="item.url" :title='item.title'>
+                                <img :src="item.imgurl" alt="暂无图片" width="40" height="40" />
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>`;
+            </div>
+
+            <div class="yx-footer-main" >
+                <div class="yx-footer-layout">
+                    <div class="app">
+                        <h4>游戏联盟微信订阅号</h4>
+                        <div class="qrimg">
+                            <img src="http://img1.gtimg.com/sports/pics/hv1/130/5/1892/123028705.jpg" alt="游戏联盟微信订阅号">
+                        </div>
+                    </div>
+                    <div class="app">
+                        <h4>下载APP</h4>
+                        <div class="qrimg">
+                            <img src="//img1.gtimg.com/sports/pics/hv1/251/92/2217/144184136.png" alt="APP">
+                        </div>
+                    </div>
+                    <ul class="yx-links">
+                        <!-- 第一列 -->
+                        <li>
+                            <h4>关于</h4>
+                            <ul>
+                                <li><a href="/a/20150521/056103.htm">关于游戏联盟</a></li>
+                                <li><a href="mailto:1820184934@qq.com">联系我们</a></li>
+                                <li><a href="/a/20150305/047006.htm">招聘启事</a></li>
+                                <li><a href="/a/20150728/023527.htm">实习机会</a></li>
+                                <li><a href="/017602.htm">微信订阅</a></li>
+                            </ul>
+                        </li>
+                        <!-- 第二列 -->
+                        <li>
+                            <h4>买家指南</h4>
+                            <ul>
+                                <li><a href="/basket/nba/index_snapshot_20160215.htm">游戏联盟</a></li>
+                                <li><a href="/basket/page/backup/nbafinals2015.htm">游戏联盟</a></li>
+                                <li><a href="/basket/page/backup/2015nbaallstar.htm">游戏联盟</a></li>
+                                <li><a href="/basket/page/backup/indexbak0622.htm">游戏联盟</a></li>
+                                <li><a href="/basket/nbaas/zhengsai.htm">游戏联盟</a></li>
+                                <li><a href="/nbafinals/2013.htm">游戏联盟</a></li>
+                            </ul>
+                        </li>
+                        <!-- 第三列 -->
+                        <li>
+                            <h4>充值方式</h4>
+                            <ul>
+                                <li><a href="/053545.htm">游戏联盟</a></li>
+                                <li><a href="/053740.htm">游戏联盟</a></li>
+                                <li><a href="/054568.htm">游戏联盟</a></li>
+                                <li><a href="/053913.htm">游戏联盟</a></li>
+                                <li><a href="/054551.htm">游戏联盟</a></li>
+
+                                <li><a href="/053926.htm">游戏联盟</a></li>
+                            </ul>
+                        </li>
+                        <!-- 第四列 -->
+                        <li>
+                            <h4>常见问题</h4>
+                            <ul>
+                                <li><a href="/a/20150819/057018.htm">游戏联盟</a></li>
+                                <li><a href="/022024.htm">游戏联盟</a></li>
+                                <li><a href="/026656.htm">游戏联盟</a></li>
+                                <li><a href="/027590.htm">游戏联盟</a></li>
+                                <li><a href="/028448.htm">游戏联盟</a></li>
+                                <li><a href="/030317.htm">游戏联盟</a></li>
+                            </ul>
+                        </li>
+                        <!-- 第五列 -->
+                        <li>
+                            <h4>客服中心</h4>
+                            <ul>
+                                <li><a href="/045439.htm">游戏联盟</a></li>
+                                <li><a href="/051396.htm">游戏联盟</a></li>
+                                <li><a href="/050289.htm">游戏联盟</a></li>
+                                <li><a href="/045531.htm">游戏联盟</a></li>
+                                <li><a href="/038368.htm">游戏联盟</a></li>
+                                <li><a href="/042623.htm">游戏联盟</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>`;
 
     var data = {
-        object: [],
+        partnerimg: [
+            {
+                title: '王者荣耀',
+                imgurl: '../../Content/Images/关羽.jpg',
+                url: 'http://qq.com'
+            },
+            {
+                title: '兔玩网',
+                imgurl: '../../Content/Images/兰陵王.jpg',
+                url: 'http://qq.com'
+            },
+            {
+                title: 'UU898',
+                imgurl: '../../Content/Images/关羽.jpg',
+                url: 'http://qq.com'
+            }
+        ],
+
     };
 
     var components = {

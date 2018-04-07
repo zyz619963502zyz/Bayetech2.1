@@ -1,5 +1,5 @@
 ﻿var PersonalHeadModule = ['vue', 'jquery', 'common', 'Pavigation', 'PersonalHead', 'ServiceLogo', 'ServiceNav', 'ServiceButtom', 'ServiceFoot', 'ServiceCall', 'ServicePusht', 'ServiceInfa']
-//个人中心主模块
+//服务中心主模块
 require(PersonalHeadModule, function (Vue, $, common, pavi, servicehead, serlogo, servicenav,serbuttom,foot,call,pusht,info) {
     var data = {
         ServiceList: [{ url: "http://www.7881.com/tradesafe.html", text: "首页" }

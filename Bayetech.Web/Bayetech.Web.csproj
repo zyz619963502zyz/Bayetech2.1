@@ -676,6 +676,7 @@
     <Content Include="Content\Images\鲁班七号.jpg" />
     <Content Include="Content\Images\黄忠.jpg" />
     <Content Include="Content\log-sin.css" />
+    <Content Include="Content\advice.css" />
     <Content Include="Content\NewImages\10.jpg" />
     <Content Include="Content\NewImages\gold-coin.png" />
     <Content Include="Content\NewImages\logo.ico" />
@@ -724,7 +725,7 @@
     <Content Include="Page\PersonalCenter\index.html" />
     <Content Include="Page\Good\GoodList.html" />
     <Content Include="Page\Login\PwdRecover\RecoverAccount.html" />
-    <Content Include="Page\ServiceCenter\AdviceCenter.html" />
+    <Content Include="Page\ServiceCenter\ArticleCenter.html" />
     <Content Include="Page\ServiceCenter\anquan.html" />
     <Content Include="Page\ServiceCenter\CallCenter.html" />
     <Content Include="Page\ServiceCenter\helpcenter.html" />
@@ -769,6 +770,8 @@
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Account.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
+    <Content Include="Scripts\app\ServiceCenter\adviceCenter\article.js" />
+    <Content Include="Scripts\app\ServiceCenter\adviceCenter\index.js" />
     <Content Include="Scripts\app\Shared\FileUpload.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />
     <Content Include="Scripts\app\GoodPublish\Step1.js" />

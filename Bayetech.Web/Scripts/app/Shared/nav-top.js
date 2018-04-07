@@ -31,14 +31,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><a href="#">我的收藏</a></li>
 							<li class="label-cash"><a href="#" class="pay">充值</a> <a href="#" class="take-out">提现</a></li>
                             <li class ="dropdown">
-                                <a href="#">客服中心 <span class ="caret"></span></a>
+                                <a href="#">服务中心 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
-                                    <li><a href="#">咨询中心</a></li>
+                                    <li><a href="#">资讯中心</a></li>
                                     <li><a href="#">安全中心</a></li>
                                     <li><a href="#">帮助中心</a></li>
                                     <li><a href="#">我要咨询</a></li>
-                                    <li><a href="#">我要投诉</a></li>
-                                    <li><a href="#">廉政举报</a></li>
                                 </ul>
                             </li>
                             <li class ="dropdown">
