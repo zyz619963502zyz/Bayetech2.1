@@ -1,0 +1,38 @@
+﻿@charset"UTF-8";
+/*资讯中心*/
+
+.main-content{
+    margin-top:15px;
+}
+.l-aside{
+    width:260px;
+    border:1px solid #ccc;
+}
+.r-article{
+    width:850px;
+    border:1px solid #ccc;
+
+}
+.r-article h2{
+    font-family:'Microsoft YaHei';
+    font-size:16px;
+    font-weight:600;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+.r-article .content{
+    padding:15px;
+}
+.r-article .content dl{
+    border-bottom:1px solid#ccc;
+    margin-top:10px;
+    padding-bottom:10px;
+}
+.r-article .content dl:first-child{
+    margin-top:0;
+}
+
+
+

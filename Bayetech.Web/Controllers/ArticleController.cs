@@ -27,7 +27,20 @@ namespace Bayetech.Web.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        
+
+        [HttpGet]
+        public IHttpActionResult FindArticleList(int value)
+        {
+            try
+            {
+                var list = articleService.GetArticleContents(value);
+                return Json(list);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         [HttpGet]
         public IHttpActionResult FindContent(int value)

@@ -66,12 +66,15 @@ var jsconfig = {
         'VueRouter': 'Scripts/vue-router.min',
         'game-list': 'Scripts/app/Game/List',
         'API': 'Scripts/app/API/All',
+		//代练
         'InfoList': 'Scripts/app/DLService/InfoList',
         'DLList': 'Scripts/app/DLService/DLLists/DLList',
         'DLNavBar': 'Scripts/app/DLService/DLLists/NavBar',
         'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
         'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow',
-
+    	//资讯中心
+		"artmodule":'Scripts/app/ServiceCenter/articleCenter/article',
+		
          //Shared模块
         'v-header': 'Scripts/app/Shared/header',
         'v-footer': 'Scripts/app/Shared/footer',
