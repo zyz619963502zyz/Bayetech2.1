@@ -6,9 +6,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     <div class="content">
                         <dl v-for="item in listdata">
                             <dt>
-                                <a href="#" class="title">{{item.Title}}</a>
+                                <a href="#" class="title"><span v-if="item.ModuleId == 25">【{{item.KeyWord}}】</span>{{item.Title}}</a>
                             </dt>
-                            <dd>{{item.Introduce}} <a href="#" class="detail">查看详情</a></dd>
+                            <dd>{{item.Introduce}} <a href="#" class="detail"><i class="fa fa-hand-o-right"></i>&nbsp;查看详情</a></dd>
                         </dl>
                     </div>
                 </article>`;
@@ -18,7 +18,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 	var articleData = {
 		listdata: [
 			{
-				keywords: "",
+				ModuleId:'',
+				KeyWord: '',
 				Title: '',
 				Introduce: '',
 

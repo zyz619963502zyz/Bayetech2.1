@@ -278,7 +278,9 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                             <!--商品图片-->
                             <div class="form-group form-group-xs">
                                 <label class="col-md-offset-5 control-label">商品图片</label>
-
+								<div class ="col-md-12">
+									<FileUpload></FileUpload>
+								</div>
                             </div>
                         </div>
 

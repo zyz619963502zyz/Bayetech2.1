@@ -33,6 +33,28 @@
 .r-article .content dl:first-child{
     margin-top:0;
 }
+.r-article .content dl dt{
+    margin-bottom:5px;
+}
+.r-article .content dl dt a{
+    text-decoration:none;
+    font-size:12px;
+}
+.r-article .content dt a span{
+    color:dodgerblue;
+}
+
+.r-article .content dl dd>a{
+    float:right;
+    display: block;
+    background-color: #00b0ff;
+    color: #fff;
+    padding: 2px 5px;
+}
+.r-article .content dl dd>a:hover{
+    background-color:#0b80c1;
+    text-decoration: none;
+}
 
 
 
