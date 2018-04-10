@@ -902,6 +902,8 @@
     <Content Include="Scripts\fileinput.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
     <Content Include="Scripts\jsconfig.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\require.min.js" />

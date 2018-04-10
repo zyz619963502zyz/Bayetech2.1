@@ -7,7 +7,7 @@ var jsconfig = {
     baseArr: ['vue', 'jquery', 'common'],
     paths: {
         'vue': 'Scripts/vue',
-        'jquery': 'Scripts/jquery-1.10.2',
+        'jquery': 'Scripts/jquery-2.2.2.min',
         'bootstrap': 'Scripts/bootstrap.min',
         'upload':  'Scripts/fileinput',
         'common': 'Scripts/common',
