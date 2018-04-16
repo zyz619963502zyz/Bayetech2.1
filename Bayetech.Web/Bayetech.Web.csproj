@@ -288,8 +288,6 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Test\Receive.cs" />
-    <Compile Include="Test\Send.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -948,6 +946,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
+    <Folder Include="Test\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
     <Folder Include="Views\PointTrading\" />
