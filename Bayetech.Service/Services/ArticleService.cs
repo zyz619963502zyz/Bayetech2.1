@@ -35,17 +35,17 @@ namespace Bayetech.Service.Services
         ///// </summary>
         ///// <param name="value"></param>
         ///// <returns></returns>
-        //public JObject GetArticleContents(Pagination page)
-        //{
-        //    using (var db = new RepositoryBase())
-        //    {
-        //        JObject ret = new JObject();
-        //        List<vw_ArticleModule> articles = db.FindList<vw_ArticleModule>(Pagination.GetDefaultPagination("Id"));
-        //        ret.Add(ResultInfo.Result, true);
-        //        ret.Add(ResultInfo.Content, JToken.FromObject(articles));
-        //        return ret;
-        //    }
-        //}
+        public JObject GetArticleContents(int value)
+        {
+            using (var db = new RepositoryBase())
+            {
+                JObject ret = new JObject();
+                List<vw_ArticleModule> articles = db.FindList<vw_ArticleModule>(Pagination.GetDefaultPagination("Id"),c=>c.ModuleId==value);
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JToken.FromObject(articles));
+                return ret;
+            }
+        }
     }
 }
 

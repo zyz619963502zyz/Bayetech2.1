@@ -107,11 +107,46 @@
                 maxFileCount: 10, //表示允许同时上传的最大文件个数
                 enctype: 'multipart/form-data',
                 validateInitialCount:true,
-                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
                 msgFilesTooLess: '你最少选择 <b>{n}</b> {files} 张图片去上传.',
                 msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
                 msgInvalidFileType: '文件名为: "{name}"的类型图片不支持.仅支持 "{types}" 类型的图片.',
                 msgInvalidFileExtension: '文件名为: "{name}"的类型图片不支持. 仅支持 "{extensions}" 类型的图片.',
+                dropZoneTitle: '拖拽文件到这里 ...',
+				
+            	//以下字体图标重写,部分title重写
+                previewFileIcon: "<i class='fa glyphicon-king'></i>",
+                browseIcon: '<i class="fa fa-folder-open"></i>&nbsp;',                
+                uploadIcon: '<i class="fa fa-upload"></i>',
+				uploadTitle: '开始上传',
+				removeIcon: '<i class="fa fa-trash"></i>',
+				removeTitle: '清空所选',
+				msgZoomModalHeading:'预览图片附件',
+				fileActionSettings: {
+					indicatorNew: '<i class="fa fa-plus-circle text-warning"></i>',
+					indicatorNewTitle: '还没有上传',
+					removeIcon: '<i class="fa fa-trash"></i>',
+					removeTitle: '删除',
+					uploadIcon: '<i class="fa fa-upload"></i>',
+					uploadTitle: '上传',
+					zoomIcon: '<i class="fa fa-search-plus"></i>',
+					zoomTitle: '查看',
+				},
+				previewZoomButtonIcons: {
+					prev: '<i class="fa fa-caret-left"></i>',
+					next: '<i class="fa fa-caret-right"></i>',
+					toggleheader: '<i class="fa fa-arrows-v"></i>',
+					fullscreen: '<i class="fa fa-arrows-alt"></i>',
+					borderless: '<i class="fa fa-external-link"></i>',
+					close: '<i class="fa fa-remove"></i>'
+				},
+				previewZoomButtonTitles: {
+					prev: '上一张',
+					next: '下一张',
+					toggleheader: '收缩标题',
+					fullscreen: '全屏预览',
+					borderless: '无边预览',
+					close: '关闭预览'
+				}
             });
         },
         methods: {

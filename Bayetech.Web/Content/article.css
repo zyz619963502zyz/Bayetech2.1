@@ -1,0 +1,60 @@
+﻿@charset"UTF-8";
+/*资讯中心*/
+
+.main-content{
+    margin-top:15px;
+}
+.l-aside{
+    width:260px;
+    border:1px solid #ccc;
+}
+.r-article{
+    width:850px;
+    border:1px solid #ccc;
+
+}
+.r-article h2{
+    font-family:'Microsoft YaHei';
+    font-size:16px;
+    font-weight:600;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+.r-article .content{
+    padding:15px;
+}
+.r-article .content dl{
+    border-bottom:1px solid#ccc;
+    margin-top:10px;
+    padding-bottom:10px;
+}
+.r-article .content dl:first-child{
+    margin-top:0;
+}
+.r-article .content dl dt{
+    margin-bottom:5px;
+}
+.r-article .content dl dt a{
+    text-decoration:none;
+    font-size:12px;
+}
+.r-article .content dt a span{
+    color:dodgerblue;
+}
+
+.r-article .content dl dd>a{
+    float:right;
+    display: block;
+    background-color: #00b0ff;
+    color: #fff;
+    padding: 2px 5px;
+}
+.r-article .content dl dd>a:hover{
+    background-color:#0b80c1;
+    text-decoration: none;
+}
+
+
+
