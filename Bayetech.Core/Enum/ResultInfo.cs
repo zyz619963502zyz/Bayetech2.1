@@ -16,5 +16,8 @@ namespace Bayetech.Core
 
         //数据集
         public static string Data = "data";
+
+
+        public static string StatusCode = string.Empty;
     }
 }
