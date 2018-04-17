@@ -1,4 +1,4 @@
-﻿var dlmodule = ['vue', 'jquery', 'common', 'nav-top','v-search','DLNavBar','DLList'];
+﻿var dlmodule = ['vue', 'jquery', 'common', 'nav-top','v-search','DLNavBar','DLList','css!../Content/bootstrap/font-awesome.min', 'css!../Content/bootstrap/bootstrap.min','css!../../Content/common','css!../Content/dailian'];
 
 require(dlmodule, function (Vue, $, common, navt, search,dlnavbar,dllist) {
 	var data = {};

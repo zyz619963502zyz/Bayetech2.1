@@ -13,34 +13,32 @@
 .recommend-area .recommend-list a:hover{color: #ff6700;}
 .recommend-area .recommend-list a.on{color: #fff;background: #ff6700;border-color: #ff6700;}
 
-.fasttips-box{border: 1px solid #ddd;border-top: none;border-radius: 0 0 4px 4px;height: 46px;margin-bottom: 15px;}
-.fasttips-box .sort-inner{height: 30px;padding: 8px 0 8px 22px;width: 800px;float: left;}
-.fasttips-box .sort-inner .sorts{float: left;height: 30px;}
-.fasttips-box .sort-inner .sorts .has-droplist{position: relative;}
-.fasttips-box .sort-inner .sorts .sort{float: left;text-align: center;}
-.fasttips-box .sort-inner .sorts .sort .link{float: left;color:#666;display: block;height:28px;line-height: 28px;border:1px solid #e8e8e8;margin-left: -1px;padding: 0 10px;}
-.fasttips-box .sort-inner .sorts .sort .link em{background: url(http://pic.7881.com/7881-2016/images/dl-dnf/list/icon-arrow.png);width: 12px;height: 30px;display:inline-block;background-position: 2px 10px;vertical-align: middle;margin-left: 2px;}
-.fasttips-box .sort-inner .sorts .sort:hover .link{border-color: #eee;background: #eee;}
-.fasttips-box .sort-inner .sorts .sort.on .link{color: #fff;border-color: #666;background: #666;}
-.fasttips-box .sort-inner .sorts .sort.on .link em.down{background-position: 2px -20px;}
-.fasttips-box .sort-inner .sorts .sort.on .link em.up{background-position: 2px -50px;}
 
-.fasttips-box .sort-inner .filter{float: right;position: relative;height:30px;margin-right: 10px;}
-.fasttips-box .sort-inner .filter label{height: 30px;line-height: 30px;display: inline-block;*zoom: 1;*display: inline;margin-right: 12px;}
-.fasttips-box .sort-inner .filter label input{margin: 2px 8px 4px 0;width: 16px;height: 16px;vertical-align: middle;}
+.sort-inner{padding: 8px 8px 8px 0;height:44px;line-height:30px;margin-top:10px;}
+.sort-inner .sorts{float: left;}
+.sort-inner .sorts .sort{float: left;text-align: center;}
+.sort-inner .sorts .sort .link{display:inline;color:#666;display: block;height:28px;line-height: 28px;border:1px solid #e8e8e8;margin-left: -1px;padding: 0 10px;}
 
-.fasttips-box .pager{float:right;width:110px;line-height:46px;background: #fcfcfc;border-left: 1px solid #ddd;border-radius: 0 0 4px 0;position: relative;}
-.fasttips-box .pager .item{padding: 0 30px;width: 50px;text-align: center;}
-.fasttips-box .pager .current{color:#3399fe;}
-.fasttips-box .pager .link{padding:8px 0;height:30px;width: 30px;position: absolute;top: 0;left: 0;}
-.fasttips-box .pager .link.next{left: auto;right: 0;}
-.fasttips-box .pager .link .icon{width: 30px;height: 30px;display:block;background: url(http://pic.7881.com/7881-2016/images/dl-dnf/list/icon-arrow-02.png);}
-.fasttips-box .pager .link .icon.icon-btn-prev-1{background-position: 0 0;}
-.fasttips-box .pager .link .icon.icon-btn-prev-2{background-position: 0 -30px;}
-.fasttips-box .pager .link:hover .icon.icon-btn-prev-2{background-position: 0 -60px;}
-.fasttips-box .pager .link .icon.icon-btn-next-1{background-position: -30px 0;}
-.fasttips-box .pager .link .icon.icon-btn-next-2{background-position: -30px -30px;}
-.fasttips-box .pager .link:hover .icon.icon-btn-next-2{background-position: -30px -60px;}
+.sort-inner .sorts .sort:hover .link{border-color: #eee;background: #eee;}
+.sort-inner .sorts .sort.on .link{color: #fff;border-color: #666;background: #666;}
+.sort-inner .sorts .sort.on .link em.down{background-position: 2px -20px;}
+.sort-inner .sorts .sort.on .link em.up{background-position: 2px -50px;}
+.sort-inner .filter{float: right;}
+.sort-inner .filter label{height: 30px;line-height: 30px;*zoom: 1;*display: inline;margin-bottom:0;font-weight:400;}
+.sort-inner .filter label input{margin: 2px 8px 4px 0;width: 16px;height: 16px;vertical-align: middle;}
+
+.pager{float:right;width:110px;line-height:46px;background: #fcfcfc;border-left: 1px solid #ddd;border-radius: 0 0 4px 0;position: relative;}
+.pager .item{padding: 0 30px;width: 50px;text-align: center;}
+.pager .current{color:#3399fe;}
+.pager .link{padding:8px 0;height:30px;width: 30px;position: absolute;top: 0;left: 0;}
+.pager .link.next{left: auto;right: 0;}
+.pager .link .icon{width: 30px;height: 30px;display:block;background: url(http://pic.7881.com/7881-2016/images/dl-dnf/list/icon-arrow-02.png);}
+.pager .link .icon.icon-btn-prev-1{background-position: 0 0;}
+.pager .link .icon.icon-btn-prev-2{background-position: 0 -30px;}
+.pager .link:hover .icon.icon-btn-prev-2{background-position: 0 -60px;}
+.pager .link .icon.icon-btn-next-1{background-position: -30px 0;}
+.pager .link .icon.icon-btn-next-2{background-position: -30px -30px;}
+.pager .link:hover .icon.icon-btn-next-2{background-position: -30px -60px;}
 
 
 .list-block .expand-goods-list{overflow: hidden;margin-bottom: 20px;}
@@ -57,7 +55,7 @@
 .list-block .expand-goods-list ul li .buyer-name span em{background: url(http://pic.7881.com/7881-2016/images/dl-dnf/list/icon-common.png);width: 14px;height: 36px;display: inline-block;*zoom: 1;*display: inline;background-position: 0 -78px;vertical-align: middle;}
 .list-block .expand-goods-list ul li .buyer-name b{float: right;width: 80px;height: 16px;display: inline-block;*zoom: 1;*display: inline;margin-top: 10px;background: url(http://pic.7881.com/7881-2016/images/dl-dnf/studio-icon.png);}
 .list-block .goods-list{margin-bottom: 20px;}
-.list-block .goods-list table{width: 950px;}
+.list-block .goods-list table{width: 930px;}
 .list-block .goods-list table thead tr{background: #f8f8f8;border:1px solid #e8e8e8}
 .list-block .goods-list table thead tr th{height: 46px;line-height: 46px;text-align: center;font-weight: normal;}
 .list-block .goods-list table tbody tr{border-bottom: 1px solid #eee;}
@@ -85,8 +83,8 @@
 .list-block .goods-list table tbody tr td .goods-price .reward-txt .reward-info{position: absolute;bottom:-74px;left: 50%;margin-left: -92px;z-index:99;text-align:center;width: 182px;border:1px solid #e8e8e8;background: #fcfcfc;padding: 14px 0;display: none;}
 .list-block .goods-list table tbody tr td .goods-price .reward-txt .reward-info h4 {color: #ff6700;font-size: 18px;}
 .list-block .goods-list table tbody tr td .goods-price .reward-txt:hover .reward-info{display: block;}
-.list-block .goods-list table tbody tr td a.btn{height: 28px;width: 88px;display: inline-block;*zoom: 1;*display: inline;border: 1px solid #ff6700;border-radius: 4px;text-align: center;line-height: 28px;color: #ff6700;}
-.list-block .goods-list table tbody tr td a.btn:hover{color: #fff;background: #ff6700;}
+.list-block .goods-list table tbody tr td a.btn{height: 28px;width: 88px;display: inline-block;*zoom: 1;*display: inline;border: 1px solid #3983E8;border-radius: 4px;text-align: center;line-height: 28px;color: #3983E8;padding:0;}
+.list-block .goods-list table tbody tr td a.btn:hover{color: #fff;background: #3983E8;}
 .list-block .goods-list table tbody tr td a.btn.btn-dl{background: #ff6700;color: #fff;}
 .list-block .goods-list table tbody tr td a.btn.btn-dl:hover{background: #eb6100;border-color: #eb6100;}
 .list-block .goods-list table tbody tr td a.btn.btn-ing{border-color: #e8e8e8;background: #f8f8f8;color: #aaa;}
@@ -143,6 +141,15 @@
 /*----new dailian css---*/
 .dlgroup ul,.dlgroup ol{margin-bottom:0;}
 
+.right-info .g-select{
+    width:100%;
+}
+
+.g-select .gs_menu,.g-select .simple_search_box{
+    width:830px;
+}
+
+
 .com-breadcrumb {
     height: 34px;
     line-height: 34px;
@@ -155,12 +162,13 @@
 }
 
 .g-select{
-    float:left;
+    float:none;
 }
 /*右边搜索和列表开始*/
 .right-info{
     float: left;
-    width: 960px;
+    width: 930px;
+    margin-left:10px;
 }
 
 
