@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Newtonsoft.Json.Linq;
 using System.Web.Mvc;
 
 namespace Bayetech.Admin01.Controllers
@@ -25,6 +22,13 @@ namespace Bayetech.Admin01.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public JObject GetMessage() {
+            var ret = new JObject();
+            ret.Add("mess","OK");
+            return ret;
         }
     }
 }
