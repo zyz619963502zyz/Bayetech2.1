@@ -335,6 +335,7 @@
     <Content Include="Content\CommonCss\wzry-skin-V4.css" />
     <Content Include="Content\CommonCss\xqgd.css" />
     <Content Include="Content\dailian.css" />
+    <Content Include="Content\details.css" />
     <Content Include="Content\fileupload\fileinput-rtl.css" />
     <Content Include="Content\fileupload\fileinput.css" />
     <Content Include="Content\Goods\Publish.css" />

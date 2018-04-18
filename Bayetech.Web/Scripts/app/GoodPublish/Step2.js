@@ -184,7 +184,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
 //  </form>
         //</div>`;
 
-    	var html = `<div class="container">
+    	var html = `<div class="container m-b-lg">
 				<a class ="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
 				<span>《{{GameInfo.GameName}}》{{GameInfo.GroupName}}/{{GameInfo.ServerName}}/{{GameInfo.GoodTypeName}}</span>
             <form class ="form-horizontal">
@@ -277,7 +277,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                             </div>
                             <!--商品图片-->
                             <div class="form-group form-group-xs">
-                                <label class="col-md-offset-5 control-label">商品图片</label>
+                                <label class="col-md-offset-5 control-label"><h3>商品图片</h3></label>
 								<div class ="col-md-12">
 									<FileUpload></FileUpload>
 								</div>

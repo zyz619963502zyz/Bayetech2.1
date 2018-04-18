@@ -1,6 +1,6 @@
 ﻿//模块间操作
-var moudule = ['vue', 'jquery', 'common', 'DLDetail']
-require(moudule, function (Vue, $, common,dlDetail) {
+var moudule = ['vue', 'jquery', 'common', 'DLDetail','v-footer','nav-top','css!../Content/bootstrap/bootstrap.min','css!../../Content/common','css!../Content/dailian','css!../Content/details']
+require(moudule, function (Vue, $, common,dlDetail,footer,navt) {
     //数据为左右整合数据
     var data = {};
 
@@ -16,7 +16,9 @@ require(moudule, function (Vue, $, common,dlDetail) {
             
         },
         components: {
-            'dldetail': dlDetail
+        	'dldetail': dlDetail,
+        	'v-footer': footer,
+			'navt':navt
         }
     });
 });

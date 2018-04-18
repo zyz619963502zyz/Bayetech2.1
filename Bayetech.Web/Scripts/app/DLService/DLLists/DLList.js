@@ -22,10 +22,11 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                                 </h2>
                                 <p>代练类型：{{item.WorkAlias}}</p><p>游戏区服：{{item.GameName}}/{{item.GroupName}}/{{item.ServerName}}</p>
                                 <div class ="buyer-name">
-                                    <span><em></em>﹏浅水？？</span>
+                                    <span><i class="fa fa-info" style="color:#FF5722;margin-right:5px;font-size:14px;"></i>﹏浅水？？</span>
+									<span>信誉：五颗星</span>
                                     <b></b>
                                 </div>
-                                <p>信誉：五颗星</p>
+                                
                             </td>
                             <td class ="tr"><div class ="goods-price"><span>{{item.Price}}</span>元</div></td>
                             <td>安全保证金：{{item.SavePrice}}<br/>效率保证金：{{item.EfficiencyPrice}}</td>
@@ -65,7 +66,8 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                         GameName: "",
                         GroupName: "",
                         ServerName:"",
-                        Price: ""
+                        Price: "",
+						WorkAlias:''
                     }
             ],
         SearchParam:{

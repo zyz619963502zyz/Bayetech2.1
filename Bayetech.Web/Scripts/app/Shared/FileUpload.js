@@ -1,13 +1,8 @@
-﻿define(['vue', 'jquery','bootstrap','upload', 'common', ], function (vue, $,bootstrap,upload,common) {
+﻿define(['vue', 'jquery', 'common',"upload" ], function (vue, $,common,upload) {
 
-    var uploadHtml =`<div class="form-item twochose clearfix" style="z-index: 1;">
-                    <div class="form-item-l">
-                        <i>*</i>
-                        <span>账号截图服务：</span>
-                    </div>
-                    <div class="form-item-r" datatype="onetwo" style="z-index: 1;">
+    var uploadHtml =`<div class="img-item clearfix" >
                         <div class="upload-box on">
-                            <div class="upload-title">
+                            <div class="upload-title clearfix">
                                 <label>
                                     <input type="checkbox" checked="checked" id="machineCertCbox">
                                     <span>上号截图认证</span>
@@ -23,10 +18,11 @@
                                     <br>3.如您的帐号有密保手机，手机令牌或者安全锁，请解除以便账号能够顺利交易，否则可能无法通过审核。
                                 </p>
                                 <div class="imgs-exp">
-                                    <img src="http://userimg.7881.com/2121/2017-09-07/741969bde52f4e90ad1d14229e36d4a7.png" width="100%" height="112">
+                                    <img src="http://userimg.7881.com/2121/2017-09-07/741969bde52f4e90ad1d14229e36d4a7.png"  height="112">
                                 </div>
                             </div>
                         </div>
+
                         <div class="upload-box" filenumlimit="10">
                             <div class="upload-title">
                                 <label class="title-left">
@@ -63,7 +59,7 @@
                                 <span class ="Validform_checktip"></span>
                             </div>
                         </div>
-                    </div>
+                    
                     <span class="Validform_checktip"></span>
                 </div>`
      

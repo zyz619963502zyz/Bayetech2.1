@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </ul>
                         <ul class ="nav navbar-nav navbar-right">
                             <li class ="dropdown">
-                                <a href="#">我的6666 <span class ="caret"></span></a>
+                                <a href="../../Page/DLService/DLList.html" target="_blank">我的6666 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
                                     <li><a href="#">我购买的商品</a></li>
                                     <li><a href="#">出售中的商品</a></li>
@@ -28,6 +28,21 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 </ul>
                             </li>
                             <li><a href="#">金钻兑换</a></li>
+							<li class="dropdown"><a href="#">买家中心 <span class ="caret"></span></a>
+								<ul class ="dropdown-menu">
+                                    <li><a href="#">我要买</a></li>
+                                    <li><a href="../../Page/UserCenter/Index.html#/MyOrders?flag=All">我购买的商品</a></li>
+                                    
+                                </ul>
+							</li>
+							<li class ="dropdown"><a href="#">卖家中心 <span class ="caret"></span></a>
+								<ul class ="dropdown-menu">
+                                    <li><a href="#">订单管理</a></li>
+                                    <li><a href="#">出售中的宝贝</a></li>
+                                    <li><a href="#">仓库中的宝贝</a></li>
+                                    <li><a href="#">卖家助手</a></li>
+                                </ul>
+							</li>
 							<li class="label-cash"><a href="#" class="pay">充值</a> <a href="#" class="take-out">提现</a></li>
                             <li class ="dropdown">
                                 <a href="#">服务中心 <span class ="caret"></span></a>

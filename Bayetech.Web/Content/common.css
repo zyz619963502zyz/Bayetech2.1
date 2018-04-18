@@ -33,7 +33,8 @@ img{display:inline-block;}
 .m-r-sm{margin-right:10px;}
 .m-r-md{margin-right:20px;}
 .m-b-sm{margin-bottom:10px;}
-.m-b-md{margin-bottom:20px;}
+.m-b-md{margin-bottom:25px;}
+.m-b-lg{margin-bottom:35px;}
 .m-b-none{margin-bottom:0;}
 /*font-size*/
 .f12{font-size:12px;}
@@ -159,6 +160,7 @@ img{display:inline-block;}
 
 
 
+
 /*---通用底部---*/
 .footer-content { background:#f8f8f8; width: 100%; min-width: 1190px;}
 .footer-server-box { background: #3399ff; width: 100%; min-width: 1190px; height: 92px;}
@@ -261,6 +263,7 @@ img{display:inline-block;}
 .yx-footer-thin .yx-footer-main .app {margin-left:40px;}
 .yx-footer-thin .yx-footer-main ul.yx-links li {width:165px;}
 }
+.footer-copyright{width:100%;border-top:2px solid #056ab3;padding-top:20px;position: relative;bottom: 0;}
 .yx-copyright {width:960px;margin:0 auto;padding:8px 0;font-size:12px;line-height:28px;color:#333;text-align:center;overflow:hidden;clear:both;display:block;font-family:SimSun,sans-serif;}
 .yx-copyright .en {font-family:Arial;}
 .yx-copyright a {color:#333;text-decoration:none;}
@@ -302,4 +305,14 @@ img{display:inline-block;}
 }
 .btn-close .btn-xs:hover{
     color:#f0f0f0
+}
+.btn-default-grey{
+    color:#fff;
+    background-color:#666;
+    border-color:#666;
+}
+.btn-default-grey:hover{
+    color:#fff;
+    background-color:#4b4a4a;
+    border-color:#4b4a4a;
 }

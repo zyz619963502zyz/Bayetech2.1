@@ -1,6 +1,6 @@
 ﻿//step1
 define(['jquery', 'common', 'API'], function ($, common, API) {
-    var html=`<div>
+    var html=`<div class="m-b-lg">
             <div class="release_search W980" style="margin-top:20px;">
                 <div class="gametitle">
                     <a name="gametitle" :class ="{'on':GameInfo.GameTypeId==0}" @click="ChangeGameType(0)">网络游戏</a>
@@ -61,15 +61,15 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                 </div>
             </div>
             <div class="go_ahead W980">
-                <p class="orange">
+                <p class="orange m-b-md">
                     您当前选择的是：{{GameInfo.ServerName}}
                     <span>{{GameInfo.GameName}}</span><span> &gt; </span>
                     <span>{{GameInfo.GoodTypeName}}</span><span> &gt; </span>
                     <span>{{GameInfo.GroupName}}</span><span>&gt; </span>
                     <span>{{GameInfo.ServerName}}</span>
                 </p>
-                <div class ="publish-btn">
-                   <a href="javascript:void(0)" class ="com-btn-01 color01 btn-pub" @click="Next('step2')">好了，继续发布</a>
+                <div class ="publish-btn text-center">
+                   <a href="javascript:void(0)" class ="btn btn-warning" @click="Next('step2')">好了，继续发布</a>
                 </div>
             </div>
         </div>`;

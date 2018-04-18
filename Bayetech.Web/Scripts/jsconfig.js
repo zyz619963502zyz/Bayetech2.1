@@ -9,7 +9,7 @@ var jsconfig = {
         'vue': 'Scripts/vue',
         'jquery': 'Scripts/jquery-2.2.2.min',
         'bootstrap': 'Scripts/bootstrap.min',
-        'upload':  'Scripts/fileinput',
+        'upload': 'Scripts/fileinput',
         'common': 'Scripts/common',
         'bootstrapValidator': 'Scripts/bootstrapValidator',
         'bootstrap-paginator': 'Scripts/bootstrap-paginator',
@@ -114,8 +114,8 @@ var jsconfig = {
             deps: ['bootstrap', 'css!../Content/swiper/swiper.min'],
             exports: 'Swiper',
         },
-        'upload': {
-            deps: ['jquery', 'bootstrap','css!../Content/fileupload/fileinput.css'],
+        'uploadPackage': {
+            deps: ['jquery', 'bootstrap','css!../Content/fileupload/fileinput','upload'],
             exports:'upload'
         }
     }

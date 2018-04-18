@@ -11,7 +11,6 @@
 .reduce{ width:130px; overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
 .release_select{float:left; margin-top:3px}
 .release_select .select{ width:150px;}
-.release{ height:370px;border:3px solid #b5cef5;background:#d9e8ff; width:956px; padding:13px 0 0px 18px; margin:0 auto;}
 .release .relcon{width:1140px;}
 .release span.left{width:120px;white-space:nowrap;overflow:hidden;}
 .release dl{ width:183px; height:334px; float:left;margin-right:6px}
@@ -224,11 +223,55 @@
     margin-top: 30px;
 }
 
+.m-l-md{
+    margin-left:30px;
+}
+
+/*---上传图片---*/
+.img-item{    
+    width: 100%;
+    padding: 0 20px;
+}
 .upload-box {
     vertical-align: middle;
     margin-bottom: 10px;
 }
-
-.m-l-md{
-    margin-left:30px;
+.upload-box .upload-title{
+    border-bottom:1px solid #ccc;
+    height: 34px;
+    line-height: 34px;
+    margin-bottom: 15px;
 }
+.upload-box .upload-title label{
+    float:left;
+}
+.upload-box .upload-title p{
+    width: 50%;
+    float: right;
+    color: #666;
+    text-align: right;
+}
+.upload-box .upload-title p span{
+    color:#ff6700;
+}
+.orange-stip{
+    width: auto;
+    padding: 14px 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 12px;
+    border: 1px solid #FC3;
+    background: #fffcf0;
+}
+.file-drop-zone{
+    margin:0;
+}
+.krajee-default.file-preview-frame{
+    margin:6px;
+}
+.krajee-default.file-preview-frame .kv-file-content{
+    width:195px;
+}
+
+

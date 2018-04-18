@@ -4,7 +4,7 @@
                 <div class="jiaobiao jb01"></div>
                 <div class="info-pic">
                     <div class="picFocus">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/dnfpic.jpg1" width="338" height="338">
+                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf.png" width="338" height="338">
                     </div>
                     <div class="good-id">
                         <p>商品编号：<span>{{DlObj.DlNo}}</span></p>
@@ -45,9 +45,8 @@
                     </div>
                 </div>
                 <div class="sotre-info">
-                    <div class="store-hd"></div>
                     <div class="store-icon">
-                        <img src="http://pic.7881.com/7881-2016/images/dl-dnf/details/ds-icon.png">
+                        <img src="../../Content/NewImages/10.jpg">
                         <p>
                             f10b34a62efb45fb...
                         </p>
