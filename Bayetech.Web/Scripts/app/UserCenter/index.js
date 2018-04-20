@@ -12,7 +12,7 @@ require(UserCenterRequireArr, function () {
     for (var i=4; i<arguments.length; i++){
         components[arguments[i].name]=arguments[i];
     }
-    var data={
+    var data = {
         menuData: {
             Title: "个人中心",
             List: [{
