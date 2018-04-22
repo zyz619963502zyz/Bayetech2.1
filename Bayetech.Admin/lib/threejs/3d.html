@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery.min.js"></script>
+    <script src="three.min.js"></script>
+    <script src="controls/TrackballControls.js"></script>
+    <script src="loaders/MTLLoader.js"></script>
+    <script src="loaders/OBJMTLLoader.js"></script>
+    <script src="Detector.js"></script>
+    <script src="stats.js"></script>
+</head>
+<body>
+    <div id="3d"></div>
+</body>
+</html>
+<script>
+    //#region 3d
+    if (!Detector.webgl) Detector.addGetWebGLMessage();
+
+    var container, stats;
+
+    var camera, controls, scene, renderer;
+
+    var cross;
+
+    init();
+    animate();
+    function init() {
+
+        // camera
+        // camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.01, 1e10);
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1e10);
+        camera.position.z = 200; //设置该值可以对模型大小进行缩放，值越大，物体越小
+        camera.position.y = 100; //设置该值可以对模型的角度进行设置，值越大，物体倾斜越大
+        // controls
+        controls = new THREE.TrackballControls(camera);
+
+        controls.rotateSpeed = 5.0;
+        controls.zoomSpeed = 5;
+        controls.panSpeed = 2;
+
+        controls.noZoom = false;
+        controls.noPan = false;
+
+        controls.staticMoving = false;
+        controls.dynamicDampingFactor = 0.3;
+
+        scene = new THREE.Scene();
+
+        scene.add(camera);
+
+        // light
+
+        var dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(200, 200, 1000).normalize();
+        // dirLight.shadowCameraNear = 2;
+        // dirLight.shadowCameraFar = 200;
+        // dirLight.shadowCameraLeft = -50;
+        // dirLight.shadowCameraRight = 50;
+        // dirLight.shadowCameraTop = 50;
+        // dirLight.shadowCameraBottom = -50;
+
+        dirLight.distance = 0;
+        dirLight.intensity = 1;
+        dirLight.shadowMapHeight = 2024;
+        dirLight.shadowMapWidth = 2024;
+
+        camera.add(dirLight);
+        camera.add(dirLight.target);
+
+        // model
+        var loader = new THREE.OBJMTLLoader();
+        loader.addEventListener('load', function (event) {
+
+            var object = event.content;
+
+            object.position.y = -70;
+            scene.add(object);
+
+        });
+        loader.load('models/obj05172.obj', 'models/obj05172.mtl');
+        // model
+
+        // renderer
+
+        renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
+        renderer.setClearColorHex(0x000000, 1);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        //container = document.createElement('div');
+        //container = $('#3d');
+        //document.body.appendChild(container);
+        $('#3d').append(renderer.domElement);
+
+        stats = new Stats();
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.top = '0px';
+        //container.appendChild(stats.domElement);
+        $('#3d').append(stats.domElement);
+        //
+
+        window.addEventListener('resize', onWindowResize, false);
+
+    }
+
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        controls.handleResize();
+
+    }
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        controls.update();
+        renderer.render(scene, camera);
+
+        stats.update();
+
+    }
+    //var previewModal = $('#3DModal');
+    //$('#3dBtn').on('click', function () {
+    //    previewModal.modal('show');
+      
+    //    //animate();
+    //});
+    //#endregion
+</script>
