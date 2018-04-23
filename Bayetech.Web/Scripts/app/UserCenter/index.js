@@ -1,6 +1,5 @@
 ﻿var UserCenterRequireArr=['vue', 'jquery', 'common', 'VueRouter', '../Scripts/app/UserCenter/router', 'v-header', 'v-footer', 'v-nav', 'v-search', 'v-menu', 'nav-top'
-    , 'Scripts/app/UserCenter/Seller/ToSeller'
-];
+    , 'Scripts/app/UserCenter/Seller/ToSeller'];
 
 //个人中心主模块
 require(UserCenterRequireArr, function () {
@@ -13,7 +12,7 @@ require(UserCenterRequireArr, function () {
     for (var i=4; i<arguments.length; i++){
         components[arguments[i].name]=arguments[i];
     }
-    var data={
+    var data = {
         menuData: {
             Title: "个人中心",
             List: [{

@@ -13,7 +13,7 @@ using Bayetech.Admin01.Models;
 namespace Bayetech.Admin01.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController :ApiController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

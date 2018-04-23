@@ -31,6 +31,271 @@
           <Property Name="EnableMark" Type="bit" />
           <Property Name="AccountType" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="Admin_C1_Customer">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassSalt" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDisabled" Type="bit" />
+          <Property Name="CustType" Type="int" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Addr" Type="nvarchar" MaxLength="100" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contacts" Type="nvarchar" MaxLength="20" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Settlementday" Type="int" />
+          <Property Name="PriceGroup" Type="int" />
+          <Property Name="Credit" Type="int" />
+          <Property Name="BillAddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="BillContacts" Type="nvarchar" MaxLength="20" />
+          <Property Name="BillPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxName" Type="nvarchar" MaxLength="100" />
+          <Property Name="TaxNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxBank" Type="nvarchar" MaxLength="100" />
+          <Property Name="TaxBankNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxAddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="TaxPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="300" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="DeliveryTypeId" Type="int" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="UpdateOn" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedOn" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Token" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailSendNum" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Area">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ShortName" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="MergerName" Type="varchar" MaxLength="255" />
+          <Property Name="AreaLevel" Type="int" />
+          <Property Name="Pinyin" Type="varchar" MaxLength="100" />
+          <Property Name="Code" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="100" />
+          <Property Name="First" Type="varchar" MaxLength="50" />
+          <Property Name="Lng" Type="varchar" MaxLength="100" />
+          <Property Name="Lat" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Area_bac">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AreaLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="AreaCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Buttons">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ButtonText" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="iconCls" Type="nvarchar" MaxLength="50" />
+          <Property Name="IconUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="ButtonTag" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="ButtonHtml" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="DepCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepType" Type="int" />
+          <Property Name="Faren" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="IsUse" Type="int" />
+          <Property Name="Addr" Type="nvarchar" MaxLength="500" />
+          <Property Name="OndutyPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="OndutyPhone2" Type="nvarchar" MaxLength="100" />
+          <Property Name="ComplainPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="30" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_DicCategory">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="Attrib" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Dics">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDefault" Type="bit" />
+          <Property Name="IsAllowModify" Type="bit" />
+          <Property Name="IsAllowDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_LogDetails">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogId" Type="int" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldText" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldValue" Type="nvarchar(max)" />
+          <Property Name="NewValue" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_logs">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationType" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="OperationTime" Type="datetime" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrimaryKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="SqlText" Type="nvarchar(max)" />
+          <Property Name="OperationIp" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_NavButtons">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NavId" Type="int" />
+          <Property Name="ButtonId" Type="int" />
+          <Property Name="Sortnum" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.Admin_Sys_Navigations”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Admin_Sys_Navigations">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NavTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Linkurl" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="iconCls" Type="nvarchar" MaxLength="50" />
+          <Property Name="iconUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="NavTag" Type="nvarchar" MaxLength="50" />
+          <Property Name="BigImageUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsNewWindow" Type="bit" />
+          <Property Name="WinWidth" Type="int" />
+          <Property Name="WinHeight" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_RoleNavBtns">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="NavId" Type="int" />
+          <Property Name="BtnId" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Roles">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sortnum" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="isDefault" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Roles_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleId" Type="int" />
+          <Property Name="depId" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_UserNavBtns">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="NavId" Type="int" />
+          <Property Name="BtnId" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_UserRoles">
+          <Key>
+            <PropertyRef Name="Keyid" />
+          </Key>
+          <Property Name="Keyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Users">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassSalt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="IsDisabled" Type="bit" />
+          <Property Name="TrueName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddTime" Type="smalldatetime" />
+          <Property Name="MenusJson" Type="nvarchar(max)" />
+          <Property Name="ConfigJson" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Users_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DepID" Type="int" />
+        </EntityType>
         <EntityType Name="Article">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,6 +304,7 @@
           <Property Name="ModuleId" Type="int" Nullable="false" />
           <Property Name="CatId" Type="bigint" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="subhead" Type="nvarchar" MaxLength="100" />
           <Property Name="Introduce" Type="nvarchar" MaxLength="255" />
           <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Tag" Type="nvarchar" MaxLength="100" />
@@ -401,6 +667,10 @@
           <Property Name="BuyTimes" Type="int" />
           <Property Name="SellTimes" Type="int" />
           <Property Name="HatChetTimes" Type="int" />
+          <Property Name="PayPassword" Type="varchar" MaxLength="30" />
+          <Property Name="IsValiteLogin" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_ArticleModule”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -738,6 +1008,23 @@
         </EntityType>
         <EntityContainer Name="BayetechModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_C1_Customer" EntityType="Self.Admin_C1_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Area" EntityType="Self.Admin_Sys_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Area_bac" EntityType="Self.Admin_Sys_Area_bac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Buttons" EntityType="Self.Admin_Sys_Buttons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Departments" EntityType="Self.Admin_Sys_Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_DicCategory" EntityType="Self.Admin_Sys_DicCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Dics" EntityType="Self.Admin_Sys_Dics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_LogDetails" EntityType="Self.Admin_Sys_LogDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_logs" EntityType="Self.Admin_Sys_logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_NavButtons" EntityType="Self.Admin_Sys_NavButtons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_RoleNavBtns" EntityType="Self.Admin_Sys_RoleNavBtns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Roles" EntityType="Self.Admin_Sys_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Roles_Departments" EntityType="Self.Admin_Sys_Roles_Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_UserNavBtns" EntityType="Self.Admin_Sys_UserNavBtns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_UserRoles" EntityType="Self.Admin_Sys_UserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Users" EntityType="Self.Admin_Sys_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Users_Departments" EntityType="Self.Admin_Sys_Users_Departments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="dbo" store:Type="Tables" />
@@ -760,6 +1047,23 @@
           <EntitySet Name="Server" EntityType="Self.Server" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Admin_Sys_Navigations].[KeyId] AS [KeyId], 
+    [Admin_Sys_Navigations].[NavTitle] AS [NavTitle], 
+    [Admin_Sys_Navigations].[Linkurl] AS [Linkurl], 
+    [Admin_Sys_Navigations].[Sortnum] AS [Sortnum], 
+    [Admin_Sys_Navigations].[iconCls] AS [iconCls], 
+    [Admin_Sys_Navigations].[iconUrl] AS [iconUrl], 
+    [Admin_Sys_Navigations].[IsVisible] AS [IsVisible], 
+    [Admin_Sys_Navigations].[ParentID] AS [ParentID], 
+    [Admin_Sys_Navigations].[NavTag] AS [NavTag], 
+    [Admin_Sys_Navigations].[BigImageUrl] AS [BigImageUrl], 
+    [Admin_Sys_Navigations].[IsNewWindow] AS [IsNewWindow], 
+    [Admin_Sys_Navigations].[WinWidth] AS [WinWidth], 
+    [Admin_Sys_Navigations].[WinHeight] AS [WinHeight]
+    FROM [dbo].[Admin_Sys_Navigations] AS [Admin_Sys_Navigations]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GoodAndDescription].[Id] AS [Id], 
@@ -1113,6 +1417,7 @@
           <Property Name="IsLink" Type="Byte" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
           <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subhead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ArticleContent">
           <Key>
@@ -1247,6 +1552,24 @@
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
           <EntitySet Name="Attachments" EntityType="BayetechModel.Attachment" />
           <EntitySet Name="vw_ArticleModule" EntityType="BayetechModel.vw_ArticleModule" />
+          <EntitySet Name="Admin_C1_Customer" EntityType="BayetechModel.Admin_C1_Customer" />
+          <EntitySet Name="Admin_Sys_Area" EntityType="BayetechModel.Admin_Sys_Area" />
+          <EntitySet Name="Admin_Sys_Area_bac" EntityType="BayetechModel.Admin_Sys_Area_bac" />
+          <EntitySet Name="Admin_Sys_Buttons" EntityType="BayetechModel.Admin_Sys_Buttons" />
+          <EntitySet Name="Admin_Sys_Departments" EntityType="BayetechModel.Admin_Sys_Departments" />
+          <EntitySet Name="Admin_Sys_DicCategory" EntityType="BayetechModel.Admin_Sys_DicCategory" />
+          <EntitySet Name="Admin_Sys_Dics" EntityType="BayetechModel.Admin_Sys_Dics" />
+          <EntitySet Name="Admin_Sys_LogDetails" EntityType="BayetechModel.Admin_Sys_LogDetails" />
+          <EntitySet Name="Admin_Sys_logs" EntityType="BayetechModel.Admin_Sys_logs" />
+          <EntitySet Name="Admin_Sys_NavButtons" EntityType="BayetechModel.Admin_Sys_NavButtons" />
+          <EntitySet Name="Admin_Sys_RoleNavBtns" EntityType="BayetechModel.Admin_Sys_RoleNavBtns" />
+          <EntitySet Name="Admin_Sys_Roles" EntityType="BayetechModel.Admin_Sys_Roles" />
+          <EntitySet Name="Admin_Sys_Roles_Departments" EntityType="BayetechModel.Admin_Sys_Roles_Departments" />
+          <EntitySet Name="Admin_Sys_UserNavBtns" EntityType="BayetechModel.Admin_Sys_UserNavBtns" />
+          <EntitySet Name="Admin_Sys_UserRoles" EntityType="BayetechModel.Admin_Sys_UserRoles" />
+          <EntitySet Name="Admin_Sys_Users" EntityType="BayetechModel.Admin_Sys_Users" />
+          <EntitySet Name="Admin_Sys_Users_Departments" EntityType="BayetechModel.Admin_Sys_Users_Departments" />
+          <EntitySet Name="Admin_Sys_Navigations" EntityType="BayetechModel.Admin_Sys_Navigations" />
         </EntityContainer>
         <EntityType Name="GameInfoDescription">
           <Key>
@@ -1623,6 +1946,10 @@
           <Property Name="BuyTimes" Type="Int32" />
           <Property Name="SellTimes" Type="Int32" />
           <Property Name="HatChetTimes" Type="Int32" />
+          <Property Name="PayPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsValiteLogin" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="vw_MallDLInfo">
           <Key>
@@ -1804,6 +2131,269 @@
           <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Admin_C1_Customer">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisabled" Type="Boolean" />
+          <Property Name="CustType" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Addr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contacts" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Cellphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Settlementday" Type="Int32" />
+          <Property Name="PriceGroup" Type="Int32" />
+          <Property Name="Credit" Type="Int32" />
+          <Property Name="BillAddr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BillContacts" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BillPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TaxNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxBank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TaxBankNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxAddr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TaxPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="DeliveryTypeId" Type="Int32" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSendNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Area">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MergerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AreaLevel" Type="Int32" />
+          <Property Name="Pinyin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="First" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Lat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Area_bac">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaLevel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Buttons">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ButtonText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="iconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IconUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ButtonTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ButtonHtml" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DepCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepType" Type="Int32" />
+          <Property Name="Faren" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="IsUse" Type="Int32" />
+          <Property Name="Addr" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OndutyPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OndutyPhone2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ComplainPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_DicCategory">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Attrib" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Dics">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <Property Name="IsAllowModify" Type="Boolean" />
+          <Property Name="IsAllowDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_LogDetails">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogId" Type="Int32" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FieldText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_logs">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationType" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="OperationTime" Type="DateTime" Precision="3" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SqlText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperationIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_NavButtons">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NavId" Type="Int32" />
+          <Property Name="ButtonId" Type="Int32" />
+          <Property Name="Sortnum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_RoleNavBtns">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="NavId" Type="Int32" />
+          <Property Name="BtnId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Roles">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="isDefault" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Roles_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleId" Type="Int32" />
+          <Property Name="depId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_UserNavBtns">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="NavId" Type="Int32" />
+          <Property Name="BtnId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_UserRoles">
+          <Key>
+            <PropertyRef Name="Keyid" />
+          </Key>
+          <Property Name="Keyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Users">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="IsDisabled" Type="Boolean" />
+          <Property Name="TrueName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="0" />
+          <Property Name="MenusJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfigJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Users_Departments">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="DepID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Navigations">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NavTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Linkurl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="iconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iconUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="NavTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BigImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsNewWindow" Type="Boolean" />
+          <Property Name="WinWidth" Type="Int32" />
+          <Property Name="WinHeight" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1839,6 +2429,7 @@
           <EntitySetMapping Name="Article">
             <EntityTypeMapping TypeName="BayetechModel.Article">
               <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="subhead" ColumnName="subhead" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
@@ -2344,6 +2935,10 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="BayetechModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="IsValiteLogin" ColumnName="IsValiteLogin" />
+                <ScalarProperty Name="PayPassword" ColumnName="PayPassword" />
                 <ScalarProperty Name="HatChetTimes" ColumnName="HatChetTimes" />
                 <ScalarProperty Name="SellTimes" ColumnName="SellTimes" />
                 <ScalarProperty Name="BuyTimes" ColumnName="BuyTimes" />
@@ -2530,6 +3125,287 @@
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="CatId" ColumnName="CatId" />
                 <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_C1_Customer">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_C1_Customer">
+              <MappingFragment StoreEntitySet="Admin_C1_Customer">
+                <ScalarProperty Name="EmailSendNum" ColumnName="EmailSendNum" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="DeliveryTypeId" ColumnName="DeliveryTypeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TaxPhone" ColumnName="TaxPhone" />
+                <ScalarProperty Name="TaxAddr" ColumnName="TaxAddr" />
+                <ScalarProperty Name="TaxBankNum" ColumnName="TaxBankNum" />
+                <ScalarProperty Name="TaxBank" ColumnName="TaxBank" />
+                <ScalarProperty Name="TaxNum" ColumnName="TaxNum" />
+                <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+                <ScalarProperty Name="BillPhone" ColumnName="BillPhone" />
+                <ScalarProperty Name="BillContacts" ColumnName="BillContacts" />
+                <ScalarProperty Name="BillAddr" ColumnName="BillAddr" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="PriceGroup" ColumnName="PriceGroup" />
+                <ScalarProperty Name="Settlementday" ColumnName="Settlementday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Addr" ColumnName="Addr" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="CustType" ColumnName="CustType" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="PassSalt" ColumnName="PassSalt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Area">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Area">
+              <MappingFragment StoreEntitySet="Admin_Sys_Area">
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="First" ColumnName="First" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Pinyin" ColumnName="Pinyin" />
+                <ScalarProperty Name="AreaLevel" ColumnName="AreaLevel" />
+                <ScalarProperty Name="MergerName" ColumnName="MergerName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Area_bac">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Area_bac">
+              <MappingFragment StoreEntitySet="Admin_Sys_Area_bac">
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="AreaLevel" ColumnName="AreaLevel" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Buttons">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Buttons">
+              <MappingFragment StoreEntitySet="Admin_Sys_Buttons">
+                <ScalarProperty Name="ButtonHtml" ColumnName="ButtonHtml" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ButtonTag" ColumnName="ButtonTag" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="iconCls" ColumnName="iconCls" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="ButtonText" ColumnName="ButtonText" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Departments">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Departments">
+              <MappingFragment StoreEntitySet="Admin_Sys_Departments">
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="ComplainPhone" ColumnName="ComplainPhone" />
+                <ScalarProperty Name="OndutyPhone2" ColumnName="OndutyPhone2" />
+                <ScalarProperty Name="OndutyPhone" ColumnName="OndutyPhone" />
+                <ScalarProperty Name="Addr" ColumnName="Addr" />
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Faren" ColumnName="Faren" />
+                <ScalarProperty Name="DepType" ColumnName="DepType" />
+                <ScalarProperty Name="DepCode" ColumnName="DepCode" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_DicCategory">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_DicCategory">
+              <MappingFragment StoreEntitySet="Admin_Sys_DicCategory">
+                <ScalarProperty Name="Attrib" ColumnName="Attrib" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Dics">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Dics">
+              <MappingFragment StoreEntitySet="Admin_Sys_Dics">
+                <ScalarProperty Name="IsAllowDelete" ColumnName="IsAllowDelete" />
+                <ScalarProperty Name="IsAllowModify" ColumnName="IsAllowModify" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_LogDetails">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_LogDetails">
+              <MappingFragment StoreEntitySet="Admin_Sys_LogDetails">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="FieldText" ColumnName="FieldText" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_logs">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_logs">
+              <MappingFragment StoreEntitySet="Admin_Sys_logs">
+                <ScalarProperty Name="OperationIp" ColumnName="OperationIp" />
+                <ScalarProperty Name="SqlText" ColumnName="SqlText" />
+                <ScalarProperty Name="PrimaryKey" ColumnName="PrimaryKey" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="OperationTime" ColumnName="OperationTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_NavButtons">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_NavButtons">
+              <MappingFragment StoreEntitySet="Admin_Sys_NavButtons">
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="ButtonId" ColumnName="ButtonId" />
+                <ScalarProperty Name="NavId" ColumnName="NavId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_RoleNavBtns">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_RoleNavBtns">
+              <MappingFragment StoreEntitySet="Admin_Sys_RoleNavBtns">
+                <ScalarProperty Name="BtnId" ColumnName="BtnId" />
+                <ScalarProperty Name="NavId" ColumnName="NavId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Roles">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Roles">
+              <MappingFragment StoreEntitySet="Admin_Sys_Roles">
+                <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Roles_Departments">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Roles_Departments">
+              <MappingFragment StoreEntitySet="Admin_Sys_Roles_Departments">
+                <ScalarProperty Name="depId" ColumnName="depId" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_UserNavBtns">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_UserNavBtns">
+              <MappingFragment StoreEntitySet="Admin_Sys_UserNavBtns">
+                <ScalarProperty Name="BtnId" ColumnName="BtnId" />
+                <ScalarProperty Name="NavId" ColumnName="NavId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_UserRoles">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_UserRoles">
+              <MappingFragment StoreEntitySet="Admin_Sys_UserRoles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Keyid" ColumnName="Keyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Users">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Users">
+              <MappingFragment StoreEntitySet="Admin_Sys_Users">
+                <ScalarProperty Name="ConfigJson" ColumnName="ConfigJson" />
+                <ScalarProperty Name="MenusJson" ColumnName="MenusJson" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassSalt" ColumnName="PassSalt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Users_Departments">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Users_Departments">
+              <MappingFragment StoreEntitySet="Admin_Sys_Users_Departments">
+                <ScalarProperty Name="DepID" ColumnName="DepID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Navigations">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Navigations">
+              <MappingFragment StoreEntitySet="Admin_Sys_Navigations">
+                <ScalarProperty Name="WinHeight" ColumnName="WinHeight" />
+                <ScalarProperty Name="WinWidth" ColumnName="WinWidth" />
+                <ScalarProperty Name="IsNewWindow" ColumnName="IsNewWindow" />
+                <ScalarProperty Name="BigImageUrl" ColumnName="BigImageUrl" />
+                <ScalarProperty Name="NavTag" ColumnName="NavTag" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="iconUrl" ColumnName="iconUrl" />
+                <ScalarProperty Name="iconCls" ColumnName="iconCls" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="Linkurl" ColumnName="Linkurl" />
+                <ScalarProperty Name="NavTitle" ColumnName="NavTitle" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
