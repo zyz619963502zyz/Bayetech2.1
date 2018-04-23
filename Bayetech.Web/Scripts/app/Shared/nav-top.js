@@ -27,7 +27,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                     <li><a href="#">我的订单管理</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">金钻兑换</a></li>
 							<li class="dropdown"><a href="#">买家中心 <span class ="caret"></span></a>
 								<ul class ="dropdown-menu">
                                     <li><a href="#">我要买</a></li>
