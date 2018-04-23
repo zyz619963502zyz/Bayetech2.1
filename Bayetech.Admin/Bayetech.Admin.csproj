@@ -195,6 +195,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Page\BayMain.html" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2689,6 +2690,7 @@
     <Content Include="lib\webuploader-master\_draft\flash_cpp\Test.swc" />
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -2716,6 +2718,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Main\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
