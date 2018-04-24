@@ -16,7 +16,6 @@ define(["common"], function (common) {
                 </ul>
                 <ul id="gsNav" class ="gs_nav">
                     <li class ="first_line"></li>
-                    <li id="fastletter" class ="w_70"><a href="javascript: void (0);">搜索结果</a></li>
                     <li class ="w_70">
                        <a class ="active" href="javascript:void(0);"  @click="GetList(Type,'')" name="Letter">热门游戏</a>
                     </li>
