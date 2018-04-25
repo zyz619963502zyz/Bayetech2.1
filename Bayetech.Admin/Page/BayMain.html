@@ -18,10 +18,11 @@
     <!--<script src="lib/common.js?v=1"></script>-->
     <!--<script src="../../lib/token.js"></script>-->
     <script src="../../Scripts/common.js"></script>
+    <script src="../Scripts/app/GoodCheck.js"></script>
     <script>
         $(document).ready(function () {
             $.ajax({
-                url: "/api/Navigation/CheckAccount",
+                url: "/api/Test/GetMessage",
                 type: "post",
                 dataType: "json",
                 data:null,
@@ -128,6 +129,24 @@
                                         <a href="#">
                                             <i class="fa fa-star-o"></i>
                                             <span>客户</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="nav-header hidden-sm hidden-xs">
+                                        工作台处理
+                                        <i class="fa fa-gear" style="color: #868b98; font-size: 12px; margin-top: -6px; position: absolute; right: 23px; top: 50%; cursor: pointer;"></i>
+                                    </li>
+                                    <li class="common">
+                                        <a href="#">
+                                            <i class="fa fa-star-half-o"></i>
+                                            <span>上架审核</span>
+                                        </a>
+                                    </li>
+                                    <li class="common">
+                                        <a href="#">
+                                            <i class="fa fa-star-half-o"></i>
+                                            <span>订单审核</span>
                                         </a>
                                     </li>
                                 </ul>

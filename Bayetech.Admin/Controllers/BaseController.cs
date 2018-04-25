@@ -4,8 +4,7 @@ using Spring.Context.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -18,21 +17,5 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         public static IApplicationContext ctx = ContextRegistry.GetContext();
 
-
-        /// <summary>
-        /// JObject
-        /// </summary>
-        /// <returns></returns>
-        public static JObject CreatJObject(object content = null)
-        {
-            if (content == null)
-            {
-                return new JObject();
-            }
-            else
-            {
-                return new JObject(content);
-            }
-        }
     }
 }
