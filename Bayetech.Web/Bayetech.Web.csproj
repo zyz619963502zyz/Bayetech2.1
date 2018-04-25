@@ -338,6 +338,7 @@
     <Content Include="Content\details.css" />
     <Content Include="Content\fileupload\fileinput-rtl.css" />
     <Content Include="Content\fileupload\fileinput.css" />
+    <Content Include="Content\gamelist.css" />
     <Content Include="Content\Goods\Publish.css" />
     <Content Include="Content\good_info.css" />
     <Content Include="Content\good_list.css" />

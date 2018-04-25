@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>导航菜单</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-font.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-ui.css" />
+    <link rel="stylesheet" href="../lib/sco.js-master/css/sco.message.css" />
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../lib/dialog/dialog.js"></script>
+    <script src="../lib/aierp/js/framework-ui.js"></script>
+    <script src="../lib/aierp/js/framework-clientdata.js"></script>
+    <script src="../lib/sco.js-master/js/sco.message.js"></script>
+    <script src="../lib/knockout/dist/knockout.js"></script>
+    <script src="../lib/knockout/dist/knockout.mapping.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/common.js" asp-append-version="true"></script>
+    <style>
+        .modal-body .control-group {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .nav {
+            width: 2%;
+            padding-top: 1%;
+            padding-left: 0px;
+            padding-right: 0px;
+            font-size: 24px;
+            color: #61a6e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="topPanel">
+        <div class="search">
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                            <input id="txt_keyword" type="text" class="form-control" placeholder="菜单" style="width: 200px;" data-bind="value:keyword,enable:false">
+                            <span class="input-group-btn">
+                                <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search,enable:false"><i class="fa fa-search"></i></button>
+                                <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset,enable:false"><i class="fa fa-repeat"></i></button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="toolbar">
+            <div class="btn-group">
+                <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+            </div>
+            <div class="btn-group">
+                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                <button class="btn btn-success" data-bind="click:AssignButtons"><i class="fa fa-trash-o"></i>分配按钮</button>
+                <button class="btn btn-warning" data-bind="click:UpdateVersion"><i class="fa fa-trash-o"></i>更新版本</button>
+            </div>
+        </div>
+    </div>
+    <!--Grid界面-->
+    <div class="table-responsive">
+        <table class="table table-hover" id="userTable" style="cursor:pointer;"></table>
+    </div>
+    <!--Grid界面-->
+    <!--Modal界面-->
+    <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>角色设置</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">菜单名称*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.NavTitle" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">菜单标识*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.NavTag" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">链接地址*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.Linkurl," required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">排序</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" data-bind="value:model.Sortnum" required max="1000">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">图标CSS</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.iconCls," required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">是否显示</label>
+                            <div class="col-sm-8">
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+    <!--Modal界面-->
+    <div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 50%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>分配按钮</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <div class="row">
+                                <div class="col-md-6" style="width:49%">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">所有按钮</div>
+                                        <table class="table table-hover" id="buttonsTable" style="cursor:pointer;"></table>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 nav">
+                                    <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
+                                </div>
+                                <div class="col-md-6" style="width:49%">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">已有按钮</div>
+                                        <ul class="list-group" data-bind="foreach:ButtonArray">
+                                            <li class="list-group-item" data-bind="text:ButtonText,click:$root.ButtonsRemove" style="cursor:pointer;"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:ButtonsClose">关闭</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:ButtonsUpdate,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+</body>
+</html>
+<script>
+    $(function () {
+
+        //用户模型
+        var model = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.NavTitle = ko.observable("");//菜单名称
+            _model.Linkurl = ko.observable("");//链接地址
+            _model.Sortnum = ko.observable(0); //排序
+            _model.iconCls = ko.observable("");//图标CSS
+            _model.IsVisible = ko.observable(false);//是否显示
+
+            _model.ParentID = ko.observable(0);//父ID
+            _model.NavTag = ko.observable("0"); //菜单标识
+        }
+        var KObj = new function () {
+
+            var self = this;
+            self.model = new model();//实例化模型
+
+            self.btnStatus = ko.observable(true);//是否允许操作
+            self.btnType = ko.observable(0);//按钮类型（0保存;1编辑）
+            self.keyword = ko.observable('');//搜索内容
+            self.selectRowNum = ko.observable(0);//当前选择的grid的行号
+
+            self.ApiName = "/api/Navigation/";
+            self.UpdateUrl = self.ApiName + 'Update';
+
+            self.Table = $('#userTable');
+
+            self.OkIcon = '<i class="glyphicon glyphicon-ok"style="color: gray;"></i>';
+            self.RemoveIcon = '<i class="glyphicon glyphicon-remove"style="color: gray;"></i>'
+            self.UserModal = $('#UserModal');
+            self.ButtonsModal = $('#ButtonsModal');
+
+            self.rows = null;
+            //#region 公共方法
+            //将json对象转换为Knockout viewModel对象
+
+            self.JsonToViewModel = function (jsonData, viewModel) {
+                ko.mapping.fromJSON(jsonData, {}, viewModel);
+            }
+
+            //将json对象转换为Knockout viewModel对象,可以选择忽略字段属性
+            self.JsonToViewModel_Ignore = function (jsonData, viewModel, mapping) {
+                var d = ko.mapping.fromJSON(jsonData, mapping);
+                //设置Model中的observable数据
+                for (var obj in d) {
+                    if (ko.isWriteableObservable(d[obj])) {
+                        viewModel[obj](d[obj]());
+                    }
+                }
+            }
+
+            //将js对象转换为viewModel
+            self.ObjectToViewModel = function (object, viewModel) {
+                ko.mapping.fromJS(object, {}, viewModel);
+            }
+            //清空对象基方法
+            self.ClearBase = function (viewModel) {
+                //清除Model中的observable数据
+                for (var obj in viewModel) {
+                    if (ko.isWriteableObservable(viewModel[obj])) {
+                        switch (typeof (viewModel[obj]())) {
+                            case 'boolean':
+                                viewModel[obj](false);
+                                break;
+                            case 'number':
+                                viewModel[obj](0);
+                                break;
+                            case 'string':
+                                viewModel[obj]("");
+                                break;
+                            default:
+                                viewModel[obj]("");
+                                break;
+                        }
+                    }
+                }
+
+            }
+
+            //时间替换T
+            self.replaceTimeStr = function (v) {
+                if (v() !== null) {
+                    v(v().replace('T', ' ').substr(0, 19));
+                }
+            }
+
+            //日期范围比较
+            self.CompareDate = function (v1, v2) {
+                var d1 = new Date(v1().replace(/\-/g, "\/"));
+                var d2 = new Date(v2().replace(/\-/g, "\/"));
+                if (d1 > d2) {
+                    layer.alert('开始日期不能大于结束日期');
+                    //v1(v2());
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            //#endregion
+
+            self.ModalShow = function () {
+                self.UserModal.modal("show");
+            }
+            self.ModalHide = function () {
+                self.btnStatus(true)
+                self.UserModal.modal("hide");
+            }
+
+            //显示信息
+            self.Message = function (msg,msgType) {
+                $.scojs_message(msg, (msgType) ? $.scojs_message.TYPE_OK : $.scojs_message.TYPE_ERROR);
+            }
+
+            self.Table.bootstrapTable({
+                    //请求方法
+                    method: 'get',
+                    url: self.ApiName + 'GetList',
+                    dataType: "json",
+                    singleSelect: true,
+                    sidePagination: "server", //服务端处理分页
+                    clickToSelect: true, //是否启用点击选中行
+                    //是否显示行间隔色
+                    striped: false,
+                    //showRefresh:true,
+                    //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                    cache: false,
+                    //是否显示分页（*）
+                    pagination: true,
+                    //是否启用排序
+                    sortable: false,
+                    //排序方式
+                    sortOrder: "asc",
+                    pageSize: 20,
+                    detailView: true,//父子表
+                    //可供选择的每页的行数（*）
+                    pageList: [10, 20, 50, 100],
+                    //这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+                    //默认值为 'limit',传给服务端的参数为：limit, offset, search, sort, order Else
+                    //queryParamsType:'',
+                    ////查询参数,每次调用是会带上这个参数，可自定义
+                    columns: [
+                        {
+                            field: 'Number',
+                            title: '编号',
+                            width: 40,
+                            formatter: function(value, row, index) {
+                                return index + 1;
+                            }
+                        },
+                        { title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
+                        { title: '菜单名称', field: 'NavTitle', width: 120, sortable: true },
+                        { title: '菜单标识', field: 'NavTag', width: 80 },
+                        { title: '链接地址', field: 'Linkurl', width: 200 },
+                        {
+                            title: '是否显示',
+                            field: 'IsVisible',
+                            width: 60,
+                            align: 'center',
+                            formatter: function(value, row, index) {
+                                //console.info(value);
+                                return (value) ? self.OkIcon : '';
+                            },
+                            visible: true
+                        },
+                         { title: '排序', field: 'Sortnum', width: 40, sortable: true },
+                        { title: '图标CSS', field: 'iconCls', width: 120 },
+                        { title: '父ID', field: 'ParentID', width: 60 }
+
+
+                ],
+                onClickRow: function (row, $element) {
+                    //取出先前保存的行对象，并修改颜色为白色
+                    $('[data-index=' + self.selectRowNum() + ']').removeClass().css("background-color", "white");
+                    //设置现在选中的行，设置颜色
+                    //$element是当前tr的jquery对象
+                    $element.css("background-color", "green");
+                    self.rows = row;
+                    //保存当前选中的行号
+                    self.selectRowNum(Number($element.attr("data-index")));
+                },//单击row事件
+                //注册加载子表的事件。注意下这里的三个参数！
+                onExpandRow: function (index, row, $detail) {
+                    self.InitSubTable(index, row, $detail);
+                }
+            });
+
+            //初始化子表格(无限循环)
+            self.InitSubTable = function (index, row, $detail) {
+                var parentid = row.KeyId;
+                var curTable = $detail.html('<table></table>').find('table');
+                $(curTable).bootstrapTable({
+                    url: self.ApiName + 'GetSubList/' + row.KeyId,
+                    dataType: "json",
+                    singleSelect: true,
+                    sidePagination: "server", //服务端处理分页
+                    clickToSelect: true, //是否启用点击选中行
+                    //是否显示行间隔色
+                    striped: false,
+                    //showRefresh:true,
+                    //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                    cache: false,
+                    //是否显示分页（*）
+                    pagination: false,
+                    //是否启用排序
+                    sortable: false,
+                    //排序方式
+                    sortOrder: "asc",
+                    pageSize: 20,
+                    //detailView: true,//父子表
+                    //可供选择的每页的行数（*）
+                    pageList: [10, 20, 50, 100],
+                    columns: [
+                       {
+                           field: 'Number',
+                           title: '编号',
+                           width: 40,
+                           formatter: function (value, row, index) {
+                               return index + 1;
+                           }
+                       },
+                       { title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
+                       { title: '菜单名称', field: 'NavTitle', width: 120, sortable: true },
+                       { title: '菜单标识', field: 'NavTag', width: 80 },
+                       { title: '链接地址', field: 'Linkurl', width: 200 },
+                       {
+                           title: '是否显示',
+                           field: 'IsVisible',
+                           width: 60,
+                           align: 'center',
+                           formatter: function (value, row, index) {
+                               console.info(value);
+                               return (value) ? self.OkIcon : '';
+                           },
+                           visible: true
+                       },
+                        { title: '排序', field: 'Sortnum', width: 40, sortable: true },
+                       { title: '图标CSS', field: 'iconCls', width: 120 },
+                       { title: '父ID', field: 'ParentID', width: 60 }
+                    ],
+                    onClickRow: function (row, $element) {
+                        //取出先前保存的行对象，并修改颜色为白色
+                        $('[data-index=' + self.selectRowNum() + ']').removeClass().css("background-color", "white");
+                        //设置现在选中的行，设置颜色
+                        //$element是当前tr的jquery对象
+                        $element.css("background-color", "green");
+                        self.rows = row;
+                        //保存当前选中的行号
+                        self.selectRowNum(Number($element.attr("data-index")));
+                    },//单击row事件
+                    //无限循环取子表，直到子表里面没有记录
+                    onExpandRow: function (index, row, $Subdetail) {
+                        self.InitSubTable(index, row, $Subdetail);
+                    }
+                });
+            };
+
+            self.Refresh = function () {
+                self.Table.bootstrapTable('refresh');
+            }
+
+            self.Search = function () {
+                var searchTxt = self.keyword();
+
+                if ($.trim(searchTxt) !== '') {
+                    self.Table.bootstrapTable('refresh', { query: { searchModel: searchTxt } });
+                } else {
+                    self.Table.bootstrapTable('refresh');
+                }
+            }
+
+            self.Reset =function () {
+                self.keyword('');
+            };
+
+            //关闭模态框
+            self.Close = function () {
+                self.ClearBase(self.model);
+                self.ModalHide();
+            };
+
+            //错误处理
+            self.AjaxErrorHandle = function (data) {
+                if (data.ErrorCode === '103') {
+                    reLogin();
+                } else {
+                    self.Message(data.ErrorMsg, false);
+                }
+            }
+            //输出结果
+            self.WriteResult = function (data) {
+                //console.info(data);
+                var result = JSON.parse(data);
+                self.Message(result.ErrorMsg, result.Success);
+                self.Close();
+                self.Table.bootstrapTable('refresh');
+                self.rows = null;
+            };
+            //判断是否有选择行；
+            self.IsSelectRow = function (data) {
+                if (!self.rows) {
+                    self.Message('没有选择要操作的行，请先选择一行!', false);
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+
+            //打开模态框
+            self.OpenAddModal = function () {
+                self.btnType(0);
+                self.ModalShow();
+            };
+
+            //保存
+            self.Save = function () {
+                var rows = self.rows;
+                if (rows) {
+                    if (rows.Linkurl !== '#') {
+                        self.model.ParentID(rows.ParentID);//当前选中行是二级，则父id与本行相同
+                    } else {
+                        self.model.ParentID(rows.KeyId);
+                    }
+                }
+                self.OperationRow(self.ApiName);
+            };
+
+            //编辑和保存基方法，复用
+            self.OperationRow = function (url) {
+                if (!self.model.NavTitle()) {
+                    layer.alert("菜单名称不能为空！");
+                    return false;
+                }
+                if (!self.model.Linkurl()) {
+                    layer.alert("链接地址不能为空！");
+                    return false;
+                }
+                if (!self.model.NavTag()) {
+                    layer.alert("菜单标识不能为空！");
+                    return false;
+                }
+                if (self.model.Sortnum()>1000) {
+                    layer.alert("排序值不能大于1000！");
+                    self.model.Sortnum(1000);
+                    return false;
+                }
+
+                self.btnStatus(false);
+                var param = {
+                    model: ko.toJSON(self.model)
+                };
+                postWeb(url, param, function (data) {
+                    self.btnStatus(true);
+                    self.WriteResult(data);
+                });
+            };
+
+            //打开编辑模态框
+            self.OpenEditModal = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+                self.btnType(1);
+
+                var param = {
+                    id: self.rows.KeyId
+                }
+                getWeb(self.ApiName + rows.KeyId, null, function (data) {
+                    //console.info(data);
+                    //self.JsonToViewModel(data, self.model);
+                    //self.ModalShow();
+
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.ObjectToViewModel(result.ResultObject, self.model);
+                        self.ModalShow();
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+                });
+            };
+
+            //编辑
+            self.Update = function () {
+                self.OperationRow(self.UpdateUrl);
+            };
+
+            //删除用户
+            self.Delete = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                var ret = confirm("你确定要删除本条记录吗?");
+                if (!ret) return;
+                var param = {
+                    KeyId: rows.KeyId
+                }
+                deleteWeb(self.ApiName + rows.KeyId, param, function (data) {
+                    self.WriteResult(data);
+                });
+            }
+            //更新版本
+            self.UpdateVersion = function() {
+                getWeb(self.ApiName + 'UpdateVersion', null, function (data) {
+                    self.WriteResult(data);
+                    });
+            };
+
+            //#region分配按钮模块
+            self.NavButonsApiName = '/api/NavButtons/';
+            self.ButtonsManageApiName = '/api/ButtonsManage/';
+            self.ButtonArray = ko.observableArray([]);
+            self.NavButtonArray = [];
+            self.buttonsTable = $('#buttonsTable');
+            self.buttonsRow = ko.observable(0);;
+
+            self.ButtonsClose = function() {
+                self.ClearBase(self.ButtonArray);
+                self.ButtonsModal.modal("hide");
+            }
+
+            //打开模态框
+            self.AssignButtons = function() {
+                //只能对二级菜单分配按钮
+                if (self.rows) {
+                    if (self.rows.ParentID === 0) {
+                        layer.alert("只能选择二级菜单来分配按钮！", { icon: 5 });
+                        return false;
+                    }
+                }
+                //加载所有按钮
+                self.buttonsTable.bootstrapTable({
+                    //请求方法
+                    method: 'get',
+                    url: self.ButtonsManageApiName + 'GetList',
+                    dataType: "json",
+                    singleSelect: true,
+                    sidePagination: "server", //服务端处理分页
+                    clickToSelect: true, //是否启用点击选中行
+                    //是否显示行间隔色
+                    striped: false,
+                    //showRefresh:true,
+                    //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                    cache: false,
+                    //是否显示分页（*）
+                    pagination: true,
+                    //是否启用排序
+                    sortable: false,
+                    //排序方式
+                    sortOrder: "asc",
+                    pageSize: 10,
+                    //可供选择的每页的行数（*）
+                    pageList: [10, 20, 50, 100],
+                    //这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+                    //默认值为 'limit',传给服务端的参数为：limit, offset, search, sort, order Else
+                    //queryParamsType:'',
+                    ////查询参数,每次调用是会带上这个参数，可自定义
+                    columns: [
+                        {
+                            field: 'Number',
+                            title: '编号',
+                            width: 40,
+                            formatter: function (value, row, index) {
+                                return index + 1;
+                            }
+                        },
+                        //{ title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
+                        { title: '名称', field: 'ButtonText', width: 100, sortable: true },
+                        //{ title: '编码', field: 'ButtonTag', width: 100, sortable: true },
+                        //{ title: '排序', field: 'Sortnum', width: 60, sortable: true },
+
+                        { title: '图标', field: 'iconCls', width: 100, sortable: true }
+                        //{ title: '图标url', field: 'IconUrl', width: 60, sortable: true },
+                        //{ title: '按钮html', field: 'ButtonHtml', width: 60, sortable: true }
+                    ],
+                    onClickRow: function (row, $element) {
+                        //取出先前保存的行对象，并修改颜色为白色
+                        $('[data-index=' + self.buttonsRow() + ']').removeClass().css("background-color", "white");
+                        //设置现在选中的行，设置颜色
+                        //$element是当前tr的jquery对象
+                        $element.css("background-color", "green");
+                        //保存当前选中的行号
+                        self.buttonsRow(Number($element.attr("data-index")));
+                        //添加已分配按钮
+                        //先检查是否存在,存在则不添加
+                        var length = self.ButtonArray().length;
+                        for (var i = 0; i < length; i++) {
+                            //console.info(self.ButtonArray()[i]);
+                            var select = self.ButtonArray()[i];
+                            if (typeof (select.ButtonTag) === 'function') {
+                                if (select.ButtonTag() === row.ButtonTag) {
+                                    return false;
+                                }
+                            } else {
+                                if (select.ButtonTag === row.ButtonTag) {
+                                    return false;
+                                }
+                            }
+                        }
+                        console.info(row);
+                        self.ButtonArray.push(row);
+                    },//单击row事件
+                    onLoadSuccess: function() {
+
+                    }
+                });
+
+                //加载菜单对应的按钮数据
+                getWeb(self.NavButonsApiName + self.rows.KeyId, null, function (data) {
+                    //console.info(data);
+                    self.ButtonsModal.modal("show");
+
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.ObjectToViewModel(result.ResultObject, self.ButtonArray);
+                        self.ButtonsModal.modal("show");
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+                });
+            }
+
+            //移除已分配的按钮
+            self.ButtonsRemove = function (row) {
+                self.ButtonArray.remove(row);
+            }
+
+            //更新已分配的按钮--添加或删除
+            self.ButtonsUpdate = function (row) {
+                //self.ButtonArray.remove(row);
+                self.btnStatus(false);
+                var navId = self.rows.KeyId;
+                var buttonsId = 0;
+                var sortNum = 0;
+                var length = self.ButtonArray().length;
+
+                //如果没有按钮，则删除所有
+                if (length === 0) {
+                    var deleteParam = {
+                        KeyId: navId
+                    }
+                    deleteWeb(self.NavButonsApiName + navId, deleteParam, function (data) {
+                        self.WriteResult(data);
+                    });
+                }
+                //如果有，则添加
+                for (var i = 0; i < length; i++) {
+                    var select = self.ButtonArray()[i];
+                    if (typeof (select.KeyId) === 'function') {
+                        buttonsId= select.ButtonId();
+                    } else {
+                        buttonsId= select.KeyId;
+                    }
+                    sortNum = i;
+                    self.NavButtonArray.push({ KeyId: 0, NavId: navId, ButtonId: buttonsId, Sortnum: sortNum});
+                }
+                var param = {
+                    model: JSON.stringify(self.NavButtonArray)//数组传值
+
+                };
+                postWeb(self.NavButonsApiName +'Add', param, function (data) {
+                    self.btnStatus(true);
+                    self.WriteResult(data);
+                    self.NavButtonArray = [];
+                    self.ButtonsModal.modal("hide");
+                });
+            }
+            //#endregion
+        }();
+        ko.applyBindings(KObj);
+    });
+</script>

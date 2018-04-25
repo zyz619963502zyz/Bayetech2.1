@@ -1,0 +1,219 @@
+body {
+  font-family: "Microsoft YaHei";
+  background: #D0CFD8; }
+
+nav {
+  margin-bottom: 0px !important;
+  border-radius: 0; }
+
+.navbar-index {
+  border: 0 none;
+  border-radius: 0; }
+
+.navbar-index {
+  background: #278CDE;
+  color: #fff; }
+  .navbar-index .navbar-brand {
+    padding: 9px 15px; }
+    .navbar-index .navbar-brand img {
+      width: 184px;
+      height: 32px; }
+  .navbar-index .navbar-nav li a {
+    color: #fff;
+    font-size: 16px; }
+    .navbar-index .navbar-nav li a:hover {
+      color: #fff;
+      text-decoration: underline; }
+  .navbar-index .navbar-right li a {
+    font-size: 14px; }
+    .navbar-index .navbar-right li a img {
+      margin-right: 3px; }
+
+.panel-default > .panel-heading {
+  background-color: #F0F2F4; }
+
+.main-content {
+  width: 100%; }
+  .main-content .row {
+    margin: 0; }
+
+.left-nav {
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff; }
+  .left-nav .panel-default {
+    border-top: 0 none;
+    border-radius: 0 !important; }
+  .left-nav .panel-heading {
+    padding: 0 15px; }
+    .left-nav .panel-heading h4 {
+      background: url("/images/you.png") no-repeat right center; }
+      .left-nav .panel-heading h4 a {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 0;
+        text-decoration: none; }
+        .left-nav .panel-heading h4 a img {
+          margin-right: 5px;
+          width: 24px;
+          height: 24px; }
+    .left-nav .panel-heading h4.active {
+      background: url("/images/xia.png") no-repeat right center !important; }
+  .left-nav .panel-body {
+    padding: 0 !important; }
+    .left-nav .panel-body ul {
+      margin-bottom: 0; }
+      .left-nav .panel-body ul li:first-child {
+        border-top: 0 none; }
+      .left-nav .panel-body ul li:last-child {
+        border-bottom: 0 none; }
+      .left-nav .panel-body ul li {
+        border-left: 0 none;
+        border-right: 0 none; }
+  .left-nav .panel-group .panel + .panel {
+    margin-top: 0; }
+
+.right-content {
+  padding-left: 3px;
+  padding-right: 3px; }
+  .right-content .top-link {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 3px 0 0 0;
+    background: #fff;
+    line-height: 37px;
+    border-radius: 3px;
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+  }
+    .right-content .top-link .space {
+      float: left; }
+    .right-content .top-link a {
+      margin: 0 2px;
+      color: #666; }
+    .right-content .top-link span {
+      color: #999; }
+    .right-content .top-link .range-box {
+      width: 160px;
+      margin: 8px 5px; }
+      .right-content .top-link .range-box a {
+        line-height: 0;
+        margin: 0 3px;
+        cursor: pointer; }
+    .right-content .top-link .slider-container {
+      float: left;
+      padding-top: 10px; }
+    .right-content .top-link a {
+      color: #666;
+      float: left; }
+  .right-content .bottom-row .white-content {
+    overflow:hidden;
+    padding: 0;
+    padding-right: 3px;
+    min-height: 600px; }
+  .right-content .bottom-row .tool-box {
+    padding-left: 0;
+    background: #fff;
+    padding-right: 0 !important;
+    overflow-y: visible; }
+    .right-content .bottom-row .tool-box .tool-wrap .tool-title {
+      padding: 10px 0;
+      width: 100%;
+      font-size: 16px;
+      color: #4f5356;
+      background: #F0F2F4; }
+    .right-content .bottom-row .tool-box .tool-wrap .tool-content {
+      width: 100%;
+      background: #fff;
+      padding: 10px; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content input[type='text'] {
+        width: 56px;
+        height: 28px;
+        padding: 0 4px;
+        font-size: 14px;
+        color: #666; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content select {
+        width: 56px;
+        height: 28px;
+        padding: 0 5px;
+        text-align: center;
+        border-radius: 3px; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .set-btn {
+        width: 56px;
+        height: 28px;
+        margin-left: 37px;
+        border-radius: 3px;
+        line-height: 28px;
+        padding: 0;
+        background: #ddd; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .form-group {
+        width: 49%;
+        padding: 0 0;
+        margin-bottom: 10px; }
+        .right-content .bottom-row .tool-box .tool-wrap .tool-content .form-group label {
+          color: #333;
+          font-weight: 400;
+          font-size: 14px;
+          padding-right: 5px; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .last-form .form-group {
+        width: 100%;
+        margin-bottom: 10px; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .last-form .set-btn {
+        margin-left: 15px; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .last-form .jx-btn {
+        width: 56px;
+        height: 28px;
+        border-radius: 3px;
+        line-height: 28px;
+        padding: 0;
+        color: #fff;
+        border: 0 none;
+        margin-left: 65px;
+        background: #00A0E9; }
+      .right-content .bottom-row .tool-box .tool-wrap .tool-content .last-form .xz-btn {
+        margin-left: 140px !important; }
+
+@media (max-width: 1200px) {
+  .right-content .bottom-row .tool-box .tool-wrap .tool-content .form-group {
+    width: 100%; } }
+.colorpicker * {
+  box-sizing: content-box; }
+
+img {
+  max-width: 100%; }
+
+.bottom-row {
+  margin-top: 3px; }
+
+ul li span {
+    cursor:pointer;
+}
+
+.rightBtn {
+    float: right;
+}
+.curvedPanel {
+    padding: 8px;
+}
+ .curvedPanel .curvedTxt {
+        width:100%;height: 65px; text-align: justify
+    }
+  .curvedPanel .form-group label {
+        font-weight: normal;font-size:11pt
+    }
+   .curvedPanel .form-group {
+        margin-bottom: 5px;
+    }
+.space40 {
+        margin-bottom: 40px;
+   }
+  
+.imgdPanel {
+    padding: 8px;
+}
+  .imgdPanel .form-group label {
+        font-weight: normal;font-size:11pt
+    }
+
+/*# sourceMappingURL=index.css.map */

@@ -42,6 +42,24 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="18.375" PointY="7.75" />
         <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="18.375" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_ArticleModule" Width="1.5" PointX="15.375" PointY="19.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_C1_Customer" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area_bac" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Buttons" Width="1.5" PointX="20.75" PointY="14.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Departments" Width="1.5" PointX="20.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_DicCategory" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Dics" Width="1.5" PointX="22.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_LogDetails" Width="1.5" PointX="22.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_logs" Width="1.5" PointX="22.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_NavButtons" Width="1.5" PointX="22.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_RoleNavBtns" Width="1.5" PointX="22.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles" Width="1.5" PointX="22.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles_Departments" Width="1.5" PointX="2.75" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserNavBtns" Width="1.5" PointX="4.75" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserRoles" Width="1.5" PointX="6.75" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users_Departments" Width="1.5" PointX="24.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Navigations" Width="1.5" PointX="24.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

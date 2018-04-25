@@ -324,7 +324,6 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                                         </select>
                                         <span class="input-group-addon">天</span>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="form-group form-group-xs">
