@@ -50,6 +50,12 @@
     <Reference Include="Bayetech.Service">
       <HintPath>..\Bayetech.Web\bin\Bayetech.Service.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -2758,6 +2764,7 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.eot" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Configs\database.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
