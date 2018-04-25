@@ -81,10 +81,12 @@ img{display:inline-block;}
 
 .com-header .head-search {width:1200px;margin:0 auto;}
 .com-header .head-search .logo {width:315px;float:left;height:100%;line-height:100px;}
-.com-module .nav {display: table;background-color: #3b83e8;text-align: center;}
-.com-module .nav-justified > li {width:147px;}
-.com-module .nav-justified a {color:#fff;border-radius:0;}
-.com-module .nav-justified a:hover {background-color:#3399ff;}
+.com-module .nav-box{width:100%;height:min-content;background-color: #3b83e8;}
+.com-module .nav-box .nav {display: table;text-align: center;width:1200px;}
+.com-module .nav-box .nav-justified > li {width:20%;cursor:pointer;}
+.com-module .nav-box .nav-justified a {color:#fff;border-radius:0;}
+.com-module .nav-box .nav-justified a:hover {background-color:#3399ff;}
+
 /*serach 通用头部搜索*/
 .f_999 {color:#999;}
 .g-select {float:right;width:823px;position:relative;z-index:10;padding:6px 0 0 0;}
