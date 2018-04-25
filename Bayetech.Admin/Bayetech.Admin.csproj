@@ -2258,6 +2258,7 @@
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\tables.html" />
     <Content Include="Page\typography.html" />
+    <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
