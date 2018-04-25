@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>个人信息</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-font.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-ui.css" />
+    <link rel="stylesheet" href="../lib/sco.js-master/css/sco.message.css" />
+    <link rel="stylesheet" href="../lib/pace/themes/blue/pace-theme-center-simple.css" />
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery.md5.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../lib/dialog/dialog.js"></script>
+    <script src="../lib/aierp/js/framework-ui.js"></script>
+    <script src="../lib/aierp/js/framework-clientdata.js"></script>
+    <script src="../lib/sco.js-master/js/sco.message.js"></script>
+    <script src="../lib/knockout/dist/knockout.js"></script>
+    <script src="../lib/knockout/dist/knockout.mapping.js"></script>
+    <script src="../lib/pace/pace.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/aierp/js//knockout.Ext.js"></script>
+    <script src="../lib/common.js" asp-append-version="true"></script>
+    <style>
+        .modal-body .control-group {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#basicInfo" data-toggle="tab">基本信息</a></li>
+            <li><a href="#modifyPassword" data-toggle="tab">密码修改</a></li>
+        </ul>
+        <div class="tab-content" style="padding-top: 5px;">
+            <div id="basicInfo" class="tab-pane active" style="padding: 15px;">
+                <form id="userInfo">
+                    <ul class="pop-list">
+                        <li>
+                            <label>用户账号</label>
+                            <input type="text" class="form-control" disabled="disabled" data-bind="value:model.UserName,enable:(btnType()===0)" />
+                        </li>
+                        <li class="formValue">
+                            <label>真实姓名</label>
+                            <input id="RealName" name="RealName" type="text" class="form-control required" placeholder="请输入姓名" data-bind="value:model.TrueName" />
+                        </li>
+
+                        <li class="line">
+                            <h4><label>联系方式</label></h4>
+                        </li>
+                        <li>
+                            <label>手机</label>
+                            <input type="text" class="form-control" data-bind="value:model.Mobile" />
+                        </li>
+                        <li>
+                            <label>QQ</label>
+                            <input type="text" class="form-control" data-bind="value:model.QQ" />
+                        </li>
+                        <li>
+                            <div style="padding-left: 115px;">
+                                <button class="btn btn-primary" data-bind="click:SaveUserInfo,enable:btnStatus"><i class="fa fa-save" style="margin-right:5px;"></i>确认修改</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div id="modifyPassword" class="tab-pane" style="padding: 15px;">
+                <form id="changePasswordForm">
+                    <ul class="pop-list">
+                        <li>
+                            <label>用户名*</label>
+                            <input type="text" class="form-control" disabled="disabled" data-bind="value:passWordModel.UserName,enable:(btnType()===0)" />
+                        </li>
+                        <li class="formValue">
+                            <label>旧密码*</label>
+                            <input type="password" class="form-control required" data-bind="value:passWordModel.OldPassword" />
+                        </li>
+                        <li class="formValue">
+                            <label>新密码*</label>
+                            <input type="password" class="form-control required" data-bind="value:passWordModel.NewPassword" />
+                        </li>
+                        <li class="formValue">
+                            <label>确认新密码*</label>
+                            <input type="password" class="form-control required" data-bind="value:passWordModel.NewPasswordConfirm" />
+                        </li>
+                        <li>
+                            <div style="padding-left: 115px;">
+                                <button class="btn btn-primary" data-bind="click:ChangePassword,enable:btnStatus"><i class="fa fa-save" style="margin-right:5px;"></i>确认修改</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+
+        //用户模型
+        var model = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.UserName = ko.observable("");
+            _model.TrueName = ko.observable("");
+            _model.Mobile = ko.observable("");
+            _model.QQ = ko.observable("");
+        }
+
+        var passWordModel = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.UserName = ko.observable("");
+            _model.OldPassword = ko.observable("");
+            _model.NewPassword = ko.observable("");
+            _model.NewPasswordConfirm = ko.observable("");
+        }
+
+        var KObj = new function () {
+
+            var self = this;
+            self.model = new model();//实例化模型
+            self.passWordModel = new passWordModel();
+
+            self.btnStatus = ko.observable(true);//是否允许操作
+            self.btnType = ko.observable(0);//按钮类型（0保存;1编辑）
+
+            self.ApiName = "/api/User/";
+            self.UpdateUrl = self.ApiName + 'UpdateMyinfo';
+            self.GetUserUrl = self.ApiName + 'GetCurrentUser';
+            self.ChangePassUrl = self.ApiName + 'ChangePassWord';
+
+            self.OkIcon = '<i class="glyphicon glyphicon-ok"style="color: gray;"></i>';
+            self.RemoveIcon = '<i class="glyphicon glyphicon-remove"style="color: gray;"></i>';
+            self.UserModal = $('#UserModal');
+            self.rows = null;
+
+            //保存
+            self.SaveUserInfo = function () {
+                if (!self.model.UserName()) {
+                    layer.alert("用户名不能为空！");
+                    return false;
+                }
+                if (!self.model.TrueName()) {
+                    layer.alert("真实姓名不能为空！");
+                    return false;
+                }
+
+                self.btnStatus(false);
+                var param = {
+                    model: ko.toJSON(self.model)
+                };
+                postWeb(self.UpdateUrl, param, function (data) {
+                    self.btnStatus(true);
+                    self.WriteResult(data);
+                });
+            };
+
+            //加载个人信息
+            self.LoadUserInfo = function () {
+                self.btnType(1);
+
+                getWeb(self.GetUserUrl, null, function (data) {
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.ObjectToViewModel(result.ResultObject, self.model);
+                        self.ObjectToViewModel(result.ResultObject, self.passWordModel);
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+                });
+            };
+            self.LoadUserInfo();
+
+           //更改密码
+            self.ChangePassword = function() {
+                if (!self.passWordModel.UserName()) {
+                    layer.alert("用户名不能为空！");
+                    return false;
+                }
+                if (!self.passWordModel.OldPassword()) {
+                    layer.alert("旧密码不能为空！");
+                    return false;
+                }
+                if (!self.passWordModel.NewPassword()) {
+                    layer.alert("新密码不能为空！");
+                    return false;
+                }
+
+                if (self.passWordModel.NewPassword().length<3) {
+                    layer.alert("密码长度不能小于3位！");
+                    return false;
+                }
+                if (self.passWordModel.OldPassword() === self.passWordModel.NewPassword()) {
+                    layer.alert("新旧密码不能相同！");
+                    return false;
+                }
+
+                if (self.passWordModel.NewPasswordConfirm() !== self.passWordModel.NewPassword()) {
+                    layer.alert("两次输入的新密码应该完全相同！");
+                    return false;
+                }
+
+                var password = $.md5($.trim(self.passWordModel.OldPassword())).toUpperCase();
+                var newPassword = $.md5($.trim(self.passWordModel.NewPassword())).toUpperCase();
+
+                self.passWordModel.OldPassword(password);
+                self.passWordModel.NewPassword(newPassword);
+                self.btnStatus(false);
+                var param = {
+                    model: ko.toJSON(self.passWordModel)
+                };
+                postWeb(self.ChangePassUrl,
+                    param,
+                    function (data) {
+                        self.btnStatus(true);
+                        self.WriteResult(data);
+                    });
+            };
+        }();
+        ko.applyBindings(KObj);
+    });
+</script>

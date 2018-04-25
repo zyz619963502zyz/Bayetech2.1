@@ -5,8 +5,8 @@ namespace Bayetech.Admin.Controllers
 {
     public class NavigationController : BaseController
     {
-        [HttpPost]
-        public JObject CheckAccount(JObject json)
+        [HttpGet]
+        public JObject CheckAccount()
         {
             return null;
         }

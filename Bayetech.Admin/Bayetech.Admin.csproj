@@ -182,8 +182,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ButtonsManageController.cs" />
+    <Compile Include="Controllers\DicsManageController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NavButtonsController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\RoleNavBtnsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,7 +203,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Mystyle.css" />
     <Content Include="Page\BayMain.html" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
@@ -2161,8 +2167,15 @@
     <Content Include="Page\other-components.html" />
     <Content Include="Page\profile-page.html" />
     <Content Include="Page\sa.html" />
+    <Content Include="Page\sysPage\AdminManage.html" />
+    <Content Include="Page\sysPage\ButtonsManage.html" />
+    <Content Include="Page\sysPage\DicsManage.html" />
+    <Content Include="Page\sysPage\MyInformation.html" />
+    <Content Include="Page\sysPage\NavigationManage.html" />
+    <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\tables.html" />
     <Content Include="Page\typography.html" />
+    <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -2691,6 +2704,7 @@
     <Content Include="lib\webuploader-master\_draft\flash_cpp\makefile" />
     <Content Include="lib\webuploader-master\_draft\flash_cpp\Test.swc" />
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
+    <Content Include="images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -2721,6 +2735,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="Views\ButtonsManage\" />
+    <Folder Include="Views\DicsManage\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\NavButtons\" />
+    <Folder Include="Views\RoleNavBtns\" />
+    <Folder Include="Views\Roles\" />
+    <Folder Include="Views\UserRoles\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
