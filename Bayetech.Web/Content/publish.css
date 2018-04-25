@@ -106,6 +106,7 @@
 .header .logo{
     width:210px;
     float:left;
+    margin-top:22px;
 }
 .header .logo h1{
     border-right:1px solid #ccc;
@@ -113,10 +114,11 @@
 .header .logo_tit{
     float: left;
     width: max-content;
-    padding: 29px 20px;
+    padding: 0 20px;
     font-size: 20px;
     font-family: Microsoft YaHei UI;
     color: #9a9a9a;
+    line-height:88px;
 }
 
 .form-group-xs textarea.form-control{

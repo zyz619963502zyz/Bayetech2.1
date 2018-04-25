@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bayetech.Core">
+      <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Bayetech.Service">
+      <HintPath>..\Bayetech.Web\bin\Bayetech.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -182,7 +194,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ButtonsManageController.cs" />
+    <Compile Include="Controllers\DicsManageController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NavButtonsController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\RoleNavBtnsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2159,9 +2179,16 @@
     <Content Include="Page\other-components.html" />
     <Content Include="Page\profile-page.html" />
     <Content Include="Page\sa.html" />
+    <Content Include="Page\sysPage\AdminManage.html" />
+    <Content Include="Page\sysPage\ButtonsManage.html" />
+    <Content Include="Page\sysPage\DicsManage.html" />
+    <Content Include="Page\sysPage\MyInformation.html" />
+    <Content Include="Page\sysPage\NavigationManage.html" />
+    <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\tables.html" />
     <Content Include="Page\typography.html" />
-    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -2689,18 +2716,8 @@
     <Content Include="lib\webuploader-master\_draft\flash_cpp\makefile" />
     <Content Include="lib\webuploader-master\_draft\flash_cpp\Test.swc" />
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\Thumbs.db" />
     <Content Include="Scripts\common.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2719,6 +2736,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="Views\ButtonsManage\" />
+    <Folder Include="Views\DicsManage\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\NavButtons\" />
+    <Folder Include="Views\RoleNavBtns\" />
+    <Folder Include="Views\Roles\" />
+    <Folder Include="Views\UserRoles\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -2739,6 +2764,7 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.eot" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Configs\database.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

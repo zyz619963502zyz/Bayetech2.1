@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>角色管理</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-font.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-ui.css" />
+    <link rel="stylesheet" href="../lib/sco.js-master/css/sco.message.css" />
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../lib/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+    <script src="../lib/dialog/dialog.js"></script>
+    <script src="../lib/aierp/js/framework-ui.js"></script>
+    <script src="../lib/aierp/js/framework-clientdata.js"></script>
+    <script src="../lib/sco.js-master/js/sco.message.js"></script>
+    <script src="../lib/knockout/dist/knockout.js"></script>
+    <script src="../lib/knockout/dist/knockout.mapping.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/common.js" asp-append-version="true"></script>
+    <style>
+        .modal-body .control-group {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topPanel">
+        <div class="search">
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                            <input id="txt_keyword" type="text" class="form-control" placeholder="角色" style="width: 200px;" data-bind="value:keyword">
+                            <span class="input-group-btn">
+                                <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
+                                <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="toolbar">
+            <div class="btn-group">
+                <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+            </div>
+            <div class="btn-group">
+                <button id="AuthBtn" class="btn btn-primary" data-bind="click:OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>
+                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+            </div>
+        </div>
+    </div>
+    <!--Grid界面-->
+    <div class="table-responsive">
+        <table class="table table-hover" id="userTable" style="cursor:pointer;"></table>
+    </div>
+    <!--Grid界面-->
+    <!--Modal界面-->
+    <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>角色设置</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">角色名称*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.RoleName,enable:(btnType()===0)" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">排序*</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" data-bind="value:model.Sortnum" required>
+                            </div>
+                        </div>
+
+                        <!--<div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">是否默认角色</label>
+                            <div class="col-sm-8">
+                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.isDefault,value:1" />是</label>
+                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.isDefault,value:0" />否</label>
+                            </div>
+                        </div>-->
+
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">描述</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" rows="3" data-bind="value:model.Remark"></textarea>
+                                <br>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+    <!--权限Modal界面-->
+    <div id="AuthModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>分配角色权限</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <div class="col-sm-12">
+                                <div id="tree"></div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row form-group">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-3" style="cursor:pointer">
+                                <label>操作：</label>
+                                <span class="glyphicon glyphicon-check text-success" data-bind="click:AuthSelectAll"></span>&emsp;
+                                <span class="glyphicon glyphicon-unchecked text-danger" data-bind="click:AuthUnSelectAll"></span>
+
+                            </div>
+
+                            <div class="col-xs-offset-1 col-xs-3">
+                                <button class="btn btn-default form-control" data-bind="click:AuthClose">关闭</button>
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:AuthUpdate,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+</body>
+</html>
+<script>
+    $(function () {
+
+        //用户模型
+        var model = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.RoleName = ko.observable("");
+            _model.Sortnum = ko.observable("");
+            _model.isDefault = ko.observable("0");
+            _model.Remark = ko.observable("");
+        }
+
+        var KObj = new function () {
+
+            var self = this;
+            self.model = new model();//实例化模型
+            self.btnStatus = ko.observable(true);//是否允许操作
+            self.btnType = ko.observable(0);//按钮类型（0保存;1编辑）
+            self.keyword = ko.observable('');//搜索内容
+            self.selectRowNum = ko.observable(0);//当前选择的grid的行号
+
+            self.ApiName = "/api/Roles/";
+            self.UpdateUrl = self.ApiName + 'Update';
+
+            self.Table = $('#userTable');
+
+            self.OkIcon = '<i class="glyphicon glyphicon-ok"style="color: gray;"></i>';
+            self.RemoveIcon = '<i class="glyphicon glyphicon-remove"style="color: gray;"></i>'
+            self.UserModal = $('#UserModal');
+            self.rows = null;
+            //#region 公共方法
+            //将json对象转换为Knockout viewModel对象
+
+            self.JsonToViewModel = function (jsonData, viewModel) {
+                ko.mapping.fromJSON(jsonData, {}, viewModel);
+            }
+
+            //将json对象转换为Knockout viewModel对象,可以选择忽略字段属性
+            self.JsonToViewModel_Ignore = function (jsonData, viewModel, mapping) {
+                var d = ko.mapping.fromJSON(jsonData, mapping);
+                //设置Model中的observable数据
+                for (var obj in d) {
+                    if (ko.isWriteableObservable(d[obj])) {
+                        viewModel[obj](d[obj]());
+                    }
+                }
+            }
+
+            //将js对象转换为viewModel
+            self.ObjectToViewModel = function (object, viewModel) {
+                ko.mapping.fromJS(object, {}, viewModel);
+            }
+
+            //清空对象基方法
+            self.ClearBase = function (viewModel) {
+                //清除Model中的observable数据
+                for (var obj in viewModel) {
+                    if (ko.isWriteableObservable(viewModel[obj])) {
+                        switch (typeof (viewModel[obj]())) {
+                            case 'boolean':
+                                viewModel[obj](false);
+                                break;
+                            case 'number':
+                                viewModel[obj](0);
+                                break;
+                            case 'string':
+                                viewModel[obj]("");
+                                break;
+                            default:
+                                viewModel[obj]("");
+                                break;
+                        }
+                    }
+                }
+
+            }
+
+            //时间替换T
+            self.replaceTimeStr = function (v) {
+                if (v() !== null) {
+                    v(v().replace('T', ' ').substr(0, 19));
+                }
+            }
+
+            //日期范围比较
+            self.CompareDate = function (v1, v2) {
+                var d1 = new Date(v1().replace(/\-/g, "\/"));
+                var d2 = new Date(v2().replace(/\-/g, "\/"));
+                if (d1 > d2) {
+                    layer.alert('开始日期不能大于结束日期');
+                    //v1(v2());
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            //根据对象数组组合出Select2所需的数据,data类型为后台返回json数组，filedName为要显示的字段名称
+            self.GetComboxData = function (data, filedName) {
+                var comboxData = [];
+                var array = JSON.parse(data);
+
+                return $.map(array,function (obj) {
+                        obj.id = obj.id || obj.KeyId; // replace pk with your identifier
+                        obj.text = eval('obj.' + filedName);
+                        return obj;
+                    });
+            }
+            //#endregion
+
+            self.ModalShow = function () {
+                self.UserModal.modal("show");
+            }
+            self.ModalHide = function () {
+                self.btnStatus(true)
+                self.UserModal.modal("hide");
+            }
+
+            //显示信息
+            self.Message = function (msg,msgType) {
+                $.scojs_message(msg, (msgType) ? $.scojs_message.TYPE_OK : $.scojs_message.TYPE_ERROR);
+            }
+
+            self.Table.bootstrapTable({
+                //请求方法
+                method: 'get',
+                url: self.ApiName,
+                dataType: "json",
+                singleSelect: true,
+                sidePagination: "server", //服务端处理分页
+                clickToSelect: true, //是否启用点击选中行
+                //是否显示行间隔色
+                striped: false,
+                //showRefresh:true,
+                //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                cache: false,
+                //是否显示分页（*）
+                pagination: true,
+                //是否启用排序
+                sortable: false,
+                //排序方式
+                sortOrder: "desc",
+                pageSize: 10,
+                //可供选择的每页的行数（*）
+                pageList: [10, 25, 50, 100],
+                //这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+                //默认值为 'limit',传给服务端的参数为：limit, offset, search, sort, order Else
+                //queryParamsType:'',
+                ////查询参数,每次调用是会带上这个参数，可自定义
+                columns: [
+                    {
+                        field: 'Number',
+                        title: '编号',
+                        width: 40,
+                        formatter: function (value, row, index) {
+                            return index + 1;
+                        }
+                    },
+                    { title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
+                    { title: '角色名称', field: 'RoleName', width: 200, sortable: true },
+                    { title: '排序', field: 'Sortnum', width: 80, sortable: true },
+                    {
+                        title: '默认',
+                        field: 'isDefault',
+                        width: 80,
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            console.info(value);
+                            return (value===1) ? self.OkIcon : '';
+                        },
+                        visible: false
+                    },
+                    { title: '描述', field: 'Remark', width: 200 }
+                ],
+                onClickRow: function (row, $element) {
+                    //取出先前保存的行对象，并修改颜色为白色
+                    $('[data-index=' + self.selectRowNum() + ']').removeClass().css("background-color", "white");
+                    //设置现在选中的行，设置颜色
+                    //$element是当前tr的jquery对象
+                    $element.css("background-color", "green");
+                    self.rows = row;
+                    //保存当前选中的行号
+                    self.selectRowNum(Number($element.attr("data-index")));
+                }//单击row事件
+            });
+
+            self.Refresh = function () {
+                self.Table.bootstrapTable('refresh');
+            }
+
+            self.Search = function () {
+                var searchTxt = self.keyword();
+
+                if ($.trim(searchTxt) !== '') {
+                    self.Table.bootstrapTable('refresh', { query: { searchModel: searchTxt } });
+                } else {
+                    self.Table.bootstrapTable('refresh');
+                }
+            }
+
+            self.Reset =function () {
+                self.keyword('');
+            };
+
+            //关闭模态框
+            self.Close = function () {
+                self.ClearBase(self.model);
+                self.ModalHide();
+            };
+
+            //错误处理
+            self.AjaxErrorHandle = function (data) {
+                if (data.ErrorCode === '103') {
+                    reLogin();
+                } else {
+                    self.Message(data.ErrorMsg, false);
+                }
+            }
+
+            //输出结果
+            self.WriteResult = function (data) {
+                //console.info(data);
+                var result = JSON.parse(data);
+                self.Message(result.ErrorMsg, result.Success);
+                self.rows = null;
+                self.Close();
+                self.Table.bootstrapTable('refresh');
+
+            };
+
+            //判断是否有选择行；
+            self.IsSelectRow = function (data) {
+                if (!self.rows) {
+                    self.Message('没有选择要操作的行，请先选择一行!', false);
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+
+            //打开模态框
+            self.OpenAddModal = function () {
+                self.btnType(0);
+                self.ModalShow();
+            };
+
+            //保存
+            self.Save = function () {
+                self.OperationRow(self.ApiName);
+            };
+
+            //编辑和保存基方法，复用
+            self.OperationRow = function (url) {
+                if (!self.model.RoleName()) {
+                    layer.alert("角色名称不能为空！");
+                    return false;
+                }
+
+                self.btnStatus(false);
+                var param = {
+                    model: ko.toJSON(self.model)
+                };
+                postWeb(url, param, function (data) {
+                    self.btnStatus(true);
+                    self.WriteResult(data);
+                });
+            };
+
+            //打开编辑模态框
+            self.OpenEditModal = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                self.btnType(1);
+
+                var param = {
+                    id: rows.KeyId
+                }
+                getWeb(self.ApiName + rows.KeyId, null, function (data) {
+                    //console.info(data);
+                    //self.JsonToViewModel(data, self.model);
+                    //self.ModalShow();
+
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.ObjectToViewModel(result.ResultObject, self.model);
+                        self.ModalShow();
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+                });
+            };
+
+            //编辑
+            self.Update = function () {
+                self.OperationRow(self.UpdateUrl);
+            };
+
+            //删除用户
+            self.Delete = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                var ret = confirm("你确定要删除本条记录吗?");
+                if (!ret) return;
+                var param = {
+                    KeyId: rows.KeyId
+                }
+                deleteWeb(self.ApiName + rows.KeyId, param, function (data) {
+                    self.WriteResult(data);
+                });
+            }
+
+            self.AuthUrl = "/api/Navigation/";
+            self.RoleNavBtnsUrl = "/api/RoleNavBtns/";
+            self.AuthModal = $('#AuthModal');
+            self.AuthTree = $('#tree');
+
+            self.AuthModalShow = function () {
+                self.AuthModal.modal("show");
+            }
+            self.AuthModalHide = function () {
+                self.btnStatus(true)
+                self.AuthModal.modal("hide");
+            }
+
+            self.getTreeData = function () {
+                // Some logic to retrieve, or generate tree structure
+                return data;
+            }
+
+            //打开分配权限模态框
+            self.OpenAuthModal = function() {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                if (rows.RoleName === '管理员') {
+                    self.Message('管理员角色不用分配权限，默认具有所有权限!', false);
+                    return;
+                }
+
+                self.btnType(1);
+                var param = {
+                    id: rows.KeyId
+                }
+                getWeb(self.AuthUrl + 'GetTree', null, function (data) {
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        getWeb(self.RoleNavBtnsUrl + 'GetTree/' + rows.KeyId,null,function(checkedData) {
+
+                                self.AuthTree.treeview({
+                                        //data: self.GetComboxData(data, 'NavTitle'),
+                                        data: result.ResultObject,
+                                        //color:'#428bca',
+                                        color: 'Gray',
+                                        showTags: true,
+                                        showIcon: false,
+                                        showCheckbox: true,
+
+                                        onNodeChecked: function(event, node) {
+                                            //$('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
+                                        },
+                                        onNodeUnchecked: function(event, node) {
+                                            //$('#checkable-output').prepend('<p>' + node.text + ' was unchecked</p>');
+                                        },
+                                        onNodeCollapsed: function(event, node) {
+                                            //layer.alert(111);
+                                        },
+                                        onNodeExpanded: function(event, node) {
+                                            var d = JSON.parse(checkedData);
+                                            if (d.Success) {
+
+                                                for (var y = 0; y < d.ResultObject.length; y++) {
+                                                    for (var z = 0; z < node.nodes.length; z++) {
+                                                        if (node.nodes[z].KeyId === d.ResultObject[y].KeyId) {
+                                                            $('#tree')
+                                                                .treeview('checkNode',
+                                                                    [node.nodes[z].nodeId, { silent: true }]);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    })
+                                    .treeview('collapseAll', { silent: true });
+
+                                //console.info(checkedData);
+
+                                self.AuthModalShow();
+                                if (result.Success) {
+                                    var g = JSON.parse(checkedData);
+                                    self.SetNode(g.ResultObject);
+                                }
+                            });
+                    }
+                });
+            }
+
+            //全选
+            self.AuthSelectAll = function () {
+                self.AuthTree.treeview('checkAll', { silent: true });//选中所有
+
+            }
+            //全不选
+            self.AuthUnSelectAll = function () {
+                self.AuthTree.treeview('uncheckAll', { silent: $('#chk-check-silent').is(':checked') });
+            }
+            //关闭模态框
+            self.AuthClose = function() {
+                //self.ClearBase(self.model);
+                self.AuthModalHide();
+            }
+
+            self.SetNode = function (d) {
+
+                var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
+                var checkModel = [];
+                for (var i = 0; i < nodes.length; i++) {
+
+                    var nodeModel = { KeyId: nodes[i].KeyId, nodeId: nodes[i].nodeId };
+                    checkModel.push(nodeModel);
+                }
+                for (var y = 0; y < d.length; y++) {
+                    for (var z = 0; z < checkModel.length; z++) {
+                        if (checkModel[z].KeyId === d[y].KeyId) {
+                            $('#tree').treeview('checkNode', [checkModel[z].nodeId, { silent: true }]);
+                        }
+                    }
+                }
+            }
+
+            self.AuthUpdate = function () {
+
+                self.btnStatus(false);
+
+                var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
+                var checkModel = [];
+                for (var i = 0; i < nodes.length; i++) {
+                    var nodeModel = { id: nodes[i].KeyId, status: nodes[i].state.checked };
+                    checkModel.push(nodeModel);
+                    if (nodes[i].nodes.length > 0) {
+                        for (var x = 0; x < nodes[i].nodes.length; x++) {
+                            checkModel.push({ id: nodes[i].nodes[x].KeyId, status: nodes[i].nodes[x].state.checked });
+                        }
+                    };
+                }
+                //console.info(checkModel);
+
+                var param = {
+                    model: JSON.stringify(checkModel)
+            };
+                putWeb(self.RoleNavBtnsUrl + self.rows.KeyId, param, function (data) {
+                    self.btnStatus(true);
+                    var result = JSON.parse(data);
+                    self.Message(result.ErrorMsg, result.Success);
+                    //self.rows = null;
+                    self.AuthClose();
+
+                });
+            };
+
+        }();
+        ko.applyBindings(KObj);
+    });
+</script>

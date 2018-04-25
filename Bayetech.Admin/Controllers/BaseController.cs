@@ -10,12 +10,12 @@ using System.Web.Http;
 namespace Bayetech.Admin.Controllers
 {
     public class BaseController : ApiController
-    { /// <summary>
-      /// 创建spring容器上下文公共容器
-      /// </summary>
+    {
+
+        /// <summary>
+        /// 创建spring容器上下文公共容器
+        /// </summary>
         public static IApplicationContext ctx = ContextRegistry.GetContext();
-
-
         /// <summary>
         /// JObject
         /// </summary>
@@ -31,5 +31,6 @@ namespace Bayetech.Admin.Controllers
                 return new JObject(content);
             }
         }
+
     }
 }

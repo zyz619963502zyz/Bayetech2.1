@@ -1,33 +1,25 @@
 ﻿//个人中心首页
 define([], function () {
 	var html = `
-
-		<div class="umiddle pull-left">
+        <div class="col-md-9">
+		<div class="umiddle">
         <div id="capitalInfo" class="umbox dpos mb10">
-            <div class="hd">
-                <h2>帐号安全信息设置</h2>
-            </div>
+            
+                <h5>帐号安全信息设置</h5>
+            
             <div class="bd clearfix">
                 
 <div class="uaql pull-left">
-    <dl id="ctl00_ContentPlaceHolder1_SafeLevelControl_dllevelcss" class="ual1 bad">
+    <dl id="" class="ual1 bad">
         <dt>您的帐号安全等级：<b><span id="ctl00_ContentPlaceHolder1_SafeLevelControl_lbllevel">低</span></b></dt>
         <dd><a href="accountsafe.aspx">检测</a></dd>
     </dl>
     <p>
         <span id="ctl00_ContentPlaceHolder1_SafeLevelControl_lbllevelDesc">您帐号的安全等级较低，为确保帐号安全请尽快提高安全等级</span>
     </p>
-    <ul id="ctl00_ContentPlaceHolder1_SafeLevelControl_ulUaqed" class="uaqed" style="display:;">
-        <li id="ctl00_ContentPlaceHolder1_SafeLevelControl_ckmember" class="ckmember" style="display:none;">已认证</li>
-        <li id="ctl00_ContentPlaceHolder1_SafeLevelControl_ckemail" class="ckemail" style="display:;">
-            <span id="ctl00_ContentPlaceHolder1_SafeLevelControl_email"></span>
-        </li>
-        <li id="ctl00_ContentPlaceHolder1_SafeLevelControl_ckphone" class="ckphone" style="display:none;">
-            <span id="ctl00_ContentPlaceHolder1_SafeLevelControl_chkMobile"></span>
-        </li>
-    </ul>
+    
 </div>
-<div id="ctl00_ContentPlaceHolder1_SafeLevelControl_divSafe" class="uaqr pull-left" style="display:;">
+<div id="" class="uaqr pull-left" style="display:;">
     <dl>
         <dt>提高帐号安全等级，您可以：</dt>
     </dl>
@@ -117,8 +109,7 @@ define([], function () {
         
         
     </div>
-
-		`;
+    </div>`;
 
     var data={};
     var components={
