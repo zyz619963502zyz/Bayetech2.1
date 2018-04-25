@@ -1,6 +1,5 @@
 ﻿var clients = [];
 $(function () {
-    debugger;
     clients = $.clientsInit();
 })
 $.clientsInit = function () {

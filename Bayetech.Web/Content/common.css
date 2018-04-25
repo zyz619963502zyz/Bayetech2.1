@@ -81,8 +81,8 @@ img{display:inline-block;}
 
 .com-header .head-search {width:1200px;margin:0 auto;}
 .com-header .head-search .logo {width:315px;float:left;height:100%;line-height:100px;}
-.com-module .nav-box{width:100%;height:min-content;background-color: #3b83e8;}
-.com-module .nav-box .nav {display: table;text-align: center;width:1200px;}
+.com-module .nav-box{width:100%;height:min-content;background-color: #3b83e8;display:flex;}
+.com-module .nav-box .nav {display: table;text-align: center;width:1200px;margin:0 auto;}
 .com-module .nav-box .nav-justified > li {width:20%;cursor:pointer;}
 .com-module .nav-box .nav-justified a {color:#fff;border-radius:0;}
 .com-module .nav-box .nav-justified a:hover {background-color:#3399ff;}
