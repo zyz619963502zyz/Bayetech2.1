@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>管理员设置</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="../lib/jquery-confirm-master/css/jquery-confirm.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-font.css" />
+    <link rel="stylesheet" href="../lib/aierp/css/framework-ui.css" />
+    <link rel="stylesheet" href="../lib/sco.js-master/css/sco.message.css" />
+    <link rel="stylesheet" href="../lib/select2/dist/css/select2.min.css" />
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../lib/jquery-confirm-master/dist/jquery-confirm.min.js"></script>
+    <script src="../lib/select2/dist/js/select2.min.js"></script>
+    <script src="../lib/dialog/dialog.js"></script>
+    <script src="../lib/aierp/js/framework-ui.js"></script>
+    <script src="../lib/aierp/js/framework-clientdata.js"></script>
+    <script src="../lib/sco.js-master/js/sco.message.js"></script>
+    <script src="../lib/knockout/dist/knockout.js"></script>
+    <script src="../lib/knockout/dist/knockout.mapping.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/common.js" asp-append-version="true"></script>
+    <style>
+        .modal-body .control-group {
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topPanel">
+        <div class="search">
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                            <input id="txt_keyword" type="text" class="form-control" placeholder="账户/姓名" style="width: 200px;" data-bind="value:keyword">
+                            <span class="input-group-btn">
+                                <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
+                                <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="toolbar">
+            <div class="btn-group">
+                <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+            </div>
+            <div class="btn-group">
+                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                <button class="btn btn-primary" data-bind="click:ResetPassWord"><i class="fa fa-key"></i>重置密码</button>
+                <button class="btn btn-primary" data-bind="click:OpenRolesModal"><i class="fa fa-key"></i>角色设定</button>
+            </div>
+        </div>
+    </div>
+    <!--Grid界面-->
+    <div class="table-responsive">
+        <table class="table table-hover" id="userTable" style="cursor:pointer;"></table>
+    </div>
+    <!--Grid界面-->
+    <!--Modal界面-->
+    <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>管理员设置</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">用户账号*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.UserName,enable:(btnType()===0)" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">真实姓名*</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.TrueName" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">手机</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:model.Mobile">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">是否超级管理</label>
+                            <div class="col-sm-8">
+                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:true" />是</label>
+                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:false" />否</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">是否停用</label>
+                            <div class="col-sm-8">
+                                <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:true" />是</label>
+                                <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:false" />否</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label" for="input01">描述</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" rows="3" data-bind="value:model.Remark"></textarea>
+                                <br>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+    <!--角色Modal界面-->
+    <div id="RolesModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+        <div class="modal-dialog" style="width: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>用户角色设置</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">用户账号</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-bind="value:roleModel.UserName,enable:false" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="col-sm-3 control-label">当前角色</label>
+                            <div class="col-sm-8">
+                                <!--<input type="text" class="form-control" data-bind="value:roleModel.RoleName" required>-->
+                                <select class="select2-Container" id="RoleSelect" style="width: 100%">data-bind="value:roleModel.RoleID"> </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:RolesClose">关闭</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:RolesSave,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal界面-->
+
+</body>
+</html>
+<script>
+    $(function () {
+
+        //#region 用户模型
+        var model = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.UserName = ko.observable("");
+            _model.TrueName = ko.observable("");
+            _model.Mobile = ko.observable("");
+            _model.IsAdmin = ko.observable(false);
+            _model.IsDisabled = ko.observable(false);
+            _model.Remark = ko.observable("");
+        }
+
+        var roleModel = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.UserID = ko.observable("");
+            _model.UserName = ko.observable("");
+            _model.RoleID = ko.observable("");
+            _model.RoleName = ko.observable("");
+        }
+        //#endregion
+
+        var KObj = new function () {
+
+            var self = this;
+            self.model = new model();//实例化模型
+
+            self.btnStatus = ko.observable(true);//是否允许操作
+            self.btnType = ko.observable(0);//按钮类型（0保存;1编辑）
+            self.keyword = ko.observable('');//搜索内容
+            self.selectRowNum = ko.observable(0);//当前选择的grid的行号
+
+            self.ApiName = "/api/User/";
+            self.UpdateUrl = self.ApiName + 'Update';
+            self.GetUserUrl = self.ApiName + 'GetUserById';
+            self.ResetPassUrl = self.ApiName + 'ResetPassWord';
+
+            self.Table = $('#userTable');
+
+            self.OkIcon = '<i class="glyphicon glyphicon-ok"style="color: gray;"></i>';
+            self.RemoveIcon = '<i class="glyphicon glyphicon-remove"style="color: gray;"></i>';
+            self.UserModal = $('#UserModal');
+            self.rows = null;
+
+            //#region 公共方法
+            //将json对象转换为Knockout viewModel对象
+
+            self.JsonToViewModel = function (jsonData, viewModel) {
+                ko.mapping.fromJSON(jsonData, {}, viewModel);
+            }
+
+            //将json对象转换为Knockout viewModel对象,可以选择忽略字段属性
+            self.JsonToViewModel_Ignore = function (jsonData, viewModel, mapping) {
+                var d = ko.mapping.fromJSON(jsonData, mapping);
+                //设置Model中的observable数据
+                for (var obj in d) {
+                    if (ko.isWriteableObservable(d[obj])) {
+                        viewModel[obj](d[obj]());
+                    }
+                }
+            }
+            //将js对象转换为viewModel
+            self.ObjectToViewModel = function (object, viewModel) {
+                ko.mapping.fromJS(object, {}, viewModel);
+            }
+
+            //清空对象基方法
+            self.ClearBase = function (viewModel) {
+                //清除Model中的observable数据
+                for (var obj in viewModel) {
+                    if (ko.isWriteableObservable(viewModel[obj])) {
+                        switch (typeof (viewModel[obj]())) {
+                            case 'boolean':
+                                viewModel[obj](false);
+                                break;
+                            case 'number':
+                                viewModel[obj](0);
+                                break;
+                            case 'string':
+                                viewModel[obj]("");
+                                break;
+                            default:
+                                viewModel[obj]("");
+                                break;
+                        }
+                    }
+                }
+
+            }
+
+            //时间替换T
+            self.replaceTimeStr = function (v) {
+                if (v() !== null) {
+                    v(v().replace('T', ' ').substr(0, 19));
+                }
+            }
+
+            //日期范围比较
+            self.CompareDate = function (v1, v2) {
+                var d1 = new Date(v1().replace(/\-/g, "\/"));
+                var d2 = new Date(v2().replace(/\-/g, "\/"));
+                if (d1 > d2) {
+                    layer.alert('开始日期不能大于结束日期');
+                    //v1(v2());
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            //根据对象数组组合出Select2所需的数据,data类型为后台返回json数组，filedName为要显示的字段名称
+            self.GetComboxData = function(data, filedName) {
+                var comboxData = [];
+                //var array = JSON.parse(data);
+                //var ar;
+                //for (var i = 0; i < array.length; i++) {
+                //    ar = array[i];
+                //    comboxData.push({ id: ar.KeyId, text: eval('ar.' + filedName) });
+                //}
+                //return comboxData;
+
+                return $.map(data,
+                    function(obj) {
+                        obj.id = obj.id || obj.KeyId; // replace pk with your identifier
+                        obj.text = eval('obj.' + filedName);
+                        return obj;
+                    });
+            }
+
+            //#endregion
+
+            self.ModalShow = function () {
+                self.UserModal.modal("show");
+            }
+            self.ModalHide = function () {
+                self.btnStatus(true);
+                self.UserModal.modal("hide");
+            }
+
+            self.Message = function (msg,msgType) {
+                $.scojs_message(msg, (msgType) ? $.scojs_message.TYPE_OK : $.scojs_message.TYPE_ERROR);
+            }
+
+            //错误处理
+            self.AjaxErrorHandle = function(data) {
+                if (data.ErrorCode === '103') {
+                    reLogin();
+                } else {
+                    self.Message(data.ErrorMsg, false);
+                }
+            }
+            self.Table.bootstrapTable({
+                //请求方法
+                method: 'get',
+                url: self.ApiName + "GetList",
+                dataType: "json",
+                singleSelect: true,
+                sidePagination: "server", //服务端处理分页
+                clickToSelect: true, //是否启用点击选中行
+                //是否显示行间隔色
+                striped: false,
+                //showRefresh:true,
+                //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                cache: false,
+                //是否显示分页（*）
+                pagination: true,
+                //是否启用排序
+                sortable: false,
+                //排序方式
+                sortOrder: "desc",
+                pageSize: 10,
+                //可供选择的每页的行数（*）
+                pageList: [10, 25, 50, 100],
+                //这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+                //默认值为 'limit',传给服务端的参数为：limit, offset, search, sort, order Else
+                //queryParamsType:'',
+                ////查询参数,每次调用是会带上这个参数，可自定义
+                columns: [
+                    {
+                        field: 'Number',
+                        title: '编号',
+                        width: 40,
+                        formatter: function (value, row, index) {
+                            return index + 1;
+                        }
+                    },
+                    { title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
+                    { title: '用户帐号', field: 'UserName', width: 100, sortable: true },
+                    { title: '真实姓名', field: 'TrueName', width: 120, sortable: true },
+                    { title: '单位名称', field: 'depname', width: 220, visible: false },
+                    { title: '手机', field: 'Mobile', width: 120, sortable: true },
+                    {
+                        title: '超管',
+                        field: 'IsAdmin',
+                        width: 80,
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            return (value) ? self.OkIcon : '';
+                        }
+                    },
+                    {
+                        title: '状态',
+                        field: 'IsDisabled',
+                        width: 80,
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            return (!value) ? self.OkIcon : self.RemoveIcon;
+                        }
+                    }, { title: '描述', field: 'Remark', width: 200 }
+                ],
+                onClickRow: function (row, $element) {
+                    //取出先前保存的行对象，并修改颜色为白色
+                    $('[data-index=' + self.selectRowNum() + ']').removeClass().css("background-color", "white");
+                    //设置现在选中的行，设置颜色
+                    //$element是当前tr的jquery对象
+                    $element.css("background-color", "green");
+                    self.rows = row;
+                    //保存当前选中的行号
+                    self.selectRowNum(Number($element.attr("data-index")));
+                }//单击row事件
+            });
+
+            self.Refresh = function () {
+                self.Table.bootstrapTable('refresh');
+            }
+
+            //关闭模态框
+            self.Close = function () {
+                self.ClearBase(self.model);
+                self.ModalHide();
+            };
+
+            //输出结果
+            self.WriteResult = function(data) {
+                //console.info(data);
+                var result = JSON.parse(data);
+                self.Message(result.ErrorMsg, result.Success);
+                self.Close();
+                self.Table.bootstrapTable('refresh');
+            };
+
+            //判断是否有选择行；
+            self.IsSelectRow = function(data) {
+                if (!self.rows) {
+                    self.Message('没有选择要操作的行，请先选择一行!', false);
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+
+            self.Search = function () {
+                var searchTxt = self.keyword();
+                //if (!searchTxt) {
+                //    alert("内容不能为空！");
+                //    return false;
+                //}
+                if ($.trim(searchTxt) !== '') {
+                    self.Table.bootstrapTable('refresh', { query: { userName: searchTxt } });
+                } else {
+                    self.Table.bootstrapTable('refresh');
+                }
+            }
+
+            self.Reset =function () {
+                self.keyword('');
+            };
+
+            //打开模态框
+            self.OpenAddModal = function () {
+                self.btnType(0);
+                self.ModalShow();
+            };
+
+            //保存
+            self.Save = function () {
+                self.OperationRow(self.ApiName);
+            };
+
+            //编辑和保存基方法，复用
+            self.OperationRow = function (url) {
+                if (!self.model.UserName()) {
+                    $.alert({ theme: 'bootstrap', title:'提醒',content: '用户名不能为空!' });// 'material', 'bootstrap'
+                    return false;
+                }
+                if (!self.model.TrueName()) {
+                    $.alert({ theme: 'bootstrap', title: '提醒', content: '真实姓名不能为空!' });// 'material', 'bootstrap'
+                    return false;
+                }
+
+                self.btnStatus(false);
+                var param = {
+                    model: ko.toJSON(self.model)
+                };
+                postWeb(url, param, function (data) {
+                    self.btnStatus(true);
+                    self.WriteResult(data);
+                });
+            };
+
+            //打开编辑模态框
+            self.OpenEditModal = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+                self.btnType(1);
+
+                var param = {
+                    KeyId: rows.KeyId
+                }
+                getWeb(self.GetUserUrl, param, function (data) {
+                    //console.info(data);
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.ObjectToViewModel(result.ResultObject, self.model);
+                        self.ModalShow();
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+                });
+            };
+
+            //编辑
+            self.Update = function () {
+                self.OperationRow(self.UpdateUrl);
+            };
+
+            //删除用户
+            self.Delete = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                var ret = confirm("你确定要删除本条记录吗?");
+                if (!ret) return;
+                var param = {
+                    KeyId: rows.KeyId
+                }
+                deleteWeb(self.ApiName + rows.KeyId, param, function (data) {
+                    self.WriteResult(data);
+                });
+            }
+
+            //重置密码
+            self.ResetPassWord = function () {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                var ret = confirm("你确定要重置用户："+rows.UserName +" 的密码吗? 重置后的初始密码为123a");
+                if (!ret) return;
+
+                var param = {
+                    KeyId: rows.KeyId
+                };
+                postWeb(self.ResetPassUrl, param, function (data) {
+                    self.WriteResult(data);
+                });
+            }
+
+
+            //#region 角色模块开始
+            self.roleModel = new roleModel();//实例化角色模型
+            self.RolesApiName = "/api/UserRoles/";
+            self.GetAllRoles = '/api/Roles/GetAll';
+            self.RolesModal = $('#RolesModal');
+
+            self.RoleCombox = $("#RoleSelect");
+            self.RolesComboxData = "";
+
+            self.RolesModalShow = function() {
+                self.RolesModal.modal("show");
+            };
+            self.RolesModalHide = function () {
+                self.btnStatus(true);
+                self.RolesModal.modal("hide");
+            }
+
+            self.loadCombox = function () {
+                getWeb(self.GetAllRoles,'',function(data) {
+                        //console.info(data);
+                        self.RolesComboxData = self.GetComboxData(data, 'RoleName');
+                        self.setupCombox();
+                    });
+            };
+
+            self.setupCombox = function () {
+                self.RoleCombox.select2({
+                    tags: true,
+                    tokenSeparators: [',', ' '],
+                    data: self.RolesComboxData, //数据加载
+                    maximumSelectionLength: 3, //最多可多选3个
+                    minimumResultsForSearch: 20,
+                    language: "zh-CN"
+                }).val('').trigger('change');
+            };
+
+            //打开角色模态框
+            self.OpenRolesModal = function() {
+                var rows = self.rows;
+                if (!self.IsSelectRow()) return;
+
+                self.btnType(1);
+                //self.loadCombox();
+                getWeb(self.GetAllRoles, '', function (data) {
+                    //console.info(data);
+                    //self.RolesComboxData = self.GetComboxData(data, 'RoleName');
+                    //self.setupCombox();
+
+                    var result = JSON.parse(data);
+                    if (result.Success) {
+                        self.RolesComboxData = self.GetComboxData(result.ResultObject, 'RoleName');
+                        self.setupCombox();
+                    } else {
+                        self.AjaxErrorHandle(result);
+                    }
+
+                var param = {
+                    id: rows.KeyId
+                }
+                getWeb(self.RolesApiName + rows.KeyId,
+                    param,
+                    function (data) {
+                        //self.RoleCombox.on('change', function () {
+                        //    console.info(self.RoleCombox.val());
+                        //    self.roleModel.RoleID(self.RoleCombox.val());
+                        //});
+                        var result = JSON.parse(data);
+                        if (result.Success) {
+                            self.ObjectToViewModel(result.ResultObject, self.model);
+                            self.RoleCombox.val(result.ResultObject.RoleID);
+                        } else {
+                            self.roleModel.RoleID('');
+                            self.roleModel.RoleName('');
+                            self.RoleCombox.val('');
+                            self.AjaxErrorHandle(result);
+                        }
+                        self.roleModel.UserName(rows.UserName);
+                        self.roleModel.UserID(rows.KeyId);
+                        self.RoleCombox.trigger('change');
+                        self.RolesModalShow();
+                    });
+                });
+            }
+
+            //角色设定
+            self.RolesSave = function () {
+
+                self.roleModel.RoleID(self.RoleCombox.val());
+                if (!self.roleModel.RoleID()) {
+                    layer.alert("角色不能为空！");
+                    return false;
+                }
+
+                self.btnStatus(false);
+
+                var param = {
+                    model: ko.toJSON(self.roleModel)
+                };
+                postWeb(self.RolesApiName,
+                    param,
+                    function(data) {
+                        self.btnStatus(true);
+                        var result = JSON.parse(data);
+                        self.Message(result.ErrorMsg, result.Success);
+                        self.RolesClose();
+                        self.Table.bootstrapTable('refresh');
+                    });
+            };
+
+            //关闭
+            self.RolesClose = function () {
+                self.ClearBase(self.roleModel);
+                self.RolesModalHide();
+            }
+            //#region 角色模块结束
+
+        }();
+        ko.applyBindings(KObj);
+    });
+</script>
