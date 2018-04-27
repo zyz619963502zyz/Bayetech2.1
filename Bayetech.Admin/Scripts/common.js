@@ -1,7 +1,7 @@
-﻿
-   var commonCompnent={};
+﻿define("common", ['jquery'], function () {
+    var common = {};
 
-   /**
+    /**
         * ajax封装
         * url 发送请求的地址
         * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}
@@ -10,7 +10,7 @@
         * errorfn 失败回调函数
         * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
-    commonCompnent.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
+    common.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
         if (!callLoading) {
         }
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
@@ -46,7 +46,7 @@
        * errorfn 失败回调函数
        * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
-    commonCompnent.postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
+    common.postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
         if (!callLoading) {
             $("#Loading").removeClass("hide");
         }
@@ -79,7 +79,7 @@
     };
 
     //根据属性找对象
-    commonCompnent.FindObjByProp = function (arr, propName, value) {
+    common.FindObjByProp = function (arr, propName, value) {
         var newArr = [];
         for (var prop in arr) {
             var o = arr[prop], p = o[propName];
@@ -97,7 +97,7 @@
     * errorfn 失败回调函数
     * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
-    commonCompnent.PrepareComponents = function (obj, stratNum, parame) {
+    common.PrepareComponents = function (obj, stratNum, parame) {
         var components = {};
         for (var i = stratNum; i < parame.length; i++) {
             components[parame[i].name] = parame[i];
@@ -110,14 +110,14 @@
     /**
     * 返回Url基础目录
     */
-    commonCompnent.GetBaseUrl = function () {
+    common.GetBaseUrl = function () {
         return "http://"+ window.location.host + "/Page/";
     }
 
     /**
      * 传过来的参数
      */
-    commonCompnent.GetUrlParam = function (url, queryStringName) {
+    common.GetUrlParam = function (url, queryStringName) {
         url = url || location.search;
         var urlArray=(decodeURI(url).split('?')[1]||"").split('&');
         var urlParam = {};
@@ -133,7 +133,7 @@
      * 获取静态页面的名称
      *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)
      */
-    commonCompnent.GetSearchType=function () {
+    common.GetSearchType=function () {
         var _url=document.location.href;
         var _urlArray = document.location.href.split("/");
         var type = document.location.href.split("/")[_urlArray.length-1].split('.')[0];
@@ -143,7 +143,7 @@
     /**
      * 判断当前浏览类型
      */
-    commonCompnent.BrowserType = function () {
+    common.BrowserType = function () {
         var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
         var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
         var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE浏览器
@@ -171,14 +171,14 @@
     /**
       * 转成JS对象
      */
-    commonCompnent.LogJS=function (vue) {
+    common.LogJS=function (vue) {
         return eval('('+JSON.stringify(vue)+')');
     };
 
     /**
      * 合并对象空值不覆盖
     */
-    commonCompnent.MergeObj=function (a, b) {
+    common.MergeObj=function (a, b) {
         for (var prop in b) {
             if (b[prop]) {
                 a[prop]=b[prop];
@@ -193,7 +193,7 @@
     //1.$contain对应的dom对象
     //2.self，vue的组件对象
     //3.callback查询回调
-    commonCompnent.SetPagination = function($,self,callback) {
+    common.SetPagination = function($,self,callback) {
             var container=$;
             options = {
             	bootstrapMajorVersion:3,     	
@@ -232,7 +232,7 @@
     // 例子： 
     // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
     // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-    commonCompnent.Date.prototype.Format = function (fmt) { //author: meizz 
+    Date.prototype.Format = function (fmt) { //author: meizz 
         var o = {
             "M+": this.getMonth() + 1, //月份 
             "d+": this.getDate(), //日 
@@ -250,7 +250,7 @@
 
 
     //添加选中样式
-    commonCompnent.AddSelectedClass=function (selector, addClass,fn) {
+    common.AddSelectedClass=function (selector, addClass,fn) {
         $(document).on("click", selector, function () {
             $(selector).not(this).removeClass(addClass);
             $(this).addClass(addClass);
@@ -261,7 +261,7 @@
     };
 
     //获取基础搜索条件
-    commonCompnent.GetSearchParam = function () {
+    common.GetSearchParam = function () {
         return {
             GameId: 0,
             GameName: "游戏名称",
@@ -278,4 +278,6 @@
         };
     };
 
-export {commonCompnent}
+    return common;
+})
+
