@@ -21,26 +21,8 @@
     <script src="../Scripts/app/GoodCheck.js"></script>
     <script>
         $(document).ready(function () {
-            $.ajax({
-                url: "/api/Test/GetMessage",
-                type: "post",
-                dataType: "json",
-                data:null,
-                async: false,
-                success: function (ret) {
-                    //alert('tt');
-                    var data = ret;
-                    //console.info(ret);
 
-                    //dataJson.dataItems = data.dataItems;
-                    //dataJson.organize = data.organize;
-                    //dataJson.role = data.role;
-                    //dataJson.duty = data.duty;
-                    dataJson.authorizeMenu = eval(data.authorizeMenu);
-                    //dataJson.authorizeButton = data.authorizeButton;
-                }
-            })
-
+            $("#ceshi").attr("src","GoodCheck/GoodCheck.html")
 
             postWebJson("/api/Navigation/CheckAccount", {}, function (data) {
                 if (data.result) {
@@ -180,9 +162,9 @@
                         </div>
                         <button class="roll-nav roll-right fullscreen"><i class="fa fa-arrows-alt"></i></button>
                     </div>
-                    <div class="content-iframe" style="background-color: #f9f9f9; overflow: hidden;">
+                    <div class="content-iframe" style="background-color: #fff; overflow: hidden;">
                         <div class="mainContent" id="content-main" style="margin: 10px; margin-bottom: 0px; padding: 0;">
-                            <iframe class="NFine_iframe" style="width:100%;height:100%;" src="" frameborder="0" data-id="">
+                            <iframe id="ceshi" class="NFine_iframe" style="width:100%;height:100%;" src="" frameborder="0" data-id="">
                               
                             </iframe>
                         </div>
