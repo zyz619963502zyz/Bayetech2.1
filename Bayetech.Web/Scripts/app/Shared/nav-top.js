@@ -29,9 +29,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </li>
 							<li class="dropdown"><a href="#">买家中心 <span class ="caret"></span></a>
 								<ul class ="dropdown-menu">
-                                    <li><a href="#">我要买</a></li>
+                                    <li><a href="../Page/">我要买</a></li>
                                     <li><a href="../../Page/UserCenter/Index.html#/MyOrders?flag=All">我购买的商品</a></li>
-                                    
                                 </ul>
 							</li>
 							<li class ="dropdown"><a href="#">卖家中心 <span class ="caret"></span></a>
@@ -46,7 +45,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li class ="dropdown">
                                 <a href="#">服务中心 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
-                                    <li><a href="#">资讯中心</a></li>
+                                    <li><a href="../Page/Service/ArticleCenter.html" target="_blank">资讯中心</a></li>
                                     <li><a href="#">安全中心</a></li>
                                     <li><a href="#">帮助中心</a></li>
                                     <li><a href="#">我要咨询</a></li>

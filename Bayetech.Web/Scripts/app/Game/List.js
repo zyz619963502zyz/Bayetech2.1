@@ -47,15 +47,14 @@ define(["common"], function (common) {
                         </li>
 					</ul>
 				</div>
-                <div class ="net-game">
-                    <ul>
+                
+				<div class ="webGame">
+                    <ul class ="game-filter">
                         <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" >
                             <a class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a>
                         </li>
                     </ul>
-                </div>
-				<div class ="webGame" style="display: block;">                    
-					<ul>
+					<ul class="hot-game-img">
                         <li class ="">
                             <a href="/buy-G10.html"><img src="http://pic.7881.com/7881/market/images/game170130/G10.jpg"><p>地下城与勇士</p></a>
 							</li>
