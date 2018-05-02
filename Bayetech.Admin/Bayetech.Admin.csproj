@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bayetech.Core">
+      <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Bayetech.Service">
+      <HintPath>..\Bayetech.Web\bin\Bayetech.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\Bayetech.Web\bin\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -2146,36 +2158,14 @@
     <Content Include="lib\webuploader-master\_draft\music\success.png" />
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
-    <Content Include="Page\404.html" />
-    <Content Include="Page\alerts.html" />
-    <Content Include="Page\buttons.html" />
-    <Content Include="Page\calendar.html" />
-    <Content Include="Page\charts.html" />
-    <Content Include="Page\components.html" />
-    <Content Include="Page\content-widgets.html" />
-    <Content Include="Page\file-manager.html" />
-    <Content Include="Page\form-components.html" />
-    <Content Include="Page\form-elements.html" />
-    <Content Include="Page\form-examples.html" />
-    <Content Include="Page\form-validation.html" />
-    <Content Include="Page\images-icons.html" />
-    <Content Include="Page\index.html" />
-    <Content Include="Page\labels.html" />
-    <Content Include="Page\list-view.html" />
-    <Content Include="Page\login.html" />
-    <Content Include="Page\media.html" />
-    <Content Include="Page\messages.html" />
-    <Content Include="Page\other-components.html" />
-    <Content Include="Page\profile-page.html" />
-    <Content Include="Page\sa.html" />
+    <Content Include="Page\CheckGood.html" />
+    <Content Include="Page\GoodCheck\GoodCheck.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
-    <Content Include="Page\tables.html" />
-    <Content Include="Page\typography.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2707,6 +2697,7 @@
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
     <Content Include="images\Thumbs.db" />
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2725,6 +2716,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="Page\OrderCheck\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
@@ -2753,6 +2745,7 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.eot" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Configs\database.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
@@ -2769,7 +2762,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5133</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

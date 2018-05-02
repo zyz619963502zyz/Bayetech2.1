@@ -1,16 +1,16 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav','nav-top', 'v-search', 'game-list',"v-footer"],
-	function (Vue, $, common, bootstrap, header, nav, navt, search, GameList,footer) {
+
+
+require(['vue', 'jquery', 'common', 'v-nav', 'nav-top', 'game-list', "v-footer", 'css!../Content/bootstrap/bootstrap.min', 'css!../Content/common', 'css!../Content/gamelist'],
+	function (Vue, $, common, nav, navt, GameList,footer) {
 	    new Vue({
 	        el: '#app',
 	        data() {
 	            return { }
 	        },
 	        components: {
-	            "v-header": header,
 	            "v-nav": nav,
                 "nav-top":navt,
-	            "v-search": search,
 	            "GameList": GameList,
                 "v-footer":footer
 	        },
