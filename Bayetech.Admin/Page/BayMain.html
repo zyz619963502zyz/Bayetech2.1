@@ -17,20 +17,22 @@
     <!--<script src="lib/pace/pace.min.js"></script>-->
     <!--<script src="lib/common.js?v=1"></script>-->
     <!--<script src="../../lib/token.js"></script>-->
-    <script src="../../Scripts/common.js"></script>
-    <script src="../Scripts/app/GoodCheck.js"></script>
+    <!--<script src="../../Scripts/common.js"></script>
+    <script src="../Scripts/app/GoodCheck.js"></script>-->
+    
+    <script src="../Scripts/common.es5.js"></script>
+    <script src="../Scripts/app/GoodCheck.es5.js"></script>
     <script>
         $(document).ready(function () {
-
             $("#ceshi").attr("src","GoodCheck/GoodCheck.html")
 
-            postWebJson("/api/Navigation/CheckAccount", {}, function (data) {
-                if (data.result) {
-                    self.ListObj = data.content.datas;
-                    self.SearchParam.Pagination = data.content.pagination;
-                    common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                }
-            });
+            //postWebJson("/api/Navigation/CheckAccount", {}, function (data) {
+            //    if (data.result) {
+            //        self.ListObj = data.content.datas;
+            //        self.SearchParam.Pagination = data.content.pagination;
+            //        common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+            //    }
+            //});
         });
     </script>
 </head>
@@ -180,20 +182,5 @@
     <script src="../../lib/aierp/js/index.js"></script>
     <!--<script src="../../lib/aierp/js/indextab.js"></script>-->
     <script src="../../lib/pace/pace.min.js"></script>
-    <!--<script>
-        $(function () {
-            var self = this;
-            self.ApiName = "/api/User/";
-            var UserNameTxt = $('#UserNameTxt');
-            var RoleTxt = $('#RoleTxt');
-            getWeb(self.ApiName, '', function (data) {
-                //console.info(data);
-                if (data) {
-                    UserNameTxt.text(data[0]);
-                    RoleTxt.text(data[1]);
-                }
-            });
-        });
-    </script>-->
 </body>
 </html>

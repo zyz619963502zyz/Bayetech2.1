@@ -1,4 +1,4 @@
-﻿import commonCompnent from '../common';
+﻿import commonCompnent from './common.js';
 
 var _url = "/api/Test/GoodCheck";
 const aa = 1;

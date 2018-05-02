@@ -2154,6 +2154,12 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Scripts\app\GoodCheck.es5.js">
+      <DependentUpon>GoodCheck.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\GoodCheck.es5.min.js">
+      <DependentUpon>GoodCheck.es5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -2683,6 +2689,12 @@
     <Content Include="lib\webuploader-master\_draft\flash_cpp\Test.swc" />
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Scripts\common.es5.js">
+      <DependentUpon>common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\common.es5.min.js">
+      <DependentUpon>common.es5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Web.config" />
@@ -2732,6 +2744,10 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
     <Content Include="Configs\database.config" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
@@ -2778,7 +2794,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
