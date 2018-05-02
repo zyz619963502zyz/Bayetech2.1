@@ -1,6 +1,4 @@
-﻿using Bayetech.Service;
-using Newtonsoft.Json.Linq;
-using Spring.Context;
+﻿using Newtonsoft.Json.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -8,7 +6,7 @@ namespace Bayetech.Admin.Controllers
     public class NavigationController : BaseController
     {
        
-        ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+        //ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
 
         [HttpPost]
         public JObject CheckAccount()
