@@ -1,6 +1,10 @@
-﻿import commonCompnent from "../common.js"
+﻿import commonCompnent from '../common';
 
 var _url = "/api/Test/GoodCheck";
-commonCompnent.postWebJson(_url,null,function(){
+const aa = 1;
+let aaaa = 2;
 
-}); 
+var aaa = commonCompnent;
+//commonCompnent.postWebJson(_url,null,function(){
+
+//}); 
