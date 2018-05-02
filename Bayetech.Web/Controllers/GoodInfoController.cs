@@ -15,7 +15,7 @@ namespace Bayetech.Web.Controllers
 {
     public class GoodInfoController : BaseController
     {
-=、/788888888888888888/取出服务层 test+-*
+        //取出服务层
         GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
         BaseService<GameProfession> proBase = new BaseService<GameProfession>();
         BaseService<Server> severBase = new BaseService<Server>();
