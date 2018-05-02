@@ -29,30 +29,32 @@ a:hover{text-decoration:none;}
 
 /*  选项卡内容块  */
 .game-box .game-mid{ width:100%; min-height:300px; height:auto!important; height:300px;  border:1px solid #e5e5e5; border-top:none; background:#fff;}
-.game-box .game-mid .game{overflow:hidden;}
-.game-box .game-mid .game .gameTitle{position:relative;width:100%; padding:0 29px; height:45px; background:url(http://pic.7881.com/7881/market/css/images/app_bg.png) left -70px repeat-x;}
-.game-box .game-mid .game .gameTitle b{left:40px;bottom:0;position:absolute;height:3px;overflow:hidden;width:68px;background:#3d86ea;}
-.game-box .game-mid .game .gameTitle span{float:left; width:90px; height:45px;  font:normal bold 16px/45px SimHei;margin-right:15px;}
-.game-box .game-mid .game .gameTitle span a{color:#3c88e9;}
-.game-box .game-mid .game .gameTitle .letter{ float:left; width:780px;margin-bottom:0;}
-.game-box .game-mid .game .gameTitle .letter li{ float:left; width:30px; height:45px; font:normal  normal 18px/45px Helvetica, Helvetica Neue, Arial; text-align:center;cursor:pointer;}
-.game-box .game-mid .game .gameTitle .letter li a{color:#333;}
-.game-box .game-mid .game .gameTitle .letter li:hover{color:#3c88e9;border-bottom:3px solid #3c88e9;}
+/*.game-box .game-mid .game{overflow:hidden;}*/
+.game-box .game-mid .gameTitle{position:relative;width:100%; padding:0 29px; height:45px; background:url(http://pic.7881.com/7881/market/css/images/app_bg.png) left -70px repeat-x;}
+.game-box .game-mid .gameTitle b{left:40px;bottom:0;position:absolute;height:3px;overflow:hidden;width:68px;background:#3d86ea;}
+.game-box .game-mid .gameTitle span{font:normal bold 16px/45px SimHei;}
+.game-box .game-mid .gameTitle span a{color:#3c88e9;}
+.game-box .game-mid .gameTitle .letter{ float:left; width:100%;margin-bottom:0;}
+.game-box .game-mid .gameTitle .letter li{ float:left; width:30px; height:45px; font:normal  normal 18px/45px Helvetica, Helvetica Neue, Arial; text-align:center;cursor:pointer;}
+.game-box .game-mid .gameTitle .letter li a{color:#333;}
+.game-box .game-mid .gameTitle .letter li:hover{border-bottom:3px solid #3c88e9;}
+.game-box .game-mid .gameTitle .letter li:hover a{color:#3c88e9;}
+.game-box .game-mid .letter li:first-child{width:100px;}
 
 /*  网络游戏  */
 .webGame{width:100%; padding:15px 20px; overflow:hidden;}
-.webGame ul{width:100%; display:table; margin-bottom:0;}
-.webGame ul li{display: inline-block;height:180px;padding: 3px;border: 1px solid #d3d3d3;margin: 5px; _margin:4px;}
-.webGame ul li a{display:inline-block; width:172px; height:162px; padding:5px 0; text-align:center;}
-.webGame ul li a img{display:inline-block; width:170px; height:130px; }
-.webGame ul li a p{width:172px; height:32px; text-align:center;  font:normal normal 12px/32px SimSum; color:#3c88e9;}
-.webGame ul li a:hover p{color:#eb7038; text-decoration:underline;}
-.webGame ul li.on{ padding:0; border:4px solid #3c88e9;}
+.webGame ul.hot-game-img{width:100%; display:table; margin-bottom:0;}
+.webGame ul.hot-game-img li{display: inline-block;height:180px;padding: 3px;border: 1px solid #d3d3d3;margin: 5px; _margin:4px;}
+.webGame ul.hot-game-img li a{display:inline-block; width:172px; height:162px; padding:5px 0; text-align:center;}
+.webGame ul.hot-game-img li a img{display:inline-block; width:170px; height:130px; }
+.webGame ul.hot-game-img li a p{width:172px; height:32px; text-align:center;  font:normal normal 12px/32px SimSum; color:#3c88e9;}
+.webGame ul.hot-game-img li a:hover p{color:#eb7038; text-decoration:underline;}
+.webGame ul.hot-game-img li.on{ padding:0; border:4px solid #3c88e9;}
 
 .net-game{width:100%;}
 .net-game ul{width:100%;}
 
-/*  游戏名称  */
+/*  游戏名称筛选  */
 .gameName{width:950px; padding:0 4px 0 24px; overflow:hidden;}
 .gameName ul{width:950px; padding:17px 0;}
 .gameName ul li{float:left; width:170px; height:40px; padding:0 10px;}
