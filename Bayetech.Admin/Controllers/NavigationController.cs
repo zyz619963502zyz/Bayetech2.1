@@ -9,7 +9,8 @@ namespace Bayetech.Admin.Controllers
     {
        
         ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
-        [HttpGet]
+
+        [HttpPost]
         public JObject CheckAccount()
         {
             return null;

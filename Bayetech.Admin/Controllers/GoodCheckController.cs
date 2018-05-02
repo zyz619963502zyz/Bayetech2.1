@@ -8,10 +8,11 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
-    public class LoginController : ApiController
+    public class GoodCheckController : ApiController
     {
         [HttpPost]
-        public string Login(JObject json) {
+        public string GoodCheck(JObject json)
+        {
             return string.Empty;
         }
     }

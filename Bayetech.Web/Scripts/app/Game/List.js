@@ -38,24 +38,19 @@ define(["common"], function (common) {
 			</ul>
 		</div>
 		<div class="game-mid">
-			<div class="game">
+			
 				<div class="gameTitle">
-					<span selected="true"><a href="javascript:void(0)" @click=''>热门游戏</a></span>
 					<ul class ="letter">
+						<li class="hot-sel"><a href="javascript:void(0)" @click=''>热门游戏</a></li>
                         <li v-for="item in Alphabet">
                           <a href="javascript: void (0);" @click="GetList(Type,item)" name="Letter">{{item}}</a>
                         </li>
 					</ul>
 				</div>
-                <div class ="net-game">
-                    <ul>
-                        <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" >
-                            <a class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a>
-                        </li>
-                    </ul>
-                </div>
-				<div class ="webGame" style="display: block;">                    
-					<ul>
+                
+				<div class ="webGame">
+                    
+					<ul class="hot-game-img">
                         <li class ="">
                             <a href="/buy-G10.html"><img src="http://pic.7881.com/7881/market/images/game170130/G10.jpg"><p>地下城与勇士</p></a>
 							</li>
@@ -89,8 +84,13 @@ define(["common"], function (common) {
 								<a href="/buy-G769.html"><img src="http://pic.7881.com/7881/market/images/game170130/G769.jpg"><p>剑灵BNS</p></a>
 					    </li>
 					</ul>
+					<ul class ="game-filter">
+                        <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" >
+                            <a class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a>
+                        </li>
+                    </ul>
 				</div>				
-			</div>
+			
 		</div>
 	</div>`;
 
