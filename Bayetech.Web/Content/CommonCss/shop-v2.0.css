@@ -8,7 +8,7 @@ body,button,input,select,textarea{font:12px/1.5 arial,"microsoft yahei",\5b8b\4f
 .shopInfor span {font-size: 14px;color: #666;font-family: "宋体",Arial;position: relative;display: inline-block;*display:inline;*zoom:1;cursor: pointer;height: 50px;}
 .shopInfor dl {z-index:10;padding-left: 20px;position: absolute;width: 178px;height: 145px;border: 1px solid #eee;left: -21px;top: 48px;background-color: #fff;display: none;font-size: 12px;}
 .shopInfor dd {line-height: 30px;color: #999;}
-.crown {display: inline-block;*display:inline;*zoom:1;width: 16px;height: 16px;background: url(../images/shop/crown.png) no-repeat left;margin-right: 6px;position: relative;top: 2px;}
+.crown {display: inline-block;*display:inline;*zoom:1;width: 16px;height: 16px;background: url(../../images/shop/crown.png) no-repeat left;margin-right: 6px;position: relative;top: 2px;}
 .shopInfor dt {line-height: 30px;color: #666;margin-top: 13px;}
 .shopInfor dd em {color: #c97;font-weight: bold;}
 .shopInfor .shopInforText {display: inline-block;width: 65px;height: 24px;line-height: 24px;text-align: center;border: 1px solid #3399ff;color: #3399ff;border-radius: 4px;margin-left: 15px;}
@@ -55,7 +55,7 @@ body,button,input,select,textarea{font:12px/1.5 arial,"microsoft yahei",\5b8b\4f
 .slideBox .cSlideArrow{position:absolute;top:50%;left:0;display:block;margin-top:-40px;width:40px;height:82px;background-color:#333;opacity:0;filter:alpha(opacity=0);}
 .slideBox .next{right:0;left:auto;}
 .slideBox .cSlideArrow:hover{background-color:#222;opacity:1;filter:alpha(opacity=100);}
-.cSlideArrowL,.cSlideArrowR{display:inline-block;margin-top:25px;margin-left:12px;width:18px;height:32px;background:url(../images/shop/cSlideArrow.png) no-repeat 0 0;}
+.cSlideArrowL,.cSlideArrowR{display:inline-block;margin-top:25px;margin-left:12px;width:18px;height:32px;background:url(../../images/shop/cSlideArrow.png) no-repeat 0 0;}
 .cSlideArrowR{background-position:-18px 0;}
 
 
@@ -96,9 +96,9 @@ body,button,input,select,textarea{font:12px/1.5 arial,"microsoft yahei",\5b8b\4f
 /*字母筛选*/
 .jh_sort {margin-top: 20px;}
 .jh_sort li {float: left;font-size: Arial;font-size: 18px;color: #333;width: 40px;height: 41px;text-align: center;line-height: 34px;cursor: pointer;}
-.jh_sort .js_sort_on {background: url(../images/shop/letterBg.png) no-repeat left;color: #fff;}
+.jh_sort .js_sort_on {background: url(../../images/shop/letterBg.png) no-repeat left;color: #fff;}
 .jh_sort .sortHot {width: 100px;margin-right: 5px;}
-.sortHot.js_sort_on {background-image: url(../images/shop/hotGameBg.png); color: #fff;}
+.sortHot.js_sort_on {background-image: url(../../images/shop/hotGameBg.png); color: #fff;}
 /*游戏区域*/
 .jh_gameContainer {margin-top: 10px; width: 1185px;border-top: 2px solid #39f;border-left: 1px solid #eee;}
 .jh_gameContainer li {width: 236px;height: 253px;border-right: 1px solid #eee;border-bottom: 1px solid #eee;float: left;}

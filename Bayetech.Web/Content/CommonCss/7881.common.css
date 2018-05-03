@@ -4,7 +4,7 @@ html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre
 em,i,cite{ font-style:normal}
 em{ font-family:Arial, Helvetica, sans-serif; color:#f60}
 body{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;color:#333}
-_body{behavior:url("../market/css/csshover.htc")}
+_body{behavior:url("../../market/css/csshover.htc")}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
 img{ border:0;}
 ul,ol,li{list-style:none;}
@@ -20,7 +20,7 @@ s,i,samp{font-family: Arial;font-style:normal;text-decoration:none;}
 samp{padding:0 3px;}
 .block{padding:10px;border:1px solid #dadada;}
 /*ICO/BTN/寄/担/赔/超/信誉/*/
-.ico_light,.ico_ji,.ico_lian,.ico_dan,.ico_pei,.ico_chao,.ico_mpic,.ico_credit,.ico_an,.ico_shan,.ico_xian,.ico_zhang,.ico_bao,.ico_ka,.ico_shen,.pager_btn,.ico_message,.ico_message_open,.ico_diamond,.ico_star,.ico_credit_y,.ico_diamond_y,.ico_star_y,.ico_pay_notice,.ico_funds,.ico_new_bao,.ico_fen,.ico_jiqi,.ico_gfzc,.ico_zhgh,.ico_cxsj,.ico_paimai,.ico_fumo,.ico_zhuanyi,.ico_guohu,.ico_suit,.ico_peifu,.ico_xiejia,.ico_shou,.ico_hui,.ico_tup,.ico_jin,.ico_sudu,.ico_miao,.ico_smrz,.ico_hou,.ico_dangmian,.ico_youji{background:url(../images/cash_ico.png) no-repeat;line-height:16px;height:16px;*line-height:19px;padding-left:20px; margin-right:3px; display:inline-block; vertical-align:middle}
+.ico_light,.ico_ji,.ico_lian,.ico_dan,.ico_pei,.ico_chao,.ico_mpic,.ico_credit,.ico_an,.ico_shan,.ico_xian,.ico_zhang,.ico_bao,.ico_ka,.ico_shen,.pager_btn,.ico_message,.ico_message_open,.ico_diamond,.ico_star,.ico_credit_y,.ico_diamond_y,.ico_star_y,.ico_pay_notice,.ico_funds,.ico_new_bao,.ico_fen,.ico_jiqi,.ico_gfzc,.ico_zhgh,.ico_cxsj,.ico_paimai,.ico_fumo,.ico_zhuanyi,.ico_guohu,.ico_suit,.ico_peifu,.ico_xiejia,.ico_shou,.ico_hui,.ico_tup,.ico_jin,.ico_sudu,.ico_miao,.ico_smrz,.ico_hou,.ico_dangmian,.ico_youji{background:url(../../images/cash_ico.png) no-repeat;line-height:16px;height:16px;*line-height:19px;padding-left:20px; margin-right:3px; display:inline-block; vertical-align:middle}
 .ico_lian{background:url(7881.icon.png) -84px 0 no-repeat;}
 .ico_ji{background-position: 0 -469px}
 .ico_dan{background-position: 0 -490px}
