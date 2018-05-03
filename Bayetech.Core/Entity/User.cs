@@ -25,5 +25,9 @@ namespace Bayetech.Core.Entity
         public Nullable<int> BuyTimes { get; set; }
         public Nullable<int> SellTimes { get; set; }
         public Nullable<int> HatChetTimes { get; set; }
+        public string PayPassword { get; set; }
+        public Nullable<bool> IsValiteLogin { get; set; }
+        public Nullable<System.DateTime> AddTime { get; set; }
+        public Nullable<System.DateTime> UpdateTime { get; set; }
     }
 }

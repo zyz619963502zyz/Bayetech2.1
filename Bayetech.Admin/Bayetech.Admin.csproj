@@ -44,23 +44,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bayetech.Core">
-      <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Bayetech.Service">
-      <HintPath>..\Bayetech.Web\bin\Bayetech.Service.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging">
-      <HintPath>..\Bayetech.Web\bin\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging.Core">
-      <HintPath>..\Bayetech.Web\bin\Common.Logging.Core.dll</HintPath>
+    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Spring.Core, Version=2.0.1.45000, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
@@ -83,9 +83,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -2165,6 +2162,18 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Scripts\app\GoodCheck.es5.es5.js">
+      <DependentUpon>GoodCheck.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\GoodCheck.es5.es5.min.js">
+      <DependentUpon>GoodCheck.es5.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\GoodCheck.es5.js">
+      <DependentUpon>GoodCheck.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\GoodCheck.es5.min.js">
+      <DependentUpon>GoodCheck.es5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -2694,8 +2703,15 @@
     <Content Include="lib\webuploader-master\_draft\flash_cpp\Test.swc" />
     <Content Include="lib\webuploader-master\_draft\music\server\fileupload.php" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Scripts\common.es5.js">
+      <DependentUpon>common.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\common.es5.min.js">
+      <DependentUpon>common.es5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\vue.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2709,6 +2725,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2743,7 +2760,25 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
     <Content Include="Configs\database.config" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
+      <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
+      <Name>Bayetech.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
+      <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
+      <Name>Bayetech.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
+      <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
+      <Name>Bayetech.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -2779,7 +2814,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

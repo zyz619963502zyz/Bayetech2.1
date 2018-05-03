@@ -58,6 +58,63 @@
     <Compile Include="Entity\Account.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Admin_C1_Customer.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Area.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Area_bac.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Buttons.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Config.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Departments.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_DicCategory.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Dics.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_LogDetails.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_logs.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_NavButtons.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Navigations.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_RoleNavBtns.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Roles.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Roles_Departments.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_UserNavBtns.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_UserRoles.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Users.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Admin_Sys_Users_Departments.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Article.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -68,21 +125,24 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.Context.cs">
-      <DependentUpon>Bayetech.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Bayetech.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Bayetech.Designer.cs">
-      <DependentUpon>Bayetech.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Bayetech.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\Category.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DLRequire.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ExtraProperty.cs">
@@ -106,7 +166,7 @@
     <Compile Include="Entity\GoodAndDescription.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\GoodStatu.cs">
+    <Compile Include="Entity\GoodStatus.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">
@@ -140,6 +200,15 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Settings.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
@@ -187,6 +256,9 @@
     <Compile Include="Enum\ResultInfo.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Core\SysVisitor.cs" />
+    <Compile Include="Security\Json\Json.cs" />
+    <Compile Include="Security\Json\JSONhelper.cs" />
     <Compile Include="Security\Md5.cs" />
     <Compile Include="Web\Filters\WebApiExceptionFilterAttribute.cs" />
     <Compile Include="Web\Pagination.cs" />
@@ -195,10 +267,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Entity\Bayetech.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Bayetech.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Entity\Bayetech.edmx.diagram">
+      <DependentUpon>Bayetech.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entity\Bayetech.Context.tt">
@@ -212,17 +291,6 @@
       <LastGenOutput>Bayetech.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="Entity\Bayetech.edmx.diagram">
-      <DependentUpon>Bayetech.edmx</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

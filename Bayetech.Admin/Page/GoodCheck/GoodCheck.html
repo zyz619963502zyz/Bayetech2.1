@@ -6,46 +6,48 @@
 	<meta charset="utf-8" />
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/vue.js"></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/generics.css" rel="stylesheet" />
     <link href="../../Content/Mystyle.css" rel="stylesheet" />
+    <script src="../../Scripts/app/GoodCheck.js"></script>
 </head>
 <body>
     <div style="padding:20px 0 20px 0;">
-        <form class="form form-search form-horizontal" role="form">
-            <div class="form-group" id="lineOne">
+        <form class="form form-search form-horizontal" role="form" id="CommForm">
+            <!--<div class="form-group" id="lineOne">
                 <div class="col-ms-10">
                     <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题1111:</label>
+                        <label class="control-label col-md-3">商品编号:</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" />
                         </div>
                     </div>
                     <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题2222:</label>
+                        <label class="control-label col-md-3">商品编号:</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" />
                         </div>
                     </div>
                 </div>      
-            </div>
+            </div>-->
 
             <div class="form-group" id="lineTwo">
                 <div class="col-ms-10">
                     <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题3333:</label>
+                        <label class="control-label col-md-3">商品编号:</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" />
                         </div>
                     </div>
-                    <div class="input-group col-md-5">
+                    <!--<div class="input-group col-md-5">
                         <label class="control-label col-md-3">测试标题4444:</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" />
                         </div>
-                    </div>
+                    </div>--> 
                     <div class="col-md-2">
-                        <button class="btn btn-primary form-control">查询</button>
+                        <button class="btn btn-primary form-control" @click="findList">查询</button>
                     </div>
                 </div>
             </div>
@@ -72,56 +74,22 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>标题一</th>
-                                    <th>标题二</th>
-                                    <th>标题三</th>
-                                    <th>标题四</th>
-                                    <th>标题五</th>
-                                    <th>标题六</th>
-                                    <th>标题七</th>
-                                    <th>标题八</th>
+                                    <th>商品编号</th>
+                                    <th>游戏名称</th>
+                                    <th>交易类型</th>
+                                    <th>关键词</th>
+                                    <th>商品标题</th>
+                                    <th>审核商品</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="success">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="success">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
+                                <tr class="success" v-for="item in GoodInfoArray">
+                                    <td>{{item.GooNo}}</td>
+                                    <td>{{item.GameName}}</td>
+                                    <td>{{item.GoodTypeName}}</td>
+                                    <td>{{item.GoodKeyWord}}</td>
+                                    <td>{{item.GoodTitle}}</td>
+                                    <td><button class="btn btn-primary">审核商品</button></td>
                                 </tr>
                             </tbody>
                         </table>

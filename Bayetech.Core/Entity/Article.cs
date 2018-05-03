@@ -18,6 +18,7 @@ namespace Bayetech.Core.Entity
         public int ModuleId { get; set; }
         public long CatId { get; set; }
         public string Title { get; set; }
+        public string subhead { get; set; }
         public string Introduce { get; set; }
         public string Author { get; set; }
         public string Tag { get; set; }

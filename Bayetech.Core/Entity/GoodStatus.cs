@@ -12,7 +12,7 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class GoodStatu
+    public partial class GoodStatus
     {
         public int Id { get; set; }
         public string StatusKey { get; set; }

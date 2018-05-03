@@ -27,7 +27,7 @@
 
 .nav{ width:640px; height:36px; background:#1a95ed; float:right; margin-top:30px;border-radius:5px; overflow:hidden}
 .nav a{ width:160px; height:36px;display:block;float:left; font-weight:bold; line-height:36px; color:#fff}
-.nav a.cur{background:#007ae5 url(../images/service-bj.png) no-repeat 0 -163px;}
+.nav a.cur{background:#007ae5 url(../../images/service-bj.png) no-repeat 0 -163px;}
 .nav a:hover{ color:#fff; text-decoration:none}.nav a.nav1:hover{border-radius:5px 0 0 5px;}.nav a.nav4:hover{border-radius:0 5px 5px 0;}
 .place{height:32px; padding-top:4px; line-height:32px;}/* --您的位置--*/
 
@@ -154,7 +154,7 @@
 /*------简洁底部------*/
 .foot{padding-top:10px;}
 .foot li{padding:8px 0px;}
-.foot li i{width:16px; height:16px;background:url(../images/7881_icon.png) no-repeat; margin:0px 5px 0px 15px;}
+.foot li i{width:16px; height:16px;background:url(../../images/7881_icon.png) no-repeat; margin:0px 5px 0px 15px;}
 .foot li i.miitbeian{background-position:0px 0px;}
 .foot li i.cyberpolice{background-position:0px -21px;}
 .foot li i.alipay{background-position:0px -41px;}

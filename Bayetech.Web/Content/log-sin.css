@@ -26,7 +26,7 @@
 .log-content .log-form-horizontal .btn-warning:hover{background-color: #e99e00;border-color: #e99e00;}
 
 /*登录样式*/
-.log-content{width:100%;position:fixed;height:50%;margin-top:-20px;background:url(../Content/Images/loginback.jpg)no-repeat center center;background-size:cover;}
+.log-content{width:100%;position:fixed;height:50%;margin-top:-20px;background:url(../../Content/Images/loginback.jpg)no-repeat center center;background-size:cover;}
 .log-content .container .row{margin-top:30px;}
 
 /*@media*/
