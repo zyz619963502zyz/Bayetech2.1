@@ -50,8 +50,10 @@
     <Compile Include="IServices\IGoodInfoService.cs" />
     <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\IDlService.cs" />
+    <Compile Include="IServices\INavigationService.cs" />
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="IServices\IUploadFileService.cs" />
+    <Compile Include="Model\NavTreeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -67,6 +69,7 @@
     <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ServerService.cs" />
     <Compile Include="Services\SettingService.cs" />
@@ -91,9 +94,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>

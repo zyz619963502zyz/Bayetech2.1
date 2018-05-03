@@ -44,17 +44,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bayetech.Core">
-      <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Bayetech.Service">
-      <HintPath>..\Bayetech.Web\bin\Bayetech.Service.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging">
-      <HintPath>..\Bayetech.Web\bin\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging.Core">
-      <HintPath>..\Bayetech.Web\bin\Common.Logging.Core.dll</HintPath>
+    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -2744,6 +2740,16 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
     <Content Include="Configs\database.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
+      <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
+      <Name>Bayetech.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
+      <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
+      <Name>Bayetech.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
