@@ -256,6 +256,9 @@
     <Compile Include="Enum\ResultInfo.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Core\SysVisitor.cs" />
+    <Compile Include="Security\Json\Json.cs" />
+    <Compile Include="Security\Json\JSONhelper.cs" />
     <Compile Include="Security\Md5.cs" />
     <Compile Include="Web\Filters\WebApiExceptionFilterAttribute.cs" />
     <Compile Include="Web\Pagination.cs" />

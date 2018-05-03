@@ -176,13 +176,13 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
     var data={   
         menuType:"",
         times:0,//次数标识位
-        Games: [{ GameId: "", GameName: "" }],        
+        Games: [{ GameId: "", GameName: "" }],
 		GameSelected: [],//已选游戏
         Orders: [],//订单信息表 
         Types: [],//交易类别
         Groups: [],//游戏区
 		GroupSelected: [],//已选择的区
-		Servers: [],//游戏服务器	
+		Servers: [],//游戏服务器
 		Status: [],//订单状态
         SearchParam:{
             Param: {

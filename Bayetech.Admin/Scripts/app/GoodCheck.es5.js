@@ -1,13 +1,51 @@
-﻿"use strict";
-
-//import commonCompnent from './common.js';暂时无法使用ES6写法，日后再说
+﻿//import commonCompnent from './common.js';
 
 //var _url = "/api/Test/GoodCheck";
 //const aa = 1;
 //let aaaa = 2;
 
 //var aaa = commonCompnent;
-////commonCompnent.postWebJson(_url,null,function(){
+//commonCompnent.postWebJson(_url,null,function(){
+//});
 
-////});
+//当前执行的函数
+//(function () {
+"use strict";
+
+var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
+
+var vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+    BaseTarget: "_blank",
+    keyword: "",
+    GoodInfoArray: [],
+    ListObj: [{
+        GoodNo: "",
+        GoodFirstPicture: "",
+        aurl: "",
+        GoodTitle: "",
+        GroupName: "",
+        ServerName: "",
+        GoodPrice: ""
+    }],
+    SearchParam: {
+        Param: {
+            GoodNo: ""
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+};
+
+var aaa = _commonJs2["default"];
+//commonCompnent.postWebJson(_url,null,function(){
+//});
+
+//});
 

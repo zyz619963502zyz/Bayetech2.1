@@ -99,17 +99,17 @@
         partnerimg: [
             {
                 title: '王者荣耀',
-                imgurl: '../../Content/Images/关羽.jpg',
+                imgurl: '../../../../Content/Images/关羽.jpg',
                 url: 'http://qq.com'
             },
             {
                 title: '兔玩网',
-                imgurl: '../../Content/Images/兰陵王.jpg',
+                imgurl: '../../../../Content/Images/兰陵王.jpg',
                 url: 'http://qq.com'
             },
             {
                 title: 'UU898',
-                imgurl: '../../Content/Images/关羽.jpg',
+                imgurl: '../../../../Content/Images/关羽.jpg',
                 url: 'http://qq.com'
             }
         ],

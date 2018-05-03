@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -184,6 +192,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ButtonsManageController.cs" />
+    <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\GoodCheckController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -2154,6 +2163,12 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Scripts\app\GoodCheck.es5.es5.js">
+      <DependentUpon>GoodCheck.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\GoodCheck.es5.es5.min.js">
+      <DependentUpon>GoodCheck.es5.es5.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\app\GoodCheck.es5.js">
       <DependentUpon>GoodCheck.js</DependentUpon>
     </Content>
@@ -2697,6 +2712,7 @@
     </Content>
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\vue.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2710,6 +2726,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2754,6 +2771,10 @@
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
       <Project>{4e2c8415-4c83-4096-b003-06b5ed5bb79b}</Project>
       <Name>Bayetech.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bayetech.DAL\Bayetech.DAL.csproj">
+      <Project>{8742E37F-2ADE-47DE-B427-36B80E2B3C83}</Project>
+      <Name>Bayetech.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bayetech.Service\Bayetech.Service.csproj">
       <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>

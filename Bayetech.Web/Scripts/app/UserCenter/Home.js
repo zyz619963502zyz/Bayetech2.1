@@ -11,11 +11,16 @@ define([], function () {
                 
 <div class="uaql pull-left">
     <dl id="" class="ual1 bad">
-        <dt>您的帐号安全等级：<b><span id="ctl00_ContentPlaceHolder1_SafeLevelControl_lbllevel">低</span></b></dt>
-        <dd><a href="accountsafe.aspx">检测</a></dd>
+        <dt>您的帐号安全等级：<b><span id="">低</span></b></dt>
+        <dd style="height:30px;">
+			<div class ="progress-m">
+				<div class ="progress-bar" style="width: 60%; background: linear-gradient(to right, #cc5345 35%, #ff7f36 68%);"></div>
+			</div>
+			<a href="accountsafe.aspx">检测</a>
+		</dd>
     </dl>
     <p>
-        <span id="ctl00_ContentPlaceHolder1_SafeLevelControl_lbllevelDesc">您帐号的安全等级较低，为确保帐号安全请尽快提高安全等级</span>
+        <span id="">您帐号的安全等级较低，为确保帐号安全请尽快提高安全等级</span>
     </p>
     
 </div>
@@ -24,14 +29,14 @@ define([], function () {
         <dt>提高帐号安全等级，您可以：</dt>
     </dl>
     <dl>
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddEmail" style="display:none;">
+        <dd id="" style="display:none;">
             <a href="userInfo.aspx">绑定安全邮箱</a></dd>
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddPhone" style="display:;"><a href="/BindMobile.aspx">绑定安全手机</a></dd>
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddID" style="display:;"><a href="/userInfo.aspx">身份验证</a></dd>
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddPWD" style="display:;"><a href="ReFindPassword/ModifyUserPayPwd.aspx">多重密码保障</a></dd>
+        <dd id="" style="display:;"><a href="/BindMobile.aspx">绑定安全手机</a></dd>
+        <dd id="" style="display:;"><a href="/userInfo.aspx">身份验证</a></dd>
+        <dd id="" style="display:;"><a href="ReFindPassword/ModifyUserPayPwd.aspx">多重密码保障</a></dd>
         
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddMobileOrder" style="display:;"><a href="//www.uu898.com/m/pc.html" target="_blank">安全手机密令绑定</a></dd>
-        <dd id="ctl00_ContentPlaceHolder1_SafeLevelControl_ddWechat" style="display:none;"><a href="BindWeChat.aspx">微信绑定</a></dd>
+        <dd id="" style="display:;"><a href="//www.uu898.com/m/pc.html" target="_blank">安全手机密令绑定</a></dd>
+        <dd id="" style="display:none;"><a href="BindWeChat.aspx">微信绑定</a></dd>
     </dl>
     <dl style="width: 180px;">
         <dt>您可以经常更改您的帐户密码和支付密码来提高帐号的安全性。</dt>

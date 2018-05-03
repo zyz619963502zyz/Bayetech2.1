@@ -10,8 +10,8 @@ define(['vue', 'jquery', 'common'], function (Vue, $, common) {
 			<li><span class="user-name">liuzy1110</span> &nbsp;&nbsp;[<span class="current-state">在线</span>]</li>
             <li>买家成交数：<span></span></li>
             <li>卖家成交数：<span></span></li>
-            <li>芝麻信用：<span>00</span><img src="../../Content/NewImages/zhima.png" width="15px" class="pull-right"/></li>
-            <li>我的余额：<span><a href="#" traget="_blank" class="balance">0.00</a></span><img src="../../Content/NewImages/gold-coin.png" width="15px" class="pull-right"/></li>
+            <li>芝麻信用：<span>00</span><img src="../../../../Content/NewImages/zhima.png" width="15px" class="pull-right"/></li>
+            <li>我的余额：<span><a href="#" traget="_blank" class="balance">0.00</a></span><img src="../../../../Content/NewImages/gold-coin.png" width="15px" class="pull-right"/></li>
             <li><a href="#" target="_blank" class="enter-account">进入我的账户</a></li>
             <li class="text-center">
                 <a href="#" class="my-game">我的yxlm</a>

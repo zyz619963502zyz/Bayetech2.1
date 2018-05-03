@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game", "bootstrapValidator"],
+require(['vue', 'jquery', 'common', 'nav-top', "../../Scripts/app/API/Game", "bootstrapValidator"],
     function (Vue, $, common, top, GameAPI, validate) {
         var data = {
             GameGroupList: [],

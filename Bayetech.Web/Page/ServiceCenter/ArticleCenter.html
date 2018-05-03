@@ -5,9 +5,9 @@
     <title>咨讯中心</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
-    <script src="../../Scripts/require.js"></script>
-    <script src="../../Scripts/jsconfig.js"></script>
-    <script src="../../Scripts/app/ServiceCenter/articleCenter/index.js"></script>
+    <script src="../../../../Scripts/require.js"></script>
+    <script src="../../../../Scripts/jsconfig.js"></script>
+    <script src="../../../../Scripts/app/ServiceCenter/articleCenter/index.js"></script>
 </head>
 <body>
     <div id="ArticleElm">
@@ -20,17 +20,19 @@
                 <!--左侧导航-->
                 <aside class="l-aside pull-left">
                     <ul>
-                        <li class="selected">本站公告</li>
-                        <li>常见问题</li>
-                        <li>游戏资讯</li>
-                        <li>新手帮助</li>
+                        <li class="selected"><a href="#">本站公告</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">游戏资讯</a></li>
+                        <li><a href="#">新手帮助</a></li>
                     </ul>
                 </aside>
                 <!--消息模板-->
-                <artmodule></artmodule>
+                <!--<artmodule></artmodule>-->
+                <component :is="step"></component>
             </section>
         </div>
         <!--主体结束-->
+        <v-footer></v-footer>
     </div>
 </body>
 </html>

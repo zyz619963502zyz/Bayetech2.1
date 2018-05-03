@@ -14,13 +14,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                     <div class ="collapse navbar-collapse">
                         <ul class ="nav navbar-nav">
-                            <li class ="login-a"><a href="../Login/Loging.html">请登录</a></li>
+                            <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
                             <li></li>
                             <li></li>
                         </ul>
                         <ul class ="nav navbar-nav navbar-right">
                             <li class ="dropdown">
-                                <a href="../../Page/DLService/DLList.html" target="_blank">我的6666 <span class ="caret"></span></a>
+                                <a href="../../../../Page/DLService/DLList.html" target="_blank">我的6666 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
                                     <li><a href="#">我购买的商品</a></li>
                                     <li><a href="#">出售中的商品</a></li>
@@ -29,8 +29,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             </li>
 							<li class="dropdown"><a href="#">买家中心 <span class ="caret"></span></a>
 								<ul class ="dropdown-menu">
-                                    <li><a href="../Page/">我要买</a></li>
-                                    <li><a href="../../Page/UserCenter/Index.html#/MyOrders?flag=All">我购买的商品</a></li>
+                                    <li><a href="../../Page/">我要买</a></li>
+                                    <li><a href="../../../../Page/UserCenter/Index.html#/MyOrders?flag=All">我购买的商品</a></li>
                                 </ul>
 							</li>
 							<li class ="dropdown"><a href="#">卖家中心 <span class ="caret"></span></a>
@@ -45,7 +45,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li class ="dropdown">
                                 <a href="#">服务中心 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
-                                    <li><a href="../Page/Service/ArticleCenter.html" target="_blank">资讯中心</a></li>
+                                    <li><a href="../../Page/ServiceCenter/ArticleCenter.html" target="_blank">资讯中心</a></li>
                                     <li><a href="#">安全中心</a></li>
                                     <li><a href="#">帮助中心</a></li>
                                     <li><a href="#">我要咨询</a></li>
