@@ -9,5 +9,6 @@ namespace Bayetech.Admin.Controllers
 {
     public class RoleNavBtnsController : ApiController
     {
+
     }
 }
