@@ -107,19 +107,20 @@
 /*--------------右边余额信息------------*/
 .umiddle { position: relative; width: 100%; z-index: 5; }
 
-.umbox h5 {
-        font-size: 12px;
+.umbox h5,#userInfo .hd p {
+    font-size: 12px;
     height: 30px;
     line-height: 30px;
     text-indent: 10px;
     margin: 0;
-    border-bottom: 1px solid #c3c3c3;
-    background-color:#e8e8e8;
+    border-bottom: 1px solid #ddd;
+    background: linear-gradient(#fff,#eee);
+    color: #3d86ea;
 }
 
 #userInfo {height: 240px;width: 100%;border:1px solid #c3c3c3;}
 #userInfo .hd{border-bottom:1px solid #c3c3c3;background-color:#e8e8e8;}
-#userInfo .hd p { line-height: 35px; text-indent: 10px;margin:0; }
+
 #userInfo .bd { height: 173px; padding: 10px; position: relative}
 #userInfo .bd ul li { float: left; line-height: 25px; padding-right: 20px }
 
@@ -145,14 +146,27 @@
     width: 100%;
     margin-bottom: 20px;}
 .umbox .bd { padding: 10px }
+
+/*右边检测条*/
+.uaql .progress-m{
+    float:left;
+        width: 65%;
+    background: #fdfdfcf5;
+    border-radius: 20px;
+    height: 20px;
+    box-shadow: 0px 0px 3px #000;
+    overflow:hidden;
+}
+.uaql .progress-m .progress-bar{
+    height:20px;
+}
+
 #capitalInfo .bd { height: 160px; padding-top: 10px; position: relative }
 #capitalInfo .uaql { height: 90px;margin-right: 15px;width: 600px;}
 #capitalInfo .uaql .ual1 dt { color: #404040; font-size: 14px; font-weight: bold; height: 30px; line-height: 30px; font-family: 微软雅黑 }
 #capitalInfo .uaql .ual1 p { height: 35px }
-#capitalInfo .uaql .bad dd { background-position: 0 0; *background-position: 0 0
-}
-#capitalInfo .uaql .normal dd { background-position: 0 -13px; *background-position: 0 -13px
-}
+#capitalInfo .uaql .bad dd { background-position: 0 0; *background-position: 0 0}
+#capitalInfo .uaql .normal dd { background-position: 0 -13px; *background-position: 0 -13px}
 #capitalInfo dl{margin-bottom:0;}
 #capitalInfo .uaql .good dd { background-position: 0 -39px }
 #capitalInfo .uaql .verygood dd { background-position: 0 -26px }
@@ -165,3 +179,4 @@
 #capitalInfo .uaqr dl dt { line-height: 15px }
 #capitalInfo .uaqr dl dd { color: #666 }
 #capitalInfo .uaqr dl dd a { color: #36c }
+

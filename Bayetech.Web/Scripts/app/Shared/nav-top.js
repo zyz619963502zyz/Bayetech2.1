@@ -45,7 +45,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li class ="dropdown">
                                 <a href="#">服务中心 <span class ="caret"></span></a>
                                 <ul class ="dropdown-menu">
-                                    <li><a href="../Page/Service/ArticleCenter.html" target="_blank">资讯中心</a></li>
+                                    <li><a href="../../Page/ServiceCenter/ArticleCenter.html" target="_blank">资讯中心</a></li>
                                     <li><a href="#">安全中心</a></li>
                                     <li><a href="#">帮助中心</a></li>
                                     <li><a href="#">我要咨询</a></li>
