@@ -1,7 +1,7 @@
 ﻿//模块之间的操作
 
 
-require(['vue', 'jquery', 'common', 'v-nav', 'nav-top', 'game-list', "v-footer", 'css!../Content/bootstrap/bootstrap.min', 'css!../Content/common', 'css!../Content/gamelist'],
+require(['vue', 'jquery', 'common', 'v-nav', 'nav-top', 'game-list', "v-footer", 'css!../../Content/bootstrap/bootstrap.min', 'css!../../Content/common', 'css!../../Content/gamelist'],
 	function (Vue, $, common, nav, navt, GameList,footer) {
 	    new Vue({
 	        el: '#app',

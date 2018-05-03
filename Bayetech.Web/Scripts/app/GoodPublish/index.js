@@ -1,7 +1,7 @@
 ﻿//模块之间的操作
 
 require(['vue', 'jquery', 'common', 'v-header', 'Scripts/app/GoodPublish/Step1', 'Scripts/app/GoodPublish/Step2', 'Scripts/app/GoodPublish/Step3', 'API', 'nav-top', 'v-footer',
-	'css!../Content/bootstrap/font-awesome.min','css!../Content/bootstrap/bootstrap.min','css!../Content/fileupload/fileinput','css!../Content/common','css!../Content/publish',],
+	'css!../../Content/bootstrap/font-awesome.min','css!../../Content/bootstrap/bootstrap.min','css!../../Content/fileupload/fileinput','css!../../Content/common','css!../../Content/publish',],
 	function (Vue, $, common, header, step1, step2, step3, API, navt,footer) {
 	    var data={
 	        Step: step1,
