@@ -6,5 +6,10 @@ let aaaa = 2;
 
 var aaa = commonCompnent;
 //commonCompnent.postWebJson(_url,null,function(){
+//});
 
-//}); 
+
+//当前执行的函数
+(function(){
+
+})();
