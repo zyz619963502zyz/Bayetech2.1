@@ -43,9 +43,29 @@ var vmData = {
     }
 };
 
-var aaa = _commonJs2["default"];
-//commonCompnent.postWebJson(_url,null,function(){
-//});
+//vue
+var vm = new Vue({
+    el: '#CommForm',
+    data: vmData,
+    created: function created() {
+        this.findList();
+    },
+    methods: {
+        findList: function findList() {
+            //获取商品的简要列表
+            var self = this;
+            postWebJson(GoodListUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.GoodInfoArray = data.content.datas;
+                }
+            });
+        },
+        StartCheck: function StartCheck() {
+            //开始检查
+            $("#checkModal").modal("show");
+        }
+    }
+});
 
-//});
+//})();
 
