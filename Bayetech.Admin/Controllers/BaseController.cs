@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json.Linq;
 using Spring.Context;
 using Spring.Context.Support;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
+    [Route("api/[controller]")]
     public class BaseController : ApiController
     {
 
