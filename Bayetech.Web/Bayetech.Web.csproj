@@ -781,6 +781,7 @@
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Universal.js" />
     <Content Include="Scripts\app\GoodPublish\GoodInfo\Gold.js" />
     <Content Include="Scripts\app\ServiceCenter\articleCenter\article.js" />
+    <Content Include="Scripts\app\ServiceCenter\articleCenter\details.js" />
     <Content Include="Scripts\app\ServiceCenter\articleCenter\index.js" />
     <Content Include="Scripts\app\Shared\FileUpload.js" />
     <Content Include="Scripts\app\GoodPublish\index.js" />

@@ -25,6 +25,10 @@ namespace Bayetech.Service.Services
                 Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
                 if (goodInfo != null)
                 {
+                    if (!string.IsNullOrEmpty(goodInfo.GoodNo))
+                    {
+                        expression = expression.And(t => t.GoodNo == goodInfo.GoodNo);
+                    }
                     if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
                     {
                         expression = expression.And(t => t.GameId == goodInfo.GameId);

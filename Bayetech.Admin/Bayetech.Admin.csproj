@@ -192,6 +192,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ButtonsManageController.cs" />
+    <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\GoodCheckController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -2711,6 +2712,7 @@
     </Content>
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\vue.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

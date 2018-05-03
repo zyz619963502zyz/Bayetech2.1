@@ -4,49 +4,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 	<meta charset="utf-8" />
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <link href="../../Content/bootstrap.css" rel="stylesheet" />
-    <link href="../../Content/generics.css" rel="stylesheet" />
-    <link href="../../Content/Mystyle.css" rel="stylesheet" />
-    <script src="../../Scripts/app/GoodCheck.js"></script>
 </head>
 <body>
-    <div style="padding:20px 0 20px 0;">
-        <form class="form form-search form-horizontal" role="form">
-            <div class="form-group" id="lineOne">
-                <div class="col-ms-10">
-                    <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题1111:</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题2222:</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </div>
-                </div>      
-            </div>
 
+    <div class="modal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div id="modal_head" class="modal-header">
+                    <h4 class="text-center">商品信息审核</h4>
+                    <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
+                        <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="modal_title"></h4>
+                </div>
+                <div class="modal-body" id="modal_body">
+                    <textarea class="form-control">商品的描述信息如下:此商品比较扯淡一点点都不能使用，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
+                </div>
+                <div class="modal-footer" id="modal_footer" style="text-align:center;">
+                    <button type="button" class="btn  btn-primary" data-loading-text="处理中..." name="CheckConfirm" id="aaaa">审核通过</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" name="CheckNo" id="bbbb">审核不通过</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" name="Cancel" id="cccc">审核不通过</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="CommForm" style="padding:20px 0 20px 0;">
+        <form class="form form-search form-horizontal" role="form" >
             <div class="form-group" id="lineTwo">
                 <div class="col-ms-10">
                     <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题3333:</label>
+                        <label class="control-label col-md-3">商品编号:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" v-model="SearchParam.Param.GoodNo" class="form-control" />
                         </div>
                     </div>
-                    <div class="input-group col-md-5">
-                        <label class="control-label col-md-3">测试标题4444:</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" />
-                        </div>
-                    </div> 
                     <div class="col-md-2">
-                        <button class="btn btn-primary form-control">查询</button>
+                        <input type="button" class="btn btn-primary form-control" value="查询" @click="findList"/>
                     </div>
                 </div>
             </div>
@@ -66,63 +61,29 @@
                                 <input type="text" name="name" class="form-control"/>
                                 <span class="input-group-addon">页</span>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Go!</button>
+                                    <input type="button" value="Go!" class="btn btn-default" />
                                 </span>
                             </div>
                         </div>
                         <table class="table table-bordered">
                             <thead>
-                                <tr>
-                                    <th>标题一</th>
-                                    <th>标题二</th>
-                                    <th>标题三</th>
-                                    <th>标题四</th>
-                                    <th>标题五</th>
-                                    <th>标题六</th>
-                                    <th>标题七</th>
-                                    <th>标题八</th>
+                                <tr class="success" >
+                                    <th class="text-center">商品编号</th>
+                                    <th class="text-center">游戏名称</th>
+                                    <th class="text-center">交易类型</th>
+                                    <th class="text-center">关键词</th>
+                                    <th class="text-center">商品标题</th>
+                                    <th class="text-center">审核商品</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="success">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="success">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>内容1</td>
-                                    <td>内容2</td>
-                                    <td>内容3</td>
-                                    <td>内容4</td>
-                                    <td>内容5</td>
-                                    <td>内容6</td>
-                                    <td>内容7</td>
-                                    <td>内容8</td>
+                                <tr v-for="item in GoodInfoArray">
+                                    <td>{{item.GoodNo}}</td>
+                                    <td>{{item.GameName}}</td>
+                                    <td>{{item.GoodTypeName}}</td>
+                                    <td>{{item.GoodKeyWord}}</td>
+                                    <td>{{item.GoodTitle}}</td>
+                                    <td class="text-center"><input type="button" class="btn btn-primary" value="审核商品" @click="StartCheck(item.GoodNo)"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -136,3 +97,11 @@
     </div>
 </body>
 </html>
+<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+<script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/vue.js"></script>
+<script src="../../lib/common.js"></script>
+<script src="../../Scripts/app/GoodCheck.js"></script>
+<link href="../../Content/bootstrap.css" rel="stylesheet" />
+<link href="../../Content/generics.css" rel="stylesheet" />
+<link href="../../Content/Mystyle.css" rel="stylesheet" />
