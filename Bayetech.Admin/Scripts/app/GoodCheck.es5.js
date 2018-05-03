@@ -12,6 +12,8 @@ var aaaa = 2;
 
 var aaa = _commonJs2["default"];
 //commonCompnent.postWebJson(_url,null,function(){
-
 //});
+
+//当前执行的函数
+(function () {})();
 

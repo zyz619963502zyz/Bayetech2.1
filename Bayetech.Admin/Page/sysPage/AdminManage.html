@@ -329,10 +329,11 @@
                     self.Message(data.ErrorMsg, false);
                 }
             }
+            debugger;
             self.Table.bootstrapTable({
                 //请求方法
                 method: 'get',
-                url: "/api/Navigation/GetList",
+                url: self.ApiName + "GetList",
                 dataType: "json",
                 singleSelect: true,
                 sidePagination: "server", //服务端处理分页
