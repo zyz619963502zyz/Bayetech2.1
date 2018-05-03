@@ -62,7 +62,7 @@ var vm = new Vue({
         },
         StartCheck: function StartCheck() {
             //开始检查
-            $("#checkModal").Modal("show");
+            $("#checkModal").modal("show");
         }
     }
 });
