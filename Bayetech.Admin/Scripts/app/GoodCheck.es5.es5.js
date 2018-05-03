@@ -14,9 +14,38 @@
 
 var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
+var vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+    BaseTarget: "_blank",
+    keyword: "",
+    GoodInfoArray: [],
+    ListObj: [{
+        GoodNo: "",
+        GoodFirstPicture: "",
+        aurl: "",
+        GoodTitle: "",
+        GroupName: "",
+        ServerName: "",
+        GoodPrice: ""
+    }],
+    SearchParam: {
+        Param: {
+            GoodNo: ""
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+};
+
 var aaa = _commonJs2["default"];
 //commonCompnent.postWebJson(_url,null,function(){
 //});
 
-//})();
+//});
 
