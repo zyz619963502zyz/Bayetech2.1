@@ -55,9 +55,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 								<a href="#" style="color:#3d86ea">网站导航 <span class ="caret"></span></a>
 								<ul class ="dropdown-menu">
                                     <li class="homebg"><a href="#">首页</a></li>
-                                    <li><a href="../../Game/List.html" target="_blank">金币交易</a></li>
-                                    <li><a href="../../Game/List.html" target="_blank">账号交易</a></li>
-                                    <li><a href="../../Game/List.html" target="_blank">装备交易</a></li>
+                                    <li><a href="../Game/List.html" target="_blank">金币交易</a></li>
+                                    <li><a href="../Game/List.html" target="_blank">账号交易</a></li>
+                                    <li><a href="../Game/List.html" target="_blank">装备交易</a></li>
 									<li><a href="#">游戏代练</a></li>
                                 </ul>
 							</li>
