@@ -9,52 +9,63 @@
 //});
 
 //当前执行的函数
+//(function () {
 "use strict";
 
-(function () {
+var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
-    var vmData = {
-        BaseUrl: common.GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
-        BaseTarget: "_blank",
-        keyword: "",
-        GoodInfoArray: [],
-        ListObj: [{
-            GoodNo: "",
-            GoodFirstPicture: "",
-            aurl: "",
-            GoodTitle: "",
-            GroupName: "",
-            ServerName: "",
-            GoodPrice: ""
-        }],
-        SearchParam: {
-            Param: eval('(' + localStorage.SearchParam + ')'),
-            Pagination: { //分页对象
-                rows: 10, //每页行数，
-                page: 1, //当前页码
-                order: "GoodNo", //排序字段
-                sord: "asc", //排序类型
-                records: 10, //总记录数
-                total: 10 //总页数。
-            }
+var vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+    BaseTarget: "_blank",
+    keyword: "",
+    GoodInfoArray: [],
+    ListObj: [{
+        GoodNo: "",
+        GoodFirstPicture: "",
+        aurl: "",
+        GoodTitle: "",
+        GroupName: "",
+        ServerName: "",
+        GoodPrice: ""
+    }],
+    SearchParam: {
+        Param: {
+            GoodNo: ""
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
         }
-    };
+    }
+};
 
-    var vm = new Vue({
-        el: "#CommForm",
-        data: vmData,
-        created: function created() {},
-        methods: {
-            findList: function findList() {
-                //获取商品的简要列表
-                var self = this;
-                common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
-                    if (data.result) {
-                        self.GoodInfoArray = data.content.datas;
-                    }
-                });
-            }
+//vue
+var vm = new Vue({
+    el: '#CommForm',
+    data: vmData,
+    created: function created() {
+        this.findList();
+    },
+    methods: {
+        findList: function findList() {
+            //获取商品的简要列表
+            var self = this;
+            postWebJson(GoodListUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.GoodInfoArray = data.content.datas;
+                }
+            });
+        },
+        StartCheck: function StartCheck() {
+            //开始检查
+            $("#checkModal").modal("show");
         }
-    });
-})();
+    }
+});
+
+//})();
 

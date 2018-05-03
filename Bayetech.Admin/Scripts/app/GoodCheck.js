@@ -10,10 +10,11 @@
 
 
 //当前执行的函数
-(function () {
+//(function () {
+    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
     var vmData = {
-        BaseUrl: common.GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+        //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
         BaseTarget: "_blank",
         keyword: "",
         GoodInfoArray:[],
@@ -29,7 +30,9 @@
             }
         ],
         SearchParam: {
-            Param: eval('('+localStorage.SearchParam+')'),
+            Param: {
+                GoodNo:""
+            },
             Pagination: {//分页对象
                 rows: 10,//每页行数，
                 page: 1,//当前页码
@@ -41,24 +44,28 @@
         },
      };
 
+    //vue
     var vm = new Vue({
-        el: "#CommForm",
+        el: '#CommForm',
         data: vmData,
         created(){
-
+            this.findList();
         },
         methods: {
              findList() {//获取商品的简要列表
                 var self=this;
-                common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+                postWebJson(GoodListUrl, self.SearchParam, function (data) {
                     if (data.result) {
                         self.GoodInfoArray=data.content.datas;
                     }
                 });
+            },
+            StartCheck() {//开始检查
+                $("#checkModal").modal("show");
             }
         }
     });
 
-})();
+//})();
 
 
