@@ -1,21 +1,23 @@
-﻿"use strict";
+﻿/// <binding BeforeBuild='Run - Development' />
+"use strict";
 
 module.exports = {
-    entry: "./src/file.js",
+    entry: "./Scripts/TestES6.js",
     output: {
-        filename: "./dist/bundle.js"
+        //path: path.join(__dirname, 'Scripts'),
+        filename:  "./Scripts/bundle.js"
     },
     devServer: {
         contentBase: ".",
         host: "localhost",
         port: 9000
     },
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loader: "babel-loader"
-            }
-        ]
-    }
+    //module: {
+    //    loaders: [
+    //        {
+    //            test: /\.jsx?$/,
+    //            loader: "babel-loader"
+    //        }
+    //    ]
+    //}
 };
