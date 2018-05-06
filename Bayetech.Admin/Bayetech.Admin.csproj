@@ -2712,6 +2712,13 @@
     </Content>
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\TestES6.es5.js">
+      <DependentUpon>TestES6.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\TestES6.es5.min.js">
+      <DependentUpon>TestES6.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\TestES6.js" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2731,6 +2738,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="node_modules\" />
     <Folder Include="Page\OrderCheck\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
@@ -2762,6 +2770,9 @@
     <Content Include="Content\fonts\opan-sans\OpenSans-Semibold-webfont.woff" />
     <Content Include="Configs\database.config" />
     <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.bindings">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

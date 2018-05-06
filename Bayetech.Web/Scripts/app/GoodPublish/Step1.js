@@ -35,7 +35,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                         <dt class="orange">请选择商品类型</dt>
                         <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGoodTypeName" @keyup="SearchByName('GoodType')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="goodtypelist">
-                            <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" class ="" v-for="item in GoodTypeList" :class ="{'cur':GameInfo.GoodTypeId==item.Id}">
+                            <a gtid="item.Id" @click="ClickLoad('GoodType',item.Id,item.Name)" v-for="item in GoodTypeList" :class ="{'cur':GameInfo.GoodTypeId==item.Id}">
                                 <span class="left">{{item.Name}}</span>
                             </a>
                         </dd>
@@ -44,7 +44,7 @@ define(['jquery', 'common', 'API'], function ($, common, API) {
                         <dt class="orange">请选择所在的游戏区</dt>
                         <dt><input type="text" search="search" class ="rele_input" placeholder="输入名称" v-model="SearchGroupName" @keyup="SearchByName('Group')"><label style="display: none;">正在努力查询中...</label></dt>
                         <dd id="grouplist">
-                            <a groupid="item.Id" @click="ClickLoad('Group',item.Id,item.Name)" class ="" v-for="item in GroupList" :class="{'cur':GameInfo.GroupId==item.Id}">
+                            <a groupid="item.Id" @click="ClickLoad('Group',item.Id,item.Name)" v-for="item in GroupList" :class="{'cur':GameInfo.GroupId==item.Id}">
                                 <span class="left reduce">{{item.Name}}</span>
                             </a>
                         </dd>
