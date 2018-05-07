@@ -2,10 +2,14 @@
 "use strict";
 
 module.exports = {
-    entry: "./Scripts/TestES6.js",
+    entry:{
+        TestES6: "./Scripts/TestES6.js",
+        GoodCheck: "./Scripts/app/GoodCheck.js"
+    },
     output: {
         //path: path.join(__dirname, 'Scripts'),
-        filename:  "./Scripts/bundle.js"
+        filename: "./Scripts/app/TranslateContent/[name].js"
+
     },
     devServer: {
         contentBase: ".",
