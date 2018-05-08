@@ -1,25 +1,16 @@
-﻿import commonCompnent from '../common.js';
-
-(function(){
-    alert("你好阿!!!");
-})();
+﻿//import Vue from '../vue.js'
+import commonCompnent from '../common.js'
 
 
-////var _url = "/api/Test/GoodCheck";
-////const aa = 1;
-////let aaaa = 2;
-
-////var aaa = commonCompnent;
-////commonCompnent.postWebJson(_url,null,function(){
-////});
+var _url = "/api/Test/GoodCheck";
 
 
 ////当前执行的函数
-////(function () {
+//(function () {
 //    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
 //    var vmData = {
-//        //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+//        BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
 //        BaseTarget: "_blank",
 //        keyword: "",
 //        GoodInfoArray:[],
@@ -47,9 +38,8 @@
 //                total: 10//总页数。
 //            }
 //        },
-//     };
+//    };
 
-//    //vue
 //    var vm = new Vue({
 //        el: '#CommForm',
 //        data: vmData,
@@ -59,7 +49,7 @@
 //        methods: {
 //             findList() {//获取商品的简要列表
 //                var self=this;
-//                postWebJson(GoodListUrl, self.SearchParam, function (data) {
+//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
 //                    if (data.result) {
 //                        self.GoodInfoArray=data.content.datas;
 //                    }
@@ -71,6 +61,6 @@
 //        }
 //    });
 
-////})();
+//})();
 
 

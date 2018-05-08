@@ -1,4 +1,5 @@
-﻿"use strict";
+﻿//import Vue from '../vue.js'
+"use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -6,24 +7,14 @@ var _commonJs = require('../common.js');
 
 var _commonJs2 = _interopRequireDefault(_commonJs);
 
-(function () {
-    alert("你好阿!!!");
-})();
-
-////var _url = "/api/Test/GoodCheck";
-////const aa = 1;
-////let aaaa = 2;
-
-////var aaa = commonCompnent;
-////commonCompnent.postWebJson(_url,null,function(){
-////});
+var _url = "/api/Test/GoodCheck";
 
 ////当前执行的函数
-////(function () {
+//(function () {
 //    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
 //    var vmData = {
-//        //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+//        BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
 //        BaseTarget: "_blank",
 //        keyword: "",
 //        GoodInfoArray:[],
@@ -51,9 +42,8 @@ var _commonJs2 = _interopRequireDefault(_commonJs);
 //                total: 10//总页数。
 //            }
 //        },
-//     };
+//    };
 
-//    //vue
 //    var vm = new Vue({
 //        el: '#CommForm',
 //        data: vmData,
@@ -63,7 +53,7 @@ var _commonJs2 = _interopRequireDefault(_commonJs);
 //        methods: {
 //             findList() {//获取商品的简要列表
 //                var self=this;
-//                postWebJson(GoodListUrl, self.SearchParam, function (data) {
+//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
 //                    if (data.result) {
 //                        self.GoodInfoArray=data.content.datas;
 //                    }
@@ -75,5 +65,5 @@ var _commonJs2 = _interopRequireDefault(_commonJs);
 //        }
 //    });
 
-////})();
+//})();
 
