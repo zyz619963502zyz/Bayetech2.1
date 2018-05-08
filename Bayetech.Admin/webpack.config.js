@@ -1,9 +1,15 @@
-﻿"use strict";
+﻿/// <binding BeforeBuild='Run - Development' />
+"use strict";
 
 module.exports = {
-    entry: "./src/file.js",
+    entry:{
+        TestES6: "./Scripts/TestES6.js",
+        GoodCheck: "./Scripts/app/GoodCheck.js"
+    },
     output: {
-        filename: "./dist/bundle.js"
+        //path: path.join(__dirname, 'Scripts'),
+        filename: "./Scripts/app/TranslateContent/[name].js"
+
     },
     devServer: {
         contentBase: ".",

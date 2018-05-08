@@ -10,5 +10,9 @@
   {
     "outputFile": "Scripts/app/GoodCheck.es5.es5.js",
     "inputFile": "Scripts/app/GoodCheck.es5.js"
+  },
+  {
+    "outputFile": "Scripts/TestES6.es5.js",
+    "inputFile": "Scripts/TestES6.js"
   }
 ]
