@@ -7,7 +7,7 @@ using Bayetech.Core.Entity;
 
 namespace Bayetech.Web.Controllers
 {
-    public class AccountController : BaseController
+    public class UserController : BaseController
     {
 
         //取出服务层

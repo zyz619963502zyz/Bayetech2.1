@@ -218,7 +218,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Start\AttributeRoutingConfig.vb" />
     <Content Include="Content\Mystyle.css" />
     <Content Include="Page\adminPage\CustomerManage.html" />
     <Content Include="Page\BayMain.html" />

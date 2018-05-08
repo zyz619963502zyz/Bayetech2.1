@@ -30,26 +30,11 @@ namespace Bayetech.Admin
             //    defaults: new { id = RouteParameter.Optional }
             //);
 
-            RouteTable.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            ).RouteHandler = new SessionControllerRouteHandler();
-        }
-    }
-
-    public class SessionRouteHandler : HttpControllerHandler, IRequiresSessionState
-    {
-        public SessionRouteHandler(RouteData routeData)
-            : base(routeData)
-        {
-        }
-    }
-    public class SessionControllerRouteHandler : HttpControllerRouteHandler
-    {
-        protected override IHttpHandler GetHttpHandler(RequestContext requestContext)
-        {
-            return new SessionRouteHandler(requestContext.RouteData);
+            config.Routes.MapHttpRoute(
+              name: "DefaultApi",
+              routeTemplate: "api/{controller}/{action}/{id}",
+              defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }
