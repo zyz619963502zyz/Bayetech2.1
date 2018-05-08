@@ -3,15 +3,33 @@
 
 .main-content{
     margin-top:15px;
+    margin-bottom:30px;
 }
 .l-aside{
     width:260px;
     border:1px solid #ccc;
 }
+.l-aside ul{
+
+}
+    .l-aside ul li {
+        padding: 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    }
+        .l-aside ul li:last-child {
+            border-bottom:0;
+        }
+        .l-aside ul li.select {
+
+        }
+        .l-aside ul li > a {
+
+        }
 .r-article{
     width:850px;
     border:1px solid #ccc;
-
+    min-height:500px;
 }
 .r-article h2{
     font-family:'Microsoft YaHei';
@@ -55,6 +73,47 @@
     background-color:#0b80c1;
     text-decoration: none;
 }
+
+/*详情查看*/
+    .r-article .news-hd {
+        width: 100%;
+        padding: 10px 30px;
+    }
+
+        .r-article .news-hd h1 {
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .r-article .news-hd .news-date {
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px dotted;
+        }
+
+            .r-article .news-hd .news-date span {
+                padding: 0 30px;
+            }
+
+    .r-article .newsCont {
+        padding: 20px;
+    }
+
+        .r-article .newsCont p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .r-article .newsCont p.back{
+            text-align:right;
+            margin-bottom:0;
+        }
+        .r-article .newsCont p.back>a{
+            color:#056ab3
+        }
 
 
 

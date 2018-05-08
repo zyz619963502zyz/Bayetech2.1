@@ -1,5 +1,5 @@
 ﻿
-var aaa = (function() {
+var aaa = function(){
     var commonCompnent = {};
 
     /**
@@ -280,6 +280,6 @@ var aaa = (function() {
     };
 
     return commonCompnent
-})();
+};
 
 export { aaa }

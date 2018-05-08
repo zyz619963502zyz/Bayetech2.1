@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "Scripts/app/GoodCheck.es5.js",
+    "inputFile": "Scripts/app/GoodCheck.js"
+  },
+  {
+    "outputFile": "Scripts/common.es5.js",
+    "inputFile": "Scripts/common.js"
+  },
+  {
+    "outputFile": "Scripts/app/GoodCheck.es5.es5.js",
+    "inputFile": "Scripts/app/GoodCheck.es5.js"
+  },
+  {
+    "outputFile": "Scripts/TestES6.es5.js",
+    "inputFile": "Scripts/TestES6.js"
+  }
+]

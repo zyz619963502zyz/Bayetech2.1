@@ -4,4 +4,6 @@
   <object name="GoodInfoService" type="Bayetech.Service.Services.GoodInfoService,Bayetech.Service"></object>
   <object name="OrderService" type="Bayetech.Service.Services.OrderService,Bayetech.Service"></object>
   <object id="BaseService" type="Bayetech.Service.BaseService&lt;Bayetech.Core.Entity.Category>,Bayetech.Service"></object>
+  <object name="NavigationService" type="Bayetech.Service.NavigationService,Bayetech.Service"></object>
+  <object name="UserService" type="Bayetech.Service.UserService,Bayetech.Service"></object>
 </objects>

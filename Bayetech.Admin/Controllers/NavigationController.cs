@@ -1,19 +1,21 @@
 ﻿using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Spring.Context;
+using System.Collections.Concurrent;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
+
     public class NavigationController : BaseController
     {
-       
-        ILoginSignService service = ctx.GetObject("LoginSignService") as ILoginSignService;
+        ILoginSignService service1 = ctx.GetObject("LoginSignService") as ILoginSignService;
+        INavigationService service = ctx.GetObject("NavigationService") as INavigationService;
 
-        [HttpPost]
-        public JObject CheckAccount()
+        [HttpGet]
+        public ConcurrentDictionary<string, string> GetClientsDataJson()
         {
-            return null;
+            return service.GetClientsDataJson(0, null);
         }
     }
 }

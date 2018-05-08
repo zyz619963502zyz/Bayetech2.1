@@ -107,7 +107,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                 <h1>
                                     订单编号：{{item.OrderNo}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 创建时间：{{item.OrderCreatTime.replace('T',' ')}}
                                     <span style="float: right;color:red;margin:0 7px 0 0; *margin:-30px 7px 0 0;">
-                                        <a href="../goods-buying-G10-100001-1.html">
+                                        <a href="../../goods-buying-G10-100001-1.html">
                                             <span class ="span1" style="color:#FF6600;size: 12px;font-family:'宋体';margin-right:10px;">
                                             </span>
                                         </a>
@@ -124,7 +124,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
                                     <ol class ="zj"><span style="color:#F90">{{item.OrderPrice}}</span>元</ol>
                                     <ol class ="sl">1
                                         <br />
-                                        <span class ="button1" style="display: none"><a href='../goods-buying-G10-100001-1.html'>再来一单</a></span>
+                                        <span class ="button1" style="display: none"><a href='../../goods-buying-G10-100001-1.html'>再来一单</a></span>
                                     </ol>
                                     <ol class ="khfw">
                                         <a href="javascript:void(0)" class ="list-kf" >

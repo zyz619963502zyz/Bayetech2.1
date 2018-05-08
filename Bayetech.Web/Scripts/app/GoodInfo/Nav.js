@@ -9,7 +9,7 @@ define(jsconfig.baseArr, function (Vue,$,common) {
         Param:eval('('+localStorage.SearchParam+')'),
         object: [{
             title: "首页",
-            href: "../Home/NewIndex.html"
+            href: "../../Home/NewIndex.html"
         }]
     };
 

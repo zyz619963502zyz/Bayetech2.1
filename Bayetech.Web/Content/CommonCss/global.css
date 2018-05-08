@@ -145,7 +145,7 @@
 /*------简洁底部------*/
 .foot{padding-top:10px;}
 .foot li{padding:8px 0px;}
-.foot li i{width:16px; height:16px;background:url(../images/7881_icon.png) no-repeat; margin:0px 5px 0px 15px;}
+.foot li i{width:16px; height:16px;background:url(../../images/7881_icon.png) no-repeat; margin:0px 5px 0px 15px;}
 .foot li i.miitbeian{background-position:0px 0px;}
 .foot li i.cyberpolice{background-position:0px -21px;}
 .foot li i.alipay{background-position:0px -41px;}
