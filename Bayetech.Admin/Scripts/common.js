@@ -1,5 +1,5 @@
 ﻿
-var aaa = function(){
+var ComContents = function(){
     var commonCompnent = {};
 
     /**
@@ -282,4 +282,4 @@ var aaa = function(){
     return commonCompnent
 };
 
-export { aaa }
+export { ComContents }

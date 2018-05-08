@@ -2747,6 +2747,7 @@
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\OrderCheck\" />
+    <Folder Include="Scripts\app\Processes\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
@@ -2783,6 +2784,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="package.json" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
