@@ -69,8 +69,8 @@
 
 "use strict";
 /* unused harmony export aaa */
-﻿
-var aaa = function(){
+
+var aaa = function () {
     var commonCompnent = {};
 
     /**
@@ -83,8 +83,7 @@ var aaa = function(){
         * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
     commonCompnent.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
-        if (!callLoading) {
-        }
+        if (!callLoading) {}
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
         $.ajax({
             type: "get",
@@ -123,7 +122,7 @@ var aaa = function(){
             $("#Loading").removeClass("hide");
         }
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
-        if (typeof (asyncC) != "undefined" && typeof (asyncC) != "boolean") {
+        if (typeof asyncC != "undefined" && typeof asyncC != "boolean") {
             $("#Loading").addClass("hide");
             GetAlert("同异步参数没传");
         }
@@ -133,7 +132,7 @@ var aaa = function(){
             url: url + "?time=" + new Date().getTime(),
             dataType: "json",
             global: false,
-            async: typeof (asyncC) == "undefined" || null == asyncC ? true : false,
+            async: typeof asyncC == "undefined" || null == asyncC ? true : false,
             success: function (d) {
                 successfn(d);
             },
@@ -154,7 +153,8 @@ var aaa = function(){
     commonCompnent.FindObjByProp = function (arr, propName, value) {
         var newArr = [];
         for (var prop in arr) {
-            var o = arr[prop], p = o[propName];
+            var o = arr[prop],
+                p = o[propName];
             p && $.inArray(p.toString(), value.split(",")) > -1 && newArr.push(o);
         }
         return newArr[0];
@@ -178,20 +178,19 @@ var aaa = function(){
         return obj;
     };
 
-
     /**
     * 返回Url基础目录
     */
     commonCompnent.GetBaseUrl = function () {
-        return "http://"+ window.location.host + "/Page/";
-    }
+        return "http://" + window.location.host + "/Page/";
+    };
 
     /**
      * 传过来的参数
      */
     commonCompnent.GetUrlParam = function (url, queryStringName) {
         url = url || location.search;
-        var urlArray=(decodeURI(url).split('?')[1]||"").split('&');
+        var urlArray = (decodeURI(url).split('?')[1] || "").split('&');
         var urlParam = {};
         urlArray == "" && (urlArray.length = 0);
         for (var i = 0; i < urlArray.length; i++) {
@@ -199,18 +198,18 @@ var aaa = function(){
             urlParam[array[0]] = array[1];
         }
         return queryStringName ? urlParam[queryStringName] : urlParam;
-    }
+    };
 
     /**
      * 获取静态页面的名称
      *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)
      */
-    commonCompnent.GetSearchType=function () {
-        var _url=document.location.href;
+    commonCompnent.GetSearchType = function () {
+        var _url = document.location.href;
         var _urlArray = document.location.href.split("/");
-        var type = document.location.href.split("/")[_urlArray.length-1].split('.')[0];
+        var type = document.location.href.split("/")[_urlArray.length - 1].split('.')[0];
         return type;
-    }
+    };
 
     /**
      * 判断当前浏览类型
@@ -231,29 +230,40 @@ var aaa = function(){
             var fIEVersion = parseFloat(RegExp["$1"]);
             return "IE" + fIEVersion;
         }
-        if (isFirefox) { return "Firefox"; }
-        if (isOpera) { return "Opera"; }
-        if (isSafari) { return "Safari"; }
-        if (isChrome) { return "Chrome"; }
-        if (isEdge) { return "Edge"; }
-        if (isIE11) { return "IE11"; }
+        if (isFirefox) {
+            return "Firefox";
+        }
+        if (isOpera) {
+            return "Opera";
+        }
+        if (isSafari) {
+            return "Safari";
+        }
+        if (isChrome) {
+            return "Chrome";
+        }
+        if (isEdge) {
+            return "Edge";
+        }
+        if (isIE11) {
+            return "IE11";
+        }
     };
 
-     
     /**
       * 转成JS对象
      */
-    commonCompnent.LogJS=function (vue) {
-        return eval('('+JSON.stringify(vue)+')');
+    commonCompnent.LogJS = function (vue) {
+        return eval('(' + JSON.stringify(vue) + ')');
     };
 
     /**
      * 合并对象空值不覆盖
     */
-    commonCompnent.MergeObj=function (a, b) {
+    commonCompnent.MergeObj = function (a, b) {
         for (var prop in b) {
             if (b[prop]) {
-                a[prop]=b[prop];
+                a[prop] = b[prop];
             }
         }
         return a;
@@ -265,38 +275,37 @@ var aaa = function(){
     //1.$contain对应的dom对象
     //2.self，vue的组件对象
     //3.callback查询回调
-    commonCompnent.SetPagination = function($,self,callback) {
-        var container=$;
+    commonCompnent.SetPagination = function ($, self, callback) {
+        var container = $;
         options = {
-            bootstrapMajorVersion:3,     	
-            currentPage:self.Pagination == undefined?1:self.Pagination.page,
-            numberOfPages: 5,//控件显示出来的页码可以写死,默认5
-            itemTexts: function (type, page, current) {  
-                switch (type) {  
-                    case "first":  
-                        return "首页";  
-                    case "prev":  
-                        return "上一页";  
-                    case "next":  
-                        return "下一页";  
-                    case "last":  
-                        return "末页";  
-                    case "page":  
-                        return page;  
-                }  
+            bootstrapMajorVersion: 3,
+            currentPage: self.Pagination == undefined ? 1 : self.Pagination.page,
+            numberOfPages: 5, //控件显示出来的页码可以写死,默认5
+            itemTexts: function (type, page, current) {
+                switch (type) {
+                    case "first":
+                        return "首页";
+                    case "prev":
+                        return "上一页";
+                    case "next":
+                        return "下一页";
+                    case "last":
+                        return "末页";
+                    case "page":
+                        return page;
+                }
             },
-            totalPages:self.Pagination == undefined?1:self.Pagination.total,//根据实际查询数据算出总页码
-            pageUrl:function(type,page){
+            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
+            pageUrl: function (type, page) {
                 return null;
             },
             onPageClicked: function (e, originalEvent, type, page) {
-                self.Pagination.page = page;//获取当前页
-                callback();//再次查询
+                self.Pagination.page = page; //获取当前页
+                callback(); //再次查询
             }
         };
         container.bootstrapPaginator(options);
-    }
-
+    };
 
     // 对Date的扩展，将 Date 转化为指定格式的String
     // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -304,7 +313,8 @@ var aaa = function(){
     // 例子： 
     // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
     // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-    Date.prototype.Format = function (fmt) { //author: meizz 
+    Date.prototype.Format = function (fmt) {
+        //author: meizz 
         var o = {
             "M+": this.getMonth() + 1, //月份 
             "d+": this.getDate(), //日 
@@ -315,14 +325,12 @@ var aaa = function(){
             "S": this.getMilliseconds() //毫秒 
         };
         if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        for (var k in o) if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
         return fmt;
     };
 
-
     //添加选中样式
-    commonCompnent.AddSelectedClass=function (selector, addClass,fn) {
+    commonCompnent.AddSelectedClass = function (selector, addClass, fn) {
         $(document).on("click", selector, function () {
             $(selector).not(this).removeClass(addClass);
             $(this).addClass(addClass);
@@ -346,13 +354,12 @@ var aaa = function(){
             DlTypeName: "代练类型",
             GoodKeyWord: "",
             AcrossId: 0,
-            AcrossName: "跨区", 
+            AcrossName: "跨区"
         };
     };
 
-    return commonCompnent
+    return commonCompnent;
 };
-
 
 
 
@@ -364,12 +371,12 @@ var aaa = function(){
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jisuan", function() { return jisuan; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
-﻿
+
 
 let a = 1;
-const c = 2 ;
+const c = 2;
 function jisuan() {
-    return a*c;
+    return a * c;
 }
 
 
