@@ -1,7 +1,7 @@
 ﻿using Bayetech.Core.Entity;
 using System.Collections.Concurrent;
 
-namespace Bayetech.Service.IServices
+namespace Bayetech.Service
 {
     public interface INavigationService
     {

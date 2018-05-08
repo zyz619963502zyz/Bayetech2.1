@@ -1,0 +1,409 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "2.7.0",
+  "hash": "a84ef03829886f7c049b",
+  "time": 545,
+  "publicPath": "",
+  "assetsByChunkName": {
+    "GoodCheck": "./Scripts/app/TranslateContent/GoodCheck.js",
+    "TestES6": "./Scripts/app/TranslateContent/TestES6.js"
+  },
+  "assets": [
+    {
+      "name": "./Scripts/app/TranslateContent/GoodCheck.js",
+      "size": 14499,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "GoodCheck"
+      ],
+      "emitted": true
+    },
+    {
+      "name": "./Scripts/app/TranslateContent/TestES6.js",
+      "size": 13046,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "TestES6"
+      ],
+      "emitted": true
+    }
+  ],
+  "entrypoints": {
+    "TestES6": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "./Scripts/app/TranslateContent/TestES6.js"
+      ]
+    },
+    "GoodCheck": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "./Scripts/app/TranslateContent/GoodCheck.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 11563,
+      "names": [
+        "GoodCheck"
+      ],
+      "files": [
+        "./Scripts/app/TranslateContent/GoodCheck.js"
+      ],
+      "hash": "2c01b27e8fd1a361b204",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\common.js",
+          "name": "./Scripts/common.js",
+          "index": 1,
+          "index2": 0,
+          "size": 9894,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0,
+            1
+          ],
+          "assets": [],
+          "issuer": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "issuerId": 1,
+          "issuerName": "./Scripts/TestES6.js",
+          "profile": {
+            "factory": 8,
+            "building": 75
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 1,
+              "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+              "module": "./Scripts/TestES6.js",
+              "moduleName": "./Scripts/TestES6.js",
+              "type": "harmony import",
+              "userRequest": "./common.js",
+              "loc": "1:0-30"
+            },
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+              "module": "./Scripts/app/GoodCheck.js",
+              "moduleName": "./Scripts/app/GoodCheck.js",
+              "type": "harmony import",
+              "userRequest": "../common.js",
+              "loc": "2:0-42"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": [
+            "aaa"
+          ],
+          "depth": 1,
+          "source": "\nvar aaa = function () {\n    var commonCompnent = {};\n\n    /**\r\n        * ajax封装\r\n        * url 发送请求的地址\r\n        * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n        * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n        * successfn 成功回调函数\r\n        * errorfn 失败回调函数\r\n        * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {}\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        $.ajax({\n            type: \"get\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: asyncC == undefined ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    /**\r\n       * ajax封装\r\n       * url 发送请求的地址\r\n       * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n       * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n       * successfn 成功回调函数\r\n       * errorfn 失败回调函数\r\n       * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {\n            $(\"#Loading\").removeClass(\"hide\");\n        }\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        if (typeof asyncC != \"undefined\" && typeof asyncC != \"boolean\") {\n            $(\"#Loading\").addClass(\"hide\");\n            GetAlert(\"同异步参数没传\");\n        }\n        $.ajax({\n            type: \"post\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: typeof asyncC == \"undefined\" || null == asyncC ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    //根据属性找对象\n    commonCompnent.FindObjByProp = function (arr, propName, value) {\n        var newArr = [];\n        for (var prop in arr) {\n            var o = arr[prop],\n                p = o[propName];\n            p && $.inArray(p.toString(), value.split(\",\")) > -1 && newArr.push(o);\n        }\n        return newArr[0];\n    };\n\n    /**\r\n    * 组装components\r\n    * stratNum 第几个参数开始\r\n    * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n    * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n    * successfn 成功回调函数\r\n    * errorfn 失败回调函数\r\n    * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.PrepareComponents = function (obj, stratNum, parame) {\n        var components = {};\n        for (var i = stratNum; i < parame.length; i++) {\n            components[parame[i].name] = parame[i];\n        }\n        obj[\"components\"] = components;\n        return obj;\n    };\n\n    /**\r\n    * 返回Url基础目录\r\n    */\n    commonCompnent.GetBaseUrl = function () {\n        return \"http://\" + window.location.host + \"/Page/\";\n    };\n\n    /**\r\n     * 传过来的参数\r\n     */\n    commonCompnent.GetUrlParam = function (url, queryStringName) {\n        url = url || location.search;\n        var urlArray = (decodeURI(url).split('?')[1] || \"\").split('&');\n        var urlParam = {};\n        urlArray == \"\" && (urlArray.length = 0);\n        for (var i = 0; i < urlArray.length; i++) {\n            var array = urlArray[i].split('=');\n            urlParam[array[0]] = array[1];\n        }\n        return queryStringName ? urlParam[queryStringName] : urlParam;\n    };\n\n    /**\r\n     * 获取静态页面的名称\r\n     *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)\r\n     */\n    commonCompnent.GetSearchType = function () {\n        var _url = document.location.href;\n        var _urlArray = document.location.href.split(\"/\");\n        var type = document.location.href.split(\"/\")[_urlArray.length - 1].split('.')[0];\n        return type;\n    };\n\n    /**\r\n     * 判断当前浏览类型\r\n     */\n    commonCompnent.BrowserType = function () {\n        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串\n        var isOpera = userAgent.indexOf(\"Opera\") > -1; //判断是否Opera浏览器\n        var isIE = userAgent.indexOf(\"compatible\") > -1 && userAgent.indexOf(\"MSIE\") > -1; //判断是否IE浏览器\n        var isEdge = userAgent.indexOf(\"Edge\") > -1; //判断是否IE的Edge浏览器\n        var isFirefox = userAgent.indexOf(\"Firefox\") > -1; //判断是否Firefox浏览器\n        var isSafari = userAgent.indexOf(\"Safari\") > -1 && userAgent.indexOf(\"Chrome\") == -1; //判断是否Safari浏览器\n        var isChrome = userAgent.indexOf(\"Chrome\") > -1 && userAgent.indexOf(\"Safari\") > -1; //判断Chrome浏览器\n        var isIE11 = userAgent.toLowerCase().indexOf(\"trident\") > -1 && userAgent.indexOf(\"rv\") > -1;\n\n        if (isIE) {\n            var reIE = new RegExp(\"MSIE (\\\\d+\\\\.\\\\d+);\");\n            reIE.test(userAgent);\n            var fIEVersion = parseFloat(RegExp[\"$1\"]);\n            return \"IE\" + fIEVersion;\n        }\n        if (isFirefox) {\n            return \"Firefox\";\n        }\n        if (isOpera) {\n            return \"Opera\";\n        }\n        if (isSafari) {\n            return \"Safari\";\n        }\n        if (isChrome) {\n            return \"Chrome\";\n        }\n        if (isEdge) {\n            return \"Edge\";\n        }\n        if (isIE11) {\n            return \"IE11\";\n        }\n    };\n\n    /**\r\n      * 转成JS对象\r\n     */\n    commonCompnent.LogJS = function (vue) {\n        return eval('(' + JSON.stringify(vue) + ')');\n    };\n\n    /**\r\n     * 合并对象空值不覆盖\r\n    */\n    commonCompnent.MergeObj = function (a, b) {\n        for (var prop in b) {\n            if (b[prop]) {\n                a[prop] = b[prop];\n            }\n        }\n        return a;\n    };\n\n    /**\r\n      * 分页方法\r\n     */\n    //1.$contain对应的dom对象\n    //2.self，vue的组件对象\n    //3.callback查询回调\n    commonCompnent.SetPagination = function ($, self, callback) {\n        var container = $;\n        options = {\n            bootstrapMajorVersion: 3,\n            currentPage: self.Pagination == undefined ? 1 : self.Pagination.page,\n            numberOfPages: 5, //控件显示出来的页码可以写死,默认5\n            itemTexts: function (type, page, current) {\n                switch (type) {\n                    case \"first\":\n                        return \"首页\";\n                    case \"prev\":\n                        return \"上一页\";\n                    case \"next\":\n                        return \"下一页\";\n                    case \"last\":\n                        return \"末页\";\n                    case \"page\":\n                        return page;\n                }\n            },\n            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码\n            pageUrl: function (type, page) {\n                return null;\n            },\n            onPageClicked: function (e, originalEvent, type, page) {\n                self.Pagination.page = page; //获取当前页\n                callback(); //再次查询\n            }\n        };\n        container.bootstrapPaginator(options);\n    };\n\n    // 对Date的扩展，将 Date 转化为指定格式的String\n    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， \n    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) \n    // 例子： \n    // (new Date()).Format(\"yyyy-MM-dd hh:mm:ss.S\") ==> 2006-07-02 08:09:04.423 \n    // (new Date()).Format(\"yyyy-M-d h:m:s.S\")      ==> 2006-7-2 8:9:4.18 \n    Date.prototype.Format = function (fmt) {\n        //author: meizz \n        var o = {\n            \"M+\": this.getMonth() + 1, //月份 \n            \"d+\": this.getDate(), //日 \n            \"h+\": this.getHours(), //小时 \n            \"m+\": this.getMinutes(), //分 \n            \"s+\": this.getSeconds(), //秒 \n            \"q+\": Math.floor((this.getMonth() + 3) / 3), //季度 \n            \"S\": this.getMilliseconds() //毫秒 \n        };\n        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + \"\").substr(4 - RegExp.$1.length));\n        for (var k in o) if (new RegExp(\"(\" + k + \")\").test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : (\"00\" + o[k]).substr((\"\" + o[k]).length));\n        return fmt;\n    };\n\n    //添加选中样式\n    commonCompnent.AddSelectedClass = function (selector, addClass, fn) {\n        $(document).on(\"click\", selector, function () {\n            $(selector).not(this).removeClass(addClass);\n            $(this).addClass(addClass);\n            if (fn) {\n                fn(this);\n            }\n        });\n    };\n\n    //获取基础搜索条件\n    commonCompnent.GetSearchParam = function () {\n        return {\n            GameId: 0,\n            GameName: \"游戏名称\",\n            GameGroupId: 0,\n            GameGroupName: \"游戏区\",\n            GameServerId: 0,\n            GameServerName: \"服务器\",\n            GoodTypeId: 0,\n            GoodTypeName: \"物品类型\",\n            DlTypeName: \"代练类型\",\n            GoodKeyWord: \"\",\n            AcrossId: 0,\n            AcrossName: \"跨区\"\n        };\n    };\n\n    return commonCompnent;\n};\n\nexport { aaa };"
+        },
+        {
+          "id": 2,
+          "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+          "name": "./Scripts/app/GoodCheck.js",
+          "index": 2,
+          "index2": 2,
+          "size": 1669,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "profile": {
+            "factory": 385,
+            "building": 41,
+            "dependencies": 2
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": null,
+          "depth": 0,
+          "source": "//import Vue from '../vue.js'\nimport commonCompnent from '../common.js';\n\nvar _url = \"/api/Test/GoodCheck\";\n\n////当前执行的函数\n//(function () {\n//    var GoodListUrl = \"/api/CheckGood/GetList\"; //查询列表\n\n//    var vmData = {\n//        BaseUrl: GetBaseUrl()+\"Good/GoodInfo.html?GoodNo=\",\n//        BaseTarget: \"_blank\",\n//        keyword: \"\",\n//        GoodInfoArray:[],\n//        ListObj: [\n//            {\n//                GoodNo: \"\",\n//                GoodFirstPicture: \"\",\n//                aurl: \"\",\n//                GoodTitle: \"\",\n//                GroupName: \"\",\n//                ServerName: \"\",\n//                GoodPrice: \"\"\n//            }\n//        ],\n//        SearchParam: {\n//            Param: {\n//                GoodNo:\"\"\n//            },\n//            Pagination: {//分页对象\n//                rows: 10,//每页行数，\n//                page: 1,//当前页码\n//                order: \"GoodNo\",//排序字段\n//                sord: \"asc\",//排序类型\n//                records: 10,//总记录数\n//                total: 10//总页数。\n//            }\n//        },\n//    };\n\n//    var vm = new Vue({\n//        el: '#CommForm',\n//        data: vmData,\n//        created(){\n//            this.findList();\n//        },\n//        methods: {\n//             findList() {//获取商品的简要列表\n//                var self=this;\n//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {\n//                    if (data.result) {\n//                        self.GoodInfoArray=data.content.datas;\n//                    }\n//                });\n//            },\n//            StartCheck() {//开始检查\n//                $(\"#checkModal\").modal(\"show\");\n//            }\n//        }\n//    });\n\n//})();"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 2,
+          "module": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+          "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+          "moduleName": "./Scripts/app/GoodCheck.js",
+          "loc": "",
+          "name": "GoodCheck",
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 10009,
+      "names": [
+        "TestES6"
+      ],
+      "files": [
+        "./Scripts/app/TranslateContent/TestES6.js"
+      ],
+      "hash": "71a2002e3b6f5fef4b77",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\common.js",
+          "name": "./Scripts/common.js",
+          "index": 1,
+          "index2": 0,
+          "size": 9894,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0,
+            1
+          ],
+          "assets": [],
+          "issuer": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "issuerId": 1,
+          "issuerName": "./Scripts/TestES6.js",
+          "profile": {
+            "factory": 8,
+            "building": 75
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 1,
+              "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+              "module": "./Scripts/TestES6.js",
+              "moduleName": "./Scripts/TestES6.js",
+              "type": "harmony import",
+              "userRequest": "./common.js",
+              "loc": "1:0-30"
+            },
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+              "module": "./Scripts/app/GoodCheck.js",
+              "moduleName": "./Scripts/app/GoodCheck.js",
+              "type": "harmony import",
+              "userRequest": "../common.js",
+              "loc": "2:0-42"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": [
+            "aaa"
+          ],
+          "depth": 1,
+          "source": "\nvar aaa = function () {\n    var commonCompnent = {};\n\n    /**\r\n        * ajax封装\r\n        * url 发送请求的地址\r\n        * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n        * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n        * successfn 成功回调函数\r\n        * errorfn 失败回调函数\r\n        * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {}\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        $.ajax({\n            type: \"get\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: asyncC == undefined ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    /**\r\n       * ajax封装\r\n       * url 发送请求的地址\r\n       * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n       * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n       * successfn 成功回调函数\r\n       * errorfn 失败回调函数\r\n       * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {\n            $(\"#Loading\").removeClass(\"hide\");\n        }\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        if (typeof asyncC != \"undefined\" && typeof asyncC != \"boolean\") {\n            $(\"#Loading\").addClass(\"hide\");\n            GetAlert(\"同异步参数没传\");\n        }\n        $.ajax({\n            type: \"post\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: typeof asyncC == \"undefined\" || null == asyncC ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    //根据属性找对象\n    commonCompnent.FindObjByProp = function (arr, propName, value) {\n        var newArr = [];\n        for (var prop in arr) {\n            var o = arr[prop],\n                p = o[propName];\n            p && $.inArray(p.toString(), value.split(\",\")) > -1 && newArr.push(o);\n        }\n        return newArr[0];\n    };\n\n    /**\r\n    * 组装components\r\n    * stratNum 第几个参数开始\r\n    * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n    * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n    * successfn 成功回调函数\r\n    * errorfn 失败回调函数\r\n    * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.PrepareComponents = function (obj, stratNum, parame) {\n        var components = {};\n        for (var i = stratNum; i < parame.length; i++) {\n            components[parame[i].name] = parame[i];\n        }\n        obj[\"components\"] = components;\n        return obj;\n    };\n\n    /**\r\n    * 返回Url基础目录\r\n    */\n    commonCompnent.GetBaseUrl = function () {\n        return \"http://\" + window.location.host + \"/Page/\";\n    };\n\n    /**\r\n     * 传过来的参数\r\n     */\n    commonCompnent.GetUrlParam = function (url, queryStringName) {\n        url = url || location.search;\n        var urlArray = (decodeURI(url).split('?')[1] || \"\").split('&');\n        var urlParam = {};\n        urlArray == \"\" && (urlArray.length = 0);\n        for (var i = 0; i < urlArray.length; i++) {\n            var array = urlArray[i].split('=');\n            urlParam[array[0]] = array[1];\n        }\n        return queryStringName ? urlParam[queryStringName] : urlParam;\n    };\n\n    /**\r\n     * 获取静态页面的名称\r\n     *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)\r\n     */\n    commonCompnent.GetSearchType = function () {\n        var _url = document.location.href;\n        var _urlArray = document.location.href.split(\"/\");\n        var type = document.location.href.split(\"/\")[_urlArray.length - 1].split('.')[0];\n        return type;\n    };\n\n    /**\r\n     * 判断当前浏览类型\r\n     */\n    commonCompnent.BrowserType = function () {\n        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串\n        var isOpera = userAgent.indexOf(\"Opera\") > -1; //判断是否Opera浏览器\n        var isIE = userAgent.indexOf(\"compatible\") > -1 && userAgent.indexOf(\"MSIE\") > -1; //判断是否IE浏览器\n        var isEdge = userAgent.indexOf(\"Edge\") > -1; //判断是否IE的Edge浏览器\n        var isFirefox = userAgent.indexOf(\"Firefox\") > -1; //判断是否Firefox浏览器\n        var isSafari = userAgent.indexOf(\"Safari\") > -1 && userAgent.indexOf(\"Chrome\") == -1; //判断是否Safari浏览器\n        var isChrome = userAgent.indexOf(\"Chrome\") > -1 && userAgent.indexOf(\"Safari\") > -1; //判断Chrome浏览器\n        var isIE11 = userAgent.toLowerCase().indexOf(\"trident\") > -1 && userAgent.indexOf(\"rv\") > -1;\n\n        if (isIE) {\n            var reIE = new RegExp(\"MSIE (\\\\d+\\\\.\\\\d+);\");\n            reIE.test(userAgent);\n            var fIEVersion = parseFloat(RegExp[\"$1\"]);\n            return \"IE\" + fIEVersion;\n        }\n        if (isFirefox) {\n            return \"Firefox\";\n        }\n        if (isOpera) {\n            return \"Opera\";\n        }\n        if (isSafari) {\n            return \"Safari\";\n        }\n        if (isChrome) {\n            return \"Chrome\";\n        }\n        if (isEdge) {\n            return \"Edge\";\n        }\n        if (isIE11) {\n            return \"IE11\";\n        }\n    };\n\n    /**\r\n      * 转成JS对象\r\n     */\n    commonCompnent.LogJS = function (vue) {\n        return eval('(' + JSON.stringify(vue) + ')');\n    };\n\n    /**\r\n     * 合并对象空值不覆盖\r\n    */\n    commonCompnent.MergeObj = function (a, b) {\n        for (var prop in b) {\n            if (b[prop]) {\n                a[prop] = b[prop];\n            }\n        }\n        return a;\n    };\n\n    /**\r\n      * 分页方法\r\n     */\n    //1.$contain对应的dom对象\n    //2.self，vue的组件对象\n    //3.callback查询回调\n    commonCompnent.SetPagination = function ($, self, callback) {\n        var container = $;\n        options = {\n            bootstrapMajorVersion: 3,\n            currentPage: self.Pagination == undefined ? 1 : self.Pagination.page,\n            numberOfPages: 5, //控件显示出来的页码可以写死,默认5\n            itemTexts: function (type, page, current) {\n                switch (type) {\n                    case \"first\":\n                        return \"首页\";\n                    case \"prev\":\n                        return \"上一页\";\n                    case \"next\":\n                        return \"下一页\";\n                    case \"last\":\n                        return \"末页\";\n                    case \"page\":\n                        return page;\n                }\n            },\n            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码\n            pageUrl: function (type, page) {\n                return null;\n            },\n            onPageClicked: function (e, originalEvent, type, page) {\n                self.Pagination.page = page; //获取当前页\n                callback(); //再次查询\n            }\n        };\n        container.bootstrapPaginator(options);\n    };\n\n    // 对Date的扩展，将 Date 转化为指定格式的String\n    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， \n    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) \n    // 例子： \n    // (new Date()).Format(\"yyyy-MM-dd hh:mm:ss.S\") ==> 2006-07-02 08:09:04.423 \n    // (new Date()).Format(\"yyyy-M-d h:m:s.S\")      ==> 2006-7-2 8:9:4.18 \n    Date.prototype.Format = function (fmt) {\n        //author: meizz \n        var o = {\n            \"M+\": this.getMonth() + 1, //月份 \n            \"d+\": this.getDate(), //日 \n            \"h+\": this.getHours(), //小时 \n            \"m+\": this.getMinutes(), //分 \n            \"s+\": this.getSeconds(), //秒 \n            \"q+\": Math.floor((this.getMonth() + 3) / 3), //季度 \n            \"S\": this.getMilliseconds() //毫秒 \n        };\n        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + \"\").substr(4 - RegExp.$1.length));\n        for (var k in o) if (new RegExp(\"(\" + k + \")\").test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : (\"00\" + o[k]).substr((\"\" + o[k]).length));\n        return fmt;\n    };\n\n    //添加选中样式\n    commonCompnent.AddSelectedClass = function (selector, addClass, fn) {\n        $(document).on(\"click\", selector, function () {\n            $(selector).not(this).removeClass(addClass);\n            $(this).addClass(addClass);\n            if (fn) {\n                fn(this);\n            }\n        });\n    };\n\n    //获取基础搜索条件\n    commonCompnent.GetSearchParam = function () {\n        return {\n            GameId: 0,\n            GameName: \"游戏名称\",\n            GameGroupId: 0,\n            GameGroupName: \"游戏区\",\n            GameServerId: 0,\n            GameServerName: \"服务器\",\n            GoodTypeId: 0,\n            GoodTypeName: \"物品类型\",\n            DlTypeName: \"代练类型\",\n            GoodKeyWord: \"\",\n            AcrossId: 0,\n            AcrossName: \"跨区\"\n        };\n    };\n\n    return commonCompnent;\n};\n\nexport { aaa };"
+        },
+        {
+          "id": 1,
+          "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "name": "./Scripts/TestES6.js",
+          "index": 0,
+          "index2": 1,
+          "size": 115,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            1
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "profile": {
+            "factory": 27,
+            "building": 397
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [
+            "jisuan"
+          ],
+          "depth": 0,
+          "source": "import aaa from './common.js';\n\nlet a = 1;\nconst c = 2;\nfunction jisuan() {\n    return a * c;\n}\n\nexport { jisuan };"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 1,
+          "module": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "moduleName": "./Scripts/TestES6.js",
+          "loc": "",
+          "name": "TestES6",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\common.js",
+      "name": "./Scripts/common.js",
+      "index": 1,
+      "index2": 0,
+      "size": 9894,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0,
+        1
+      ],
+      "assets": [],
+      "issuer": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+      "issuerId": 1,
+      "issuerName": "./Scripts/TestES6.js",
+      "profile": {
+        "factory": 8,
+        "building": 75
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+          "module": "./Scripts/TestES6.js",
+          "moduleName": "./Scripts/TestES6.js",
+          "type": "harmony import",
+          "userRequest": "./common.js",
+          "loc": "1:0-30"
+        },
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+          "module": "./Scripts/app/GoodCheck.js",
+          "moduleName": "./Scripts/app/GoodCheck.js",
+          "type": "harmony import",
+          "userRequest": "../common.js",
+          "loc": "2:0-42"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": [
+        "aaa"
+      ],
+      "depth": 1,
+      "source": "\nvar aaa = function () {\n    var commonCompnent = {};\n\n    /**\r\n        * ajax封装\r\n        * url 发送请求的地址\r\n        * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n        * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n        * successfn 成功回调函数\r\n        * errorfn 失败回调函数\r\n        * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.getWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {}\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        $.ajax({\n            type: \"get\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: asyncC == undefined ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    /**\r\n       * ajax封装\r\n       * url 发送请求的地址\r\n       * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n       * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n       * successfn 成功回调函数\r\n       * errorfn 失败回调函数\r\n       * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {\n        if (!callLoading) {\n            $(\"#Loading\").removeClass(\"hide\");\n        }\n        //data = (data == null || data == \"\" || typeof (data) == \"undefined\") ? { \"date\": new Date().getTime() } : data;\n        if (typeof asyncC != \"undefined\" && typeof asyncC != \"boolean\") {\n            $(\"#Loading\").addClass(\"hide\");\n            GetAlert(\"同异步参数没传\");\n        }\n        $.ajax({\n            type: \"post\",\n            data: data,\n            url: url + \"?time=\" + new Date().getTime(),\n            dataType: \"json\",\n            global: false,\n            async: typeof asyncC == \"undefined\" || null == asyncC ? true : false,\n            success: function (d) {\n                successfn(d);\n            },\n            error: function (e) {\n                //e={\"readyState\":0,\"status\":0,\"statusText\":\"error\"}\n                //e={\"readyState\":4,\"status\":506,\"statusText\":\"SessionTimeout\"}\n                if (e.status === 506) {\n                    GetAlert(\"登录超时！\");\n                    setTimeout(\"window.location ='\" + window.appCtx['aist-sso-web'] + \"/login?service=\" + window.appCtx['ctm-web'] + \"'\", 2000);\n                } else {\n                    errorfn(\"status:\" + e.status + \"-\" + e.statusText);\n                }\n            }\n        });\n    };\n\n    //根据属性找对象\n    commonCompnent.FindObjByProp = function (arr, propName, value) {\n        var newArr = [];\n        for (var prop in arr) {\n            var o = arr[prop],\n                p = o[propName];\n            p && $.inArray(p.toString(), value.split(\",\")) > -1 && newArr.push(o);\n        }\n        return newArr[0];\n    };\n\n    /**\r\n    * 组装components\r\n    * stratNum 第几个参数开始\r\n    * data 发送到服务器的数据，数组存储，如：{\"date\": new Date().getTime(), \"state\": 1}\r\n    * dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text\r\n    * successfn 成功回调函数\r\n    * errorfn 失败回调函数\r\n    * asyncC:此为第五个参数传就是同步，不穿默认异步。\r\n    */\n    commonCompnent.PrepareComponents = function (obj, stratNum, parame) {\n        var components = {};\n        for (var i = stratNum; i < parame.length; i++) {\n            components[parame[i].name] = parame[i];\n        }\n        obj[\"components\"] = components;\n        return obj;\n    };\n\n    /**\r\n    * 返回Url基础目录\r\n    */\n    commonCompnent.GetBaseUrl = function () {\n        return \"http://\" + window.location.host + \"/Page/\";\n    };\n\n    /**\r\n     * 传过来的参数\r\n     */\n    commonCompnent.GetUrlParam = function (url, queryStringName) {\n        url = url || location.search;\n        var urlArray = (decodeURI(url).split('?')[1] || \"\").split('&');\n        var urlParam = {};\n        urlArray == \"\" && (urlArray.length = 0);\n        for (var i = 0; i < urlArray.length; i++) {\n            var array = urlArray[i].split('=');\n            urlParam[array[0]] = array[1];\n        }\n        return queryStringName ? urlParam[queryStringName] : urlParam;\n    };\n\n    /**\r\n     * 获取静态页面的名称\r\n     *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)\r\n     */\n    commonCompnent.GetSearchType = function () {\n        var _url = document.location.href;\n        var _urlArray = document.location.href.split(\"/\");\n        var type = document.location.href.split(\"/\")[_urlArray.length - 1].split('.')[0];\n        return type;\n    };\n\n    /**\r\n     * 判断当前浏览类型\r\n     */\n    commonCompnent.BrowserType = function () {\n        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串\n        var isOpera = userAgent.indexOf(\"Opera\") > -1; //判断是否Opera浏览器\n        var isIE = userAgent.indexOf(\"compatible\") > -1 && userAgent.indexOf(\"MSIE\") > -1; //判断是否IE浏览器\n        var isEdge = userAgent.indexOf(\"Edge\") > -1; //判断是否IE的Edge浏览器\n        var isFirefox = userAgent.indexOf(\"Firefox\") > -1; //判断是否Firefox浏览器\n        var isSafari = userAgent.indexOf(\"Safari\") > -1 && userAgent.indexOf(\"Chrome\") == -1; //判断是否Safari浏览器\n        var isChrome = userAgent.indexOf(\"Chrome\") > -1 && userAgent.indexOf(\"Safari\") > -1; //判断Chrome浏览器\n        var isIE11 = userAgent.toLowerCase().indexOf(\"trident\") > -1 && userAgent.indexOf(\"rv\") > -1;\n\n        if (isIE) {\n            var reIE = new RegExp(\"MSIE (\\\\d+\\\\.\\\\d+);\");\n            reIE.test(userAgent);\n            var fIEVersion = parseFloat(RegExp[\"$1\"]);\n            return \"IE\" + fIEVersion;\n        }\n        if (isFirefox) {\n            return \"Firefox\";\n        }\n        if (isOpera) {\n            return \"Opera\";\n        }\n        if (isSafari) {\n            return \"Safari\";\n        }\n        if (isChrome) {\n            return \"Chrome\";\n        }\n        if (isEdge) {\n            return \"Edge\";\n        }\n        if (isIE11) {\n            return \"IE11\";\n        }\n    };\n\n    /**\r\n      * 转成JS对象\r\n     */\n    commonCompnent.LogJS = function (vue) {\n        return eval('(' + JSON.stringify(vue) + ')');\n    };\n\n    /**\r\n     * 合并对象空值不覆盖\r\n    */\n    commonCompnent.MergeObj = function (a, b) {\n        for (var prop in b) {\n            if (b[prop]) {\n                a[prop] = b[prop];\n            }\n        }\n        return a;\n    };\n\n    /**\r\n      * 分页方法\r\n     */\n    //1.$contain对应的dom对象\n    //2.self，vue的组件对象\n    //3.callback查询回调\n    commonCompnent.SetPagination = function ($, self, callback) {\n        var container = $;\n        options = {\n            bootstrapMajorVersion: 3,\n            currentPage: self.Pagination == undefined ? 1 : self.Pagination.page,\n            numberOfPages: 5, //控件显示出来的页码可以写死,默认5\n            itemTexts: function (type, page, current) {\n                switch (type) {\n                    case \"first\":\n                        return \"首页\";\n                    case \"prev\":\n                        return \"上一页\";\n                    case \"next\":\n                        return \"下一页\";\n                    case \"last\":\n                        return \"末页\";\n                    case \"page\":\n                        return page;\n                }\n            },\n            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码\n            pageUrl: function (type, page) {\n                return null;\n            },\n            onPageClicked: function (e, originalEvent, type, page) {\n                self.Pagination.page = page; //获取当前页\n                callback(); //再次查询\n            }\n        };\n        container.bootstrapPaginator(options);\n    };\n\n    // 对Date的扩展，将 Date 转化为指定格式的String\n    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， \n    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) \n    // 例子： \n    // (new Date()).Format(\"yyyy-MM-dd hh:mm:ss.S\") ==> 2006-07-02 08:09:04.423 \n    // (new Date()).Format(\"yyyy-M-d h:m:s.S\")      ==> 2006-7-2 8:9:4.18 \n    Date.prototype.Format = function (fmt) {\n        //author: meizz \n        var o = {\n            \"M+\": this.getMonth() + 1, //月份 \n            \"d+\": this.getDate(), //日 \n            \"h+\": this.getHours(), //小时 \n            \"m+\": this.getMinutes(), //分 \n            \"s+\": this.getSeconds(), //秒 \n            \"q+\": Math.floor((this.getMonth() + 3) / 3), //季度 \n            \"S\": this.getMilliseconds() //毫秒 \n        };\n        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + \"\").substr(4 - RegExp.$1.length));\n        for (var k in o) if (new RegExp(\"(\" + k + \")\").test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : (\"00\" + o[k]).substr((\"\" + o[k]).length));\n        return fmt;\n    };\n\n    //添加选中样式\n    commonCompnent.AddSelectedClass = function (selector, addClass, fn) {\n        $(document).on(\"click\", selector, function () {\n            $(selector).not(this).removeClass(addClass);\n            $(this).addClass(addClass);\n            if (fn) {\n                fn(this);\n            }\n        });\n    };\n\n    //获取基础搜索条件\n    commonCompnent.GetSearchParam = function () {\n        return {\n            GameId: 0,\n            GameName: \"游戏名称\",\n            GameGroupId: 0,\n            GameGroupName: \"游戏区\",\n            GameServerId: 0,\n            GameServerName: \"服务器\",\n            GoodTypeId: 0,\n            GoodTypeName: \"物品类型\",\n            DlTypeName: \"代练类型\",\n            GoodKeyWord: \"\",\n            AcrossId: 0,\n            AcrossName: \"跨区\"\n        };\n    };\n\n    return commonCompnent;\n};\n\nexport { aaa };"
+    },
+    {
+      "id": 1,
+      "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\TestES6.js",
+      "name": "./Scripts/TestES6.js",
+      "index": 0,
+      "index2": 1,
+      "size": 115,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "profile": {
+        "factory": 27,
+        "building": 397
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": [
+        "jisuan"
+      ],
+      "depth": 0,
+      "source": "import aaa from './common.js';\n\nlet a = 1;\nconst c = 2;\nfunction jisuan() {\n    return a * c;\n}\n\nexport { jisuan };"
+    },
+    {
+      "id": 2,
+      "identifier": "E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\babel-loader\\lib\\index.js!E:\\Bayetech2.1\\Bayetech.Admin\\Scripts\\app\\GoodCheck.js",
+      "name": "./Scripts/app/GoodCheck.js",
+      "index": 2,
+      "index2": 2,
+      "size": 1669,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "profile": {
+        "factory": 385,
+        "building": 41,
+        "dependencies": 2
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": null,
+      "depth": 0,
+      "source": "//import Vue from '../vue.js'\nimport commonCompnent from '../common.js';\n\nvar _url = \"/api/Test/GoodCheck\";\n\n////当前执行的函数\n//(function () {\n//    var GoodListUrl = \"/api/CheckGood/GetList\"; //查询列表\n\n//    var vmData = {\n//        BaseUrl: GetBaseUrl()+\"Good/GoodInfo.html?GoodNo=\",\n//        BaseTarget: \"_blank\",\n//        keyword: \"\",\n//        GoodInfoArray:[],\n//        ListObj: [\n//            {\n//                GoodNo: \"\",\n//                GoodFirstPicture: \"\",\n//                aurl: \"\",\n//                GoodTitle: \"\",\n//                GroupName: \"\",\n//                ServerName: \"\",\n//                GoodPrice: \"\"\n//            }\n//        ],\n//        SearchParam: {\n//            Param: {\n//                GoodNo:\"\"\n//            },\n//            Pagination: {//分页对象\n//                rows: 10,//每页行数，\n//                page: 1,//当前页码\n//                order: \"GoodNo\",//排序字段\n//                sord: \"asc\",//排序类型\n//                records: 10,//总记录数\n//                total: 10//总页数。\n//            }\n//        },\n//    };\n\n//    var vm = new Vue({\n//        el: '#CommForm',\n//        data: vmData,\n//        created(){\n//            this.findList();\n//        },\n//        methods: {\n//             findList() {//获取商品的简要列表\n//                var self=this;\n//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {\n//                    if (data.result) {\n//                        self.GoodInfoArray=data.content.datas;\n//                    }\n//                });\n//            },\n//            StartCheck() {//开始检查\n//                $(\"#checkModal\").modal(\"show\");\n//            }\n//        }\n//    });\n\n//})();"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

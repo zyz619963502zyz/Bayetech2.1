@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminService\IUserService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Services\ServerService.cs" />
     <Compile Include="Services\SettingService.cs" />
     <Compile Include="Services\UploadFileService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
