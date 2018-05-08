@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Mystyle.css" />
+    <Content Include="Page\adminPage\CustomerManage.html" />
     <Content Include="Page\BayMain.html" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
