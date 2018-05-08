@@ -1,11 +1,19 @@
 ﻿/// <binding BeforeBuild='Run - Development' />
 "use strict";
 
+//let path = require('path')
+
 module.exports = {
-    entry: "./Scripts/TestES6.js",
+    entry: {
+        //main:"./Scripts/TestES6.js",
+        check1: "./Scripts/app/GoodCheck.js",
+        check2: "./Scripts/app/GoodCheck.js",
+        //check3: "./Scripts/app/GoodCheck.js",
+    },
     output: {
         //path: path.join(__dirname, 'Scripts'),
-        filename:  "./Scripts/bundle.js"
+        path: __dirname + '/Scripts/app/Processes',
+        filename: "[name].js"
     },
     devServer: {
         contentBase: ".",

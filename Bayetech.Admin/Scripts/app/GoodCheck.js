@@ -1,4 +1,6 @@
-﻿//import commonCompnent from './common.js';
+﻿let path = require('path');
+
+import ComContents from '../common.js';
 
 //var _url = "/api/Test/GoodCheck";
 //const aa = 1;
@@ -11,8 +13,9 @@
 
 //当前执行的函数
 //(function () {
-    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
 
+    let aa = ComContents;
+        
     var vmData = {
         //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
         BaseTarget: "_blank",

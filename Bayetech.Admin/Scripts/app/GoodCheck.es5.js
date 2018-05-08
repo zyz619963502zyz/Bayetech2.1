@@ -1,4 +1,10 @@
-﻿//import commonCompnent from './common.js';
+﻿"use strict";
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _commonJs = require('./common.js');
+
+var _commonJs2 = _interopRequireDefault(_commonJs);
 
 //var _url = "/api/Test/GoodCheck";
 //const aa = 1;
@@ -10,9 +16,8 @@
 
 //当前执行的函数
 //(function () {
-"use strict";
 
-var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
+var aa = _commonJs2["default"];
 
 var vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
