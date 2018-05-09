@@ -5,6 +5,7 @@ using Bayetech.Core.Entity;
 using System;
 using Bayetech.Core;
 using Bayetech.Service.IServices;
+using System.Web;
 
 namespace Bayetech.Service.Services
 {
@@ -56,20 +57,20 @@ namespace Bayetech.Service.Services
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
-                Account _account = (Account)JsonConvert.DeserializeObject(json.First.Path, typeof(Account));//转换对象
-                Account _userEntity = db.FindEntity<Account>(t => t.UserName == _account.UserName);
+                User _account = (User)JsonConvert.DeserializeObject(json.First.Path, typeof(User));//转换对象
+                User _userEntity = db.FindEntity<User>(t => t.Name == _account.Name);
                 JObject result = new JObject();
                 if (_userEntity != null)
                 {
-                    if (_userEntity.EnableMark == true)
+                    if ((bool)_userEntity.IsValiteLogin)
                     {
                         //UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
                         //string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
-                        string dbPassword = Md5.EncryptString(_account.PassWord);
-                        if (dbPassword == _userEntity.PassWord)
+                        string dbPassword = Md5.EncryptString(_account.Password);
+                        if (dbPassword == _userEntity.Password)
                         {
                             Login _currentLogin = new Login();
-                            _currentLogin.UserName = _account.UserName;
+                            _currentLogin.UserName = _account.Name;
                             _currentLogin.PassWord = dbPassword;
                             _currentLogin.LoginIp = Common.GetHostAddress();
                             _currentLogin.LoginTime = DateTime.Now;
@@ -78,6 +79,9 @@ namespace Bayetech.Service.Services
                             db.Commit();  
                             result.Add(ResultInfo.Result, JProperty.FromObject(true));
                             result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
+                            //创建标识
+                            string key = Guid.NewGuid().ToString();
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("loginId", key));
                         }
                         else
                         {

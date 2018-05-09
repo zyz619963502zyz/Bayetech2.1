@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Core.Security.Core
 {
-    class SysVisitor
+    public class SysVisitor
     {
     }
 }

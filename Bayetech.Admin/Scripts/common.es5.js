@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var aaa = function aaa() {
+var ComContents = function ComContents() {
     var commonCompnent = {};
 
     /**
@@ -295,5 +295,5 @@ var aaa = function aaa() {
     return commonCompnent;
 };
 
-exports.aaa = aaa;
+exports.ComContents = ComContents;
 

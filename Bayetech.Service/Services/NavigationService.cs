@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 using Bayetech.Service.Model;
 using Bayetech.Core.Security.Json;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class NavigationService : BaseService<Admin_Sys_Navigations>, INavigationService
     {
