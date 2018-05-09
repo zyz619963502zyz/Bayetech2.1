@@ -11,7 +11,7 @@ namespace Bayetech.Admin.Controllers
 {
     public class LoginController : ApiController
     {
-        [HttpPost]
+        //[HttpPost]
         //public IHttpActionResult Login(Accout userInfo)
         //{
         //    string result = "no";
