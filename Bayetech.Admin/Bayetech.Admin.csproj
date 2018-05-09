@@ -2160,7 +2160,7 @@
     <Content Include="lib\webuploader-master\_draft\music\success.png" />
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
-    <Content Include="Page\sysPage\GoodCheck.html" />
+    <Content Include="Page\GoodCheck\GoodCheck.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2745,7 +2745,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
-    <Folder Include="Page\GoodCheck\" />
     <Folder Include="Page\OrderCheck\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
