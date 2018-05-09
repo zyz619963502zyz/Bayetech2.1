@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,9 +71,9 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export aaa */
+/* unused harmony export ComContents */
 
-var aaa = function () {
+var ComContents = function () {
     var commonCompnent = {};
 
     /**
@@ -371,18 +371,159 @@ var aaa = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+let BaseTable = `<template>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="success">
+                <th class="text-center"  v-for="item in GoodTitleArray">{{item.value}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in GoodInfoArray">
+                <td>{{item.GoodNo}}</td>
+                <td>{{item.GameName}}</td>
+                <td>{{item.GoodTypeName}}</td>
+                <td>{{item.GoodKeyWord}}</td>
+                <td>{{item.GoodTitle}}</td>
+                <td class="text-center"><input type="button" class="btn btn-primary" value="审核商品" @click="StartCheck(item.GoodNo)"></td>
+            </tr>
+        </tbody>
+    </table>
+</template>`;
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    name: 'BaseTable',
+    template: BaseTable,
+    props: ['GoodTitleArray', 'GoodInfoArray', 'StartCheck']
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jisuan", function() { return jisuan; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_js__ = __webpack_require__(1);
+//import Vue from 'vue'
 
 
-let a = 1;
-const c = 2;
-function jisuan() {
-    return a * c;
-}
 
+var _url = "/api/Test/GoodCheck";
 
+var vmData = {
+    BaseUrl: GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
+    BaseTarget: "_blank",
+    keyword: "",
+    GoodTitleArray: ["商品编号", "游戏名称", "交易类型", "关键词", "商品标题", "审核商品"],
+    GoodInfoArray: [],
+    ListObj: [{
+        GoodNo: "",
+        GoodFirstPicture: "",
+        aurl: "",
+        GoodTitle: "",
+        GroupName: "",
+        ServerName: "",
+        GoodPrice: ""
+    }],
+    SearchParam: {
+        Param: {
+            GoodNo: ""
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+};
+
+new Vue({
+    el: '#CommForm',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            //获取商品的简要列表
+            var self = this;
+            commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.GoodInfoArray = data.content.datas;
+                }
+            });
+        },
+        StartCheck() {
+            //开始检查
+            $("#checkModal").modal("show");
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_js__["a" /* default */]
+    }
+});
+
+////当前执行的函数
+//(function () {
+//    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
+
+//    var vmData = {
+//        BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+//        BaseTarget: "_blank",
+//        keyword: "",
+//        GoodInfoArray:[],
+//        ListObj: [
+//            {
+//                GoodNo: "",
+//                GoodFirstPicture: "",
+//                aurl: "",
+//                GoodTitle: "",
+//                GroupName: "",
+//                ServerName: "",
+//                GoodPrice: ""
+//            }
+//        ],
+//        SearchParam: {
+//            Param: {
+//                GoodNo:""
+//            },
+//            Pagination: {//分页对象
+//                rows: 10,//每页行数，
+//                page: 1,//当前页码
+//                order: "GoodNo",//排序字段
+//                sord: "asc",//排序类型
+//                records: 10,//总记录数
+//                total: 10//总页数。
+//            }
+//        },
+//    };
+
+//    var vm = new Vue({
+//        el: '#CommForm',
+//        data: vmData,
+//        created(){
+//            this.findList();
+//        },
+//        methods: {
+//             findList() {//获取商品的简要列表
+//                var self=this;
+//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+//                    if (data.result) {
+//                        self.GoodInfoArray=data.content.datas;
+//                    }
+//                });
+//            },
+//            StartCheck() {//开始检查
+//                $("#checkModal").modal("show");
+//            }
+//        }
+//    });
+
+//})();
 
 /***/ })
 /******/ ]);
