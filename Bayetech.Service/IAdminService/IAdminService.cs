@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service
 {
-     public interface IUserService
+     public interface IAdminService//IUserService
     {
         /// <summary>
         /// 员工登陆验证
