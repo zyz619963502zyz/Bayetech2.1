@@ -17,13 +17,6 @@ namespace Bayetech.Admin
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            PostAuthenticateRequest += MvcApplication_PostAuthenticateRequest;
-        }
-
-        void MvcApplication_PostAuthenticateRequest(object sender, EventArgs e)
-        {
-            HttpContext.Current.SetSessionStateBehavior(
-                SessionStateBehavior.Required);
         }
     }
 }
