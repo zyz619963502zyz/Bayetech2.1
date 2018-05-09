@@ -7,9 +7,12 @@
     "Scripts": "Scripts"
   },
   "dependencies": {
-    "babel-core": "^6.26.3"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^2.7.0"
+  },
   "scripts": {
     "start": " --mode development",
     "build": "--mode production",

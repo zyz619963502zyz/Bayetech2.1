@@ -2181,8 +2181,6 @@
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
-    <Content Include="Scripts\app\TranslateContent\GoodCheck.js" />
-    <Content Include="Scripts\app\TranslateContent\TestES6.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -2718,6 +2716,7 @@
       <DependentUpon>common.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\components\TranslateContent\GoodCheck.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\TestES6.es5.js">
       <DependentUpon>TestES6.js</DependentUpon>
@@ -2747,7 +2746,6 @@
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\OrderCheck\" />
-    <Folder Include="Scripts\app\Processes\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
@@ -2786,6 +2784,7 @@
     </None>
     <Content Include="package.json" />
     <None Include="Project_Readme.html" />
+    <Content Include="Scripts\components\table.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
