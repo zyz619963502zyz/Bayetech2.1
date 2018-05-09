@@ -1,12 +1,15 @@
-﻿//import Vue from 'vue'
-import ComContents from '../common.js'
+﻿import Vue from '../vue.js'
+import comCompnent from '../common.js'
 import componentTable from '../components/table.js'
 
-var _url = "/api/Test/GoodCheck";
-
-var vmData = {
-    BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+let vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     BaseTarget: "_blank",
+    tools:{
+        _comCompnent:comCompnent,
+        _componentTable:componentTable
+    },
+    GoodListUrl:"/api/CheckGood/GetList",
     keyword: "",
     GoodTitleArray:["商品编号","游戏名称","交易类型","关键词","商品标题","审核商品"],
     GoodInfoArray:[],
@@ -45,7 +48,7 @@ new Vue({
     methods: {
             findList() {//获取商品的简要列表
             var self=this;
-            commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;
                 }

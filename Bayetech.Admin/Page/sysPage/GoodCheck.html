@@ -6,7 +6,6 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-
     <div class="modal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content animated bounceInRight">
@@ -94,7 +93,7 @@
                             </tbody>
                         </table>-->
                         
-                        <comtable v-bind:GoodTitleArray="GoodTitleArray" v-bind:GoodInfoArray="GoodTitleArray" v-bind:StartCheck="StartCheck"></comtable>
+                        <comtable v-bind:goodtitlearray="GoodTitleArray" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck"></comtable>
 
                         <div class="pull-right" id="">
                             <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>
@@ -107,13 +106,11 @@
 </body>
 </html>
 
-<script src="../../Scripts/app/TranslateContent/GoodCheck.js"></script>
-
-<!--<script src="../../Scripts/jquery-1.10.2.min.js"></script>
+<script src="../../Scripts/jquery-1.10.2.min.js"></script>
 <script src="../../Scripts/bootstrap.min.js"></script>
-<script src="../../Scripts/vue.js"></script>
+<!--<script src="../../Scripts/vue.js"></script>-->
 <script src="../../lib/common.js"></script>
-<script src="../../Scripts/app/GoodCheck.js"></script>
 <link href="../../Content/bootstrap.css" rel="stylesheet" />
 <link href="../../Content/generics.css" rel="stylesheet" />
-<link href="../../Content/Mystyle.css" rel="stylesheet" />-->
+<link href="../../Content/Mystyle.css" rel="stylesheet" />
+<script src="../../Scripts/components/TranslateContent/GoodCheck.js"></script>
