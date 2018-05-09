@@ -2746,6 +2746,7 @@
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\OrderCheck\" />
+    <Folder Include="Scripts\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
@@ -2784,7 +2785,7 @@
     </None>
     <Content Include="package.json" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\components\table.js" />
+    <None Include="Scripts\components\table.vue" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">
