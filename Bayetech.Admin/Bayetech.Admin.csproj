@@ -2783,6 +2783,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="package.json" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\components\table.js" />
   </ItemGroup>
