@@ -78,8 +78,11 @@ namespace Bayetech.Service.Services
                             result.Add(ResultInfo.Result, JProperty.FromObject(true));
                             result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
                             //创建标识
-                            string key = Guid.NewGuid().ToString();
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("loginId", key));
+
+                            var token = Md5.EncryptString(_account.Id + DateTime.Now);
+                            HttpContext.Current.Session["token"] = token;
+                            HttpContext.Current.Response.Cookies["token"].Value = token;
+                            HttpContext.Current.Response.Cookies["token"].Expires.AddDays(1);
                         }
                         else
                         {

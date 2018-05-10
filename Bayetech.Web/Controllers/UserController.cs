@@ -55,6 +55,11 @@ namespace Bayetech.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// 是否开启登录验证
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public bool GetIsValiteLogin(string id)
         {
@@ -62,6 +67,11 @@ namespace Bayetech.Web.Controllers
         }
 
         #region Update
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool UpdatePassword(JObject json)
         {
@@ -73,6 +83,11 @@ namespace Bayetech.Web.Controllers
             return result > 0;
         }
 
+        /// <summary>
+        /// 修改支付密码
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool UpdatePayPassword(JObject json)
         {
@@ -84,6 +99,11 @@ namespace Bayetech.Web.Controllers
             return result > 0;
         }
 
+        /// <summary>
+        /// 修改手机绑定
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool UpdatePhone(JObject json)
         {
@@ -95,6 +115,11 @@ namespace Bayetech.Web.Controllers
             return result > 0;
         }
 
+        /// <summary>
+        /// 开启/关闭登录验证
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool UpdateIsValiteLogin(JObject json)
         {
