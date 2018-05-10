@@ -10,7 +10,7 @@ namespace Bayetech.Service
     public interface IAdminManageService
     {
         /// <summary>
-        /// 获取员工表
+        /// 获取员工表1
         /// </summary>
         /// <returns></returns>
         JObject GetUserList();

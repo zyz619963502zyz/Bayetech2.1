@@ -9,6 +9,9 @@ using Bayetech.Core;
 
 namespace Bayetech.Service
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AdminManageService : BaseService<Admin_Sys_Users>,IAdminManageService
     {
         public JObject GetUserList()
