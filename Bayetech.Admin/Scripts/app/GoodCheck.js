@@ -13,7 +13,6 @@ let vmData = {
     },
     GoodListUrl:comCompnent.MenuUrl[pagetype],
     keyword: "",
-    GoodTitleArray:["商品编号","游戏名称","交易类型","关键词","商品标题","审核商品"],
     GoodInfoArray:[],
     ListObj: [
         {
