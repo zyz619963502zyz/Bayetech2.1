@@ -1,4 +1,5 @@
-﻿using Bayetech.Service;
+﻿using Bayetech.Admin.Controllers;
+using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
-namespace Bayetech.Admin.Controllers
+namespace Bayetech.Admin.Controllersww
 {
     public class LoginController : BaseController
     {
