@@ -7,4 +7,6 @@
   <object name="NavigationService" type="Bayetech.Service.NavigationService,Bayetech.Service"></object>
   <object name="UserService" type="Bayetech.Service.UserService,Bayetech.Service"></object>
   <object name="LogionService" type="Bayetech.Service.LogionService,Bayetech.Service"></object>
+  <object name="AdminManageService" type="Bayetech.Service.AdminManageService,Bayetech.Service"></object>
+
 </objects>

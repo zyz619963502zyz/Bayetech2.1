@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminService\IAdminManageService.cs" />
     <Compile Include="IAdminService\ILogionService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
@@ -62,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdminManageService.cs" />
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\DlService.cs" />
     <Compile Include="Services\GameService.cs" />
