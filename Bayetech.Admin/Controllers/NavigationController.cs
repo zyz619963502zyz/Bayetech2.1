@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace Bayetech.Admin.Controllers
 {
 
-    public class NavigationController : BaseController
+    public class NavigationController:BaseController
     {
         INavigationService service = ctx.GetObject("NavigationService") as INavigationService;
 

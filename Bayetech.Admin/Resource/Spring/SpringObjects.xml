@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net" xmlns:context="http://www.springframework.net/context" >
-  <object name="LoginSignService" type="Bayetech.Service.Services.LoginSignService,Bayetech.Service"></object>
   <object name="GoodInfoService" type="Bayetech.Service.Services.GoodInfoService,Bayetech.Service"></object>
   <object name="OrderService" type="Bayetech.Service.Services.OrderService,Bayetech.Service"></object>
   <object id="BaseService" type="Bayetech.Service.BaseService&lt;Bayetech.Core.Entity.Category>,Bayetech.Service"></object>
