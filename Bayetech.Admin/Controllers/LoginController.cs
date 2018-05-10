@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bayetech.Service;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,25 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
-    public class LoginController : ApiController
+    public class LoginController : BaseController
     {
+        ILogionService logionService = ctx.GetObject("LogionService") as ILogionService;
+        /// <summary>
+        /// 验证登陆
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
-        public string Login(JObject json) {
-            return string.Empty;
+        public JObject AdminLogion(JObject json)
+        {
+            try
+            {
+                return logionService.GetVerificationLogion(json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

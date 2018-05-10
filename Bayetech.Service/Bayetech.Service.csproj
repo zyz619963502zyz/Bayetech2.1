@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminService\ILogionService.cs" />
     <Compile Include="IAdminService\IUserService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
     <Compile Include="Services\LoginSignService.cs" />
+    <Compile Include="Services\LogionService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
     <Compile Include="Services\NavigationService.cs" />

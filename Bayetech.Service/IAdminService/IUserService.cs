@@ -8,12 +8,6 @@ namespace Bayetech.Service
 {
      public interface IUserService
     {
-        /// <summary>
-        /// 员工登陆验证
-        /// </summary>
-        /// <param name="userName">员工姓名</param>
-        /// <param name="passWord">员工密码</param>
-        /// <returns></returns>
-        bool GetVerificationLogion(string userName, string passWord);
+       
     }
 }

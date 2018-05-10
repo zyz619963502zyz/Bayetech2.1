@@ -8,9 +8,6 @@ namespace Bayetech.Service
 {
     public class UserService : IUserService
     {
-        public bool GetVerificationLogion(string userName, string passWord)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

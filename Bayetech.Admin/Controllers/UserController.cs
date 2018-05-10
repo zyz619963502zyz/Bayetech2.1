@@ -15,18 +15,6 @@ namespace Bayetech.Admin.Controllers
     public class UserController : BaseController
     {
 
-        IUserService userService = ctx.GetObject("UserService") as IUserService;
-        [HttpGet]
-        public bool AdminLogion(string userName,string passWord)
-        {
-            try
-            {
-                return userService.GetVerificationLogion(userName,passWord);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
     }
 }
