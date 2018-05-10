@@ -7,9 +7,8 @@ using System.Web.Http;
 namespace Bayetech.Admin.Controllers
 {
 
-    public class NavigationController : BaseController
+    public class NavigationController:BaseController
     {
-        ILoginSignService service1 = ctx.GetObject("LoginSignService") as ILoginSignService;
         INavigationService service = ctx.GetObject("NavigationService") as INavigationService;
 
         [HttpGet]

@@ -48,6 +48,10 @@
     <Reference Include="Bayetech.Core">
       <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
@@ -187,15 +191,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ButtonsManageController.cs" />
     <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\GoodCheckController.cs" />
@@ -2160,7 +2163,7 @@
     <Content Include="lib\webuploader-master\_draft\music\success.png" />
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
-    <Content Include="Page\GoodCheck\GoodCheck.html" />
+    <Content Include="Page\checks\checks.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2181,6 +2184,7 @@
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
+    <Content Include="Scripts\app\TranslateContent\GoodCheck.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
@@ -2716,8 +2720,9 @@
       <DependentUpon>common.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\common.js" />
-    <Content Include="Scripts\components\TranslateContent\GoodCheck.js" />
+    <Content Include="Scripts\components\table.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">
       <DependentUpon>TestES6.js</DependentUpon>
     </Content>
@@ -2745,7 +2750,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
-    <Folder Include="Page\OrderCheck\" />
+    <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
@@ -2782,9 +2787,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="package.json" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\components\table.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">

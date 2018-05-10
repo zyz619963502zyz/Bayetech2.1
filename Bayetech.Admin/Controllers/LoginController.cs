@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bayetech.Admin.Controllers;
+using Bayetech.Service;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,36 +9,37 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
-namespace Bayetech.Admin.Controllers
+namespace Bayetech.Admin.Controllersww
 {
-    public class LoginController : ApiController
+    public class LoginController : BaseController
     {
-        //[HttpPost]
-        //public IHttpActionResult Login(Accout userInfo)
-        //{
-        //    string result = "no";
-        //    var Session = HttpContext.Current.Session;
-        //    //根据用户名密码进行查询
-        //    if (UserInfoService.Login(new UserInfo()
-        //    {
-        //        UserName = userInfo.UserName,
-        //        UserPwd = userInfo.UserPwd
-        //    }))
-        //    {
-        //        result = "ok";
+        ILogionService logionService = ctx.GetObject("LogionService") as ILogionService;
+        /// <summary>
+        /// 验证登陆
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject AdminLogion(JObject json)
+        {
+            try
+            {
+                return logionService.GetVerificationLogion(json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-        //        //创建标识
-        //        string key = Guid.NewGuid().ToString();
-        //        HttpContext.Current.Response.Cookies.Add(new HttpCookie("loginId", key));
-
-        //    }
-        //    else
-        //    {
-        //        result = "用户名或密码错误";
-        //        Session["ValidateCode"] = "";
-        //    }
-
-        //    return Json(result);
-        //}
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <returns></returns>
+        public bool LoginOut()
+        {
+            HttpContext.Current.Session.Clear();
+            return true;
+        }
     }
 }

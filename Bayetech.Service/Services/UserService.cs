@@ -6,42 +6,37 @@ using System;
 using Bayetech.Core;
 using Bayetech.Service.IServices;
 using System.Web;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
-    public partial class UserService : BaseService<User>, IUserService
+    public class UserService : IUserService
     {
-        /// <summary>
-        /// 创建账号
-        /// </summary>
-        /// <param name="json">账号信息</param>
-        /// <returns></returns>
-        public bool CreatAccount(JObject json)
-        {
-
-            using (var db = new RepositoryBase().BeginTrans())
-            {
-                User _account = (User)JsonConvert.DeserializeObject(json.First.Path, typeof(User));
-                _account.Password = Md5.EncryptString(_account.Password);
-                _account.IsValiteLogin = true;
-                db.Insert(_account);
-                int count = db.Commit();
-                return count > 0 ? true : false;
-            }
-        }
-
-        /// <summary>
-        /// 验证账号重复性
-        /// </summary>
-        /// <param name="account">注册账号</param>
-        /// <returns></returns>
         public bool CheckAccount(string account)
         {
-            using (var db = new RepositoryBase())
-            {
-                User _account = db.FindEntity<User>(c => c.Name == account);
-                return _account == null ? true : false;//true不重复可申请，false不可申请
-            }
+            throw new NotImplementedException();
+        }
+
+        public JObject CheckLogin(JObject json)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreatAccount(JObject json)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(object keyValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User FindEntity(object keyValue)
+        {
+            throw new NotImplementedException();
         }
 
 
@@ -105,7 +100,7 @@ namespace Bayetech.Service.Services
             }
         }
 
-        public bool GetVerificationLogion(string userName, string passWord)
+        public int Update(User entity)
         {
             throw new NotImplementedException();
         }

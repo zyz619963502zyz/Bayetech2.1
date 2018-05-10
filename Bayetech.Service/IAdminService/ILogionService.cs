@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service
 {
-     public interface IAdminService//IUserService
+    public interface ILogionService
     {
         /// <summary>
         /// 员工登陆验证
         /// </summary>
-        /// <param name="userName">员工姓名</param>
-        /// <param name="passWord">员工密码</param>
+        /// <param name="json">员工信息</param>
         /// <returns></returns>
-        bool GetVerificationLogion(string userName, string passWord);
+        JObject GetVerificationLogion(JObject json);
     }
 }
