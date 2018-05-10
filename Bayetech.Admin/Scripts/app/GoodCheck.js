@@ -4,6 +4,7 @@ import componentTable from '../components/table.js'
 
 var _url = "/api/Test/GoodCheck";
 
+
 var vmData = {
     BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     BaseTarget: "_blank",
