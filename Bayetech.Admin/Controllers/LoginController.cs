@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -28,6 +29,16 @@ namespace Bayetech.Admin.Controllers
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <returns></returns>
+        public bool LoginOut()
+        {
+            HttpContext.Current.Session.Clear();
+            return true;
         }
     }
 }
