@@ -2160,6 +2160,7 @@
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
     <Content Include="Page\Checks\GoodCheck.html" />
+    <Content Include="Page\Checks\OrderCheck.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
