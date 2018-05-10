@@ -2745,7 +2745,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
-    <Folder Include="Page\OrderCheck\" />
     <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
