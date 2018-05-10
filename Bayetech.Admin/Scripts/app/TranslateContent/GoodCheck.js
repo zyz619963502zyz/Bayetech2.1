@@ -381,10 +381,16 @@ var comCompnent = {
             AcrossId: 0,
             AcrossName: "跨区"
         };
+    },
+
+    MenuUrl: {
+        process: "/api/CheckGood/GetProcessList",
+        processed: "/api/CheckGood/GetProcessedList",
+        process24hours: "/api/CheckGood/Get24ProcessList"
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = ({ comCompnent });
+/* harmony default export */ __webpack_exports__["a"] = (comCompnent);
 
 /***/ }),
 /* 2 */
@@ -9978,14 +9984,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
+
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-    BaseTarget: "_blank",
+    PageType: pagetype, //111
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_js__["a" /* default */]
     },
-    GoodListUrl: "/api/CheckGood/GetList",
+    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     keyword: "",
     GoodTitleArray: ["商品编号", "游戏名称", "交易类型", "关键词", "商品标题", "审核商品"],
     GoodInfoArray: [],
@@ -10023,7 +10031,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         findList() {
             //获取商品的简要列表
             var self = this;
-            self.tools._comCompnent.comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
                 }

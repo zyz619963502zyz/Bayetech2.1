@@ -274,6 +274,12 @@ var comCompnent = {
             AcrossName: "跨区", 
         };
     },
+
+    MenuUrl:{
+        process:"/api/CheckGood/GetProcessList",
+        processed:"/api/CheckGood/GetProcessedList",
+        process24hours:"/api/CheckGood/Get24ProcessList",
+    }
 };
 
-export default { comCompnent }
+export default comCompnent
