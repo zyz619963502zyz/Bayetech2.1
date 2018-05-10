@@ -2722,6 +2722,7 @@
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\components\table.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">
       <DependentUpon>TestES6.js</DependentUpon>
     </Content>
