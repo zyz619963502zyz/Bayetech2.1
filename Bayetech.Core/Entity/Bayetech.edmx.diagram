@@ -47,7 +47,6 @@
         <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Navigations" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.GoodAndDescription" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.MallGoodPictures" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
@@ -63,6 +62,7 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="8.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallPictureInfo" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_NoToProperty" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="15.375" PointY="23.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

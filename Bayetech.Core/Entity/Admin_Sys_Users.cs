@@ -19,7 +19,7 @@ namespace Bayetech.Core.Entity
         public string Password { get; set; }
         public string PassSalt { get; set; }
         public string Email { get; set; }
-        public bool IsAdmin { get; set; }
+        public Nullable<bool> IsAdmin { get; set; }
         public Nullable<bool> IsDisabled { get; set; }
         public string TrueName { get; set; }
         public Nullable<int> DepartmentId { get; set; }

@@ -55,38 +55,57 @@ namespace Bayetech.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public bool GetIsValiteLogin(string id)
+        {
+            return (bool)service.FindList(a => a.Id == id).ToList().FirstOrDefault().IsValiteLogin;
+        }
+
         #region Update
-        public bool UpdatePassword(string id ,string pasword)
+        [HttpPost]
+        public bool UpdatePassword(JObject json)
         {
-            var entity = service.FindList(a => a.Id == id).FirstOrDefault();
-            entity.Password = Md5.EncryptString(pasword);
+            var id = json.Property("id").Value.ToString();
+            var password = json.Property("password").Value.ToString();
+            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
+            entity.Password = Md5.EncryptString(password);
             var result = service.Update(entity);
             return result > 0;
         }
 
-        public bool UpdatePayPassword(string id, string payPasword)
+        [HttpPost]
+        public bool UpdatePayPassword(JObject json)
         {
-            var entity = service.FindList(a => a.Id == id).FirstOrDefault();
-            entity.PayPassword = Md5.EncryptString(payPasword);
+            var id = json.Property("id").Value.ToString();
+            var payPassword = json.Property("payPassword").Value.ToString();
+            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
+            entity.PayPassword = Md5.EncryptString(payPassword);
             var result = service.Update(entity);
             return result > 0;
         }
 
-        public bool UpdatePhome(string id, string phone)
+        [HttpPost]
+        public bool UpdatePhone(JObject json)
         {
-            var entity = service.FindList(a => a.Id == id).FirstOrDefault();
+            var id = json.Property("id").Value.ToString();
+            var phone = json.Property("phone").Value.ToString();
+            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
             entity.Phone = phone;
             var result = service.Update(entity);
             return result > 0;
         }
 
-        public bool UpdateValiteLogin(string id, bool IsValiteLogin)
+        [HttpPost]
+        public bool UpdateIsValiteLogin(JObject json)
         {
-            var entity = service.FindList(a => a.Id == id).FirstOrDefault();
-            entity.IsValiteLogin = IsValiteLogin;
+            var id = json.Property("id").Value.ToString();
+            var isValiteLogin = bool.Parse(json.Property("isValiteLogin").Value.ToString());
+            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
+            entity.IsValiteLogin = isValiteLogin;
             var result = service.Update(entity);
             return result > 0;
         }
+
         #endregion
     }
 }
