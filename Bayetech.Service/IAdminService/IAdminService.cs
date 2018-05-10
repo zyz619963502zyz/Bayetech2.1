@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service
 {
-     public interface IUserService
+     public interface IAdminService//IUserService
     {
        
     }

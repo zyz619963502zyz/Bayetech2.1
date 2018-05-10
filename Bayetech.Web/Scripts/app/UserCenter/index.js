@@ -13,6 +13,7 @@ require(UserCenterRequireArr, function () {
         components[arguments[i].name]=arguments[i];
     }
     var data = {
+        aa: 11,
         menuData: {
             Title: "个人中心",
             List: [{
