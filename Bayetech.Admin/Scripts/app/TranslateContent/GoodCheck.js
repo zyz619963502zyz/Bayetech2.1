@@ -400,7 +400,13 @@ var comCompnent = {
 let BaseTable = `<table class="table table-bordered">
         <thead>
             <tr class="success">
-                <th class="text-center"  v-for="item in goodtitlearray">{{item}}</th>
+                <th class="text-center hide">单据类型(select判断)</th>
+                <th class="text-center">商品编号</th>
+                <th class="text-center">游戏名称</th>
+                <th class="text-center">交易类型</th>
+                <th class="text-center">关键词</th>
+                <th class="text-center">商品标题</th>
+                <th class="text-center">审核商品</th>
             </tr>
         </thead>
         <tbody>
@@ -9995,7 +10001,6 @@ let vmData = {
     },
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     keyword: "",
-    GoodTitleArray: ["商品编号", "游戏名称", "交易类型", "关键词", "商品标题", "审核商品"],
     GoodInfoArray: [],
     ListObj: [{
         GoodNo: "",
