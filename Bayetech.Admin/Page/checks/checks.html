@@ -11,28 +11,57 @@
     <link href="../../Content/Mystyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="modal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
+    <!--局部Modal放在当前文件-->
+    <div class="modal form-horizontal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="width:1200px">
             <div class="modal-content animated bounceInRight">
                 <div id="modal_head" class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
                         <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
                     </button>
-                    <h4 class="modal-title" id="modal_title">商品信息审核</h4>
+                    <h3 class="modal-title text-center" id="modal_title"><strong>商品信息审核</strong></h3>
                 </div>
                 <div class="modal-body" id="modal_body">
-                    <div class="fa-font">
+                    <div class="fa-font col-md-12">
+                        <h4><strong>1.审查规则:</strong></h4>
                         <p style="color:orangered">1.描述里面不可以出现违法暴力内容。</p>
                         <p style="color:orangered">2.描述里面不可以出现色情等，不和谐关键词。</p>
                         <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等联系方式的内容，否者视为不通过</p>
                     </div>
                     <br />
-                    <textarea class="form-control">商品的描述信息如下:此商品比较扯淡一点点都不能使用，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
+                    <div id="Account">
+                        <div class="input-group col-md-12">
+                            <h4><strong>2.账号信息:</strong></h4>
+                            <div class="input-group  col-md-12">
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-3">用户名</label>
+                                    <div class="col-md-offset-1 col-md-8">
+                                        <input class="form-control" value="zhangzaitian" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-3">密码</label>
+                                    <div class="col-md-offset-1 col-md-8">
+                                        <input class="form-control" value="123456789" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="input-group col-md-12">
+                            <label class="control-label">商品的描述信息:</label>
+                            <textarea style="height:150px" class="form-control" readonly>此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer" id="modal_footer" style="text-align:center;">
-                    <button type="button" class="btn  btn-primary" data-loading-text="处理中..." name="CheckConfirm" id="aaaa">审核通过</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" name="CheckNo" id="bbbb">审核不通过</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" name="Cancel" id="cccc">取消</button>
+                    <div class="btn-group col-md-12">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="处理中..." name="CheckConfirm" id="aaaa">审核通过</button>
+                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="CheckNo" id="bbbb">审核不通过</button>
+                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="Cancel" id="cccc">取消</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,7 +72,18 @@
         <form class="form form-search form-horizontal" role="form">
             <div class="form-group" id="lineTwo">
                 <div class="col-ms-10">
-                    <div class="input-group col-md-5">
+                    <div class="input-group col-md-4">
+                        <label class="control-label col-md-3">商品类型:</label>
+                        <div class="col-md-9">
+                            <select class="form-control">
+                                <option value="value">0</option>
+                                <option value="value">1</option>
+                                <option value="value">2</option>
+                                <option value="value">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group col-md-4">
                         <label class="control-label col-md-3">商品编号:</label>
                         <div class="col-md-9">
                             <input type="text" v-model="SearchParam.Param.GoodNo" class="form-control" />
@@ -74,9 +114,7 @@
                                 </span>
                             </div>
                         </div>
-
-                        <comtable v-bind:goodtitlearray="GoodTitleArray" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck"></comtable>
-
+                        <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck"></comtable>
                         <div class="pull-right" id="">
                             <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>
                         </div>
