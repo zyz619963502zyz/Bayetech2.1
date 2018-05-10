@@ -219,6 +219,7 @@
   <ItemGroup>
     <Content Include="Content\Mystyle.css" />
     <Content Include="Page\adminPage\CustomerManage.html" />
+    <Content Include="Page\adminPage\HtmlPage1.html" />
     <Content Include="Page\BayMain.html" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
@@ -2159,8 +2160,6 @@
     <Content Include="lib\webuploader-master\_draft\music\success.png" />
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
-    <Content Include="Page\Checks\GoodCheck.html" />
-    <Content Include="Page\Checks\OrderCheck.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2746,6 +2745,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
+    <Folder Include="Page\Checks\" />
     <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
