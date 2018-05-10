@@ -424,7 +424,7 @@ let BaseTable = `<table class="table table-bordered">
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
     template: BaseTable,
-    props: ['pagetype', 'goodtitlearray', 'goodinfoarray', 'startcheck']
+    props: ['pagetype', 'goodinfoarray', 'startcheck']
 });
 
 /***/ }),

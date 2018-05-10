@@ -26,5 +26,5 @@
 export default{
     name:'BaseTable',
     template:BaseTable,
-    props:['pagetype','goodtitlearray','goodinfoarray','startcheck']
+    props:['pagetype','goodinfoarray','startcheck']
 }
