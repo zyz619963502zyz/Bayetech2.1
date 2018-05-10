@@ -1,4 +1,4 @@
-﻿//import Vue from 'vue'
+﻿import Vue from '../vue'
 import ComContents from '../common.js'
 import componentTable from '../components/table.js'
 

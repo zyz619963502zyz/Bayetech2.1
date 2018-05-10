@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         //path: path.join(__dirname, 'Scripts'),
-        filename: "./Scripts/components/TranslateContent/[name].js"
+        filename: "./Scripts/app/TranslateContent/[name].js"
 
     },
     devServer: {
