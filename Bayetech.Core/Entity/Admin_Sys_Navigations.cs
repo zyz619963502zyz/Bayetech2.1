@@ -17,10 +17,10 @@ namespace Bayetech.Core.Entity
         public int KeyId { get; set; }
         public string NavTitle { get; set; }
         public string Linkurl { get; set; }
-        public int Sortnum { get; set; }
+        public Nullable<int> Sortnum { get; set; }
         public string iconCls { get; set; }
         public string iconUrl { get; set; }
-        public bool IsVisible { get; set; }
+        public Nullable<bool> IsVisible { get; set; }
         public Nullable<int> ParentID { get; set; }
         public string NavTag { get; set; }
         public string BigImageUrl { get; set; }

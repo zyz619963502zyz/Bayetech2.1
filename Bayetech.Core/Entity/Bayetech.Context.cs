@@ -69,7 +69,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Admin_Sys_Navigations> Admin_Sys_Navigations { get; set; }
         public virtual DbSet<GoodAndDescription> GoodAndDescription { get; set; }
         public virtual DbSet<MallGoodPictures> MallGoodPictures { get; set; }
@@ -85,6 +84,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
         public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
+        public virtual DbSet<User> User { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
