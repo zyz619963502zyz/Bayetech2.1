@@ -10,6 +10,7 @@ namespace Bayetech.Admin.Controllers
     public class NavigationController:BaseController
     {
         INavigationService service = ctx.GetObject("NavigationService") as INavigationService;
+        //INavigationService service = new NavigationService();
 
         [HttpGet]
         public ConcurrentDictionary<string, string> GetClientsDataJson()
