@@ -22,6 +22,7 @@ namespace Bayetech.Admin.Controllers
         {
             try
             {
+                //aaaaaa
                 return adminManageService.GetUserList();
             }
             catch (Exception ex)
