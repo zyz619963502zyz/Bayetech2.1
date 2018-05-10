@@ -1,8 +1,8 @@
-﻿let BaseTable = `<template>
-    <table class="table table-bordered">
+﻿let BaseTable = 
+    `<table class="table table-bordered">
         <thead>
             <tr class="success">
-                <th class="text-center"  v-for="item in goodtitlearray">{{item.value}}</th>
+                <th class="text-center"  v-for="item in goodtitlearray">{{item}}</th>
             </tr>
         </thead>
         <tbody>
@@ -15,8 +15,7 @@
                 <td class="text-center"><input type="button" class="btn btn-primary" value="审核商品" @click="startcheck(item.GoodNo)"></td>
             </tr>
         </tbody>
-    </table>
-</template>`
+    </table>`
 
 export default{
     name:'BaseTable',

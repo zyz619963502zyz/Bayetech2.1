@@ -396,11 +396,10 @@ var ComContents = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-let BaseTable = `<template>
-    <table class="table table-bordered">
+let BaseTable = `<table class="table table-bordered">
         <thead>
             <tr class="success">
-                <th class="text-center"  v-for="item in goodtitlearray">{{item.value}}</th>
+                <th class="text-center"  v-for="item in goodtitlearray">{{item}}</th>
             </tr>
         </thead>
         <tbody>
@@ -413,8 +412,7 @@ let BaseTable = `<template>
                 <td class="text-center"><input type="button" class="btn btn-primary" value="审核商品" @click="startcheck(item.GoodNo)"></td>
             </tr>
         </tbody>
-    </table>
-</template>`;
+    </table>`;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
@@ -9977,19 +9975,22 @@ let BaseTable = `<template>
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_js__ = __webpack_require__(2);
 
 
 
 
-var _url = "/api/Test/GoodCheck";
-
-var vmData = {
-    BaseUrl: GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
+let vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     BaseTarget: "_blank",
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_js__["a" /* default */]
+    },
+    GoodListUrl: "/api/CheckGood/GetList",
     keyword: "",
     GoodTitleArray: ["商品编号", "游戏名称", "交易类型", "关键词", "商品标题", "审核商品"],
     GoodInfoArray: [],
@@ -10017,7 +10018,7 @@ var vmData = {
     }
 };
 
-new __WEBPACK_IMPORTED_MODULE_0__vue___default.a({
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     el: '#CommForm',
     data: vmData,
     created() {
@@ -10027,7 +10028,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue___default.a({
         findList() {
             //获取商品的简要列表
             var self = this;
-            commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
                 }
@@ -10042,64 +10043,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue___default.a({
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_js__["a" /* default */]
     }
 });
-
-////当前执行的函数
-//(function () {
-//    var GoodListUrl = "/api/CheckGood/GetList"; //查询列表
-
-//    var vmData = {
-//        BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-//        BaseTarget: "_blank",
-//        keyword: "",
-//        GoodInfoArray:[],
-//        ListObj: [
-//            {
-//                GoodNo: "",
-//                GoodFirstPicture: "",
-//                aurl: "",
-//                GoodTitle: "",
-//                GroupName: "",
-//                ServerName: "",
-//                GoodPrice: ""
-//            }
-//        ],
-//        SearchParam: {
-//            Param: {
-//                GoodNo:""
-//            },
-//            Pagination: {//分页对象
-//                rows: 10,//每页行数，
-//                page: 1,//当前页码
-//                order: "GoodNo",//排序字段
-//                sord: "asc",//排序类型
-//                records: 10,//总记录数
-//                total: 10//总页数。
-//            }
-//        },
-//    };
-
-//    var vm = new Vue({
-//        el: '#CommForm',
-//        data: vmData,
-//        created(){
-//            this.findList();
-//        },
-//        methods: {
-//             findList() {//获取商品的简要列表
-//                var self=this;
-//                commonCompnent.postWebJson(GoodListUrl, self.SearchParam, function (data) {
-//                    if (data.result) {
-//                        self.GoodInfoArray=data.content.datas;
-//                    }
-//                });
-//            },
-//            StartCheck() {//开始检查
-//                $("#checkModal").modal("show");
-//            }
-//        }
-//    });
-
-//})();
 
 /***/ }),
 /* 5 */
