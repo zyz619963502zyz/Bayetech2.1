@@ -2166,6 +2166,7 @@
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
+    <Content Include="Page\sysPage\HtmlPage1.html" />
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
