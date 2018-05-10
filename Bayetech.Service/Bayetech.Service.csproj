@@ -46,15 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdminService\ILogionService.cs" />
-    <Compile Include="IAdminService\IUserService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
-    <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\IDlService.cs" />
     <Compile Include="IServices\INavigationService.cs" />
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="IServices\IUploadFileService.cs" />
+    <Compile Include="IServices\IUserService.cs" />
     <Compile Include="Model\NavTreeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseService.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
-    <Compile Include="Services\LoginSignService.cs" />
     <Compile Include="Services\LogionService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
