@@ -48,6 +48,10 @@
     <Reference Include="Bayetech.Core">
       <HintPath>..\Bayetech.Web\bin\Bayetech.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
@@ -193,8 +197,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ButtonsManageController.cs" />
     <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\GoodCheckController.cs" />
@@ -2745,6 +2749,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
+    <Folder Include="Page\OrderCheck\GoodCheck\" />
     <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
