@@ -4,10 +4,14 @@ using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Bayetech.Core;
 using System.Linq;
+using System.Web;
+using Bayetech.Core.Entity;
+using Newtonsoft.Json;
+using System.Web.SessionState;
 
 namespace Bayetech.Web.Controllers
 {
-    public class UserController : BaseController
+    public class UserController : BaseController 
     {
 
         //取出服务层

@@ -9,17 +9,13 @@ using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.Http;
 
-namespace Bayetech.Service
+namespace Bayetech.Service.Services
 {
-    public class UserService : IUserService
+    public class UserService :BaseService<User>, IUserService
     {
         public bool CheckAccount(string account)
-        {
-            throw new NotImplementedException();
-        }
-
-        public JObject CheckLogin(JObject json)
         {
             throw new NotImplementedException();
         }
@@ -46,6 +42,7 @@ namespace Bayetech.Service
         /// <param name="username">登录账号</param>
         /// <param name="password">登录密码</param>
         /// <returns></returns>
+
         public JObject CheckLogin(JObject json)
         {
             using (var db = new RepositoryBase().BeginTrans())
@@ -69,13 +66,13 @@ namespace Bayetech.Service
                             _currentLogin.LoginTime = DateTime.Now;
                             _currentLogin.Message = "登录成功";
                             db.Insert(_currentLogin);
-                            db.Commit();  
+                            db.Commit();
                             result.Add(ResultInfo.Result, JProperty.FromObject(true));
                             result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
-                            //创建标识
 
-                            var token = Md5.EncryptString(_account.Id + DateTime.Now);
-                            HttpContext.Current.Session["token"] = token;
+                            //创建标识
+                            var token = Md5.EncryptString(_account.Name + DateTime.Now);
+                           // HttpContext.Current.Session["token-" + _account.Name] = token;
                             HttpContext.Current.Response.Cookies["token"].Value = token;
                             HttpContext.Current.Response.Cookies["token"].Expires.AddDays(1);
                         }

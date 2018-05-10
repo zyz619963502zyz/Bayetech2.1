@@ -90,6 +90,7 @@ require(UserCenterRequireArr, function () {
     var Validator = arguments[3];
 
 
+
     var vm = new Vue({
         el: '#app',
         data: {
@@ -104,7 +105,10 @@ require(UserCenterRequireArr, function () {
             SubmitLogin: function () {
                 common.postWebJson("/api/User/LoginIn", JSON.stringify(this.$data), function (data) {
                     alert(data.content);
-                });
+                    window.location.href = "../Home/NewIndex.html";
+                }, function (error) {
+                    alert(error);
+                    });
             },
         }
     });
