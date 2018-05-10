@@ -14,7 +14,7 @@ $.clientsInit = function () {
     };
     var init = function () {
         $.ajax({
-            url: "/api/AdminManage/GetList",
+            url: "/api/Navigation/GetClientsDataJson",
             type: "get",
             dataType: "json",
             async: false,
