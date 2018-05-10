@@ -2164,7 +2164,6 @@
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
     <Content Include="Page\checks\GoodCheck.html" />
-    <Content Include="Page\router\cde.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2723,6 +2722,7 @@
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\components\table.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">
       <DependentUpon>TestES6.js</DependentUpon>
     </Content>
@@ -2751,6 +2751,7 @@
     <Folder Include="Areas\Main\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\OrderCheck\GoodCheck\" />
+    <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Login\" />
