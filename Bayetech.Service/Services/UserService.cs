@@ -11,7 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class UserService :BaseService<User>, IUserService
     {
@@ -24,17 +24,6 @@ namespace Bayetech.Service.Services
         {
             throw new NotImplementedException();
         }
-
-        public int Delete(object keyValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User FindEntity(object keyValue)
-        {
-            throw new NotImplementedException();
-        }
-
 
         /// <summary>
         /// 登陆校验
@@ -97,9 +86,5 @@ namespace Bayetech.Service.Services
             }
         }
 
-        public int Update(User entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
