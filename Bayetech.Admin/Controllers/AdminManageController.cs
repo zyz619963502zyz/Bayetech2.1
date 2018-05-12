@@ -30,5 +30,22 @@ namespace Bayetech.Admin.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// 添加与修改员工
+        /// </summary>
+        /// <param name="json">员工信息</param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject UserAdd(JObject json)
+       {
+            try
+            {
+                return adminManageService.AddUser(json, 0);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

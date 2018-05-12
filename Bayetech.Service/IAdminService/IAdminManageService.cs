@@ -14,5 +14,12 @@ namespace Bayetech.Service
         /// </summary>
         /// <returns></returns>
         JObject GetUserList();
+        /// <summary>
+        /// 添加员工
+        /// </summary>
+        /// <param name="json">添加信息</param>
+        /// <param name="UserId">当前登录用户id</param>
+        /// <returns></returns>
+        JObject AddUser(JObject json, int UserId);
     }
 }
