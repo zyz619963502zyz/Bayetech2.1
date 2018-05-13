@@ -17,9 +17,9 @@ $.clientsInit = function () {
     var aaa = 0;
     var init = function () {
         $.ajax({
-            url: "/api/UserRoles/AddRoles",
-            data:JSON.stringify(dd),
-            type: "post",
+            url: "/api/Navigation/GetNavigationList",
+            //data:JSON.stringify(dd),
+            type: "get",
             dataType: "json",
             async: false,
             success: function (ret) {
