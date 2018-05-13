@@ -16,10 +16,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         <div class ="security_index_right">
             <ul>
                 <li>
-                <a href="http://www.7881.com/tradesafe/knowledge.html" title="安全知识中心"><img src="../../../../Content/Images/security_index_right_1.jpg"></a>
+                <a href="http://www.7881.com/tradesafe/knowledge.html" title="安全知识中心"><img src="../../Content/Images/security_index_right_1.jpg"></a>
                 </li>
                 <ol>
-                    <a href="http://www.7881.com/tradesafe/safeCenter.html" title="验证中心"><img src="../../../../Content/Images/security_index_right_2.jpg"></a>
+                    <a href="http://www.7881.com/tradesafe/safeCenter.html" title="验证中心"><img src="../../Content/Images/security_index_right_2.jpg"></a>
                 </ol>
             </ul>
         </div>
