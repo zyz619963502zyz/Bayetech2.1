@@ -4,12 +4,7 @@ using Newtonsoft.Json;
 using Bayetech.Core.Entity;
 using System;
 using Bayetech.Core;
-using Bayetech.Service.IServices;
 using System.Web;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http;
 
 namespace Bayetech.Service.Services
 {
