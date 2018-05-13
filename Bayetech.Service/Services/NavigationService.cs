@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 using Bayetech.Service.Model;
 using Bayetech.Core.Security.Json;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class NavigationService : BaseService<Admin_Sys_Navigations>, INavigationService
     {
@@ -23,7 +23,7 @@ namespace Bayetech.Service.Services
         {
             var db = GetContext();
             
-            var list = repository.IQueryable<Admin_Sys_Navigations>(a =>a.IsVisible).ToList();
+            var list = repository.IQueryable<Admin_Sys_Navigations>(a =>(bool)a.IsVisible).ToList();
             //if (!currentUser.IsAdmin)
             if(menuId>8)
             {
@@ -53,7 +53,7 @@ namespace Bayetech.Service.Services
                 menuModel.Id = item.KeyId;
                 menuModel.Name = item.NavTitle;
                 menuModel.Icon = item.iconCls;
-                menuModel.SortCode = item.Sortnum;
+                menuModel.SortCode = (int)item.Sortnum;
 
                 menuModel.ChildNodes =
                     list.Where(c => c.ParentID == item.KeyId)
@@ -64,7 +64,7 @@ namespace Bayetech.Service.Services
                                     Id = c.KeyId,
                                     Name = c.NavTitle,
                                     UrlAddress = c.Linkurl,
-                                    SortCode = c.Sortnum
+                                    SortCode = (int)c.Sortnum
                                 })
                         .OrderBy(c => c.SortCode).ToList();
                 menuList.Add(menuModel);

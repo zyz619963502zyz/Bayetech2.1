@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BayetechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BayetechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -220,7 +220,7 @@
           </Key>
           <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NavTitle" Type="nvarchar" MaxLength="50" />
-          <Property Name="Linkurl" Type="nvarchar" MaxLength="50" />
+          <Property Name="Linkurl" Type="nvarchar" MaxLength="80" />
           <Property Name="Sortnum" Type="int" />
           <Property Name="iconCls" Type="nvarchar" MaxLength="50" />
           <Property Name="iconUrl" Type="nvarchar" MaxLength="50" />
@@ -700,7 +700,7 @@
           <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="NameAlias" Type="nvarchar" MaxLength="30" />
-          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="QQ" Type="int" />
           <Property Name="IsHatchet" Type="bit" />
@@ -708,7 +708,7 @@
           <Property Name="BuyTimes" Type="int" />
           <Property Name="SellTimes" Type="int" />
           <Property Name="HatChetTimes" Type="int" />
-          <Property Name="PayPassword" Type="varchar" MaxLength="30" />
+          <Property Name="PayPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="IsValiteLogin" Type="bit" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="UpdateTime" Type="datetime" />
@@ -1437,8 +1437,7 @@
     FROM [dbo].[vw_NoToProperty] AS [vw_NoToProperty]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BayetechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2088,33 +2087,13 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NameAlias" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="QQ" Type="Int32" />
-          <Property Name="IsHatchet" Type="Boolean" />
-          <Property Name="CreditLevel" Type="Int32" />
-          <Property Name="BuyTimes" Type="Int32" />
-          <Property Name="SellTimes" Type="Int32" />
-          <Property Name="HatChetTimes" Type="Int32" />
-          <Property Name="PayPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="IsValiteLogin" Type="Boolean" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Admin_Sys_Navigations">
           <Key>
             <PropertyRef Name="KeyId" />
           </Key>
           <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NavTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Linkurl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Linkurl" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="Sortnum" Type="Int32" />
           <Property Name="iconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="iconUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -2496,7 +2475,6 @@
           <EntitySet Name="Server" EntityType="Self.Server" />
           <EntitySet Name="Settings" EntityType="Self.Settings" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" />
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" />
           <EntitySet Name="MallGoodPictures" EntityType="Self.MallGoodPictures" />
@@ -2542,6 +2520,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="User" EntityType="BayetechModel.User" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2554,6 +2533,26 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NameAlias" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QQ" Type="Int32" />
+          <Property Name="IsHatchet" Type="Boolean" />
+          <Property Name="CreditLevel" Type="Int32" />
+          <Property Name="BuyTimes" Type="Int32" />
+          <Property Name="SellTimes" Type="Int32" />
+          <Property Name="HatChetTimes" Type="Int32" />
+          <Property Name="PayPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsValiteLogin" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3247,27 +3246,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="BayetechModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="NameAlias" ColumnName="NameAlias" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="QQ" ColumnName="QQ" />
-                <ScalarProperty Name="IsHatchet" ColumnName="IsHatchet" />
-                <ScalarProperty Name="CreditLevel" ColumnName="CreditLevel" />
-                <ScalarProperty Name="BuyTimes" ColumnName="BuyTimes" />
-                <ScalarProperty Name="SellTimes" ColumnName="SellTimes" />
-                <ScalarProperty Name="HatChetTimes" ColumnName="HatChetTimes" />
-                <ScalarProperty Name="PayPassword" ColumnName="PayPassword" />
-                <ScalarProperty Name="IsValiteLogin" ColumnName="IsValiteLogin" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Admin_Sys_Navigations">
             <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Navigations">
               <MappingFragment StoreEntitySet="Admin_Sys_Navigations">
@@ -3637,6 +3615,27 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BayetechModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BayetechModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="BayetechModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="IsValiteLogin" ColumnName="IsValiteLogin" />
+                <ScalarProperty Name="PayPassword" ColumnName="PayPassword" />
+                <ScalarProperty Name="HatChetTimes" ColumnName="HatChetTimes" />
+                <ScalarProperty Name="SellTimes" ColumnName="SellTimes" />
+                <ScalarProperty Name="BuyTimes" ColumnName="BuyTimes" />
+                <ScalarProperty Name="CreditLevel" ColumnName="CreditLevel" />
+                <ScalarProperty Name="IsHatchet" ColumnName="IsHatchet" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NameAlias" ColumnName="NameAlias" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

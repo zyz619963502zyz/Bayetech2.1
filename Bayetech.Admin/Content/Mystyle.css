@@ -1,6 +1,9 @@
 ﻿@charset"utf-8";
 
 .m0{margin:0!important;}
+
+.p0_l {padding-left:0! important;}
+
 .skip-page{
     float:right;
     width:180px;

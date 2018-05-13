@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,15 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminService\IAdminManageService.cs" />
+    <Compile Include="IAdminService\ILogionService.cs" />
+    <Compile Include="IAdminService\IUserRolesService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
-    <Compile Include="IServices\ILoginSignService.cs" />
     <Compile Include="IServices\IDlService.cs" />
     <Compile Include="IServices\INavigationService.cs" />
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="IServices\IUploadFileService.cs" />
+    <Compile Include="IServices\IUserService.cs" />
     <Compile Include="Model\NavTreeModel.cs" />
+    <Compile Include="Model\UserRoleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -61,12 +66,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdminManageService.cs" />
     <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\DlService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
-    <Compile Include="Services\LoginSignService.cs" />
+    <Compile Include="Services\LogionService.cs" />
     <Compile Include="Services\MallService.cs" />
     <Compile Include="Services\MallTypeService.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -74,6 +80,8 @@
     <Compile Include="Services\ServerService.cs" />
     <Compile Include="Services\SettingService.cs" />
     <Compile Include="Services\UploadFileService.cs" />
+    <Compile Include="Services\UserRolesService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bayetech.Core\Bayetech.Core.csproj">

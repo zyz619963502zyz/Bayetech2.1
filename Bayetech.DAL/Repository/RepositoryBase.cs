@@ -110,7 +110,7 @@ namespace Bayetech.DAL
         {
             dbcontext.Set<TEntity>().Attach(entity);
             dbcontext.Entry<TEntity>(entity).State = System.Data.Entity.EntityState.Deleted;
-            return dbTransaction == null ? this.Commit() : 0;
+            return dbTransaction == null ? 1: 0;
         }
         public int Delete<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
         {

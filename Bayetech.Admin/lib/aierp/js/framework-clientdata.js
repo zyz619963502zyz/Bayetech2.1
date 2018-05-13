@@ -12,10 +12,14 @@ $.clientsInit = function () {
         authorizeMenu: [],
         authorizeButton: []
     };
+    debugger;
+    var dd = { Keyid: "7", Password: "123654" };
+    var aaa = 0;
     var init = function () {
         $.ajax({
-            url: "/api/Navigation/GetClientsDataJson",
-            type: "get",
+            url: "/api/UserRoles/AddRoles",
+            data:JSON.stringify(dd),
+            type: "post",
             dataType: "json",
             async: false,
             success: function (ret) {

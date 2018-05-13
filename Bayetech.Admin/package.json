@@ -1,0 +1,23 @@
+{
+  "name": "bayetech.admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "directories": {
+    "Scripts": "Scripts"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4"
+  },
+  "devDependencies": {
+    "webpack": "^2.7.0"
+  },
+  "scripts": {
+    "start": " --mode development",
+    "build": "--mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
