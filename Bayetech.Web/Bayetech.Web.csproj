@@ -687,9 +687,17 @@
     <Content Include="Content\log-sin.css" />
     <Content Include="Content\article.css" />
     <Content Include="Content\NewImages\10.jpg" />
+    <Content Include="Content\NewImages\cs.png" />
+    <Content Include="Content\NewImages\gm.png" />
     <Content Include="Content\NewImages\gold-coin.png" />
+    <Content Include="Content\NewImages\guide.png" />
+    <Content Include="Content\NewImages\help_center.png" />
+    <Content Include="Content\NewImages\lc1.png" />
+    <Content Include="Content\NewImages\lc2.png" />
     <Content Include="Content\NewImages\logo.ico" />
+    <Content Include="Content\NewImages\menu_title.jpg" />
     <Content Include="Content\NewImages\re-img-01.jpg" />
+    <Content Include="Content\NewImages\xzyx_logo.jpg" />
     <Content Include="Content\NewImages\yxlm.ico" />
     <Content Include="Content\NewImages\zhima.png" />
     <Content Include="Content\NewImages\zmxy.jpg" />
