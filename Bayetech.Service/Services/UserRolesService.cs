@@ -100,6 +100,7 @@ namespace Bayetech.Service
                 IEnumerable<UserRoleView> userRoleView = from a in repository.IQueryable<Admin_Sys_Users>()
                                                          join b in repository.IQueryable<Admin_Sys_UserRoles>() on a.KeyId equals b.UserID
                                                          join c in repository.IQueryable<Admin_Sys_Roles>() on a.KeyId equals c.KeyId
+                                                         where a.KeyId == _admin_Sys_User.KeyId
                                                          select new UserRoleView
                                                          {
                                                              Keyid = a.KeyId,

@@ -11,7 +11,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 <div class="picFocus">
                     <ul>
                         <li>
-                            <img src="../../../../Content/Images/b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
+                            <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf.png" width="338" height="338" />
                         </li>
                     </ul>
                 </div>
@@ -110,7 +110,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
             <div class ="seller-info" style="height: 500px;">
                 <div class ="sellhead">
-                    <img src="../../../../Content/NewImages/10.jpg" />
+                    <img src="../../Content/NewImages/10.jpg" />
                 </div>
                 <div class ="sellstar">
                     <p>卖家信誉：<a href="http://www.7881.com/helpcenter/36057564234053938.html" target="_blank">
