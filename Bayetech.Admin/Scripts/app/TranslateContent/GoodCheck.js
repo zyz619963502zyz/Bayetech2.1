@@ -10055,6 +10055,11 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         StartCheck() {
             //开始检查
             $("#checkModal").modal("show");
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
         }
     },
     components: {

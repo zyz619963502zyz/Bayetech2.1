@@ -47,7 +47,7 @@ new Vue({
         this.findList();
     },
     methods: {
-            findList() {//获取商品的简要列表
+      findList() {//获取商品的简要列表
             var self=this;
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
@@ -59,6 +59,11 @@ new Vue({
         },
         StartCheck() {//开始检查
             $("#checkModal").modal("show");
+        },
+        TurnToPage(page){
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
         }
     },
     components:{
