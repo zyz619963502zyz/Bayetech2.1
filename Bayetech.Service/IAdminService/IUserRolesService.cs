@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace Bayetech.Service
 {
-    public interface IAdminManageService
+    public interface IUserRolesService
     {
         /// <summary>
-        /// 获取员工表1
+        /// 分配角色
         /// </summary>
+        /// <param name="json"></param>
         /// <returns></returns>
-        JObject GetUserList();
+        JObject AddUserRole(JObject json);
+
         /// <summary>
-        /// 添加员工
+        /// 判断员工是否分配角色
         /// </summary>
-        /// <param name="json">添加信息</param>
-        /// <param name="UserId">当前登录用户id</param>
+        /// <param name="json"></param>
         /// <returns></returns>
-        JObject AddUser(JObject json, int UserId);
-       
+        JObject GetIsRoles(JObject json);
     }
 }

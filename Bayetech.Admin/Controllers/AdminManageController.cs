@@ -13,7 +13,7 @@ namespace Bayetech.Admin.Controllers
     {
         IAdminManageService adminManageService = ctx.GetObject("AdminManageService") as IAdminManageService;
         /// <summary>
-        /// 获取管理员员工列表1
+        /// 获取管理员员工列表与角色列表
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
@@ -47,5 +47,6 @@ namespace Bayetech.Admin.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        
     }
 }

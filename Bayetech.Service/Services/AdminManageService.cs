@@ -15,6 +15,7 @@ namespace Bayetech.Service
     /// </summary>
     public class AdminManageService : BaseService<Admin_Sys_Users>,IAdminManageService
     {
+        
         public JObject AddUser(JObject json, int UserId)
         {
             Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Users));
@@ -70,10 +71,12 @@ namespace Bayetech.Service
         public JObject GetUserList()
         {
             var userList = repository.IQueryable<Admin_Sys_Users>();
+            var roles = repository.IQueryable<Admin_Sys_Roles>();//角色列表
             JObject result = new JObject();
             if (userList != null)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                result.Add("RolesList", JProperty.FromObject(roles.ToList()));
                 result.Add(ResultInfo.Content, JProperty.FromObject(userList.ToList()));
             }
             else
