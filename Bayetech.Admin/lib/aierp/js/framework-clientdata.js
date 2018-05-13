@@ -13,11 +13,11 @@ $.clientsInit = function () {
         authorizeButton: []
     };
     debugger;
-    var dd = { UserName: "3333", Password: "123654" };
+    var dd = { Keyid: "7", Password: "123654" };
     var aaa = 0;
     var init = function () {
         $.ajax({
-            url: "/api/AdminManage/UserAdd",
+            url: "/api/UserRoles/AddRoles",
             data:JSON.stringify(dd),
             type: "post",
             dataType: "json",
