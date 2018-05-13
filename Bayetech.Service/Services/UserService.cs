@@ -6,7 +6,7 @@ using System;
 using Bayetech.Core;
 using System.Web;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class UserService :BaseService<User>, IUserService
     {
