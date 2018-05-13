@@ -17,7 +17,7 @@ $.clientsInit = function () {
     var aaa = 0;
     var init = function () {
         $.ajax({
-            url: "/api/Navigation/GetNavigationList",
+            url: "/api/Navigation/GetClientsDataJson",
             //data:JSON.stringify(dd),
             type: "get",
             dataType: "json",
