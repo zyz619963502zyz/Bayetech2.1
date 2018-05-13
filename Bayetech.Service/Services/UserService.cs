@@ -11,7 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 
-namespace Bayetech.Service
+namespace Bayetech.Service.Services
 {
     public class UserService :BaseService<User>, IUserService
     {
