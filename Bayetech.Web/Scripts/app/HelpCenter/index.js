@@ -26,7 +26,7 @@ define(['vue', 'jquery', 'common', 'help-head', 'help-left', 'help-buttom', 'hel
         },
         articleList: [],
         article: {
-            content: `<li><img src="../../../../Content/Images/wymlc.jpg"></li>`
+            content: `<li><img src="../../Content/Images/wymlc.jpg"></li>`
         },
     };
     var components = {

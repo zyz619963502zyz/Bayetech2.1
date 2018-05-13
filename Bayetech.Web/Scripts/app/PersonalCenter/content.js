@@ -16,7 +16,7 @@ define(jsconfig.baseArr, function ($, Vue, common, perR, perB, helpleft) {
     var html1=`
             <div class ="personal_center">
                         <ul>
-                            <ol><img src="../../../../Content/Images/personal_tx.png" /></ol>
+                            <ol><img src="../../Content/Images/personal_tx.png" /></ol>
                         </ul>
                         <ul>
                             <li>
@@ -66,13 +66,13 @@ define(jsconfig.baseArr, function ($, Vue, common, perR, perB, helpleft) {
                             </li>
 
                             <li class ="mjtx">
-                                <img src="../../../../Content/Images/vcard-.png" />
+                                <img src="../../Content/Images/vcard-.png" />
                                 <a class ="ls" href="http://www.7881.com/commerical/toApprove.action">未认证</a>
                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <img src="../../../../Content/Images/lock-.png" />
+                                <img src="../../Content/Images/lock-.png" />
                                 <a class ="ls" href="http://www.7881.com/commerical/toChangetransactionPass.action">未设置支付密码</a>
                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <img src="../../../../Content/Images/phone.png" />
+                                <img src="../../Content/Images/phone.png" />
                                 <a class ="ls" href="http://www.7881.com/commerical/toEditPhone.action">已设置手机绑定</a>
                             </li>
                             <div class ="mjtx">
