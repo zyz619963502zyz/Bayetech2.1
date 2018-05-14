@@ -13,6 +13,7 @@ ul,ol,li{list-style:none;margin:0;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: normal;}
 a{text-decoration:none;color: #333;cursor:pointer;}
 img{display:inline-block;}
+[v-cloak]{display:none;}
 /*padding*/
 .p-n{padding:0;}
 .p-xs{padding:5px;}
