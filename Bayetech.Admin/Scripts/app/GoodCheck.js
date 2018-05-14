@@ -28,7 +28,8 @@ let vmData = {
     ],
     SearchParam: {
         Param: {
-            GoodNo:""
+            GoodNo:"",
+            StatusId:""
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -68,11 +69,10 @@ new Vue({
         },
         CheckGoods(){
             var self = this;
+            self.SearchParam.StatusId = "";
             self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                 if (data.result) {
-                    self.GoodInfoArray=data.content.datas;
-                    self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    alert("审批成功!");
                 }
             });
         }

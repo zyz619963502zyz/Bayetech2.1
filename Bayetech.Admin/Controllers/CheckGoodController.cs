@@ -15,6 +15,7 @@ namespace Bayetech.Admin.Controllers
 
         GoodInfoService service = new GoodInfoService();
         ServerService serverService = new ServerService();
+        CheckService checkService = new CheckService();
 
         /// <summary>
         /// 获取列待处理列表页数据
@@ -133,17 +134,16 @@ namespace Bayetech.Admin.Controllers
         /// 获取列待处理列表页数据
         /// </summary>
         /// <param name="json"></param>
-        [HttpGet]
-        public string CheckGoodInfo(string answer)
+        [HttpPost]
+        public JObject CheckGoodInfo(JObject json)
         {
-            if (!string.IsNullOrEmpty(answer))
+            if (json!=null)
             {
-
+                Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("GoodNo") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+                MallGoodInfo goodInfo = JsonConvert.DeserializeObject<MallGoodInfo>((json["Param"] ?? "").ToString());
+                return checkService.CheckGoodInfo(goodInfo);
             }
-
-            Pagination page = Pagination.GetDefaultPagination("GoodNo");
-            //return service.GetGoodList(goodInfo, startTime, endTime, page);
-            return string.Empty;
+            return null;
         }
     }
 }

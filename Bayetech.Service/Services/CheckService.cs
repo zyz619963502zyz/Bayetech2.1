@@ -1,20 +1,24 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Newtonsoft.Json.Linq;
 using System;
 
 namespace Bayetech.Service
 {
-    class CheckService : ICheckService
+    public class CheckService : ICheckService
     {
-        public bool CheckGoodInfo(string flag)
+        public JObject CheckGoodInfo(MallGoodInfo goodInfo)
         {
             try
             {
                 using (var db = new RepositoryBase())
                 {
-                    //JObject ret = db.GetList<GoodStatus>(page, out page, c => c.GameId == 1);
-                    return true;
+                    JObject ret = new JObject();
+                    if (db.Update(goodInfo) == 1) {
+                        ret.Add(ResultInfo.Result, true);
+                    }
+                    return ret;
                 }
             }
             catch (Exception ex)

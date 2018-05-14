@@ -1,7 +1,10 @@
-﻿namespace Bayetech.Service
+﻿using Bayetech.Core.Entity;
+using Newtonsoft.Json.Linq;
+
+namespace Bayetech.Service
 {
     public interface ICheckService
     {
-        bool CheckGoodInfo(string flag);
+        JObject CheckGoodInfo(MallGoodInfo goodInfo);
     }
 }
