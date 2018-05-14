@@ -392,9 +392,9 @@ var comCompnent = {
     },
 
     MenuUrl: {
-        process: "/api/CheckGood/GetProcessList",
-        processed: "/api/CheckGood/GetProcessedList",
-        process24hours: "/api/CheckGood/Get24ProcessList"
+        PreProcess: "/api/CheckGood/GetProcessList",
+        Processed: "/api/CheckGood/GetProcessedList",
+        Process24hours: "/api/CheckGood/Get24ProcessList"
     }
 };
 
@@ -10022,7 +10022,8 @@ let vmData = {
     }],
     SearchParam: {
         Param: {
-            GoodNo: ""
+            GoodNo: "",
+            StatusId: pagetype
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -10062,13 +10063,13 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.SearchParam.Pagination.rows = page;
             self.findList();
         },
-        CheckGoods() {
+        CheckGoods(flag) {
             var self = this;
+            self.SearchParam.GoodNo = "";
+            //self.SearchParam.StatusId = "";
             self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                 if (data.result) {
-                    self.GoodInfoArray = data.content.datas;
-                    self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    alert("审批成功!");
                 }
             });
         }

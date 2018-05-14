@@ -67,10 +67,10 @@ new Vue({
             self.SearchParam.Pagination.rows = page;
             self.findList();
         },
-        CheckGoods(){
+        CheckGoods(flag ){
             var self = this;
             self.SearchParam.GoodNo = "";
-            self.SearchParam.StatusId = "";
+            //self.SearchParam.StatusId = "";
             self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     alert("审批成功!");
