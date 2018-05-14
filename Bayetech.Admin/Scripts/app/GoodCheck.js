@@ -67,7 +67,7 @@ new Vue({
             self.SearchParam.Pagination.rows = page;
             self.findList();
         },
-        CheckGoods(flag ){
+        CheckGoods(flag){
             var self = this;
             self.SearchParam.GoodNo = "";
             //self.SearchParam.StatusId = "";
