@@ -13,7 +13,12 @@
     <script src="../../Scripts/app/Home/index.js"></script>
 </head>
 <body>
-    <div id="app">
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+    <div id="app" v-cloak>
         <nav-top></nav-top>
         <!--search & logo-->
         <v-header></v-header>
