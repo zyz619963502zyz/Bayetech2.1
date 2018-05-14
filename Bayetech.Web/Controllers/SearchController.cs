@@ -15,6 +15,7 @@ namespace Bayetech.Web.Controllers
         MallTypeService mallTypeService = new MallTypeService();
         //BaseService<Core.Entity.Relationship> relationshipService = new BaseService<Core.Entity.Relationship>();
 
+
         public IHttpActionResult GetData(int type, int id, int ?serviceType=1)
         {
             Models.DropDownModels data = new Models.DropDownModels();

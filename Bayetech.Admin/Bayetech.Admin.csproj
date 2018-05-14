@@ -2185,6 +2185,7 @@
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck.js" />
+    <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />

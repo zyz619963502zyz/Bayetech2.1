@@ -47,16 +47,23 @@ new Vue({
         this.findList();
     },
     methods: {
-            findList() {//获取商品的简要列表
+      findList() {//获取商品的简要列表
             var self=this;
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;
+                    self.SearchParam.Pagination=data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             });
         },
         StartCheck() {//开始检查
             $("#checkModal").modal("show");
+        },
+        TurnToPage(page){
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
         }
     },
     components:{

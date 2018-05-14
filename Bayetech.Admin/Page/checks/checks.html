@@ -47,10 +47,38 @@
                                 </div>
                             </div>
                         </div>
+                        <hr />
                         <br />
                         <div class="input-group col-md-12">
-                            <label class="control-label">商品的描述信息:</label>
+                            <h4><strong>3.商品描述信息:</strong></h4>
                             <textarea style="height:150px" class="form-control" readonly>此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
+                        </div>
+                        <hr />
+                        <br />
+                        <div class="input-group col-md-12">
+                            <h4><strong>4.账号截图信息:</strong></h4>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#">
+                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#">
+                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#">
+                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#">
+                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,24 +126,30 @@
                     <div class="panel-body">
                         <div class="pull-right" id="">
                             <ul class="pagination pagination-sm m-0 m-r-5">
-                                <li class="" aria-controls="DataTables_Table_0" tabindex="0"><a id="totalPageCount">共计：531条记录</a></li>
-                                <li class="active" aria-controls="DataTables_Table_0" tabindex="0"><a href="#" name="">10</a></li>
-                                <li class="" aria-controls="DataTables_Table_0" tabindex="0"><a href="#" name="">20</a></li>
-                                <li class="" aria-controls="DataTables_Table_0" tabindex="0"><a href="#" name="">30</a></li>
+                                <li class="" aria-controls="DataTables_Table_0"><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
+                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
+                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
+                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
                             </ul>
                             <div class="input-group input-group-sm skip-page">
                                 <span class="input-group-addon">跳转到</span>
-                                <input type="text" name="name" class="form-control" />
+                                <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
                                 <span class="input-group-addon">页</span>
                                 <span class="input-group-btn">
-                                    <input type="button" value="Go!" class="btn btn-default" />
+                                    <input type="button" value="Go!" class="btn btn-default" @click="TurnToPage(10)" />
                                 </span>
                             </div>
                         </div>
                         <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck"></comtable>
-                        <div class="pull-right" id="">
+
+                        <!--<div class="pull-right" id="">
                             <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>
-                        </div>
+                        </div>-->
+
+                        <nav aria-label="fenye" class="text-center right">
+                            <ul id="paginator-test" class="pagination"></ul>
+                        </nav>
+
                     </div>
                 </div>
             </div>

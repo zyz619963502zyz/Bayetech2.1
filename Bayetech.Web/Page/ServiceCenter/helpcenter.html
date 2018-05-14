@@ -12,13 +12,367 @@
     <meta name="full-screen" content="yes">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
-    <link rel="stylesheet" href="../../../../Content/bootstrap/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../../../Content/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../../Content/bootstrap/bootstrapValidator.min.css" />
-    <link rel="stylesheet" href="../../../../Content/common.css" />
-    <link rel="stylesheet" href="../../../../Content/helpcenter.css" />
+    <link rel="stylesheet" href="../../Content/bootstrap/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../Content/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../Content/bootstrap/bootstrapValidator.min.css" />
+    <link rel="stylesheet" href="../../Content/common.css" />
+    <link rel="stylesheet" href="../../Content/helpcenter.css" />
 </head>
 <body>
+    <!--头部-->
+    <div class="top">
+        <!--欢迎光临-->
+        <div class="hygl">
+            <div class="hygl_kd">
+                <ul class="hygl_left">
+                    <li id="newWelcome" class="welogin"><p class="kkou"><em>您好<a class="Blue" href="https://user.uu898.com/login.aspx?returnUrl=https://www.baidu.com/">请登录</a>或<a class="Blue" href="https://user.uu898.com/reg.aspx" target="_blank">免费注册</a></em><i class="head-ico ico-head-qqlog" onclick="setBackUrl(true);QQLogin();return false;"></i></p></li>
+                </ul>
+                <ul class="hygl_right" style="width: auto">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="head-ico ico-head-phone"></i>
+                            关注
+                        </a>
+                        <div class="menu-bd-1" style="height: 105px;background: #F7F7F7;">
+                            <div class="menu-bd-panel-1">
+                                <div>
+                                    <img id="followWeChat" src="http://img1.gtimg.com/sports/pics/hv1/130/5/1892/123028705.jpg" style="height:100px;width:100px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="https://user.uu898.com/" target="_blank">我的订单</a></li>
+                    <li class="pos-top">
+                        <a href="javascript:void(0)">买家中心<i class="head-ico ico-head-arrD"></i></a>
+                        <div class="menu-bd" id="buyer">
+                            <div class="menu-bd-panel">
+                                <div>
+                                    <a href="https://user.uu898.com/buyerOrder.aspx" target="_blank" rel="nofollow">我购买的订单</a>
+                                    <a href="https://www.uu898.com/searchgame_buy.aspx" target="_blank" rel="nofollow">我要买</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pos-top">
+                        <a href="javascript:void(0)">卖家中心<i class="head-ico ico-head-arrD"></i></a>
+                        <div class="menu-bd" id="seller">
+                            <div class="menu-bd-panel">
+                                <div>
+                                    <a href="https://user.uu898.com/sellerCommodity.aspx" target="_blank" rel="nofollow">出售中的商品</a>
+                                    <a href="https://www.uu898.com/sell.aspx" target="_blank" rel="nofollow">我要卖</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="lvse"><a href="https://user.uu898.com/account/chongzhi.aspx" target="_blank">充值</a></li>
+                    <li class="chengse"><a href="https://user.uu898.com/MainTxOrder.aspx" target="_blank">提现</a></li>
+                    <li class="pos-top">
+                        <a href="https://service.uu898.com/" target="_blank">客服中心<i class="head-ico ico-head-arrD"></i></a>
+                        <div class="menu-bd" id="kefu">
+                            <div class="menu-bd-panel">
+                                <div>
+                                    <a href="https://service.uu898.com/" target="_blank" rel="nofollow">我要咨询</a>
+                                    <a href="https://service.uu898.com/Question/UserComplaint.aspx" target="_blank" rel="nofollow">我要投诉</a>
+                                    <a href="https://www.baidu.com/security/" target="_blank" rel="nofollow">安全中心</a>
+                                    <a href="https://www.baidu.com/" target="_blank" rel="nofollow">帮助中心</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pos-top">
+                        <a href="javascript:void(0)">官方微博<i class="head-ico ico-head-arrD"></i></a>
+                        <div class="menu-bd" id="weibo">
+                            <div class="menu-bd-panel">
+                                <div>
+                                    <a href="http://weibo.com/uu898cn" target="_blank" rel="nofollow"><i class="head-ico ico-head-sina"></i>新浪微博</a>
+                                    <a href="http://t.qq.com/uu898_cn" target="_blank" rel="nofollow"><i class="head-ico ico-head-qq"></i>腾讯微博</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <input type="hidden" name="hidd_uId" id="hidd_uId" value="">
+    </div>
 
+    <div class="w bord-bo2 bg_white">
+        <div class="w1000 header pos clearfix">
+            <div class="fl logo">
+                <a href="https://www.uu898.com/" alt="返回uu898">
+                    <img src="../../Content/images/logo1.png">
+                </a><span>帮助中心</span>
+            </div>
+            <div class="fr">
+                <a href="https://service.uu898.com/">客服中心</a>
+                <a href="https://www.baidu.com/" class="hover">帮助中心</a>
+                <a href="https://service.uu898.com/security/">安全中心</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="w bg_grayf4 clearfix" id="scrolltop">
+        <div class="w1000">
+            <div class="help_brief">您的位置 ：帮助中心 &gt; <span>首页</span></div>
+            <div class="w1000 help_main clearfix">
+                <div class="fl help_menu">
+                    <h1><i></i>问题分类</h1>
+                    <ul class="menu">
+
+
+                        <li class="lev_1 open">
+
+                            <span id="s_180" rel="8" data="180"><i></i>寄售帮助</span>
+
+                            <ul style="display: block;" class="clearfix">
+                                <li id="l_181">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=181&amp;level=2"
+                                       target="iframepage"><i></i>寄售相关名词解释</a>
+                                </li>
+                                <li id="l_182">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=182&amp;level=2"
+                                       target="iframepage"><i></i>买家帮助</a>
+                                </li>
+                                <li id="l_183">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=183&amp;level=2"
+                                       target="iframepage"><i></i>卖家帮助</a>
+                                </li>
+                                <li id="l_186">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=186&amp;level=2"
+                                       target="iframepage"><i></i>寄售协议</a>
+                                </li>
+                                
+                                <li id="l_188">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=188&amp;level=2"
+                                       target="iframepage"><i></i>各游戏交易事项</a>
+                                </li>
+                                <li id="l_214">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=214&amp;level=2"
+                                       target="iframepage"><i></i>安全验证</a>
+                                </li>
+                                <li id="l_219">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=219&amp;level=2"
+                                       target="iframepage"><i></i>安全模式介绍</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="lev_1">
+
+                            <span id="s_189" rel="6" data="189"><i></i>购买帮助</span>
+
+                            <ul class="clearfix" style="display: none;">
+                                <li id="l_190">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=190&amp;level=2"
+                                       target="iframepage"><i></i>求购相关名词解释</a>
+                                </li>
+                                <li id="l_191">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=191&amp;level=2"
+                                       target="iframepage"><i></i>买家帮助</a>
+                                </li>
+                                <li id="l_192">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=192&amp;level=2"
+                                       target="iframepage"><i></i>卖家帮助</a>
+                                </li>
+                                <li id="l_193">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=193&amp;level=2"
+                                       target="iframepage"><i></i>安全保障服务</a>
+                                </li>
+                                <li id="l_194">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=194&amp;level=2"
+                                       target="iframepage"><i></i>求购协议</a>
+                                </li>
+                                <li id="l_220">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=220&amp;level=2"
+                                       target="iframepage"><i></i>定制交易帮助</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="lev_1">
+
+                            <span id="s_271" rel="2" data="271"><i></i>收费标准</span>
+
+                            <ul class="clearfix" style="display: none;">
+                                <li id="l_310">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=310&amp;level=2"
+                                       target="iframepage"><i></i>交易收费标准</a>
+                                </li>
+                                <li id="l_312">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=312&amp;level=2"
+                                       target="iframepage"><i></i>银行转账费率及到账时间</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="lev_1">
+
+                            <span id="s_272" rel="11" data="272"><i></i>账户和安全</span>
+
+                            <ul class="clearfix" style="display: none;">
+                                <li id="l_273">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=273&amp;level=2"
+                                       target="iframepage"><i></i>账户注册</a>
+                                </li>
+                                <li id="l_274">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=274&amp;level=2"
+                                       target="iframepage"><i></i>安全登录</a>
+                                </li>
+                                <li id="l_275">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=275&amp;level=2"
+                                       target="iframepage"><i></i>完善个人信息</a>
+                                </li>
+                                <li id="l_280">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=280&amp;level=2"
+                                       target="iframepage"><i></i>密码常见问题</a>
+                                </li>
+                                <li id="l_286">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=286&amp;level=2"
+                                       target="iframepage"><i></i>手机绑定</a>
+                                </li>
+                                <li id="l_287">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=287&amp;level=2"
+                                       target="iframepage"><i></i>常见问题</a>
+                                </li>
+                                <li id="l_288">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=288&amp;level=2"
+                                       target="iframepage"><i></i>积分帮助</a>
+                                </li>
+                                <li id="l_289">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=289&amp;level=2"
+                                       target="iframepage"><i></i>抵用券帮助</a>
+                                </li>
+                                <li id="l_290">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=290&amp;level=2"
+                                       target="iframepage"><i></i>U钻帮助</a>
+                                </li>
+                                <li id="l_291">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=291&amp;level=2"
+                                       target="iframepage"><i></i>资金解锁</a>
+                                </li>
+                                <li id="l_292">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=292&amp;level=2"
+                                       target="iframepage"><i></i>商品找回</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="lev_1">
+
+                            <span id="s_293" rel="2" data="293"><i></i>信用体系</span>
+
+                            <ul class="clearfix" style="display: none;">
+                                <li id="l_294">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=294&amp;level=2"
+                                       target="iframepage"><i></i>相关名词解释</a>
+                                </li>
+                                <li id="l_295">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=295&amp;level=2"
+                                       target="iframepage"><i></i>常见问题</a>
+                                </li>
+                            </ul>
+                        </li>                        
+                        <li class="lev_1">
+
+                            <span id="s_1071" rel="3" data="1071"><i></i>商城帮助</span>
+
+                            <ul class="clearfix" style="display: none;">
+                                <li id="l_1072">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=1072&amp;level=2"
+                                       target="iframepage"><i></i>商城收货</a>
+                                </li>
+                                <li id="l_1073">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=1073&amp;level=2"
+                                       target="iframepage"><i></i>商城出货</a>
+                                </li>
+                                <li id="l_1075">
+                                    <a href="https://www.baidu.com/default/List?CatetoryId=1075&amp;level=2"
+                                       target="iframepage"><i></i>常见问题</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--<script type="text/javascript">
+                //左侧菜单
+                $(".menu .lev_1 span").click(function () {
+                    $(".menu .lev_1 span").parent("li").removeClass("open");
+                    $(".menu .lev_1 span").next().css("display", "none");
+                    $(this).parent("li").addClass("open");
+                    if ($(this).attr("rel") > 0) {
+
+                        $(this).next().slideDown("slow");
+                    }
+                    else {
+                        var categoryid = $(this).attr("data");
+                        iframepage.location.href = "/default/list" + "?level=1&CatetoryId=" + categoryid;
+                    }
+
+                });
+                $(".menu ul li").click(function () {
+                    $(".menu li.hover").removeClass("hover");
+                    $(this).addClass("hover");
+                    var divTop = $('#scrolltop').offset().top;
+                    var windowTop = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    if (!(divTop >= windowTop && divTop < (windowTop + windowHeight))) {
+                        $(document).scrollTop(divTop);
+                    }
+
+                });
+
+                </script>-->
+                <div class="fr help_con">
+                    <div id="prompt" style="display:none;" class="guide_dialog">
+                        <a href="javascript:void(0)"
+                           onclick="closeDialog();"></a><img src="../../Content/Newimages/guide.png">
+                    </div>
+                    <!--<iframe name="iframepage" id="iframepage" style="width:100%; " onload="ParentPageControliFrameHeight();"
+                            scrolling="no" frameborder="0" src="./帮助中心-悠悠游戏服务网_files/saved_resource.html" height="602"
+                            width="760"></iframe>-->
+
+                   
+                        <div class="proc_style  bg_cs">
+                            <h2>出售流程<small>/ SALE PROCESS</small></h2>
+                            <div class="proc_img">
+                                <span href="#">注册/登陆账户</span><span href="#">发布商品</span><span href="#">上架出售</span><span href="#">售出后收款提现</span>
+                            </div>
+                            <div class="lab_d clearfix">
+
+                                <a href="/default/detail/6445"><i></i><span>什么是寄售交易？</span></a>
+
+                            </div>
+                        </div>
+                        <div class="proc_style bg_gm">
+                            <h2>购买流程<small>/ PURCHASE PROCESS</small></h2>
+                            <div class="proc_img proc_2">
+                                <span href="#">注册/登陆账户</span><span href="#">挑选商品</span><span href="#">支付货款</span><span href="#">立即领取货物</span>
+
+                            </div>
+                            <div class="lab_d clearfix">
+
+                                <a href="/default/detail/6445"><i></i><span>什么是寄售交易？</span></a>
+                            </div>
+                        </div>
+                        <div class="proc_style nobord">
+                            <h2>快速通道<small>/ EXPRESSWAY</small></h2>
+                            <div class="cir_ico clearfix">
+                                <a href="//user.uu898.com/Apply/Apply_Deblocking.aspx" target="_parent" class="ico_1"><i></i><span>账号解封申请</span></a>
+                                <a href="//user.uu898.com/Apply/RelievePhone_Kefu.aspx" target="_parent" class="ico_2"><i></i><span>手机解绑申请</span></a>
+                                <a href="//user.uu898.com/Apply/Apply_ChangeAccountName.aspx" target="_parent" class="ico_3"><i></i><span>修改开户人姓名</span></a>
+                                <a href="//user.uu898.com/Apply/ChangeEmail.aspx" target="_parent" class="ico_4"><i></i><span>修改绑定邮箱</span></a>
+                                <a href="//user.uu898.com/Apply/RelieveWechat.aspx" target="_parent" class="ico_5"><i></i><span>微信解绑</span></a>
+                            </div>
+                        </div>
+
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/HelpCenter/index.js"></script>-->
 </body>
 </html>

@@ -7,7 +7,7 @@ using Bayetech.Core;
 using System.Linq.Expressions;
 using System;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class GoodInfoService : BaseService<vw_MallGoodMainInfo>, IGoodInfoService
     {

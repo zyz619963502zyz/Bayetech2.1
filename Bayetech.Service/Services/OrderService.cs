@@ -8,7 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Bayetech.Service.Services
+namespace Bayetech.Service
 {
     public class OrderService : BaseService<MallOrder>, IOrderService
     {

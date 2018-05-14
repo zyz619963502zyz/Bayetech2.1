@@ -8,6 +8,7 @@ using Bayetech.Core.Entity;
 using System.Collections.Concurrent;
 using Bayetech.Service.Model;
 using Bayetech.Core.Security.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Bayetech.Service
 {
@@ -73,6 +74,12 @@ namespace Bayetech.Service
             var info = new ConcurrentDictionary<string, string>();
             info.TryAdd("authorizeMenu", menuList.ToJson());
             return info;
+        }
+
+
+        public JObject GetList(string parentId)
+        {
+            return null;
         }
     }
 }
