@@ -29,7 +29,7 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo:"",
-            StatusId:""
+            StatusId:pagetype
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -69,6 +69,7 @@ new Vue({
         },
         CheckGoods(){
             var self = this;
+            self.SearchParam.GoodNo = "";
             self.SearchParam.StatusId = "";
             self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                 if (data.result) {

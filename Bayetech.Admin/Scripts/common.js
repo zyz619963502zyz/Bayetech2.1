@@ -280,9 +280,9 @@ var comCompnent = {
     },
 
     MenuUrl:{
-        process:"/api/CheckGood/GetProcessList",
-        processed:"/api/CheckGood/GetProcessedList",
-        process24hours:"/api/CheckGood/Get24ProcessList",
+        PreProcess:"/api/CheckGood/GetProcessList",
+        Processed:"/api/CheckGood/GetProcessedList",
+        Process24hours:"/api/CheckGood/Get24ProcessList",
     }
 };
 
