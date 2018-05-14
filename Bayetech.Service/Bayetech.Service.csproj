@@ -51,6 +51,7 @@
     <Compile Include="IAdminService\IUserRolesService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IServices\IArticleService.cs" />
+    <Compile Include="IServices\ICheckService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
     <Compile Include="IServices\IDlService.cs" />
     <Compile Include="IServices\INavigationService.cs" />
@@ -68,6 +69,7 @@
     </Compile>
     <Compile Include="Services\AdminManageService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\CheckService.cs" />
     <Compile Include="Services\DlService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />

@@ -97,13 +97,13 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/Good/tpl/GoodManage.htm
                 self.Param.StatusId=status==="all"?"":status;
                 self.GetList();
             },
-            ChangeStatus(goodNo, statusId) {//更改商品状态
+            ChangeStatus(goodNo, statusKey) {//更改商品状态
                 var statusName="修改";
-                switch (statusId) {
-                    case 0:
+                switch (statusKey) {
+                    case 'PutOnsale':
                         statusName="上架"
                         break;
-                    case 1:
+                    case 'PutDownsale':
                         statusName="下架"
                         break;
                 }

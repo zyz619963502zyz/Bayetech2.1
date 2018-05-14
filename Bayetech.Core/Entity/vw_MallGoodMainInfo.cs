@@ -41,7 +41,12 @@ namespace Bayetech.Core.Entity
         public Nullable<long> GoodTypeId { get; set; }
         public string ProfessionName { get; set; }
         public Nullable<long> ProfessionId { get; set; }
-        public Nullable<int> StatusId { get; set; }
+        public string StatusId { get; set; }
         public string StatusName { get; set; }
+        public string BackName { get; set; }
+        public string FrontName { get; set; }
+        public Nullable<int> FrontParentId { get; set; }
+        public Nullable<int> BackParentId { get; set; }
+        public string Remark { get; set; }
     }
 }

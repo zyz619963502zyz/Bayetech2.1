@@ -10008,6 +10008,7 @@ let vmData = {
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_js__["a" /* default */]
     },
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
+    CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
     keyword: "",
     GoodInfoArray: [],
     ListObj: [{
@@ -10060,6 +10061,16 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.findList();
+        },
+        CheckGoods() {
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.GoodInfoArray = data.content.datas;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            });
         }
     },
     components: {

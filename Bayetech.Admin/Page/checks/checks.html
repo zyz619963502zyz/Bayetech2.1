@@ -85,9 +85,9 @@
                 <div class="modal-footer" id="modal_footer" style="text-align:center;">
                     <div class="btn-group col-md-12">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="处理中..." name="CheckConfirm" id="aaaa">审核通过</button>
-                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="CheckNo" id="bbbb">审核不通过</button>
-                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="Cancel" id="cccc">取消</button>
+                            <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="处理中..." name="CheckConfirm" @click="CheckGoods('Y')">审核通过</button>
+                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="CheckNo" @click="CheckGoods('N')">审核不通过</button>
+                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="Cancel">取消</button>
                         </div>
                     </div>
                 </div>

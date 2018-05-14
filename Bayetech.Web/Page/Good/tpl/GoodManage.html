@@ -113,9 +113,9 @@
                                 <ol class="sl">{{item.Stock}}</ol>
                                 <ol class="khfw">{{item.StatusName}}</ol>
                                 <ol class="ddzt">
-                                    <a v-if="item.StatusId =='1'" class="ls" href="javascript:void(0);" @click="ChangeStatus(item.GoodNo,0)">上架</a>
-                                    <a v-if="item.StatusId =='0'" class="ls" href="javascript:void(0);"  @click="ChangeStatus(item.GoodNo,1)">下架</a>
-                                    <a v-if="item.StatusId ==0||item.StatusId ==1" class="ls" href="javascript:void(0);"  @click="ShowPriceSetModal(item.GoodNo,item.GoodPrice)">修改价格</a>
+                                    <a v-if="item.StatusKey =='PutOnsale'" class="ls" href="javascript:void(0);" @click="ChangeStatus(item.GoodNo,'PutOnsale')">上架</a>
+                                    <a v-if="item.StatusKey =='PutDownsale'" class="ls" href="javascript:void(0);"  @click="ChangeStatus(item.GoodNo,'PutDownsale')">下架</a>
+                                    <a v-if="item.StatusKey =='PutOnsale'||item.StatusId =='PutDownsale'" class="ls" href="javascript:void(0);"  @click="ShowPriceSetModal(item.GoodNo,item.GoodPrice)">修改价格</a>
                                 </ol>
                                 <ol id="prompt_127121015129162378197536" marginpt="-1" type="revoke" class="prompt" superbillid="127121015129162378197536">
                                     <div style="width:205px; height:65px; margin:0 auto; margin-top:12px;"></div>

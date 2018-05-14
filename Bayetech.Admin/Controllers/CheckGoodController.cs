@@ -127,5 +127,23 @@ namespace Bayetech.Admin.Controllers
             Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("GoodNo") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
             return service.GetGoodList(goodInfo, startTime, endTime, page);
         }
+
+
+        /// <summary>
+        /// 获取列待处理列表页数据
+        /// </summary>
+        /// <param name="json"></param>
+        [HttpGet]
+        public string CheckGoodInfo(string answer)
+        {
+            if (!string.IsNullOrEmpty(answer))
+            {
+
+            }
+
+            Pagination page = Pagination.GetDefaultPagination("GoodNo");
+            //return service.GetGoodList(goodInfo, startTime, endTime, page);
+            return string.Empty;
+        }
     }
 }

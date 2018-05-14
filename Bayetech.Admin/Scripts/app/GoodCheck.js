@@ -12,6 +12,7 @@ let vmData = {
         _componentTable:componentTable
     },
     GoodListUrl:comCompnent.MenuUrl[pagetype],
+    CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     keyword: "",
     GoodInfoArray:[],
     ListObj: [
@@ -64,6 +65,16 @@ new Vue({
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.findList();
+        },
+        CheckGoods(){
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.GoodInfoArray=data.content.datas;
+                    self.SearchParam.Pagination=data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            });
         }
     },
     components:{
