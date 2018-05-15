@@ -128,7 +128,7 @@ module.exports = g;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
-    props: ['pagetype', 'goodinfoarray', 'startcheck']
+    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype']
 });
 
 /***/ }),
@@ -10071,7 +10071,8 @@ let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUr
 
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-    PageType: pagetype, //111
+    PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
+    ItemType: "good", //单据类型
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_vue__["a" /* default */]
@@ -10120,6 +10121,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
+                    self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
@@ -13459,7 +13461,25 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("table", { staticClass: "table table-bordered" }, [
-    _vm._m(0),
+    _c("thead", [
+      _c("tr", { staticClass: "success" }, [
+        _c("th", { staticClass: "text-center" }, [_vm._v("单据类型")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [
+          _vm._v(_vm._s(_vm.itemtype == "good" ? "商品编号" : "订单编号"))
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("游戏名称")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("交易类型")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("关键词")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("商品标题")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("审核商品")])
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "tbody",
@@ -13467,11 +13487,13 @@ var render = function() {
         return _c("tr", [
           _c("td", { staticClass: "text-center" }, [
             _c("label", { staticClass: "table-firsttitle" }, [
-              _vm._v(_vm._s(item.OrderNo ? "订单审核" : "商品审核"))
+              _vm._v(_vm._s(_vm.itemtype == "good" ? "商品" : "订单"))
             ])
           ]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.GoodNo))]),
+          _c("td", [
+            _vm._v(_vm._s(_vm.itemtype == "good" ? item.GoodNo : item.OrderNo))
+          ]),
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(item.GameName))]),
           _vm._v(" "),
@@ -13504,30 +13526,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center" }, [_vm._v("单据类型")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("商品编号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("游戏名称")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("交易类型")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("关键词")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("商品标题")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("审核商品")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

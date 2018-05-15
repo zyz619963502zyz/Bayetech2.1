@@ -6,7 +6,8 @@ let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL,"type");
 
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-    PageType:pagetype,//111
+    PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
+    ItemType:"good",//单据类型
     tools:{
         _comCompnent:comCompnent,
         _componentTable:componentTable
@@ -56,6 +57,7 @@ new Vue({
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;
+                    self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
@@ -94,4 +96,5 @@ new Vue({
     }
 });
 
+//剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
 
