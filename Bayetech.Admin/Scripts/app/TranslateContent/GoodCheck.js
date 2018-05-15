@@ -13465,7 +13465,7 @@ var render = function() {
       "tbody",
       _vm._l(_vm.goodinfoarray, function(item) {
         return _c("tr", [
-          _c("td", [
+          _c("td", { staticClass: "text-center" }, [
             _c("label", { staticClass: "table-firsttitle" }, [
               _vm._v(_vm._s(item.OrderNo ? "订单审核" : "商品审核"))
             ])
