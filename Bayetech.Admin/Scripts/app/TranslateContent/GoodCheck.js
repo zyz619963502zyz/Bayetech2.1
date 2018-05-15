@@ -13465,7 +13465,11 @@ var render = function() {
       "tbody",
       _vm._l(_vm.goodinfoarray, function(item) {
         return _c("tr", [
-          _vm._m(1, true),
+          _c("td", [
+            _c("label", { staticClass: "table-firsttitle" }, [
+              _vm._v(_vm._s(item.OrderNo ? "订单审核" : "商品审核"))
+            ])
+          ]),
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(item.GoodNo))]),
           _vm._v(" "),
@@ -13521,14 +13525,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("审核商品")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("label", { staticClass: "table-firsttitle" }, [_vm._v("商品审核")])
     ])
   }
 ]

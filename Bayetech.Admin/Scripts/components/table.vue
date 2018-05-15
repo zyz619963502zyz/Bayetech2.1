@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             <tr v-for="item in goodinfoarray">
-                <td><label class="table-firsttitle">商品审核</label></td>
+                <td><label class="table-firsttitle">{{item.OrderNo?'订单审核':'商品审核'}}</label></td>
                 <td>{{item.GoodNo}}</td>
                 <td>{{item.GameName}}</td>
                 <td>{{item.GoodTypeName}}</td>
