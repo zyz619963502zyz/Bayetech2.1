@@ -61,10 +61,10 @@ new Vue({
                 }
             });
         },
-      StartCheck(GoodNo) {//开始检查
-          var self = this;
-          self.CheckGoodNo = GoodNo;
-          $("#checkModal").modal("show");
+        StartCheck(GoodNo) {//开始检查
+            var self = this;
+            self.CheckGoodNo = GoodNo;
+            $("#checkModal").modal("show");
         },
         TurnToPage(page){
             var self = this;
