@@ -52,9 +52,16 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord));
                     }
-                    if (goodInfo.StatusId != null) //商品状态
+                    if (goodInfo.Status != null) //商品状态
                     {
-                        expression = expression.And(t => t.StatusId == goodInfo.StatusId);
+                        if (goodInfo.Status == "Processed")
+                        {
+                            expression = expression.And(t => t.Status == "PutOnsale"|| t.Status == "PutDownsale");
+                        }
+                        else
+                        {
+                            expression = expression.And(t => t.Status == goodInfo.Status);
+                        }
                     }
                     //if (goodInfo.UserName != null && goodInfo.UserName > 0) //
                     //{

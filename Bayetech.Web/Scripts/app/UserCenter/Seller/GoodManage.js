@@ -8,7 +8,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/Good/tpl/GoodManage.htm
             GameGroupId: "",
             GameServerId: "",
             OrderStatus: "",
-            StatusId:0,
+            Status:0,
             GoodKeyWord: "",
             },
         Games: [],
@@ -94,7 +94,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/Good/tpl/GoodManage.htm
                 var self=this;
                 $(`[status]`).removeClass("active");
                 $(`[status=${status}]`).addClass("active");
-                self.Param.StatusId=status==="all"?"":status;
+                self.Param.Status=status==="all"?"":status;
                 self.GetList();
             },
             ChangeStatus(goodNo, statusKey) {//更改商品状态
@@ -112,7 +112,7 @@ define(['vue', 'jquery', 'common', 'API', 'text!/../Page/Good/tpl/GoodManage.htm
                 API.Good.ChangeeStatus(goodNo, statusId, function (data) {
                     if (data) {
                         alert(statusName+"成功");
-                        self.Param.StatusId=statusId;
+                        self.Param.Status=statusId;
                         self.GetListByStatus(statusId);
                     }
                 });

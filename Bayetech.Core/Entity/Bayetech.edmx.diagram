@@ -61,8 +61,8 @@
         <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="15.375" PointY="23.75" />
         <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="11.375" PointY="22.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodInfo" Width="1.5" PointX="23.375" PointY="0.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="23.375" PointY="3.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="17.375" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="23.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

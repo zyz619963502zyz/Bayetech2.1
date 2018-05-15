@@ -126,6 +126,18 @@ var comCompnent = {
             for (var k in o) if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
             return fmt;
         };
+
+        $.prototype.Btns = function (instruct) {
+            $('button').each(function (i, e) {
+                $(e).button(instruct);
+            });
+        };
+
+        $.Btns1 = function (instruct) {
+            $('button').each(function (v, k) {
+                $(v).button(instruct);
+            });
+        };
     }(),
 
     /**
@@ -424,7 +436,7 @@ let BaseTable = `<table class="table table-bordered">
                 <td>{{item.GoodTypeName}}</td>
                 <td>{{item.GoodKeyWord}}</td>
                 <td>{{item.GoodTitle}}</td>
-                <td class="text-center"><input type="button" class="btn btn-primary" v-bind:value="pagetype=='processed'?'查看':'审核商品'" @click="startcheck(item.GoodNo)"></td>
+                <td class="text-center"><input type="button" v-bind:flag="item.Status" class="btn btn-primary" v-bind:value="(item.Status=='PutOnsale'||item.Status=='PutDownsale')?'查看':'审核商品'" @click="startcheck(item.GoodNo)"></td>
             </tr>
         </tbody>
     </table>`;
@@ -10009,6 +10021,7 @@ let vmData = {
     },
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
+    CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     GoodInfoArray: [],
     ListObj: [{
@@ -10023,7 +10036,7 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo: "",
-            StatusId: pagetype
+            Status: pagetype
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -10054,8 +10067,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 }
             });
         },
-        StartCheck() {
+        StartCheck(GoodNo) {
             //开始检查
+            var self = this;
+            self.CheckGoodNo = GoodNo;
             $("#checkModal").modal("show");
         },
         TurnToPage(page) {
@@ -10065,13 +10080,20 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         CheckGoods(flag) {
             var self = this;
-            self.SearchParam.GoodNo = "";
-            //self.SearchParam.StatusId = "";
-            self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                if (data.result) {
-                    alert("审批成功!");
-                }
-            });
+            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
+            self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
+            if (confirm("确定审批？")) {
+                $("#CheckConfirm").Btns("loading");
+                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                    if (data.result) {
+                        alert("审批成功!");
+                    }
+                    $("#checkModal").modal("hide");
+                    $("#CheckConfirm").Btns("reset");
+                }, function () {
+                    $("#CheckConfirm").Btns("reset");
+                });
+            }
         }
     },
     components: {

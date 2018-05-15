@@ -12,11 +12,16 @@ namespace Bayetech.Service
         {
             try
             {
-                using (var db = new RepositoryBase())
+                using (var db = new RepositoryBase().BeginTrans())
                 {
                     JObject ret = new JObject();
-                    if (db.Update(goodInfo) == 1) {
+                    db.Update(goodInfo);
+                    if (db.Commit()==1) {
                         ret.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        ret.Add(ResultInfo.Result, false);
                     }
                     return ret;
                 }

@@ -13,6 +13,7 @@ let vmData = {
     },
     GoodListUrl:comCompnent.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
+    CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     GoodInfoArray:[],
     ListObj: [
@@ -29,7 +30,7 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo:"",
-            StatusId:pagetype
+            Status:pagetype
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -59,8 +60,10 @@ new Vue({
                 }
             });
         },
-        StartCheck() {//开始检查
-            $("#checkModal").modal("show");
+      StartCheck(GoodNo) {//开始检查
+          var self = this;
+          self.CheckGoodNo = GoodNo;
+          $("#checkModal").modal("show");
         },
         TurnToPage(page){
             var self = this;
@@ -69,13 +72,20 @@ new Vue({
         },
         CheckGoods(flag){
             var self = this;
-            self.SearchParam.GoodNo = "";
-            //self.SearchParam.StatusId = "";
-            self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                if (data.result) {
-                    alert("审批成功!");
-                }
-            });
+            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
+            self.SearchParam.Param.Status = (flag=='Y'?'PutOnsale':'PutDownsale');
+            if (confirm("确定审批？")) {
+               $("#CheckConfirm").Btns("loading");
+               self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                   if (data.result) {
+                       alert("审批成功!");
+                   } 
+                   $("#checkModal").modal("hide");
+                   $("#CheckConfirm").Btns("reset");
+               },function(){
+                  $("#CheckConfirm").Btns("reset");
+               });
+            }
         }
     },
     components:{
