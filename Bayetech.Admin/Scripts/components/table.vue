@@ -1,4 +1,6 @@
-﻿<template id="BaseTable" lang="html">
+﻿import "../../Content/MyStyle.css";
+
+<template id="BaseTable" lang="html">
     <table class="table table-bordered">
         <thead>
             <tr class="success">
