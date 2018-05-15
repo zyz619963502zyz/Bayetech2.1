@@ -11,6 +11,8 @@
     "babel-loader": "^7.1.4"
   },
   "devDependencies": {
+    "vue-loader": "^15.0.10",
+    "vue-template-compiler": "^2.5.16",
     "webpack": "^2.7.0"
   },
   "scripts": {

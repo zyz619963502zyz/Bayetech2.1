@@ -2721,7 +2721,7 @@
       <DependentUpon>common.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\common.js" />
-    <Content Include="Scripts\components\table.js" />
+    <None Include="Scripts\components\table.vue" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">
@@ -2788,6 +2788,8 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="package.json" />
+    <Content Include="package-lock.json" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

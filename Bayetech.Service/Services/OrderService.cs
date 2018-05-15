@@ -44,7 +44,7 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JObject GetOrderInfo(vw_MallOrderInfo order,DateTime startTime,DateTime endTime,Pagination page=null)
+        public JObject GetOrderInfo(vw_MallOrderInfo order,DateTime? startTime,DateTime? endTime,Pagination page=null)
         {
             using (var db = new RepositoryBase())
             {

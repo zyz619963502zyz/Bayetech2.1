@@ -1,6 +1,6 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
-import componentTable from '../components/table.js'
+import componentTable from '../components/table.vue'
 
 let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL,"type");
 
@@ -30,7 +30,8 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo:"",
-            Status:pagetype
+            Status:pagetype,
+            SelectType:"good"
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，

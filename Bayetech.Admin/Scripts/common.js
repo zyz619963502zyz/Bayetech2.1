@@ -30,13 +30,6 @@ var comCompnent = {
                 $(e).button(instruct);
             });
         };
-
-
-         $.Btns1 = function(instruct){
-            $('button').each(function(v,k){
-                $(v).button(instruct);
-            });
-        };
     }(),
 
     /**
