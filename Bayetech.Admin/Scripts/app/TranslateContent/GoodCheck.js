@@ -163,7 +163,7 @@ var comCompnent = {
         Date.prototype.Format = function (fmt) {
             //author: meizz 
             var o = {
-                "M+": this.getMonth() + 1, //月份 
+                "M+": this.getMonth() + 1, //月份 Btns
                 "d+": this.getDate(), //日 
                 "h+": this.getHours(), //小时 
                 "m+": this.getMinutes(), //分 
@@ -178,6 +178,9 @@ var comCompnent = {
 
         $.prototype.Btns = function (instruct) {
             $('button').each(function (i, e) {
+                $(e).button(instruct);
+            });
+            $("[type='button']").each(function (i, e) {
                 $(e).button(instruct);
             });
         };
@@ -10033,7 +10036,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10094,8 +10097,10 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo: "",
+            OrderNo: "",
             Status: pagetype,
-            SelectType: "good"
+            SelectType: "good", //form里选择的商品类型
+            SelectNo: "" //form里面选择的编号
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -10117,7 +10122,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         findList() {
             //获取商品的简要列表
+            $("#QueryList").Btns("loading");
             var self = this;
+            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
@@ -10125,6 +10132,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
+                $("#QueryList").Btns("reset");
+            }, function () {
+                $("#QueryList").Btns("reset");
             });
         },
         StartCheck(GoodNo) {
@@ -10160,6 +10170,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_vue__["a" /* default */]
     }
 });
+
+//剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
 
 /***/ }),
 /* 7 */

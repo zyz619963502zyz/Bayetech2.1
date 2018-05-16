@@ -11,7 +11,7 @@ var comCompnent = {
         // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
         Date.prototype.Format = function (fmt) { //author: meizz 
             var o = {
-                "M+": this.getMonth() + 1, //月份 
+                "M+": this.getMonth() + 1, //月份 Btns
                 "d+": this.getDate(), //日 
                 "h+": this.getHours(), //小时 
                 "m+": this.getMinutes(), //分 
@@ -27,6 +27,9 @@ var comCompnent = {
 
         $.prototype.Btns = function(instruct){
             $('button').each(function(i,e){
+                $(e).button(instruct);
+            });
+            $("[type='button']").each(function(i,e){
                 $(e).button(instruct);
             });
         };

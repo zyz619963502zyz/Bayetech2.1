@@ -31,8 +31,10 @@ let vmData = {
     SearchParam: {
         Param: {
             GoodNo:"",
+            OrderNo:"",
             Status:pagetype,
-            SelectType:"good"
+            SelectType:"good",//form里选择的商品类型
+            SelectNo:""//form里面选择的编号
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -52,8 +54,11 @@ new Vue({
         this.findList();
     },
     methods: {
-      findList() {//获取商品的简要列表
+        findList() {//获取商品的简要列表
+            $("#QueryList").Btns("loading");
             var self=this;
+            self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
+            (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;
@@ -61,6 +66,9 @@ new Vue({
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
+                $("#QueryList").Btns("reset");
+            },function(){
+                $("#QueryList").Btns("reset");
             });
         },
         StartCheck(GoodNo) {//开始检查

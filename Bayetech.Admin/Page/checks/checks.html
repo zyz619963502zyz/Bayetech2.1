@@ -92,9 +92,9 @@
                     <div class="modal-footer" id="modal_footer" style="text-align:center;">
                         <div class="btn-group col-md-12">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="处理中..." name="CheckConfirm" @click="CheckGoods('Y')">审核通过</button>
-                                <button type="button" class="btn btn-warning col-md-2" data-dismiss="modal" name="CheckNo" @click="CheckGoods('N')">审核不通过</button>
-                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="Cancel">取消</button>
+                                <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="审批通过" name="CheckConfirm" @click="CheckGoods('Y')">审核通过</button>
+                                <button type="button" class="btn btn-warning col-md-2" data-dismiss="modal" data-loading-text="审批不通过" name="CheckNo" @click="CheckGoods('N')">审核不通过</button>
+                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                 <div class="form-group" id="lineTwo">
                     <div class="col-ms-10">
                         <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">商品类型:</label>
+                            <label class="control-label col-md-3">商品类型</label>
                             <div class="col-md-9">
                                 <select class="form-control" v-model="SearchParam.Param.SelectType">
                                     <option value="good">商品审核</option>
@@ -117,13 +117,13 @@
                             </div>
                         </div>
                         <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">商品编号:</label>
+                            <label class="control-label col-md-3">{{SearchParam.Param.SelectType=='good'?'商品编号':'订单编号'}}</label>
                             <div class="col-md-9">
-                                <input type="text" v-model="SearchParam.Param.GoodNo" class="form-control" />
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <input type="button" id="QueryList" class="btn btn-primary form-control" value="查询" @click="findList" />
+                            <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                                     <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
                                     <span class="input-group-addon">页</span>
                                     <span class="input-group-btn">
-                                        <input type="button" value="Go!"class="btn btn-default" @click="TurnToPage(10)" />
+                                        <input type="button" data-loading-text="Go!" class="btn btn-default" @click="TurnToPage(10)" />
                                     </span>
                                 </div>
                             </div>
