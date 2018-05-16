@@ -54,6 +54,10 @@ namespace Bayetech.Service
                 Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
                 if (order != null)
                 {
+                    if (!string.IsNullOrEmpty(order.OrderNo))
+                    {
+                        expressions = expressions.And(t => t.OrderNo == order.OrderNo);
+                    }
                     if (order.GameId != null&&order.GameId >= 0)
                     {
                         expressions = expressions.And(t => t.GameId == order.GameId);
@@ -78,10 +82,6 @@ namespace Bayetech.Service
                     {
                         expressions = expressions.And(t => t.OrderCreatTime <= endTime);
                     }
-                    if (!string.IsNullOrEmpty(order.OrderNo))
-                    {
-                        expressions = expressions.And(t => t.OrderNo == order.OrderNo);
-                    }
                     if (order.OrderStatus!=null&& order.OrderStatus>0)
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
@@ -92,32 +92,23 @@ namespace Bayetech.Service
                 {
                     ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? Pagination.GetDefaultPagination("OrderNo") : page).ToList();
                 }
+                var Games = ResultPage.datas.Select(c => new { GameId = c.GameId, GameName = c.GameName })
+                    .GroupBy(q => new { q.GameId, q.GameName });
+                foreach (var item in Games)
+                {
+                    ResultGames.Add(item.FirstOrDefault());
+                }
 
-                ////查询结果封装
-                //if (ResultPage.datas.Count > 0)
-                //{
-                    var Games = ResultPage.datas.Select(c => new { GameId = c.GameId, GameName = c.GameName })
-                        .GroupBy(q => new { q.GameId, q.GameName });
-                    foreach (var item in Games)
-                    {
-                        ResultGames.Add(item.FirstOrDefault());
-                    }
+                //计算分页
+                if (page!=null)
+                {
+                    ResultPage.pagination = page;
+                }
 
-                    //计算分页
-                    if (page!=null)
-                    {
-                        ResultPage.pagination = page;
-                    }
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
+                ret.Add("Games", JProperty.FromObject(ResultGames));
 
-                    ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
-                    ret.Add("Games", JProperty.FromObject(ResultGames));
-                //}
-                //else
-                //{
-                //    ret.Add(ResultInfo.Result, true);
-                //    ret.Add(ResultInfo.Content, Properties.Resources.Reminder_NoInfo);
-                //}
                 return ret;
             }
         }

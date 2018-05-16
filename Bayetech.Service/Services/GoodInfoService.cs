@@ -52,9 +52,9 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.GoodTitle.Contains(goodInfo.GoodKeyWord));
                     }
-                    if (goodInfo.Status != null) //商品状态
+                    if (goodInfo.Status != null&&!string.IsNullOrEmpty(goodInfo.Status)) //商品状态
                     {
-                        if (goodInfo.Status == "Processed")
+                        if (goodInfo.Status == "Processed")//当是已处理的时候分为两种状态
                         {
                             expression = expression.And(t => t.Status == "PutOnsale"|| t.Status == "PutDownsale");
                         }
@@ -63,10 +63,10 @@ namespace Bayetech.Service
                             expression = expression.And(t => t.Status == goodInfo.Status);
                         }
                     }
-                    //if (goodInfo.UserName != null && goodInfo.UserName > 0) //
-                    //{
-                    //    expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
-                    //}
+                    else
+                    {
+                        expression = expression.And(t => t.Status == "PutOnsale");//默认不传的情况下查询所有的上架商品
+                    }
                     if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
                     {
                         expression = expression.And(t => t.AddTime >= StartTime);
