@@ -21,7 +21,7 @@ namespace Bayetech.Service
                 result.Add(ResultInfo.Result, JProperty.FromObject(false));
                 result.Add(ResultInfo.Content, JProperty.FromObject("菜单名称不能为空"));
             }
-            var _adminNavigation = repository.FindEntity<Admin_Sys_Roles>(a => a.NavTitle == _admin_Sys_Roles.RoleName);
+            var _adminNavigation = repository.FindEntity<Admin_Sys_Roles>(a => a.RoleName == _admin_Sys_Roles.RoleName);
             if (_adminNavigation != null)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(false));
