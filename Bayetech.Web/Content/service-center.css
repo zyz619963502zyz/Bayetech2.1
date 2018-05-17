@@ -1,0 +1,25 @@
+﻿@charset"utf-8";
+
+.W980 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.ColMain {
+    width: 100%;
+    overflow: hidden;
+}
+.flash {
+    width: 100%;
+    
+    position: relative;
+}
+.slides {
+        width: 740px;
+    
+    margin: 0 auto;
+}
+.iSearch{
+    width:740px;
+    margin:0 auto;
+}

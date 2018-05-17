@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 article,aside,section {display:block;padding:0;margin:0;}
 .ColL,.ColMain{float:left;clear:none;margin-left:10px;display:inline;}
 .ColL{margin-left:0;width: 230px;display: inline;}
@@ -42,9 +42,7 @@ article,aside,section {display:block;padding:0;margin:0;}
 .iSearch a{float:left;}
 .iSearch .aBtn{display:inline-block;margin:3px 11px 0 13px;width:97px;height:29px;line-height:29px;font-size:14px;font-weight:bold;text-align:center;color:#ec6d34;background: url(http://pic.7881.com/7881/common_7881/images/service/help.png) left -108px no-repeat;}
 /* flash */
-.flash{ width:740px; height:230px;}
 #index_flash{width:740px;}
-.slides{float:left;position: absolute;width:740px; height:230px;overflow:hidden;}
 .slide-pic li{display:none;background:#f8f8f8;}
 .slide-pic li.cur{display:block; }
 .slide-pic li img{width:560px; height:190px;}
