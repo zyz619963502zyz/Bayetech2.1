@@ -17,24 +17,24 @@ define(['jquery', 'swiper'], function ($, Swiper) {
         object: [{
             title: "《冒险岛2》全类目免手续费",
             url: "http://www.7881.com/b2b/buy-G10.html",
-            img: "../../Content/Images/50.jpg"
+            img: "../../Content/NewImages/homeImg1.jpg"
         }, {
             title: "八折代充王者荣耀",
             url: "http://search.7881.com/201612376074038.html",
-            img: "../../Content/Images/51.jpg"
+            img: "../../Content/NewImages/homeImg2.jpg"
             }, {
             title: "假期已完 福利不断",
             url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
-            img: "../../Content/Images/52.jpg"
+            img: "../../Content/NewImages/homeImg3.jpg"
             }, {
                 title: "假期已完 福利不断",
                 url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
-                img: "../../Content/Images/53.jpg"
+                img: "../../Content/NewImages/homeImg4.jpg"
             },
             {
                 title: "假期已完 福利不断",
                 url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
-                img: "../../Content/Images/54.jpg"
+                img: "../../Content/NewImages/homeImg5.jpg"
             },
         ],
         imgObj:{},
