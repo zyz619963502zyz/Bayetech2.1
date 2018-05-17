@@ -73,7 +73,7 @@ var jsconfig = {
         'DLDetail': 'Scripts/app/DLService/DLDetail/DLDetail',
         'DLBuyNow': 'Scripts/app/DLService/DLBuyNow/DLBuyNow',
     	//资讯中心
-		"artmodule":'Scripts/app/ServiceCenter/articleCenter/article',
+		
 		
          //Shared模块
         'v-header': 'Scripts/app/Shared/header',

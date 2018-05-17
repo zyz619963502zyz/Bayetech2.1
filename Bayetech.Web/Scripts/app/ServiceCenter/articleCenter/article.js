@@ -1,6 +1,7 @@
 ﻿//资讯中心模板
-
-define(jsconfig.baseArr, function (Vue, $, common) {
+jsconfig.baseArr.push('Scripts/app/ServiceCenter/articleCenter/article');
+jsconfig.baseArr.push('Scripts/app/ServiceCenter/articleCenter/details');
+define(jsconfig.baseArr, function (Vue, $, common,article,details) {
 	var articlelist = `<article class="r-article pull-right">
                     <h2>本站公告</h2>
                     <div class="content">
@@ -12,19 +13,16 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         </dl>
                     </div>
                 </article>`;
-
-	var articleListUrl = "/api/Article/FindArticleList";//数据来源
 	
 	var articleData = {
-		listdata: [
+		listdata: 
 			{
 				ModuleId:'',
 				KeyWord: '',
 				Title: '',
 				Introduce: '',
-
-			}
-		]
+			},
+		moduleId: 25
 	};
 
 	var artCompnent = {
@@ -34,22 +32,35 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 		data() {
 			return articleData;
 		},
-
 		created() {
 			var that = this;
-			that.findlist(25)
+			//that.listdata = that.$root.findlist(25)
+			that.$root.$on('GetListdata', function (data){
+				that.listdata = data;
+			});
 		},
 		methods: {
-			findlist: function (moduleId) {
+			//查看详细
+    		Check: function (to) {
+    			//if (this.step == article) {
+    			//	this.step = article;
+    			//} else if (this.step = details) {
+				//	this.step = details;
+    			//}
 				var that = this;
-				common.getWebJson(articleListUrl, { value: moduleId }, function (data) {
-					if (data.result) {
-						that.listdata = data.content;
-					}
-				})
-			},
-			Detail: function (to) {
-				this.$parent.Check(to)
+    			switch (to) {
+    				case "article": that.$root.step = article;
+    					break;
+    				case "details": that.$root.step = details;
+    					break;
+    				default: that.$root.step = article;
+    					break;
+    			}
+    		},
+
+    		Detail: function (to) {
+    			var that = this;
+				that.Check(to)
 			}
 		}
 	};
