@@ -63,7 +63,7 @@ namespace Bayetech.Service
 
                 }
             }
-            throw new NotImplementedException();
+            return result;
         }
 
         public JObject DeleteNavigation(JObject json)
@@ -81,7 +81,7 @@ namespace Bayetech.Service
                 result.Add(ResultInfo.Result, JProperty.FromObject(false));
                 result.Add(ResultInfo.Content, JProperty.FromObject("删除失败"));
             }
-            throw new NotImplementedException();
+            return result;
         }
 
         /// <summary>
