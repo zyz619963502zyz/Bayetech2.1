@@ -27,8 +27,8 @@ define(['jquery', 'common'], function () {
     };
 
     // 更改商品状态
-    self.ChangeeStatus=function (goodNo, statusId, fn) {
-        $.post("/api/GoodInfo/ChangeStatus", { goodNo: goodNo, statusId: statusId }, function (data) {
+    self.ChangeeStatus=function (goodNo, statusKey, fn) {
+        $.post("/api/GoodInfo/ChangeStatus", { goodNo: goodNo, statusKey: statusKey }, function (data) {
             fn(data);
         });
     };

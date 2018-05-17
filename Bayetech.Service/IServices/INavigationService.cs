@@ -19,5 +19,20 @@ namespace Bayetech.Service
         /// <param name="parentId"></param>
         /// <returns></returns>
         JObject GetList(string parentId);
+
+        /// <summary>
+        /// 添加和修改导航菜单
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject AddNavigation(JObject json);
+        /// <summary>
+        /// 删除导航菜单
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject DeleteNavigation(JObject json);
+
+
     }
 }

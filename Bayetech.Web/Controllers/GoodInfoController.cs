@@ -212,9 +212,9 @@ namespace Bayetech.Web.Controllers
         public int ChangeStatus(JObject json)
         {
             var goodNo = json["goodNo"].ToString();
-            var statusId = json.Value<int>("statusId");
+            var statusKey = json.Value<string>("statusKey");
             var obj = goodInfoService.FindEntity(g => g.GoodNo == goodNo);
-            obj.Status = statusId;
+            obj.Status = statusKey;
             return goodInfoService.Update(obj);
         }
 

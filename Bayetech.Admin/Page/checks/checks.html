@@ -12,37 +12,72 @@
 </head>
 <body>
     <!--局部Modal放在当前文件-->
-    <div class="modal form-horizontal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" style="width:1200px">
-            <div class="modal-content animated bounceInRight">
-                <div id="modal_head" class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
-                        <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <h3 class="modal-title text-center" id="modal_title"><strong>商品信息审核</strong></h3>
-                </div>
-                <div class="modal-body" id="modal_body">
-                    <div class="fa-font col-md-12">
-                        <h4><strong>1.审查规则:</strong></h4>
-                        <p style="color:orangered">1.描述里面不可以出现违法暴力内容。</p>
-                        <p style="color:orangered">2.描述里面不可以出现色情等，不和谐关键词。</p>
-                        <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等联系方式的内容，否者视为不通过</p>
+    <div id="CommForm">
+        <div class="modal form-horizontal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" style="width:1200px">
+                <div class="modal-content animated bounceInRight">
+                    <div id="modal_head" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
+                            <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title text-center" id="modal_title"><strong>商品信息审核</strong></h3>
                     </div>
-                    <br />
-                    <div id="Account">
-                        <div class="input-group col-md-12">
-                            <h4><strong>2.账号信息:</strong></h4>
-                            <div class="input-group  col-md-12">
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-3">用户名</label>
-                                    <div class="col-md-offset-1 col-md-8">
-                                        <input class="form-control" value="zhangzaitian" readonly/>
+                    <div class="modal-body" id="modal_body">
+                        <div class="fa-font col-md-12">
+                            <h4><strong>审查规则:</strong></h4>
+                            <p style="color:orangered">1.描述里面不可以出现违法暴力内容。</p>
+                            <p style="color:orangered">2.描述里面不可以出现色情等，不和谐关键词。</p>
+                            <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等联系方式的内容，否者视为不通过</p>
+                        </div>
+                        <br />
+                        <div id="Account">
+                            <div class="input-group col-md-12">
+                                <h4><strong>账号信息:</strong></h4>
+                                <div class="input-group  col-md-12">
+                                    <div class="col-md-6">
+                                        <label class="control-label col-md-3">用户名</label>
+                                        <div class="col-md-offset-1 col-md-8">
+                                            <input class="form-control" value="zhangzaitian" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label col-md-3">密码</label>
+                                        <div class="col-md-offset-1 col-md-8">
+                                            <input class="form-control" value="123456789" readonly />
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-3">密码</label>
-                                    <div class="col-md-offset-1 col-md-8">
-                                        <input class="form-control" value="123456789" readonly/>
+                            </div>
+                            <hr />
+                            <br />
+                            <div class="input-group col-md-12">
+                                <h4><strong>商品描述信息:</strong></h4>
+                                <textarea style="height:150px" class="form-control" readonly>此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
+                            </div>
+                            <hr />
+                            <br />
+                            <div class="input-group col-md-12">
+                                <h4><strong>账号截图信息:</strong></h4>
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3">
+                                        <a href="#">
+                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <a href="#">
+                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <a href="#">
+                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-3">
+                                        <a href="#">
+                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -50,110 +85,83 @@
                         <hr />
                         <br />
                         <div class="input-group col-md-12">
-                            <h4><strong>3.商品描述信息:</strong></h4>
-                            <textarea style="height:150px" class="form-control" readonly>此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！此商品比较扯淡一点点都不能使用，千万不要买，千万不要买，千万不要买,千万不要买，千万不要买，买了就是傻逼傻逼抽傻逼！</textarea>
-                        </div>
-                        <hr />
-                        <br />
-                        <div class="input-group col-md-12">
-                            <h4><strong>4.账号截图信息:</strong></h4>
-                            <div class="row">
-                                <div class="col-xs-6 col-md-3">
-                                    <a href="#">
-                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <a href="#">
-                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <a href="#">
-                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <a href="#">
-                                        <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                    </a>
-                                </div>
-                            </div>
+                            <h4><strong>审批意见:</strong></h4> 
+                            <textarea class="form-control">此商品有不合法信息，建议审核不通过!</textarea>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer" id="modal_footer" style="text-align:center;">
-                    <div class="btn-group col-md-12">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="处理中..." name="CheckConfirm" id="aaaa">审核通过</button>
-                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="CheckNo" id="bbbb">审核不通过</button>
-                            <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" name="Cancel" id="cccc">取消</button>
+                    <div class="modal-footer" id="modal_footer" style="text-align:center;">
+                        <div class="btn-group col-md-12">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="审批通过" name="CheckConfirm" @click="CheckGoods('Y')">审核通过</button>
+                                <button type="button" class="btn btn-warning col-md-2" data-dismiss="modal" data-loading-text="审批不通过" name="CheckNo" @click="CheckGoods('N')">审核不通过</button>
+                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div id="CommForm" style="padding:20px 0 20px 0;">
-        <form class="form form-search form-horizontal" role="form">
-            <div class="form-group" id="lineTwo">
-                <div class="col-ms-10">
-                    <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">商品类型:</label>
-                        <div class="col-md-9">
-                            <select class="form-control">
-                                <option value="good">商品信息审核</option>
-                                <option value="order">订单信息审核</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">商品编号:</label>
-                        <div class="col-md-9">
-                            <input type="text" v-model="SearchParam.Param.GoodNo" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="button" class="btn btn-primary form-control" value="查询" @click="findList" />
-                    </div>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel-body">
-                        <div class="pull-right" id="">
-                            <ul class="pagination pagination-sm m-0 m-r-5">
-                                <li class="" aria-controls="DataTables_Table_0"><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
-                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
-                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
-                                <li class="" aria-controls="DataTables_Table_0" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
-                            </ul>
-                            <div class="input-group input-group-sm skip-page">
-                                <span class="input-group-addon">跳转到</span>
-                                <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
-                                <span class="input-group-addon">页</span>
-                                <span class="input-group-btn">
-                                    <input type="button" value="Go!" class="btn btn-default" @click="TurnToPage(10)" />
-                                </span>
+        <div id="" style="padding:20px 0 20px 0;">
+            <form class="form form-search form-horizontal" role="form">
+                <div class="form-group" id="lineTwo">
+                    <div class="col-ms-10">
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">商品类型</label>
+                            <div class="col-md-9">
+                                <select class="form-control" v-model="SearchParam.Param.SelectType">
+                                    <option value="good">商品审核</option>
+                                    <option value="order">订单审核</option>
+                                </select>
                             </div>
                         </div>
-                        <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck"></comtable>
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">{{SearchParam.Param.SelectType=='good'?'商品编号':'订单编号'}}</label>
+                            <div class="col-md-9">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="pull-right" id="">
+                                <ul class="pagination pagination-sm m-0 m-r-5">
+                                    <li class=""><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
+                                    <li class="" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
+                                    <li class="" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
+                                    <li class="" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
+                                </ul>
+                                <div class="input-group input-group-sm skip-page">
+                                    <span class="input-group-addon">跳转到</span>
+                                    <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
+                                    <span class="input-group-addon">页</span>
+                                    <span class="input-group-btn">
+                                        <input type="button" data-loading-text="Go!" class="btn btn-default" @click="TurnToPage(10)" />
+                                    </span>
+                                </div>
+                            </div>
+                            <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>
 
-                        <!--<div class="pull-right" id="">
+                            <!--<div class="pull-right" id="">
                             <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>
                         </div>-->
 
-                        <nav aria-label="fenye" class="text-center right">
-                            <ul id="paginator-test" class="pagination"></ul>
-                        </nav>
+                            <nav aria-label="fenye" class="text-center right">
+                                <ul id="paginator-test" class="pagination"></ul>
+                            </nav>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 </html>

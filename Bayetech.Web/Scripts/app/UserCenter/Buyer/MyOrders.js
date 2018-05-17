@@ -103,7 +103,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator, VueRouter) {
 						</nav>
                         <div class="nave">
                             <ul id="nave">
-                                <li v-for="item in Status" :id="item.StatusName" @click ="GetStatusOrder(item.StatusId,item.StatusName)" :class ="{active:item.StatusName == 'orderall'}">
+                                <li v-for="item in Status" :id="item.StatusName" @click ="GetStatusOrder(item.Status,item.StatusName)" :class ="{active:item.StatusName == 'orderall'}">
 									<a href="javascript:void(0)">{{item.StatusAlias}}</a>
 								</li>
                             </ul>

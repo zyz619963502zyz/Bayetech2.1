@@ -1,6 +1,9 @@
 ﻿/// <binding BeforeBuild='Run - Development' />
 "use strict";
 
+const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');//解决Make sure to include VueLoaderPlugin in your webpack config问题
+
 module.exports = {
     entry:{
         //TestES6: "./Scripts/TestES6.js",
@@ -17,11 +20,25 @@ module.exports = {
         port: 9000
     },
     module: {
-        loaders: [
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                    }
+                }
+            },
             {
                 test: /\.jsx?$/,
                 loader: "babel-loader"
             }
-        ]
-    }
+        ],
+    },
+    resolve:{
+        extensions:['.js','.json','.vue']
+    },
+    plugins: [
+        new VueLoaderPlugin(),
+    ]
 };

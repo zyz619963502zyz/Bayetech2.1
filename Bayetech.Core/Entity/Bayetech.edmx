@@ -575,7 +575,8 @@
           <Property Name="GoodValidityTime" Type="datetime" />
           <Property Name="QQ" Type="int" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="CheckRemark" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.MallGoodPictures”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -946,8 +947,13 @@
           <Property Name="GoodTypeId" Type="bigint" />
           <Property Name="ProfessionName" Type="nvarchar" MaxLength="30" />
           <Property Name="ProfessionId" Type="bigint" />
-          <Property Name="StatusId" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
           <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BackName" Type="nvarchar" MaxLength="30" />
+          <Property Name="FrontName" Type="nvarchar" MaxLength="30" />
+          <Property Name="FrontParentId" Type="int" />
+          <Property Name="BackParentId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodSearch”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1351,8 +1357,13 @@
     [vw_MallGoodMainInfo].[GoodTypeId] AS [GoodTypeId], 
     [vw_MallGoodMainInfo].[ProfessionName] AS [ProfessionName], 
     [vw_MallGoodMainInfo].[ProfessionId] AS [ProfessionId], 
-    [vw_MallGoodMainInfo].[StatusId] AS [StatusId], 
-    [vw_MallGoodMainInfo].[StatusName] AS [StatusName]
+    [vw_MallGoodMainInfo].[Status] AS [Status], 
+    [vw_MallGoodMainInfo].[StatusName] AS [StatusName], 
+    [vw_MallGoodMainInfo].[BackName] AS [BackName], 
+    [vw_MallGoodMainInfo].[FrontName] AS [FrontName], 
+    [vw_MallGoodMainInfo].[FrontParentId] AS [FrontParentId], 
+    [vw_MallGoodMainInfo].[BackParentId] AS [BackParentId], 
+    [vw_MallGoodMainInfo].[Remark] AS [Remark]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallGoodSearch" EntityType="Self.vw_MallGoodSearch" store:Type="Views" store:Schema="dbo">
@@ -1947,40 +1958,6 @@
           <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" />
         </EntityType>
-        <EntityType Name="MallGoodInfo">
-          <Key>
-            <PropertyRef Name="GoodNo" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
-          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodTypeId" Type="Int64" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroupId" Type="Int32" />
-          <Property Name="GameProfessionId" Type="Int64" />
-          <Property Name="GameServerId" Type="Int32" />
-          <Property Name="Stock" Type="Int32" />
-          <Property Name="CancelNum" Type="Int32" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HistoryAccount" Type="Int32" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="DateTime" Precision="3" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="GoldNum" Type="Int32" />
-          <Property Name="Dealway" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TradeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodValidityTime" Type="DateTime" Precision="3" />
-          <Property Name="QQ" Type="Int32" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-        </EntityType>
         <EntityType Name="MallOrder">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -2298,85 +2275,6 @@
           <Property Name="Order" Type="Int32" />
           <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vw_MallGoodInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="GoodInfoId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="DescriptionId" Type="Int64" />
-          <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id" Type="Int64" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vw_MallGoodMainInfo">
-          <Key>
-            <PropertyRef Name="Expr1" />
-            <PropertyRef Name="GoodNo" />
-          </Key>
-          <Property Name="Expr1" Type="Int32" Nullable="false" />
-          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
-          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroupId" Type="Int32" />
-          <Property Name="GameServerId" Type="Int32" />
-          <Property Name="Stock" Type="Int32" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HistoryAccount" Type="Int32" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="DateTime" Precision="3" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CancelNum" Type="Int32" />
-          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodTypeId" Type="Int64" />
-          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ProfessionId" Type="Int64" />
-          <Property Name="StatusId" Type="Int32" />
-          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="vw_MallGoodSearch">
-          <Key>
-            <PropertyRef Name="GoodNo" />
-          </Key>
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
-          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="GameGroupId" Type="Int32" />
-          <Property Name="GameServerId" Type="Int32" />
-          <Property Name="Stock" Type="Int32" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HistoryAccount" Type="Int32" />
-          <Property Name="ListOrder" Type="Int32" />
-          <Property Name="EditTime" Type="DateTime" Precision="3" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CancelNum" Type="Int32" />
-          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodTypeId" Type="Int64" />
-          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ProfessionId" Type="Int64" />
-          <Property Name="DescriptionId" Type="Int64" />
-          <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="vw_MallOrderInfo">
           <Key>
             <PropertyRef Name="OrderNo" />
@@ -2466,7 +2364,6 @@
           <EntitySet Name="GoodStatus" EntityType="Self.GoodStatus" />
           <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" />
-          <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" />
           <EntitySet Name="MallOrder" EntityType="Self.MallOrder" />
           <EntitySet Name="MallOrderStatus" EntityType="Self.MallOrderStatus" />
           <EntitySet Name="MallType" EntityType="Self.MallType" />
@@ -2484,9 +2381,6 @@
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" />
           <EntitySet Name="vw_MallDLInfo" EntityType="Self.vw_MallDLInfo" />
           <EntitySet Name="vw_MallDLOrderInfo" EntityType="Self.vw_MallDLOrderInfo" />
-          <EntitySet Name="vw_MallGoodInfo" EntityType="Self.vw_MallGoodInfo" />
-          <EntitySet Name="vw_MallGoodMainInfo" EntityType="Self.vw_MallGoodMainInfo" />
-          <EntitySet Name="vw_MallGoodSearch" EntityType="Self.vw_MallGoodSearch" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="Self.vw_MallOrderInfo" />
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" />
           <EntitySet Name="vw_NoToProperty" EntityType="Self.vw_NoToProperty" />
@@ -2521,6 +2415,10 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="User" EntityType="BayetechModel.User" />
+          <EntitySet Name="MallGoodInfo" EntityType="BayetechModel.MallGoodInfo" />
+          <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
+          <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
+          <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2552,6 +2450,125 @@
           <Property Name="IsValiteLogin" Type="Boolean" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MallGoodInfo">
+          <Key>
+            <PropertyRef Name="GoodNo" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodTypeId" Type="Int64" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GoodNo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameProfessionId" Type="Int64" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="CancelNum" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="GoldNum" Type="Int32" />
+          <Property Name="Dealway" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TradeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodValidityTime" Type="DateTime" Precision="3" />
+          <Property Name="QQ" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CheckRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_MallGoodInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="GoodInfoId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionId" Type="Int64" />
+          <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_MallGoodSearch">
+          <Key>
+            <PropertyRef Name="GoodNo" />
+          </Key>
+          <Property Name="GoodNo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CancelNum" Type="Int32" />
+          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodTypeId" Type="Int64" />
+          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProfessionId" Type="Int64" />
+          <Property Name="DescriptionId" Type="Int64" />
+          <Property Name="DescriptionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_MallGoodMainInfo">
+          <Key>
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="GoodNo" />
+          </Key>
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GoodKeyWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="GoodNo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GameService" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryAccount" Type="Int32" />
+          <Property Name="ListOrder" Type="Int32" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GameAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CancelNum" Type="Int32" />
+          <Property Name="GoodDetailInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GoodFirstPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodTypeId" Type="Int64" />
+          <Property Name="ProfessionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProfessionId" Type="Int64" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BackName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FrontParentId" Type="Int32" />
+          <Property Name="BackParentId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3097,41 +3114,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MallGoodInfo">
-            <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
-              <MappingFragment StoreEntitySet="MallGoodInfo">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
-                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
-                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
-                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
-                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
-                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
-                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
-                <ScalarProperty Name="GameProfessionId" ColumnName="GameProfessionId" />
-                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="GoldNum" ColumnName="GoldNum" />
-                <ScalarProperty Name="Dealway" ColumnName="Dealway" />
-                <ScalarProperty Name="TradeType" ColumnName="TradeType" />
-                <ScalarProperty Name="GoodValidityTime" ColumnName="GoodValidityTime" />
-                <ScalarProperty Name="QQ" ColumnName="QQ" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MallOrder">
             <EntityTypeMapping TypeName="BayetechModel.MallOrder">
               <MappingFragment StoreEntitySet="MallOrder">
@@ -3456,87 +3438,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_MallGoodInfo">
-            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodInfo">
-              <MappingFragment StoreEntitySet="vw_MallGoodInfo">
-                <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
-                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
-                <ScalarProperty Name="DescriptionName" ColumnName="DescriptionName" />
-                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_MallGoodMainInfo">
-            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
-              <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
-                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
-                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
-                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
-                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
-                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="GoodTypeName" ColumnName="GoodTypeName" />
-                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
-                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
-                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
-                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
-                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
-                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
-                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_MallGoodSearch">
-            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodSearch">
-              <MappingFragment StoreEntitySet="vw_MallGoodSearch">
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
-                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
-                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
-                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="GameService" ColumnName="GameService" />
-                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
-                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
-                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="GoodTypeName" ColumnName="GoodTypeName" />
-                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
-                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
-                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
-                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
-                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
-                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
-                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
-                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
-                <ScalarProperty Name="DescriptionName" ColumnName="DescriptionName" />
-                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_MallOrderInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
               <MappingFragment StoreEntitySet="vw_MallOrderInfo">
@@ -3633,6 +3534,128 @@
                 <ScalarProperty Name="NameAlias" ColumnName="NameAlias" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MallGoodInfo">
+            <EntityTypeMapping TypeName="BayetechModel.MallGoodInfo">
+              <MappingFragment StoreEntitySet="MallGoodInfo">
+                <ScalarProperty Name="CheckRemark" ColumnName="CheckRemark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="GoodValidityTime" ColumnName="GoodValidityTime" />
+                <ScalarProperty Name="TradeType" ColumnName="TradeType" />
+                <ScalarProperty Name="Dealway" ColumnName="Dealway" />
+                <ScalarProperty Name="GoldNum" ColumnName="GoldNum" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameProfessionId" ColumnName="GameProfessionId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
+                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
+                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
+                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
+                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
+                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
+                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MallGoodInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodInfo">
+              <MappingFragment StoreEntitySet="vw_MallGoodInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
+                <ScalarProperty Name="DescriptionName" ColumnName="DescriptionName" />
+                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
+                <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MallGoodSearch">
+            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodSearch">
+              <MappingFragment StoreEntitySet="vw_MallGoodSearch">
+                <ScalarProperty Name="DescriptionValue" ColumnName="DescriptionValue" />
+                <ScalarProperty Name="DescriptionName" ColumnName="DescriptionName" />
+                <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
+                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
+                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
+                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
+                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
+                <ScalarProperty Name="GoodTypeName" ColumnName="GoodTypeName" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
+                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
+                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
+                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MallGoodMainInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
+              <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
+                <ScalarProperty Name="FrontParentId" ColumnName="FrontParentId" />
+                <ScalarProperty Name="FrontName" ColumnName="FrontName" />
+                <ScalarProperty Name="BackName" ColumnName="BackName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
+                <ScalarProperty Name="GoodFirstPicture" ColumnName="GoodFirstPicture" />
+                <ScalarProperty Name="GoodDetailInfo" ColumnName="GoodDetailInfo" />
+                <ScalarProperty Name="CancelNum" ColumnName="CancelNum" />
+                <ScalarProperty Name="GameAccount" ColumnName="GameAccount" />
+                <ScalarProperty Name="GoodTypeName" ColumnName="GoodTypeName" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="HistoryAccount" ColumnName="HistoryAccount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="GameService" ColumnName="GameService" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GoodKeyWord" ColumnName="GoodKeyWord" />
+                <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
+                <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
+                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

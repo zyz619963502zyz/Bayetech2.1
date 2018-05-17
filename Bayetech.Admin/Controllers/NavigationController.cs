@@ -20,10 +20,32 @@ namespace Bayetech.Admin.Controllers
         {
             return service.GetClientsDataJson(0, null);
         }
-
+        /// <summary>
+        /// 获取导航菜单列表设置
+        /// </summary>
+        /// <returns></returns>
         public JObject GetNavigationList()
         {
             return service.GetList("0");
+        }
+
+        /// <summary>
+        /// 添加和修改导航菜单
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public JObject GetAddNavigation(JObject json)
+        {
+            return service.AddNavigation(json);
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public JObject deleteNavigation(JObject json)
+        {
+            return service.DeleteNavigation(json);
         }
     }
 }
