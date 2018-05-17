@@ -1,4 +1,4 @@
-﻿define(['vue', 'jquery', 'common',"upload" ], function (vue, $,common,upload) {
+﻿define(['vue', 'jquery', 'bootstrap', 'common', "upload"], function (vue, $, bootstrap, common, upload) {
 
     var uploadHtml =`<div class="img-item clearfix" >
                         <div class="upload-box on">

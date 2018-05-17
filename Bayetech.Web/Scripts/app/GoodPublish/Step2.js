@@ -185,8 +185,10 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
         //</div>`;
 
     	var html = `<div class="container m-b-lg">
-				<a class ="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
+				<h2 class="info-title">
+                <a class ="btn-back" href="javascript:void(0)" @click="Next('step1')">&lt; 返回修改</a>
 				<span>《{{GameInfo.GameName}}》{{GameInfo.GroupName}}/{{GameInfo.ServerName}}/{{GameInfo.GoodTypeName}}</span>
+                </h2>
             <form class ="form-horizontal">
             <input type="hidden" name="GameId" :value="GameInfo.GameId">
             <input type="hidden" name="GameName" :value="GameInfo.GameName">
@@ -358,7 +360,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger">确认无误，立即发布</button>
+                <button type="button" class="btn btn-warning pull-right">确认无误，立即发布</button>
             </form>
         </div>
 
