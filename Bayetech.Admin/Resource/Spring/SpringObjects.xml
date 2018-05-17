@@ -8,4 +8,5 @@
   <object name="LogionService" type="Bayetech.Service.LogionService,Bayetech.Service"></object>
   <object name="AdminManageService" type="Bayetech.Service.AdminManageService,Bayetech.Service"></object>
   <object name="UserRolesService" type="Bayetech.Service.UserRolesService,Bayetech.Service"></object>
+<object name="RolesService" type="Bayetech.Service.RolesService,Bayetech.Service"></object>
 </objects>
