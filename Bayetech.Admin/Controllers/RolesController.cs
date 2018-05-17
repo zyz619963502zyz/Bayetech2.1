@@ -37,6 +37,7 @@ namespace Bayetech.Admin.Controllers
         /// <returns></returns>
         public JObject DeleteRoles(JObject json)
         {
+           return rolesService.DeleteRoles(json);
         }
     }
 }
