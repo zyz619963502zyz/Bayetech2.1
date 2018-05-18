@@ -15,10 +15,12 @@ sendWebJson = function (url, type, param, fn) {
 }
 
 getWeb = function (url, param, fn) {
+    debugger;
     sendWebJson(url, 'get', param, fn);
 };
 
 postWeb = function (url, param, fn) {
+    debugger;
     sendWebJson(url, 'post', param, fn);
 };
 
@@ -32,7 +34,8 @@ deleteWeb = function (url, param, fn) {
 
 postWebJson = function (url, data, successfn, errorfn, asyncC, callLoading) {
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
-        if (typeof (asyncC) != "undefined" && typeof (asyncC) != "boolean") {
+    debugger;
+    if (typeof (asyncC) != "undefined" && typeof (asyncC) != "boolean") {
             $("#Loading").addClass("hide");
             GetAlert("同异步参数没传");
         }

@@ -73,11 +73,13 @@ namespace Bayetech.Service
             var userList = repository.IQueryable<Admin_Sys_Users>();
             var roles = repository.IQueryable<Admin_Sys_Roles>();//角色列表
             JObject result = new JObject();
+            object row = null;
+            var total = userList.Count();
             if (userList != null)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
                 result.Add("RolesList", JProperty.FromObject(roles.ToList()));
-                result.Add(ResultInfo.Content, JProperty.FromObject(userList.ToList()));
+                result.Add(ResultInfo.Content, JProperty.FromObject(new {total=total, row=userList.ToList() }));
             }
             else
             {

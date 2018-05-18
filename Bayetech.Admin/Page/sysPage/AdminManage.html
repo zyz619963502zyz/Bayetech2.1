@@ -201,7 +201,7 @@
         //#endregion
 
         var KObj = new function () {
-
+            debugger;
             var self = this;
             self.model = new model();//实例化模型
 
@@ -210,7 +210,7 @@
             self.keyword = ko.observable('');//搜索内容
             self.selectRowNum = ko.observable(0);//当前选择的grid的行号
 
-            self.ApiName = "/api/User/";
+            self.ApiName = "/api/AdminManage/";
             self.UpdateUrl = self.ApiName + 'Update';
             self.GetUserUrl = self.ApiName + 'GetUserById';
             self.ResetPassUrl = self.ApiName + 'ResetPassWord';
@@ -402,6 +402,7 @@
             });
 
             self.Refresh = function () {
+                debugger;
                 self.Table.bootstrapTable('refresh');
             }
 
@@ -412,7 +413,8 @@
             };
 
             //输出结果
-            self.WriteResult = function(data) {
+            self.WriteResult = function (data) {
+                debugger;
                 //console.info(data);
                 var result = JSON.parse(data);
                 self.Message(result.ErrorMsg, result.Success);
@@ -437,8 +439,10 @@
                 //    return false;
                 //}
                 if ($.trim(searchTxt) !== '') {
+                    debugger;
                     self.Table.bootstrapTable('refresh', { query: { userName: searchTxt } });
                 } else {
+                    debugger;
                     self.Table.bootstrapTable('refresh');
                 }
             }
