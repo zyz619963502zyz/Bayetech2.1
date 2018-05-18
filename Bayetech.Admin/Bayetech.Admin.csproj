@@ -2734,6 +2734,8 @@
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\components\table-Process.vue" />
     <Content Include="Scripts\components\table-AdminSets.vue" />
+    <Content Include="Scripts\components\table-NavigationManage.vue" />
+    <Content Include="Scripts\components\table-RolesManage.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\router\router.js" />
