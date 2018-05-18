@@ -44,9 +44,17 @@ namespace Bayetech.Service
                     if (!string.IsNullOrEmpty(goodInfo.ServerName) && goodInfo.ServerName.Contains("Across:")) {
                         expression = expression.And(t => goodInfo.ServerName.Contains(t.GameServerId.ToString()));
                     }
-                    if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id
+                    if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id 
                     {
                         expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
+                    }
+                    if (goodInfo.Stock != null && goodInfo.Stock>0) //库存
+                    {
+                        expression = expression.And(t => t.Stock == goodInfo.Stock);
+                    }
+                    else
+                    {
+                        expression = expression.And(t => t.Stock > 0);//售完商品列表
                     }
                     if (!string.IsNullOrEmpty(goodInfo.GoodKeyWord))//商品关键字
                     {

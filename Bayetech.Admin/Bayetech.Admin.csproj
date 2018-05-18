@@ -2720,7 +2720,8 @@
       <DependentUpon>common.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\common.js" />
-    <None Include="Scripts\components\table.vue" />
+    <Content Include="Scripts\components\table-Process.vue" />
+    <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">

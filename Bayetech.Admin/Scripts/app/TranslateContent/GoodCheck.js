@@ -125,6 +125,28 @@ module.exports = g;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
@@ -13472,73 +13494,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table table-bordered" }, [
-    _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center" }, [_vm._v("单据类型")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [
-          _vm._v(_vm._s(_vm.itemtype == "good" ? "商品编号" : "订单编号"))
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("游戏名称")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("交易类型")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("关键词")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("商品标题")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("审核商品")])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "tbody",
+  return _c(
+    "table",
+    { staticClass: "table table-bordered" },
+    [
+      _c("thead", [
+        _c("tr", { staticClass: "success" }, [
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("单据类型")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-2" }, [
+            _vm._v(_vm._s(_vm.itemtype == "good" ? "商品编号" : "订单编号"))
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-2" }, [
+            _vm._v("游戏名称")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("交易类型")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("关键词")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-4" }, [
+            _vm._v("商品标题")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("审核商品")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
       _vm._l(_vm.goodinfoarray, function(item) {
-        return _c("tr", [
-          _c("td", { staticClass: "text-center" }, [
-            _c("label", { staticClass: "table-firsttitle" }, [
-              _vm._v(_vm._s(_vm.itemtype == "good" ? "商品" : "订单"))
+        return _c("tbody", [
+          _c("tr", [
+            _c("td", { staticClass: "text-center" }, [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(_vm.itemtype == "good" ? "商品" : "订单"))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(_vm.itemtype == "good" ? item.GoodNo : item.OrderNo)
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GameName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-center" }, [
+              _c("input", {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "button",
+                  flag: item.Status,
+                  value:
+                    item.Status == "PutOnsale" || item.Status == "PutDownsale"
+                      ? "查看"
+                      : "审核商品"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item.GoodNo)
+                  }
+                }
+              })
             ])
           ]),
           _vm._v(" "),
-          _c("td", [
-            _vm._v(_vm._s(_vm.itemtype == "good" ? item.GoodNo : item.OrderNo))
-          ]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.GameName))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
-          _vm._v(" "),
-          _c("td", { staticClass: "text-center" }, [
-            _c("input", {
-              staticClass: "btn btn-primary",
-              attrs: {
-                type: "button",
-                flag: item.Status,
-                value:
-                  item.Status == "PutOnsale" || item.Status == "PutDownsale"
-                    ? "查看"
-                    : "审核商品"
-              },
-              on: {
-                click: function($event) {
-                  _vm.startcheck(item.GoodNo)
-                }
-              }
-            })
-          ])
+          _vm._m(0, true)
         ])
       })
-    )
-  ])
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", { attrs: { colspan: "10" } }, [
+        _c("table", { staticClass: "table table-bordered" }, [
+          _c("thead", [
+            _c("tr", { staticClass: "warning" }, [
+              _c("th", { staticClass: "text-center" }, [_vm._v("交易类型")]),
+              _vm._v(" "),
+              _c("th", { staticClass: "text-center" }, [_vm._v("关键词")]),
+              _vm._v(" "),
+              _c("th", { staticClass: "text-center" }, [_vm._v("商品标题")]),
+              _vm._v(" "),
+              _c("th", { staticClass: "text-center" }, [_vm._v("审核商品")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("td", [_vm._v("测试1")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("测试2")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("测试3")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("测试4")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

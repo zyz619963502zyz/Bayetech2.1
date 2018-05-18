@@ -1,6 +1,6 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
-import componentTable from '../components/table.vue'
+import componentTable from '../components/table-Process.vue'
 
 let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL,"type");
 
