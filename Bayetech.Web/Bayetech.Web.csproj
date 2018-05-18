@@ -368,12 +368,7 @@
     <Content Include="Content\Images\262.jpg" />
     <Content Include="Content\Images\35.jpg" />
     <Content Include="Content\Images\360.png" />
-    <Content Include="Content\Images\50.jpg" />
-    <Content Include="Content\Images\51.jpg" />
     <Content Include="Content\Images\51508.png" />
-    <Content Include="Content\Images\52.jpg" />
-    <Content Include="Content\Images\53.jpg" />
-    <Content Include="Content\Images\54.jpg" />
     <Content Include="Content\Images\700280-1.jpg" />
     <Content Include="Content\Images\7881app_right.png" />
     <Content Include="Content\Images\7881bmzx.png" />
@@ -471,7 +466,6 @@
     <Content Include="Content\Images\buy_zhang.png" />
     <Content Include="Content\Images\cb.png" />
     <Content Include="Content\Images\cnnic.png" />
-    <Content Include="Content\Images\dixiacheng.jpg" />
     <Content Include="Content\Images\dl-dnf-li2.png" />
     <Content Include="Content\Images\dl-wzry-li2.png" />
     <Content Include="Content\Images\dl-yxlm-li2.png" />
@@ -505,8 +499,6 @@
     <Content Include="Content\Images\gm_ts.png" />
     <Content Include="Content\Images\gq.png" />
     <Content Include="Content\Images\guanggaolol.jpg" />
-    <Content Include="Content\Images\guanghui.jpg" />
-    <Content Include="Content\Images\hanbing.jpg" />
     <Content Include="Content\Images\hot.gif" />
     <Content Include="Content\Images\icon-bell.png" />
     <Content Include="Content\Images\icon-com.png" />
@@ -537,9 +529,7 @@
     <Content Include="Content\Images\logo-common.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\logo_service.png" />
-    <Content Include="Content\Images\lolruiwen.jpg" />
     <Content Include="Content\Images\lPic.png" />
-    <Content Include="Content\Images\lunzima.jpg" />
     <Content Include="Content\Images\m7881.png" />
     <Content Include="Content\Images\ma.png" />
     <Content Include="Content\Images\merit-01.png" />
@@ -569,7 +559,6 @@
     <Content Include="Content\Images\pic-03.jpg" />
     <Content Include="Content\Images\pic-04.jpg" />
     <Content Include="Content\Images\plane.gif" />
-    <Content Include="Content\Images\qinnv.jpg" />
     <Content Include="Content\Images\qq-01.png" />
     <Content Include="Content\Images\qq-02.png" />
     <Content Include="Content\Images\qrcode.png" />
@@ -603,7 +592,6 @@
     <Content Include="Content\Images\tx.png" />
     <Content Include="Content\Images\uhaozu.jpg" />
     <Content Include="Content\Images\vcard-.png" />
-    <Content Include="Content\Images\wangzhe.jpg" />
     <Content Include="Content\Images\wdj.png" />
     <Content Include="Content\Images\wj.gif" />
     <Content Include="Content\Images\wx-m7881.png" />
@@ -692,6 +680,18 @@
     <Content Include="Content\NewImages\gold-coin.png" />
     <Content Include="Content\NewImages\guide.png" />
     <Content Include="Content\NewImages\help_center.png" />
+    <Content Include="Content\NewImages\homeImg1.jpg" />
+    <Content Include="Content\NewImages\homeImg10.jpg" />
+    <Content Include="Content\NewImages\homeImg11.jpg" />
+    <Content Include="Content\NewImages\homeImg12.jpg" />
+    <Content Include="Content\NewImages\homeImg2.jpg" />
+    <Content Include="Content\NewImages\homeImg3.jpg" />
+    <Content Include="Content\NewImages\homeImg4.jpg" />
+    <Content Include="Content\NewImages\homeImg5.jpg" />
+    <Content Include="Content\NewImages\homeImg6.jpg" />
+    <Content Include="Content\NewImages\homeImg7.jpg" />
+    <Content Include="Content\NewImages\homeImg8.jpg" />
+    <Content Include="Content\NewImages\homeImg9.jpg" />
     <Content Include="Content\NewImages\lc1.png" />
     <Content Include="Content\NewImages\lc2.png" />
     <Content Include="Content\NewImages\logo.ico" />
@@ -712,6 +712,8 @@
     <Content Include="Content\personal.css" />
     <Content Include="Content\place_order.css" />
     <Content Include="Content\publish.css" />
+    <Content Include="Content\SecurityCenter.css" />
+    <Content Include="Content\service-center.css" />
     <Content Include="Content\swiper\animate.css" />
     <Content Include="Content\swiper\animate.min.css" />
     <Content Include="Content\swiper\swiper.css" />
@@ -734,7 +736,6 @@
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
-    <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\NewIndex.html" />
     <Content Include="Page\Home\PhonePage.html" />
     <Content Include="Page\Login\Login.html" />

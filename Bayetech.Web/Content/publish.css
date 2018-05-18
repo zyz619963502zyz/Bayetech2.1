@@ -1,4 +1,6 @@
 ﻿@charset"utf-8";
+a,a:hover{text-decoration:none;}
+
 /*原样式*/
 .W980{width:980px;margin:0 auto;}
 /* 搜索 */
@@ -181,8 +183,34 @@
     width:0;
     background-color:transparent;
 }
-
-
+.info-title{
+        text-align: center;
+    height: 55px;
+    position: relative;
+}
+.info-title .btn-back{
+        display: block;
+    padding: 5px 10px;
+    width: 100px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+        height: 26px;
+    line-height: 14px;
+}
+.info-title .btn-back:hover{
+    background-color:#39f;
+    color:#fff;
+}
+.info-title span{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
 
 /*但复选框对齐*/
 .radio-inline input[type="radio"]{

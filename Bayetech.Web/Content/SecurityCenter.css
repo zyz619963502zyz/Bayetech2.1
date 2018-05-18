@@ -1,0 +1,249 @@
+﻿@charset"utf-8";
+.top{height:33px; background:url(http://pic.ofcard.com/7881/market/images/7881_top.jpg) repeat-x;}
+.top ul{ padding-top:8px;}
+.top ul li{margin-right:10px;}
+.top ul li a.dlzc{color:#09F;text-decoration:none}
+.top ul li a:hover.dlzc{color:#E95701;text-decoration:none}
+.logo{padding-bottom:15px;overflow: auto;}
+
+/*头上部分*/
+.width980_top { width:980px; margin:0px auto; height:auto; line-height:30px; clear:both; position:relative; z-index:99999999; }
+.welcome { float:left; overflow:hidden; line-height:30px;}
+.welcome a.dlzc{color:#09F;text-decoration:none}
+.welcome a:hover.dlzc{color:#E95701;text-decoration:none}
+.right_top{width:40px; float:right; overflow:hidden;}
+.right_top1{width:65px; float:right; overflow:hidden;}
+.right_top2{width:60px; float:right; overflow:hidden;}
+.right_top3{width:10px; float:right; overflow:hidden; color:#DBDBDB; font-size:10px;}
+
+/*我是卖家*/
+.myrice { position:relative; display:inline-block; }
+.obtainTop { cursor:pointer; background:url(http://pic.ofcard.com/7881/market/images/dot_2.gif) no-repeat 55px 14px; width:72px; text-align:left;}
+.mine_cont_1 { display:none; overflow:hidden }
+.nav_text_2{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_2 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:999;}
+.hover .mine_cont_1 { display:block; border:1px solid #ddd;  width:90px; background:#fff; position: absolute; z-index:998; top:27px; left:0px; }
+.hover .mine_cont_1 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+/*我是买家*/
+.top_index { position:relative; display:inline-block;position: relative; z-index:99999999; }
+
+.mine_cont { display:none; overflow:hidden }
+.nav_text{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px;position: relative; z-index:997; }
+.hover .mine_cont { display:block; border:1px solid #ddd; width:90px; background:#fff; position: absolute; z-index:996; top:27px; left:0px; }
+.hover .mine_cont li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+/*官方微博*/
+.myrice { position:relative; display:inline-block; }
+.mine_cont_2{ display:none; overflow:hidden }
+.nav_text_3{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_3 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_2 { display:block; border:1px solid #ddd;  width:90px; background:#fff; position: absolute; z-index:1000; top:27px; left:0px; }
+.hover .mine_cont_2 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+
+/*客服中心*/
+.myService { position:relative; display:inline-block; }
+.mine_cont_3{ display:none; overflow:hidden }
+.nav_text_4{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_4 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_3 { display:block; border:1px solid #ddd;  width:70px; background:#fff; position: absolute; z-index:1000; top:27px; left:0px; }
+.hover .mine_cont_3 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+.hover .mine_cont_3 li a.Red {color:#F00; margin-left:10px;}
+
+/*官方微信*/
+.myweixin { position:relative; display:inline-block; }
+.mine_cont_4{ display:none; overflow:hidden }
+.nav_text_5{ padding-left:5px; margin:2px 3px 0 1px; line-height:26px;height:26px; width:65px;}
+.hover .nav_text_5 { border:1px solid #ddd; border-bottom:0; background:#fff url(http://pic.ofcard.com/7881/market/images/dot_3.gif) no-repeat 55px 12px; font-weight:normal; margin:1px 0 0px; width:65px; padding-left:5px; height:26px; line-height:26px; position: relative; z-index:1001;}
+.hover .mine_cont_4 { display:block; border:1px solid #ddd;  width:275px; background:#fff; position: absolute; z-index:1000; top:27px; right:0px; }
+.hover .mine_cont_4 li { float:none; padding:0; margin:0; line-height:23px; padding-left:5px; padding-bottom:3px; }
+
+.Navigation{height:40px; background:#3d86ea;}
+.Part{ height:40px;}
+.Part li{height:40px;float:left;}
+.Part li.All_sections{ width:170px;background:#fe9101; color:#FFF; font-size:15px; padding-left:10px;}
+.Part li.All_sections a{ width:170px; line-height:40px; background:#fe9101; padding:0; text-align:left; display:block}
+.Part li.All_sections a:hover{ text-decoration:underline; background:none;}
+.Part li a{display:block; width:110px; height:40px;line-height:40px;float:left;text-align:center; color:#FFF; font-size:15px; border-right:#4e90ec solid 1px;}
+.Part li a.cj{background:url(http://pic.7881.com/7881/market/images/hot.gif) no-repeat right 2px;}
+.Part li a:hover{ background:#1D62BF; color:#FFF}
+.Part li a.cj:hover{background:#1D62BF url(http://pic.7881.com/7881/market/images/hot.gif) no-repeat right 2px;}
+.Part ol{float:right;width:154px; height:30px; margin-top:5px;}
+
+.Part li.Part_goumai{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer;  float:right; margin-top:5px;}
+.Part li.Part_goumai:hover{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer; background:fe9101;}
+
+.Part ol .Part_goumai{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer}
+.Part ol .Part_goumai:hover{width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer}
+.Part ol a.grzx_goumai{ display:block;width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu.png);cursor:pointer}
+.Part ol a:hover.grzx_goumai{display:block;width:154px; height:30px; background-image:url(http://pic.ofcard.com/7881/market/images/7881_gouwu_1.png);cursor:pointer}
+.track{ border:#dfdfdf solid 1px; margin-top:10px;}
+.track ul{overflow:auto;}
+.track li{ float:left; width:19.5%; text-align:center; margin-top:8px; margin-bottom:8px;}
+.track li.fjx{ border-right:#dfdfdf solid 1px;}
+
+/* CSS Document */
+/* ---重置常用标签的边界与填充---*/
+body,h1,h2,h3,h4,h5,h6,p,hr,dl,dt,dd,ul,ol,li,form,input,button,textarea,img{margin:0;padding:0}
+
+/* ---设置默认字体---*/
+body{font:12px Microsoft YaHei;text-align:center;margin:0; padding:0;color:#333}
+
+/* ---重置列表元素---*/
+ul,ol,li{list-style:none;}
+input,textarea,option,select{list-style:none;font:12px Microsoft YaHei;height:20px;}
+a img{ border:none; border:0px}
+
+/* ---常用元素---*/
+.left{float:left;}
+.right{float:right;}
+.center{ margin-left:auto; margin-right:auto;text-align:left;width: 980px;}
+.clear{clear:both; font-size:0px; line-height:0px;margin:0;padding:0}
+.clearfix{*zoom:1;}.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
+
+/* ---超链接---*/
+.red{color:#F00}/*红色*/
+a{color:#333;text-decoration:none;cursor:pointer;}
+a:hover{color:#E95701;text-decoration:underline}
+.global_a_hover{color:#E95701;text-decoration:none}
+
+a.ls{color:#36c;text-decoration:none;cursor:pointer;}
+a:hover.ls{color:#E95701;text-decoration:none;cursor:pointer;}
+
+a.cs{color:#F90;text-decoration:none}
+a:hover.cs{color:#E95701;text-decoration:none}
+
+a.hs{color:#444;text-decoration:none}
+a:hover.hs{color:#E95701;text-decoration:none}
+
+/* ---文本框---*/
+.input_txt{box-shadow:0 0 4px #dfdfdf inset;border:solid 1px #dfdfdf;height:20px;text-indent:3px;}
+.input_txt:hover{box-shadow:0 1px 10px #FF6600 inset;border:solid 1px #FF6600;}
+.input_txt:focus{box-shadow:0 1px 10px #FF6600 inset;border:solid 1px #FF6600;}
+
+/* 出售订单管理 */
+/* 下拉框大小设置 */
+.yxddcx select{ width:112px;}
+.cxFormtime { width: 69px; height:21px; margin-left:10px; background:url(http://pic.ofcard.com/7881/market/images/sell/pecsonal_cx.png) no-repeat; border: medium none;cursor: pointer;}
+.cxFormtime:hover{  width: 69px; height:21px; margin-left:10px; background:url(http://pic.ofcard.com/7881/market/images/sell/pecsonal_cx1.png) no-repeat; border: medium none;cursor: pointer;}
+
+<!-- 操作：全选，下架，删除-->
+.dxk_qx{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/quan.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_qx:hover{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/quanh.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_xj{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/xia.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_xj:hover{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/xiah.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_sc{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/shan.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_sc:hover{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/shanh.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_shangj{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/shangj.png) no-repeat;border: medium none;cursor: pointer;}
+.dxk_shangj:hover{ width:69px; height:21px; background:url(http://pic.ofcard.com/7881/market/images/shangh.png) no-repeat;border: medium none;cursor: pointer;}
+
+/* 页数鼠标放上去——手形 */
+.myxssl{
+	cursor:pointer;
+}
+
+/* ======================================新首页0821====================================== */
+address,cite,code,dfn,em,var,i{font-style:normal;font-weight:normal}
+b,strong{font-weight:bold}
+.cent {margin:0 auto;text-align:center}
+.b{font-weight:bold}
+.text_down{text-decoration:underline}
+.text_none{text-decoration:none}
+.ml10{ margin-left:10px}
+.mb10{ margin-bottom:10px}
+.mr10{ margin-right:10px}
+.mt10{ margin-top:10px}
+.m10{ margin:10px}
+
+/* ---字体大小设置---*/
+.f11{font-size:11px}
+.f12{font-size:12px}
+.f14{font-size:14px}
+.f15{font-size:15px}
+.f16{font-size:16px}
+.f18{font-size:18px}
+.f22{font-size:22px}
+
+/* ---颜色设置---*/
+.blue{color:#36c}/*蓝色*/
+.red{color:#F00}/*红色*/
+.yellow{color:#F60}/*橙色*/
+.blue_2{color:#3D86EA}/*蓝色2*/
+.gray{color:#666}/*灰色*/
+.gray_2{color:#9A9A9A}/*灰色2*/
+.white{color:#fff}/*白色*/
+.green{color:#4DBF00}/*绿色*/
+
+/* 图片预加载*/
+#preloader {
+background-image: url(http://pic.ofcard.com/7881/images/main/load_pic1.png);
+background-image: url(http://pic.ofcard.com/7881/images/main/load_pic2.png);
+width: 0px;
+height: 0px;
+display: inline;
+}
+
+
+.security_banner{ margin-top:10px; margin-bottom:10px;}
+.security_news{ float:left; width:240px; margin-right:8px; border:solid #dfdfdf 1px}
+.security_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.security_news ul{ padding:10px;}
+.security_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.security_index_right{ float:right; width:228px;}
+.security_index_right ul{ display:block;}
+.security_index_right ul li{ margin-bottom:6px;}
+.security_knowledge{ border:solid #dfdfdf 1px; background:#f8fcff; margin-top:10px;margin-bottom:10px;}
+.security_knowledge ul{ padding:15px;}
+.security_knowledge ul h3{ height:33px; line-height:33px; font-size:14px; border-bottom:solid #dfdfdf 1px}
+.security_knowledge ul li{ padding-top:10px; padding-bottom:10px; overflow:hidden}
+.security_knowledge ul li a.category{ display:block; float:left; width:130px; height:30px; line-height:30px; font-weight:bold; text-align:center;}
+.security_knowledge ul li a:hover.category{color:#000;}
+.category_select{ background:#3982c7; color:#FFF;}
+.security_knowledge_news{border:solid #dfdfdf 1px}
+.security_knowledge_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.knowledge_news { padding:15px;}
+.knowledge_news ul{ display:block; border-bottom:dashed #dfdfdf 1px; padding-bottom:10px; padding-top:10px;}
+.knowledge_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.knowledge_news ul ol{ padding-top:5px; padding-bottom:5px;list-style-type:none; margin-left:20px;}
+.verification{ margin-top:10px;}
+.security_verification_left{ float:left; width:742px;}
+#nava{ height:40px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_3.png) no-repeat bottom;}
+#nava li{float:left;width:147px;text-align:center;margin-right:10px;}
+#nava li a{background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_1.png) no-repeat;display:block;cursor:pointer;line-height:34px;}
+#nava li .nava_on{background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_tab_2.png) no-repeat;line-height:35px;}
+#menua_con{text-align:left; border:solid #dfdfdf 1px; height:356px;}
+.verification_kf{margin:15px;}
+.verification_kf_1{ width:100%}
+.verification_kf_1 li{ margin-top:5px;}
+.verification_kf_2{ width:480px;padding:10px; border-radius:3px;border:1px solid #efefef; margin-top:10px;position:relative;}
+.verification_kf_2 li{ border-bottom:dashed #efefef 1px; padding-top:10px; padding-bottom:10px;}
+.verification_kf_2 ol{ padding-top:10px; padding-bottom:10px;}
+.verification_kf_2 ol input.push{width:75px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification.png) no-repeat;border: medium none;cursor: pointer;}
+.verification_kf_3{ width:480px;padding:10px; border-radius:3px;border:1px solid #efefef; background:#f8fcff; margin-top:10px;}
+.verification_kf_3 li{ border-bottom:solid #efefef 1px; padding-top:10px; padding-bottom:10px;}
+.verification_kf_3 ol{ padding-top:10px; padding-bottom:10px;}
+.verification_kf_3 ol input.push{width:126px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_kf.png) no-repeat;border: medium none;cursor: pointer;}
+.verification_content{margin:15px;}
+.verification_content li{ padding-top:10px; padding-bottom:10px;}
+.verification_content ol{ padding:20px; border-radius:2px;border:1px solid #efefef;}
+.verification_content ol input.push{width:75px; height:23px; line-height:23px; background:url(http://pic.ofcard.com/7881/market/images/Security/Verification.png) no-repeat;border: medium none;cursor: pointer;}
+.security_verification_right{ float:right; width:228px;}
+.verification_right_news{ float:left; width:226px;border:solid #dfdfdf 1px}
+.verification_right_news h3{ background:url(http://pic.ofcard.com/7881/market/images/Security/security_h1.jpg) repeat-x; border-bottom:solid #dfdfdf 1px; height:33px; line-height:33px; font-size:14px; text-indent:10px;}
+.verification_right_news ul{ padding:10px;}
+.verification_right_news ul li{ padding-top:5px; padding-bottom:5px;list-style-type:square; margin-left:20px; color:#999;}
+.verification_right_icon { width:228px; margin-top:10px;}
+.verification_right_icon ul{ display:block;}
+.verification_right_icon ul li{ margin-bottom:10px;}
+.verification_authenticity{margin:30px;}
+.verification_authenticity ul{ overflow:hidden; }
+.verification_authenticity ul li{display:block; float:left; width:48px; margin-right:15px;}
+.verification_authenticity ul ol{display:block; float:left;width:500px}
+.verification_authenticity ul ol dl{ border-bottom:dashed #dfdfdf 1px;}
+.verification_authenticity ul ol dl dt{ height:48px; font-size:18px;}
+.verification_authenticity ul ol dl dt span{ display:block; margin-top:10px}
+.verification_authenticity ul ol dl dt span.size{ font-size:14px}
+.verification_authenticity ul ol dl dd{ padding-top:6px; padding-bottom:6px; font-size:14px}
+.verification_authenticity ul ol dl dd input.view{ width:139px; height:28px; font-size:14px; color:#FFF;background:url(http://pic.ofcard.com/7881/market/images/Security/Verification_ck.png) no-repeat;border: medium none;cursor: pointer;}

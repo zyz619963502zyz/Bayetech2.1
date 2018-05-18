@@ -1,5 +1,5 @@
 ﻿//模块之间的操作
-require(['vue', 'jquery', 'common', 'nav-top', "../../Scripts/app/API/Game"],
+require(['vue', 'jquery', 'common', 'nav-top', "../Scripts/app/API/Game"],
     function (Vue, $, common, top, GameAPI) {
         var data = {
             GameGroupList: [],

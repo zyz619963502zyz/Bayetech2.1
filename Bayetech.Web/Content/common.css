@@ -294,8 +294,7 @@ img{display:inline-block;}
     .container{width:1220px;}
 }
 .btn-close {
-    float:right;
-    color:#fff;
+    float:right;    
 }
 .btn-close .btn-xs{
     background: transparent;
