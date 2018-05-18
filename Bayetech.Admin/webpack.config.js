@@ -7,12 +7,12 @@ const { VueLoaderPlugin } = require('vue-loader');//解决Make sure to include V
 module.exports = {
     entry:{
         //权限
-        Auth_CustomerManage:"./Scripts/Auth_CustomerManage",//注册客户管理
-        Auth_NavigationManage:"./Scripts/Auth_NavigationManage.js",//导航菜单
-        Auth_RolesManage:"./Scripts/Auth_RolesManage.js",//角色管理
-        Auth_DicsManage:"./Scripts/Auth_DicsManage.js",//数据字典
-        Auth_AdminManage: "./Scripts/Auth_AdminManage.js",//管理员设置
-        Auth_ButtonsManage:"./Scripts/Auth_ButtonsManage.js",//按钮管理
+        Auth_CustomerManage:"./Scripts/app/Auth_CustomerManage",//注册客户管理
+        Auth_NavigationManage:"./Scripts/app/Auth_NavigationManage.js",//导航菜单
+        Auth_RolesManage:"./Scripts/app/Auth_RolesManage.js",//角色管理
+        Auth_DicsManage:"./Scripts/app/Auth_DicsManage.js",//数据字典
+        Auth_AdminManage: "./Scripts/app/Auth_AdminManage.js",//管理员设置
+        Auth_ButtonsManage:"./Scripts/app/Auth_ButtonsManage.js",//按钮管理
         //业务
         GoodCheck: "./Scripts/app/GoodCheck.js"
     },
