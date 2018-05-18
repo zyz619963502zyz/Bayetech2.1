@@ -79,7 +79,7 @@ namespace Bayetech.Service
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
                 result.Add("RolesList", JProperty.FromObject(roles.ToList()));
-                result.Add(ResultInfo.Content, JProperty.FromObject(userList.ToList());
+                result.Add(ResultInfo.Content, JProperty.FromObject(userList.ToList()));
             }
             else
             {
