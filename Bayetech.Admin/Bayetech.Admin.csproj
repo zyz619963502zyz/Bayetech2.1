@@ -2189,13 +2189,13 @@
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_AdminManage.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_CustomerManage.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_DicsManage.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_NavigationManage.js" />
-    <Content Include="Scripts\app\TranslateContent\Auth_RolesManage.js" />
-    <Content Include="Scripts\app\TranslateContent\GoodCheck.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_AdminManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_CustomerManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_DicsManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_NavigationManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_RolesManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

@@ -18,7 +18,7 @@ module.exports = {
     },
     output: {
         //path: path.join(__dirname, 'Scripts'),
-        filename: "./Scripts/app/TranslateContent/[name].js"
+        filename: "./Scripts/app/TranslateContent/[name]_ES5.js"
 
     },
     devServer: {
