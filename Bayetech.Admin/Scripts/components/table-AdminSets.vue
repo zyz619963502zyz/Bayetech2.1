@@ -15,7 +15,7 @@
                 <th class="text-center col-md-4">描述</th>
             </tr>
         </thead>
-        <tbody v-for="item in goodinfoarray">
+        <tbody v-for="item in adminInfo">
             <tr>
                 <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.UserName}}</td>
