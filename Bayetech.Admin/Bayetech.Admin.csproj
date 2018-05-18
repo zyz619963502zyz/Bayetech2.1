@@ -2170,6 +2170,12 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Scripts\app\Auth_ButtonsManage.js" />
+    <Content Include="Scripts\app\Auth_AdminManage.js" />
+    <Content Include="Scripts\app\Auth_DicsManage.js" />
+    <Content Include="Scripts\app\Auth_RolesManage.js" />
+    <Content Include="Scripts\app\Auth_NavigationManage.js" />
+    <Content Include="Scripts\app\Auth_CustomerManage.js" />
     <Content Include="Scripts\app\GoodCheck.es5.es5.js">
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
