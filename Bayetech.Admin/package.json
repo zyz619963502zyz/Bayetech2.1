@@ -1,7 +1,6 @@
 {
   "name": "bayetech.admin",
   "version": "1.0.0",
-  "description": "",
   "main": "webpack.config.js",
   "directories": {
     "Scripts": "Scripts"
@@ -12,7 +11,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.11",
-    "vue-loader": "^15.0.10",
+    "vue-loader": "^15.1.0",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^2.7.0"
@@ -23,5 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
+ 

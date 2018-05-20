@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='Run - Development' />
+﻿/// <binding BeforeBuild='Run - Development' Clean='Run - Development' />
 "use strict";
 
 const webpack = require('webpack');
@@ -38,7 +38,8 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+
             }
         ],
     },

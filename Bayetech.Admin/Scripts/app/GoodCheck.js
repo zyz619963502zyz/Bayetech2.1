@@ -29,7 +29,7 @@ let vmData = {
         }
     ],
     SearchParam: {
-        Param: {
+        Param: {//查询条件的参数
             GoodNo:"",
             OrderNo:"",
             Status:pagetype,
@@ -59,6 +59,7 @@ new Vue({
             var self=this;
             self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
             (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
+            //后台传值：
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;

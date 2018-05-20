@@ -15,7 +15,6 @@
             <button class="btn btn-warning"><i class="fa fa-trash-o"></i>更新版本</button>
             <button class="btn btn-primary"><i class="fa fa-key"></i>重置密码</button>
             <button class="btn btn-primary"><i class="fa fa-key"></i>角色设定</button>
-
         </div>
     </div>
 </template>
