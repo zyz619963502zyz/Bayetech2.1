@@ -12,11 +12,15 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class MallOrderStatus
+    public partial class OrderStatus
     {
-        public int StatusId { get; set; }
-        public int ParentId { get; set; }
-        public string StatusName { get; set; }
-        public string StatusAlias { get; set; }
+        public int Id { get; set; }
+        public string StatusKey { get; set; }
+        public string FrontName { get; set; }
+        public string BackName { get; set; }
+        public Nullable<int> FrontParentId { get; set; }
+        public Nullable<int> BackParentId { get; set; }
+        public Nullable<bool> IsDelete { get; set; }
+        public string Remark { get; set; }
     }
 }

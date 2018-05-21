@@ -618,15 +618,6 @@
           <Property Name="RefundReason" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="MallOrderStatus">
-          <Key>
-            <PropertyRef Name="StatusId" />
-          </Key>
-          <Property Name="StatusId" Type="int" Nullable="false" />
-          <Property Name="ParentId" Type="int" Nullable="false" />
-          <Property Name="StatusName" Type="varchar" MaxLength="20" />
-          <Property Name="StatusAlias" Type="nvarchar" MaxLength="20" />
-        </EntityType>
         <EntityType Name="MallType">
           <Key>
             <PropertyRef Name="Id" />
@@ -644,6 +635,19 @@
           <Property Name="Id" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusKey" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FrontName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="BackName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FrontParentId" Type="int" />
+          <Property Name="BackParentId" Type="int" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Relationship">
           <Key>
@@ -1119,9 +1123,9 @@
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallGoodInfo" EntityType="Self.MallGoodInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallOrder" EntityType="Self.MallOrder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MallOrderStatus" EntityType="Self.MallOrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallType" EntityType="Self.MallType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Server" EntityType="Self.Server" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
@@ -1988,15 +1992,6 @@
           <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="MallOrderStatus">
-          <Key>
-            <PropertyRef Name="StatusId" />
-          </Key>
-          <Property Name="StatusId" Type="Int32" Nullable="false" />
-          <Property Name="ParentId" Type="Int32" Nullable="false" />
-          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="MallType">
           <Key>
             <PropertyRef Name="Id" />
@@ -2365,7 +2360,6 @@
           <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" />
           <EntitySet Name="MallOrder" EntityType="Self.MallOrder" />
-          <EntitySet Name="MallOrderStatus" EntityType="Self.MallOrderStatus" />
           <EntitySet Name="MallType" EntityType="Self.MallType" />
           <EntitySet Name="Module" EntityType="Self.Module" />
           <EntitySet Name="Relationship" EntityType="Self.Relationship" />
@@ -2419,6 +2413,7 @@
           <EntitySet Name="vw_MallGoodInfo" EntityType="BayetechModel.vw_MallGoodInfo" />
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
+          <EntitySet Name="OrderStatus" EntityType="BayetechModel.OrderStatus" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2568,6 +2563,19 @@
           <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="FrontParentId" Type="Int32" />
           <Property Name="BackParentId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusKey" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FrontName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BackName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FrontParentId" Type="Int32" />
+          <Property Name="BackParentId" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" />
           <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
@@ -3145,16 +3153,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MallOrderStatus">
-            <EntityTypeMapping TypeName="BayetechModel.MallOrderStatus">
-              <MappingFragment StoreEntitySet="MallOrderStatus">
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-                <ScalarProperty Name="StatusAlias" ColumnName="StatusAlias" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MallType">
             <EntityTypeMapping TypeName="BayetechModel.MallType">
               <MappingFragment StoreEntitySet="MallType">
@@ -3656,6 +3654,20 @@
                 <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="BayetechModel.OrderStatus">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
+                <ScalarProperty Name="FrontParentId" ColumnName="FrontParentId" />
+                <ScalarProperty Name="BackName" ColumnName="BackName" />
+                <ScalarProperty Name="FrontName" ColumnName="FrontName" />
+                <ScalarProperty Name="StatusKey" ColumnName="StatusKey" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
