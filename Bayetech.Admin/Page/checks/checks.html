@@ -18,9 +18,9 @@
             <div class="modal-dialog" style="width:1200px">
                 <div class="modal-content animated bounceInRight">
                     <div id="modal_head" class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
+                        <a class="close" data-dismiss="modal" name="btnModalClose">
                             <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
-                        </button>
+                        </a>
                         <h3 class="modal-title text-center" id="modal_title"><strong>商品信息审核</strong></h3>
                     </div>
                     <div class="modal-body" id="modal_body">
@@ -31,6 +31,7 @@
                             <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等联系方式的内容，否者视为不通过</p>
                         </div>
                         <br />
+                        <hr />
                         <div id="Account">
                             <div class="input-group col-md-12" v-show="ItemType=='order'">
                                 <h4><strong>CE账号信息:</strong></h4>
