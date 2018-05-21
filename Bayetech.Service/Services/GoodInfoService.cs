@@ -27,7 +27,7 @@ namespace Bayetech.Service
                 {
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))
                     {
-                        expression = expression.And(t => t.GoodNo == goodInfo.GoodNo);
+                        expression = expression.And(t => t.GoodNo == goodInfo.GoodNo.Trim());
                     }
                     if (goodInfo.GameId != null && goodInfo.GameId > 0)//游戏Id
                     {

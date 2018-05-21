@@ -61,13 +61,13 @@ new Vue({
             (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             //后台传值：
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+                $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.GoodInfoArray=data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
-                $("#QueryList").Btns("reset");
             },function(){
                 $("#QueryList").Btns("reset");
             });
