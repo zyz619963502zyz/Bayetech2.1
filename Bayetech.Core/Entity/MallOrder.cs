@@ -22,7 +22,6 @@ namespace Bayetech.Core.Entity
         public Nullable<decimal> OrderAmount { get; set; }
         public Nullable<decimal> OrderDiscount { get; set; }
         public string OrderDiscountName { get; set; }
-        public Nullable<byte> OrderStatus { get; set; }
         public Nullable<System.DateTime> OrderUpdateTime { get; set; }
         public string OrderType { get; set; }
         public string ReceiveRole { get; set; }
@@ -39,5 +38,6 @@ namespace Bayetech.Core.Entity
         public string Editor { get; set; }
         public string RefundReason { get; set; }
         public string Remark { get; set; }
+        public string OrderStatus { get; set; }
     }
 }

@@ -101,8 +101,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<MallDLInfo> MallDLInfo { get; set; }
 
-    public virtual DbSet<MallOrder> MallOrder { get; set; }
-
     public virtual DbSet<MallType> MallType { get; set; }
 
     public virtual DbSet<Module> Module { get; set; }
@@ -133,8 +131,6 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_MallDLOrderInfo> vw_MallDLOrderInfo { get; set; }
 
-    public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
-
     public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
 
     public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
@@ -150,6 +146,10 @@ public partial class BayetechEntities : DbContext
     public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
 
     public virtual DbSet<OrderStatus> OrderStatus { get; set; }
+
+    public virtual DbSet<MallOrder> MallOrder { get; set; }
+
+    public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
 
 
     public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
