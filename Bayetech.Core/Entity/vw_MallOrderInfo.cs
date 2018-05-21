@@ -25,8 +25,6 @@ namespace Bayetech.Core.Entity
         public string Remark { get; set; }
         public string RefundReason { get; set; }
         public Nullable<long> GameId { get; set; }
-        public string StatusName { get; set; }
-        public string StatusAlias { get; set; }
         public string ReceiveRole { get; set; }
         public string GoodNo { get; set; }
         public Nullable<long> ServiceQQ { get; set; }
@@ -34,12 +32,18 @@ namespace Bayetech.Core.Entity
         public Nullable<long> BuyerPhone { get; set; }
         public string GoodType { get; set; }
         public long OrderId { get; set; }
-        public Nullable<byte> OrderStatus { get; set; }
+        public string OrderStatus { get; set; }
         public Nullable<System.DateTime> OrderCreatTime { get; set; }
         public Nullable<int> GameGroupId { get; set; }
         public Nullable<int> GameServerId { get; set; }
         public Nullable<long> GoodTypeId { get; set; }
         public string OrderTypeValue { get; set; }
         public string OrderTypeKey { get; set; }
+        public Nullable<bool> IsDelete { get; set; }
+        public Nullable<int> BackParentId { get; set; }
+        public Nullable<int> FrontParentId { get; set; }
+        public string BackName { get; set; }
+        public string FrontName { get; set; }
+        public string StatusKey { get; set; }
     }
 }

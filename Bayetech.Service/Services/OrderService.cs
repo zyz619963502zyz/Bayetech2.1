@@ -82,7 +82,7 @@ namespace Bayetech.Service
                     {
                         expressions = expressions.And(t => t.OrderCreatTime <= endTime);
                     }
-                    if (order.OrderStatus!=null&& order.OrderStatus>0)
+                    if (order.OrderStatus!=null&&!string.IsNullOrEmpty(order.OrderStatus))
                     {
                         expressions = expressions.And(t => t.OrderStatus == order.OrderStatus);
                     }

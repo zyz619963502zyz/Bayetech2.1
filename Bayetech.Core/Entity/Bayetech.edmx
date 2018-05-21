@@ -1013,8 +1013,6 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="255" />
           <Property Name="RefundReason" Type="nvarchar(max)" />
           <Property Name="GameId" Type="bigint" />
-          <Property Name="StatusName" Type="varchar" MaxLength="20" />
-          <Property Name="StatusAlias" Type="nvarchar" MaxLength="20" />
           <Property Name="ReceiveRole" Type="nvarchar" MaxLength="50" />
           <Property Name="GoodNo" Type="varchar" MaxLength="30" />
           <Property Name="ServiceQQ" Type="bigint" />
@@ -1022,13 +1020,19 @@
           <Property Name="BuyerPhone" Type="bigint" />
           <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderId" Type="bigint" Nullable="false" />
-          <Property Name="OrderStatus" Type="tinyint" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
           <Property Name="OrderCreatTime" Type="datetime" />
           <Property Name="GameGroupId" Type="int" />
           <Property Name="GameServerId" Type="int" />
           <Property Name="GoodTypeId" Type="bigint" />
           <Property Name="OrderTypeValue" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderTypeKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="BackParentId" Type="int" />
+          <Property Name="FrontParentId" Type="int" />
+          <Property Name="BackName" Type="nvarchar" MaxLength="30" />
+          <Property Name="FrontName" Type="nvarchar" MaxLength="30" />
+          <Property Name="StatusKey" Type="varchar" MaxLength="20" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1416,8 +1420,6 @@
     [vw_MallOrderInfo].[Remark] AS [Remark], 
     [vw_MallOrderInfo].[RefundReason] AS [RefundReason], 
     [vw_MallOrderInfo].[GameId] AS [GameId], 
-    [vw_MallOrderInfo].[StatusName] AS [StatusName], 
-    [vw_MallOrderInfo].[StatusAlias] AS [StatusAlias], 
     [vw_MallOrderInfo].[ReceiveRole] AS [ReceiveRole], 
     [vw_MallOrderInfo].[GoodNo] AS [GoodNo], 
     [vw_MallOrderInfo].[ServiceQQ] AS [ServiceQQ], 
@@ -1431,7 +1433,13 @@
     [vw_MallOrderInfo].[GameServerId] AS [GameServerId], 
     [vw_MallOrderInfo].[GoodTypeId] AS [GoodTypeId], 
     [vw_MallOrderInfo].[OrderTypeValue] AS [OrderTypeValue], 
-    [vw_MallOrderInfo].[OrderTypeKey] AS [OrderTypeKey]
+    [vw_MallOrderInfo].[OrderTypeKey] AS [OrderTypeKey], 
+    [vw_MallOrderInfo].[IsDelete] AS [IsDelete], 
+    [vw_MallOrderInfo].[BackParentId] AS [BackParentId], 
+    [vw_MallOrderInfo].[FrontParentId] AS [FrontParentId], 
+    [vw_MallOrderInfo].[BackName] AS [BackName], 
+    [vw_MallOrderInfo].[FrontName] AS [FrontName], 
+    [vw_MallOrderInfo].[StatusKey] AS [StatusKey]
     FROM [dbo].[vw_MallOrderInfo] AS [vw_MallOrderInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -2561,8 +2569,6 @@
           <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GameId" Type="Int64" />
-          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="StatusAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ServiceQQ" Type="Int64" />
@@ -2570,13 +2576,19 @@
           <Property Name="BuyerPhone" Type="Int64" />
           <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderStatus" Type="Byte" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
           <Property Name="GameGroupId" Type="Int32" />
           <Property Name="GameServerId" Type="Int32" />
           <Property Name="GoodTypeId" Type="Int64" />
           <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="BackParentId" Type="Int32" />
+          <Property Name="FrontParentId" Type="Int32" />
+          <Property Name="BackName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StatusKey" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3641,6 +3653,12 @@
           <EntitySetMapping Name="vw_MallOrderInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
               <MappingFragment StoreEntitySet="vw_MallOrderInfo">
+                <ScalarProperty Name="StatusKey" ColumnName="StatusKey" />
+                <ScalarProperty Name="FrontName" ColumnName="FrontName" />
+                <ScalarProperty Name="BackName" ColumnName="BackName" />
+                <ScalarProperty Name="FrontParentId" ColumnName="FrontParentId" />
+                <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="OrderTypeKey" ColumnName="OrderTypeKey" />
                 <ScalarProperty Name="OrderTypeValue" ColumnName="OrderTypeValue" />
                 <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
@@ -3655,8 +3673,6 @@
                 <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
                 <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
                 <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="StatusAlias" ColumnName="StatusAlias" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
                 <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
