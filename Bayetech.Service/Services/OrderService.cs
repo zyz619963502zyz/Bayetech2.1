@@ -56,7 +56,7 @@ namespace Bayetech.Service
                 {
                     if (!string.IsNullOrEmpty(order.OrderNo))
                     {
-                        expressions = expressions.And(t => t.OrderNo == order.OrderNo);
+                        expressions = expressions.And(t => t.OrderNo == order.OrderNo.Trim());
                     }
                     if (order.GameId != null&&order.GameId >= 0)
                     {

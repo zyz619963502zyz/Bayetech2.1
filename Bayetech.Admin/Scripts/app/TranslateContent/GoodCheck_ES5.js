@@ -10036,7 +10036,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10132,13 +10132,13 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
             self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+                $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
-                $("#QueryList").Btns("reset");
             }, function () {
                 $("#QueryList").Btns("reset");
             });
