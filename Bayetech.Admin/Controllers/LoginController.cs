@@ -9,11 +9,11 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
-namespace Bayetech.Admin.Controllersww
+namespace Bayetech.Admin.Controller
 {
-    public class LoginController : BaseController
+    public class LoginController : ApiController
     {
-        ILogionService logionService = ctx.GetObject("LogionService") as ILogionService;
+        ILogionService logionService = new LogionService();
         /// <summary>
         /// 验证登陆
         /// </summary>
