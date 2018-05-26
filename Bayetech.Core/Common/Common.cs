@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json.Linq;
-using System.Xml.Linq;
+using Bayetech.Core.Model;
+using System.Web.SessionState;
 
 namespace Bayetech.Core
 {
@@ -199,9 +198,13 @@ namespace Bayetech.Core
                 ret.Add(ResultInfo.Content, JToken.FromObject("staffid不合法，请稍后重试。"));
             }
 
-            //插入缓存
-     
-            
+            //比对缓存没有则重新生成
+            Token token = new Token();
+         
+            //if (Session[staffid] == token.TokenId)
+            //{
+
+            //}
             return ret;
         }
     }
