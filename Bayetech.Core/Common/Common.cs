@@ -187,5 +187,22 @@ namespace Bayetech.Core
             return jObect;
         }
 
+
+        public static JObject GetToken(string staffid)
+        {
+            JObject ret = new JObject();
+
+            //判断staffid是否合法
+            if (string.IsNullOrEmpty(staffid))
+            {
+                ret.Add(ResultInfo.Result, false);
+                ret.Add(ResultInfo.Content, JToken.FromObject("staffid不合法，请稍后重试。"));
+            }
+
+            //插入缓存
+     
+            
+            return ret;
+        }
     }
 }
