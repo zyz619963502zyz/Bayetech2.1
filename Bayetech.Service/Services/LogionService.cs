@@ -3,10 +3,6 @@ using Bayetech.Core.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bayetech.Service
 {
@@ -14,7 +10,7 @@ namespace Bayetech.Service
     {
         public JObject GetVerificationLogion(JObject json)
         {
-            Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.First.Path, typeof(Admin_Sys_Users));
+            Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.ToString(), typeof(Admin_Sys_Users));
             Admin_Sys_Users _adminUser = repository.FindEntity<Admin_Sys_Users>(a=>a.UserName==_admin_Sys_User.UserName);
             JObject result = new JObject();
             if (_adminUser != null)
@@ -31,19 +27,19 @@ namespace Bayetech.Service
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
                         repository.Insert(_currentLogin);
-                        result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
+                        result.Add(ResultInfo.Result, JToken.FromObject(true));
+                        result.Add(ResultInfo.Content, JToken.FromObject(_currentLogin.Message));
                     }
                     else
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("密码错误,请重新尝试!"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("密码错误,请重新尝试!"));
                     }
                 }
                 else
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("密码被禁用,请联系管理员!"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("密码被禁用,请联系管理员!"));
                 }
             }
             else
@@ -52,6 +48,7 @@ namespace Bayetech.Service
                 result.Add(ResultInfo.Content, JProperty.FromObject("账户不存在,请联系管理员!"));
             }
             return result;
+
         }
     }
 }
