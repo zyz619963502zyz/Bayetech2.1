@@ -27,6 +27,9 @@ namespace Bayetech.Admin.Controllers
                 return new JObject(content);
             }
         }
-
+        public Core.Model.CurrentLogin CurrentLogin
+        {
+            get { return (Core.Model.CurrentLogin)System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new Core.Model.CurrentLogin(); }
+        }
     }
 }
