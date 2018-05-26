@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -96,11 +96,9 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__);
+//import "./jquery-1.10.2.min.js"
 
 
 var comCompnent = {
@@ -9956,10 +9954,1108 @@ var comCompnent = {
 
     return Vue$3;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(7).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6).setImmediate))
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+/**
+ * bootstrap-paginator.js v0.5
+ * --
+ * Copyright 2013 Yun Lai <lyonlai1984@gmail.com>
+ * --
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function ($) {
+
+    "use strict"; // jshint ;_;
+
+
+    /* Paginator PUBLIC CLASS DEFINITION
+     * ================================= */
+
+    /**
+     * Boostrap Paginator Constructor
+     *
+     * @param element element of the paginator
+     * @param options the options to config the paginator
+     *
+     * */
+
+    var BootstrapPaginator = function (element, options) {
+        this.init(element, options);
+    },
+        old = null;
+
+    BootstrapPaginator.prototype = {
+
+        /**
+         * Initialization function of the paginator, accepting an element and the options as parameters
+         *
+         * @param element element of the paginator
+         * @param options the options to config the paginator
+         *
+         * */
+        init: function (element, options) {
+
+            this.$element = $(element);
+
+            var version = options && options.bootstrapMajorVersion ? options.bootstrapMajorVersion : $.fn.bootstrapPaginator.defaults.bootstrapMajorVersion,
+                id = this.$element.attr("id");
+
+            if (version === 2 && !this.$element.is("div")) {
+
+                throw "in Bootstrap version 2 the pagination must be a div element. Or if you are using Bootstrap pagination 3. Please specify it in bootstrapMajorVersion in the option";
+            } else if (version > 2 && !this.$element.is("ul")) {
+                throw "in Bootstrap version 3 the pagination root item must be an ul element.";
+            }
+
+            this.currentPage = 1;
+
+            this.lastPage = 1;
+
+            this.setOptions(options);
+
+            this.initialized = true;
+        },
+
+        /**
+         * Update the properties of the paginator element
+         *
+         * @param options options to config the paginator
+         * */
+        setOptions: function (options) {
+
+            this.options = $.extend({}, this.options || $.fn.bootstrapPaginator.defaults, options);
+
+            this.totalPages = parseInt(this.options.totalPages, 10); //setup the total pages property.
+            this.numberOfPages = parseInt(this.options.numberOfPages, 10); //setup the numberOfPages to be shown
+
+            //move the set current page after the setting of total pages. otherwise it will cause out of page exception.
+            if (options && typeof options.currentPage !== 'undefined') {
+
+                this.setCurrentPage(options.currentPage);
+            }
+
+            this.listen();
+
+            //render the paginator
+            this.render();
+
+            if (!this.initialized && this.lastPage !== this.currentPage) {
+                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
+            }
+        },
+
+        /**
+         * Sets up the events listeners. Currently the pageclicked and pagechanged events are linked if available.
+         *
+         * */
+        listen: function () {
+
+            this.$element.off("page-clicked");
+
+            this.$element.off("page-changed"); // unload the events for the element
+
+            if (typeof this.options.onPageClicked === "function") {
+                this.$element.bind("page-clicked", this.options.onPageClicked);
+            }
+
+            if (typeof this.options.onPageChanged === "function") {
+                this.$element.on("page-changed", this.options.onPageChanged);
+            }
+
+            this.$element.bind("page-clicked", this.onPageClicked);
+        },
+
+        /**
+         *
+         *  Destroys the paginator element, it unload the event first, then empty the content inside.
+         *
+         * */
+        destroy: function () {
+
+            this.$element.off("page-clicked");
+
+            this.$element.off("page-changed");
+
+            this.$element.removeData('bootstrapPaginator');
+
+            this.$element.empty();
+        },
+
+        /**
+         * Shows the page
+         *
+         * */
+        show: function (page) {
+
+            this.setCurrentPage(page);
+
+            this.render();
+
+            if (this.lastPage !== this.currentPage) {
+                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
+            }
+        },
+
+        /**
+         * Shows the next page
+         *
+         * */
+        showNext: function () {
+            var pages = this.getPages();
+
+            if (pages.next) {
+                this.show(pages.next);
+            }
+        },
+
+        /**
+         * Shows the previous page
+         *
+         * */
+        showPrevious: function () {
+            var pages = this.getPages();
+
+            if (pages.prev) {
+                this.show(pages.prev);
+            }
+        },
+
+        /**
+         * Shows the first page
+         *
+         * */
+        showFirst: function () {
+            var pages = this.getPages();
+
+            if (pages.first) {
+                this.show(pages.first);
+            }
+        },
+
+        /**
+         * Shows the last page
+         *
+         * */
+        showLast: function () {
+            var pages = this.getPages();
+
+            if (pages.last) {
+                this.show(pages.last);
+            }
+        },
+
+        /**
+         * Internal on page item click handler, when the page item is clicked, change the current page to the corresponding page and
+         * trigger the pageclick event for the listeners.
+         *
+         *
+         * */
+        onPageItemClicked: function (event) {
+
+            var type = event.data.type,
+                page = event.data.page;
+
+            this.$element.trigger("page-clicked", [event, type, page]);
+        },
+
+        onPageClicked: function (event, originalEvent, type, page) {
+
+            //show the corresponding page and retrieve the newly built item related to the page clicked before for the event return
+
+            var currentTarget = $(event.currentTarget);
+
+            switch (type) {
+                case "first":
+                    currentTarget.bootstrapPaginator("showFirst");
+                    break;
+                case "prev":
+                    currentTarget.bootstrapPaginator("showPrevious");
+                    break;
+                case "next":
+                    currentTarget.bootstrapPaginator("showNext");
+                    break;
+                case "last":
+                    currentTarget.bootstrapPaginator("showLast");
+                    break;
+                case "page":
+                    currentTarget.bootstrapPaginator("show", page);
+                    break;
+            }
+        },
+
+        /**
+         * Renders the paginator according to the internal properties and the settings.
+         *
+         *
+         * */
+        render: function () {
+
+            //fetch the container class and add them to the container
+            var containerClass = this.getValueFromOption(this.options.containerClass, this.$element),
+                size = this.options.size || "normal",
+                alignment = this.options.alignment || "left",
+                pages = this.getPages(),
+                listContainer = this.options.bootstrapMajorVersion === 2 ? $("<ul></ul>") : this.$element,
+                listContainerClass = this.options.bootstrapMajorVersion === 2 ? this.getValueFromOption(this.options.listContainerClass, listContainer) : null,
+                first = null,
+                prev = null,
+                next = null,
+                last = null,
+                p = null,
+                i = 0;
+
+            this.$element.prop("class", "");
+
+            this.$element.addClass("pagination");
+
+            switch (size.toLowerCase()) {
+                case "large":
+                case "small":
+                case "mini":
+                    this.$element.addClass($.fn.bootstrapPaginator.sizeArray[this.options.bootstrapMajorVersion][size.toLowerCase()]);
+                    break;
+                default:
+                    break;
+            }
+
+            if (this.options.bootstrapMajorVersion === 2) {
+                switch (alignment.toLowerCase()) {
+                    case "center":
+                        this.$element.addClass("pagination-centered");
+                        break;
+                    case "right":
+                        this.$element.addClass("pagination-right");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            this.$element.addClass(containerClass);
+
+            //empty the outter most container then add the listContainer inside.
+            this.$element.empty();
+
+            if (this.options.bootstrapMajorVersion === 2) {
+                this.$element.append(listContainer);
+
+                listContainer.addClass(listContainerClass);
+            }
+
+            //update the page element reference
+            this.pageRef = [];
+
+            if (pages.first) {
+                //if the there is first page element
+                first = this.buildPageItem("first", pages.first);
+
+                if (first) {
+                    listContainer.append(first);
+                }
+            }
+
+            if (pages.prev) {
+                //if the there is previous page element
+
+                prev = this.buildPageItem("prev", pages.prev);
+
+                if (prev) {
+                    listContainer.append(prev);
+                }
+            }
+
+            for (i = 0; i < pages.length; i = i + 1) {
+                //fill the numeric pages.
+
+                p = this.buildPageItem("page", pages[i]);
+
+                if (p) {
+                    listContainer.append(p);
+                }
+            }
+
+            if (pages.next) {
+                //if there is next page
+
+                next = this.buildPageItem("next", pages.next);
+
+                if (next) {
+                    listContainer.append(next);
+                }
+            }
+
+            if (pages.last) {
+                //if there is last page
+
+                last = this.buildPageItem("last", pages.last);
+
+                if (last) {
+                    listContainer.append(last);
+                }
+            }
+        },
+
+        /**
+         *
+         * Creates a page item base on the type and page number given.
+         *
+         * @param page page number
+         * @param type type of the page, whether it is the first, prev, page, next, last
+         *
+         * @return Object the constructed page element
+         * */
+        buildPageItem: function (type, page) {
+
+            var itemContainer = $("<li></li>"),
+                //creates the item container
+            itemContent = $("<a></a>"),
+                //creates the item content
+            text = "",
+                title = "",
+                itemContainerClass = this.options.itemContainerClass(type, page, this.currentPage),
+                itemContentClass = this.getValueFromOption(this.options.itemContentClass, type, page, this.currentPage),
+                tooltipOpts = null;
+
+            switch (type) {
+
+                case "first":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "last":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "prev":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "next":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "page":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+            }
+
+            itemContainer.addClass(itemContainerClass).append(itemContent);
+
+            itemContent.addClass(itemContentClass).html(text).on("click", null, { type: type, page: page }, $.proxy(this.onPageItemClicked, this));
+
+            if (this.options.pageUrl) {
+                itemContent.attr("href", this.getValueFromOption(this.options.pageUrl, type, page, this.currentPage));
+            }
+
+            if (this.options.useBootstrapTooltip) {
+                tooltipOpts = $.extend({}, this.options.bootstrapTooltipOptions, { title: title });
+
+                itemContent.tooltip(tooltipOpts);
+            } else {
+                itemContent.attr("title", title);
+            }
+
+            return itemContainer;
+        },
+
+        setCurrentPage: function (page) {
+            if (page > this.totalPages || page < 1) {
+                // if the current page is out of range, throw exception.
+
+                throw "Page out of range";
+            }
+
+            this.lastPage = this.currentPage;
+
+            this.currentPage = parseInt(page, 10);
+        },
+
+        /**
+         * Gets an array that represents the current status of the page object. Numeric pages can be access via array mode. length attributes describes how many numeric pages are there. First, previous, next and last page can be accessed via attributes first, prev, next and last. Current attribute marks the current page within the pages.
+         *
+         * @return object output objects that has first, prev, next, last and also the number of pages in between.
+         * */
+        getPages: function () {
+
+            var totalPages = this.totalPages,
+                // get or calculate the total pages via the total records
+            pageStart = this.currentPage % this.numberOfPages === 0 ? (parseInt(this.currentPage / this.numberOfPages, 10) - 1) * this.numberOfPages + 1 : parseInt(this.currentPage / this.numberOfPages, 10) * this.numberOfPages + 1,
+                //calculates the start page.
+            output = [],
+                i = 0,
+                counter = 0;
+
+            pageStart = pageStart < 1 ? 1 : pageStart; //check the range of the page start to see if its less than 1.
+
+            for (i = pageStart, counter = 0; counter < this.numberOfPages && i <= totalPages; i = i + 1, counter = counter + 1) {
+                //fill the pages
+                output.push(i);
+            }
+
+            output.first = 1; //add the first when the current page leaves the 1st page.
+
+            if (this.currentPage > 1) {
+                // add the previous when the current page leaves the 1st page
+                output.prev = this.currentPage - 1;
+            } else {
+                output.prev = 1;
+            }
+
+            if (this.currentPage < totalPages) {
+                // add the next page when the current page doesn't reach the last page
+                output.next = this.currentPage + 1;
+            } else {
+                output.next = totalPages;
+            }
+
+            output.last = totalPages; // add the last page when the current page doesn't reach the last page
+
+            output.current = this.currentPage; //mark the current page.
+
+            output.total = totalPages;
+
+            output.numberOfPages = this.options.numberOfPages;
+
+            return output;
+        },
+
+        /**
+         * Gets the value from the options, this is made to handle the situation where value is the return value of a function.
+         *
+         * @return mixed value that depends on the type of parameters, if the given parameter is a function, then the evaluated result is returned. Otherwise the parameter itself will get returned.
+         * */
+        getValueFromOption: function (value) {
+
+            var output = null,
+                args = Array.prototype.slice.call(arguments, 1);
+
+            if (typeof value === 'function') {
+                output = value.apply(this, args);
+            } else {
+                output = value;
+            }
+
+            return output;
+        }
+
+    };
+
+    /* TYPEAHEAD PLUGIN DEFINITION
+     * =========================== */
+
+    old = $.fn.bootstrapPaginator;
+
+    $.fn.bootstrapPaginator = function (option) {
+
+        var args = arguments,
+            result = null;
+
+        $(this).each(function (index, item) {
+            var $this = $(item),
+                data = $this.data('bootstrapPaginator'),
+                options = typeof option !== 'object' ? null : option;
+
+            if (!data) {
+                data = new BootstrapPaginator(this, options);
+
+                $this = $(data.$element);
+
+                $this.data('bootstrapPaginator', data);
+
+                return;
+            }
+
+            if (typeof option === 'string') {
+
+                if (data[option]) {
+                    result = data[option].apply(data, Array.prototype.slice.call(args, 1));
+                } else {
+                    throw "Method " + option + " does not exist";
+                }
+            } else {
+                result = data.setOptions(option);
+            }
+        });
+
+        return result;
+    };
+
+    $.fn.bootstrapPaginator.sizeArray = {
+
+        "2": {
+            "large": "pagination-large",
+            "small": "pagination-small",
+            "mini": "pagination-mini"
+        },
+        "3": {
+            "large": "pagination-lg",
+            "small": "pagination-sm",
+            "mini": ""
+        }
+
+    };
+
+    $.fn.bootstrapPaginator.defaults = {
+        containerClass: "",
+        size: "normal",
+        alignment: "left",
+        bootstrapMajorVersion: 2,
+        listContainerClass: "",
+        itemContainerClass: function (type, page, current) {
+            return page === current ? "active" : "";
+        },
+        itemContentClass: function (type, page, current) {
+            return "";
+        },
+        currentPage: 1,
+        numberOfPages: 5,
+        totalPages: 1,
+        pageUrl: function (type, page, current) {
+            return null;
+        },
+        onPageClicked: null,
+        onPageChanged: null,
+        useBootstrapTooltip: false,
+        shouldShowPage: function (type, page, current) {
+
+            var result = true;
+
+            switch (type) {
+                case "first":
+                    result = current !== 1;
+                    break;
+                case "prev":
+                    result = current !== 1;
+                    break;
+                case "next":
+                    result = current !== this.totalPages;
+                    break;
+                case "last":
+                    result = current !== this.totalPages;
+                    break;
+                case "page":
+                    result = true;
+                    break;
+            }
+
+            return result;
+        },
+        itemTexts: function (type, page, current) {
+            switch (type) {
+                case "first":
+                    return "&lt;&lt;";
+                case "prev":
+                    return "&lt;";
+                case "next":
+                    return "&gt;";
+                case "last":
+                    return "&gt;&gt;";
+                case "page":
+                    return page;
+            }
+        },
+        tooltipTitles: function (type, page, current) {
+
+            switch (type) {
+                case "first":
+                    return "Go to first page";
+                case "prev":
+                    return "Go to previous page";
+                case "next":
+                    return "Go to next page";
+                case "last":
+                    return "Go to last page";
+                case "page":
+                    return page === current ? "Current page is " + page : "Go to page " + page;
+            }
+        },
+        bootstrapTooltipOptions: {
+            animation: true,
+            html: true,
+            placement: 'top',
+            selector: false,
+            title: "",
+            container: false
+        }
+    };
+
+    $.fn.bootstrapPaginator.Constructor = BootstrapPaginator;
+})(window.jQuery);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout() {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+})();
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while (len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+    return [];
+};
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+    return '/';
+};
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function () {
+    return 0;
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+        // Callback can either be a function or a string
+        if (typeof callback !== "function") {
+            callback = new Function("" + callback);
+        }
+        // Copy function arguments
+        var args = new Array(arguments.length - 1);
+        for (var i = 0; i < args.length; i++) {
+            args[i] = arguments[i + 1];
+        }
+        // Store and register the task
+        var task = { callback: callback, args: args };
+        tasksByHandle[nextHandle] = task;
+        registerImmediate(nextHandle);
+        return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+            case 0:
+                callback();
+                break;
+            case 1:
+                callback(args[0]);
+                break;
+            case 2:
+                callback(args[0], args[1]);
+                break;
+            case 3:
+                callback(args[0], args[1], args[2]);
+                break;
+            default:
+                callback.apply(undefined, args);
+                break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function (handle) {
+            process.nextTick(function () {
+                runIfPresent(handle);
+            });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function () {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function (event) {
+            if (event.source === global && typeof event.data === "string" && event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function (handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function (event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function (handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function (handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function (handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+})(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function () {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function () {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout = exports.clearInterval = function (timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function () {};
+Timeout.prototype.close = function () {
+  this._clearFn.call(scope, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function (item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function (item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function (item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout) item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(5);
+// On some exotic environments, it's not clear which object `setimmediate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
+exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NUGET: BEGIN LICENSE TEXT
@@ -12106,1111 +13202,62 @@ var comCompnent = {
     });
   }), x.fn.size = function () {
     return this.length;
-  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(9) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(23) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
     return x;
   }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)));
 })(window);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)(module)))
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/**
- * bootstrap-paginator.js v0.5
- * --
- * Copyright 2013 Yun Lai <lyonlai1984@gmail.com>
- * --
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-(function ($) {
-
-    "use strict"; // jshint ;_;
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__);
 
 
-    /* Paginator PUBLIC CLASS DEFINITION
-     * ================================= */
 
-    /**
-     * Boostrap Paginator Constructor
-     *
-     * @param element element of the paginator
-     * @param options the options to config the paginator
-     *
-     * */
 
-    var BootstrapPaginator = function (element, options) {
-        this.init(element, options);
+var data = {
+    url: "/api/Login/AdminLogion",
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */]
     },
-        old = null;
-
-    BootstrapPaginator.prototype = {
-
-        /**
-         * Initialization function of the paginator, accepting an element and the options as parameters
-         *
-         * @param element element of the paginator
-         * @param options the options to config the paginator
-         *
-         * */
-        init: function (element, options) {
-
-            this.$element = $(element);
-
-            var version = options && options.bootstrapMajorVersion ? options.bootstrapMajorVersion : $.fn.bootstrapPaginator.defaults.bootstrapMajorVersion,
-                id = this.$element.attr("id");
-
-            if (version === 2 && !this.$element.is("div")) {
-
-                throw "in Bootstrap version 2 the pagination must be a div element. Or if you are using Bootstrap pagination 3. Please specify it in bootstrapMajorVersion in the option";
-            } else if (version > 2 && !this.$element.is("ul")) {
-                throw "in Bootstrap version 3 the pagination root item must be an ul element.";
-            }
-
-            this.currentPage = 1;
-
-            this.lastPage = 1;
-
-            this.setOptions(options);
-
-            this.initialized = true;
-        },
-
-        /**
-         * Update the properties of the paginator element
-         *
-         * @param options options to config the paginator
-         * */
-        setOptions: function (options) {
-
-            this.options = $.extend({}, this.options || $.fn.bootstrapPaginator.defaults, options);
-
-            this.totalPages = parseInt(this.options.totalPages, 10); //setup the total pages property.
-            this.numberOfPages = parseInt(this.options.numberOfPages, 10); //setup the numberOfPages to be shown
-
-            //move the set current page after the setting of total pages. otherwise it will cause out of page exception.
-            if (options && typeof options.currentPage !== 'undefined') {
-
-                this.setCurrentPage(options.currentPage);
-            }
-
-            this.listen();
-
-            //render the paginator
-            this.render();
-
-            if (!this.initialized && this.lastPage !== this.currentPage) {
-                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
-            }
-        },
-
-        /**
-         * Sets up the events listeners. Currently the pageclicked and pagechanged events are linked if available.
-         *
-         * */
-        listen: function () {
-
-            this.$element.off("page-clicked");
-
-            this.$element.off("page-changed"); // unload the events for the element
-
-            if (typeof this.options.onPageClicked === "function") {
-                this.$element.bind("page-clicked", this.options.onPageClicked);
-            }
-
-            if (typeof this.options.onPageChanged === "function") {
-                this.$element.on("page-changed", this.options.onPageChanged);
-            }
-
-            this.$element.bind("page-clicked", this.onPageClicked);
-        },
-
-        /**
-         *
-         *  Destroys the paginator element, it unload the event first, then empty the content inside.
-         *
-         * */
-        destroy: function () {
-
-            this.$element.off("page-clicked");
-
-            this.$element.off("page-changed");
-
-            this.$element.removeData('bootstrapPaginator');
-
-            this.$element.empty();
-        },
-
-        /**
-         * Shows the page
-         *
-         * */
-        show: function (page) {
-
-            this.setCurrentPage(page);
-
-            this.render();
-
-            if (this.lastPage !== this.currentPage) {
-                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
-            }
-        },
-
-        /**
-         * Shows the next page
-         *
-         * */
-        showNext: function () {
-            var pages = this.getPages();
-
-            if (pages.next) {
-                this.show(pages.next);
-            }
-        },
-
-        /**
-         * Shows the previous page
-         *
-         * */
-        showPrevious: function () {
-            var pages = this.getPages();
-
-            if (pages.prev) {
-                this.show(pages.prev);
-            }
-        },
-
-        /**
-         * Shows the first page
-         *
-         * */
-        showFirst: function () {
-            var pages = this.getPages();
-
-            if (pages.first) {
-                this.show(pages.first);
-            }
-        },
-
-        /**
-         * Shows the last page
-         *
-         * */
-        showLast: function () {
-            var pages = this.getPages();
-
-            if (pages.last) {
-                this.show(pages.last);
-            }
-        },
-
-        /**
-         * Internal on page item click handler, when the page item is clicked, change the current page to the corresponding page and
-         * trigger the pageclick event for the listeners.
-         *
-         *
-         * */
-        onPageItemClicked: function (event) {
-
-            var type = event.data.type,
-                page = event.data.page;
-
-            this.$element.trigger("page-clicked", [event, type, page]);
-        },
-
-        onPageClicked: function (event, originalEvent, type, page) {
-
-            //show the corresponding page and retrieve the newly built item related to the page clicked before for the event return
-
-            var currentTarget = $(event.currentTarget);
-
-            switch (type) {
-                case "first":
-                    currentTarget.bootstrapPaginator("showFirst");
-                    break;
-                case "prev":
-                    currentTarget.bootstrapPaginator("showPrevious");
-                    break;
-                case "next":
-                    currentTarget.bootstrapPaginator("showNext");
-                    break;
-                case "last":
-                    currentTarget.bootstrapPaginator("showLast");
-                    break;
-                case "page":
-                    currentTarget.bootstrapPaginator("show", page);
-                    break;
-            }
-        },
-
-        /**
-         * Renders the paginator according to the internal properties and the settings.
-         *
-         *
-         * */
-        render: function () {
-
-            //fetch the container class and add them to the container
-            var containerClass = this.getValueFromOption(this.options.containerClass, this.$element),
-                size = this.options.size || "normal",
-                alignment = this.options.alignment || "left",
-                pages = this.getPages(),
-                listContainer = this.options.bootstrapMajorVersion === 2 ? $("<ul></ul>") : this.$element,
-                listContainerClass = this.options.bootstrapMajorVersion === 2 ? this.getValueFromOption(this.options.listContainerClass, listContainer) : null,
-                first = null,
-                prev = null,
-                next = null,
-                last = null,
-                p = null,
-                i = 0;
-
-            this.$element.prop("class", "");
-
-            this.$element.addClass("pagination");
-
-            switch (size.toLowerCase()) {
-                case "large":
-                case "small":
-                case "mini":
-                    this.$element.addClass($.fn.bootstrapPaginator.sizeArray[this.options.bootstrapMajorVersion][size.toLowerCase()]);
-                    break;
-                default:
-                    break;
-            }
-
-            if (this.options.bootstrapMajorVersion === 2) {
-                switch (alignment.toLowerCase()) {
-                    case "center":
-                        this.$element.addClass("pagination-centered");
-                        break;
-                    case "right":
-                        this.$element.addClass("pagination-right");
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            this.$element.addClass(containerClass);
-
-            //empty the outter most container then add the listContainer inside.
-            this.$element.empty();
-
-            if (this.options.bootstrapMajorVersion === 2) {
-                this.$element.append(listContainer);
-
-                listContainer.addClass(listContainerClass);
-            }
-
-            //update the page element reference
-            this.pageRef = [];
-
-            if (pages.first) {
-                //if the there is first page element
-                first = this.buildPageItem("first", pages.first);
-
-                if (first) {
-                    listContainer.append(first);
-                }
-            }
-
-            if (pages.prev) {
-                //if the there is previous page element
-
-                prev = this.buildPageItem("prev", pages.prev);
-
-                if (prev) {
-                    listContainer.append(prev);
-                }
-            }
-
-            for (i = 0; i < pages.length; i = i + 1) {
-                //fill the numeric pages.
-
-                p = this.buildPageItem("page", pages[i]);
-
-                if (p) {
-                    listContainer.append(p);
-                }
-            }
-
-            if (pages.next) {
-                //if there is next page
-
-                next = this.buildPageItem("next", pages.next);
-
-                if (next) {
-                    listContainer.append(next);
-                }
-            }
-
-            if (pages.last) {
-                //if there is last page
-
-                last = this.buildPageItem("last", pages.last);
-
-                if (last) {
-                    listContainer.append(last);
-                }
-            }
-        },
-
-        /**
-         *
-         * Creates a page item base on the type and page number given.
-         *
-         * @param page page number
-         * @param type type of the page, whether it is the first, prev, page, next, last
-         *
-         * @return Object the constructed page element
-         * */
-        buildPageItem: function (type, page) {
-
-            var itemContainer = $("<li></li>"),
-                //creates the item container
-            itemContent = $("<a></a>"),
-                //creates the item content
-            text = "",
-                title = "",
-                itemContainerClass = this.options.itemContainerClass(type, page, this.currentPage),
-                itemContentClass = this.getValueFromOption(this.options.itemContentClass, type, page, this.currentPage),
-                tooltipOpts = null;
-
-            switch (type) {
-
-                case "first":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "last":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "prev":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "next":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "page":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-            }
-
-            itemContainer.addClass(itemContainerClass).append(itemContent);
-
-            itemContent.addClass(itemContentClass).html(text).on("click", null, { type: type, page: page }, $.proxy(this.onPageItemClicked, this));
-
-            if (this.options.pageUrl) {
-                itemContent.attr("href", this.getValueFromOption(this.options.pageUrl, type, page, this.currentPage));
-            }
-
-            if (this.options.useBootstrapTooltip) {
-                tooltipOpts = $.extend({}, this.options.bootstrapTooltipOptions, { title: title });
-
-                itemContent.tooltip(tooltipOpts);
-            } else {
-                itemContent.attr("title", title);
-            }
-
-            return itemContainer;
-        },
-
-        setCurrentPage: function (page) {
-            if (page > this.totalPages || page < 1) {
-                // if the current page is out of range, throw exception.
-
-                throw "Page out of range";
-            }
-
-            this.lastPage = this.currentPage;
-
-            this.currentPage = parseInt(page, 10);
-        },
-
-        /**
-         * Gets an array that represents the current status of the page object. Numeric pages can be access via array mode. length attributes describes how many numeric pages are there. First, previous, next and last page can be accessed via attributes first, prev, next and last. Current attribute marks the current page within the pages.
-         *
-         * @return object output objects that has first, prev, next, last and also the number of pages in between.
-         * */
-        getPages: function () {
-
-            var totalPages = this.totalPages,
-                // get or calculate the total pages via the total records
-            pageStart = this.currentPage % this.numberOfPages === 0 ? (parseInt(this.currentPage / this.numberOfPages, 10) - 1) * this.numberOfPages + 1 : parseInt(this.currentPage / this.numberOfPages, 10) * this.numberOfPages + 1,
-                //calculates the start page.
-            output = [],
-                i = 0,
-                counter = 0;
-
-            pageStart = pageStart < 1 ? 1 : pageStart; //check the range of the page start to see if its less than 1.
-
-            for (i = pageStart, counter = 0; counter < this.numberOfPages && i <= totalPages; i = i + 1, counter = counter + 1) {
-                //fill the pages
-                output.push(i);
-            }
-
-            output.first = 1; //add the first when the current page leaves the 1st page.
-
-            if (this.currentPage > 1) {
-                // add the previous when the current page leaves the 1st page
-                output.prev = this.currentPage - 1;
-            } else {
-                output.prev = 1;
-            }
-
-            if (this.currentPage < totalPages) {
-                // add the next page when the current page doesn't reach the last page
-                output.next = this.currentPage + 1;
-            } else {
-                output.next = totalPages;
-            }
-
-            output.last = totalPages; // add the last page when the current page doesn't reach the last page
-
-            output.current = this.currentPage; //mark the current page.
-
-            output.total = totalPages;
-
-            output.numberOfPages = this.options.numberOfPages;
-
-            return output;
-        },
-
-        /**
-         * Gets the value from the options, this is made to handle the situation where value is the return value of a function.
-         *
-         * @return mixed value that depends on the type of parameters, if the given parameter is a function, then the evaluated result is returned. Otherwise the parameter itself will get returned.
-         * */
-        getValueFromOption: function (value) {
-
-            var output = null,
-                args = Array.prototype.slice.call(arguments, 1);
-
-            if (typeof value === 'function') {
-                output = value.apply(this, args);
-            } else {
-                output = value;
-            }
-
-            return output;
-        }
-
-    };
-
-    /* TYPEAHEAD PLUGIN DEFINITION
-     * =========================== */
-
-    old = $.fn.bootstrapPaginator;
-
-    $.fn.bootstrapPaginator = function (option) {
-
-        var args = arguments,
-            result = null;
-
-        $(this).each(function (index, item) {
-            var $this = $(item),
-                data = $this.data('bootstrapPaginator'),
-                options = typeof option !== 'object' ? null : option;
-
-            if (!data) {
-                data = new BootstrapPaginator(this, options);
-
-                $this = $(data.$element);
-
-                $this.data('bootstrapPaginator', data);
-
-                return;
-            }
-
-            if (typeof option === 'string') {
-
-                if (data[option]) {
-                    result = data[option].apply(data, Array.prototype.slice.call(args, 1));
-                } else {
-                    throw "Method " + option + " does not exist";
-                }
-            } else {
-                result = data.setOptions(option);
-            }
-        });
-
-        return result;
-    };
-
-    $.fn.bootstrapPaginator.sizeArray = {
-
-        "2": {
-            "large": "pagination-large",
-            "small": "pagination-small",
-            "mini": "pagination-mini"
-        },
-        "3": {
-            "large": "pagination-lg",
-            "small": "pagination-sm",
-            "mini": ""
-        }
-
-    };
-
-    $.fn.bootstrapPaginator.defaults = {
-        containerClass: "",
-        size: "normal",
-        alignment: "left",
-        bootstrapMajorVersion: 2,
-        listContainerClass: "",
-        itemContainerClass: function (type, page, current) {
-            return page === current ? "active" : "";
-        },
-        itemContentClass: function (type, page, current) {
-            return "";
-        },
-        currentPage: 1,
-        numberOfPages: 5,
-        totalPages: 1,
-        pageUrl: function (type, page, current) {
-            return null;
-        },
-        onPageClicked: null,
-        onPageChanged: null,
-        useBootstrapTooltip: false,
-        shouldShowPage: function (type, page, current) {
-
-            var result = true;
-
-            switch (type) {
-                case "first":
-                    result = current !== 1;
-                    break;
-                case "prev":
-                    result = current !== 1;
-                    break;
-                case "next":
-                    result = current !== this.totalPages;
-                    break;
-                case "last":
-                    result = current !== this.totalPages;
-                    break;
-                case "page":
-                    result = true;
-                    break;
-            }
-
-            return result;
-        },
-        itemTexts: function (type, page, current) {
-            switch (type) {
-                case "first":
-                    return "&lt;&lt;";
-                case "prev":
-                    return "&lt;";
-                case "next":
-                    return "&gt;";
-                case "last":
-                    return "&gt;&gt;";
-                case "page":
-                    return page;
-            }
-        },
-        tooltipTitles: function (type, page, current) {
-
-            switch (type) {
-                case "first":
-                    return "Go to first page";
-                case "prev":
-                    return "Go to previous page";
-                case "next":
-                    return "Go to next page";
-                case "last":
-                    return "Go to last page";
-                case "page":
-                    return page === current ? "Current page is " + page : "Go to page " + page;
-            }
-        },
-        bootstrapTooltipOptions: {
-            animation: true,
-            html: true,
-            placement: 'top',
-            selector: false,
-            title: "",
-            container: false
-        }
-    };
-
-    $.fn.bootstrapPaginator.Constructor = BootstrapPaginator;
-})(window.jQuery);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout() {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-})();
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch (e) {
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch (e) {
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e) {
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e) {
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while (len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
+    Param: {
+        UserName: "123",
+        Password: "123"
     }
 };
 
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-    return [];
-};
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-    return '/';
-};
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function () {
-    return 0;
-};
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
-    "use strict";
-
-    if (global.setImmediate) {
-        return;
-    }
-
-    var nextHandle = 1; // Spec says greater than zero
-    var tasksByHandle = {};
-    var currentlyRunningATask = false;
-    var doc = global.document;
-    var registerImmediate;
-
-    function setImmediate(callback) {
-        // Callback can either be a function or a string
-        if (typeof callback !== "function") {
-            callback = new Function("" + callback);
-        }
-        // Copy function arguments
-        var args = new Array(arguments.length - 1);
-        for (var i = 0; i < args.length; i++) {
-            args[i] = arguments[i + 1];
-        }
-        // Store and register the task
-        var task = { callback: callback, args: args };
-        tasksByHandle[nextHandle] = task;
-        registerImmediate(nextHandle);
-        return nextHandle++;
-    }
-
-    function clearImmediate(handle) {
-        delete tasksByHandle[handle];
-    }
-
-    function run(task) {
-        var callback = task.callback;
-        var args = task.args;
-        switch (args.length) {
-            case 0:
-                callback();
-                break;
-            case 1:
-                callback(args[0]);
-                break;
-            case 2:
-                callback(args[0], args[1]);
-                break;
-            case 3:
-                callback(args[0], args[1], args[2]);
-                break;
-            default:
-                callback.apply(undefined, args);
-                break;
-        }
-    }
-
-    function runIfPresent(handle) {
-        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
-        // So if we're currently running a task, we'll need to delay this invocation.
-        if (currentlyRunningATask) {
-            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
-            // "too much recursion" error.
-            setTimeout(runIfPresent, 0, handle);
-        } else {
-            var task = tasksByHandle[handle];
-            if (task) {
-                currentlyRunningATask = true;
-                try {
-                    run(task);
-                } finally {
-                    clearImmediate(handle);
-                    currentlyRunningATask = false;
-                }
-            }
-        }
-    }
-
-    function installNextTickImplementation() {
-        registerImmediate = function (handle) {
-            process.nextTick(function () {
-                runIfPresent(handle);
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: "#LoginDiv",
+    data: data,
+    methods: {
+        LoginIn() {
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
+                if (data) {}
             });
-        };
-    }
-
-    function canUsePostMessage() {
-        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
-        // where `global.postMessage` means something completely different and can't be used for this purpose.
-        if (global.postMessage && !global.importScripts) {
-            var postMessageIsAsynchronous = true;
-            var oldOnMessage = global.onmessage;
-            global.onmessage = function () {
-                postMessageIsAsynchronous = false;
-            };
-            global.postMessage("", "*");
-            global.onmessage = oldOnMessage;
-            return postMessageIsAsynchronous;
         }
     }
-
-    function installPostMessageImplementation() {
-        // Installs an event handler on `global` for the `message` event: see
-        // * https://developer.mozilla.org/en/DOM/window.postMessage
-        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
-
-        var messagePrefix = "setImmediate$" + Math.random() + "$";
-        var onGlobalMessage = function (event) {
-            if (event.source === global && typeof event.data === "string" && event.data.indexOf(messagePrefix) === 0) {
-                runIfPresent(+event.data.slice(messagePrefix.length));
-            }
-        };
-
-        if (global.addEventListener) {
-            global.addEventListener("message", onGlobalMessage, false);
-        } else {
-            global.attachEvent("onmessage", onGlobalMessage);
-        }
-
-        registerImmediate = function (handle) {
-            global.postMessage(messagePrefix + handle, "*");
-        };
-    }
-
-    function installMessageChannelImplementation() {
-        var channel = new MessageChannel();
-        channel.port1.onmessage = function (event) {
-            var handle = event.data;
-            runIfPresent(handle);
-        };
-
-        registerImmediate = function (handle) {
-            channel.port2.postMessage(handle);
-        };
-    }
-
-    function installReadyStateChangeImplementation() {
-        var html = doc.documentElement;
-        registerImmediate = function (handle) {
-            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
-            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
-            var script = doc.createElement("script");
-            script.onreadystatechange = function () {
-                runIfPresent(handle);
-                script.onreadystatechange = null;
-                html.removeChild(script);
-                script = null;
-            };
-            html.appendChild(script);
-        };
-    }
-
-    function installSetTimeoutImplementation() {
-        registerImmediate = function (handle) {
-            setTimeout(runIfPresent, 0, handle);
-        };
-    }
-
-    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
-    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
-    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
-
-    // Don't get fooled by e.g. browserify environments.
-    if ({}.toString.call(global.process) === "[object process]") {
-        // For Node.js before 0.9
-        installNextTickImplementation();
-    } else if (canUsePostMessage()) {
-        // For non-IE10 modern browsers
-        installPostMessageImplementation();
-    } else if (global.MessageChannel) {
-        // For web workers, where supported
-        installMessageChannelImplementation();
-    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
-        // For IE 6–8
-        installReadyStateChangeImplementation();
-    } else {
-        // For older browsers
-        installSetTimeoutImplementation();
-    }
-
-    attachTo.setImmediate = setImmediate;
-    attachTo.clearImmediate = clearImmediate;
-})(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(5)))
+});
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function () {
-  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
-};
-exports.setInterval = function () {
-  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
-};
-exports.clearTimeout = exports.clearInterval = function (timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function () {};
-Timeout.prototype.close = function () {
-  this._clearFn.call(scope, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function (item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function (item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function (item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout) item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(6);
-// On some exotic environments, it's not clear which object `setimmediate` was
-// able to install onto.  Search each possibility in the same order as the
-// `setimmediate` library.
-exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
-exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 8 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = function (module) {
@@ -13237,66 +13284,16 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 9 */
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
 module.exports = __webpack_amd_options__;
 
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ }),
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__);
-
-
-
-
-var data = {
-    url: "/api/Login/AdminLogion",
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */]
-    },
-    Param: {
-        UserId: "123",
-        UserPassword: "123"
-    }
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: "#LoginDiv",
-    data: data,
-    methods: {
-        LoginIn() {
-            var self = this;
-            self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
-                if (data) {}
-            });
-        }
-    }
-});
 
 /***/ })
 /******/ ]);
