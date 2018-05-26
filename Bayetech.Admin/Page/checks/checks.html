@@ -4,22 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>待处理已处理等表单逻辑</title>
     <meta charset="utf-8" />
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/generics.css" rel="stylesheet" />
     <link href="../../Content/Mystyle.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
 </head>
 <body>
     <!--局部Modal放在当前文件-->
     <div id="CommForm">
+
         <div class="modal form-horizontal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
             <div class="modal-dialog" style="width:1200px">
                 <div class="modal-content animated bounceInRight">
                     <div id="modal_head" class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" name="btnModalClose">
+                        <a class="close" data-dismiss="modal" name="btnModalClose">
                             <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
-                        </button>
+                        </a>
                         <h3 class="modal-title text-center" id="modal_title"><strong>商品信息审核</strong></h3>
                     </div>
                     <div class="modal-body" id="modal_body">
@@ -27,12 +28,13 @@
                             <h4><strong>审查规则:</strong></h4>
                             <p style="color:orangered">1.描述里面不可以出现违法暴力内容。</p>
                             <p style="color:orangered">2.描述里面不可以出现色情等，不和谐关键词。</p>
-                            <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等联系方式的内容，否者视为不通过</p>
+                            <p style="color:orangered">3.描述里面不可以出现手机号，QQ号等  联系方式的内容，否者视为不通过</p>
                         </div>
                         <br />
+                        <hr />
                         <div id="Account">
-                            <div class="input-group col-md-12">
-                                <h4><strong>账号信息:</strong></h4>
+                            <div class="input-group col-md-12" v-show="ItemType=='order'">
+                                <h4><strong>CE账号信息:</strong></h4>
                                 <div class="input-group  col-md-12">
                                     <div class="col-md-6">
                                         <label class="control-label col-md-3">用户名</label>

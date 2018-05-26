@@ -1,11 +1,15 @@
-﻿/// <binding BeforeBuild='Run - Development' Clean='Run - Development' />
+﻿/// <reference path="E:\Bayetech2.1\Bayetech.Admin\Scripts/jquery-1.10.2.min.js" />
+/// <reference path="E:\Bayetech2.1\Bayetech.Admin\Scripts/jquery-1.10.2.min.js" />
+/// <binding BeforeBuild='Run - Development' />
 "use strict";
 
 const webpack = require('webpack');
+const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');//解决Make sure to include VueLoaderPlugin in your webpack config问题
 
 module.exports = {
     entry:{
+        Login:"./Scripts/app/Login",//登录页
         //权限
         Auth_CustomerManage:"./Scripts/app/Auth_CustomerManage",//注册客户管理
         Auth_NavigationManage:"./Scripts/app/Auth_NavigationManage.js",//导航菜单
@@ -13,6 +17,7 @@ module.exports = {
         Auth_DicsManage:"./Scripts/app/Auth_DicsManage.js",//数据字典
         Auth_AdminManage: "./Scripts/app/Auth_AdminManage.js",//管理员设置
         Auth_ButtonsManage:"./Scripts/app/Auth_ButtonsManage.js",//按钮管理
+
         //业务
         GoodCheck: "./Scripts/app/GoodCheck.js"
     },
@@ -38,15 +43,14 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loader: "babel-loader",
-
+                loader: "babel-loader"
             }
         ],
     },
     resolve:{
-        extensions:['.js','.json','.vue']
+        extensions:['.js','.json','.vue'],
     },
     plugins: [
-        new VueLoaderPlugin(),
+        new VueLoaderPlugin()
     ]
 };

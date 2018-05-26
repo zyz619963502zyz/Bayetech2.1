@@ -86,7 +86,7 @@ new Vue({
             var self = this;
             self.SearchParam.Param.GoodNo = self.CheckGoodNo;
             self.SearchParam.Param.Status = (flag=='Y'?'PutOnsale':'PutDownsale');
-            if (confirm("确定审批？")) {
+            if (confirm(flag=='Y'?"确定审批通过？":"确认审批不通过？")) {
                $("#CheckConfirm").Btns("loading");
                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                    if (data.result) {

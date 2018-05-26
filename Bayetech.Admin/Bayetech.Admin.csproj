@@ -220,6 +220,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\icon\user.png" />
+    <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\Mystyle.css" />
     <Content Include="Page\adminPage\CustomerManage.html" />
     <Content Include="Page\BayMain.html" />
@@ -2163,6 +2165,7 @@
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
     <Content Include="Page\checks\checks.html" />
+    <Content Include="Page\Login.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2189,6 +2192,7 @@
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
+    <Content Include="Scripts\app\Login.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_AdminManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_CustomerManage_ES5.js" />
@@ -2196,6 +2200,7 @@
     <Content Include="Scripts\app\TranslateContent\Auth_NavigationManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_RolesManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Login_ES5.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -2738,6 +2743,7 @@
     <Content Include="Scripts\components\table-RolesManage.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\router\router.js" />
     <Content Include="Scripts\TestES6.es5.js">
       <DependentUpon>TestES6.js</DependentUpon>

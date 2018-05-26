@@ -16,7 +16,7 @@ namespace Bayetech.Web.Controllers
         //取出服务层
         OrderService service = ctx.GetObject("OrderService") as OrderService;
         BaseService<Server> serverService = new BaseService<Server>();
-        BaseService<MallOrderStatus> orderService = new BaseService<MallOrderStatus>();
+        BaseService<OrderStatus> orderService = new BaseService<OrderStatus>();
 
         [HttpPost]
         public JObject CreatOrder(JObject json)
@@ -76,7 +76,7 @@ namespace Bayetech.Web.Controllers
         [HttpGet]
         public JObject GetOrderStatus(int parentId) {
             JObject ret = new JObject();
-            List<MallOrderStatus> status = orderService.FindList(c => c.ParentId == parentId).ToList();
+            List<OrderStatus> status = orderService.FindList(c => c.FrontParentId == parentId).ToList();
             if (status.Count > 0)
             {
                 ret.Add(ResultInfo.Result, true);

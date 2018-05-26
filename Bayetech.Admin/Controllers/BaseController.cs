@@ -5,7 +5,6 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
-    [Route("api/[controller]")]
     public class BaseController : ApiController
     {
 
