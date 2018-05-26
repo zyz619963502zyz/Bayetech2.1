@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -96,58 +96,9 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    name: 'BaseTable',
-    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype']
-});
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(1);
-/* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_script_lang_js__["a" /* default */]); 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__jquery_1_10_2_min_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__bootstrap_paginator_js__);
 
 
@@ -459,7 +410,7 @@ var comCompnent = {
 /* harmony default export */ __webpack_exports__["a"] = (comCompnent);
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -10005,839 +9956,10 @@ var comCompnent = {
 
     return Vue$3;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(17).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(7).setImmediate))
 
 /***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(2);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(21);
-
-
-
-
-
-/* normalize component */
-
-var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b" /* staticRenderFns */],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
-  api.install(require('vue'))
-  if (api.compatible) {
-    module.hot.accept()
-    if (!module.hot.data) {
-      api.createRecord('93bba3e8', component.options)
-    } else {
-      api.reload('93bba3e8', component.options)
-    }
-    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&id=BaseTable&lang=html", function () {
-      api.rerender('93bba3e8', {
-        render: render,
-        staticRenderFns: staticRenderFns
-      })
-    })
-  }
-}
-component.options.__file = "Scripts\\components\\table-Process.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
-
-/***/ }),
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(5);
-
-
-
-
-let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
-
-let vmData = {
-    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-    PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
-    ItemType: "good", //单据类型
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
-    },
-    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
-    CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
-    CheckGoodNo: "", //模态框打开的GoodNo
-    keyword: "",
-    GoodInfoArray: [],
-    ListObj: [{
-        GoodNo: "",
-        GoodFirstPicture: "",
-        aurl: "",
-        GoodTitle: "",
-        GroupName: "",
-        ServerName: "",
-        GoodPrice: ""
-    }],
-    SearchParam: {
-        Param: {
-            GoodNo: "",
-            OrderNo: "",
-            Status: pagetype,
-            SelectType: "good", //form里选择的商品类型
-            SelectNo: "" //form里面选择的编号
-        },
-        Pagination: { //分页对象
-            rows: 10, //每页行数，
-            page: 1, //当前页码
-            order: "GoodNo", //排序字段
-            sord: "asc", //排序类型
-            records: 10, //总记录数
-            total: 10 //总页数。
-        }
-    }
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommForm',
-    data: vmData,
-    created() {
-        this.findList();
-    },
-    methods: {
-        findList() {
-            //获取商品的简要列表
-            $("#QueryList").Btns("loading");
-            var self = this;
-            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
-            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
-                $("#QueryList").Btns("reset");
-                if (data.result) {
-                    self.GoodInfoArray = data.content.datas;
-                    self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
-                    self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                }
-            }, function () {
-                $("#QueryList").Btns("reset");
-            });
-        },
-        StartCheck(GoodNo) {
-            //开始检查
-            var self = this;
-            self.CheckGoodNo = GoodNo;
-            $("#checkModal").modal("show");
-        },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        },
-        CheckGoods(flag) {
-            var self = this;
-            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
-            self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
-            if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
-                $("#CheckConfirm").Btns("loading");
-                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                    if (data.result) {
-                        alert("审批成功!");
-                    }
-                    $("#checkModal").modal("hide");
-                    $("#CheckConfirm").Btns("reset");
-                }, function () {
-                    $("#CheckConfirm").Btns("reset");
-                });
-            }
-        }
-    },
-    components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
-    }
-});
-
-//剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-/**
- * bootstrap-paginator.js v0.5
- * --
- * Copyright 2013 Yun Lai <lyonlai1984@gmail.com>
- * --
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-(function ($) {
-
-    "use strict"; // jshint ;_;
-
-
-    /* Paginator PUBLIC CLASS DEFINITION
-     * ================================= */
-
-    /**
-     * Boostrap Paginator Constructor
-     *
-     * @param element element of the paginator
-     * @param options the options to config the paginator
-     *
-     * */
-
-    var BootstrapPaginator = function (element, options) {
-        this.init(element, options);
-    },
-        old = null;
-
-    BootstrapPaginator.prototype = {
-
-        /**
-         * Initialization function of the paginator, accepting an element and the options as parameters
-         *
-         * @param element element of the paginator
-         * @param options the options to config the paginator
-         *
-         * */
-        init: function (element, options) {
-
-            this.$element = $(element);
-
-            var version = options && options.bootstrapMajorVersion ? options.bootstrapMajorVersion : $.fn.bootstrapPaginator.defaults.bootstrapMajorVersion,
-                id = this.$element.attr("id");
-
-            if (version === 2 && !this.$element.is("div")) {
-
-                throw "in Bootstrap version 2 the pagination must be a div element. Or if you are using Bootstrap pagination 3. Please specify it in bootstrapMajorVersion in the option";
-            } else if (version > 2 && !this.$element.is("ul")) {
-                throw "in Bootstrap version 3 the pagination root item must be an ul element.";
-            }
-
-            this.currentPage = 1;
-
-            this.lastPage = 1;
-
-            this.setOptions(options);
-
-            this.initialized = true;
-        },
-
-        /**
-         * Update the properties of the paginator element
-         *
-         * @param options options to config the paginator
-         * */
-        setOptions: function (options) {
-
-            this.options = $.extend({}, this.options || $.fn.bootstrapPaginator.defaults, options);
-
-            this.totalPages = parseInt(this.options.totalPages, 10); //setup the total pages property.
-            this.numberOfPages = parseInt(this.options.numberOfPages, 10); //setup the numberOfPages to be shown
-
-            //move the set current page after the setting of total pages. otherwise it will cause out of page exception.
-            if (options && typeof options.currentPage !== 'undefined') {
-
-                this.setCurrentPage(options.currentPage);
-            }
-
-            this.listen();
-
-            //render the paginator
-            this.render();
-
-            if (!this.initialized && this.lastPage !== this.currentPage) {
-                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
-            }
-        },
-
-        /**
-         * Sets up the events listeners. Currently the pageclicked and pagechanged events are linked if available.
-         *
-         * */
-        listen: function () {
-
-            this.$element.off("page-clicked");
-
-            this.$element.off("page-changed"); // unload the events for the element
-
-            if (typeof this.options.onPageClicked === "function") {
-                this.$element.bind("page-clicked", this.options.onPageClicked);
-            }
-
-            if (typeof this.options.onPageChanged === "function") {
-                this.$element.on("page-changed", this.options.onPageChanged);
-            }
-
-            this.$element.bind("page-clicked", this.onPageClicked);
-        },
-
-        /**
-         *
-         *  Destroys the paginator element, it unload the event first, then empty the content inside.
-         *
-         * */
-        destroy: function () {
-
-            this.$element.off("page-clicked");
-
-            this.$element.off("page-changed");
-
-            this.$element.removeData('bootstrapPaginator');
-
-            this.$element.empty();
-        },
-
-        /**
-         * Shows the page
-         *
-         * */
-        show: function (page) {
-
-            this.setCurrentPage(page);
-
-            this.render();
-
-            if (this.lastPage !== this.currentPage) {
-                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
-            }
-        },
-
-        /**
-         * Shows the next page
-         *
-         * */
-        showNext: function () {
-            var pages = this.getPages();
-
-            if (pages.next) {
-                this.show(pages.next);
-            }
-        },
-
-        /**
-         * Shows the previous page
-         *
-         * */
-        showPrevious: function () {
-            var pages = this.getPages();
-
-            if (pages.prev) {
-                this.show(pages.prev);
-            }
-        },
-
-        /**
-         * Shows the first page
-         *
-         * */
-        showFirst: function () {
-            var pages = this.getPages();
-
-            if (pages.first) {
-                this.show(pages.first);
-            }
-        },
-
-        /**
-         * Shows the last page
-         *
-         * */
-        showLast: function () {
-            var pages = this.getPages();
-
-            if (pages.last) {
-                this.show(pages.last);
-            }
-        },
-
-        /**
-         * Internal on page item click handler, when the page item is clicked, change the current page to the corresponding page and
-         * trigger the pageclick event for the listeners.
-         *
-         *
-         * */
-        onPageItemClicked: function (event) {
-
-            var type = event.data.type,
-                page = event.data.page;
-
-            this.$element.trigger("page-clicked", [event, type, page]);
-        },
-
-        onPageClicked: function (event, originalEvent, type, page) {
-
-            //show the corresponding page and retrieve the newly built item related to the page clicked before for the event return
-
-            var currentTarget = $(event.currentTarget);
-
-            switch (type) {
-                case "first":
-                    currentTarget.bootstrapPaginator("showFirst");
-                    break;
-                case "prev":
-                    currentTarget.bootstrapPaginator("showPrevious");
-                    break;
-                case "next":
-                    currentTarget.bootstrapPaginator("showNext");
-                    break;
-                case "last":
-                    currentTarget.bootstrapPaginator("showLast");
-                    break;
-                case "page":
-                    currentTarget.bootstrapPaginator("show", page);
-                    break;
-            }
-        },
-
-        /**
-         * Renders the paginator according to the internal properties and the settings.
-         *
-         *
-         * */
-        render: function () {
-
-            //fetch the container class and add them to the container
-            var containerClass = this.getValueFromOption(this.options.containerClass, this.$element),
-                size = this.options.size || "normal",
-                alignment = this.options.alignment || "left",
-                pages = this.getPages(),
-                listContainer = this.options.bootstrapMajorVersion === 2 ? $("<ul></ul>") : this.$element,
-                listContainerClass = this.options.bootstrapMajorVersion === 2 ? this.getValueFromOption(this.options.listContainerClass, listContainer) : null,
-                first = null,
-                prev = null,
-                next = null,
-                last = null,
-                p = null,
-                i = 0;
-
-            this.$element.prop("class", "");
-
-            this.$element.addClass("pagination");
-
-            switch (size.toLowerCase()) {
-                case "large":
-                case "small":
-                case "mini":
-                    this.$element.addClass($.fn.bootstrapPaginator.sizeArray[this.options.bootstrapMajorVersion][size.toLowerCase()]);
-                    break;
-                default:
-                    break;
-            }
-
-            if (this.options.bootstrapMajorVersion === 2) {
-                switch (alignment.toLowerCase()) {
-                    case "center":
-                        this.$element.addClass("pagination-centered");
-                        break;
-                    case "right":
-                        this.$element.addClass("pagination-right");
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            this.$element.addClass(containerClass);
-
-            //empty the outter most container then add the listContainer inside.
-            this.$element.empty();
-
-            if (this.options.bootstrapMajorVersion === 2) {
-                this.$element.append(listContainer);
-
-                listContainer.addClass(listContainerClass);
-            }
-
-            //update the page element reference
-            this.pageRef = [];
-
-            if (pages.first) {
-                //if the there is first page element
-                first = this.buildPageItem("first", pages.first);
-
-                if (first) {
-                    listContainer.append(first);
-                }
-            }
-
-            if (pages.prev) {
-                //if the there is previous page element
-
-                prev = this.buildPageItem("prev", pages.prev);
-
-                if (prev) {
-                    listContainer.append(prev);
-                }
-            }
-
-            for (i = 0; i < pages.length; i = i + 1) {
-                //fill the numeric pages.
-
-                p = this.buildPageItem("page", pages[i]);
-
-                if (p) {
-                    listContainer.append(p);
-                }
-            }
-
-            if (pages.next) {
-                //if there is next page
-
-                next = this.buildPageItem("next", pages.next);
-
-                if (next) {
-                    listContainer.append(next);
-                }
-            }
-
-            if (pages.last) {
-                //if there is last page
-
-                last = this.buildPageItem("last", pages.last);
-
-                if (last) {
-                    listContainer.append(last);
-                }
-            }
-        },
-
-        /**
-         *
-         * Creates a page item base on the type and page number given.
-         *
-         * @param page page number
-         * @param type type of the page, whether it is the first, prev, page, next, last
-         *
-         * @return Object the constructed page element
-         * */
-        buildPageItem: function (type, page) {
-
-            var itemContainer = $("<li></li>"),
-                //creates the item container
-            itemContent = $("<a></a>"),
-                //creates the item content
-            text = "",
-                title = "",
-                itemContainerClass = this.options.itemContainerClass(type, page, this.currentPage),
-                itemContentClass = this.getValueFromOption(this.options.itemContentClass, type, page, this.currentPage),
-                tooltipOpts = null;
-
-            switch (type) {
-
-                case "first":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "last":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "prev":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "next":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-                case "page":
-                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
-                        return;
-                    }
-                    text = this.options.itemTexts(type, page, this.currentPage);
-                    title = this.options.tooltipTitles(type, page, this.currentPage);
-                    break;
-            }
-
-            itemContainer.addClass(itemContainerClass).append(itemContent);
-
-            itemContent.addClass(itemContentClass).html(text).on("click", null, { type: type, page: page }, $.proxy(this.onPageItemClicked, this));
-
-            if (this.options.pageUrl) {
-                itemContent.attr("href", this.getValueFromOption(this.options.pageUrl, type, page, this.currentPage));
-            }
-
-            if (this.options.useBootstrapTooltip) {
-                tooltipOpts = $.extend({}, this.options.bootstrapTooltipOptions, { title: title });
-
-                itemContent.tooltip(tooltipOpts);
-            } else {
-                itemContent.attr("title", title);
-            }
-
-            return itemContainer;
-        },
-
-        setCurrentPage: function (page) {
-            if (page > this.totalPages || page < 1) {
-                // if the current page is out of range, throw exception.
-
-                throw "Page out of range";
-            }
-
-            this.lastPage = this.currentPage;
-
-            this.currentPage = parseInt(page, 10);
-        },
-
-        /**
-         * Gets an array that represents the current status of the page object. Numeric pages can be access via array mode. length attributes describes how many numeric pages are there. First, previous, next and last page can be accessed via attributes first, prev, next and last. Current attribute marks the current page within the pages.
-         *
-         * @return object output objects that has first, prev, next, last and also the number of pages in between.
-         * */
-        getPages: function () {
-
-            var totalPages = this.totalPages,
-                // get or calculate the total pages via the total records
-            pageStart = this.currentPage % this.numberOfPages === 0 ? (parseInt(this.currentPage / this.numberOfPages, 10) - 1) * this.numberOfPages + 1 : parseInt(this.currentPage / this.numberOfPages, 10) * this.numberOfPages + 1,
-                //calculates the start page.
-            output = [],
-                i = 0,
-                counter = 0;
-
-            pageStart = pageStart < 1 ? 1 : pageStart; //check the range of the page start to see if its less than 1.
-
-            for (i = pageStart, counter = 0; counter < this.numberOfPages && i <= totalPages; i = i + 1, counter = counter + 1) {
-                //fill the pages
-                output.push(i);
-            }
-
-            output.first = 1; //add the first when the current page leaves the 1st page.
-
-            if (this.currentPage > 1) {
-                // add the previous when the current page leaves the 1st page
-                output.prev = this.currentPage - 1;
-            } else {
-                output.prev = 1;
-            }
-
-            if (this.currentPage < totalPages) {
-                // add the next page when the current page doesn't reach the last page
-                output.next = this.currentPage + 1;
-            } else {
-                output.next = totalPages;
-            }
-
-            output.last = totalPages; // add the last page when the current page doesn't reach the last page
-
-            output.current = this.currentPage; //mark the current page.
-
-            output.total = totalPages;
-
-            output.numberOfPages = this.options.numberOfPages;
-
-            return output;
-        },
-
-        /**
-         * Gets the value from the options, this is made to handle the situation where value is the return value of a function.
-         *
-         * @return mixed value that depends on the type of parameters, if the given parameter is a function, then the evaluated result is returned. Otherwise the parameter itself will get returned.
-         * */
-        getValueFromOption: function (value) {
-
-            var output = null,
-                args = Array.prototype.slice.call(arguments, 1);
-
-            if (typeof value === 'function') {
-                output = value.apply(this, args);
-            } else {
-                output = value;
-            }
-
-            return output;
-        }
-
-    };
-
-    /* TYPEAHEAD PLUGIN DEFINITION
-     * =========================== */
-
-    old = $.fn.bootstrapPaginator;
-
-    $.fn.bootstrapPaginator = function (option) {
-
-        var args = arguments,
-            result = null;
-
-        $(this).each(function (index, item) {
-            var $this = $(item),
-                data = $this.data('bootstrapPaginator'),
-                options = typeof option !== 'object' ? null : option;
-
-            if (!data) {
-                data = new BootstrapPaginator(this, options);
-
-                $this = $(data.$element);
-
-                $this.data('bootstrapPaginator', data);
-
-                return;
-            }
-
-            if (typeof option === 'string') {
-
-                if (data[option]) {
-                    result = data[option].apply(data, Array.prototype.slice.call(args, 1));
-                } else {
-                    throw "Method " + option + " does not exist";
-                }
-            } else {
-                result = data.setOptions(option);
-            }
-        });
-
-        return result;
-    };
-
-    $.fn.bootstrapPaginator.sizeArray = {
-
-        "2": {
-            "large": "pagination-large",
-            "small": "pagination-small",
-            "mini": "pagination-mini"
-        },
-        "3": {
-            "large": "pagination-lg",
-            "small": "pagination-sm",
-            "mini": ""
-        }
-
-    };
-
-    $.fn.bootstrapPaginator.defaults = {
-        containerClass: "",
-        size: "normal",
-        alignment: "left",
-        bootstrapMajorVersion: 2,
-        listContainerClass: "",
-        itemContainerClass: function (type, page, current) {
-            return page === current ? "active" : "";
-        },
-        itemContentClass: function (type, page, current) {
-            return "";
-        },
-        currentPage: 1,
-        numberOfPages: 5,
-        totalPages: 1,
-        pageUrl: function (type, page, current) {
-            return null;
-        },
-        onPageClicked: null,
-        onPageChanged: null,
-        useBootstrapTooltip: false,
-        shouldShowPage: function (type, page, current) {
-
-            var result = true;
-
-            switch (type) {
-                case "first":
-                    result = current !== 1;
-                    break;
-                case "prev":
-                    result = current !== 1;
-                    break;
-                case "next":
-                    result = current !== this.totalPages;
-                    break;
-                case "last":
-                    result = current !== this.totalPages;
-                    break;
-                case "page":
-                    result = true;
-                    break;
-            }
-
-            return result;
-        },
-        itemTexts: function (type, page, current) {
-            switch (type) {
-                case "first":
-                    return "&lt;&lt;";
-                case "prev":
-                    return "&lt;";
-                case "next":
-                    return "&gt;";
-                case "last":
-                    return "&gt;&gt;";
-                case "page":
-                    return page;
-            }
-        },
-        tooltipTitles: function (type, page, current) {
-
-            switch (type) {
-                case "first":
-                    return "Go to first page";
-                case "prev":
-                    return "Go to previous page";
-                case "next":
-                    return "Go to next page";
-                case "last":
-                    return "Go to last page";
-                case "page":
-                    return page === current ? "Current page is " + page : "Go to page " + page;
-            }
-        },
-        bootstrapTooltipOptions: {
-            animation: true,
-            html: true,
-            placement: 'top',
-            selector: false,
-            title: "",
-            container: false
-        }
-    };
-
-    $.fn.bootstrapPaginator.Constructor = BootstrapPaginator;
-})(window.jQuery);
-
-/***/ }),
-/* 14 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NUGET: BEGIN LICENSE TEXT
@@ -12984,15 +12106,672 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     });
   }), x.fn.size = function () {
     return this.length;
-  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(22) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(9) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
     return x;
   }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)));
 })(window);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)(module)))
 
 /***/ }),
-/* 15 */
+/* 4 */
+/***/ (function(module, exports) {
+
+/**
+ * bootstrap-paginator.js v0.5
+ * --
+ * Copyright 2013 Yun Lai <lyonlai1984@gmail.com>
+ * --
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function ($) {
+
+    "use strict"; // jshint ;_;
+
+
+    /* Paginator PUBLIC CLASS DEFINITION
+     * ================================= */
+
+    /**
+     * Boostrap Paginator Constructor
+     *
+     * @param element element of the paginator
+     * @param options the options to config the paginator
+     *
+     * */
+
+    var BootstrapPaginator = function (element, options) {
+        this.init(element, options);
+    },
+        old = null;
+
+    BootstrapPaginator.prototype = {
+
+        /**
+         * Initialization function of the paginator, accepting an element and the options as parameters
+         *
+         * @param element element of the paginator
+         * @param options the options to config the paginator
+         *
+         * */
+        init: function (element, options) {
+
+            this.$element = $(element);
+
+            var version = options && options.bootstrapMajorVersion ? options.bootstrapMajorVersion : $.fn.bootstrapPaginator.defaults.bootstrapMajorVersion,
+                id = this.$element.attr("id");
+
+            if (version === 2 && !this.$element.is("div")) {
+
+                throw "in Bootstrap version 2 the pagination must be a div element. Or if you are using Bootstrap pagination 3. Please specify it in bootstrapMajorVersion in the option";
+            } else if (version > 2 && !this.$element.is("ul")) {
+                throw "in Bootstrap version 3 the pagination root item must be an ul element.";
+            }
+
+            this.currentPage = 1;
+
+            this.lastPage = 1;
+
+            this.setOptions(options);
+
+            this.initialized = true;
+        },
+
+        /**
+         * Update the properties of the paginator element
+         *
+         * @param options options to config the paginator
+         * */
+        setOptions: function (options) {
+
+            this.options = $.extend({}, this.options || $.fn.bootstrapPaginator.defaults, options);
+
+            this.totalPages = parseInt(this.options.totalPages, 10); //setup the total pages property.
+            this.numberOfPages = parseInt(this.options.numberOfPages, 10); //setup the numberOfPages to be shown
+
+            //move the set current page after the setting of total pages. otherwise it will cause out of page exception.
+            if (options && typeof options.currentPage !== 'undefined') {
+
+                this.setCurrentPage(options.currentPage);
+            }
+
+            this.listen();
+
+            //render the paginator
+            this.render();
+
+            if (!this.initialized && this.lastPage !== this.currentPage) {
+                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
+            }
+        },
+
+        /**
+         * Sets up the events listeners. Currently the pageclicked and pagechanged events are linked if available.
+         *
+         * */
+        listen: function () {
+
+            this.$element.off("page-clicked");
+
+            this.$element.off("page-changed"); // unload the events for the element
+
+            if (typeof this.options.onPageClicked === "function") {
+                this.$element.bind("page-clicked", this.options.onPageClicked);
+            }
+
+            if (typeof this.options.onPageChanged === "function") {
+                this.$element.on("page-changed", this.options.onPageChanged);
+            }
+
+            this.$element.bind("page-clicked", this.onPageClicked);
+        },
+
+        /**
+         *
+         *  Destroys the paginator element, it unload the event first, then empty the content inside.
+         *
+         * */
+        destroy: function () {
+
+            this.$element.off("page-clicked");
+
+            this.$element.off("page-changed");
+
+            this.$element.removeData('bootstrapPaginator');
+
+            this.$element.empty();
+        },
+
+        /**
+         * Shows the page
+         *
+         * */
+        show: function (page) {
+
+            this.setCurrentPage(page);
+
+            this.render();
+
+            if (this.lastPage !== this.currentPage) {
+                this.$element.trigger("page-changed", [this.lastPage, this.currentPage]);
+            }
+        },
+
+        /**
+         * Shows the next page
+         *
+         * */
+        showNext: function () {
+            var pages = this.getPages();
+
+            if (pages.next) {
+                this.show(pages.next);
+            }
+        },
+
+        /**
+         * Shows the previous page
+         *
+         * */
+        showPrevious: function () {
+            var pages = this.getPages();
+
+            if (pages.prev) {
+                this.show(pages.prev);
+            }
+        },
+
+        /**
+         * Shows the first page
+         *
+         * */
+        showFirst: function () {
+            var pages = this.getPages();
+
+            if (pages.first) {
+                this.show(pages.first);
+            }
+        },
+
+        /**
+         * Shows the last page
+         *
+         * */
+        showLast: function () {
+            var pages = this.getPages();
+
+            if (pages.last) {
+                this.show(pages.last);
+            }
+        },
+
+        /**
+         * Internal on page item click handler, when the page item is clicked, change the current page to the corresponding page and
+         * trigger the pageclick event for the listeners.
+         *
+         *
+         * */
+        onPageItemClicked: function (event) {
+
+            var type = event.data.type,
+                page = event.data.page;
+
+            this.$element.trigger("page-clicked", [event, type, page]);
+        },
+
+        onPageClicked: function (event, originalEvent, type, page) {
+
+            //show the corresponding page and retrieve the newly built item related to the page clicked before for the event return
+
+            var currentTarget = $(event.currentTarget);
+
+            switch (type) {
+                case "first":
+                    currentTarget.bootstrapPaginator("showFirst");
+                    break;
+                case "prev":
+                    currentTarget.bootstrapPaginator("showPrevious");
+                    break;
+                case "next":
+                    currentTarget.bootstrapPaginator("showNext");
+                    break;
+                case "last":
+                    currentTarget.bootstrapPaginator("showLast");
+                    break;
+                case "page":
+                    currentTarget.bootstrapPaginator("show", page);
+                    break;
+            }
+        },
+
+        /**
+         * Renders the paginator according to the internal properties and the settings.
+         *
+         *
+         * */
+        render: function () {
+
+            //fetch the container class and add them to the container
+            var containerClass = this.getValueFromOption(this.options.containerClass, this.$element),
+                size = this.options.size || "normal",
+                alignment = this.options.alignment || "left",
+                pages = this.getPages(),
+                listContainer = this.options.bootstrapMajorVersion === 2 ? $("<ul></ul>") : this.$element,
+                listContainerClass = this.options.bootstrapMajorVersion === 2 ? this.getValueFromOption(this.options.listContainerClass, listContainer) : null,
+                first = null,
+                prev = null,
+                next = null,
+                last = null,
+                p = null,
+                i = 0;
+
+            this.$element.prop("class", "");
+
+            this.$element.addClass("pagination");
+
+            switch (size.toLowerCase()) {
+                case "large":
+                case "small":
+                case "mini":
+                    this.$element.addClass($.fn.bootstrapPaginator.sizeArray[this.options.bootstrapMajorVersion][size.toLowerCase()]);
+                    break;
+                default:
+                    break;
+            }
+
+            if (this.options.bootstrapMajorVersion === 2) {
+                switch (alignment.toLowerCase()) {
+                    case "center":
+                        this.$element.addClass("pagination-centered");
+                        break;
+                    case "right":
+                        this.$element.addClass("pagination-right");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            this.$element.addClass(containerClass);
+
+            //empty the outter most container then add the listContainer inside.
+            this.$element.empty();
+
+            if (this.options.bootstrapMajorVersion === 2) {
+                this.$element.append(listContainer);
+
+                listContainer.addClass(listContainerClass);
+            }
+
+            //update the page element reference
+            this.pageRef = [];
+
+            if (pages.first) {
+                //if the there is first page element
+                first = this.buildPageItem("first", pages.first);
+
+                if (first) {
+                    listContainer.append(first);
+                }
+            }
+
+            if (pages.prev) {
+                //if the there is previous page element
+
+                prev = this.buildPageItem("prev", pages.prev);
+
+                if (prev) {
+                    listContainer.append(prev);
+                }
+            }
+
+            for (i = 0; i < pages.length; i = i + 1) {
+                //fill the numeric pages.
+
+                p = this.buildPageItem("page", pages[i]);
+
+                if (p) {
+                    listContainer.append(p);
+                }
+            }
+
+            if (pages.next) {
+                //if there is next page
+
+                next = this.buildPageItem("next", pages.next);
+
+                if (next) {
+                    listContainer.append(next);
+                }
+            }
+
+            if (pages.last) {
+                //if there is last page
+
+                last = this.buildPageItem("last", pages.last);
+
+                if (last) {
+                    listContainer.append(last);
+                }
+            }
+        },
+
+        /**
+         *
+         * Creates a page item base on the type and page number given.
+         *
+         * @param page page number
+         * @param type type of the page, whether it is the first, prev, page, next, last
+         *
+         * @return Object the constructed page element
+         * */
+        buildPageItem: function (type, page) {
+
+            var itemContainer = $("<li></li>"),
+                //creates the item container
+            itemContent = $("<a></a>"),
+                //creates the item content
+            text = "",
+                title = "",
+                itemContainerClass = this.options.itemContainerClass(type, page, this.currentPage),
+                itemContentClass = this.getValueFromOption(this.options.itemContentClass, type, page, this.currentPage),
+                tooltipOpts = null;
+
+            switch (type) {
+
+                case "first":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "last":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "prev":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "next":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+                case "page":
+                    if (!this.getValueFromOption(this.options.shouldShowPage, type, page, this.currentPage)) {
+                        return;
+                    }
+                    text = this.options.itemTexts(type, page, this.currentPage);
+                    title = this.options.tooltipTitles(type, page, this.currentPage);
+                    break;
+            }
+
+            itemContainer.addClass(itemContainerClass).append(itemContent);
+
+            itemContent.addClass(itemContentClass).html(text).on("click", null, { type: type, page: page }, $.proxy(this.onPageItemClicked, this));
+
+            if (this.options.pageUrl) {
+                itemContent.attr("href", this.getValueFromOption(this.options.pageUrl, type, page, this.currentPage));
+            }
+
+            if (this.options.useBootstrapTooltip) {
+                tooltipOpts = $.extend({}, this.options.bootstrapTooltipOptions, { title: title });
+
+                itemContent.tooltip(tooltipOpts);
+            } else {
+                itemContent.attr("title", title);
+            }
+
+            return itemContainer;
+        },
+
+        setCurrentPage: function (page) {
+            if (page > this.totalPages || page < 1) {
+                // if the current page is out of range, throw exception.
+
+                throw "Page out of range";
+            }
+
+            this.lastPage = this.currentPage;
+
+            this.currentPage = parseInt(page, 10);
+        },
+
+        /**
+         * Gets an array that represents the current status of the page object. Numeric pages can be access via array mode. length attributes describes how many numeric pages are there. First, previous, next and last page can be accessed via attributes first, prev, next and last. Current attribute marks the current page within the pages.
+         *
+         * @return object output objects that has first, prev, next, last and also the number of pages in between.
+         * */
+        getPages: function () {
+
+            var totalPages = this.totalPages,
+                // get or calculate the total pages via the total records
+            pageStart = this.currentPage % this.numberOfPages === 0 ? (parseInt(this.currentPage / this.numberOfPages, 10) - 1) * this.numberOfPages + 1 : parseInt(this.currentPage / this.numberOfPages, 10) * this.numberOfPages + 1,
+                //calculates the start page.
+            output = [],
+                i = 0,
+                counter = 0;
+
+            pageStart = pageStart < 1 ? 1 : pageStart; //check the range of the page start to see if its less than 1.
+
+            for (i = pageStart, counter = 0; counter < this.numberOfPages && i <= totalPages; i = i + 1, counter = counter + 1) {
+                //fill the pages
+                output.push(i);
+            }
+
+            output.first = 1; //add the first when the current page leaves the 1st page.
+
+            if (this.currentPage > 1) {
+                // add the previous when the current page leaves the 1st page
+                output.prev = this.currentPage - 1;
+            } else {
+                output.prev = 1;
+            }
+
+            if (this.currentPage < totalPages) {
+                // add the next page when the current page doesn't reach the last page
+                output.next = this.currentPage + 1;
+            } else {
+                output.next = totalPages;
+            }
+
+            output.last = totalPages; // add the last page when the current page doesn't reach the last page
+
+            output.current = this.currentPage; //mark the current page.
+
+            output.total = totalPages;
+
+            output.numberOfPages = this.options.numberOfPages;
+
+            return output;
+        },
+
+        /**
+         * Gets the value from the options, this is made to handle the situation where value is the return value of a function.
+         *
+         * @return mixed value that depends on the type of parameters, if the given parameter is a function, then the evaluated result is returned. Otherwise the parameter itself will get returned.
+         * */
+        getValueFromOption: function (value) {
+
+            var output = null,
+                args = Array.prototype.slice.call(arguments, 1);
+
+            if (typeof value === 'function') {
+                output = value.apply(this, args);
+            } else {
+                output = value;
+            }
+
+            return output;
+        }
+
+    };
+
+    /* TYPEAHEAD PLUGIN DEFINITION
+     * =========================== */
+
+    old = $.fn.bootstrapPaginator;
+
+    $.fn.bootstrapPaginator = function (option) {
+
+        var args = arguments,
+            result = null;
+
+        $(this).each(function (index, item) {
+            var $this = $(item),
+                data = $this.data('bootstrapPaginator'),
+                options = typeof option !== 'object' ? null : option;
+
+            if (!data) {
+                data = new BootstrapPaginator(this, options);
+
+                $this = $(data.$element);
+
+                $this.data('bootstrapPaginator', data);
+
+                return;
+            }
+
+            if (typeof option === 'string') {
+
+                if (data[option]) {
+                    result = data[option].apply(data, Array.prototype.slice.call(args, 1));
+                } else {
+                    throw "Method " + option + " does not exist";
+                }
+            } else {
+                result = data.setOptions(option);
+            }
+        });
+
+        return result;
+    };
+
+    $.fn.bootstrapPaginator.sizeArray = {
+
+        "2": {
+            "large": "pagination-large",
+            "small": "pagination-small",
+            "mini": "pagination-mini"
+        },
+        "3": {
+            "large": "pagination-lg",
+            "small": "pagination-sm",
+            "mini": ""
+        }
+
+    };
+
+    $.fn.bootstrapPaginator.defaults = {
+        containerClass: "",
+        size: "normal",
+        alignment: "left",
+        bootstrapMajorVersion: 2,
+        listContainerClass: "",
+        itemContainerClass: function (type, page, current) {
+            return page === current ? "active" : "";
+        },
+        itemContentClass: function (type, page, current) {
+            return "";
+        },
+        currentPage: 1,
+        numberOfPages: 5,
+        totalPages: 1,
+        pageUrl: function (type, page, current) {
+            return null;
+        },
+        onPageClicked: null,
+        onPageChanged: null,
+        useBootstrapTooltip: false,
+        shouldShowPage: function (type, page, current) {
+
+            var result = true;
+
+            switch (type) {
+                case "first":
+                    result = current !== 1;
+                    break;
+                case "prev":
+                    result = current !== 1;
+                    break;
+                case "next":
+                    result = current !== this.totalPages;
+                    break;
+                case "last":
+                    result = current !== this.totalPages;
+                    break;
+                case "page":
+                    result = true;
+                    break;
+            }
+
+            return result;
+        },
+        itemTexts: function (type, page, current) {
+            switch (type) {
+                case "first":
+                    return "&lt;&lt;";
+                case "prev":
+                    return "&lt;";
+                case "next":
+                    return "&gt;";
+                case "last":
+                    return "&gt;&gt;";
+                case "page":
+                    return page;
+            }
+        },
+        tooltipTitles: function (type, page, current) {
+
+            switch (type) {
+                case "first":
+                    return "Go to first page";
+                case "prev":
+                    return "Go to previous page";
+                case "next":
+                    return "Go to next page";
+                case "last":
+                    return "Go to last page";
+                case "page":
+                    return page === current ? "Current page is " + page : "Go to page " + page;
+            }
+        },
+        bootstrapTooltipOptions: {
+            animation: true,
+            html: true,
+            placement: 'top',
+            selector: false,
+            title: "",
+            container: false
+        }
+    };
+
+    $.fn.bootstrapPaginator.Constructor = BootstrapPaginator;
+})(window.jQuery);
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -13182,7 +12961,7 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 16 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -13367,10 +13146,10 @@ process.umask = function () {
     attachTo.setImmediate = setImmediate;
     attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(15)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(5)))
 
 /***/ }),
-/* 17 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
@@ -13422,7 +13201,7 @@ exports._unrefActive = exports.active = function (item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(16);
+__webpack_require__(6);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -13431,7 +13210,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = function (module) {
@@ -13458,115 +13237,16 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 9 */
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(20);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b"]; });
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
 
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table table-bordered" },
-    [
-      _c("thead", [
-        _c("tr", { staticClass: "success" }, [
-          _c("th", { staticClass: "text-center col-md-1" }, [
-            _vm._v("单据类型")
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-2" }, [
-            _vm._v(_vm._s(_vm.itemtype == "good" ? "商品编号" : "订单编号"))
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-2" }, [
-            _vm._v("游戏名称")
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-1" }, [
-            _vm._v("交易类型")
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("关键词")]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-4" }, [
-            _vm._v("商品标题")
-          ]),
-          _vm._v(" "),
-          _c("th", { staticClass: "text-center col-md-1" }, [
-            _vm._v("审核商品")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.goodinfoarray, function(item) {
-        return _c("tbody", [
-          _c("tr", [
-            _c("td", { staticClass: "text-center" }, [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(_vm.itemtype == "good" ? "商品" : "订单"))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                _vm._s(_vm.itemtype == "good" ? item.GoodNo : item.OrderNo)
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GameName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
-            _vm._v(" "),
-            _c("td", { staticClass: "text-center" }, [
-              _c("input", {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "button",
-                  flag: item.Status,
-                  value:
-                    item.Status == "PutOnsale" || item.Status == "PutDownsale"
-                      ? "查看"
-                      : "审核"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item.GoodNo)
-                  }
-                }
-              })
-            ])
-          ])
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 21 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13667,13 +13347,339 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports) {
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
-module.exports = __webpack_amd_options__;
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* WEBPACK VAR INJECTION */}.call(exports, {}))
+/* harmony default export */ __webpack_exports__["a"] = ({
+    name: 'BaseTable',
+    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype']
+});
+
+/***/ }),
+/* 12 */,
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(11);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_script_lang_js__["a" /* default */]); 
+
+/***/ }),
+/* 14 */,
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(13);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(10);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("D:\\bay\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('93bba3e8', component.options)
+    } else {
+      api.reload('93bba3e8', component.options)
+    }
+    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&lang=html", function () {
+      api.rerender('93bba3e8', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\table-Process.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(15);
+
+
+
+
+let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
+
+let vmData = {
+    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+    PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
+    ItemType: "good", //单据类型
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+    },
+    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
+    CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
+    CheckGoodNo: "", //模态框打开的GoodNo
+    keyword: "",
+    GoodInfoArray: [],
+    ListObj: [{
+        GoodNo: "",
+        GoodFirstPicture: "",
+        aurl: "",
+        GoodTitle: "",
+        GroupName: "",
+        ServerName: "",
+        GoodPrice: ""
+    }],
+    SearchParam: {
+        Param: { //查询条件的参数
+            GoodNo: "",
+            OrderNo: "",
+            Status: pagetype,
+            SelectType: "good", //form里选择的商品类型
+            SelectNo: "" //form里面选择的编号
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#CommForm',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            //获取商品的简要列表
+            $("#QueryList").Btns("loading");
+            var self = this;
+            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
+            //后台传值：
+            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+                $("#QueryList").Btns("reset");
+                if (data.result) {
+                    self.GoodInfoArray = data.content.datas;
+                    self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            }, function () {
+                $("#QueryList").Btns("reset");
+            });
+        },
+        StartCheck(GoodNo) {
+            //开始检查
+            var self = this;
+            self.CheckGoodNo = GoodNo;
+            $("#checkModal").modal("show");
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
+        },
+        CheckGoods(flag) {
+            var self = this;
+            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
+            self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
+            if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
+                $("#CheckConfirm").Btns("loading");
+                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                    if (data.result) {
+                        alert("审批成功!");
+                    }
+                    $("#checkModal").modal("hide");
+                    $("#CheckConfirm").Btns("reset");
+                }, function () {
+                    $("#CheckConfirm").Btns("reset");
+                });
+            }
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+    }
+});
+
+//剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
+
+/***/ }),
+/* 24 */,
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(27);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b"]; });
+
+
+/***/ }),
+/* 26 */,
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "table",
+    { staticClass: "table table-bordered" },
+    [
+      _c("thead", [
+        _c("tr", { staticClass: "success" }, [
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("单据类型")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-2" }, [
+            _vm._v(_vm._s(_vm.itemtype == "good" ? "商品编号" : "订单编号"))
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-2" }, [
+            _vm._v("游戏名称")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("交易类型")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("关键词")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-4" }, [
+            _vm._v("商品标题")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "text-center col-md-1" }, [
+            _vm._v("审核商品")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.goodinfoarray, function(item) {
+        return _c("tbody", [
+          _c("tr", [
+            _c("td", { staticClass: "text-center" }, [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(_vm.itemtype == "good" ? "商品" : "订单"))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(_vm.itemtype == "good" ? item.GoodNo : item.OrderNo)
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GameName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
+            _vm._v(" "),
+            _c("td", { staticClass: "text-center" }, [
+              _c("input", {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "button",
+                  flag: item.Status,
+                  value:
+                    item.Status == "PutOnsale" || item.Status == "PutDownsale"
+                      ? "查看"
+                      : "审核"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item.GoodNo)
+                  }
+                }
+              })
+            ])
+          ])
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ })
 /******/ ]);

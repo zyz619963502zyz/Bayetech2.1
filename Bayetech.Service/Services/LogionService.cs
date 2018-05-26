@@ -1,5 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Bayetech.Core.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Bayetech.Service
 {
@@ -24,13 +26,15 @@ namespace Bayetech.Service
                     string dbPassword = Md5.EncryptString(_admin_Sys_User.Password);
                     if (dbPassword == _adminUser.Password)
                     {
-                        Login _currentLogin = new Login();
+                        CurrentLogin _currentLogin = new CurrentLogin();
                         _currentLogin.UserName = _adminUser.UserName;
                         _currentLogin.PassWord = _adminUser.Password;
                         _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
-                        repository.Insert(_currentLogin);
+                        HttpContext.Current.Session["CurrentLogin"] = _currentLogin;
+                        HttpContext.Current.Session.Timeout = 30;
+                        //repository.Insert(_currentLogin);
                         result.Add(ResultInfo.Result, JProperty.FromObject(true));
                         result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
                     }
