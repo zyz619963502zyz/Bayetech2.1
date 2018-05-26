@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controller
 {
-    public class LoginController : ApiController
+    public class LoginController : BaseController
     {
         ILogionService logionService = new LogionService();
         /// <summary>
@@ -38,6 +38,8 @@ namespace Bayetech.Admin.Controller
         /// <returns></returns>
         public bool LoginOut()
         {
+
+            var ss = CurrentLogin.Admin;
             HttpContext.Current.Session.Clear();
             return true;
         }

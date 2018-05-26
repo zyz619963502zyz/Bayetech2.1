@@ -27,10 +27,11 @@ namespace Bayetech.Service
                         _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
-                        System.Web.HttpContext.Current.Session["CurrentLogin"] = _currentLogin;
-                        System.Web.HttpContext.Current.Session.Timeout = 30;
 
-                        var ss = System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new CurrentLogin();
+                        var cont= System.Web.HttpContext.Current;
+                        cont.Session["CurrentLogin"] = _currentLogin;
+
+                        var dd= System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new CurrentLogin();
                         result.Add(ResultInfo.Result, JToken.FromObject(true));
                         result.Add(ResultInfo.Content, JToken.FromObject(_currentLogin.Message));
                     }

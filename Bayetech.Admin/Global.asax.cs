@@ -10,6 +10,17 @@ namespace Bayetech.Admin
 {
     public class WebApiApplication : HttpApplication
     {
+        public override void Init()
+        {
+            this.PostAuthenticateRequest += (sender, e) => HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            base.Init();
+        }
+
+        private void WebApiApplication_PostAuthenticateRequest(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
