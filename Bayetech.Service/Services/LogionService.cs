@@ -33,6 +33,7 @@ namespace Bayetech.Service
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
                         HttpContext.Current.Session["CurrentLogin"] = _currentLogin;
+                        
                         HttpContext.Current.Session.Timeout = 30;
                         //repository.Insert(_currentLogin);
                         result.Add(ResultInfo.Result, JProperty.FromObject(true));
