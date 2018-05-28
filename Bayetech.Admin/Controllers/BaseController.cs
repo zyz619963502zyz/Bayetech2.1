@@ -6,7 +6,7 @@ using System;
 using System.Web;
 using System.Web.Http;
 
-namespace Bayetech.Admin.Controllers
+namespace Bayetech.Admin
 {
     public class BaseController : ApiController
     {
@@ -42,7 +42,8 @@ namespace Bayetech.Admin.Controllers
         /// <param name="staffid">获取token的员工编号ID 
         /// </param>
         /// <returns></returns>
-        public static JObject GetToken(string staffid)
+        [HttpGet]
+        public JObject GetToken(string staffid)
         {
             JObject ret = new JObject();
 
@@ -61,7 +62,7 @@ namespace Bayetech.Admin.Controllers
                 token.TokenId = Guid.NewGuid().ToString();
                 token.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
             }
-            ret.Add("Token", JObject.FromObject(token));
+            ret.Add("Data", JObject.FromObject(token));
             return ret;
         }
     }

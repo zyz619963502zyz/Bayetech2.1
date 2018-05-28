@@ -9,8 +9,8 @@ var data = {
         _comCompnent:comCompnent,
     },
     Param:{
-        UserName:"123",
-        Password:"123",
+        UserName:"admin",
+        Password:"111111",
     }
 }
 
