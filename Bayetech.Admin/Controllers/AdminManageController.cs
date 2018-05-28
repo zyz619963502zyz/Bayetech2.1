@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Web.Http;
-using Bayetech.Core.Model;
 
 namespace Bayetech.Admin.Controllers
 {

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bayetech.Core;
+using Newtonsoft.Json.Linq;
 using Spring.Context;
 using Spring.Context.Support;
 using System.Web.Http;
@@ -27,9 +28,9 @@ namespace Bayetech.Admin.Controllers
                 return new JObject(content);
             }
         }
-        public Core.Model.CurrentLogin CurrentLogin
+        public CurrentLogin CurrentLogin
         {
-            get { return (Core.Model.CurrentLogin)System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new Core.Model.CurrentLogin(); }
+            get { return (CurrentLogin)System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new CurrentLogin(); }
         }
     }
 }

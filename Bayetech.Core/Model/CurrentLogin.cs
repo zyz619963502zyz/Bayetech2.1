@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bayetech.Core.Model
+namespace Bayetech.Core
 {
     public class CurrentLogin
     {
@@ -23,11 +23,20 @@ namespace Bayetech.Core.Model
     //用户令牌对象
     public class Token {
         //生成的令牌信息
-        public string TokenId { get; set; }
+        public string StaffId { get; set; }
         //生成的令牌编码
-        public string TokenCode { get; set; }
-        //TokenMess提示信息
-        public string TokenMess { get; set; }
+        public string TokenId { get; set; }
+        //Token的过期时间
+        public DateTime ExpireTime { get; set; }
+        //StatusCode状态码
+        public StatusCodeEnum StatusCode { get; set; }
+
     }
 
+
+    public enum StatusCodeEnum {
+        Success,
+        Error,
+        HaveNoContent
+    }
 }

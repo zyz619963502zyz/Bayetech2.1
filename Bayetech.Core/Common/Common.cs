@@ -4,8 +4,8 @@ using System.Data.Entity.Validation;
 using System.Text;
 using System.Web;
 using Newtonsoft.Json.Linq;
-using Bayetech.Core.Model;
-using System.Web.SessionState;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Bayetech.Core
 {
@@ -187,6 +187,12 @@ namespace Bayetech.Core
         }
 
 
+        /// <summary>
+        /// 获取token对象
+        /// </summary>
+        /// <param name="staffid">获取token的员工编号ID 
+        /// </param>
+        /// <returns></returns>
         public static JObject GetToken(string staffid)
         {
             JObject ret = new JObject();
@@ -199,13 +205,82 @@ namespace Bayetech.Core
             }
 
             //比对缓存没有则重新生成
-            Token token = new Token();
-         
-            //if (Session[staffid] == token.TokenId)
-            //{
-
-            //}
+            Token token = (Token)HttpContext.Current.Session[staffid];
+            if (HttpContext.Current.Session[staffid] == null)
+            {
+                token = new Token();
+                token.TokenId = Guid.NewGuid().ToString();
+                token.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
+            }
+            ret.Add("Token",JObject.FromObject(token));
             return ret;
+        }
+
+        /// <summary>
+        /// 将请求的参数重新设计混合到未来的签名中
+        /// </summary>
+        public static Tuple<string,string> SignRequest(Dictionary<string,string> parames) {
+            // 第一步：把字典按Key的字母顺序排序
+            IDictionary<string, string> sortedParams = new SortedDictionary<string, string>(parames);
+            IEnumerator<KeyValuePair<string, string>> dem = sortedParams.GetEnumerator();
+
+            // 第二步：把所有参数名和参数值串在一起
+            StringBuilder query = new StringBuilder("");  //签名字符串
+            StringBuilder queryStr = new StringBuilder(""); //url参数
+            if (parames == null || parames.Count == 0)
+                return new Tuple<string, string>("", "");
+
+            while (dem.MoveNext())
+            {
+                string key = dem.Current.Key;
+                string value = dem.Current.Value;
+                if (!string.IsNullOrEmpty(key))
+                {
+                    query.Append(key).Append(value);
+                    queryStr.Append("&").Append(key).Append("=").Append(value);
+                }
+            }
+
+            return new Tuple<string,string>(query.ToString(),queryStr.ToString().Substring(1,queryStr.Length-1));
+        }
+
+
+        /// <summary>
+        /// 获取签名
+        /// </summary>
+        /// <param name="timeStamp"></param>
+        /// <param name="nonce"></param>
+        /// <param name="staffId"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private static string GetSignature(string timeStamp, string nonce, string staffId, string data)
+        {
+            Token token = null;
+            var resultMsg = GetToken(staffId);
+            if (resultMsg != null)
+            {
+                token = JsonConvert.DeserializeObject<Token>(resultMsg["Token"].ToString());
+            }   
+            else
+            {
+                throw new Exception("token为null，员工编号为：" + staffId);
+            }
+
+            var hash = System.Security.Cryptography.MD5.Create();
+            //拼接签名数据
+            var signStr = timeStamp + nonce + staffId + token.TokenId.ToString() + data;
+            //将字符串中字符按升序排序
+            var sortStr = string.Concat(signStr.OrderBy(c => c));
+            var bytes = Encoding.UTF8.GetBytes(sortStr);
+            //使用MD5加密
+            var md5Val = hash.ComputeHash(bytes);
+            //把二进制转化为大写的十六进制
+            StringBuilder result = new StringBuilder();
+            foreach (var c in md5Val)
+            {
+                result.Append(c.ToString("X2"));
+            }
+            return result.ToString().ToUpper();
         }
     }
 }

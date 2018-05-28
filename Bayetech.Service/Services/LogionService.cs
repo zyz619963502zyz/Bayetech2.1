@@ -3,7 +3,6 @@ using Bayetech.Core.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using Bayetech.Core.Model;
 
 namespace Bayetech.Service
 {
