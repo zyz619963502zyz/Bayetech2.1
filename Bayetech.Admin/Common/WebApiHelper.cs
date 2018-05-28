@@ -1,14 +1,12 @@
-﻿using Client.Common;
+﻿using Bayetech.Core;
 using Client.Entity;
 using Newtonsoft.Json;
-using Server.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Client.Common
 {
@@ -145,7 +143,7 @@ namespace Client.Common
 
             var hash = System.Security.Cryptography.MD5.Create();
             //拼接签名数据
-            var signStr = timeStamp +nonce+ staffId + token.SignToken.ToString() + data;
+            var signStr = timeStamp +nonce+ staffId + token.TokenId.ToString() + data;
             //将字符串中字符按升序排序
             var sortStr = string.Concat(signStr.OrderBy(c => c));
             var bytes = Encoding.UTF8.GetBytes(sortStr);

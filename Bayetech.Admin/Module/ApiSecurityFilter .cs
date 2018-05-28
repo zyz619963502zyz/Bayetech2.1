@@ -44,7 +44,7 @@ namespace Bayetech.Admin
                 if (string.IsNullOrEmpty(staffid) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce))
                 { 
                     resultMsg = new ResultMsg();
-                    resultMsg.StatusCode = "Error";
+                    resultMsg.StatusCode = 1111;
                     resultMsg.Info = "答案是错误的";
                     resultMsg.Data = null;
                     //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
@@ -63,7 +63,7 @@ namespace Bayetech.Admin
             if (string.IsNullOrEmpty(staffid) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce) || string.IsNullOrEmpty(signature))
             {
                 resultMsg = new ResultMsg();
-                resultMsg.StatusCode = "Error";
+                resultMsg.StatusCode = 1111;
                 resultMsg.Info = "123132";
                 resultMsg.Data = null;
                 //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
@@ -81,7 +81,7 @@ namespace Bayetech.Admin
             if (falg || (!timespanvalidate))
             {
                 resultMsg = new ResultMsg();
-                resultMsg.StatusCode = "ExpireError";
+                resultMsg.StatusCode = 1111;
                 resultMsg.Info = "";
                 resultMsg.Data = null;
                 //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
@@ -96,7 +96,7 @@ namespace Bayetech.Admin
             if (HttpRuntime.Cache.Get(id.ToString()) == null)
             {
                 resultMsg = new ResultMsg();
-                resultMsg.StatusCode = "TokenInvalid";
+                resultMsg.StatusCode = 111;
                 resultMsg.Info = "";
                 resultMsg.Data = null;
                 //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));

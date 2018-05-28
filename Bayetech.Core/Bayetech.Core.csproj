@@ -254,7 +254,6 @@
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
     <Compile Include="Enum\ResultInfo.cs" />
-    <Compile Include="Enum\ResultMsg.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Model\CurrentLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
