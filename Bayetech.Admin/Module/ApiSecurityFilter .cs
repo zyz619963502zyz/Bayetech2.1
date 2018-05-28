@@ -42,7 +42,7 @@ namespace Bayetech.Admin
             if (actionContext.ActionDescriptor.ActionName == "GetToken")
             {
                 if (string.IsNullOrEmpty(staffid) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce))
-                {
+                { 
                     resultMsg = new ResultMsg();
                     resultMsg.StatusCode = "Error";
                     resultMsg.Info = "答案是错误的";
