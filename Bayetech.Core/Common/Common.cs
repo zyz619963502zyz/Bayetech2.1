@@ -4,8 +4,6 @@ using System.Data.Entity.Validation;
 using System.Text;
 using System.Web;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Linq;
 
 namespace Bayetech.Core
 {
@@ -185,36 +183,5 @@ namespace Bayetech.Core
             jObect.Add("content", JToken.FromObject(result));
             return jObect;
         }
-
-
-        /// <summary>
-        /// 获取token对象
-        /// </summary>
-        /// <param name="staffid">获取token的员工编号ID 
-        /// </param>
-        /// <returns></returns>
-        public static JObject GetToken(string staffid)
-        {
-            JObject ret = new JObject();
-
-            //判断staffid是否合法
-            if (string.IsNullOrEmpty(staffid))
-            {
-                ret.Add(ResultInfo.Result, false);
-                ret.Add(ResultInfo.Content, JToken.FromObject("staffid不合法，请稍后重试。"));
-            }
-
-            //比对缓存没有则重新生成
-            Token token = (Token)HttpContext.Current.Session[staffid];
-            if (HttpContext.Current.Session[staffid] == null)
-            {
-                token = new Token();
-                token.TokenId = Guid.NewGuid().ToString();
-                token.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
-            }
-            ret.Add("Token",JObject.FromObject(token));
-            return ret;
-        }
-
     }
 }

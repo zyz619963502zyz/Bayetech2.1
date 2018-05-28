@@ -1,5 +1,4 @@
 ﻿using Bayetech.Core;
-using Client.Entity;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace Client.Common
+namespace Bayetech.Admin
 {
     public class WebApiHelper
     {
@@ -109,7 +108,7 @@ namespace Client.Common
             Dictionary<string, string> parames = new Dictionary<string, string>();
             parames.Add("staffId", staffId.ToString());
             Tuple<string,string> parameters = GetQueryString(parames);
-            TokenResultMsg token = WebApiHelper.Get<TokenResultMsg>(tokenApi, parameters.Item1,parameters.Item2, staffId,false);
+            TokenResultMsg token = Get<TokenResultMsg>(tokenApi, parameters.Item1,parameters.Item2, staffId,false);
             return token;
         }
 
