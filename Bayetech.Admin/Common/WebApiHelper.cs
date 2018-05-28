@@ -66,7 +66,7 @@ namespace Client.Common
        /// <param name="queryStr"></param>
        /// <param name="staffId"></param>
        /// <returns></returns>
-        public static T Get<T>(string webApi,string query,string queryStr,int staffId,bool sign=true)
+        public static T Get<T>(string webApi,string query,string queryStr,long staffId,bool sign=true)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(webApi + "?" + queryStr);
             string timeStamp = GetTimeStamp();
@@ -103,7 +103,7 @@ namespace Client.Common
         /// </summary>
         /// <param name="userinfo"></param>
         /// <returns></returns>
-        public static TokenResultMsg GetSignToken(int staffId)
+        public static TokenResultMsg GetSignToken(long staffId)
         {
             string tokenApi = AppSettingsConfig.GetTokenApi;
             Dictionary<string, string> parames = new Dictionary<string, string>();
@@ -121,7 +121,7 @@ namespace Client.Common
         /// <param name="staffId"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static string GetSignature(string timeStamp,string nonce,int staffId,string data)
+        private static string GetSignature(string timeStamp,string nonce,long staffId,string data)
         {
             Token token = null;
             var resultMsg = GetSignToken(staffId);

@@ -15,7 +15,12 @@ namespace Bayetech.Service
     /// </summary>
     public class AdminManageService : BaseService<Admin_Sys_Users>,IAdminManageService
     {
-        
+        /// <summary>
+        /// 添加一个新的用户
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public JObject AddUser(JObject json, int UserId)
         {
             Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Users));
@@ -68,6 +73,10 @@ namespace Bayetech.Service
             return result;
         }
 
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <returns></returns>
         public JObject GetUserList()
         {
             var userList = repository.IQueryable<Admin_Sys_Users>();

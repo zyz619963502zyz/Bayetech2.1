@@ -1,5 +1,8 @@
 ﻿using Bayetech.Admin.Controllers;
+using Bayetech.Core;
 using Bayetech.Service;
+using Client.Common;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -24,7 +27,18 @@ namespace Bayetech.Admin.Controller
         {
             try
             {
-                return logionService.GetVerificationLogion(json);
+                JObject ret = new JObject();
+                ret = logionService.GetVerificationLogion(json);
+                if (ret["Result"] !=null && Convert.ToBoolean(ret["Result"].ToString()))
+                {
+                    CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
+                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginId);
+                }
+                else
+                {
+
+                }
+                return ret;
             }
             catch (Exception ex)
             {

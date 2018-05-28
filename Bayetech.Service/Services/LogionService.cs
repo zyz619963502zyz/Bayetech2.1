@@ -8,6 +8,11 @@ namespace Bayetech.Service
 {
     public class LogionService : BaseService<Admin_Sys_Users>, ILogionService
     {
+        /// <summary>
+        /// 获取用户登录信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         public JObject GetVerificationLogion(JObject json)
         {
             Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.ToString(), typeof(Admin_Sys_Users));
