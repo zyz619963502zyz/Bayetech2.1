@@ -1,6 +1,4 @@
 ﻿using Bayetech.Core;
-using Common.Logging.Configuration;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,7 +41,7 @@ namespace Bayetech.Admin
             //GetToken方法不需要进行签名验证
             if (actionContext.ActionDescriptor.ActionName == "GetToken")
             {
-                if (string.IsNullOrEmpty(staffid) || (!int.TryParse(staffid, out id) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce)))
+                if (string.IsNullOrEmpty(staffid) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce))
                 {
                     resultMsg = new ResultMsg();
                     resultMsg.StatusCode = "Error";
@@ -62,7 +60,7 @@ namespace Bayetech.Admin
 
 
             //判断请求头是否包含以下参数
-            if (string.IsNullOrEmpty(staffid) || (!int.TryParse(staffid, out id) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce) || string.IsNullOrEmpty(signature)))
+            if (string.IsNullOrEmpty(staffid) || string.IsNullOrEmpty(timestamp) || string.IsNullOrEmpty(nonce) || string.IsNullOrEmpty(signature))
             {
                 resultMsg = new ResultMsg();
                 resultMsg.StatusCode = "Error";
