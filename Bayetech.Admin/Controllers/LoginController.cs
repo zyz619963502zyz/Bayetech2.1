@@ -1,5 +1,4 @@
-﻿using Bayetech.Admin.Controllers;
-using Bayetech.Core;
+﻿using Bayetech.Core;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using System;
@@ -27,7 +26,7 @@ namespace Bayetech.Admin.Controller
                 if (ret["result"] !=null && Convert.ToBoolean(ret["result"].ToString()))
                 {
                     CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
-                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginId);
+                    var tokenResult = WebApiHelper.GetSignToken(Core.Common.IpToInt(loginContent.LoginIp));
                     Dictionary<string, string> param = new Dictionary<string, string>();
                     param.Add("id", "1");
                     param.Add("name", "wahaha");
