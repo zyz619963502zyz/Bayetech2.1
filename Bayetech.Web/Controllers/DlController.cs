@@ -62,8 +62,8 @@ namespace Bayetech.Web.Controllers
             vw_MallDLInfo dlInfo = new vw_MallDLInfo();
             dlInfo.DlNo = DlNo;
             Pagination page = Pagination.GetDefaultPagination("DlNo");
-            ret.Add("main",JProperty.FromObject(Dlian.GetDlInfoList(dlInfo, page))) ;
-            ret.Add("detail", JProperty.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
+            ret.Add("main",JToken.FromObject(Dlian.GetDlInfoList(dlInfo, page))) ;
+            ret.Add("detail", JToken.FromObject(Dlian.GetDlDetaiInfo(DlNo)));
             return ret;
         }
 

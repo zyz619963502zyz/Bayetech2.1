@@ -27,19 +27,17 @@ namespace Bayetech.Admin.Controller
                 {
                     CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
                     var tokenResult = WebApiHelper.GetSignToken(Core.Common.IpToInt(loginContent.LoginIp));
-                    Dictionary<string, string> param = new Dictionary<string, string>();
-                    param.Add("id", "1");
-                    param.Add("name", "wahaha");
-                    Tuple<string, string> parameters = WebApiHelper.GetQueryString(param);
-                    //HttpHelper.RedirectAndPOST(this.Page, "2.aspx", data);
-                    //var product1 = WebApiHelper.Get<ProductResultMsg>("http://localhost:5133/Page/BayMain.html", parameters.Item1, parameters.Item2, loginContent.LoginId);
-                    //Product product = new Product() { Id = 1, Name = "安慕希", Count = 10, Price = 58.8 };
-                    //var product2 = WebApiHelper.Post<ProductResultMsg>("http://localhost:5133/Page/BayMain.html", JsonConvert.SerializeObject(product), staffId);
-                    //Console.Read();
+                    if (tokenResult.StatusCode == (int)StatusCodeEnum.Success)//token找到成功
+                    {
+                        HttpContext.Current.Session[loginContent.LoginId.ToString()] = tokenResult;
+                        ret.Add(ResultInfo.Content, JToken.FromObject(tokenResult));
+                        ret.Add(ResultInfo.Result, "true");
+                    }
                 }
                 else
                 {
-
+                    ret.Add(ResultInfo.Content, JToken.FromObject("登录失败!"));
+                    ret.Add(ResultInfo.Result, "false");
                 }
                 return ret;
             }

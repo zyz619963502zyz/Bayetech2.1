@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Bayetech.DAL;
 using System.Collections.Generic;
 using System.Linq;
-using Bayetech.Core;
+using Bayetech.Core; 
 using System.Linq.Expressions;
 using System;
 
@@ -173,7 +173,7 @@ namespace Bayetech.Service
                 {
                    
                     ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, JProperty.FromObject("商品编号为空，请重新输入！"));
+                    ret.Add(ResultInfo.Content, JToken.FromObject("商品编号为空，请重新输入！"));
                 }
             }
             return ret;
