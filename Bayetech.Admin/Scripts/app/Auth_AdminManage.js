@@ -51,44 +51,24 @@ new Vue({
             var self = this;
             //后台传值：
             self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
-                $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.AdminSetsArray=data.content;
                     self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
-            },function(){
-                $("#QueryList").Btns("reset");
-            });
-        },
-        StartCheck(GoodNo) {//开始检查
-            var self = this;
-            self.CheckGoodNo = GoodNo;
-            $("#checkModal").modal("show");
-        },
-        TurnToPage(page){
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        },
-        CheckGoods(flag){
-            var self = this;
-            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
-            self.SearchParam.Param.Status = (flag=='Y'?'PutOnsale':'PutDownsale');
-            if (confirm(flag=='Y'?"确定审批通过？":"确认审批不通过？")) {
-               $("#CheckConfirm").Btns("loading");
-               self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                   if (data.result) {
-                       alert("审批成功!");
-                   } 
-                   $("#checkModal").modal("hide");
-                   $("#CheckConfirm").Btns("reset");
-               },function(){
-                  $("#CheckConfirm").Btns("reset");
-               });
-            }
+            })
         }
+        //StartCheck(GoodNo) {//开始检查
+        //    var self = this;
+        //    self.CheckGoodNo = GoodNo;
+        //    $("#checkModal").modal("show");
+        //},
+        //TurnToPage(page){
+        //    var self = this;
+        //    self.SearchParam.Pagination.rows = page;
+        //    self.findList();
+        //}
     },
     components:{
         comtable:componentTable
