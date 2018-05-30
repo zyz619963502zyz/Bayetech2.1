@@ -29,7 +29,7 @@ namespace Bayetech.Service
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
-                    ret.Add(ResultInfo.Content, JProperty.FromObject((count > 0 ? "" : Properties.Resources.Error_NoOrderNo)));
+                    ret.Add(ResultInfo.Content, JToken.FromObject((count > 0 ? "" : Properties.Resources.Error_NoOrderNo)));
                 }
                 else
                 {
@@ -106,8 +106,8 @@ namespace Bayetech.Service
                 }
 
                 ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
-                ret.Add("Games", JProperty.FromObject(ResultGames));
+                ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
+                ret.Add("Games", JToken.FromObject(ResultGames));
 
                 return ret;
             }

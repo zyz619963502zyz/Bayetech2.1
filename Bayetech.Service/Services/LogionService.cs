@@ -53,8 +53,8 @@ namespace Bayetech.Service
             }
             else
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("账户不存在,请联系管理员!"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("账户不存在,请联系管理员!"));
             }
             return result;
 

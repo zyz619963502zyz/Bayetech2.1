@@ -51,8 +51,8 @@ namespace Bayetech.Service
                             _currentLogin.Message = "登录成功";
                             db.Insert(_currentLogin);
                             db.Commit();
-                            result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                            result.Add(ResultInfo.Content, JProperty.FromObject(_currentLogin.Message));
+                            result.Add(ResultInfo.Result, JToken.FromObject(true));
+                            result.Add(ResultInfo.Content, JToken.FromObject(_currentLogin.Message));
 
                             //创建标识
                             var token = Md5.EncryptString(_account.Name + DateTime.Now);
@@ -62,20 +62,20 @@ namespace Bayetech.Service
                         }
                         else
                         {
-                            result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                            result.Add(ResultInfo.Content, JProperty.FromObject("密码错误,请重新尝试!"));
+                            result.Add(ResultInfo.Result, JToken.FromObject(false));
+                            result.Add(ResultInfo.Content, JToken.FromObject("密码错误,请重新尝试!"));
                         }
                     }
                     else
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("账户被系统锁定,请联系管理员!"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("账户被系统锁定,请联系管理员!"));
                     }
                 }
                 else
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("账户不存在，请重新输入!"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("账户不存在，请重新输入!"));
                 }
                 return result;
             }

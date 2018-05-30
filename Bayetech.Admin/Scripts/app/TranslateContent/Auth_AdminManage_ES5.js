@@ -11192,7 +11192,7 @@ function normalizeComponent (
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
-    props: ['adminsetsarray', 'startcheck']
+    props: ['adminsetsarray']
 });
 
 /***/ }),
@@ -11318,11 +11318,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     },
     methods: {
         findList() {
+            var self = this;
             //后台传值：
             self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.AdminSetsArray = data.content.datas;
+                    self.AdminSetsArray = data.content;
                     self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
@@ -11406,29 +11407,25 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.adminsetsarray, function(item) {
         return _c("tbody", [
-          _c(
-            "tr",
-            [
-              _c("jtd", { staticClass: "text-center" }, [
-                _c("label", { staticClass: "table-firsttitle" }, [
-                  _vm._v(_vm._s(item.KeyId))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.UserName))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.TrueName))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.depname))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.Mobile))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.Remark))])
-            ],
-            1
-          )
+          _c("tr", [
+            _c("td", { staticClass: "text-center" }, [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(item.KeyId))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.UserName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.TrueName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.depname))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Mobile))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Remark))])
+          ])
         ])
       })
     ],

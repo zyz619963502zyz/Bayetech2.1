@@ -18,15 +18,15 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (adminUserRoles.RoleID == 0)
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("错误信息如下：角色名称不能为空！"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("错误信息如下：角色名称不能为空！"));
             }
             //先判断是否是超级管理员admin，如果是超级管理员，那么角色默认是管理员角色,管理员不允许修改角色
             var userName = repository.FindEntity<Admin_Sys_Users>(c => c.KeyId == adminUserRoles.UserID).UserName;
             if (userName == "admin")
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("超级管理员不允许更换角色名称"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("超级管理员不允许更换角色名称"));
                 return result;
             }
             var entity = repository.FindEntity<Admin_Sys_UserRoles>(a=>a.UserID==adminUserRoles.UserID);
@@ -35,13 +35,13 @@ namespace Bayetech.Service
                 var addRole = repository.Insert<Admin_Sys_UserRoles>(adminUserRoles);
                 if(addRole > 0)
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("角色分配成功"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(true));
+                    result.Add(ResultInfo.Content, JToken.FromObject("角色分配成功"));
                 }
                 else
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("角色分配失败"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("角色分配失败"));
                 }
             }
             else
@@ -49,13 +49,13 @@ namespace Bayetech.Service
                 var updateRole = repository.Update<Admin_Sys_UserRoles>(adminUserRoles);
                 if(updateRole>0)
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("角色更新成功"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(true));
+                    result.Add(ResultInfo.Content, JToken.FromObject("角色更新成功"));
                 }
                 else
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("角色更新失败"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("角色更新失败"));
                 }
             }
             return result;
@@ -70,8 +70,8 @@ namespace Bayetech.Service
                 var role = repository.FindEntity<Admin_Sys_Roles>(a => a.RoleName == "管理员");
                 if (role == null)
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("没有这个角色"));
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("没有这个角色"));
                 }
                 else
                 {
@@ -83,16 +83,16 @@ namespace Bayetech.Service
                         UserID = _admin_Sys_User.KeyId,
                         UserName = userName
                     };
-                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                    result.Add(ResultInfo.Content, JProperty.FromObject(view));
+                    result.Add(ResultInfo.Result, JToken.FromObject(true));
+                    result.Add(ResultInfo.Content, JToken.FromObject(view));
                 }
             }
 
             var userRoles = repository.FindEntity<Admin_Sys_UserRoles>(a=>a.UserID== _admin_Sys_User.KeyId);
             if(userRoles==null)
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("没有角色存在"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("没有角色存在"));
             }
             else
             {
@@ -112,8 +112,8 @@ namespace Bayetech.Service
                 {
                     model = s;
                 }
-                result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add(ResultInfo.Content, JProperty.FromObject(model));
+                result.Add(ResultInfo.Result, JToken.FromObject(true));
+                result.Add(ResultInfo.Content, JToken.FromObject(model));
             }
             
             return result;

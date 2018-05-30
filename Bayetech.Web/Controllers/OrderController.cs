@@ -58,7 +58,7 @@ namespace Bayetech.Web.Controllers
             if (servers.Count>0)
             {
                 ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JProperty.FromObject(servers));
+                ret.Add(ResultInfo.Content, JToken.FromObject(servers));
             }
             else
             {

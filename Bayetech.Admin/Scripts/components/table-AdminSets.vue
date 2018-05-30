@@ -17,7 +17,7 @@
         </thead>
         <tbody v-for="item in adminsetsarray">
             <tr>
-                <jtd class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></jtd>
+                <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.UserName}}</td>
                 <td>{{item.TrueName}}</td>
                 <td>{{item.depname}}</td>
@@ -32,6 +32,6 @@
 <script>
 export default{
     name:'AdminSetsTable',
-    props:['adminsetsarray','startcheck']
+    props:['adminsetsarray']
 }
 </script>

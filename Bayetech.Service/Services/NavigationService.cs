@@ -22,14 +22,14 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (string.IsNullOrEmpty(_admin_Sys_Navigations.NavTitle))
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("菜单名称不能为空")); 
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空")); 
             }
             var _adminNavigation = repository.FindEntity<Admin_Sys_Navigations>(a=>a.NavTitle== _admin_Sys_Navigations.NavTitle);
             if (_adminNavigation != null)
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("菜单名称不能重复"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
             }
             else
             {
@@ -38,13 +38,13 @@ namespace Bayetech.Service
                     var add = repository.Insert<Admin_Sys_Navigations>(_admin_Sys_Navigations);
                     if (add == 1)
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("操作成功"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(true));
+                        result.Add(ResultInfo.Content, JToken.FromObject("操作成功"));
                     }
                     else
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("操作失败"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("操作失败"));
                     }
                 }
                 else
@@ -52,13 +52,13 @@ namespace Bayetech.Service
                     var uopdate = repository.Update<Admin_Sys_Navigations>(_admin_Sys_Navigations);
                     if (uopdate == 1)
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("修改成功"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(true));
+                        result.Add(ResultInfo.Content, JToken.FromObject("修改成功"));
                     }
                     else
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("修改失败"));
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("修改失败"));
                     }
 
                 }
@@ -73,13 +73,13 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (deleteNavigations == 1)
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add(ResultInfo.Content, JProperty.FromObject("删除成功"));
+                result.Add(ResultInfo.Result, JToken.FromObject(true));
+                result.Add(ResultInfo.Content, JToken.FromObject("删除成功"));
             }
             else
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("删除失败"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("删除失败"));
             }
             return result;
         }
@@ -154,13 +154,13 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (adminNavigation == null)
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("没有找到匹配数据"));
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("没有找到匹配数据"));
             }
             else
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add(ResultInfo.Content, JProperty.FromObject(adminNavigation.ToList()));
+                result.Add(ResultInfo.Result, JToken.FromObject(true));
+                result.Add(ResultInfo.Content, JToken.FromObject(adminNavigation.ToList()));
             }
             return result;
         }
