@@ -11336,20 +11336,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //打开模态框
             $("#UserModal").modal("show");
         },
-        UserAdd() {
+        UserAddandEdit() {
             //方法体还没写
             var self = this;
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+            self.tools._comCompnent.postWebJson(self.UserAddandEdit, null, function (data) {
                 if (data.result) {
-                    //新增操作
-                }
-            });
-        },
-        UserUpdate() {
-            //方法体还没写
-            self.tools._comCompnent.postWebJson(self.AdminUserUpdate, null, function (data) {
-                if (data.result) {
-                    //修改操作
+                    //新增，修改操作
                 }
             });
         },
@@ -11464,7 +11456,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("input", { attrs: { type: "radio" } })])
+    return _c("td", [
+      _c("input", { attrs: { type: "radio", name: "Operates" } })
+    ])
   }
 ]
 render._withStripped = true

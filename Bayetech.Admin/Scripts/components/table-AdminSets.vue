@@ -25,7 +25,7 @@
                 <td>{{item.Mobile}}</td>
                 <td>{{item.IsAdmin}}</td>
                 <td>{{item.Remark}}</td>
-                <td><input type="radio"/></td>
+                <td><input type="radio" name="Operates"/></td>
             </tr>
         </tbody>
     </table>

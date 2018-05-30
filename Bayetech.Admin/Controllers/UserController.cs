@@ -14,7 +14,6 @@ namespace Bayetech.Admin.Controllers
 {
     public class UserController : BaseController
     {
-
-        
+           
     }
 }
