@@ -26,10 +26,10 @@ namespace Bayetech.Service
                     if (dbPassword == _adminUser.Password)
                     {
                         CurrentLogin _currentLogin = new CurrentLogin();
+                        _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginIpInt = Common.IpToInt(_currentLogin.LoginIp);
                         _currentLogin.UserName = _adminUser.UserName;
                         _currentLogin.PassWord = _adminUser.Password;
-                        _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
 
