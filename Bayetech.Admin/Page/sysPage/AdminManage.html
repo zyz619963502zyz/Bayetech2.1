@@ -33,150 +33,154 @@
     </style>
 </head>
 <body>
-    <div class="topPanel">
-        <div class="search">
-            <table>
-                <tr>
-                    <td>
-                        <div class="input-group">
-                            <input id="txt_keyword" type="text" class="form-control" placeholder="账户/姓名" style="width: 200px;" data-bind="value:keyword">
-                            <span class="input-group-btn">
-                                <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
-                                <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
-                            </span>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <!--toolbar-->
-        <div class="toolbar">
-            <div class="btn-group">
-                <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+    <div id="CommForm">
+        <div class="topPanel">
+            <div class="search">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input id="txt_keyword" type="text" class="form-control" placeholder="账户/姓名" style="width: 200px;" v-model="value:keyword">
+                                <span class="input-group-btn">
+                                    <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
+                                    <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="btn-group">
-                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
-                <button class="btn btn-primary" data-bind="click:ResetPassWord"><i class="fa fa-key"></i>重置密码</button>
-                <button class="btn btn-primary" data-bind="click:OpenRolesModal"><i class="fa fa-key"></i>角色设定</button>
-            </div>
-        </div>
-        <!--toolbar-->
 
-    </div>
-    <!--Grid界面-->
-    <div class="table-responsive">
-        <table class="table table-hover" id="userTable" style="cursor:pointer;"></table>
-    </div>
-    <!--Grid界面-->
-    <!--Modal界面-->
-    <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-        <div class="modal-dialog" style="width: 30%">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="H1" style="text-align: center"><b>管理员设置</b></h4>
+            <!--toolbar-->
+            <div class="toolbar">
+                <div class="btn-group">
+                    <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
                 </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">用户账号*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.UserName,enable:(btnType()===0)" required>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">真实姓名*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.TrueName" required>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">手机</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.Mobile">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">是否超级管理</label>
-                            <div class="col-sm-8">
-                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:true" />是</label>
-                                <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:false" />否</label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">是否停用</label>
-                            <div class="col-sm-8">
-                                <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:true" />是</label>
-                                <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:false" />否</label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label" for="input01">描述</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" rows="3" data-bind="value:model.Remark"></textarea>
-                                <br>
-                            </div>
-                        </div>
-
-                        <br />
-                        <div class="row form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
-                            </div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="btn-group">
+                    <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                    <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                    <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                    <button class="btn btn-primary" data-bind="click:ResetPassWord"><i class="fa fa-key"></i>重置密码</button>
+                    <button class="btn btn-primary" data-bind="click:OpenRolesModal"><i class="fa fa-key"></i>角色设定</button>
                 </div>
             </div>
+            <!--toolbar-->
+
         </div>
-    </div>
-    <!--Modal界面-->
-    <!--角色Modal界面-->
-    <div id="RolesModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-        <div class="modal-dialog" style="width: 30%">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="H1" style="text-align: center"><b>用户角色设置</b></h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">用户账号</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:roleModel.UserName,enable:false" required>
+        <!--Grid界面-->
+        <div class="table-responsive">
+
+            <!--表单传值-->
+            <comtable v-bind:pagetype="PageType" v-bind:adminsetsarray="AdminSetsArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>
+
+        </div>
+        <!--Grid界面-->
+        <!--Modal界面-->
+        <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>管理员设置</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">用户账号*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.UserName,enable:(btnType()===0)" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">当前角色</label>
-                            <div class="col-sm-8">
-                                <!--<input type="text" class="form-control" data-bind="value:roleModel.RoleName" required>-->
-                                <select class="select2-Container" id="RoleSelect" style="width: 100%">data-bind="value:roleModel.RoleID"> </select>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">真实姓名*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.TrueName" required>
+                                </div>
                             </div>
-                        </div>
-                        <br />
-                        <div class="row form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-default form-control" data-bind="click:RolesClose">关闭</button>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">手机</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.Mobile">
+                                </div>
                             </div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-success form-control" type="submit" data-bind="click:RolesSave,enable:btnStatus">保存</button>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">是否超级管理</label>
+                                <div class="col-sm-8">
+                                    <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:true" />是</label>
+                                    <label><input type="radio" name="IsAdmin" data-bind="checked: model.IsAdmin,value:false" />否</label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">是否停用</label>
+                                <div class="col-sm-8">
+                                    <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:true" />是</label>
+                                    <label><input type="radio" name="IsDisabled" data-bind="checked: model.IsDisabled,value:false" />否</label>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label" for="input01">描述</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" rows="3" data-bind="value:model.Remark"></textarea>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--Modal界面-->
+        <!--角色Modal界面-->
+        <div id="RolesModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>用户角色设置</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">用户账号</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:roleModel.UserName,enable:false" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">当前角色</label>
+                                <div class="col-sm-8">
+                                    <!--<input type="text" class="form-control" data-bind="value:roleModel.RoleName" required>-->
+                                    <select class="select2-Container" id="RoleSelect" style="width: 100%">data-bind="value:roleModel.RoleID"> </select>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default form-control" data-bind="click:RolesClose">关闭</button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-success form-control" type="submit" data-bind="click:RolesSave,enable:btnStatus">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal界面-->
     </div>
-    <!--Modal界面-->
-
 </body>
 </html>
 <script>

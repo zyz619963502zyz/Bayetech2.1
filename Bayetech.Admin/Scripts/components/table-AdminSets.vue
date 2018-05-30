@@ -15,9 +15,9 @@
                 <th class="text-center col-md-4">描述</th>
             </tr>
         </thead>
-        <tbody v-for="item in adminInfo">
+        <tbody v-for="item in adminsetsarray">
             <tr>
-                <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
+                <jtd class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></jtd>
                 <td>{{item.UserName}}</td>
                 <td>{{item.TrueName}}</td>
                 <td>{{item.depname}}</td>
@@ -32,6 +32,6 @@
 <script>
 export default{
     name:'AdminSetsTable',
-    //props:['pagetype','goodinfoarray','startcheck','itemtype']
+    props:['adminsetsarray','startcheck']
 }
 </script>
