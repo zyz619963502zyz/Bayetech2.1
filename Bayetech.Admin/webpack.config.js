@@ -1,7 +1,4 @@
-﻿/// <reference path="E:\Bayetech2.1\Bayetech.Admin\Scripts/jquery-1.10.2.min.js" />
-/// <reference path="E:\Bayetech2.1\Bayetech.Admin\Scripts/jquery-1.10.2.min.js" />
-/// <binding BeforeBuild='Run - Development' />
-"use strict";
+﻿"use strict";
 
 const webpack = require('webpack');
 const path = require('path');
