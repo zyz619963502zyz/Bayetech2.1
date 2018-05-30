@@ -31,7 +31,7 @@ namespace Bayetech.Admin.Controllers
         /// <param name="json">员工信息</param>
         /// <returns></returns>
         [HttpPost]
-        public JObject UserAdd(JObject json)
+       public JObject UserAdd(JObject json)
        {
             try
             {

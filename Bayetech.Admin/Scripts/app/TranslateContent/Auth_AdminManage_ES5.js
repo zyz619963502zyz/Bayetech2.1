@@ -11189,6 +11189,8 @@ function normalizeComponent (
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
@@ -11283,6 +11285,7 @@ let vmData = {
     },
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     AdminSetsUrl: "/api/AdminManage/GetList", //管理员设置列表表格
+    AdminUserAdd: "/api/AdminManage/UserAdd",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     AdminSetsArray: [],
@@ -11318,47 +11321,39 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     },
     methods: {
         findList() {
+            //查询列表
             var self = this;
-            //后台传值：
             self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
-                $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.AdminSetsArray = data.content;
                     self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
-            }, function () {
-                $("#QueryList").Btns("reset");
             });
         },
-        StartCheck(GoodNo) {
-            //开始检查
+        UserAdd() {
+            //新增
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            $("#checkModal").modal("show");
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            });
         },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
+        UserUpdate() {
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            });
         },
-        CheckGoods(flag) {
-            var self = this;
-            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
-            self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
-            if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
-                $("#CheckConfirm").Btns("loading");
-                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                    if (data.result) {
-                        alert("审批成功!");
-                    }
-                    $("#checkModal").modal("hide");
-                    $("#CheckConfirm").Btns("reset");
-                }, function () {
-                    $("#CheckConfirm").Btns("reset");
-                });
-            }
+        UserDelete() {
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            });
         }
     },
     components: {
@@ -11407,8 +11402,8 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.adminsetsarray, function(item) {
         return _c("tbody", [
-          _c("tr", [
-            _c("td", { staticClass: "text-center" }, [
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [
               _c("label", { staticClass: "table-firsttitle" }, [
                 _vm._v(_vm._s(item.KeyId))
               ])
@@ -11424,7 +11419,9 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Remark))])
+            _c("td", [_vm._v(_vm._s(item.Remark))]),
+            _vm._v(" "),
+            _vm._m(1, true)
           ])
         ])
       })
@@ -11451,8 +11448,18 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("状态")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("描述")])
+        _c("th", { staticClass: "text-center col-md-3" }, [_vm._v("描述")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("input", { attrs: { type: "radio", name: "payMethod", value: "1" } })
     ])
   }
 ]

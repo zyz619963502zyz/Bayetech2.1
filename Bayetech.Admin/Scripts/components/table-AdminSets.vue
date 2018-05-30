@@ -12,18 +12,20 @@
                 <th class="text-center col-md-1">手机</th>
                 <th class="text-center col-md-1">超管</th>
                 <th class="text-center col-md-1">状态</th>
-                <th class="text-center col-md-4">描述</th>
+                <th class="text-center col-md-3">描述</th>
+                <th class="text-center col-md-1">操作</th>
             </tr>
         </thead>
         <tbody v-for="item in adminsetsarray">
-            <tr>
-                <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
+            <tr class="text-center">
+                <td><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.UserName}}</td>
                 <td>{{item.TrueName}}</td>
                 <td>{{item.depname}}</td>
                 <td>{{item.Mobile}}</td>
                 <td>{{item.IsAdmin}}</td>
                 <td>{{item.Remark}}</td>
+                <td><input type="radio" name="payMethod" value="1" /></td>
             </tr>
         </tbody>
     </table>

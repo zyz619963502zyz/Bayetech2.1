@@ -11,6 +11,7 @@ let vmData = {
     },
     GoodListUrl:comCompnent.MenuUrl[pagetype],
     AdminSetsUrl:"/api/AdminManage/GetList",//管理员设置列表表格
+    AdminUserAdd:"/api/AdminManage/UserAdd",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     AdminSetsArray:[],
@@ -47,9 +48,8 @@ new Vue({
         this.findList();
     },
     methods: {
-        findList() {
+        findList() {//查询列表
             var self = this;
-            //后台传值：
             self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
                 if (data.result) {
                     self.AdminSetsArray=data.content;
@@ -58,6 +58,28 @@ new Vue({
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
+        },
+        UserAdd(){//新增
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            })   
+        },
+        UserUpdate(){
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            })   
+        },
+        UserDelete(){
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+                if (data.result) {
+                    //新增操作
+                }
+            })   
         }
     },
     components:{
