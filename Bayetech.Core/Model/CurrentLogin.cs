@@ -13,6 +13,7 @@ namespace Bayetech.Core
         public string PassWord { get; set; }
         public Nullable<byte> Admin { get; set; }
         public string LoginIp { get; set; }
+        public long LoginIpInt { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public string Message { get; set; }
         public string Agent { get; set; }

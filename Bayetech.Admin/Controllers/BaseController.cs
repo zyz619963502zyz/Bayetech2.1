@@ -59,9 +59,11 @@ namespace Bayetech.Admin
             if (HttpContext.Current.Session[staffid] == null)
             {
                 token = new Token();
+                token.StaffId = staffid;
                 token.TokenId = Guid.NewGuid().ToString();
                 token.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
             }
+            //HttpContext.Current.Session[staffid] = token;
             ret.Add("Data", JObject.FromObject(token));
             return ret;
         }

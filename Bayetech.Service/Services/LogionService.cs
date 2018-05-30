@@ -26,6 +26,7 @@ namespace Bayetech.Service
                     if (dbPassword == _adminUser.Password)
                     {
                         CurrentLogin _currentLogin = new CurrentLogin();
+                        _currentLogin.LoginIpInt = Common.IpToInt(_currentLogin.LoginIp);
                         _currentLogin.UserName = _adminUser.UserName;
                         _currentLogin.PassWord = _adminUser.Password;
                         _currentLogin.LoginIp = Common.GetHostAddress();
@@ -34,7 +35,7 @@ namespace Bayetech.Service
 
                         var cont= System.Web.HttpContext.Current;
                         cont.Session["CurrentLogin"] = _currentLogin;
-
+                        System.Web.HttpContext.Current.Session.Timeout = 720;//登录缓存720分钟过期
                         var dd= System.Web.HttpContext.Current.Session["CurrentLogin"] ?? new CurrentLogin();
                         result.Add(ResultInfo.Result, JToken.FromObject(true));
                         result.Add(ResultInfo.Content, JToken.FromObject(_currentLogin.Message));

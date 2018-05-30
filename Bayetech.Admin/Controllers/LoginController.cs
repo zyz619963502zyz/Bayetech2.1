@@ -28,16 +28,15 @@ namespace Bayetech.Admin.Controller
                 if (ret["result"] !=null && Convert.ToBoolean(ret["result"].ToString()))
                 {
                     CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
-                    var tokenResult = WebApiHelper.GetSignToken(Core.Common.IpToInt(loginContent.LoginIp));
+                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginIpInt);
                     if (tokenResult.StatusCode == (int)StatusCodeEnum.Success)//token找到成功
                     {
-
                         HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,"true");
                         HttpCookie myCookie = new HttpCookie(loginContent.UserName);
                         myCookie.Value = tokenResult.Result.TokenId;
                         myCookie.Expires = tokenResult.Result.ExpireTime;
                         HttpContext.Current.Response.AppendCookie(myCookie);//客户端缓存
-                        HttpContext.Current.Session[loginContent.UserName] = tokenResult;//服务端缓存
+                        HttpContext.Current.Session[loginContent.LoginIpInt.ToString()] = tokenResult;//服务端缓存
                         return response;
                     }
                 }
