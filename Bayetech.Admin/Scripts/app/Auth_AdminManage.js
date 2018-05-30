@@ -59,6 +59,9 @@ new Vue({
                 }
             })
         },
+        OpenModal(){//打开模态框
+            $("#UserModal").modal("show");
+        },
         UserAdd(){//方法体还没写
             var self = this;
             self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {

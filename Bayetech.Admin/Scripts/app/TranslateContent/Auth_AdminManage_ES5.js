@@ -11332,8 +11332,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 }
             });
         },
+        OpenModal() {
+            //打开模态框
+            $("#UserModal").modal("show");
+        },
         UserAdd() {
-            //新增
+            //方法体还没写
             var self = this;
             self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
                 if (data.result) {
@@ -11342,16 +11346,18 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             });
         },
         UserUpdate() {
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+            //方法体还没写
+            self.tools._comCompnent.postWebJson(self.AdminUserUpdate, null, function (data) {
                 if (data.result) {
-                    //新增操作
+                    //修改操作
                 }
             });
         },
         UserDelete() {
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+            //方法体还没写
+            self.tools._comCompnent.postWebJson(self.AdminUserDelete, null, function (data) {
                 if (data.result) {
-                    //新增操作
+                    //删除操作
                 }
             });
         }
@@ -11458,9 +11464,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "payMethod", value: "1" } })
-    ])
+    return _c("td", [_c("input", { attrs: { type: "radio" } })])
   }
 ]
 render._withStripped = true
