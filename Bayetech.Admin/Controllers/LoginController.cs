@@ -3,6 +3,8 @@ using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
@@ -12,12 +14,12 @@ namespace Bayetech.Admin.Controller
     {
         ILogionService logionService = new LogionService();
         /// <summary>
-        /// 验证登陆
+        /// 验证登陆，返回token
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
-        public JObject AdminLogion(JObject json)
+        public HttpResponseMessage AdminLogion(JObject json)
         {
             try
             {
@@ -29,17 +31,22 @@ namespace Bayetech.Admin.Controller
                     var tokenResult = WebApiHelper.GetSignToken(Core.Common.IpToInt(loginContent.LoginIp));
                     if (tokenResult.StatusCode == (int)StatusCodeEnum.Success)//token找到成功
                     {
-                        HttpContext.Current.Session[loginContent.LoginId.ToString()] = tokenResult;
-                        ret.Add(ResultInfo.Content, JToken.FromObject(tokenResult));
-                        ret.Add(ResultInfo.Result, "true");
+
+                        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,"true");
+                        HttpCookie myCookie = new HttpCookie(loginContent.UserName);
+                        myCookie.Value = tokenResult.Result.TokenId;
+                        myCookie.Expires = tokenResult.Result.ExpireTime;
+                        HttpContext.Current.Response.AppendCookie(myCookie);//客户端缓存
+                        HttpContext.Current.Session[loginContent.UserName] = tokenResult;//服务端缓存
+                        return response;
                     }
                 }
                 else
                 {
-                    ret.Add(ResultInfo.Content, JToken.FromObject("登录失败!"));
-                    ret.Add(ResultInfo.Result, "false");
+                    //ret.Add(ResultInfo.Content, JToken.FromObject("登录失败!"));
+                    //ret.Add(ResultInfo.Result, "false");
                 }
-                return ret;
+                return null;
             }
             catch (Exception ex)
             {

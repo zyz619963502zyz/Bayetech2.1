@@ -13257,7 +13257,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         LoginIn() {
             var self = this;
             self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
-                if (data) {}
+                if (data) {
+                    window.location.href = "/Page/BayMain.html";
+                }
             });
         }
     }

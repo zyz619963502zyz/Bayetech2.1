@@ -22,7 +22,7 @@ new Vue({
             var self = this;
             self.tools._comCompnent.postWebJson(self.url,self.Param,function(data){
                 if (data) {
-    
+                    window.location.href = "/Page/BayMain.html";
                 }  
             });
         }
