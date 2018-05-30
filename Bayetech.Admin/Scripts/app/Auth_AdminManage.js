@@ -59,7 +59,7 @@ new Vue({
                 }
             })
         },
-        UserAdd(){//新增
+        UserAdd(){//方法体还没写
             var self = this;
             self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
                 if (data.result) {
@@ -67,17 +67,17 @@ new Vue({
                 }
             })   
         },
-        UserUpdate(){
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+        UserUpdate(){//方法体还没写
+            self.tools._comCompnent.postWebJson(self.AdminUserUpdate, null, function (data) {
                 if (data.result) {
-                    //新增操作
+                    //修改操作
                 }
             })   
         },
-        UserDelete(){
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, null, function (data) {
+        UserDelete(){//方法体还没写
+            self.tools._comCompnent.postWebJson(self.AdminUserDelete, null, function (data) {
                 if (data.result) {
-                    //新增操作
+                    //删除操作
                 }
             })   
         }
