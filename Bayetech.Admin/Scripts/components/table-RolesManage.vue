@@ -13,8 +13,8 @@
 				<th class="text-center col-md-2">操作</th>
             </tr>
         </thead>
-        <tbody v-for="item in NavigationArray">
-            <tr>
+        <tbody v-for="item in rolesarray">
+            <tr class="text-center">
                 <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.RoleName}}</td>
                 <td>{{item.Sortnum}}</td>
@@ -27,7 +27,7 @@
 
 <script>
 export default{
-    name:'NavigationTable',
-    props:['NavigationArray']
+    name:'RolesArray',
+    props:['rolesarray']
 }
 </script>
