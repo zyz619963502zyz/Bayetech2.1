@@ -11206,7 +11206,7 @@ function normalizeComponent (
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'NavigationTable',
-    props: ['NavigationArray']
+    props: ['navigationArray']
 });
 
 /***/ }),
@@ -11333,7 +11333,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         findList() {
             var self = this;
             self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
-                debugger;
+
                 if (data.result) {
                     self.NavigationArray = data.content;
                     self.SearchParam.Pagination = data.content.pagination;
@@ -11381,7 +11381,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.NavigationArray, function(item) {
+      _vm._l(_vm.navigationArray, function(item) {
         return _c("tbody", [
           _c("tr", [
             _c("td", { staticClass: "text-center" }, [
