@@ -1,5 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Service;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace Bayetech.Admin.Controller
                     {
                         HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,"true");
                         HttpCookie myCookie = new HttpCookie(loginContent.UserName);
-                        myCookie.Value = tokenResult.Result.TokenId;
+                        myCookie.Value = JsonConvert.SerializeObject(tokenResult.Result);
                         myCookie.Expires = tokenResult.Result.ExpireTime;
                         HttpContext.Current.Response.AppendCookie(myCookie);//客户端缓存
                         return response;

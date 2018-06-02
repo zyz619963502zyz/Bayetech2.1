@@ -23,6 +23,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         [HttpPost]
+        [ApiSecurityFilter]
         public JObject GetProcessList(JObject json)
         {
             json = json ?? new JObject();
