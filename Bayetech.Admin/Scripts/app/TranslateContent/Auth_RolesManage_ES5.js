@@ -11205,8 +11205,8 @@ function normalizeComponent (
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    name: 'NavigationTable',
-    props: ['navigationArray']
+    name: 'RolesArray',
+    props: ['rolesarray']
 });
 
 /***/ }),
@@ -11300,7 +11300,7 @@ let vmData = {
     RolesAdd: "/api/Roles/AddRoles",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
-    NavigationArray: [],
+    RolesArray: [],
     ListObj: [{
         KeyId: "",
         RoleName: "",
@@ -11335,7 +11335,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
 
                 if (data.result) {
-                    self.NavigationArray = data.content;
+                    self.RolesArray = data.content;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
@@ -11381,9 +11381,9 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.navigationArray, function(item) {
+      _vm._l(_vm.rolesarray, function(item) {
         return _c("tbody", [
-          _c("tr", [
+          _c("tr", { staticClass: "text-center" }, [
             _c("td", { staticClass: "text-center" }, [
               _c("label", { staticClass: "table-firsttitle" }, [
                 _vm._v(_vm._s(item.KeyId))

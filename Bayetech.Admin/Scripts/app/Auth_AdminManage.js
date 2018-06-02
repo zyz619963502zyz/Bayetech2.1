@@ -53,9 +53,9 @@ new Vue({
             self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
                 if (data.result) {
                     self.AdminSetsArray=data.content;
-                    self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
-                    self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    //self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
+                    //self.SearchParam.Pagination=data.content.pagination;
+                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },

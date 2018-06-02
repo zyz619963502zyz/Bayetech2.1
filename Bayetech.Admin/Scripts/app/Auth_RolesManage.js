@@ -11,7 +11,7 @@ let vmData={
     RolesAdd:"/api/Roles/AddRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
-    NavigationArray:[],
+    RolesArray:[],
     ListObj:[
         {
             KeyId:"",
@@ -48,7 +48,7 @@ new Vue({
             self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
                 
                 if (data.result) {
-                    self.NavigationArray=data.content;
+                    self.RolesArray=data.content;
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
