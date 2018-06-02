@@ -55,13 +55,14 @@ namespace Bayetech.Admin
             }
 
             //比对缓存没有则重新生成
-            Token token = (Token)HttpContext.Current.Session[staffid];
-            if (HttpContext.Current.Session[staffid] == null)
+            Token token = (Token)HttpRuntime.Cache.Get(staffid.ToString());
+            if (HttpRuntime.Cache.Get(staffid.ToString()) == null)
             {
                 token = new Token();
                 token.StaffId = staffid;
                 token.TokenId = Guid.NewGuid().ToString();
                 token.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
+                HttpRuntime.Cache.Insert(token.StaffId.ToString(), token, null, token.ExpireTime, TimeSpan.Zero);
             }
             //HttpContext.Current.Session[staffid] = token;
             ret.Add("Data", JObject.FromObject(token));

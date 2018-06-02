@@ -36,7 +36,6 @@ namespace Bayetech.Admin.Controller
                         myCookie.Value = tokenResult.Result.TokenId;
                         myCookie.Expires = tokenResult.Result.ExpireTime;
                         HttpContext.Current.Response.AppendCookie(myCookie);//客户端缓存
-                        HttpContext.Current.Session[loginContent.LoginIpInt.ToString()] = tokenResult;//服务端缓存
                         return response;
                     }
                 }
