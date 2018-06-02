@@ -10,14 +10,16 @@
                 <th class="text-center col-md-2">角色名称</th>
                 <th class="text-center col-md-2">排序</th>
                 <th class="text-center col-md-4">描述</th>
+				<th class="text-center col-md-2">操作</th>
             </tr>
         </thead>
-        <tbody v-for="item in adminInfo">
+        <tbody v-for="item in NavigationArray">
             <tr>
                 <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.RoleName}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.Remark}}</td>
+				<td><input type="radio" name="Operates"/></td>
             </tr>
         </tbody>
     </table>
@@ -25,7 +27,7 @@
 
 <script>
 export default{
-    name:'AdminSetsTable',
-    //props:['pagetype','goodinfoarray','startcheck','itemtype']
+    name:'NavigationTable',
+    props:['NavigationArray']
 }
 </script>

@@ -86,7 +86,7 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (roleList!=null)
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Result, JToken.FromObject(true));
                 result.Add(ResultInfo.Content, JToken.FromObject(roleList.ToList()));
             }
             else

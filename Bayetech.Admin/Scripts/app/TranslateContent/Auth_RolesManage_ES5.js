@@ -402,6 +402,22 @@ var comCompnent = {
         PreProcess: "/api/CheckGood/GetProcessList",
         Processed: "/api/CheckGood/GetProcessedList",
         Process24hours: "/api/CheckGood/Get24ProcessList"
+    },
+
+    GetCookie: function (Name) {
+        var search = Name + "="; //查询检索的值
+        var returnvalue = ""; //返回值
+        if (document.cookie.length > 0) {
+            sd = document.cookie.indexOf(search);
+            if (sd != -1) {
+                sd += search.length;
+                end = document.cookie.indexOf(";", sd);
+                if (end == -1) end = document.cookie.length;
+                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+                returnvalue = unescape(document.cookie.substring(sd, end));
+            }
+        }
+        return returnvalue;
     }
 };
 
@@ -11185,10 +11201,12 @@ function normalizeComponent (
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    name: 'AdminSetsTable'
-    //props:['pagetype','goodinfoarray','startcheck','itemtype']
+    name: 'NavigationTable',
+    props: ['NavigationArray']
 });
 
 /***/ }),
@@ -11210,9 +11228,9 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_RolesManage_vue_vue_type_script_lang_js__ = __webpack_require__(13);
-/* unused harmony reexport namespace */
+/* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
 
 
@@ -11223,8 +11241,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_RolesManage_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11234,7 +11252,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("D:\\bay\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11243,7 +11261,7 @@ if (false) {
     } else {
       api.reload('a33b4bc2', component.options)
     }
-    module.hot.accept("./table-RolesManage.vue?vue&type=template&id=a33b4bc2&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-RolesManage.vue?vue&type=template&id=a33b4bc2&lang=html", function () {
       api.rerender('a33b4bc2', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11252,7 +11270,7 @@ if (false) {
   }
 }
 component.options.__file = "Scripts\\components\\table-RolesManage.vue"
-/* unused harmony default export */ var _unused_webpack_default_export = (component.exports);
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 /* 18 */,
@@ -11273,6 +11291,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+let vmData = {
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */]
+    },
+    RolesUrl: "/api/Roles/GetList",
+    RolesAdd: "/api/Roles/AddRoles",
+    CheckGoodNo: "", //模态框打开的GoodNo
+    keyword: "",
+    NavigationArray: [],
+    ListObj: [{
+        KeyId: "",
+        RoleName: "",
+        Sortnum: "",
+        Remark: ""
+    }],
+    SearchParam: {
+        Param: { //查询条件的参数
+            keyword: ""
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "GoodNo", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#CommRoles',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            var self = this;
+            self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
+                debugger;
+                if (data.result) {
+                    self.NavigationArray = data.content;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            });
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */]
+    }
+});
+
 /***/ }),
 /* 24 */,
 /* 25 */,
@@ -11283,9 +11357,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__ = __webpack_require__(32);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(32);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11307,7 +11381,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.adminInfo, function(item) {
+      _vm._l(_vm.NavigationArray, function(item) {
         return _c("tbody", [
           _c("tr", [
             _c("td", { staticClass: "text-center" }, [
@@ -11320,7 +11394,9 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Sortnum))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Remark))])
+            _c("td", [_vm._v(_vm._s(item.Remark))]),
+            _vm._v(" "),
+            _vm._m(1, true)
           ])
         ])
       })
@@ -11341,8 +11417,18 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("排序")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("描述")])
+        _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("描述")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("操作")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("input", { attrs: { type: "radio", name: "Operates" } })
     ])
   }
 ]
