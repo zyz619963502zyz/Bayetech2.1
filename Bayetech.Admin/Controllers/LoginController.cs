@@ -29,7 +29,10 @@ namespace Bayetech.Admin.Controller
                 if (ret["result"] !=null && Convert.ToBoolean(ret["result"].ToString()))
                 {
                     CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
-                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginIpInt);
+                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginId);//获取token
+                    loginContent.token = tokenResult.Result; //放入token
+                    HttpContext.Current.Session["CurrentLogin"] = loginContent;//获取到tokenId重新放进去
+
                     if (tokenResult.StatusCode == (int)StatusCodeEnum.Success)//token找到成功
                     {
                         HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,"true");

@@ -25,6 +25,14 @@ namespace Bayetech.Service
                     string dbPassword = Md5.EncryptString(_admin_Sys_User.Password);
                     if (dbPassword == _adminUser.Password)
                     {
+                        //数据库对象
+                        //Admin_Sys_Login _login = new Admin_Sys_Login();
+                        //_login.LoginId = new Guid().ToString();
+                        //_login.LoginIp = Common.GetHostAddress();
+                        //_login.LoginTime = DateTime.Now;
+                        //_login.UserName = _adminUser.UserName;
+                        //_login.Message = "登录成功";
+
                         CurrentLogin _currentLogin = new CurrentLogin();
                         _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginIpInt = Common.IpToInt(_currentLogin.LoginIp);

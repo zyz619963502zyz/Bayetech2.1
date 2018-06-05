@@ -189,6 +189,21 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
           <Property Name="AddTime" Type="datetime" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.Admin_Sys_Login”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Admin_Sys_Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Token" Type="varchar" MaxLength="50" />
+          <Property Name="Admin" Type="int" />
+          <Property Name="LoginIp" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginTime" Type="datetime" />
+          <Property Name="Message" Type="nvarchar" MaxLength="255" />
+          <Property Name="Agent" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="Admin_Sys_logs">
           <Key>
             <PropertyRef Name="KeyId" />
@@ -1135,6 +1150,18 @@
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Login" EntityType="Self.Admin_Sys_Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Admin_Sys_Login].[LoginId] AS [LoginId], 
+    [Admin_Sys_Login].[UserName] AS [UserName], 
+    [Admin_Sys_Login].[Token] AS [Token], 
+    [Admin_Sys_Login].[Admin] AS [Admin], 
+    [Admin_Sys_Login].[LoginIp] AS [LoginIp], 
+    [Admin_Sys_Login].[LoginTime] AS [LoginTime], 
+    [Admin_Sys_Login].[Message] AS [Message], 
+    [Admin_Sys_Login].[Agent] AS [Agent]
+    FROM [dbo].[Admin_Sys_Login] AS [Admin_Sys_Login]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Admin_Sys_Navigations].[KeyId] AS [KeyId], 
@@ -2359,6 +2386,7 @@
           <EntitySet Name="OrderStatus" EntityType="BayetechModel.OrderStatus" />
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
+          <EntitySet Name="Admin_Sys_Login" EntityType="BayetechModel.Admin_Sys_Login" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2589,6 +2617,19 @@
           <Property Name="BackName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="StatusKey" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Admin" Type="Int32" />
+          <Property Name="LoginIp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="DateTime" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3684,6 +3725,20 @@
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
                 <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Login">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Login">
+              <MappingFragment StoreEntitySet="Admin_Sys_Login">
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="LoginIp" ColumnName="LoginIp" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

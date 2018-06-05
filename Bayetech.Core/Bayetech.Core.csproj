@@ -85,6 +85,9 @@
     <Compile Include="Entity\Admin_Sys_LogDetails.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Admin_Sys_Login.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Admin_Sys_logs.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

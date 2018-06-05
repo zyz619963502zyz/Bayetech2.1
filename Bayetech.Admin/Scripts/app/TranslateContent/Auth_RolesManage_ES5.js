@@ -151,7 +151,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -193,7 +193,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11254,7 +11254,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
