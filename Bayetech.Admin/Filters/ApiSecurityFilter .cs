@@ -26,10 +26,8 @@ namespace Bayetech.Admin
             {
                 tokenId = HttpUtility.UrlDecode(request.Headers.GetValues("TokenId").FirstOrDefault());
             }
-            if (request.Headers.Contains("ExpireTime")&&DateTime.TryParse(request.Headers.Contains("ExpireTime").ToString().Replace('T', ' ').Split('.')[0],out expireTime))
-            {
-              
-            }
+            if (request.Headers.Contains("ExpireTime") && DateTime.TryParse(request.Headers.GetValues("ExpireTime").FirstOrDefault().ToString().Replace('T', ' ').Split('.')[0], out expireTime)) ;
+ 
 
             //GetToken方法不需要进行签名验证
             if (actionContext.ActionDescriptor.ActionName == "GetToken")
