@@ -15,7 +15,8 @@ namespace Bayetech.Admin
             ResultMsg resultMsg = null;
             var request = actionContext.Request;
             string method = request.Method.Method;
-            string staffId = String.Empty, tokenId = string.Empty;
+            string staffId = string.Empty, tokenId = string.Empty;
+            DateTime expireTime = DateTime.MaxValue;
 
             if (request.Headers.Contains("staffid"))
             {
@@ -24,6 +25,10 @@ namespace Bayetech.Admin
             if (request.Headers.Contains("TokenId"))
             {
                 tokenId = HttpUtility.UrlDecode(request.Headers.GetValues("TokenId").FirstOrDefault());
+            }
+            if (request.Headers.Contains("ExpireTime")&&DateTime.TryParse(request.Headers.Contains("ExpireTime").ToString().Replace('T', ' ').Split('.')[0],out expireTime))
+            {
+              
             }
 
             //GetToken方法不需要进行签名验证
@@ -47,7 +52,7 @@ namespace Bayetech.Admin
             }
 
             CurrentLogin _current = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
-            if (_current == null||_current.token.TokenId!= tokenId)
+            if (_current == null||_current.token.TokenId!= tokenId||expireTime<DateTime.Now)
             {
                 resultMsg = new ResultMsg();
                 resultMsg.StatusCode = (int)StatusCodeEnum.Error;
@@ -55,7 +60,6 @@ namespace Bayetech.Admin
                 resultMsg.Data = "";
                 //验证不通过跳转到登录页面
                 actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
-                //base.OnActionExecuting(actionContext);
                 return;
             }
             else
