@@ -2773,7 +2773,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\components\toolBar.vue" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
