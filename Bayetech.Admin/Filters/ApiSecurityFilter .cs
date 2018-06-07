@@ -56,8 +56,10 @@ namespace Bayetech.Admin
                 resultMsg.Info = "Token验证不通过";
                 resultMsg.Data = "";
                 //验证不通过跳转到登录页面
+                HttpContext.Current.Response.Redirect("");
+
                 //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
-                base.OnActionExecuting(actionContext);
+                //base.OnActionExecuting(actionContext);
                 return;
             }
             else
