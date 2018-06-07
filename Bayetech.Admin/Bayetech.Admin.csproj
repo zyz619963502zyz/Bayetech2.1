@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
+    <Compile Include="Common\HttpResponseExtension.cs" />
     <Compile Include="Common\WebApiHelper.cs" />
     <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />

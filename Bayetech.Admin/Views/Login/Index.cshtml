@@ -1,1 +1,27 @@
-﻿
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link href="../Content/LoginStyle.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div id="LoginDiv" class="main">
+        <div class="login-form">
+            <h1><strong>Baytech后台登录</strong></h1>
+            <div class="head"><img src="../Content/img/icon/user.png" alt="" /></div>
+            <form>
+                <input type="text" class="text" v-model="Param.UserName" placeholder="用户名" />
+                <input type="password" v-model="Param.Password" placeholder="密码" />
+                <div class="submit"><input type="button" v-on:click="LoginIn" value="登录" /></div>
+                <p><a href="#">忘记密码?</a></p>
+            </form>
+        </div>
+        <div class="copy-right"><p>版权是2018。Bayetech公司保留所有权利。</p> </div>
+    </div>
+</body>
+</html>
+<script src="../Scripts/jquery-1.10.2.min.js"></script>
+<script src="../Scripts/app/TranslateContent/Login_ES5.js"></script>

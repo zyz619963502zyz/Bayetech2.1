@@ -1,9 +1,7 @@
 ﻿using Bayetech.Core;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
@@ -56,9 +54,7 @@ namespace Bayetech.Admin
                 resultMsg.Info = "Token验证不通过";
                 resultMsg.Data = "";
                 //验证不通过跳转到登录页面
-                HttpContext.Current.Response.Redirect("");
-
-                //actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
+                actionContext.Response = HttpResponseExtension.toJson(JsonConvert.SerializeObject(resultMsg));
                 //base.OnActionExecuting(actionContext);
                 return;
             }

@@ -13,6 +13,7 @@ namespace Bayetech.Admin.Controller
 {
     public class LoginController : BaseController
     {
+
         ILogionService logionService = new LogionService();
         /// <summary>
         /// 验证登陆，返回token
