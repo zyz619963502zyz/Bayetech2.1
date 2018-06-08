@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
+    <Compile Include="Common\HttpResponseExtension.cs" />
     <Compile Include="Common\WebApiHelper.cs" />
     <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -228,6 +229,7 @@
     <Content Include="Content\img\icon\user.png" />
     <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\Mystyle.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Page\adminPage\CustomerManage.html" />
     <Content Include="Page\BayMain.html" />
     <Content Include="Content\animate.css" />
@@ -2767,13 +2769,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\components\toolBar.vue" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2783,7 +2784,7 @@
     <Folder Include="Page\router\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
-    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Home\" />
     <Folder Include="Views\NavButtons\" />
     <Folder Include="Views\RoleNavBtns\" />
     <Folder Include="Views\Roles\" />

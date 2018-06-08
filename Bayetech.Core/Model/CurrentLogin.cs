@@ -8,7 +8,7 @@ namespace Bayetech.Core
 {
     public class CurrentLogin
     {
-        public long LoginId { get; set; }
+        public string LoginId { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
         public Nullable<byte> Admin { get; set; }

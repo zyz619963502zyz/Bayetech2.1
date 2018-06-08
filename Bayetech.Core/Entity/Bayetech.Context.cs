@@ -151,6 +151,8 @@ public partial class BayetechEntities : DbContext
 
     public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
 
+    public virtual DbSet<Admin_Sys_Login> Admin_Sys_Login { get; set; }
+
 
     public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
     {

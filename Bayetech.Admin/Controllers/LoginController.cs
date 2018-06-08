@@ -1,5 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Service;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Bayetech.Admin.Controller
 {
     public class LoginController : BaseController
     {
+
         ILogionService logionService = new LogionService();
         /// <summary>
         /// 验证登陆，返回token
@@ -28,12 +30,15 @@ namespace Bayetech.Admin.Controller
                 if (ret["result"] !=null && Convert.ToBoolean(ret["result"].ToString()))
                 {
                     CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
-                    var tokenResult = WebApiHelper.GetSignToken(loginContent.LoginIpInt);
+                    var tokenResult = WebApiHelper.GetSignToken(loginContent.UserName);//获取token
+                    loginContent.token = tokenResult.Result; //放入token
+                    HttpContext.Current.Session["CurrentLogin"] = loginContent;//获取到tokenId重新放进去
+
                     if (tokenResult.StatusCode == (int)StatusCodeEnum.Success)//token找到成功
                     {
                         HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK,"true");
                         HttpCookie myCookie = new HttpCookie(loginContent.UserName);
-                        myCookie.Value = tokenResult.Result.TokenId;
+                        myCookie.Value = JsonConvert.SerializeObject(tokenResult.Result);
                         myCookie.Expires = tokenResult.Result.ExpireTime;
                         HttpContext.Current.Response.AppendCookie(myCookie);//客户端缓存
                         return response;

@@ -63,6 +63,7 @@
         <EntityTypeShape EntityType="BayetechModel.OrderStatus" Width="1.5" PointX="23.375" PointY="12.75" />
         <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="23.375" PointY="22.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="5.375" PointY="24.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Login" Width="1.5" PointX="17.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

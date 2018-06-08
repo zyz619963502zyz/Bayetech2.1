@@ -19,7 +19,7 @@ namespace Bayetech.Admin
         /// <param name="data"></param>
         /// <param name="staffId"></param>
         /// <returns></returns>
-        public static T Post<T>(string url, string data,int staffId)
+        public static T Post<T>(string url, string data,string staffId)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(data);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -65,13 +65,13 @@ namespace Bayetech.Admin
        /// <param name="queryStr"></param>
        /// <param name="staffId"></param>
        /// <returns></returns>
-        public static T Get<T>(string webApi,string query,string queryStr,long staffId,bool sign=true)
+        public static T Get<T>(string webApi,string query,string queryStr,string staffId,bool sign=true)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(webApi + "?" + queryStr);
             string timeStamp = GetTimeStamp();
             string nonce = GetRandom();
             //加入头信息
-            request.Headers.Add("staffid", staffId.ToString()); //当前请求用户StaffId
+            request.Headers.Add("staffid", staffId); //当前请求用户StaffId
             request.Headers.Add("timestamp", timeStamp); //发起请求时的时间戳（单位：毫秒）
             request.Headers.Add("nonce", nonce); //发起请求时的时间戳（单位：毫秒）
 
@@ -102,7 +102,7 @@ namespace Bayetech.Admin
         /// </summary>
         /// <param name="userinfo"></param>
         /// <returns></returns>
-        public static TokenResultMsg GetSignToken(long staffId)
+        public static TokenResultMsg GetSignToken(string staffId)
         {
             string tokenApi = AppSettingsConfig.GetTokenApi;
             Dictionary<string, string> parames = new Dictionary<string, string>();
@@ -120,7 +120,7 @@ namespace Bayetech.Admin
         /// <param name="staffId"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static string GetSignature(string timeStamp,string nonce,long staffId,string data)
+        private static string GetSignature(string timeStamp,string nonce,string staffId,string data)
         {
             Token token = null;
             var resultMsg = GetSignToken(staffId);

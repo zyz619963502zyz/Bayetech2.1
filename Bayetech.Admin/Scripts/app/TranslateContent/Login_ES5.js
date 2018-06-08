@@ -135,6 +135,22 @@ var comCompnent = {
         };
     }(),
 
+    //返回到特定的页面(改vue路由以后要变动)
+    GotoSpecialPage: function (data) {
+        if (data) {
+            switch (data.StatusCode) {
+                case 1:
+                    window.parent.location.href = "/Page/Login.html";
+                    break;
+                case 2:
+                    window.parent.location.href = "/Page/Error404.html";
+                    break;
+                default:
+                    break;
+            }
+        }
+    },
+
     /**
         * ajax封装
         * url 发送请求的地址
@@ -145,16 +161,19 @@ var comCompnent = {
         * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
     getWebJson: function (url, data, successfn, errorfn, asyncC, callLoading) {
+        var self = this;
         if (!callLoading) {}
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
         $.ajax({
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
+            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
             success: function (d) {
+                self.GotoSpecialPage(d);
                 successfn(d);
             },
             error: function (e) {
@@ -180,6 +199,7 @@ var comCompnent = {
        * asyncC:此为第五个参数传就是同步，不穿默认异步。
     */
     postWebJson: function (url, data, successfn, errorfn, asyncC, callLoading) {
+        var self = this;
         if (!callLoading) {
             $("#Loading").removeClass("hide");
         }
@@ -192,10 +212,12 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
+            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
             success: function (d) {
+                self.GotoSpecialPage(d);
                 successfn(d);
             },
             error: function (e) {
@@ -408,10 +430,10 @@ var comCompnent = {
         var search = Name + "="; //查询检索的值
         var returnvalue = ""; //返回值
         if (document.cookie.length > 0) {
-            sd = document.cookie.indexOf(search);
+            let sd = document.cookie.indexOf(search);
             if (sd != -1) {
                 sd += search.length;
-                end = document.cookie.indexOf(";", sd);
+                let end = document.cookie.indexOf(";", sd);
                 if (end == -1) end = document.cookie.length;
                 //unescape() 函数可对通过 escape() 编码的字符串进行解码。
                 returnvalue = unescape(document.cookie.substring(sd, end));

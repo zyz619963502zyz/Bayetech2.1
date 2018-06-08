@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
+    [ApiSecurityFilter]
     public class CheckGoodController : ApiController
     {
 
