@@ -49,8 +49,6 @@ new Vue({
                 
                 if (data.result) {
                     self.RolesArray=data.content;
-                    self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },
