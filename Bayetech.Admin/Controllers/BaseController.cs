@@ -12,7 +12,7 @@ namespace Bayetech.Admin
     {
 
         /// <summary>
-        /// 创建spring容器上下文公共容器
+        /// 创建spring容器上下文公共容器12345
         /// </summary>
         public static IApplicationContext ctx = ContextRegistry.GetContext();
         /// <summary>
