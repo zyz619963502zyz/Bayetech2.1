@@ -28,12 +28,13 @@ let vmData = {
     ],
     SearchParam: {
         Param: {//查询条件的参数
-            keyword:"",
+            Type:"",
+            SelectNo:""//form里面选择的编号
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
-            order: "GoodNo",//排序字段
+            order: "KeyId",//排序字段
             sord: "asc",//排序类型
             records: 10,//总记录数
             total: 10//总页数。
@@ -50,12 +51,12 @@ new Vue({
     methods: {
         findList() {//查询列表
             var self = this;
-            self.tools._comCompnent.getWebJson(self.AdminSetsUrl, null, function (data) {
+            self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
                 if (data.result) {
-                    self.AdminSetsArray=data.content;
-                    //self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
-                    //self.SearchParam.Pagination=data.content.pagination;
-                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    self.AdminSetsArray=data.content.datas;
+                    self.SearchParam.Pagination=data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },
@@ -76,6 +77,16 @@ new Vue({
                     //删除操作
                 }
             })   
+        },
+        StartCheck(GoodNo) {//开始检查
+            var self = this;
+            self.CheckGoodNo = GoodNo;
+            //$("#checkModal").modal("show");
+        },
+        TurnToPage(page){
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
         }
     },
     components:{

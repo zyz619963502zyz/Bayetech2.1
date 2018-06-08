@@ -13,12 +13,12 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        [HttpGet]
-        public JObject GetList()
+        [HttpPost]
+        public JObject GetList(JObject json)
         {
             try
             {
-                return adminManageService.GetUserList();
+                return adminManageService.GetUserList(json,null,null);
             }
             catch (Exception ex)
             {

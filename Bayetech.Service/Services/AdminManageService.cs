@@ -7,13 +7,14 @@ using Newtonsoft.Json.Linq;
 using Bayetech.Core.Entity;
 using Bayetech.Core;
 using Newtonsoft.Json;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service
 {
     /// <summary>
     /// 
     /// </summary>
-    public class AdminManageService : BaseService<Admin_Sys_Users>,IAdminManageService
+    public class AdminManageService : BaseService<Admin_Sys_Users>, IAdminManageService
     {
         /// <summary>
         /// 添加一个新的用户
@@ -32,7 +33,7 @@ namespace Bayetech.Service
                 result.Add(ResultInfo.Content, JProperty.FromObject("用户名或真实姓名不能为空"));
             }
             //=0 添加
-            if (_admin_Sys_User.KeyId<=0)
+            if (_admin_Sys_User.KeyId <= 0)
             {
                 Admin_Sys_Users user = repository.FindEntity<Admin_Sys_Users>(a => a.UserName == _admin_Sys_User.UserName);
                 if (user != null)
@@ -77,24 +78,36 @@ namespace Bayetech.Service
         /// 获取用户信息
         /// </summary>
         /// <returns></returns>
-        public JObject GetUserList()
+        public JObject GetUserList(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
-            var userList = repository.IQueryable<Admin_Sys_Users>();
+            json = json ?? new JObject();
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("KeyId") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+            Expression<Func<Admin_Sys_Users, bool>> expression = PredicateExtensions.True<Admin_Sys_Users>();
+            PaginationResult<List<Admin_Sys_Users>> ResultPage = new PaginationResult<List<Admin_Sys_Users>>();
+            var userList = repository.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
             var roles = repository.IQueryable<Admin_Sys_Roles>();//角色列表
             JObject result = new JObject();
-            object row = null;
-            var total = userList.Count();
-            if (userList != null)
+            if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
+            {
+                userList = userList.FindAll(a => a.UserName == json["Param"]["Type"].ToString() || a.TrueName == json["Param"]["Type"].ToString() || a.Mobile == json["Param"]["Type"].ToString());
+            }
+            ResultPage.datas = userList.ToList();
+            if (page != null)
+            {
+                ResultPage.pagination = page;
+            }
+            if (ResultPage.datas.Count > 0)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
                 result.Add("RolesList", JProperty.FromObject(roles.ToList()));
-                result.Add(ResultInfo.Content, JProperty.FromObject(userList.ToList()));
+                result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
             }
             else
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(false));
                 result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
             }
+
             return result;
         }
     }

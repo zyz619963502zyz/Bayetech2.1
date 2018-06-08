@@ -13,7 +13,7 @@ namespace Bayetech.Service
         /// 获取员工表1
         /// </summary>
         /// <returns></returns>
-        JObject GetUserList();
+        JObject GetUserList(JObject json, DateTime? StartTime, DateTime? EndTime);
         /// <summary>
         /// 添加员工
         /// </summary>
