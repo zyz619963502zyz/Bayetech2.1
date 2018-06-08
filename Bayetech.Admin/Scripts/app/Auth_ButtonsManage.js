@@ -1,23 +1,24 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
-import componentTable from '../components/table-RolesManage.vue'
+import componentTable from '../components/table-ButtonsManage.vue'
 
 let vmData={
     tools:{
         _comCompnent:comCompnent,
         _componentTable:componentTable
     },
-    RolesUrl:"/api/Roles/GetList",
-    RolesAdd:"/api/Roles/AddRoles",
+    RolesUrl:"/api/Buttons/GetList",
+    RolesAdd:"/api/Buttons/AddRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
-    RolesArray:[],
+    ButtonssetsArray:[],
     ListObj:[
         {
             KeyId:"",
-            RoleName:"",
+            ButtonText:"",
+            ButtonTag:"",
             Sortnum:"",
-            Remark:""
+            IconCls:""
         }
     ],
     SearchParam: {
@@ -48,7 +49,7 @@ new Vue({
             self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
                 
                 if (data.result) {
-                    self.RolesArray=data.content;
+                    self.ButtonssetsArray=data.content;
                 }
             })
         },

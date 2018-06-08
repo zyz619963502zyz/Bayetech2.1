@@ -29,412 +29,96 @@
     </style>
 </head>
 <body>
-    <div class="topPanel">
-        <div class="search">
-            <table>
-                <tr>
-                    <td>
-                        <div class="input-group">
-                            <input id="txt_keyword" type="text" class="form-control" placeholder="按钮" style="width: 200px;" data-bind="value:keyword">
-                            <span class="input-group-btn">
-                                <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
-                                <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
-                            </span>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="toolbar">
-            <div class="btn-group">
-                <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+    <div id="CommButtons">
+        <div class="topPanel">
+            <div class="search">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input id="txt_keyword" type="text" class="form-control" placeholder="按钮" style="width: 200px;" data-bind="value:keyword">
+                                <span class="input-group-btn">
+                                    <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
+                                    <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="btn-group">
-                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
-            </div>
-        </div>
-    </div>
-    <!--Grid界面-->
-    <div class="row">
-        <div class="col-xs-12 content">
-            <div class="table-responsive">
-                <table class="table table-hover" id="buttonsTable" style="cursor: pointer;"></table>
-            </div>
-        </div>
-    </div>
-    <!--Grid界面-->
-    <!--Modal界面-->
-    <div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-        <div class="modal-dialog" style="width: 30%">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="H1" style="text-align: center"><b>按钮信息</b></h4>
+            <div class="toolbar">
+                <div class="btn-group">
+                    <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
                 </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">标题*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.ButtonText" required>
+                <div class="btn-group">
+                    <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                    <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                    <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                </div>
+            </div>
+        </div>
+        <!--Grid界面-->
+        <div class="row">
+            <div class="col-xs-12 content">
+                <div class="table-responsive">
+                    <!--<table class="table table-hover" id="buttonsTable" style="cursor: pointer;"></table>-->
+                    <comtable v-bind:buttonssetsarray="ButtonssetsArray"></comtable>
+                </div>
+            </div>
+        </div>
+        <!--Grid界面-->
+        <!--Modal界面-->
+        <div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>按钮信息</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">标题*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.ButtonText" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">编码*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.ButtonTag" required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">编码*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.ButtonTag" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">图标*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.iconCls" required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">图标*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.iconCls" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">排序*</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" data-bind="value:model.Sortnum" required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">排序*</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" data-bind="value:model.Sortnum" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <br />
-                        <div class="row form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                            <br />
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                                </div>
                             </div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--Modal界面-->
     </div>
-    <!--Modal界面-->
 </body>
 </html>
-<script>
-    $(function () {
-        //词典模型
-        var model = function () {
-            var _model = this;
-            _model.KeyId = ko.observable(0);
-            _model.ButtonText = ko.observable("");
-            _model.Sortnum = ko.observable(0);
-            _model.Remark = ko.observable("");
-
-            _model.iconCls = ko.observable("");
-            _model.IconUrl = ko.observable("");
-            _model.ButtonTag = ko.observable("");
-            _model.ButtonHtml = ko.observable("");
-
-        }
-
-        var KObj = new function () {
-
-            var self = this;
-            self.model = new model();//实例化模型
-            self.btnStatus = ko.observable(true);//是否允许操作
-            self.btnType = ko.observable(0);//按钮类型（0保存;1编辑）
-            self.keyword = ko.observable('');//搜索内容
-            self.selectRowNum = ko.observable(0);//当前选择的grid的行号
-
-            self.ApiName = "/api/ButtonsManage/";
-
-            self.GridUrl = self.ApiName + "GetList";
-            self.AddUrl = self.ApiName + 'Add';
-            self.UpdateUrl = self.ApiName + 'Update';
-            self.RemoveUrl = self.ApiName + 'Delete';
-
-            self.Table = $('#buttonsTable');
-
-            self.OkIcon = '<i class="glyphicon glyphicon-ok"style="color: gray;"></i>';
-            self.RemoveIcon = '<i class="glyphicon glyphicon-remove"style="color: gray;"></i>';
-            self.DicsModal = $('#ButtonsModal');
-
-            self.rows = null;
-            //#region 公共方法
-
-            //将json对象转换为Knockout viewModel对象
-            self.JsonToViewModel = function (jsonData, viewModel) {
-                ko.mapping.fromJSON(jsonData, {}, viewModel);
-            }
-
-            //将json对象转换为Knockout viewModel对象,可以选择忽略字段属性
-            self.JsonToViewModel_Ignore = function (jsonData, viewModel, mapping) {
-                var d = ko.mapping.fromJSON(jsonData, mapping);
-                //设置Model中的observable数据
-                for (var obj in d) {
-                    if (ko.isWriteableObservable(d[obj])) {
-                        viewModel[obj](d[obj]());
-                    }
-                }
-            }
-
-            //将js对象转换为viewModel
-            self.ObjectToViewModel = function (object, viewModel) {
-                ko.mapping.fromJS(object, {}, viewModel);
-            }
-
-            //清空对象基方法
-            self.ClearBase = function (viewModel) {
-                //清除Model中的observable数据
-                for (var obj in viewModel) {
-                    if (ko.isWriteableObservable(viewModel[obj])) {
-                        switch (typeof (viewModel[obj]())) {
-                            case 'boolean':
-                                viewModel[obj](false);
-                                break;
-                            case 'number':
-                                viewModel[obj](0);
-                                break;
-                            case 'string':
-                                viewModel[obj]("");
-                                break;
-                            default:
-                                viewModel[obj]("");
-                                break;
-                        }
-                    }
-                }
-
-            }
-
-            //时间替换T
-            self.replaceTimeStr = function (v) {
-                if (v() !== null) {
-                    v(v().replace('T', ' ').substr(0, 19));
-                }
-            }
-
-            //日期范围比较
-            self.CompareDate = function (v1, v2) {
-                var d1 = new Date(v1().replace(/\-/g, "\/"));
-                var d2 = new Date(v2().replace(/\-/g, "\/"));
-                if (d1 > d2) {
-                    layer.alert('开始日期不能大于结束日期');
-                    //v1(v2());
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-
-            self.ModalShow = function () {
-                self.DicsModal.modal("show");
-            }
-
-            self.ModalHide = function () {
-                self.btnStatus(true)
-                self.DicsModal.modal("hide");
-            }
-
-            //显示信息
-            self.Message = function (msg, msgType) {
-                $.scojs_message(msg, (msgType) ? $.scojs_message.TYPE_OK : $.scojs_message.TYPE_ERROR);
-            }
-
-            //错误处理
-            self.AjaxErrorHandle = function (data) {
-                if (data.ErrorCode === '103') {
-                    reLogin();
-                } else {
-                    self.Message(data.ErrorMsg, false);
-                }
-            }
-
-            //输出结果
-            self.WriteResult = function (data) {
-                var result = JSON.parse(data);
-                self.Message(result.ErrorMsg, result.Success);
-            };
-
-            //#endregion
-
-            self.Table.bootstrapTable({
-                //请求方法
-                method: 'get',
-                url: self.GridUrl,
-                dataType: "json",
-                singleSelect: true,
-                sidePagination: "server", //服务端处理分页
-                clickToSelect: true, //是否启用点击选中行
-                //是否显示行间隔色
-                striped: false,
-                //showRefresh:true,
-                //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-                cache: false,
-                //是否显示分页（*）
-                pagination: true,
-                //是否启用排序
-                sortable: false,
-                //排序方式
-                sortOrder: "asc",
-                pageSize: 10,
-                //可供选择的每页的行数（*）
-                pageList: [10, 20, 50],
-                //这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
-                //默认值为 'limit',传给服务端的参数为：limit, offset, search, sort, order Else
-                //queryParamsType:'',
-                ////查询参数,每次调用是会带上这个参数，可自定义
-                columns: [
-                    {
-                        field: 'Number',
-                        title: '编号',
-                        width: 40,
-                        formatter: function (value, row, index) {
-                            return index + 1;
-                        }
-                    },
-                    { title: 'ID', field: 'KeyId', width: 40, sortable: true, visible: false },
-                    { title: '名称', field: 'ButtonText', width: 160, sortable: true },
-                    { title: '编码', field: 'ButtonTag', width: 100, sortable: true },
-                    { title: '排序', field: 'Sortnum', width: 60, sortable: true },
-
-                    { title: '图标', field: 'iconCls', width: 100, sortable: true }
-                    //{ title: '图标url', field: 'IconUrl', width: 60, sortable: true },
-                    //{ title: '按钮html', field: 'ButtonHtml', width: 60, sortable: true }
-                ],
-                onClickRow: function (row, $element) {
-                    //取出先前保存的行对象，并修改颜色为白色
-                    $('[data-index=' + self.selectRowNum() + ']').removeClass().css("background-color", "white");
-                    //设置现在选中的行，设置颜色
-                    //$element是当前tr的jquery对象
-                    $element.css("background-color", "green");
-                    self.rows = row;
-                    //保存当前选中的行号
-                    self.selectRowNum(Number($element.attr("data-index")));
-                }//单击row事件
-            });
-
-            self.Refresh = function () {
-                self.Table.bootstrapTable('refresh');
-            }
-
-            self.Search = function () {
-                var searchTxt = self.keyword();
-
-                if ($.trim(searchTxt) !== '') {
-                    self.CategoryTable.bootstrapTable('refresh', { query: { searchModel: searchTxt } });
-                } else {
-                    self.CategoryTable.bootstrapTable('refresh');
-                }
-            }
-
-            self.Reset = function () {
-                self.keyword('');
-            };
-
-            //关闭模态框
-            self.Close = function () {
-                self.ClearBase(self.model);
-                self.ModalHide();
-            };
-
-            //输出结果
-            self.WriteResult = function (data) {
-                //console.info(data);
-                var result = JSON.parse(data);
-                self.Message(result.ErrorMsg, result.Success);
-                self.rows = null;
-                self.Close();
-                self.Table.bootstrapTable('refresh');
-            };
-
-            //判断是否有选择行；
-            self.IsSelectRow = function (data) {
-                if (!self.rows) {
-                    self.Message('没有选择要操作的行，请先选择一行!', false);
-                    return false;
-                } else {
-                    return true;
-                }
-            };
-
-            //打开模态框
-            self.OpenAddModal = function () {
-                self.btnType(0);
-                self.ModalShow();
-            };
-
-            //保存
-            self.Save = function() {
-                self.OperationRow(self.AddUrl);
-            };
-
-            //编辑和保存基方法，复用
-            self.OperationRow = function (url) {
-                if (!self.model.ButtonText()) {
-                    layer.alert("名称不能为空！");
-                    return false;
-                }
-                if (!self.model.ButtonTag()) {
-                    layer.alert("标记不能为空！");
-                    return false;
-                }
-
-                self.btnStatus(false);
-                var param = {
-                    model: ko.toJSON(self.model)
-                };
-                postWeb(url, param, function (data) {
-                    self.btnStatus(true);
-                    self.WriteResult(data);
-                });
-            };
-
-            //打开编辑模态框
-            self.OpenEditModal = function () {
-                var rows = self.rows;
-                if (!rows) {
-                    self.Message('没有选择要操作的行，请先选择一行!', false);
-                    return false;
-                }
-
-                self.btnType(1);
-
-                var param = {
-                    id: rows.KeyId
-                }
-                getWeb(self.ApiName + rows.KeyId, null, function (data) {
-                    var result = JSON.parse(data);
-                    if (result.Success) {
-                        self.ObjectToViewModel(result.ResultObject, self.model);
-                        self.ModalShow();
-                    } else {
-                        self.AjaxErrorHandle(result);
-                    }
-                });
-            };
-
-            //编辑
-            self.Update = function () {
-                self.OperationRow(self.UpdateUrl);
-            };
-
-            //删除词典
-            self.Delete = function () {
-                var rows = self.rows;
-                if (!rows) {
-                    self.Message('没有选择要操作的行，请先选择一行!', false);
-                    return false;
-                }
-                var ret = confirm("你确定要删除本条记录吗?");
-                if (!ret) return;
-
-                var param = {
-                    KeyId: rows.KeyId
-                }
-                deleteWeb(self.ApiName + rows.KeyId, param, function (data) {
-                    self.WriteResult(data);
-                });
-            }
-        }();
-        ko.applyBindings(KObj);
-    });
-</script>
+<script src="../../Scripts/app/TranslateContent/Auth_ButtonsManage_ES5.js"></script>

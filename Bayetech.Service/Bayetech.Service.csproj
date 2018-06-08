@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdminService\IAdminManageService.cs" />
+    <Compile Include="IAdminService\IButtonsManageService.cs" />
     <Compile Include="IAdminService\ILogionService.cs" />
     <Compile Include="IAdminService\IRolesService.cs" />
     <Compile Include="IAdminService\IUserRolesService.cs" />
@@ -70,6 +71,7 @@
     </Compile>
     <Compile Include="Services\AdminManageService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\ButtonsManageService.cs" />
     <Compile Include="Services\CheckService.cs" />
     <Compile Include="Services\DlService.cs" />
     <Compile Include="Services\GameService.cs" />
