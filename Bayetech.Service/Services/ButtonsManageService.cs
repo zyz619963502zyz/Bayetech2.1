@@ -23,16 +23,18 @@ namespace Bayetech.Service
             throw new NotImplementedException();
         }
 
-        public JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime, Pagination page)
+        public JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
+            json = json ?? new JObject();
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("ButtonText") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
             Expression<Func<Admin_Sys_Buttons, bool>> expression = PredicateExtensions.True<Admin_Sys_Buttons>();
+            PaginationResult<List<Admin_Sys_Buttons>> ResultPage = new PaginationResult<List<Admin_Sys_Buttons>>();
+            JObject result = new JObject();
             var roleList = repository.FindList(page ?? Pagination.GetDefaultPagination("ButtonText"), out page, expression);
             if(!string.IsNullOrEmpty(json["Param"]["ButtonName"].ToString()))
             {
                 roleList = roleList.FindAll(a => a.ButtonText == json["Param"]["ButtonName"].ToString());
             }
-            PaginationResult<List<Admin_Sys_Buttons>> ResultPage = new PaginationResult<List<Admin_Sys_Buttons>>();
-            JObject result = new JObject();
             ResultPage.datas = roleList.ToList() ;
             if (page != null)
             {

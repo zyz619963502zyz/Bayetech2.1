@@ -14,7 +14,7 @@ namespace Bayetech.Service
         /// 获取按钮列表
         /// </summary>
         /// <returns></returns>
-        JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime, Pagination page);
+        JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime);
         /// <summary>
         /// 添加和修改按钮
         /// </summary>
