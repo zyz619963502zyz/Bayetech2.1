@@ -81,7 +81,7 @@ var comCompnent = {
                 //e={"readyState":0,"status":0,"statusText":"error"}
                 //e={"readyState":4,"status":506,"statusText":"SessionTimeout"}
                 if (e.status === 506) {
-                    GetAlert("登录超时！");
+                    //GetAlert("登录超时！");
                     setTimeout("window.location ='" + window.appCtx['aist-sso-web'] + "/login?service=" + window.appCtx['ctm-web'] + "'", 2000);
                 } else {
                     errorfn("status:" + e.status + "-" + e.statusText);
@@ -107,7 +107,7 @@ var comCompnent = {
         //data = (data == null || data == "" || typeof (data) == "undefined") ? { "date": new Date().getTime() } : data;
         if (typeof (asyncC) != "undefined" && typeof (asyncC) != "boolean") {
             $("#Loading").addClass("hide");
-            GetAlert("同异步参数没传");
+            //GetAlert("同异步参数没传");
         }
         $.ajax({
             type: "post",
@@ -125,7 +125,7 @@ var comCompnent = {
                 //e={"readyState":0,"status":0,"statusText":"error"}
                 //e={"readyState":4,"status":506,"statusText":"SessionTimeout"}
                 if (e.status === 506) {
-                    GetAlert("登录超时！");
+                    //GetAlert("登录超时！");
                     setTimeout("window.location ='" + window.appCtx['aist-sso-web'] + "/login?service=" + window.appCtx['ctm-web'] + "'", 2000);
                 } else {
                     errorfn("status:" + e.status + "-" + e.statusText);
