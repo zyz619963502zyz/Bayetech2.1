@@ -3,68 +3,66 @@
 <head>
     <meta charset="utf-8" />
     <title>按钮管理</title>
-    <link rel="stylesheet" href="../../lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../lib/bootstrap-table/dist/bootstrap-table.min.css" />
-    <link rel="stylesheet" href="../../lib/aierp/css/framework-font.css" />
-    <link rel="stylesheet" href="../../lib/aierp/css/framework-ui.css" />
-    <link rel="stylesheet" href="../../lib/sco.js-master/css/sco.message.css" />
-    <script src="../../lib/jquery/jquery.min.js"></script>
-    <script src="../../lib/jquery.cookie/jquery.cookie.js"></script>
-    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="../../lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
-    <script src="../../lib/dialog/dialog.js"></script>
-    <script src="../../lib/aierp/js/framework-ui.js"></script>
-    <script src="../../lib/aierp/js/framework-clientdata.js"></script>
-    <script src="../../lib/sco.js-master/js/sco.message.js"></script>
-    <script src="../../lib/knockout/dist/knockout.js"></script>
-    <script src="../../lib/knockout/dist/knockout.mapping.js"></script>
-    <script src="../../lib/layer/layer.js"></script>
-    <script src="../../lib/common.js" asp-append-version="true"></script>
-    <style>
-        .modal-body .control-group {
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-    </style>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/generics.css" rel="stylesheet" />
+    <link href="../../Content/Mystyle.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+   
 </head>
 <body>
     <div id="CommButtons">
-        <div class="topPanel">
-            <div class="search">
-                <table>
-                    <tr>
-                        <td>
-                            <div class="input-group">
-                                <input id="txt_keyword" type="text" class="form-control" placeholder="按钮" style="width: 200px;" data-bind="value:keyword">
-                                <span class="input-group-btn">
-                                    <button id="btn_search" type="button" class="btn  btn-primary" data-bind="click:Search"><i class="fa fa-search"></i></button>
-                                    <button id="btn_reset" type="button" class="btn  btn-default" data-bind="click:Reset"><i class="fa fa-repeat"></i></button>
-                                </span>
+        <div id="" style="padding:20px 0 20px 0;">
+            <form class="form form-search form-horizontal" role="form">
+                <div class="form-inline" id="lineTwo">
+                    <div class="col-ms-12">
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">按钮名称</label>
+                            <div class="col-md-5">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
                             </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="toolbar">
-                <div class="btn-group">
-                    <a class="btn btn-default" id="refreshBtn"><span class="glyphicon glyphicon-refresh" data-bind="click:Refresh"></span></a>
+                            <div class="col-md-2">
+                                <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
+                            </div>
+                        </div>
+                        <div class="toolbar input-group col-md-6">
+                            <div class="btn-group">
+                                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                    <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                    <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="pull-right" id="">
+                                <ul class="pagination pagination-sm m-0 m-r-5">
+                                    <li class=""><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
+                                    <li class="" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
+                                    <li class="" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
+                                    <li class="" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
+                                </ul>
+                                <div class="input-group input-group-sm skip-page">
+                                    <span class="input-group-addon">跳转到</span>
+                                    <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
+                                    <span class="input-group-addon">页</span>
+                                    <span class="input-group-btn">
+                                        <input type="button" data-loading-text="Go!" class="btn btn-default" @click="TurnToPage(10)" />
+                                    </span>
+                                </div>
+                            </div>
+                            <!--传值案例-->
+                            <comtable  v-bind:buttonssetsarray="ButtonssetsArray" v-bind:startcheck="StartCheck" ></comtable>
+                            <nav aria-label="fenye" class="text-center right">
+                                <ul id="paginator-test" class="pagination"></ul>
+                            </nav>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!--Grid界面-->
-        <div class="row">
-            <div class="col-xs-12 content">
-                <div class="table-responsive">
-                    <!--<table class="table table-hover" id="buttonsTable" style="cursor: pointer;"></table>-->
-                    <comtable v-bind:buttonssetsarray="ButtonssetsArray"></comtable>
-                </div>
-            </div>
+            </form>
         </div>
         <!--Grid界面-->
         <!--Modal界面-->

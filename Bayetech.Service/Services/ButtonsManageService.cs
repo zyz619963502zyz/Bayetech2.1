@@ -1,9 +1,11 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,14 +23,25 @@ namespace Bayetech.Service
             throw new NotImplementedException();
         }
 
-        public JObject GetListButtons()
+        public JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime, Pagination page)
         {
-            var roleList = repository.IQueryable<Admin_Sys_Buttons>();
+            Expression<Func<Admin_Sys_Buttons, bool>> expression = PredicateExtensions.True<Admin_Sys_Buttons>();
+            var roleList = repository.FindList(page ?? Pagination.GetDefaultPagination("ButtonText"), out page, expression);
+            if(!string.IsNullOrEmpty(json["Param"]["ButtonName"].ToString()))
+            {
+                roleList = roleList.FindAll(a => a.ButtonText == json["Param"]["ButtonName"].ToString());
+            }
+            PaginationResult<List<Admin_Sys_Buttons>> ResultPage = new PaginationResult<List<Admin_Sys_Buttons>>();
             JObject result = new JObject();
-            if (roleList != null)
+            ResultPage.datas = roleList.ToList() ;
+            if (page != null)
+            {
+                ResultPage.pagination = page;
+            }
+            if (ResultPage.datas.Count >0)
             {
                 result.Add(ResultInfo.Result, JToken.FromObject(true));
-                result.Add(ResultInfo.Content, JToken.FromObject(roleList.ToList()));
+                result.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
             }
             else
             {

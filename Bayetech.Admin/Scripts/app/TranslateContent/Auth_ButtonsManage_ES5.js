@@ -11253,7 +11253,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_ButtonsManage_vue_vue_type_script_lang_js__ = __webpack_require__(13);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -11266,8 +11266,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_ButtonsManage_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11275,26 +11275,6 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
   
 )
 
-/* hot reload */
-if (false) {
-  var api = require("D:\\bay\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
-  api.install(require('vue'))
-  if (api.compatible) {
-    module.hot.accept()
-    if (!module.hot.data) {
-      api.createRecord('e9d20eba', component.options)
-    } else {
-      api.reload('e9d20eba', component.options)
-    }
-    module.hot.accept("./table-ButtonsManage.vue?vue&type=template&id=e9d20eba&lang=html", function () {
-      api.rerender('e9d20eba', {
-        render: render,
-        staticRenderFns: staticRenderFns
-      })
-    })
-  }
-}
-component.options.__file = "Scripts\\components\\table-ButtonsManage.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
@@ -11333,12 +11313,14 @@ let vmData = {
     }],
     SearchParam: {
         Param: { //查询条件的参数
-            keyword: ""
+            ButtonName: "",
+            SelectType: "", //form里选择的商品类型
+            SelectNo: "" //form里面选择的编号
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "GoodNo", //排序字段
+            order: "ButtonText", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -11356,12 +11338,27 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         findList() {
             var self = this;
-            self.tools._comCompnent.getWebJson(self.RolesUrl, null, function (data) {
+
+            self.SearchParam.Param.ButtonName = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
 
                 if (data.result) {
-                    self.ButtonssetsArray = data.content;
+                    self.ButtonssetsArray = data.content.datas;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             });
+        },
+        StartCheck(GoodNo) {
+            //开始检查
+            var self = this;
+            self.CheckGoodNo = GoodNo;
+            //$("#checkModal").modal("show");
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
         }
     },
     components: {
@@ -11382,9 +11379,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__ = __webpack_require__(35);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_e9d20eba_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__ = __webpack_require__(35);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_ButtonsManage_vue_vue_type_template_id_292dbdd4_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11397,72 +11394,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table table-bordered" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.buttonssetsarray, function(item) {
-        return _c("tbody", [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.ButtonText))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.ButtonTag))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IconCls))]),
-            _vm._v(" "),
-            _vm._m(1, true)
-          ])
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("名称")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("编码")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("排序")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("图标")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "Operates" } })
-    ])
-  }
-]
-render._withStripped = true
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('table',{staticClass:"table table-bordered"},[_vm._m(0),_vm._v(" "),_vm._l((_vm.buttonssetsarray),function(item){return _c('tbody',[_c('tr',{staticClass:"text-center"},[_c('td',[_c('label',{staticClass:"table-firsttitle"},[_vm._v(_vm._s(item.KeyId))])]),_vm._v(" "),_c('td',[_vm._v(_vm._s(item.ButtonText))]),_vm._v(" "),_c('td',[_vm._v(_vm._s(item.ButtonTag))]),_vm._v(" "),_c('td',[_vm._v(_vm._s(item.Sortnum))]),_vm._v(" "),_c('td',[_vm._v(_vm._s(item.IconCls))]),_vm._v(" "),_vm._m(1,true)])])})],2)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('thead',[_c('tr',{staticClass:"success"},[_c('th',{staticClass:"text-center col-md-1"},[_vm._v("编号")]),_vm._v(" "),_c('th',{staticClass:"text-center col-md-1"},[_vm._v("名称")]),_vm._v(" "),_c('th',{staticClass:"text-center col-md-2"},[_vm._v("编码")]),_vm._v(" "),_c('th',{staticClass:"text-center col-md-1"},[_vm._v("排序")]),_vm._v(" "),_c('th',{staticClass:"text-center col-md-1"},[_vm._v("图标")]),_vm._v(" "),_c('th',{staticClass:"text-center col-md-1"},[_vm._v("操作")])])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('td',[_c('input',{attrs:{"type":"radio","name":"Operates"}})])}]
 
 
 

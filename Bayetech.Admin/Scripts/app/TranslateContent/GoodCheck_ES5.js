@@ -11391,7 +11391,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //开始检查
             var self = this;
             self.CheckGoodNo = GoodNo;
-            $("#checkModal").modal("show");
         },
         TurnToPage(page) {
             var self = this;
