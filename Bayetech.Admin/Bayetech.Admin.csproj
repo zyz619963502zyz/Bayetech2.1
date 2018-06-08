@@ -202,7 +202,6 @@
     <Compile Include="Common\WebApiHelper.cs" />
     <Compile Include="Controllers\AdminManageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ButtonsController.cs" />
     <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
