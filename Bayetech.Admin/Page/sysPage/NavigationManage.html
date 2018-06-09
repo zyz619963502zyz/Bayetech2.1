@@ -11,171 +11,174 @@
 </head>
 <body>
     <!--Grid界面-->
+    <div id="CommNavigation">
+        <div id="" style="padding:20px 0 20px 0;">
+            <form class="form form-search form-horizontal" role="form">
+                <div class="form-group" id="lineTwo">
+                    <div class="col-ms-12">
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">菜单名称</label>
+                            <div class="col-md-5">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
+                            </div>
+                        </div>
+                        <div class="toolbar input-group col-md-6">
+                            <div class="btn-group">
+                                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                                <button class="btn btn-success" data-bind="click:AssignButtons"><i class="fa fa-trash-o"></i>分配按钮</button>
+                                <button class="btn btn-warning" data-bind="click:UpdateVersion"><i class="fa fa-trash-o"></i>更新版本</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="pull-right" id="">
+                                <ul class="pagination pagination-sm m-0 m-r-5">
+                                    <li class=""><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
+                                    <li class="" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
+                                    <li class="" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
+                                    <li class="" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
+                                </ul>
+                                <div class="input-group input-group-sm skip-page">
+                                    <span class="input-group-addon">跳转到</span>
+                                    <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
+                                    <span class="input-group-addon">页</span>
+                                    <span class="input-group-btn">
+                                        <input type="button" data-loading-text="Go!" class="btn btn-default" @click="TurnToPage(10)" />
+                                    </span>
+                                </div>
+                            </div>
+                            <!--传值案例-->
+                            <comtable v-bind:navigationsetsarray="NavigationsetsArray" v-bind:startcheck="StartCheck"></comtable>
 
-    <div id="" style="padding:20px 0 20px 0;">
-        <form class="form form-search form-horizontal" role="form">
-            <div class="form-group" id="lineTwo">
-                <div class="col-ms-12">
-                    <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">菜单名称</label>
-                        <div class="col-md-5">
-                            <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
-                        </div>
-                        <div class="col-md-2">
-                            <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
-                        </div>
-                    </div>
-                    <div class="toolbar input-group col-md-6">
-                        <div class="btn-group">
-                            <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                            <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                            <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
-                            <button class="btn btn-success" data-bind="click:AssignButtons"><i class="fa fa-trash-o"></i>分配按钮</button>
-                            <button class="btn btn-warning" data-bind="click:UpdateVersion"><i class="fa fa-trash-o"></i>更新版本</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel-body">
-                        <div class="pull-right" id="">
-                            <ul class="pagination pagination-sm m-0 m-r-5">
-                                <li class=""><a id="totalPageCount">共计：{{SearchParam.Pagination.records}}条记录</a></li>
-                                <li class="" @click="TurnToPage(10)"><a href="#" name="">10</a></li>
-                                <li class="" @click="TurnToPage(20)"><a href="#" name="">20</a></li>
-                                <li class="" @click="TurnToPage(30)"><a href="#" name="">30</a></li>
-                            </ul>
-                            <div class="input-group input-group-sm skip-page">
-                                <span class="input-group-addon">跳转到</span>
-                                <input type="text" name="name" class="form-control" v-model="SearchParam.Pagination.page" />
-                                <span class="input-group-addon">页</span>
-                                <span class="input-group-btn">
-                                    <input type="button" data-loading-text="Go!" class="btn btn-default" @click="TurnToPage(10)" />
-                                </span>
-                            </div>
-                        </div>
-                        <!--传值案例-->
-                        <comtable v-bind:navigatiosetsarray="NavigatiosetsArray" v-bind:startcheck="StartCheck"></comtable>
-                        <nav aria-label="fenye" class="text-center right">
-                            <ul id="paginator-test" class="pagination"></ul>
-                        </nav>
 
+                            <nav aria-label="fenye" class="text-center right">
+                                <ul id="paginator-test" class="pagination"></ul>
+                            </nav>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <!--Grid界面-->
-    <!--Modal界面-->
-    <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-        <div class="modal-dialog" style="width: 30%">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="H1" style="text-align: center"><b>角色设置</b></h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">菜单名称*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.NavTitle" required>
+            </form>
+        </div>
+        <!--Grid界面-->
+        <!--Modal界面-->
+        <div id="UserModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>角色设置</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">菜单名称*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.NavTitle" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">菜单标识*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.NavTag" required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">菜单标识*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.NavTag" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">链接地址*</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.Linkurl," required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">链接地址*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.Linkurl," required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">排序</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" data-bind="value:model.Sortnum" required max="1000">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">排序</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" data-bind="value:model.Sortnum" required max="1000">
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">图标CSS</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" data-bind="value:model.iconCls," required>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">图标CSS</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" data-bind="value:model.iconCls," required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="col-sm-3 control-label">是否显示</label>
-                            <div class="col-sm-8">
-                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
-                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">是否显示</label>
+                                <div class="col-sm-8">
+                                    <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
+                                    <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
+                                </div>
                             </div>
-                        </div>
-                        <br />
-                        <div class="row form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                            <br />
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                                </div>
                             </div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--Modal界面-->
-    <!--Modal界面-->
-    <div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-        <div class="modal-dialog" style="width: 50%">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="H1" style="text-align: center"><b>分配按钮</b></h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <div class="row">
-                                <div class="col-md-6" style="width:49%">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">所有按钮</div>
-                                        <table class="table table-hover" id="buttonsTable" style="cursor:pointer;"></table>
+        <!--Modal界面-->
+        <!--Modal界面-->
+        <div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 50%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>分配按钮</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <div class="row">
+                                    <div class="col-md-6" style="width:49%">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">所有按钮</div>
+                                            <table class="table table-hover" id="buttonsTable" style="cursor:pointer;"></table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 nav">
+                                        <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
+                                    </div>
+                                    <div class="col-md-6" style="width:49%">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">已有按钮</div>
+                                            <ul class="list-group" data-bind="foreach:ButtonArray">
+                                                <li class="list-group-item" data-bind="text:ButtonText,click:$root.ButtonsRemove" style="cursor:pointer;"></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-1 nav">
-                                    <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-default form-control" data-bind="click:ButtonsClose">关闭</button>
                                 </div>
-                                <div class="col-md-6" style="width:49%">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">已有按钮</div>
-                                        <ul class="list-group" data-bind="foreach:ButtonArray">
-                                            <li class="list-group-item" data-bind="text:ButtonText,click:$root.ButtonsRemove" style="cursor:pointer;"></li>
-                                        </ul>
-                                    </div>
+                                <div class="col-xs-4">
+                                    <button class="btn btn-success form-control" type="submit" data-bind="click:ButtonsUpdate,enable:btnStatus">保存</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-default form-control" data-bind="click:ButtonsClose">关闭</button>
-                            </div>
-                            <div class="col-xs-4">
-                                <button class="btn btn-success form-control" type="submit" data-bind="click:ButtonsUpdate,enable:btnStatus">保存</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--Modal界面-->
     </div>
-    <!--Modal界面-->
 </body>
 </html>
 <script src="../../Scripts/app/TranslateContent/Auth_NavigationManage_ES5.js"></script>

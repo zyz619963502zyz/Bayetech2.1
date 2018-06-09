@@ -1,6 +1,6 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
-import componentTable from '../components/table-NavigationManage.vue'
+import componentTable from '../components/table-TwoLayer.vue'
 
 let vmData={
     tools:{
@@ -11,7 +11,7 @@ let vmData={
     RolesAdd:"/api/AdminManage/AddRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
-    NavigatiosetsArray:[],
+    NavigationsetsArray:[],
     ListObj:[
         {
             KeyId:"",
@@ -54,9 +54,10 @@ new Vue({
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
                 
                 if (data.result) {
-                    self.NavigatiosetsArray=data.content;
-                    self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    self.NavigationsetsArray= data.content;
+
+                    //self.SearchParam.Pagination=data.content.pagination;
+                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },

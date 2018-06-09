@@ -15,7 +15,7 @@
 				<th class="text-center col-md-1">操作</th>
             </tr>
         </thead>
-        <tbody v-for="item in navigatiosetsarray">
+        <tbody v-for="item in navigationsetsarray">
             <tr>
                 <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.NavTitle}}</td>
@@ -32,6 +32,6 @@
 <script>
 export default{
     name:'NavigationbTable',
-    props:['navigatiosetsarray']
+    props:['navigationsetsarray']
 }
 </script>
