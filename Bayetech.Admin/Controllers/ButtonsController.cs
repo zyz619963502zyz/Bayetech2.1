@@ -21,10 +21,6 @@ namespace Bayetech.Admin.Controllers
         [HttpPost]
         public JObject GetList(JObject json)
         {
-
-            var a = 111;
-            var b = "sss";
-            var ss = 1111112222;
             return buttonsService.GetListButtons(json,null,null);
         }
         /// <summary>      
