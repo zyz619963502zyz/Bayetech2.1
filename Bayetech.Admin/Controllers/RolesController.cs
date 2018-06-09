@@ -16,10 +16,10 @@ namespace Bayetech.Admin.Controllers
         /// 获取角色列表
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public JObject GetList()
+        [HttpPost]
+        public JObject GetList(JObject json)
         {
-            return rolesService.GetListRoles();
+            return rolesService.GetListRoles(json, null, null);
         }
         /// <summary>
         /// 添加和修改角色

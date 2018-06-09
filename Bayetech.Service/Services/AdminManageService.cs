@@ -89,7 +89,7 @@ namespace Bayetech.Service
             JObject result = new JObject();
             if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
             {
-                userList = userList.FindAll(a => a.UserName == json["Param"]["Type"].ToString() || a.TrueName == json["Param"]["Type"].ToString() || a.Mobile == json["Param"]["Type"].ToString());
+                userList = userList.FindAll(a => a.UserName.Contains(json["Param"]["Type"].ToString()) || a.TrueName.Contains(json["Param"]["Type"].ToString()) || a.Mobile.Contains(json["Param"]["Type"].ToString()));
             }
             ResultPage.datas = userList.ToList();
             if (page != null)

@@ -13,7 +13,7 @@ namespace Bayetech.Service
         /// 获取角色列表
         /// </summary>
         /// <returns></returns>
-        JObject GetListRoles();
+        JObject GetListRoles(JObject json, DateTime? StartTime, DateTime? EndTime);
         /// <summary>
         /// 添加和修改角色
         /// </summary>

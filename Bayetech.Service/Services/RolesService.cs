@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using Bayetech.Core.Entity;
 using Bayetech.Core;
 using Newtonsoft.Json;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service
 {
@@ -80,20 +81,34 @@ namespace Bayetech.Service
             return result;
         }
 
-        public JObject GetListRoles()
+        public JObject GetListRoles(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
-            var roleList = repository.IQueryable<Admin_Sys_Roles>();
+            json = json ?? new JObject();
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("KeyId") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+            Expression<Func<Admin_Sys_Roles, bool>> expression = PredicateExtensions.True<Admin_Sys_Roles>();
+            PaginationResult<List<Admin_Sys_Roles>> ResultPage = new PaginationResult<List<Admin_Sys_Roles>>();
+            var userList = repository.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
             JObject result = new JObject();
-            if (roleList!=null)
+            if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(true));
-                result.Add(ResultInfo.Content, JToken.FromObject(roleList.ToList()));
+                userList = userList.FindAll(a => a.RoleName.Contains(json["Param"]["Type"].ToString()));
+            }
+            ResultPage.datas = userList.ToList();
+            if (page != null)
+            {
+                ResultPage.pagination = page;
+            }
+            if (ResultPage.datas.Count > 0)
+            {
+                result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
             }
             else
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("没有找到匹配数据"));
+                result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
             }
+
             return result;
         }
     }
