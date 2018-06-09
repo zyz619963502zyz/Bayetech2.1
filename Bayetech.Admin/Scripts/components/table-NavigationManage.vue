@@ -12,9 +12,10 @@
                 <th class="text-center col-md-1">是否显示</th>
                 <th class="text-center col-md-1">排序</th>
                 <th class="text-center col-md-1">父类Id</th>
+				<th class="text-center col-md-1">操作</th>
             </tr>
         </thead>
-        <tbody v-for="item in adminInfo">
+        <tbody v-for="item in navigatiosetsarray">
             <tr>
                 <td class="text-center"><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.NavTitle}}</td>
@@ -22,6 +23,7 @@
                 <td>{{item.IsVisible}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.ParentID}}</td>
+				<td><input type="radio" name="Operates"/></td>
             </tr>
         </tbody>
     </table>
@@ -29,7 +31,7 @@
 
 <script>
 export default{
-    name:'AdminSetsTable',
-    //props:['pagetype','goodinfoarray','startcheck','itemtype']
+    name:'NavigationbTable',
+    props:['navigatiosetsarray']
 }
 </script>

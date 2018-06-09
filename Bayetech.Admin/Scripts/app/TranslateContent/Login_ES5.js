@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -449,7 +449,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 16:
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NUGET: BEGIN LICENSE TEXT
@@ -2596,12 +2596,12 @@ var comCompnent = {
     });
   }), x.fn.size = function () {
     return this.length;
-  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(38) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+  }, x.fn.andSelf = x.fn.addBack, "object" == typeof module && module && "object" == typeof module.exports ? module.exports = x : (e.jQuery = e.$ = x, "function" == "function" && __webpack_require__(43) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
     return x;
   }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)));
 })(window);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)(module)))
 
 /***/ }),
 
@@ -12155,76 +12155,6 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 28:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__);
-
-
-
-
-var data = {
-    url: "/api/Login/AdminLogion",
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */]
-    },
-    Param: {
-        UserName: "admin",
-        Password: "111111"
-    }
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: "#LoginDiv",
-    data: data,
-    methods: {
-        LoginIn() {
-            var self = this;
-            self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
-                if (data) {
-                    window.location.href = "/Page/BayMain.html";
-                }
-            });
-        }
-    }
-});
-
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, exports) {
-
-module.exports = function (module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function () {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function () {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function () {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-/***/ }),
-
 /***/ 3:
 /***/ (function(module, exports) {
 
@@ -12883,13 +12813,73 @@ module.exports = function (module) {
 
 /***/ }),
 
-/***/ 38:
+/***/ 31:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__);
+
+
+
+
+var data = {
+    url: "/api/Login/AdminLogion",
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */]
+    },
+    Param: {
+        UserName: "admin",
+        Password: "111111"
+    }
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: "#LoginDiv",
+    data: data,
+    methods: {
+        LoginIn() {
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
+                if (data) {
+                    window.location.href = "/Page/BayMain.html";
+                }
+            });
+        }
+    }
+});
+
+/***/ }),
+
+/***/ 32:
 /***/ (function(module, exports) {
 
-/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
-module.exports = __webpack_amd_options__;
-
-/* WEBPACK VAR INJECTION */}.call(exports, {}))
+module.exports = function (module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function () {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function () {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function () {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
 
 /***/ }),
 
@@ -13081,6 +13071,16 @@ process.chdir = function (dir) {
 process.umask = function () {
     return 0;
 };
+
+/***/ }),
+
+/***/ 43:
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
 

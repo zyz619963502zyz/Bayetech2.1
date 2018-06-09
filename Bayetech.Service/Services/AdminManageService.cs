@@ -8,6 +8,7 @@ using Bayetech.Core.Entity;
 using Bayetech.Core;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
+using Bayetech.Service.Model;
 
 namespace Bayetech.Service
 {
@@ -70,6 +71,49 @@ namespace Bayetech.Service
                     result.Add(ResultInfo.Result, JProperty.FromObject(false));
                     result.Add(ResultInfo.Content, JProperty.FromObject("修改失败"));
                 }
+            }
+            return result;
+        }
+
+        public JObject GetNavgationList(JObject json, DateTime? StartTime, DateTime? EndTime)
+        {
+            var list = repository.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
+            var menuList = new List<NavigationModel>();
+            JObject result = new JObject();
+            foreach (var item in list.Where(it => it.ParentID == 0))
+            {
+                var menuModel = new NavigationModel();
+                menuModel.KeyId = item.KeyId;
+                menuModel.NavTitle = item.NavTitle;
+                menuModel.Linkurl = item.Linkurl;
+                menuModel.Sortnum = (int)item.Sortnum;
+                menuModel.ParentID = (int)item.ParentID;
+
+                menuModel.ChildNodes =
+                    list.Where(c => c.ParentID == item.KeyId)
+                        .Select(
+                            c =>
+                                new ChilNavdNodes
+                                {
+                                    KeyId = c.KeyId,
+                                    NavTitle = c.NavTitle,
+                                    Linkurl = c.Linkurl,
+                                    Sortnum = (int)c.Sortnum,
+                                    ParentID= (int)item.ParentID
+            })
+                        .OrderBy(c => c.Sortnum).ToList();
+                menuList.Add(menuModel);
+            }
+            menuList = menuList.OrderBy(c => c.Sortnum).ToList();
+            if(menuList.Count>0)
+            {
+                result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                result.Add(ResultInfo.Content, JProperty.FromObject(menuList));
+            }
+            else
+            {
+                result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
             }
             return result;
         }

@@ -42,6 +42,16 @@ namespace Bayetech.Admin.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// 导航
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject GetNavgationList(JObject json)
+        {
+            return adminManageService.GetNavgationList(json, null, null);
+        }
 
     }
 }

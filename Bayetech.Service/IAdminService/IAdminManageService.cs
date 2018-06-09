@@ -21,6 +21,15 @@ namespace Bayetech.Service
         /// <param name="UserId">当前登录用户id</param>
         /// <returns></returns>
         JObject AddUser(JObject json, int UserId);
-       
+        /// <summary>
+        /// 导航页面列表
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="StartTime"></param>
+        /// <param name="EndTime"></param>
+        /// <returns></returns>
+        JObject GetNavgationList(JObject json, DateTime? StartTime, DateTime? EndTime);
+
+
     }
 }
