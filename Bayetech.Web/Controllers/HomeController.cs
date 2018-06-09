@@ -6,7 +6,7 @@ namespace Bayetech.Web.Controllers
     { 
         public ActionResult Index() 
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Home Page  abc";
 
             //Bayetech.Core.Common.CreatOrderNo();
             return View();
