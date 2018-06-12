@@ -28,6 +28,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject AddRoles(JObject json)
         {
             return buttonsService.AddButtons(json);

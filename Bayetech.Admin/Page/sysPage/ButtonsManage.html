@@ -27,9 +27,9 @@
                         </div>
                         <div class="toolbar input-group col-md-6">
                             <div class="btn-group">
-                                <button id="AddBtn" class="btn btn-primary" data-bind="click:OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                                <button class="btn btn-primary" data-bind="click:OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                                <button class="btn btn-primary" data-bind="click:Delete"><i class="fa fa-trash-o"></i>删除</button>
+                                <button type="button"  class="btn btn-primary" @click="OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                                <button type="button" class="btn btn-primary" @click="OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                                <button type="button" class="btn btn-primary" @click="Delete"><i class="fa fa-trash-o"></i>删除</button>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <!--传值案例-->
-                            <comtable  v-bind:buttonssetsarray="ButtonssetsArray" v-bind:startcheck="StartCheck" ></comtable>
+                            <comtable  v-bind:buttonssetsarray="ButtonssetsArray"   v-bind:startcheck="StartCheck" ></comtable>
                             <nav aria-label="fenye" class="text-center right">
                                 <ul id="paginator-test" class="pagination"></ul>
                             </nav>
@@ -78,25 +78,25 @@
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">标题*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" data-bind="value:model.ButtonText" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.ButtonText" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">编码*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" data-bind="value:model.ButtonTag" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.ButtonTag"  required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">图标*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" data-bind="value:model.iconCls" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.iconCls" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">排序*</label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" data-bind="value:model.Sortnum" required>
+                                    <input type="number" class="form-control" v-model="SearchParam.ListObj.Sortnum" required>
                                 </div>
                             </div>
 
@@ -107,7 +107,7 @@
                                     <button class="btn btn-default form-control" data-bind="click:Close">关闭</button>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:Update,enable:btnStatus">保存</button>
+                                    <button class="btn btn-success form-control" type="button" @click="SubmitModal">保存</button>
                                 </div>
                             </div>
                         </form>

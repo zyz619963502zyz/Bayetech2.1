@@ -1,5 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Bayetech.DAL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -15,7 +16,40 @@ namespace Bayetech.Service
     {
         public JObject AddButtons(JObject json)
         {
-            throw new NotImplementedException();
+            
+            JObject result = new JObject();
+            Admin_Sys_Buttons admin_Sys_Buttons = json["ListObj"].ToString() == "" ? new Admin_Sys_Buttons() : JsonConvert.DeserializeObject<Admin_Sys_Buttons>(json["ListObj"].ToString());
+            if(admin_Sys_Buttons.KeyId>0)
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    db.Update(admin_Sys_Buttons);
+                    if (db.Commit() == 1)
+                    {   
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            else
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    db.Insert(admin_Sys_Buttons);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            return result;
         }
 
         public JObject DeleteButtons(JObject json)
