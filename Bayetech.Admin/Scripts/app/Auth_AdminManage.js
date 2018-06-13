@@ -13,14 +13,20 @@ let vmData = {
     AdminSetsUrl:"/api/AdminManage/GetList",//管理员设置列表表格
     AdminUserAdd:"/api/AdminManage/UserAdd",
     AdminUserDelete:"/api/AdminManage/DeleteUser",
+    RoleUrl:"/api/AdminManage/AddRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     AdminSetsArray:[],
-    
+    RolesSet:{
+        Keyid:"",
+        UserID:"",
+        RoleID:""
+    },
     SearchParam: {
         Param: {//查询条件的参数
             Type:"",
-            SelectNo:""//form里面选择的编号
+            SelectNo:"",//form里面选择的编号
+            SelectType:""
         },
         ListObj: 
         {
@@ -108,10 +114,61 @@ new Vue({
             $("#UserModal").modal("show");
         },
         ResetPassWord(){//重置密码
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            var ret = confirm("你确定要重置用户："+self.SearchParam.ListObj.UserName +" 的初始密码吗? ");
+            if (!ret) return;
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                    self.findList();
+                }
+                else{
+                    alert(data.content);
+                }
+                
+            })
+        },
+        AddRoles(){
+            var self=this;
+          self.RolesSet.Keyid=0;
+          self.RolesSet.UserID=self.SearchParam.ListObj.KeyId;
+          self.RolesSet.RoleID=self.SearchParam.Param.SelectType;
+          self.tools._comCompnent.postWebJson(self.RoleUrl, self.RolesSet, function (data) {
+              debugger;
+              if (data.result) {
+                  $("#UserModal").modal("hide");
+                  alert("操作成功");
+              }
+              else{
+                  
+              }
+          })
 
         },
         RoleSetting(){//角色设定
-
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择员工")
+                return ;
+            }
+            $("#RolesModal").modal("show");
+            self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
+                debugger;
+                if (data.RolesList.length>0) {
+                    self.SearchParam.Param.SelectType=data.RolesList[0].RoleID
+                }
+                else{
+                    self.SearchParam.Param.SelectType=0;
+                }
+            })
+            
         },
         StartCheck(type) {//开始检查
             var self = this;

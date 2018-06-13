@@ -52,10 +52,25 @@ namespace Bayetech.Admin.Controllers
         {
             return adminManageService.GetNavgationList(json, null, null);
         }
+        /// <summary>
+        /// 删除员工
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         [HttpPost]
         public JObject DeleteUser(JObject json)
         {
             return adminManageService.DeleteUser(json);
+        }
+        /// <summary>
+        /// 角色设置
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject AddRoles(JObject json)
+        {
+            return adminManageService.AddRoles(json);
         }
 
     }

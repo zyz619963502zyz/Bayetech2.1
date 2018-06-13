@@ -16,8 +16,13 @@ namespace Bayetech.Service
     /// <summary>
     /// 
     /// </summary>
-    public class AdminManageService : BaseService<Admin_Sys_Users>,  IAdminManageService
+    public class AdminManageService : BaseService<Admin_Sys_Users>, IAdminManageService
     {
+        public JObject AddRoles(JObject json)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 添加一个新的用户
         /// </summary>
@@ -152,7 +157,9 @@ namespace Bayetech.Service
             Expression<Func<Admin_Sys_Users, bool>> expression = PredicateExtensions.True<Admin_Sys_Users>();
             PaginationResult<List<Admin_Sys_Users>> ResultPage = new PaginationResult<List<Admin_Sys_Users>>();
             var userList = repository.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
-            var roles = repository.IQueryable<Admin_Sys_Roles>();//角色列表
+            var id = json["ListObj"]["KeyId"].ToString() == "" ? 0 : (int)json["ListObj"]["KeyId"];
+            var roles = repository.IQueryable<Admin_Sys_UserRoles>(a=>a.UserID==id);//角色列表
+
             JObject result = new JObject();
             if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
             {
@@ -166,7 +173,7 @@ namespace Bayetech.Service
             if (ResultPage.datas.Count > 0)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add("RolesList", JProperty.FromObject(roles.ToList()));
+                result.Add("RolesList", JProperty.FromObject(roles));
                 result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
             }
             else

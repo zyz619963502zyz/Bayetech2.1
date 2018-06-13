@@ -35,6 +35,12 @@ namespace Bayetech.Service
         /// <param name="json"></param>
         /// <returns></returns>
         JObject DeleteUser(JObject json);
+        /// <summary>
+        /// 设置角色
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject AddRoles(JObject json);
 
 
     }
