@@ -11232,7 +11232,7 @@ function normalizeComponent (
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
-    props: ['adminsetsarray']
+    props: ['adminsetsarray', 'startcheck']
 });
 
 /***/ }),
@@ -11330,23 +11330,26 @@ let vmData = {
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     AdminSetsUrl: "/api/AdminManage/GetList", //管理员设置列表表格
     AdminUserAdd: "/api/AdminManage/UserAdd",
+    AdminUserDelete: "/api/AdminManage/DeleteUser",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     AdminSetsArray: [],
-    ListObj: [{
-        KeyId: "",
-        UserName: "",
-        TrueName: "",
-        depname: "",
-        Mobile: "",
-        IsAdmin: "",
-        Remark: ""
-    }],
+
     SearchParam: {
         Param: { //查询条件的参数
             Type: "",
             SelectNo: "" //form里面选择的编号
         },
+        ListObj: {
+            KeyId: "",
+            UserName: "",
+            TrueName: "",
+            Mobile: "",
+            IsAdmin: "",
+            IsDisabled: "",
+            Remark: ""
+        },
+
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
@@ -11377,32 +11380,63 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 }
             });
         },
+        IsDisabl(type) {
+            var self = this;
+            self.SearchParam.ListObj.IsDisabled = type;
+        },
         OpenModal() {
             //打开模态框
             $("#UserModal").modal("show");
         },
         UserAddandEdit() {
-            //方法体还没写
+            //提交
             var self = this;
-            self.tools._comCompnent.postWebJson(self.UserAddandEdit, null, function (data) {
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
-                    //新增，修改操作
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                    self.findList();
+                } else {
+                    alert(data.content);
                 }
             });
         },
         UserDelete() {
             //方法体还没写
-            self.tools._comCompnent.postWebJson(self.AdminUserDelete, null, function (data) {
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.AdminUserDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     //删除操作
+                    alert("删除成功");
                 }
+                self.findList();
             });
         },
-        StartCheck(GoodNo) {
+        OpenEditModal() {
+            //修改
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            $("#UserModal").modal("show");
+        },
+        ResetPassWord() {//重置密码
+
+        },
+        RoleSetting() {//角色设定
+
+        },
+        StartCheck(type) {
             //开始检查
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            //$("#checkModal").modal("show");
+            self.SearchParam.ListObj = type;
         },
         TurnToPage(page) {
             var self = this;
@@ -11469,15 +11503,24 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.TrueName))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.depname))]),
-            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Mobile))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
             _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsDisabled))]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Remark))]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
           ])
         ])
       })
@@ -11508,14 +11551,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "Operates" } })
     ])
   }
 ]

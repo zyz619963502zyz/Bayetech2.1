@@ -12,25 +12,27 @@ let vmData = {
     GoodListUrl:comCompnent.MenuUrl[pagetype],
     AdminSetsUrl:"/api/AdminManage/GetList",//管理员设置列表表格
     AdminUserAdd:"/api/AdminManage/UserAdd",
+    AdminUserDelete:"/api/AdminManage/DeleteUser",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     AdminSetsArray:[],
-    ListObj: [
-        {
-            KeyId: "",
-            UserName: "",
-            TrueName: "",
-            depname: "",
-            Mobile: "",
-            IsAdmin: "",
-            Remark: ""
-        }
-    ],
+    
     SearchParam: {
         Param: {//查询条件的参数
             Type:"",
             SelectNo:""//form里面选择的编号
         },
+        ListObj: 
+        {
+            KeyId: "",
+            UserName: "",
+            TrueName: "",
+            Mobile: "",
+            IsAdmin: "",
+            IsDisabled:"",
+            Remark: ""
+        }
+    ,
         Pagination: {//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
@@ -60,28 +62,60 @@ new Vue({
                 }
             })
         },
+        IsDisabl(type){
+            var self = this;
+            self.SearchParam.ListObj.IsDisabled=type;
+        },
         OpenModal(){//打开模态框
             $("#UserModal").modal("show");
         },
-        UserAddandEdit(){//方法体还没写
+        UserAddandEdit(){//提交
             var self = this;
-            self.tools._comCompnent.postWebJson(self.UserAddandEdit, null, function (data) {
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
-                    //新增，修改操作
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                    self.findList();
                 }
+                else{
+                    alert(data.content);
+                }
+                
             })   
         },
         UserDelete(){//方法体还没写
-            self.tools._comCompnent.postWebJson(self.AdminUserDelete, null, function (data) {
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.AdminUserDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     //删除操作
+                    alert("删除成功");
                 }
+                self.findList();
             })   
         },
-        StartCheck(GoodNo) {//开始检查
+        OpenEditModal(){//修改
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            //$("#checkModal").modal("show");
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            $("#UserModal").modal("show");
+        },
+        ResetPassWord(){//重置密码
+
+        },
+        RoleSetting(){//角色设定
+
+        },
+        StartCheck(type) {//开始检查
+            var self = this;
+            self.SearchParam.ListObj = type;
         },
         TurnToPage(page){
             var self = this;

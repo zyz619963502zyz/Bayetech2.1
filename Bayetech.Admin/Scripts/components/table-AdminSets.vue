@@ -21,11 +21,11 @@
                 <td><label class="table-firsttitle">{{item.KeyId}}</label></td>
                 <td>{{item.UserName}}</td>
                 <td>{{item.TrueName}}</td>
-                <td>{{item.depname}}</td>
                 <td>{{item.Mobile}}</td>
                 <td>{{item.IsAdmin}}</td>
+                <td>{{item.IsDisabled}}</td>
                 <td>{{item.Remark}}</td>
-                <td><input type="radio" name="Operates"/></td>
+                <td><input type="radio" name="Operates" @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>
@@ -34,6 +34,6 @@
 <script>
 export default{
     name:'AdminSetsTable',
-    props:['adminsetsarray']
+    props:['adminsetsarray','startcheck']
 }
 </script>

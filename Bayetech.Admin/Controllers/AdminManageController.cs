@@ -52,6 +52,11 @@ namespace Bayetech.Admin.Controllers
         {
             return adminManageService.GetNavgationList(json, null, null);
         }
+        [HttpPost]
+        public JObject DeleteUser(JObject json)
+        {
+            return adminManageService.DeleteUser(json);
+        }
 
     }
 }

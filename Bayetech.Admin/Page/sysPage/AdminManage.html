@@ -27,11 +27,11 @@
                         </div>
                         <div class="toolbar input-group col-md-6">
                             <div class="btn-group">
-                                <button id="AddBtn" class="btn btn-primary" @click="OpenModal"><i class="fa fa-plus"></i>添加</button>
-                                <button class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>修改</button>
-                                <button class="btn btn-primary"><i class="fa fa-trash-o"></i>删除</button>
-                                <button class="btn btn-primary"><i class="fa fa-key"></i>重置密码</button>
-                                <button class="btn btn-primary"><i class="fa fa-key"></i>角色设定</button>
+                                <button type="button" class="btn btn-primary" @click="OpenModal"><i class="fa fa-plus"></i>添加</button>
+                                <button type="button" class="btn btn-primary" @click="OpenEditModal">><i class="fa fa-pencil-square-o"></i>修改</button>
+                                <button type="button" class="btn btn-primary" @click="UserDelete">><i class="fa fa-trash-o"></i>删除</button>
+                                <button type="button" class="btn btn-primary" @click="ResetPassWord">><i class="fa fa-key"></i>重置密码</button>
+                                <button type="button" class="btn btn-primary" @click="RoleSetting">><i class="fa fa-key"></i>角色设定</button>
                             </div>
                         </div>
                     </div>
@@ -81,44 +81,36 @@
                             <div class="control-group">
                                 <label class="col-sm-3 control-label" for="input01">用户账号*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.UserName" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label" for="input01">真实姓名*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.TrueName"  required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label" for="input01">手机</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="col-sm-3 control-label" for="input01">是否超级管理</label>
-                                <div class="col-sm-8">
-                                    <label><input type="radio" name="IsAdmin"/>是</label>
-                                    <label><input type="radio" name="IsAdmin"/>否</label>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.Mobile"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label" for="input01">是否停用</label>
                                 <div class="col-sm-8">
-                                    <label><input type="radio" name="IsDisabled"/>是</label>
-                                    <label><input type="radio" name="IsDisabled"/>否</label>
+                                    <label><input type="radio" name="IsDisabled"  v-model="SearchParam.ListObj.IsDisabled" @click="IsDisabl(true)" />是</label>
+                                    <label><input type="radio" name="IsDisabled" v-model="SearchParam.ListObj.IsDisabled" @click="IsDisabl(false)" />否</label>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label" for="input01">描述</label>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" v-model="SearchParam.ListObj.Remark"></textarea>
                                     <br>
                                 </div>
                             </div>
 
-                            <br />
                             <div class="row form-group">
                                 <div class="col-xs-2"></div>
                                 <div class="col-xs-4">

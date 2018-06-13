@@ -11392,7 +11392,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
-                    alert("添加成功!");
+                    alert("操作成功!");
                 }
                 self.findList();
                 //$("#CheckConfirm").Btns("reset");
@@ -11420,7 +11420,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
-                    alert("添加成功!");
+                    alert("删除成功!");
                 }
                 self.findList();
                 //$("#CheckConfirm").Btns("reset");
