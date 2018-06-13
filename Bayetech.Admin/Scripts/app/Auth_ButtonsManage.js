@@ -9,6 +9,7 @@ let vmData={
     },
     RolesUrl:"/api/Buttons/GetList",
     RolesAdd:"/api/Buttons/AddRoles",
+    RolesDelete:"/api/Buttons/DeleteRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     ButtonssetsArray:[],
@@ -69,11 +70,12 @@ new Vue({
         },
         SubmitModal(){//提交
             var self = this;
-            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            
             self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
-                    alert("添加成功!");
+                    alert("操作成功!");
                 } 
               self.findList();
                 //$("#CheckConfirm").Btns("reset");
@@ -90,7 +92,22 @@ new Vue({
             $("#ButtonsModal").modal("show");
         },
         Delete(){//删除
-        
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#ButtonsModal").modal("hide");
+                    alert("删除成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
         },
         TurnToPage(page){
             var self = this;

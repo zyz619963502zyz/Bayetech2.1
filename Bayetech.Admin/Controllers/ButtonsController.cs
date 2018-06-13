@@ -38,6 +38,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject DeleteRoles(JObject json)
         {
             return buttonsService.DeleteButtons(json);

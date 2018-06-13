@@ -54,7 +54,21 @@ namespace Bayetech.Service
 
         public JObject DeleteButtons(JObject json)
         {
-            throw new NotImplementedException();
+            JObject result = new JObject();
+            Admin_Sys_Buttons admin_Sys_Buttons = json["ListObj"].ToString() == "" ? new Admin_Sys_Buttons() : JsonConvert.DeserializeObject<Admin_Sys_Buttons>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                db.Delete(admin_Sys_Buttons);
+                if (db.Commit() == 1)
+                {
+                    result.Add(ResultInfo.Result, true);
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, false);
+                }
+            }
+            return result;
         }
 
         public JObject GetListButtons(JObject json, DateTime? StartTime, DateTime? EndTime)
