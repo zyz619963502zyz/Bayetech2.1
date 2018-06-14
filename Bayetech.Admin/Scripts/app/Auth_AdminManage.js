@@ -18,9 +18,12 @@ let vmData = {
     keyword: "",
     AdminSetsArray:[],
     RolesSet:{
-        Keyid:"",
-        UserID:"",
-        RoleID:""
+        RoleUser:{
+            KeyId:"",
+            UserID:"",
+            RoleID:""
+
+        }
     },
     SearchParam: {
         Param: {//查询条件的参数
@@ -136,14 +139,16 @@ new Vue({
         },
         AddRoles(){
             var self=this;
-          self.RolesSet.Keyid=0;
-          self.RolesSet.UserID=self.SearchParam.ListObj.KeyId;
-          self.RolesSet.RoleID=self.SearchParam.Param.SelectType;
+            debugger;
+            self.RolesSet.RoleUser.KeyId= 0;
+            self.RolesSet.RoleUser.UserID=self.SearchParam.ListObj.KeyId;
+            self.RolesSet.RoleUser.RoleID=self.SearchParam.Param.SelectType;
           self.tools._comCompnent.postWebJson(self.RoleUrl, self.RolesSet, function (data) {
               debugger;
               if (data.result) {
-                  $("#UserModal").modal("hide");
+                  $("#RolesModal").modal("hide");
                   alert("操作成功");
+                  self.findList();
               }
               else{
                   

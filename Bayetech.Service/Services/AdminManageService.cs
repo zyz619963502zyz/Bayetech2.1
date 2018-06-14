@@ -20,7 +20,41 @@ namespace Bayetech.Service
     {
         public JObject AddRoles(JObject json)
         {
-            throw new NotImplementedException();
+            Admin_Sys_UserRoles _admin_Sys_UserRoles = json["RoleUser"].ToString() == "" ? new Admin_Sys_UserRoles() : JsonConvert.DeserializeObject<Admin_Sys_UserRoles>(json["RoleUser"].ToString());
+            Admin_Sys_UserRoles roles = repository.FindEntity<Admin_Sys_UserRoles>(a => a.UserID == _admin_Sys_UserRoles.UserID);
+            JObject result = new JObject();
+            if(roles==null)
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    db.Insert(_admin_Sys_UserRoles);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            else
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    _admin_Sys_UserRoles.Keyid = roles.Keyid;
+                    db.Update(_admin_Sys_UserRoles);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            return result;
         }
 
         /// <summary>
