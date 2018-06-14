@@ -12,7 +12,13 @@ let vmData={
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     NavigationsetsArray:[],
-    ListObj:[
+    SearchParam: {
+        Param: {//查询条件的参数
+            NavTitle:"",
+            SelectType:"",//form里选择的商品类型
+            SelectNo:""//form里面选择的编号
+        },
+        ListObj:
         {
             KeyId:"",
             NavTitle:"",
@@ -21,13 +27,7 @@ let vmData={
             Sortnum:"",
             ParentID:""
         }
-    ],
-    SearchParam: {
-        Param: {//查询条件的参数
-            NavTitle:"",
-            SelectType:"",//form里选择的商品类型
-            SelectNo:""//form里面选择的编号
-        },
+        ,
         Pagination: {//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
@@ -61,9 +61,24 @@ new Vue({
                 }
             })
         },
-        StartCheck(GoodNo) {//开始检查
+        OpenAddModal(){//添加
+            var self=this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal(){//修改
+            
+        },
+        Delete(){//删除
+
+        },
+        StartCheck(type) {//开始检查
             var self = this;
-            self.CheckGoodNo = GoodNo;
+            debugger;
+            self.SearchParam.ListObj=type;
             //$("#checkModal").modal("show");
         },
         TurnToPage(page){

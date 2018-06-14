@@ -23,7 +23,7 @@
                 <td>{{item.IsVisible}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.ParentID}}</td>
-				<td><input type="radio" name="Operates"/></td>
+				<td><input type="radio" name="Operates" @click="startcheck(item)"/></td>
             </tr>
             <tr v-bind:id="'key_'+item.KeyId" class="hide">
                 <td colspan="10">
@@ -34,6 +34,7 @@
                                 <th class="text-center">链接</th>
                                 <th class="text-center">父级ID</th>
                                 <th class="text-center">排序</th>
+								<th class="text-center col-md-1">操作</th>
                             </tr>
                         </thead>
                         <tbody v-for="itemChild in item.ChildNodes">
@@ -42,6 +43,7 @@
                                 <td>{{itemChild.Linkurl}}</td>
                                 <td>{{itemChild.ParentID}}</td>
                                 <td>{{itemChild.Sortnum}}</td>
+								<td><input type="radio" name="Operates" @click="startcheck(itemChild)"/></td>
                             </tr>
                         </tbody>
                     </table>
@@ -61,7 +63,7 @@ export default{
 		return data;
 	},
     name:'NavigtionTable',
-    props:['navigationsetsarray'],
+    props:['navigationsetsarray','startcheck'],
 	methods:{
 		OpterateAline(id){
 			let self = this;

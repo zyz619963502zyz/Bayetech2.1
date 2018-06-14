@@ -11253,6 +11253,8 @@ function normalizeComponent (
 //
 //
 //
+//
+//
 
 let data = {
 	isActive: false
@@ -11263,7 +11265,7 @@ let data = {
 		return data;
 	},
 	name: 'NavigtionTable',
-	props: ['navigationsetsarray'],
+	props: ['navigationsetsarray', 'startcheck'],
 	methods: {
 		OpterateAline(id) {
 			let self = this;
@@ -11367,20 +11369,21 @@ let vmData = {
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     NavigationsetsArray: [],
-    ListObj: [{
-        KeyId: "",
-        NavTitle: "",
-        Linkurl: "",
-        IsVisible: "",
-        Sortnum: "",
-        ParentID: ""
-    }],
     SearchParam: {
         Param: { //查询条件的参数
             NavTitle: "",
             SelectType: "", //form里选择的商品类型
             SelectNo: "" //form里面选择的编号
         },
+        ListObj: {
+            KeyId: "",
+            NavTitle: "",
+            Linkurl: "",
+            IsVisible: "",
+            Sortnum: "",
+            ParentID: ""
+        },
+
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
@@ -11414,10 +11417,26 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 }
             });
         },
-        StartCheck(GoodNo) {
+        OpenAddModal() {
+            //添加
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal() {//修改
+
+        },
+        Delete() {//删除
+
+        },
+        StartCheck(type) {
             //开始检查
             var self = this;
-            self.CheckGoodNo = GoodNo;
+            debugger;
+            self.SearchParam.ListObj = type;
             //$("#checkModal").modal("show");
         },
         TurnToPage(page) {
@@ -11505,7 +11524,16 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.ParentID))]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
           ]),
           _vm._v(" "),
           _c(
@@ -11517,7 +11545,7 @@ var render = function() {
                   "table",
                   { staticClass: "table table-bordered" },
                   [
-                    _vm._m(2, true),
+                    _vm._m(1, true),
                     _vm._v(" "),
                     _vm._l(item.ChildNodes, function(itemChild) {
                       return _c("tbody", [
@@ -11528,7 +11556,18 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))])
+                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "Operates" },
+                              on: {
+                                click: function($event) {
+                                  _vm.startcheck(itemChild)
+                                }
+                              }
+                            })
+                          ])
                         ])
                       ])
                     })
@@ -11573,14 +11612,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "Operates" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "warning" }, [
         _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
@@ -11589,7 +11620,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("排序")])
+        _c("th", { staticClass: "text-center" }, [_vm._v("排序")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
       ])
     ])
   }
