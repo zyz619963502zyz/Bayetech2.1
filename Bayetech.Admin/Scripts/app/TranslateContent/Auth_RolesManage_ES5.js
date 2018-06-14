@@ -11229,7 +11229,7 @@ function normalizeComponent (
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'RolesArray',
-    props: ['rolesarray']
+    props: ['rolesarray', 'startcheck']
 });
 
 /***/ }),
@@ -11326,20 +11326,22 @@ let vmData = {
     },
     RolesUrl: "/api/Roles/GetList",
     RolesAdd: "/api/Roles/AddRoles",
+    RolesDelete: "/api/Roles/DeleteRoles",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     RolesArray: [],
-    ListObj: [{
-        KeyId: "",
-        RoleName: "",
-        Sortnum: "",
-        Remark: ""
-    }],
     SearchParam: {
         Param: { //查询条件的参数
             Type: "",
             SelectNo: "" //form里面选择的编号
         },
+        ListObj: {
+            KeyId: "",
+            RoleName: "",
+            Sortnum: "",
+            Remark: ""
+        },
+
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
@@ -11371,11 +11373,61 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 }
             });
         },
-        StartCheck(GoodNo) {
+        OpenAuthModal() {//分配权限
+
+        },
+        OpenAddModal() {
+            //添加
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal() {
+            //修改
+            debugger;
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择角色");
+                return;
+            }
+            $("#UserModal").modal("show");
+        },
+        Delete() {
+            //删除
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择角色");
+                return;
+            }
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        SubmitModal() {
+            //提交
+            var self = this;
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                alert(data.content);
+            });
+        },
+        StartCheck(type) {
             //开始检查
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            //$("#checkModal").modal("show");
+            self.SearchParam.ListObj = type;
         },
         TurnToPage(page) {
             var self = this;
@@ -11440,7 +11492,16 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Remark))]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
           ])
         ])
       })
@@ -11465,14 +11526,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("操作")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "Operates" } })
     ])
   }
 ]

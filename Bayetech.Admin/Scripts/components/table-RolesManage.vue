@@ -19,7 +19,7 @@
                 <td>{{item.RoleName}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.Remark}}</td>
-				<td><input type="radio" name="Operates"/></td>
+				<td><input type="radio" name="Operates"  @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>
@@ -28,6 +28,6 @@
 <script>
 export default{
     name:'RolesArray',
-    props:['rolesarray']
+    props:['rolesarray','startcheck']
 }
 </script>

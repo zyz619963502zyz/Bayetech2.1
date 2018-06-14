@@ -26,6 +26,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject AddRoles(JObject json)
         {
            return rolesService.AddRoles(json);
@@ -35,6 +36,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject DeleteRoles(JObject json)
         {
            return rolesService.DeleteRoles(json);

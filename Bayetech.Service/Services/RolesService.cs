@@ -8,6 +8,7 @@ using Bayetech.Core.Entity;
 using Bayetech.Core;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
+using Bayetech.DAL;
 
 namespace Bayetech.Service
 {
@@ -15,7 +16,7 @@ namespace Bayetech.Service
     {
         public JObject AddRoles(JObject json)
         {
-            Admin_Sys_Roles _admin_Sys_Roles = (Admin_Sys_Roles)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Roles));
+            Admin_Sys_Roles _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new Admin_Sys_Roles() : JsonConvert.DeserializeObject<Admin_Sys_Roles>(json["ListObj"].ToString());
             JObject result = new JObject();
             if (string.IsNullOrEmpty(_admin_Sys_Roles.RoleName))
             {
@@ -32,30 +33,32 @@ namespace Bayetech.Service
             {
                 if (_admin_Sys_Roles.KeyId == 0)
                 {
-                    var add = repository.Insert(_admin_Sys_Roles);
-                    if (add == 1)
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JToken.FromObject(true));
-                        result.Add(ResultInfo.Content, JToken.FromObject("操作成功"));
-                    }
-                    else
-                    {
-                        result.Add(ResultInfo.Result, JToken.FromObject(false));
-                        result.Add(ResultInfo.Content, JToken.FromObject("操作失败"));
+                        db.Insert(_admin_Sys_Roles);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
                 }
                 else
                 {
-                    var uopdate = repository.Update(_admin_Sys_Roles);
-                    if (uopdate == 1)
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JToken.FromObject(true));
-                        result.Add(ResultInfo.Content, JToken.FromObject("修改成功"));
-                    }
-                    else
-                    {
-                        result.Add(ResultInfo.Result, JToken.FromObject(false));
-                        result.Add(ResultInfo.Content, JToken.FromObject("修改失败"));
+                        db.Update(_admin_Sys_Roles);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
 
                 }
@@ -65,18 +68,19 @@ namespace Bayetech.Service
 
         public JObject DeleteRoles(JObject json)
         {
-            Admin_Sys_Roles _admin_Sys_Roles = (Admin_Sys_Roles)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Roles));
-            var deleteNavigations = repository.Delete(_admin_Sys_Roles);
             JObject result = new JObject();
-            if (deleteNavigations == 1)
+            Admin_Sys_Roles _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new Admin_Sys_Roles() : JsonConvert.DeserializeObject<Admin_Sys_Roles>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase().BeginTrans())
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(true));
-                result.Add(ResultInfo.Content, JToken.FromObject("删除成功"));
-            }
-            else
-            {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("删除失败"));
+                db.Delete(_admin_Sys_Roles);
+                if (db.Commit() == 1)
+                {
+                    result.Add(ResultInfo.Result, true);
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, false);
+                }
             }
             return result;
         }
