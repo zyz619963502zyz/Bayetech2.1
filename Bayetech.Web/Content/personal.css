@@ -1,6 +1,8 @@
 ﻿@charset"utf-8";
 /*.per-mid a:hover{color:#f90;text-decoration:none;}*/
-
+.per-mid{
+    min-height:790px;
+}
 .per-mid .main-row .wd-sm{
     width:240px;
 }
