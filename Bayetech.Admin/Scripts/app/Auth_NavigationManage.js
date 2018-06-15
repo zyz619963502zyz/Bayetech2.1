@@ -8,7 +8,8 @@ let vmData={
         _componentTable:componentTable
     },
     RolesUrl:"/api/AdminManage/GetNavgationList",
-    RolesAdd:"/api/AdminManage/AddRoles",
+    RolesAdd:"/api/Navigation/GetAddNavigation",
+    RolesDelete:"/api/Navigation/deleteNavigation",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     NavigationsetsArray:[],
@@ -61,19 +62,58 @@ new Vue({
                 }
             })
         },
+        SaveModal(){//提交
+            var self = this;
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
         OpenAddModal(){//添加
             var self=this;
             if (self.SearchParam.ListObj.KeyId == 0) {
                 alert("请选择按钮")
                 return ;
             }
+            self.SearchParam.ListObj.NavTitle="";
+            self.SearchParam.ListObj.NavTag="";
+            self.SearchParam.ListObj.Linkurl="";
+            self.SearchParam.ListObj.Sortnum="";
+            self.SearchParam.ListObj.iconCls="";
             $("#UserModal").modal("show");
         },
         OpenEditModal(){//修改
-            
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            $("#UserModal").modal("show");
         },
         Delete(){//删除
-
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
         },
         StartCheck(type) {//开始检查
             var self = this;

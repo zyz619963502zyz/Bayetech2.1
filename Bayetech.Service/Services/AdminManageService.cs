@@ -161,7 +161,7 @@ namespace Bayetech.Service
                                     NavTitle = c.NavTitle,
                                     Linkurl = c.Linkurl,
                                     Sortnum = (int)c.Sortnum,
-                                    ParentID= (int)item.ParentID
+                                    ParentID= (int)c.ParentID
             })
                         .OrderBy(c => c.Sortnum).ToList();
                 menuList.Add(menuModel);
