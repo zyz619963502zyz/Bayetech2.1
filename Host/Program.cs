@@ -10,6 +10,8 @@ namespace Host
     {
         static void Main(string[] args)
         {
+            //宿主程序启动工作流
+            WorkflowApplication       
         }
     }
 }

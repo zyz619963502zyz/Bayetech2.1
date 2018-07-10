@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bay-Core", "Bay-Core", "{A7CD7C78-B2DA-4F4B-BFA6-A878CD33924C}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.WorkFlow", "BayetechWorkFlow\Bayetech.WorkFlow.csproj", "{7181AF72-3D63-40E0-8418-0D9E40D77914}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{F6610131-5903-4C2F-AE56-CBCFC4305CE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{4121BCD7-3581-42E4-A205-1804440CDEA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{F6610131-5903-4C2F-AE56-CBCFC4305CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6610131-5903-4C2F-AE56-CBCFC4305CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6610131-5903-4C2F-AE56-CBCFC4305CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{4E2C8415-4C83-4096-B003-06B5ED5BB79B} = {A7CD7C78-B2DA-4F4B-BFA6-A878CD33924C}
 		{7181AF72-3D63-40E0-8418-0D9E40D77914} = {A7CD7C78-B2DA-4F4B-BFA6-A878CD33924C}
 		{F6610131-5903-4C2F-AE56-CBCFC4305CE9} = {A7CD7C78-B2DA-4F4B-BFA6-A878CD33924C}
+		{4121BCD7-3581-42E4-A205-1804440CDEA7} = {A7CD7C78-B2DA-4F4B-BFA6-A878CD33924C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58ADDAF6-3783-4040-9E5C-854B3876C68B}
