@@ -21,7 +21,7 @@
                 <td>{{item.ButtonTag}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.IconCls}}</td>
-                <td><input type="radio" name="Operates"/></td>
+                <td><input type="radio" name="Operates"  @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>
@@ -30,6 +30,6 @@
 <script>
 export default{
     name:'buttonsSetsTable',
-    props:['buttonssetsarray']
+    props:['buttonssetsarray','startcheck']
 }
 </script>

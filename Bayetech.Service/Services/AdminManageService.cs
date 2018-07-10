@@ -9,6 +9,7 @@ using Bayetech.Core;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
 using Bayetech.Service.Model;
+using Bayetech.DAL;
 
 namespace Bayetech.Service
 {
@@ -17,6 +18,45 @@ namespace Bayetech.Service
     /// </summary>
     public class AdminManageService : BaseService<Admin_Sys_Users>, IAdminManageService
     {
+        public JObject AddRoles(JObject json)
+        {
+            Admin_Sys_UserRoles _admin_Sys_UserRoles = json["RoleUser"].ToString() == "" ? new Admin_Sys_UserRoles() : JsonConvert.DeserializeObject<Admin_Sys_UserRoles>(json["RoleUser"].ToString());
+            Admin_Sys_UserRoles roles = repository.FindEntity<Admin_Sys_UserRoles>(a => a.UserID == _admin_Sys_UserRoles.UserID);
+            JObject result = new JObject();
+            if(roles==null)
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    db.Insert(_admin_Sys_UserRoles);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            else
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    _admin_Sys_UserRoles.Keyid = roles.Keyid;
+                    db.Update(_admin_Sys_UserRoles);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// 添加一个新的用户
         /// </summary>
@@ -25,7 +65,8 @@ namespace Bayetech.Service
         /// <returns></returns>
         public JObject AddUser(JObject json, int UserId)
         {
-            Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Users));
+            Admin_Sys_Users _admin_Sys_User = json["ListObj"].ToString() == "" ? new Admin_Sys_Users() : JsonConvert.DeserializeObject<Admin_Sys_Users>(json["ListObj"].ToString());
+            _admin_Sys_User.Password = "111111";
             _admin_Sys_User.Password = Md5.EncryptString(_admin_Sys_User.Password);
             JObject result = new JObject();
             if (string.IsNullOrEmpty(_admin_Sys_User.UserName))
@@ -44,32 +85,53 @@ namespace Bayetech.Service
                 }
                 else
                 {
-                    var add = repository.Insert<Admin_Sys_Users>(_admin_Sys_User);
-                    if (add == 1)
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("添加成功"));
-                    }
-                    else
-                    {
-                        result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                        result.Add(ResultInfo.Content, JProperty.FromObject("添加失败"));
+                        db.Insert(_admin_Sys_User);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
                 }
             }
             else
             {
                 //修改
-                var add = repository.Update<Admin_Sys_Users>(_admin_Sys_User);
-                if (add == 1)
+                using (var db = new RepositoryBase().BeginTrans())
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("修改成功"));
+                    db.Update(_admin_Sys_User);
+                    if (db.Commit() == 1)
+                    {
+                        result.Add(ResultInfo.Result, true);
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public JObject DeleteUser(JObject json)
+        {
+            JObject result = new JObject();
+            Admin_Sys_Users admin_Sys_Users = json["ListObj"].ToString() == "" ? new Admin_Sys_Users() : JsonConvert.DeserializeObject<Admin_Sys_Users>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                db.Delete(admin_Sys_Users);
+                if (db.Commit() == 1)
+                {
+                    result.Add(ResultInfo.Result, true);
                 }
                 else
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("修改失败"));
+                    result.Add(ResultInfo.Result, false);
                 }
             }
             return result;
@@ -99,7 +161,7 @@ namespace Bayetech.Service
                                     NavTitle = c.NavTitle,
                                     Linkurl = c.Linkurl,
                                     Sortnum = (int)c.Sortnum,
-                                    ParentID= (int)item.ParentID
+                                    ParentID= (int)c.ParentID
             })
                         .OrderBy(c => c.Sortnum).ToList();
                 menuList.Add(menuModel);
@@ -129,7 +191,9 @@ namespace Bayetech.Service
             Expression<Func<Admin_Sys_Users, bool>> expression = PredicateExtensions.True<Admin_Sys_Users>();
             PaginationResult<List<Admin_Sys_Users>> ResultPage = new PaginationResult<List<Admin_Sys_Users>>();
             var userList = repository.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
-            var roles = repository.IQueryable<Admin_Sys_Roles>();//角色列表
+            var id = json["ListObj"]["KeyId"].ToString() == "" ? 0 : (int)json["ListObj"]["KeyId"];
+            var roles = repository.IQueryable<Admin_Sys_UserRoles>(a=>a.UserID==id);//角色列表
+
             JObject result = new JObject();
             if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
             {
@@ -143,7 +207,7 @@ namespace Bayetech.Service
             if (ResultPage.datas.Count > 0)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add("RolesList", JProperty.FromObject(roles.ToList()));
+                result.Add("RolesList", JProperty.FromObject(roles));
                 result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
             }
             else

@@ -11,6 +11,7 @@ using System.Web.SessionState;
 
 namespace Bayetech.Web.Controllers
 {
+    
     public class UserController : BaseController 
     {
 
@@ -21,7 +22,7 @@ namespace Bayetech.Web.Controllers
         //IBaseService<Category> service11 = ctx.GetObject("BaseService") as IBaseService<Category>;   泛型依赖注入的写法
 
         [HttpGet]
-        public bool CheckAccount(string accountName)
+        public bool IAccount(string accountName)
         {
             try
             {
@@ -51,6 +52,7 @@ namespace Bayetech.Web.Controllers
         {
             try
             {
+                var a = HttpContext.Current.Session;
                 return service.CheckLogin(json);
             }
             catch (Exception ex)
@@ -77,6 +79,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
+        [ApiSecurityFilter]
         public bool UpdatePassword(JObject json)
         {
             var id = json.Property("id").Value.ToString();
@@ -93,6 +96,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
+        [ApiSecurityFilter]
         public bool UpdatePayPassword(JObject json)
         {
             var id = json.Property("id").Value.ToString();
@@ -109,6 +113,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
+        [ApiSecurityFilter]
         public bool UpdatePhone(JObject json)
         {
             var id = json.Property("id").Value.ToString();
@@ -125,6 +130,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
+        [ApiSecurityFilter]
         public bool UpdateIsValiteLogin(JObject json)
         {
             var id = json.Property("id").Value.ToString();

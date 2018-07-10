@@ -9,10 +9,13 @@ let vmData={
     },
     RolesUrl:"/api/Buttons/GetList",
     RolesAdd:"/api/Buttons/AddRoles",
+    RolesDelete:"/api/Buttons/DeleteRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     ButtonssetsArray:[],
-    ListObj:[
+    
+    SearchParam: {
+        ListObj:
         {
             KeyId:"",
             ButtonText:"",
@@ -20,9 +23,9 @@ let vmData={
             Sortnum:"",
             IconCls:""
         }
-    ],
-    SearchParam: {
+        ,
         Param: {//查询条件的参数
+            ButtonKeyId:"",//按钮id
             ButtonName:"",
             SelectType:"",//form里选择的商品类型
             SelectNo:""//form里面选择的编号
@@ -48,10 +51,8 @@ new Vue({
     methods:{
         findList(){
             var self=this;
-            
             self.SearchParam.Param.ButtonName = self.SearchParam.Param.SelectNo;
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-                
                 if (data.result) {
                     self.ButtonssetsArray=data.content.datas;
                     self.SearchParam.Pagination=data.content.pagination;
@@ -59,10 +60,54 @@ new Vue({
                 }
             })
         },
-        StartCheck(GoodNo) {//开始检查
+        StartCheck(type) {//选择的按钮
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            //$("#checkModal").modal("show");
+            self.SearchParam.ListObj = type;
+        },
+        OpenAddModal(){//添加
+            var self=this;
+            $("#ButtonsModal").modal("show");
+        },
+        SubmitModal(){//提交
+            var self = this;
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#ButtonsModal").modal("hide");
+                    alert("操作成功!");
+                } 
+              self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        OpenEditModal() {//修改
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            $("#ButtonsModal").modal("show");
+        },
+        Delete(){//删除
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮")
+                return ;
+            }
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#ButtonsModal").modal("hide");
+                    alert("删除成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
         },
         TurnToPage(page){
             var self = this;

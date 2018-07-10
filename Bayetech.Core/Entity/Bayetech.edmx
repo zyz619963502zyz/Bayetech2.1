@@ -227,8 +227,6 @@
           <Property Name="ButtonId" Type="int" />
           <Property Name="Sortnum" Type="int" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“Bayetech.dbo.Admin_Sys_Navigations”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Admin_Sys_Navigations">
           <Key>
             <PropertyRef Name="KeyId" />
@@ -1119,6 +1117,7 @@
           <EntitySet Name="Admin_Sys_LogDetails" EntityType="Self.Admin_Sys_LogDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Sys_logs" EntityType="Self.Admin_Sys_logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Sys_NavButtons" EntityType="Self.Admin_Sys_NavButtons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Sys_RoleNavBtns" EntityType="Self.Admin_Sys_RoleNavBtns" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Sys_Roles" EntityType="Self.Admin_Sys_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin_Sys_Roles_Departments" EntityType="Self.Admin_Sys_Roles_Departments" Schema="dbo" store:Type="Tables" />
@@ -1161,23 +1160,6 @@
     [Admin_Sys_Login].[Message] AS [Message], 
     [Admin_Sys_Login].[Agent] AS [Agent]
     FROM [dbo].[Admin_Sys_Login] AS [Admin_Sys_Login]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Admin_Sys_Navigations].[KeyId] AS [KeyId], 
-    [Admin_Sys_Navigations].[NavTitle] AS [NavTitle], 
-    [Admin_Sys_Navigations].[Linkurl] AS [Linkurl], 
-    [Admin_Sys_Navigations].[Sortnum] AS [Sortnum], 
-    [Admin_Sys_Navigations].[iconCls] AS [iconCls], 
-    [Admin_Sys_Navigations].[iconUrl] AS [iconUrl], 
-    [Admin_Sys_Navigations].[IsVisible] AS [IsVisible], 
-    [Admin_Sys_Navigations].[ParentID] AS [ParentID], 
-    [Admin_Sys_Navigations].[NavTag] AS [NavTag], 
-    [Admin_Sys_Navigations].[BigImageUrl] AS [BigImageUrl], 
-    [Admin_Sys_Navigations].[IsNewWindow] AS [IsNewWindow], 
-    [Admin_Sys_Navigations].[WinWidth] AS [WinWidth], 
-    [Admin_Sys_Navigations].[WinHeight] AS [WinHeight]
-    FROM [dbo].[Admin_Sys_Navigations] AS [Admin_Sys_Navigations]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2064,24 +2046,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Admin_Sys_Navigations">
-          <Key>
-            <PropertyRef Name="KeyId" />
-          </Key>
-          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NavTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Linkurl" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="Sortnum" Type="Int32" />
-          <Property Name="iconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="iconUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsVisible" Type="Boolean" />
-          <Property Name="ParentID" Type="Int32" />
-          <Property Name="NavTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BigImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="IsNewWindow" Type="Boolean" />
-          <Property Name="WinWidth" Type="Int32" />
-          <Property Name="WinHeight" Type="Int32" />
-        </EntityType>
         <EntityType Name="GoodAndDescription">
           <Key>
             <PropertyRef Name="Id" />
@@ -2337,7 +2301,6 @@
           <EntitySet Name="Server" EntityType="Self.Server" />
           <EntitySet Name="Settings" EntityType="Self.Settings" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Admin_Sys_Navigations" EntityType="Self.Admin_Sys_Navigations" />
           <EntitySet Name="GoodAndDescription" EntityType="Self.GoodAndDescription" />
           <EntitySet Name="MallGoodPictures" EntityType="Self.MallGoodPictures" />
           <EntitySet Name="vw_ArticleModule" EntityType="Self.vw_ArticleModule" />
@@ -2387,6 +2350,7 @@
           <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
           <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
           <EntitySet Name="Admin_Sys_Login" EntityType="BayetechModel.Admin_Sys_Login" />
+          <EntitySet Name="Admin_Sys_Navigations" EntityType="BayetechModel.Admin_Sys_Navigations" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2630,6 +2594,24 @@
           <Property Name="LoginTime" Type="DateTime" Precision="3" />
           <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_Sys_Navigations">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NavTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Linkurl" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Sortnum" Type="Int32" />
+          <Property Name="iconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iconUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisible" Type="Boolean" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="NavTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BigImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsNewWindow" Type="Boolean" />
+          <Property Name="WinWidth" Type="Int32" />
+          <Property Name="WinHeight" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3248,25 +3230,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Admin_Sys_Navigations">
-            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Navigations">
-              <MappingFragment StoreEntitySet="Admin_Sys_Navigations">
-                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
-                <ScalarProperty Name="NavTitle" ColumnName="NavTitle" />
-                <ScalarProperty Name="Linkurl" ColumnName="Linkurl" />
-                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
-                <ScalarProperty Name="iconCls" ColumnName="iconCls" />
-                <ScalarProperty Name="iconUrl" ColumnName="iconUrl" />
-                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="NavTag" ColumnName="NavTag" />
-                <ScalarProperty Name="BigImageUrl" ColumnName="BigImageUrl" />
-                <ScalarProperty Name="IsNewWindow" ColumnName="IsNewWindow" />
-                <ScalarProperty Name="WinWidth" ColumnName="WinWidth" />
-                <ScalarProperty Name="WinHeight" ColumnName="WinHeight" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GoodAndDescription">
             <EntityTypeMapping TypeName="BayetechModel.GoodAndDescription">
               <MappingFragment StoreEntitySet="GoodAndDescription">
@@ -3739,6 +3702,25 @@
                 <ScalarProperty Name="Token" ColumnName="Token" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Sys_Navigations">
+            <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Navigations">
+              <MappingFragment StoreEntitySet="Admin_Sys_Navigations">
+                <ScalarProperty Name="WinHeight" ColumnName="WinHeight" />
+                <ScalarProperty Name="WinWidth" ColumnName="WinWidth" />
+                <ScalarProperty Name="IsNewWindow" ColumnName="IsNewWindow" />
+                <ScalarProperty Name="BigImageUrl" ColumnName="BigImageUrl" />
+                <ScalarProperty Name="NavTag" ColumnName="NavTag" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="iconUrl" ColumnName="iconUrl" />
+                <ScalarProperty Name="iconCls" ColumnName="iconCls" />
+                <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
+                <ScalarProperty Name="Linkurl" ColumnName="Linkurl" />
+                <ScalarProperty Name="NavTitle" ColumnName="NavTitle" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

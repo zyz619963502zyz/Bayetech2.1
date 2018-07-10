@@ -22,5 +22,9 @@ namespace Bayetech.Service
         JObject AddRoles(JObject json);
 
         JObject DeleteRoles(JObject json);
+
+        JObject RolesGetTree();
+
+        JObject RolesGetTrees(int id);
     }
 }

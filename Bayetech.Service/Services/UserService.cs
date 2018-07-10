@@ -5,6 +5,8 @@ using Bayetech.Core.Entity;
 using System;
 using Bayetech.Core;
 using System.Web;
+using System.Linq;
+using System.Text;
 
 namespace Bayetech.Service
 {
@@ -40,6 +42,7 @@ namespace Bayetech.Service
                     {
                         //UserLogOnEntity userLogOnEntity = userLogOnApp.GetForm(userEntity.F_Id);
                         //string dbPassword = Md5.md5(DESEncrypt.Encrypt(password.ToLower(), userLogOnEntity.F_UserSecretkey).ToLower(), 32).ToLower();
+                        var userName = _account.Name;
                         string dbPassword = Md5.EncryptString(_account.Password);
                         if (dbPassword == _userEntity.Password)
                         {
@@ -55,10 +58,20 @@ namespace Bayetech.Service
                             result.Add(ResultInfo.Content, JToken.FromObject(_currentLogin.Message));
 
                             //创建标识
-                            var token = Md5.EncryptString(_account.Name + DateTime.Now);
-                           // HttpContext.Current.Session["token-" + _account.Name] = token;
-                            HttpContext.Current.Response.Cookies["token"].Value = token;
-                            HttpContext.Current.Response.Cookies["token"].Expires.AddDays(1);
+                            var token = GetToken(userName);
+                            //比对缓存没有则重新生成
+                            Token cookie = (Token)HttpRuntime.Cache.Get(userName);
+                            if (HttpRuntime.Cache.Get(userName) == null)
+                            {
+                                cookie = new Token();
+                                cookie.StaffId = userName;
+                                cookie.TokenId = token;
+                                cookie.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
+                                HttpRuntime.Cache.Insert(cookie.StaffId.ToString(), cookie, null, cookie.ExpireTime, TimeSpan.Zero);
+                            }
+                             HttpContext.Current.Session["token-" + _account.Name] = token;
+                            //HttpContext.Current.Response.Cookies["token"].Value = token;
+                            //HttpContext.Current.Response.Cookies["token"].Expires.AddDays(1);
                         }
                         else
                         {
@@ -81,5 +94,52 @@ namespace Bayetech.Service
             }
         }
 
+        /// <summary>
+        /// 获取token
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public string GetToken(string str)
+        {
+            string timeStamp = GetTimeStamp();
+            string nonce = GetRandom();
+            var hash = System.Security.Cryptography.MD5.Create();
+            //拼接签名数据
+            var signStr = str+ timeStamp + nonce + Guid.NewGuid().ToString();
+            //将字符串中字符按升序排序
+            var sortStr = string.Concat(signStr.Reverse().OrderByDescending(c => c));
+            var bytes = Encoding.UTF8.GetBytes(sortStr);
+            //使用MD5加密
+            var md5Val = hash.ComputeHash(bytes);
+            //把二进制转化为大写的十六进制
+            StringBuilder result = new StringBuilder();
+            foreach (var c in md5Val)
+            {
+                result.Append(c.ToString("X2"));
+            }
+            return result.ToString().ToUpper();
+        }
+
+
+        /// <summary>  
+        /// 获取时间戳  
+        /// </summary>  
+        /// <returns></returns>  
+        private static string GetTimeStamp()
+        {
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalMilliseconds).ToString();
+        }
+
+        /// <summary>  
+        /// 获取随机数
+        /// </summary>  
+        /// <returns></returns>  
+        private static string GetRandom()
+        {
+            Random rd = new Random(DateTime.Now.Millisecond);
+            int i = rd.Next(0, int.MaxValue);
+            return i.ToString();
+        }
     }
 }

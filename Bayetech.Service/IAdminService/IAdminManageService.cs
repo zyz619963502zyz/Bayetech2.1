@@ -29,6 +29,18 @@ namespace Bayetech.Service
         /// <param name="EndTime"></param>
         /// <returns></returns>
         JObject GetNavgationList(JObject json, DateTime? StartTime, DateTime? EndTime);
+        /// <summary>
+        /// 删除员工
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject DeleteUser(JObject json);
+        /// <summary>
+        /// 设置角色
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject AddRoles(JObject json);
 
 
     }

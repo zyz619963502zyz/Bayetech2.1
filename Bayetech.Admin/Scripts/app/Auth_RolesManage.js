@@ -1,30 +1,34 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
 import componentTable from '../components/table-RolesManage.vue'
+import componentTables from '../components/table-TwoLayer.vue'
 
 let vmData={
     tools:{
         _comCompnent:comCompnent,
-        _componentTable:componentTable
+        _componentTable:componentTable,
+        _componentTables:componentTables
     },
     RolesUrl:"/api/Roles/GetList",
     RolesAdd:"/api/Roles/AddRoles",
+    RolesDelete:"/api/Roles/DeleteRoles",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     RolesArray:[],
-    ListObj:[
+    TwoLayerArray:[],
+    SearchParam: {
+        Param: {//查询条件的参数
+            Type:"",
+            SelectNo:""//form里面选择的编号
+        },
+        ListObj:
         {
             KeyId:"",
             RoleName:"",
             Sortnum:"",
             Remark:""
         }
-    ],
-    SearchParam: {
-        Param: {//查询条件的参数
-            Type:"",
-            SelectNo:""//form里面选择的编号
-        },
+    ,
         Pagination: {//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
@@ -48,18 +52,66 @@ new Vue({
             var self=this;
             self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-                
+                //debugger;
                 if (data.result) {
                     self.RolesArray=data.content.datas;
+                    self.TwoLayerArray=data.RolesMenu;
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },
-        StartCheck(GoodNo) {//开始检查
+        OpenAuthModal(){//分配权限
+            $("#AuthModal").modal("show");
+        },
+        OpenAddModal(){//添加
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal(){//修改
+            //debugger;
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            //$("#checkModal").modal("show");
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择角色")
+                return ;
+            }
+            $("#UserModal").modal("show");
+        },
+        Delete(){//删除
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择角色")
+                return ;
+            }
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        SubmitModal(){//提交
+            var self = this;
+            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                } 
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                alert(data.content);
+            });
+        },
+        StartCheck(type) {//开始检查
+            var self = this;
+            self.SearchParam.ListObj = type;
+            $("#test").attr("value",type.KeyId);
         },
         TurnToPage(page){
             var self = this;
@@ -68,7 +120,8 @@ new Vue({
         }
     },
     components:{
-        comtable:componentTable
+        comtable:componentTable,
+        comtatles:componentTables
     }
 });
 

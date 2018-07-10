@@ -11,6 +11,7 @@ using Bayetech.Core.Security.Json;
 using Newtonsoft.Json.Linq;
 using Bayetech.Core;
 using Newtonsoft.Json;
+using Bayetech.DAL;
 
 namespace Bayetech.Service
 {
@@ -18,7 +19,7 @@ namespace Bayetech.Service
     {
         public JObject AddNavigation(JObject json)
         {
-            Admin_Sys_Navigations _admin_Sys_Navigations = (Admin_Sys_Navigations)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Navigations));
+            Admin_Sys_Navigations _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new Admin_Sys_Navigations() : JsonConvert.DeserializeObject<Admin_Sys_Navigations>(json["ListObj"].ToString());
             JObject result = new JObject();
             if (string.IsNullOrEmpty(_admin_Sys_Navigations.NavTitle))
             {
@@ -26,60 +27,103 @@ namespace Bayetech.Service
                 result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空")); 
             }
             var _adminNavigation = repository.FindEntity<Admin_Sys_Navigations>(a=>a.NavTitle== _admin_Sys_Navigations.NavTitle);
-            if (_adminNavigation != null)
+            //if (_adminNavigation != null)
+            //{
+            //    result.Add(ResultInfo.Result, JToken.FromObject(false));
+            //    result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
+            //}
+            if (_admin_Sys_Navigations.ParentID == 0)
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
-            }
-            else
-            {
-                if (_admin_Sys_Navigations.KeyId == 0)
+                if(_adminNavigation==null)
                 {
-                    var add = repository.Insert<Admin_Sys_Navigations>(_admin_Sys_Navigations);
-                    if (add == 1)
+                    _admin_Sys_Navigations.KeyId = 0;
+                    _admin_Sys_Navigations.IsVisible = true;
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JToken.FromObject(true));
-                        result.Add(ResultInfo.Content, JToken.FromObject("操作成功"));
-                    }
-                    else
-                    {
-                        result.Add(ResultInfo.Result, JToken.FromObject(false));
-                        result.Add(ResultInfo.Content, JToken.FromObject("操作失败"));
+                        db.Insert(_admin_Sys_Navigations);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
                 }
                 else
                 {
-                    var uopdate = repository.Update<Admin_Sys_Navigations>(_admin_Sys_Navigations);
-                    if (uopdate == 1)
+                    _admin_Sys_Navigations.IsVisible = true;
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JToken.FromObject(true));
-                        result.Add(ResultInfo.Content, JToken.FromObject("修改成功"));
+                        db.Update(_admin_Sys_Navigations);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
-                    else
+                }
+                
+            }
+            else
+            {
+                if (_adminNavigation == null)
+                {
+                    _admin_Sys_Navigations.KeyId = 0;
+                    _admin_Sys_Navigations.IsVisible = true;
+                    using (var db = new RepositoryBase().BeginTrans())
                     {
-                        result.Add(ResultInfo.Result, JToken.FromObject(false));
-                        result.Add(ResultInfo.Content, JToken.FromObject("修改失败"));
+                        db.Insert(_admin_Sys_Navigations);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
                     }
-
+                }
+                else
+                {
+                    _admin_Sys_Navigations.IsVisible = true;
+                    using (var db = new RepositoryBase().BeginTrans())
+                    {
+                        db.Update(_admin_Sys_Navigations);
+                        if (db.Commit() == 1)
+                        {
+                            result.Add(ResultInfo.Result, true);
+                        }
+                        else
+                        {
+                            result.Add(ResultInfo.Result, false);
+                        }
+                    }
                 }
             }
+            
             return result;
         }
 
         public JObject DeleteNavigation(JObject json)
         {
-            Admin_Sys_Navigations _admin_Sys_Navigations = (Admin_Sys_Navigations)JsonConvert.DeserializeObject(json.Last.Path, typeof(Admin_Sys_Navigations));
-            var deleteNavigations = repository.Delete<Admin_Sys_Navigations>(_admin_Sys_Navigations);
+            Admin_Sys_Navigations _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new Admin_Sys_Navigations() : JsonConvert.DeserializeObject<Admin_Sys_Navigations>(json["ListObj"].ToString());
             JObject result = new JObject();
-            if (deleteNavigations == 1)
+            using (var db = new RepositoryBase().BeginTrans())
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(true));
-                result.Add(ResultInfo.Content, JToken.FromObject("删除成功"));
-            }
-            else
-            {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("删除失败"));
+                db.Delete(_admin_Sys_Navigations);
+                if (db.Commit() == 1)
+                {
+                    result.Add(ResultInfo.Result, true);
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, false);
+                }
             }
             return result;
         }

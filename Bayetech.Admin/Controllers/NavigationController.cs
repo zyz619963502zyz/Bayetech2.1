@@ -34,6 +34,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject GetAddNavigation(JObject json)
         {
             return service.AddNavigation(json);
@@ -43,6 +44,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject deleteNavigation(JObject json)
         {
             return service.DeleteNavigation(json);
