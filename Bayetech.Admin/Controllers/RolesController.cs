@@ -56,5 +56,10 @@ namespace Bayetech.Admin.Controllers
         {
             return rolesService.RolesGetTrees(Convert.ToInt32(id));
         }
+        [HttpPost]
+        public JObject Put(JObject json)
+        {
+            return rolesService.PutRoles(json);
+        }
     }
 }

@@ -26,5 +26,11 @@ namespace Bayetech.Service
         JObject RolesGetTree();
 
         JObject RolesGetTrees(int id);
+        /// <summary>
+        /// 添加和修改权限配置
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject PutRoles(JObject json);
     }
 }

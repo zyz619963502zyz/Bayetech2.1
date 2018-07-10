@@ -295,10 +295,41 @@
                 }); 
             };
             self.AuthUpdate = function () {
-                alert(3);
+                debugger;
+
+                var id = $("input[name='Operates']").val();
+                var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
+                var checkModel = [];
+                for (var i = 0; i < nodes.length; i++) {
+                    var nodeModel = { id: nodes[i].KeyId, status: nodes[i].state.checked };
+                    checkModel.push(nodeModel);
+                    if (nodes[i].nodes.length > 0) {
+                        for (var x = 0; x < nodes[i].nodes.length; x++) {
+                            checkModel.push({ id: nodes[i].nodes[x].KeyId, status: nodes[i].nodes[x].state.checked });
+                        }
+                    };
+                }
+                var param = {
+                    json: JSON.stringify(checkModel),
+                    id:JSON.stringify(id)
+                };
+                $.ajax({
+                    url: "/api/Roles/Put",
+                    data: param,
+                    type: "post",
+                    dataType: "json",
+                    async: false,
+                    success: function (ret) {
+                        if (ret.result)
+                        {
+                            $("#AuthModal").modal("hide");
+                            alert("设置成功");
+                            
+                        }
+                    }
+                });
             };
             self.SetNode = function (d) {
-                debugger;
                 var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {

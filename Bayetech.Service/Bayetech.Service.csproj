@@ -60,6 +60,7 @@
     <Compile Include="IServices\Interface1.cs" />
     <Compile Include="IServices\IUploadFileService.cs" />
     <Compile Include="IServices\IUserService.cs" />
+    <Compile Include="Model\CheckedListModel.cs" />
     <Compile Include="Model\NavTreeModel.cs" />
     <Compile Include="Model\UserRoleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
