@@ -5,7 +5,7 @@
         <thead>
             <tr class="success">
 				<th class="text-center col-md-1">编号</th>
-				<th class="text-center col-md-1">折行操作</th>
+				<th class="text-center col-md-1">二级菜单</th>
                 <th class="text-center col-md-2">菜单名称</th>
                 <th class="text-center col-md-2">链接地址</th>
                 <th class="text-center col-md-1">是否显示</th>
@@ -65,7 +65,8 @@ export default{
 	methods:{
 		OpterateAline(id){
 			let self = this;
-			$("#key_"+id).hasClass("hide")?($("#key_"+id).removeClass("hide"),$("#btn_"+id).val("-"))
+			$("#key_"+id).hasClass("hide")?
+			($("#key_"+id).removeClass("hide"),$("#btn_"+id).val("-"))
 			:($("#key_"+id).addClass("hide"),$("#btn_"+id).val("+"));
 		}		
 	}

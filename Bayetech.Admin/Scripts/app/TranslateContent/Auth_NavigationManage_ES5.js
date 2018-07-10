@@ -11553,7 +11553,7 @@ var staticRenderFns = [
       _c("tr", { staticClass: "success" }, [
         _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("二级菜单")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
         _vm._v(" "),
