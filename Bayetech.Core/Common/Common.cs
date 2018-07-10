@@ -26,7 +26,7 @@ namespace Bayetech.Core
                 userHostAddress = HttpContext.Current.Request.UserHostAddress;
             }
 
-            //最后判断获取是否成功，并检查IP地址的格式（检查其格式非常重要）
+            //最后判断获取是否成功， （检查其格式非常重要）
             if (!string.IsNullOrEmpty(userHostAddress) && IsIP(userHostAddress))
             {
                 return userHostAddress;

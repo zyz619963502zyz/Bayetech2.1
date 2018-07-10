@@ -46,8 +46,8 @@ namespace Bayetech.Admin.Controller
                 }
                 else
                 {
-                    //ret.Add(ResultInfo.Content, JToken.FromObject("登录失败!"));
-                    //ret.Add(ResultInfo.Result, "false");
+                    ret.Add(ResultInfo.Content, JToken.FromObject("登录失败,请检查用户名密码!"));
+                    ret.Add(ResultInfo.Result, "false");
                 }
                 return null;
             }
