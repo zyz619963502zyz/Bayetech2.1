@@ -26,6 +26,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject AddRoles(JObject json)
         {
            return rolesService.AddRoles(json);
@@ -35,6 +36,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
+        [HttpPost]
         public JObject DeleteRoles(JObject json)
         {
            return rolesService.DeleteRoles(json);
@@ -43,6 +45,16 @@ namespace Bayetech.Admin.Controllers
         public JObject Roles()
         {
             return null;
+        }
+
+        public JObject GetTree()
+        {
+            return rolesService.RolesGetTree();
+        }
+
+        public JObject GetTreeRoles(string id)
+        {
+            return rolesService.RolesGetTrees(Convert.ToInt32(id));
         }
     }
 }
