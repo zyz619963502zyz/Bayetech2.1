@@ -6,8 +6,14 @@
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/generics.css" rel="stylesheet" />
     <link href="../../Content/Mystyle.css" rel="stylesheet" />
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <!--<script src="../../Scripts/jquery-1.10.2.min.js"></script>-->
+    <script src="../../lib/jquery/jquery.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../lib/knockout/dist/knockout.js"></script>
+    <script src="../../lib/knockout/dist/knockout.mapping.js"></script>
+    <script src="../../lib/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+    
+
 </head>
 <body>
    <div id="CommRoles">
@@ -27,7 +33,8 @@
                        </div>
                        <div class="toolbar input-group col-md-6">
                            <div class="btn-group">
-                               <button type="button" id="AuthBtn" class="btn btn-primary" @click="OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>
+                               <!--<button type="button" id="AuthBtn" class="btn btn-primary" @click="OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>-->
+                               <button id="AuthBtn" class="btn btn-primary" data-bind="click:OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>
                                <button type="button" id="AddBtn" class="btn btn-primary" @click="OpenAddModal" ><i class="fa fa-plus"></i>添加</button>
                                <button type="button" class="btn btn-primary" @click="OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
                                <button type="button" class="btn btn-primary" @click="Delete" ><i class="fa fa-trash-o"></i>删除</button>
@@ -99,7 +106,7 @@
                            <div class="row form-group">
                                <div class="col-xs-2"></div>
                                <div class="col-xs-4">
-                                   <button type="button" class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                                   <button type="button" class="btn btn-default form-control" >关闭</button>
                                </div>
                                <div class="col-xs-4">
                                    <button type="button" class="btn btn-success form-control" @click="SubmitModal" >保存</button>
@@ -112,6 +119,43 @@
        </div>
        <!--Modal界面-->
        <!--权限Modal界面-->
+       <!--<div id="AuthModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+           <div class="modal-dialog" style="width: 50%">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       <h4 class="modal-title" id="H1" style="text-align: center"><b>分配角色权限</b></h4>
+                   </div>
+                   <div class="modal-body">
+                       <form class="form-horizontal">
+                           <div class="control-group">
+                               <div class="col-sm-12">
+                                   <div id="tree"></div>
+                               </div>
+                           </div>
+                           <br />
+                           <div class="row form-group">
+                               <div class="col-xs-1"></div>
+                               <div class="col-xs-3" style="cursor:pointer">
+                                   <comtatles v-bind:twolayerarray="TwoLayerArray" v-bind:startcheck="StartCheck"></comtatles>
+                                   <nav aria-label="fenye" class="text-center right">
+                                       <ul id="paginator-test" class="pagination"></ul>
+                                   </nav>
+                               </div>
+
+                               <div class="col-xs-offset-1 col-xs-3">
+                                   <button class="btn btn-default form-control" data-bind="click:AuthClose">关闭</button>
+                               </div>
+                               <div class="col-xs-3">
+                                   <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:AuthUpdate,enable:btnStatus">保存</button>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>-->
+       <!--Modal界面-->
        <div id="AuthModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
            <div class="modal-dialog" style="width: 30%">
                <div class="modal-content">
@@ -137,10 +181,11 @@
                                </div>
 
                                <div class="col-xs-offset-1 col-xs-3">
-                                   <button class="btn btn-default form-control" data-bind="click:AuthClose">关闭</button>
+                                   <!--<button class="btn btn-default form-control" data-bind="click:AuthClose">关闭</button>-->
+                                   <button class="btn btn-default form-control" >关闭</button>
                                </div>
                                <div class="col-xs-3">
-                                   <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:AuthUpdate,enable:btnStatus">保存</button>
+                                   <button class="btn btn-success form-control" type="submit" data-bind="click:AuthUpdate">保存</button>
                                </div>
                            </div>
                        </form>
@@ -148,9 +193,139 @@
                </div>
            </div>
        </div>
-       <!--Modal界面-->
    </div>
 </body>
 </html>
+
 <script src="../../Scripts/app/TranslateContent/Auth_RolesManage_ES5.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+
+
+        //用户模型
+        var model = function () {
+            var _model = this;
+            _model.KeyId = ko.observable(0);
+            _model.RoleName = ko.observable("");
+            _model.Sortnum = ko.observable("");
+            _model.isDefault = ko.observable("0");
+            _model.Remark = ko.observable("");
+        }
+        var KObj = new function () {
+            var self = this;
+            self.model = new model();//实例化模型
+            self.ss = "/api/Roles/GetList";
+            self.AuthTree = $('#tree');
+            self.OpenAuthModal = function () {
+                var id = $("input[name='Operates']").val();
+                if (id == "")
+                {
+                    alert("请选择角色")
+                    return;
+                }
+                $.ajax({
+                    url: "/api/Roles/GetTree",
+                    //data:JSON.stringify(dd),
+                    type: "get",
+                    dataType: "json",
+                    async: false,
+                    success: function (ret) {
+                        if(ret.result)
+                        {
+                            $.ajax({
+                                url: "/api/Roles/GetTreeRoles",
+                                data: {id:id},
+                                type: "get",
+                                dataType: "json",
+                                async: false,
+                                success: function (checkedData) {
+                                    var ss = JSON.stringify(ret.content);
+                                    if (ret.result) {
+                                        self.AuthTree.treeview({
+                                            //data: self.GetComboxData(data, 'NavTitle'),
+                                            data: ret.content,
+                                            //color:'#428bca',
+                                            color: 'Gray',
+                                            showTags: true,
+                                            showIcon: false,
+                                            showCheckbox: true,
+
+                                            onNodeChecked: function (event, node) {
+                                                //$('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
+                                            },
+                                            onNodeUnchecked: function (event, node) {
+                                                //$('#checkable-output').prepend('<p>' + node.text + ' was unchecked</p>');
+                                            },
+                                            onNodeCollapsed: function (event, node) {
+                                                //layer.alert(111); 
+                                            },
+                                            onNodeExpanded: function (event, node) {
+                                                //var d = JSON.parse(checkedData);
+                                                if (checkedData.result) {
+
+                                                    for (var y = 0; y < checkedData.content.length; y++) {
+                                                        for (var z = 0; z < node.nodes.length; z++) {
+                                                            if (node.nodes[z].KeyId === checkedData.content[y].KeyId) {
+                                                                $('#tree')
+                                                                    .treeview('checkNode',
+                                                                        [node.nodes[z].nodeId, { silent: true }]);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        })
+                                     .treeview('collapseAll', { silent: true });
+
+                                        //console.info(checkedData);
+
+                                        $("#AuthModal").modal("show");
+                                        if (ret.result) {
+                                            
+                                            //var g = JSON.parse(checkedData);
+                                            self.SetNode(checkedData.content);
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }); 
+            };
+            self.AuthUpdate = function () {
+                alert(3);
+            };
+            self.SetNode = function (d) {
+                debugger;
+                var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
+                var checkModel = [];
+                for (var i = 0; i < nodes.length; i++) {
+
+                    var nodeModel = { KeyId: nodes[i].KeyId, nodeId: nodes[i].nodeId };
+                    checkModel.push(nodeModel);
+                }
+                for (var y = 0; y < d.length; y++) {
+                    for (var z = 0; z < checkModel.length; z++) {
+                        if (checkModel[z].KeyId === d[y].KeyId) {
+                            $('#tree').treeview('checkNode', [checkModel[z].nodeId, { silent: true }]);
+                        }
+                    }
+                }
+            }
+            //全选
+            self.AuthSelectAll = function () {
+                debugger;
+                self.AuthTree.treeview('checkAll', { silent: true });//选中所有
+
+            };
+            //全不选
+            self.AuthUnSelectAll = function () {
+                self.AuthTree.treeview('uncheckAll', { silent: $('#chk-check-silent').is(':checked') });
+            }
+        }();
+        ko.applyBindings(KObj);
+    });
+</script>
 

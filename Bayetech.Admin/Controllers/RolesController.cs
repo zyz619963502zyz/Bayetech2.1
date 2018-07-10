@@ -46,5 +46,15 @@ namespace Bayetech.Admin.Controllers
         {
             return null;
         }
+
+        public JObject GetTree()
+        {
+            return rolesService.RolesGetTree();
+        }
+
+        public JObject GetTreeRoles(string id)
+        {
+            return rolesService.RolesGetTrees(Convert.ToInt32(id));
+        }
     }
 }

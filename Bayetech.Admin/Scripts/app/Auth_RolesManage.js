@@ -1,11 +1,13 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
 import componentTable from '../components/table-RolesManage.vue'
+import componentTables from '../components/table-TwoLayer.vue'
 
 let vmData={
     tools:{
         _comCompnent:comCompnent,
-        _componentTable:componentTable
+        _componentTable:componentTable,
+        _componentTables:componentTables
     },
     RolesUrl:"/api/Roles/GetList",
     RolesAdd:"/api/Roles/AddRoles",
@@ -13,6 +15,7 @@ let vmData={
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     RolesArray:[],
+    TwoLayerArray:[],
     SearchParam: {
         Param: {//查询条件的参数
             Type:"",
@@ -49,22 +52,23 @@ new Vue({
             var self=this;
             self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-                
+                //debugger;
                 if (data.result) {
                     self.RolesArray=data.content.datas;
+                    self.TwoLayerArray=data.RolesMenu;
                     self.SearchParam.Pagination=data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },
         OpenAuthModal(){//分配权限
-
+            $("#AuthModal").modal("show");
         },
         OpenAddModal(){//添加
             $("#UserModal").modal("show");
         },
         OpenEditModal(){//修改
-            debugger;
+            //debugger;
             var self = this;
             if (self.SearchParam.ListObj.KeyId == 0) {
                 alert("请选择角色")
@@ -107,6 +111,7 @@ new Vue({
         StartCheck(type) {//开始检查
             var self = this;
             self.SearchParam.ListObj = type;
+            $("#test").attr("value",type.KeyId);
         },
         TurnToPage(page){
             var self = this;
@@ -115,7 +120,8 @@ new Vue({
         }
     },
     components:{
-        comtable:componentTable
+        comtable:componentTable,
+        comtatles:componentTables
     }
 });
 

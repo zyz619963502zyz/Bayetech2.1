@@ -19,7 +19,7 @@
                 <td>{{item.RoleName}}</td>
                 <td>{{item.Sortnum}}</td>
                 <td>{{item.Remark}}</td>
-				<td><input type="radio" name="Operates"  @click="startcheck(item)"/></td>
+				<td><input id="test" type="radio" name="Operates" value=""  @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>
