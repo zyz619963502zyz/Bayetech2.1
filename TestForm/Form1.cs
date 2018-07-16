@@ -16,7 +16,7 @@ namespace TestForm
         private void button1_Click(object sender, EventArgs e)
         {
             int str = Convert.ToInt32(conditionText.Text);
-            WorkflowApplication app = new WorkflowApplication(new Accounts(), new Dictionary<string, object>() {
+            WorkflowApplication app = new WorkflowApplication(new test(), new Dictionary<string, object>() {
             {"TextInput",str }
             });
             app.Run();
