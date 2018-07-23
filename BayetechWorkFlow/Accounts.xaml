@@ -1,7 +1,8 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="BayetechWorkFlow.Accounts" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="BayetechWorkFlow.Accounts" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="BayetechWorkFlow.Accounts_1"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
  xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
@@ -19,97 +20,118 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
-      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>BayetechWorkFlow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID8}" DisplayName="账号购买流程">
-    <State x:Name="__ReferenceID8" DisplayName="客服上号截图">
-      <State.Transitions>
-        <Transition DisplayName="T1">
-          <Transition.To>
-            <State x:Name="__ReferenceID1" DisplayName="联系买家确认购买">
-              <State.Transitions>
-                <Transition DisplayName="T2">
-                  <Transition.To>
-                    <State x:Name="__ReferenceID2" DisplayName="确认购买（20分钟）">
-                      <State.Transitions>
-                        <Transition DisplayName="T4">
-                          <Transition.To>
-                            <State x:Name="__ReferenceID3" DisplayName="通知卖家修改信息">
-                              <State.Transitions>
-                                <Transition DisplayName="T5">
-                                  <Transition.To>
-                                    <State x:Name="__ReferenceID4" DisplayName="买家提取资料">
-                                      <State.Transitions>
-                                        <Transition DisplayName="T6">
-                                          <Transition.To>
-                                            <State x:Name="__ReferenceID5" DisplayName="交易成功">
-                                              <State.Transitions>
-                                                <Transition DisplayName="T8">
-                                                  <Transition.To>
-                                                    <State x:Name="__ReferenceID0" DisplayName="交易结束" IsFinal="True" sap2010:WorkflowViewState.IdRef="State_1" />
-                                                  </Transition.To>
-                                                  <sap2010:WorkflowViewState.IdRef>Transition_1</sap2010:WorkflowViewState.IdRef>
-                                                </Transition>
-                                              </State.Transitions>
-                                              <sap2010:WorkflowViewState.IdRef>State_2</sap2010:WorkflowViewState.IdRef>
-                                            </State>
-                                          </Transition.To>
-                                          <sap2010:WorkflowViewState.IdRef>Transition_2</sap2010:WorkflowViewState.IdRef>
-                                        </Transition>
-                                      </State.Transitions>
-                                      <sap2010:WorkflowViewState.IdRef>State_3</sap2010:WorkflowViewState.IdRef>
-                                    </State>
-                                  </Transition.To>
-                                  <sap2010:WorkflowViewState.IdRef>Transition_3</sap2010:WorkflowViewState.IdRef>
-                                </Transition>
-                              </State.Transitions>
-                              <sap2010:WorkflowViewState.IdRef>State_4</sap2010:WorkflowViewState.IdRef>
-                            </State>
-                          </Transition.To>
-                          <sap2010:WorkflowViewState.IdRef>Transition_4</sap2010:WorkflowViewState.IdRef>
-                        </Transition>
-                      </State.Transitions>
-                      <sap2010:WorkflowViewState.IdRef>State_5</sap2010:WorkflowViewState.IdRef>
-                    </State>
-                  </Transition.To>
-                  <sap2010:WorkflowViewState.IdRef>Transition_5</sap2010:WorkflowViewState.IdRef>
-                </Transition>
-                <Transition DisplayName="T3">
-                  <Transition.To>
-                    <State x:Name="__ReferenceID6" DisplayName="取消购买">
-                      <State.Transitions>
-                        <Transition DisplayName="T7">
-                          <Transition.To>
-                            <State x:Name="__ReferenceID7" DisplayName="交易失败">
-                              <State.Transitions>
-                                <Transition DisplayName="T9" To="{x:Reference __ReferenceID0}" sap2010:WorkflowViewState.IdRef="Transition_6" />
-                              </State.Transitions>
-                              <sap2010:WorkflowViewState.IdRef>State_6</sap2010:WorkflowViewState.IdRef>
-                            </State>
-                          </Transition.To>
-                          <sap2010:WorkflowViewState.IdRef>Transition_7</sap2010:WorkflowViewState.IdRef>
-                        </Transition>
-                      </State.Transitions>
-                      <sap2010:WorkflowViewState.IdRef>State_7</sap2010:WorkflowViewState.IdRef>
-                    </State>
-                  </Transition.To>
-                  <sap2010:WorkflowViewState.IdRef>Transition_8</sap2010:WorkflowViewState.IdRef>
-                </Transition>
-              </State.Transitions>
-              <sap2010:WorkflowViewState.IdRef>State_8</sap2010:WorkflowViewState.IdRef>
-            </State>
-          </Transition.To>
-          <sap2010:WorkflowViewState.IdRef>Transition_9</sap2010:WorkflowViewState.IdRef>
-        </Transition>
-      </State.Transitions>
-      <sap2010:WorkflowViewState.IdRef>State_9</sap2010:WorkflowViewState.IdRef>
-    </State>
+  <StateMachine DisplayName="账号购买流程" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <StateMachine.InitialState>
+      <State x:Name="__ReferenceID1" DisplayName="客服上号截图" sap2010:WorkflowViewState.IdRef="State_9">
+        <State.Transitions>
+          <Transition DisplayName="T1" sap2010:WorkflowViewState.IdRef="Transition_9">
+            <Transition.Condition>
+              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "1"</mca:CSharpValue>
+            </Transition.Condition>
+            <Transition.To>
+              <State x:Name="__ReferenceID2" DisplayName="联系买家确认购买" sap2010:WorkflowViewState.IdRef="State_8">
+                <State.Transitions>
+                  <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_5">
+                    <Transition.Condition>
+                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "2"</mca:CSharpValue>
+                    </Transition.Condition>
+                    <Transition.To>
+                      <State x:Name="__ReferenceID3" DisplayName="确认购买（20分钟）" sap2010:WorkflowViewState.IdRef="State_5">
+                        <State.Transitions>
+                          <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_4">
+                            <Transition.Condition>
+                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="4"</mca:CSharpValue>
+                            </Transition.Condition>
+                            <Transition.To>
+                              <State x:Name="__ReferenceID4" DisplayName="通知卖家修改信息" sap2010:WorkflowViewState.IdRef="State_4">
+                                <State.Transitions>
+                                  <Transition DisplayName="T5" sap2010:WorkflowViewState.IdRef="Transition_3">
+                                    <Transition.Condition>
+                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "5"</mca:CSharpValue>
+                                    </Transition.Condition>
+                                    <Transition.To>
+                                      <State x:Name="__ReferenceID5" DisplayName="买家提取资料" sap2010:WorkflowViewState.IdRef="State_3">
+                                        <State.Transitions>
+                                          <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_2">
+                                            <Transition.Condition>
+                                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "6"</mca:CSharpValue>
+                                            </Transition.Condition>
+                                            <Transition.To>
+                                              <State x:Name="__ReferenceID6" DisplayName="交易成功" sap2010:WorkflowViewState.IdRef="State_2">
+                                                <State.Transitions>
+                                                  <Transition DisplayName="T8" sap2010:WorkflowViewState.IdRef="Transition_1">
+                                                    <Transition.Condition>
+                                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="8"</mca:CSharpValue>
+                                                    </Transition.Condition>
+                                                    <Transition.To>
+                                                      <State x:Name="__ReferenceID0" DisplayName="交易结束" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True" />
+                                                    </Transition.To>
+                                                  </Transition>
+                                                </State.Transitions>
+                                              </State>
+                                            </Transition.To>
+                                          </Transition>
+                                        </State.Transitions>
+                                      </State>
+                                    </Transition.To>
+                                  </Transition>
+                                </State.Transitions>
+                              </State>
+                            </Transition.To>
+                          </Transition>
+                        </State.Transitions>
+                      </State>
+                    </Transition.To>
+                  </Transition>
+                  <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_8">
+                    <Transition.Condition>
+                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="3"</mca:CSharpValue>
+                    </Transition.Condition>
+                    <Transition.To>
+                      <State x:Name="__ReferenceID7" DisplayName="取消购买" sap2010:WorkflowViewState.IdRef="State_7">
+                        <State.Transitions>
+                          <Transition DisplayName="T7" sap2010:WorkflowViewState.IdRef="Transition_7">
+                            <Transition.Condition>
+                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="7"</mca:CSharpValue>
+                            </Transition.Condition>
+                            <Transition.To>
+                              <State x:Name="__ReferenceID8" DisplayName="交易失败" sap2010:WorkflowViewState.IdRef="State_6">
+                                <State.Transitions>
+                                  <Transition DisplayName="T9" sap2010:WorkflowViewState.IdRef="Transition_6" To="{x:Reference __ReferenceID0}">
+                                    <Transition.Condition>
+                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="9"</mca:CSharpValue>
+                                    </Transition.Condition>
+                                  </Transition>
+                                </State.Transitions>
+                              </State>
+                            </Transition.To>
+                          </Transition>
+                        </State.Transitions>
+                      </State>
+                    </Transition.To>
+                  </Transition>
+                </State.Transitions>
+              </State>
+            </Transition.To>
+          </Transition>
+        </State.Transitions>
+      </State>
+    </StateMachine.InitialState>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
@@ -117,11 +139,13 @@
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID0</x:Reference>
-    <sap2010:WorkflowViewState.IdRef>StateMachine_1</sap2010:WorkflowViewState.IdRef>
-    <sads:DebugSymbol.Symbol>dy1GOlxCYXlldGVjaDIuMVxCYXlldGVjaFdvcmtGbG93XEFjY291bnRzLnhhbWwKHgN7EgIBAR8FcA0CARkjDWoVAgEWJxVPHQIBEysdSSUCARAvJUMtAgENMy09NQIBClUVZB0CAQdZHV4lAgEENzU3ogECAQI=</sads:DebugSymbol.Symbol>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="x:String" Name="conditions" />
+    </StateMachine.Variables>
+    <sads:DebugSymbol.Symbol>dy1GOlxCYXlldGVjaDIuMVxCYXlldGVjaFdvcmtGbG93XEFjY291bnRzLnhhbWwTJgOUARICAQEoB4UBDwIBKS8PgQEXAgEiNhdiHwIBHT0fXicCARhEJ1ovAgETSy9WNwIBDmoXfR8CAQlxH3knAgEEUjdSpAECAQIsDyxfAgErMxczZwIBJmcXZ2UCASQ6HzptAgEfQSdBdwIBGkgvSH8CARVPN0+FAQIBEG4fbm0CAQt1J3V1AgEG</sads:DebugSymbol.Symbol>
   </StateMachine>
-  <sap2010:WorkflowViewState.IdRef>BayetechWorkFlow.Accounts_1</sap2010:WorkflowViewState.IdRef>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="State_1" sap:VirtualizedContainerService.HintSize="134.4,80">
@@ -135,7 +159,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_1">
+      <sap2010:ViewStateData Id="Transition_1" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">103.32,917.2 103.32,947.2 273.28,947.2 273.28,1029.2</av:PointCollection>
@@ -155,7 +179,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_2">
+      <sap2010:ViewStateData Id="Transition_2" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">103.32,767.2 103.32,842.8</av:PointCollection>
@@ -175,7 +199,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_3">
+      <sap2010:ViewStateData Id="Transition_3" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">103.32,617.2 103.32,692.8</av:PointCollection>
@@ -195,7 +219,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_4">
+      <sap2010:ViewStateData Id="Transition_4" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">96.24,473.6 96.64,473.6 96.64,542.8</av:PointCollection>
@@ -215,7 +239,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_5" sap:VirtualizedContainerService.HintSize="429.6,539.2">
+      <sap2010:ViewStateData Id="Transition_5" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">262.76,307.6 262.76,337.6 116.28,337.6 116.28,399.2</av:PointCollection>
@@ -224,7 +248,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_6">
+      <sap2010:ViewStateData Id="Transition_6" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">443.32,917.2 443.32,947.2 300.16,947.2 300.16,1029.2</av:PointCollection>
@@ -244,7 +268,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_7">
+      <sap2010:ViewStateData Id="Transition_7" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">450,467.2 450,842.8</av:PointCollection>
@@ -264,7 +288,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_8">
+      <sap2010:ViewStateData Id="Transition_8" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">284.48,307.6 284.48,337.6 436.64,337.6 436.64,392.8</av:PointCollection>
@@ -284,7 +308,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_9">
+      <sap2010:ViewStateData Id="Transition_9" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">262.68,183.2 262.76,183.2 262.76,232.4</av:PointCollection>
@@ -315,7 +339,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BayetechWorkFlow.Accounts_1" sap:VirtualizedContainerService.HintSize="654.4,716.8" />
+      <sap2010:ViewStateData Id="BayetechWorkFlow.Accounts_1" sap:VirtualizedContainerService.HintSize="654.4,1260" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
