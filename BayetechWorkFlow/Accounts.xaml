@@ -44,78 +44,56 @@
               <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "1"</mca:CSharpValue>
             </Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID2" DisplayName="联系买家确认购买" sap2010:WorkflowViewState.IdRef="State_8">
+              <State x:Name="__ReferenceID2" DisplayName="等待确认购买" sap2010:WorkflowViewState.IdRef="State_8">
                 <State.Transitions>
-                  <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_5">
+                  <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_11">
                     <Transition.Condition>
-                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "2"</mca:CSharpValue>
+                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "3"</mca:CSharpValue>
                     </Transition.Condition>
                     <Transition.To>
-                      <State x:Name="__ReferenceID3" DisplayName="确认购买（20分钟）" sap2010:WorkflowViewState.IdRef="State_5">
+                      <State x:Name="__ReferenceID6" DisplayName="交易失败" sap2010:WorkflowViewState.IdRef="State_6">
                         <State.Transitions>
-                          <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_4">
+                          <Transition DisplayName="T9" sap2010:WorkflowViewState.IdRef="Transition_6">
                             <Transition.Condition>
-                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="4"</mca:CSharpValue>
+                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="9"</mca:CSharpValue>
                             </Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID4" DisplayName="通知卖家修改信息" sap2010:WorkflowViewState.IdRef="State_4">
-                                <State.Transitions>
-                                  <Transition DisplayName="T5" sap2010:WorkflowViewState.IdRef="Transition_3">
-                                    <Transition.Condition>
-                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "5"</mca:CSharpValue>
-                                    </Transition.Condition>
-                                    <Transition.To>
-                                      <State x:Name="__ReferenceID5" DisplayName="买家提取资料" sap2010:WorkflowViewState.IdRef="State_3">
-                                        <State.Transitions>
-                                          <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_2">
-                                            <Transition.Condition>
-                                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "6"</mca:CSharpValue>
-                                            </Transition.Condition>
-                                            <Transition.To>
-                                              <State x:Name="__ReferenceID6" DisplayName="交易成功" sap2010:WorkflowViewState.IdRef="State_2">
-                                                <State.Transitions>
-                                                  <Transition DisplayName="T8" sap2010:WorkflowViewState.IdRef="Transition_1">
-                                                    <Transition.Condition>
-                                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="8"</mca:CSharpValue>
-                                                    </Transition.Condition>
-                                                    <Transition.To>
-                                                      <State x:Name="__ReferenceID0" DisplayName="交易结束" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True" />
-                                                    </Transition.To>
-                                                  </Transition>
-                                                </State.Transitions>
-                                              </State>
-                                            </Transition.To>
-                                          </Transition>
-                                        </State.Transitions>
-                                      </State>
-                                    </Transition.To>
-                                  </Transition>
-                                </State.Transitions>
-                              </State>
+                              <State x:Name="__ReferenceID0" DisplayName="交易结束" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True" />
                             </Transition.To>
                           </Transition>
                         </State.Transitions>
                       </State>
                     </Transition.To>
                   </Transition>
-                  <Transition DisplayName="T3" sap2010:WorkflowViewState.IdRef="Transition_8">
+                  <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_12">
                     <Transition.Condition>
-                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="3"</mca:CSharpValue>
+                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "2"</mca:CSharpValue>
                     </Transition.Condition>
                     <Transition.To>
-                      <State x:Name="__ReferenceID7" DisplayName="取消购买" sap2010:WorkflowViewState.IdRef="State_7">
+                      <State x:Name="__ReferenceID3" DisplayName="等待卖家修改信息" sap2010:WorkflowViewState.IdRef="State_4">
                         <State.Transitions>
-                          <Transition DisplayName="T7" sap2010:WorkflowViewState.IdRef="Transition_7">
+                          <Transition DisplayName="T5" sap2010:WorkflowViewState.IdRef="Transition_3">
                             <Transition.Condition>
-                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="7"</mca:CSharpValue>
+                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "5"</mca:CSharpValue>
                             </Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID8" DisplayName="交易失败" sap2010:WorkflowViewState.IdRef="State_6">
+                              <State x:Name="__ReferenceID4" DisplayName="买家提取资料" sap2010:WorkflowViewState.IdRef="State_3">
                                 <State.Transitions>
-                                  <Transition DisplayName="T9" sap2010:WorkflowViewState.IdRef="Transition_6" To="{x:Reference __ReferenceID0}">
+                                  <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_2">
                                     <Transition.Condition>
-                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="9"</mca:CSharpValue>
+                                      <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "6"</mca:CSharpValue>
                                     </Transition.Condition>
+                                    <Transition.To>
+                                      <State x:Name="__ReferenceID5" DisplayName="交易成功" sap2010:WorkflowViewState.IdRef="State_2">
+                                        <State.Transitions>
+                                          <Transition DisplayName="T8" sap2010:WorkflowViewState.IdRef="Transition_1" To="{x:Reference __ReferenceID0}">
+                                            <Transition.Condition>
+                                              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions=="8"</mca:CSharpValue>
+                                            </Transition.Condition>
+                                          </Transition>
+                                        </State.Transitions>
+                                      </State>
+                                    </Transition.To>
                                   </Transition>
                                 </State.Transitions>
                               </State>
@@ -138,20 +116,18 @@
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
-    <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID0</x:Reference>
     <StateMachine.Variables>
       <Variable x:TypeArguments="x:String" Name="conditions" />
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>dy1GOlxCYXlldGVjaDIuMVxCYXlldGVjaFdvcmtGbG93XEFjY291bnRzLnhhbWwTJgOUARICAQEoB4UBDwIBKS8PgQEXAgEiNhdiHwIBHT0fXicCARhEJ1ovAgETSy9WNwIBDmoXfR8CAQlxH3knAgEEUjdSpAECAQIsDyxfAgErMxczZwIBJmcXZ2UCASQ6HzptAgEfQSdBdwIBGkgvSH8CARVPN0+FAQIBEG4fbm0CAQt1J3V1AgEG</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dy1GOlxCYXlldGVjaDIuMVxCYXlldGVjaFdvcmtGbG93XEFjY291bnRzLnhhbWwPJgN8EgIBASgHbw8CAR8vD2sXAgEYSRdnHwIBE1AfYycCAQ5XJ18vAgEJNhdBHwIBBD0fPYwBAgECLA8sXwIBITMXM2cCARxGF0ZnAgEaTR9NbwIBFVQnVHcCARBbL1t9AgELOh86bQIBBg==</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="State_1" sap:VirtualizedContainerService.HintSize="134.4,80">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">212.8,1029.2</av:Point>
+            <av:Point x:Key="ShapeLocation">212.8,789.2</av:Point>
             <av:Size x:Key="ShapeSize">134.4,80</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Double x:Key="StateContainerWidth">119.99999999999994</x:Double>
@@ -159,10 +135,39 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_6" sap:VirtualizedContainerService.HintSize="429.6,511.2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">443.32,727.2 443.32,757.2 300.16,757.2 300.16,789.2</av:PointCollection>
+            <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+            <x:Int32 x:Key="DestConnectionPointIndex">50</x:Int32>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="State_6" sap:VirtualizedContainerService.HintSize="133.6,74.4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">383.2,652.8</av:Point>
+            <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
+            <x:Double x:Key="StateContainerHeight">37.519999999999982</x:Double>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_11" sap:VirtualizedContainerService.HintSize="429.6,511.2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">277.24,307.6 277.24,337.6 443.32,337.6 443.32,652.8</av:PointCollection>
+            <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
+            <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Transition_1" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">103.32,917.2 103.32,947.2 273.28,947.2 273.28,1029.2</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">103.32,727.2 103.32,757.2 273.28,757.2 273.28,789.2</av:PointCollection>
             <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
             <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
           </scg:Dictionary>
@@ -171,7 +176,7 @@
       <sap2010:ViewStateData Id="State_2" sap:VirtualizedContainerService.HintSize="133.6,74.4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">43.2,842.8</av:Point>
+            <av:Point x:Key="ShapeLocation">43.2,652.8</av:Point>
             <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
@@ -182,7 +187,7 @@
       <sap2010:ViewStateData Id="Transition_2" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">103.32,767.2 103.32,842.8</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">103.32,587.2 103.32,652.8</av:PointCollection>
             <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
             <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
           </scg:Dictionary>
@@ -191,7 +196,7 @@
       <sap2010:ViewStateData Id="State_3" sap:VirtualizedContainerService.HintSize="133.6,74.4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">43.2,692.8</av:Point>
+            <av:Point x:Key="ShapeLocation">43.2,512.8</av:Point>
             <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
@@ -202,7 +207,7 @@
       <sap2010:ViewStateData Id="Transition_3" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">103.32,617.2 103.32,692.8</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">103.32,447.2 103.32,512.8</av:PointCollection>
             <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
             <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
           </scg:Dictionary>
@@ -211,7 +216,7 @@
       <sap2010:ViewStateData Id="State_4" sap:VirtualizedContainerService.HintSize="133.6,74.4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">43.2,542.8</av:Point>
+            <av:Point x:Key="ShapeLocation">43.2,372.8</av:Point>
             <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
@@ -219,80 +224,11 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_4" sap:VirtualizedContainerService.HintSize="429.6,511.2">
+      <sap2010:ViewStateData Id="Transition_12" sap:VirtualizedContainerService.HintSize="429.6,511.2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">96.24,473.6 96.64,473.6 96.64,542.8</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">255.52,307.6 255.52,337.6 96.64,337.6 96.64,372.8</av:PointCollection>
             <x:Int32 x:Key="SrcConnectionPointIndex">31</x:Int32>
-            <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="State_5" sap:VirtualizedContainerService.HintSize="133.6,74.4">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">42.8,399.2</av:Point>
-            <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
-            <x:Double x:Key="StateContainerHeight">37.519999999999982</x:Double>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_5" sap:VirtualizedContainerService.HintSize="429.6,511.2">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">262.76,307.6 262.76,337.6 116.28,337.6 116.28,399.2</av:PointCollection>
-            <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
-            <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_6" sap:VirtualizedContainerService.HintSize="429.6,511.2">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">443.32,917.2 443.32,947.2 300.16,947.2 300.16,1029.2</av:PointCollection>
-            <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
-            <x:Int32 x:Key="DestConnectionPointIndex">50</x:Int32>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="State_6" sap:VirtualizedContainerService.HintSize="133.6,74.4">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">383.2,842.8</av:Point>
-            <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
-            <x:Double x:Key="StateContainerHeight">37.519999999999982</x:Double>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_7" sap:VirtualizedContainerService.HintSize="429.6,511.2">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">450,467.2 450,842.8</av:PointCollection>
-            <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
-            <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="State_7" sap:VirtualizedContainerService.HintSize="133.6,74.4">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">383.2,392.8</av:Point>
-            <av:Size x:Key="ShapeSize">133.6,74.4</av:Size>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            <x:Double x:Key="StateContainerWidth">119.19999999999993</x:Double>
-            <x:Double x:Key="StateContainerHeight">37.519999999999982</x:Double>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_8" sap:VirtualizedContainerService.HintSize="429.6,511.2">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">284.48,307.6 284.48,337.6 436.64,337.6 436.64,392.8</av:PointCollection>
-            <x:Int32 x:Key="SrcConnectionPointIndex">47</x:Int32>
             <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
