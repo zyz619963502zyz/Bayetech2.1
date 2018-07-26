@@ -161,7 +161,7 @@
         urlArray == "" && (urlArray.length = 0);
         for (var i = 0; i < urlArray.length; i++) {
             var array = urlArray[i].split('=');
-            urlParam[array[0]] = array[1];
+            urlParam[array[0]] =  array[1];
         }
         return queryStringName ? urlParam[queryStringName] : urlParam;
     }
