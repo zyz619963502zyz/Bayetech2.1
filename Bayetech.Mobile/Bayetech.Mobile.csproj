@@ -101,6 +101,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Page\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="WebActivatorEx">
