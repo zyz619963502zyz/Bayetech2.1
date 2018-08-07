@@ -101,7 +101,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Page\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="WebActivatorEx">
@@ -121,7 +120,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\css\fost-base-min.css" />
+    <Content Include="content\css\fost-base-min_1.css" />
+    <Content Include="content\css\fost-base-min_2.css" />
+    <Content Include="content\css\fost-base-min_3.css" />
+    <Content Include="content\css\style-min.css" />
+    <Content Include="content\css\style-min_1.css" />
+    <Content Include="content\css\style-min_2.css" />
+    <Content Include="content\css\style-min_3.css" />
+    <Content Include="content\images\0052.jpg" />
+    <Content Include="content\images\0187.jpg" />
+    <Content Include="content\images\038.jpg" />
+    <Content Include="content\images\1168.jpg" />
+    <Content Include="content\images\1371.jpg" />
+    <Content Include="content\images\1711.jpg" />
+    <Content Include="content\images\2453.jpg" />
+    <Content Include="content\images\2806.jpg" />
+    <Content Include="content\images\2ef0f13216e241959708237db555b62c.jpg" />
+    <Content Include="content\images\5072c398eb6a4b019baeff8b78823c78.jpg" />
+    <Content Include="content\images\5173app-close.png" />
+    <Content Include="content\images\5173app-ico.png" />
+    <Content Include="content\images\558.jpg" />
+    <Content Include="content\images\610.jpg" />
+    <Content Include="content\images\625.jpg" />
+    <Content Include="content\images\666.jpg" />
+    <Content Include="content\images\89b143feec4646b68f8c49722e27a660.jpg" />
+    <Content Include="content\images\a29ec62d89bf4a6eb3ae850205cf30c2.jpg" />
+    <Content Include="content\images\b55482e51de3458885385fc7b05d403d.jpg" />
+    <Content Include="content\images\beb4f3f8e9b741ddbff1649b051befc4.jpg" />
+    <Content Include="content\images\bi.png" />
+    <Content Include="content\images\callmenu10.png" />
+    <Content Include="content\images\callmenu11.png" />
+    <Content Include="content\images\callmenu12.png" />
+    <Content Include="content\images\dnf.jpg" />
+    <Content Include="content\images\ecb27993cfe440979e5a4f8cc7b266d4.jpg" />
+    <Content Include="content\images\f2b03764ce81476291e41bd5c27df2b4.jpg" />
+    <Content Include="content\images\fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg" />
+    <Content Include="content\images\hao.png" />
+    <Content Include="content\images\lian.png" />
+    <Content Include="content\images\logo.png" />
+    <Content Include="content\images\lol.jpg" />
+    <Content Include="content\images\membersell_logo.png" />
+    <Content Include="content\images\message.png" />
+    <Content Include="content\images\mred_home.png" />
+    <Content Include="content\images\ms2.jpg" />
+    <Content Include="content\images\m_mybuy.png" />
+    <Content Include="content\images\nav.png" />
+    <Content Include="content\images\pc.png" />
+    <Content Include="content\images\SgKowFsggG8AAAAAAAE-nGdbboo58.jpg" />
+    <Content Include="content\images\shouyou.png" />
+    <Content Include="content\images\touxiang.png" />
+    <Content Include="content\images\zhuan.png" />
     <Content Include="Global.asax" />
+    <Content Include="Page\GoodsType\GoodsType.html" />
+    <Content Include="Page\Home\MobileHome.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
@@ -130,6 +182,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="content\images\GetMsg" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
