@@ -1,31 +1,26 @@
-﻿using System.Activities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Activities;
 
 namespace BayetechWorkFlow
 {
-    public class BookMarkCodeActivity : NativeActivity
+
+    public sealed class BookMarkCodeActivity : CodeActivity
     {
-        public InArgument<string> BookMarkName { get; set; }
+        // 定义一个字符串类型的活动输入参数
+        public InArgument<string> Text { get; set; }
 
-        public OutArgument<string> condition{ get; set; }
-
-        protected override void Execute(NativeActivityContext context)
+        // 如果活动返回值，则从 CodeActivity<TResult>
+        // 并从 Execute 方法返回该值。
+        protected override void Execute(CodeActivityContext context)
         {
-            context.CreateBookmark("当前流程名称", new BookmarkCallback(BookMarkCallBack));
+            // 获取 Text 输入参数的运行时值
+            string text = context.GetValue(this.Text);
         }
 
-        /// <summary>
-        /// 注意，一定要记得注意重写此属性，并返回true，否则后面运行会报错
-        /// </summary>
-        protected override bool CanInduceIdle
-        {
-            get
-            {
-                return true;// base.CanInduceIdle;
-            }
-        }
 
-        public void BookMarkCallBack(NativeActivityContext context, Bookmark bookmark, object value) {
 
-        }
     }
 }
