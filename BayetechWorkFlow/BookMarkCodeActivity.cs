@@ -25,7 +25,7 @@ namespace BayetechWorkFlow
         }
 
         public void BookMarkCallBack(NativeActivityContext context, Bookmark bookmark, object value) {
-
+            //context.SetValue(Num, Convert.ToInt32(value));
         }
     }
 }
