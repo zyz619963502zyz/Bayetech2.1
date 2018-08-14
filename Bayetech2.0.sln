@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{4121BCD7-3581-42E4-A205-1804440CDEA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.Mobile", "Bayetech.Mobile\Bayetech.Mobile.csproj", "{C8E4CF00-06F8-4B48-9CE3-8FF1B4110245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4121BCD7-3581-42E4-A205-1804440CDEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E4CF00-06F8-4B48-9CE3-8FF1B4110245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E4CF00-06F8-4B48-9CE3-8FF1B4110245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E4CF00-06F8-4B48-9CE3-8FF1B4110245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E4CF00-06F8-4B48-9CE3-8FF1B4110245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

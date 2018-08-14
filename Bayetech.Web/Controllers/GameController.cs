@@ -1,6 +1,7 @@
 ﻿using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.Services;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -130,5 +131,21 @@ namespace Bayetech.Web.Controllers
             }
             return jObject;
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public JObject AddGame(JObject json) {
+            if (json!=null)
+            {
+                JObject ret = new JObject();
+                Game game = JsonConvert.DeserializeObject<Game>((json["Param"] ?? "").ToString());
+
+
+            }
+        }   
     }
 }
