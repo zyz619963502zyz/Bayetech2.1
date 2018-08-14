@@ -27,7 +27,20 @@ namespace Bayetech.Service.Services
             return query.ToList();
         }
 
-        //添加一个游戏
+        /// <summary>
+        /// 修改游戏额外的属性
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public JObject UpdateExtraProperty(Game game) {
+            return new JObject();
+        }
+
+        /// <summary>
+        /// 添加一个游戏
+        /// </summary>
+        /// <param name="game">前端更新的游戏对象</param>
+        /// <returns></returns>
         public JObject CreatGame(Game game) {
             JObject ret = new JObject();
             if (!string.IsNullOrEmpty(game.Name)&&!string.IsNullOrEmpty(game.Alias))
