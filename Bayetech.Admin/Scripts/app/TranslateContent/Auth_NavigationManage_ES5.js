@@ -63,11 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 var g;
@@ -92,7 +93,8 @@ try {
 module.exports = g;
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -446,7 +448,88 @@ var comCompnent = {
 /* harmony default export */ __webpack_exports__["a"] = (comCompnent);
 
 /***/ }),
-/* 2 */
+
+/***/ 15:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+let data = {
+	isActive: false
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+	data() {
+		return data;
+	},
+	name: 'NavigtionTable',
+	props: ['navigationsetsarray', 'startcheck'],
+	methods: {
+		OpterateAline(id) {
+			let self = this;
+			$("#key_" + id).hasClass("hide") ? ($("#key_" + id).removeClass("hide"), $("#btn_" + id).val("-")) : ($("#key_" + id).addClass("hide"), $("#btn_" + id).val("+"));
+		}
+	}
+});
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -9995,7 +10078,68 @@ var comCompnent = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6).setImmediate))
 
 /***/ }),
-/* 3 */
+
+/***/ 20:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(15);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(20);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('30638bcc', component.options)
+    } else {
+      api.reload('30638bcc', component.options)
+    }
+    module.hot.accept("./table-NavigationManage.vue?vue&type=template&id=30638bcc&id=BaseTable&lang=html", function () {
+      api.rerender('30638bcc', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports) {
 
 /**
@@ -10652,7 +10796,157 @@ var comCompnent = {
 })(window.jQuery);
 
 /***/ }),
-/* 4 */
+
+/***/ 33:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(26);
+
+
+
+
+let vmData = {
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
+    },
+    RolesUrl: "/api/AdminManage/GetNavgationList",
+    RolesAdd: "/api/Navigation/GetAddNavigation",
+    RolesDelete: "/api/Navigation/deleteNavigation",
+    CheckGoodNo: "", //模态框打开的GoodNo
+    keyword: "",
+    NavigationsetsArray: [],
+    SearchParam: {
+        Param: { //查询条件的参数
+            NavTitle: "",
+            SelectType: "", //form里选择的商品类型
+            SelectNo: "" //form里面选择的编号
+        },
+        ListObj: {
+            KeyId: "",
+            NavTitle: "",
+            Linkurl: "",
+            IsVisible: "",
+            Sortnum: "",
+            ParentID: ""
+        },
+
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "KeyId", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#CommNavigation',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            var self = this;
+
+            self.SearchParam.Param.NavTitle = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
+
+                if (data.result) {
+                    self.NavigationsetsArray = data.content;
+
+                    //self.SearchParam.Pagination=data.content.pagination;
+                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            });
+        },
+        SaveModal() {
+            //提交
+            var self = this;
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        OpenAddModal() {
+            //添加
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            self.SearchParam.ListObj.NavTitle = "";
+            self.SearchParam.ListObj.NavTag = "";
+            self.SearchParam.ListObj.Linkurl = "";
+            self.SearchParam.ListObj.Sortnum = "";
+            self.SearchParam.ListObj.iconCls = "";
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal() {
+            //修改
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            $("#UserModal").modal("show");
+        },
+        Delete() {
+            //删除
+            var self = this;
+            if (self.SearchParam.ListObj.KeyId == 0) {
+                alert("请选择按钮");
+                return;
+            }
+            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        StartCheck(type) {
+            //开始检查
+            var self = this;
+            debugger;
+            self.SearchParam.ListObj = type;
+            //$("#checkModal").modal("show");
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
+    }
+});
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -10842,7 +11136,179 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 5 */
+
+/***/ 42:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(47);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b"]; });
+
+
+/***/ }),
+
+/***/ 47:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "table",
+    { staticClass: "table table-bordered text-center" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.navigationsetsarray, function(item) {
+        return _c("tbody", [
+          _c("tr", [
+            _c("td", { staticClass: "text-center" }, [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(item.KeyId))
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.OpterateAline(item.KeyId)
+                  }
+                }
+              },
+              [
+                _c("input", {
+                  attrs: { type: "button", id: "btn_" + item.KeyId, value: "+" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.NavTitle))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Linkurl))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsVisible))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.ParentID))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "tr",
+            { staticClass: "hide", attrs: { id: "key_" + item.KeyId } },
+            [
+              _c("td", { attrs: { colspan: "10" } }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-bordered" },
+                  [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _vm._l(item.ChildNodes, function(itemChild) {
+                      return _c("tbody", [
+                        _c("tr", [
+                          _c("td", [_vm._v(_vm._s(itemChild.NavTitle))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.Linkurl))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "Operates" },
+                              on: {
+                                click: function($event) {
+                                  _vm.startcheck(itemChild)
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]
+          )
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "success" }, [
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("链接地址")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否显示")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("排序")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("父类Id")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "warning" }, [
+        _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("链接")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("排序")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11030,7 +11496,8 @@ process.umask = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
@@ -11091,7 +11558,8 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11191,492 +11659,6 @@ function normalizeComponent (
 }
 
 
-/***/ }),
-/* 8 */,
-/* 9 */,
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-let data = {
-	isActive: false
-};
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-	data() {
-		return data;
-	},
-	name: 'NavigtionTable',
-	props: ['navigationsetsarray', 'startcheck'],
-	methods: {
-		OpterateAline(id) {
-			let self = this;
-			$("#key_" + id).hasClass("hide") ? ($("#key_" + id).removeClass("hide"), $("#btn_" + id).val("-")) : ($("#key_" + id).addClass("hide"), $("#btn_" + id).val("+"));
-		}
-	}
-});
-
-/***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(10);
-/* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
-
-/***/ }),
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(16);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
-
-
-
-
-
-/* normalize component */
-
-var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b" /* staticRenderFns */],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
-  api.install(require('vue'))
-  if (api.compatible) {
-    module.hot.accept()
-    if (!module.hot.data) {
-      api.createRecord('30638bcc', component.options)
-    } else {
-      api.reload('30638bcc', component.options)
-    }
-    module.hot.accept("./table-NavigationManage.vue?vue&type=template&id=30638bcc&id=BaseTable&lang=html", function () {
-      api.rerender('30638bcc', {
-        render: render,
-        staticRenderFns: staticRenderFns
-      })
-    })
-  }
-}
-component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
-
-/***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(23);
-
-
-
-
-let vmData = {
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
-    },
-    RolesUrl: "/api/AdminManage/GetNavgationList",
-    RolesAdd: "/api/Navigation/GetAddNavigation",
-    RolesDelete: "/api/Navigation/deleteNavigation",
-    CheckGoodNo: "", //模态框打开的GoodNo
-    keyword: "",
-    NavigationsetsArray: [],
-    SearchParam: {
-        Param: { //查询条件的参数
-            NavTitle: "",
-            SelectType: "", //form里选择的商品类型
-            SelectNo: "" //form里面选择的编号
-        },
-        ListObj: {
-            KeyId: "",
-            NavTitle: "",
-            Linkurl: "",
-            IsVisible: "",
-            Sortnum: "",
-            ParentID: ""
-        },
-
-        Pagination: { //分页对象
-            rows: 10, //每页行数，
-            page: 1, //当前页码
-            order: "KeyId", //排序字段
-            sord: "asc", //排序类型
-            records: 10, //总记录数
-            total: 10 //总页数。
-        }
-    }
-
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommNavigation',
-    data: vmData,
-    created() {
-        this.findList();
-    },
-    methods: {
-        findList() {
-            var self = this;
-
-            self.SearchParam.Param.NavTitle = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-
-                if (data.result) {
-                    self.NavigationsetsArray = data.content;
-
-                    //self.SearchParam.Pagination=data.content.pagination;
-                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                }
-            });
-        },
-        SaveModal() {
-            //提交
-            var self = this;
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("操作成功!");
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        OpenAddModal() {
-            //添加
-            var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择按钮");
-                return;
-            }
-            self.SearchParam.ListObj.NavTitle = "";
-            self.SearchParam.ListObj.NavTag = "";
-            self.SearchParam.ListObj.Linkurl = "";
-            self.SearchParam.ListObj.Sortnum = "";
-            self.SearchParam.ListObj.iconCls = "";
-            $("#UserModal").modal("show");
-        },
-        OpenEditModal() {
-            //修改
-            var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择按钮");
-                return;
-            }
-            $("#UserModal").modal("show");
-        },
-        Delete() {
-            //删除
-            var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择按钮");
-                return;
-            }
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("删除成功!");
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        StartCheck(type) {
-            //开始检查
-            var self = this;
-            debugger;
-            self.SearchParam.ListObj = type;
-            //$("#checkModal").modal("show");
-        },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        }
-    },
-    components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
-    }
-});
-
-/***/ }),
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(46);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b"]; });
-
-
-/***/ }),
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table table-bordered text-center" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.navigationsetsarray, function(item) {
-        return _c("tbody", [
-          _c("tr", [
-            _c("td", { staticClass: "text-center" }, [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              {
-                on: {
-                  click: function($event) {
-                    _vm.OpterateAline(item.KeyId)
-                  }
-                }
-              },
-              [
-                _c("input", {
-                  attrs: { type: "button", id: "btn_" + item.KeyId, value: "+" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.NavTitle))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Linkurl))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsVisible))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.ParentID))]),
-            _vm._v(" "),
-            _c("td", [
-              _c("input", {
-                attrs: { type: "radio", name: "Operates" },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "tr",
-            { staticClass: "hide", attrs: { id: "key_" + item.KeyId } },
-            [
-              _c("td", { attrs: { colspan: "10" } }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-bordered" },
-                  [
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _vm._l(item.ChildNodes, function(itemChild) {
-                      return _c("tbody", [
-                        _c("tr", [
-                          _c("td", [_vm._v(_vm._s(itemChild.NavTitle))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Linkurl))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("input", {
-                              attrs: { type: "radio", name: "Operates" },
-                              on: {
-                                click: function($event) {
-                                  _vm.startcheck(itemChild)
-                                }
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ])
-            ]
-          )
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("链接地址")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否显示")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("排序")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("父类Id")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "warning" }, [
-        _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("链接")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("排序")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
 /***/ })
-/******/ ]);
+
+/******/ });

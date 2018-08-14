@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>编辑游戏基本信息</title>
 	<meta charset="utf-8" />
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/generics.css" rel="stylesheet" />
@@ -16,19 +16,20 @@
             <div class="form-group" id="lineTwo">
                 <div class="col-ms-10">
                     <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">游戏名称</label>
+                        <label class="control-label col-md-3">游戏首字母</label>
                         <div class="col-md-9">
-                            <select class="form-control" v-model="SearchParam.Param.SelectType">
-
-                                <option value="good">商品审核</option>
-                                <option value="order">订单审核</option>
+                            <select class="form-control"  v-model="SearchParam.Param.SelectLetter">
+                                <option v-for="item in Letters" value="item">{{item}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="input-group col-md-4">
-                        <label class="control-label col-md-3"></label>
+                        <label class="control-label col-md-3">游戏名称</label>
                         <div class="col-md-9">
-                            <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            <select class="form-control" v-model="SearchParam.Param.SelectGame">
+                                <option value="good">地下城与勇士</option>
+                                <option value="order">地下世界</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -70,3 +71,4 @@
     </div>
 </body>
 </html>
+<script src="../../Scripts/app/TranslateContent/GameMenu_ES5.js"></script>
