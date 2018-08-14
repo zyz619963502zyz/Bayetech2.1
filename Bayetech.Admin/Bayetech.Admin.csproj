@@ -2173,6 +2173,7 @@
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
     <Content Include="Page\checks\checks.html" />
+    <Content Include="Page\GameManage\GameProperty.html" />
     <Content Include="Page\GameManage\GameMenu.html" />
     <Content Include="Page\Login.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
@@ -2210,6 +2211,8 @@
     <Content Include="Scripts\app\TranslateContent\Auth_DicsManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_NavigationManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_RolesManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\GameMenu_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\GameProperty_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Login_ES5.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
