@@ -2173,6 +2173,7 @@
     <Content Include="lib\webuploader-master\_draft\music\upload.js" />
     <Content Include="lib\webuploader-master\_draft\music\webuploader.js" />
     <Content Include="Page\checks\checks.html" />
+    <Content Include="Page\GameManage\GameMenu.html" />
     <Content Include="Page\Login.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
@@ -2187,6 +2188,7 @@
     <Content Include="Scripts\app\Auth_RolesManage.js" />
     <Content Include="Scripts\app\Auth_NavigationManage.js" />
     <Content Include="Scripts\app\Auth_CustomerManage.js" />
+    <Content Include="Scripts\app\GameProperty.js" />
     <Content Include="Scripts\app\GoodCheck.es5.es5.js">
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
@@ -2200,6 +2202,7 @@
       <DependentUpon>GoodCheck.es5.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\GoodCheck.js" />
+    <Content Include="Scripts\app\GameMenu.js" />
     <Content Include="Scripts\app\Login.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_AdminManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage_ES5.js" />

@@ -16,7 +16,11 @@ module.exports = {
         Auth_ButtonsManage:"./Scripts/app/Auth_ButtonsManage.js",//按钮管理
 
         //业务
-        GoodCheck: "./Scripts/app/GoodCheck.js"
+        GoodCheck: "./Scripts/app/GoodCheck.js",
+
+        //字典
+        GameMenu:"./Scripts/app/GameMenu.js",
+        GameProperty:"./Scripts/app/GameProperty.js"
     },
     output: {
         //path: path.join(__dirname, 'Scripts'),
