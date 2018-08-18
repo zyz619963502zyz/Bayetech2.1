@@ -74,6 +74,7 @@ namespace Bayetech.Service
                 if (_adminNavigation == null)
                 {
                     _admin_Sys_Navigations.KeyId = 0;
+                    _admin_Sys_Navigations.ParentID = 0;
                     _admin_Sys_Navigations.IsVisible = true;
                     using (var db = new RepositoryBase().BeginTrans())
                     {
