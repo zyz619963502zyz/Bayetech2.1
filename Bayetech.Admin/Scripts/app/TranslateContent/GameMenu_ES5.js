@@ -11434,33 +11434,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 let vmData = {
-    GetByLetterUrl: "",
+    GameListUrl: "",
+    GetByLetterUrl: "/api/Game/GetGameListByLetter",
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
+    GameArray: [],
     ListObj: [{
-        GoodNo: "",
-        GoodFirstPicture: "",
-        aurl: "",
-        GoodTitle: "",
-        GroupName: "",
-        ServerName: "",
-        GoodPrice: ""
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
     }],
     SearchParam: {
         Param: { //查询条件的参数
-            GoodNo: "",
-            OrderNo: "",
-            Status: pagetype,
-            SelectLetter: "", //form里选择的商品类型
-            SelectGame: "" //form里面选择的编号
+            SelectLetter: "", //选择的游戏首字母
+            SelectGame: "" //选择的游戏
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "GoodNo", //排序字段
+            order: "IsHot", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -11477,7 +11478,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         findList() {
             //获取商品的简要列表
-            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.postWebJson(self.GameListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.SearchParam.Pagination = data.content.pagination;
@@ -11489,7 +11490,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         GetByLetter(letter) {
             //根据首字母去查询下拉游戏
-            self.tools._comCompnent.postWebJson(self.GetByLetterUrl, { letter: letter }, function (data) {});
+            var self = this;
+            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, { "type": 0, "letter": letter }, function (data) {
+                self.GameArray = data.content;
+            });
         },
         TurnToPage(page) {
             var self = this;

@@ -1,11 +1,8 @@
 ﻿using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bayetech.Service.Services
 {
@@ -32,8 +29,24 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="game"></param>
         /// <returns></returns>
-        public JObject UpdateExtraProperty(Game game) {
-            return new JObject();
+        public JObject UpdateExtraProperty(GameProfession profess) {
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                JObject ret = new JObject();
+                int flag = db.Update(profess);
+                db.Commit();
+                if (flag > 0)
+                {
+                    ret.Add("result", true);
+                    ret.Add("Mess", JObject.FromObject("添加成功！"));
+                }
+                else
+                {
+                    ret.Add("result", false);
+                    ret.Add("Mess", JObject.FromObject("插入数据库失败！"));
+                }
+                return ret;
+            }
         }
 
         /// <summary>
@@ -48,8 +61,8 @@ namespace Bayetech.Service.Services
                 int flag = 0;
                 using (var db = (new RepositoryBase()).BeginTrans())
                 {
-                    db.Insert(game);
-                    flag = db.Commit();
+                    flag = db.Insert(game);
+                    db.Commit();
                     if (flag>0)
                     {
                         ret.Add("result",true);
@@ -69,5 +82,31 @@ namespace Bayetech.Service.Services
             }
             return ret;
         }
+
+
+        /// <summary>
+        /// 修改游戏
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public JObject UpdateGame(Game game) {
+            JObject ret = new JObject();
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                int flag = db.Update(game);
+                if (flag > 0)
+                {
+                    ret.Add("result", true);
+                    ret.Add("Mess", JObject.FromObject("更游戏新成功！"));
+                }
+                else
+                {
+                    ret.Add("result", false);
+                    ret.Add("Mess", JObject.FromObject("游戏更新失败，请联系管理员！"));
+                }
+            }
+            return ret;
+        }
+
     }
 }

@@ -18,8 +18,8 @@
                     <div class="input-group col-md-4">
                         <label class="control-label col-md-3">游戏首字母</label>
                         <div class="col-md-9">
-                            <select class="form-control"  v-model="SearchParam.Param.SelectLetter">
-                                <option v-for="item in Letters" value="item">{{item}}</option>
+                            <select class="form-control" @change="GetByLetter(SearchParam.Param.SelectLetter)"  v-model="SearchParam.Param.SelectLetter">
+                                <option v-for="item in Letters" :value="item">{{item}}.</option>
                             </select>
                         </div>
                     </div>
@@ -27,8 +27,7 @@
                         <label class="control-label col-md-3">游戏名称</label>
                         <div class="col-md-9">
                             <select class="form-control" v-model="SearchParam.Param.SelectGame">
-                                <option value="good">地下城与勇士</option>
-                                <option value="order">地下世界</option>
+                                <option v-for="game in GameArray" value="game.Alias">{{game.Name}}</option>
                             </select>
                         </div>
                     </div>
@@ -59,7 +58,7 @@
                         </div>
 
                         <!--传值案例-->
-                        <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>
+                        <!--<comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>-->
 
                         <nav aria-label="fenye" class="text-center right">
                             <ul id="paginator-test" class="pagination"></ul>
