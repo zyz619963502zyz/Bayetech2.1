@@ -205,6 +205,7 @@
     <Compile Include="Controllers\ButtonsController.cs" />
     <Compile Include="Controllers\CheckGoodController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavButtonsController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />

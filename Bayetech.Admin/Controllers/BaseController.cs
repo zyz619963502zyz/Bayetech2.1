@@ -1,4 +1,6 @@
 ﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
+using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using Spring.Context;
 using Spring.Context.Support;
@@ -10,6 +12,7 @@ namespace Bayetech.Admin
 {
     public class BaseController : ApiController
     {
+        BaseService<Game> GameService = new BaseService<Game>();
 
         /// <summary>
         /// 创建spring容器上下文公共容器12345
