@@ -133,19 +133,6 @@ namespace Bayetech.Web.Controllers
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        public JObject AddGame(JObject json) {
-            if (json!=null)
-            {
-                JObject ret = new JObject();
-                Game game = JsonConvert.DeserializeObject<Game>((json["Param"] ?? "").ToString());
 
-
-            }
-        }   
     }
 }

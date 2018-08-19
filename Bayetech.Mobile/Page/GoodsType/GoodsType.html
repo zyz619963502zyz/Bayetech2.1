@@ -20,14 +20,14 @@
     <script src="./goodtype_files/hm.js.下载"></script>
     <script async="" src="./goodtype_files/gio.js.下载"></script>
     <script type="text/javascript">
-  !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
-    gio('init','ae7d9d7e698ddc2f', {});
+        !function (e, t, n, g, i) { e[i] = e[i] || function () { (e[i].q = e[i].q || []).push(arguments) }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag) }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', 'ae7d9d7e698ddc2f', {});
 
-  //custom page code begin here
+        //custom page code begin here
 
-  //custom page code end here
+        //custom page code end here
 
-  gio('send');
+        gio('send');
 
     </script>
 
@@ -3323,7 +3323,7 @@
                 display: none !important;
             }
     </style>
-   
+
     <style type="text/css">
         .top-header[data-v-4fef8ba0] {
             z-index: 62 !important;
@@ -7929,59 +7929,61 @@
     <!--<script src="./goodtype_files/polyfill.min.js.下载"></script>
     <script src="./goodtype_files/build.js.下载"></script>
     <script src="./goodtype_files/jweixin-1.2.0.js.下载"></script>
-    
+
     <script type="text/javascript" src="./goodtype_files/main.52ae50a871c450d653b8.js.下载"></script>-->
     <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
     <script>
-    //获取URL参数
-    function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return decodeURI(r[2]);
-        return null; //返回参数值
-    };
-    //新增微信公众号进入统计数量参数
-    if (getUrlParam('RequestSource')){
-      sessionStorage.setItem('requestSource',getUrlParam('RequestSource'))
-    }
-    //百度和谷歌统计
-    var _hmt = _hmt || [];
-    (function() {
-        if(getUrlParam('source')&&getUrlParam('source')!=''&&getUrlParam('source')!='undefined'){
-          setCookie('source',getUrlParam('source'),'/');
+        //获取URL参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]);
+            return null; //返回参数值
+        };
+        //新增微信公众号进入统计数量参数
+        if (getUrlParam('RequestSource')) {
+            sessionStorage.setItem('requestSource', getUrlParam('RequestSource'))
         }
-        //赋值source推广标识
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?e9add3503553870155de901fff7a27f0";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
+        //百度和谷歌统计
+        var _hmt = _hmt || [];
+        (function () {
+            if (getUrlParam('source') && getUrlParam('source') != '' && getUrlParam('source') != 'undefined') {
+                setCookie('source', getUrlParam('source'), '/');
+            }
+            //赋值source推广标识
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e9add3503553870155de901fff7a27f0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
 
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-16260521-4', 'auto');
-    ga('send', 'pageview');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-16260521-4', 'auto');
+        ga('send', 'pageview');
 
-    //设置cookie
-    function setCookie(cname, cvalue,path,options,domain) {
-      var d = new Date();
-      var exdays = 30;
-      if(options){
-         exdays = options;
-      };
-      d.setTime(d.getTime() + (exdays*24*60*60*1000));
-      var expires = "expires="+d.toUTCString();
-      if(domain){
-        expires=expires+";domain="+domain
-      }
-      document.cookie = cname + "=" + cvalue + ";path="+ path + ";"+ expires;
-    };//
+        //设置cookie
+        function setCookie(cname, cvalue, path, options, domain) {
+            var d = new Date();
+            var exdays = 30;
+            if (options) {
+                exdays = options;
+            };
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            if (domain) {
+                expires = expires + ";domain=" + domain
+            }
+            document.cookie = cname + "=" + cvalue + ";path=" + path + ";" + expires;
+        };//
 
     </script>
     <script src="./goodtype_files/GetMsg" type="text/javascript" async=""></script>
-    <script type="text/javascript">NTKF_PARAM = {siteid: "bq_1000",settingid: "bq_1000_1472795888825",uid: "",uname: "",isvip: "0",userlevel: "1",erpparam: "abc"}</script>
+    <script type="text/javascript">NTKF_PARAM = { siteid: "bq_1000", settingid: "bq_1000_1472795888825", uid: "", uname: "", isvip: "0", userlevel: "1", erpparam: "abc" }</script>
     <script type="text/javascript" src="./goodtype_files/ntkfstat.js.下载" charset="utf-8"></script>
 </body>
 </html>
