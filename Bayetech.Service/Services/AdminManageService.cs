@@ -140,6 +140,11 @@ namespace Bayetech.Service
         public JObject GetNavgationList(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
             var list = repository.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
+            if (!string.IsNullOrEmpty(json["Param"]["NavTitle"].ToString()))
+            {
+                var title = json["Param"]["NavTitle"].ToString();
+                list = list.FindAll(a => a.NavTitle == title);
+            } 
             var menuList = new List<NavigationModel>();
             JObject result = new JObject();
             foreach (var item in list.Where(it => it.ParentID == 0))

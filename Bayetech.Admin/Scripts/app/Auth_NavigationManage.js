@@ -78,10 +78,10 @@ new Vue({
         },
         OpenAddModal(){//添加
             var self=this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择按钮")
-                return ;
-            }
+            //if (self.SearchParam.ListObj.KeyId == 0) {
+            //    alert("请选择按钮")
+            //    return ;
+            //}
             self.SearchParam.ListObj.NavTitle="";
             self.SearchParam.ListObj.NavTag="";
             self.SearchParam.ListObj.Linkurl="";
