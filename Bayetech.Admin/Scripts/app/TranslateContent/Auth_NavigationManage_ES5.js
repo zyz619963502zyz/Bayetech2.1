@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -449,7 +449,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10079,22 +10079,22 @@ let data = {
 
 /***/ }),
 
-/***/ 20:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(16);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
 
-/***/ 26:
+/***/ 29:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(22);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
 
@@ -10797,7 +10797,7 @@ component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
 
 /***/ }),
 
-/***/ 33:
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10805,7 +10805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(29);
 
 
 
@@ -11137,173 +11137,13 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 42:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(52);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b"]; });
-
-
-/***/ }),
-
-/***/ 47:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table table-bordered text-center" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.navigationsetsarray, function(item) {
-        return _c("tbody", [
-          _c("tr", [
-            _c("td", { staticClass: "text-center" }, [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              {
-                on: {
-                  click: function($event) {
-                    _vm.OpterateAline(item.KeyId)
-                  }
-                }
-              },
-              [
-                _c("input", {
-                  attrs: { type: "button", id: "btn_" + item.KeyId, value: "+" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.NavTitle))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Linkurl))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsVisible))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.ParentID))]),
-            _vm._v(" "),
-            _c("td", [
-              _c("input", {
-                attrs: { type: "radio", name: "Operates" },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "tr",
-            { staticClass: "hide", attrs: { id: "key_" + item.KeyId } },
-            [
-              _c("td", { attrs: { colspan: "10" } }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-bordered" },
-                  [
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _vm._l(item.ChildNodes, function(itemChild) {
-                      return _c("tbody", [
-                        _c("tr", [
-                          _c("td", [_vm._v(_vm._s(itemChild.NavTitle))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Linkurl))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("input", {
-                              attrs: { type: "radio", name: "Operates" },
-                              on: {
-                                click: function($event) {
-                                  _vm.startcheck(itemChild)
-                                }
-                              }
-                            })
-                          ])
-                        ])
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ])
-            ]
-          )
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("链接地址")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否显示")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("排序")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("父类Id")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "warning" }, [
-        _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("链接")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("排序")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
 
 
 /***/ }),
@@ -11494,6 +11334,166 @@ render._withStripped = true
     attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
+
+/***/ }),
+
+/***/ 52:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "table",
+    { staticClass: "table table-bordered text-center" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.navigationsetsarray, function(item) {
+        return _c("tbody", [
+          _c("tr", [
+            _c("td", { staticClass: "text-center" }, [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(item.KeyId))
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.OpterateAline(item.KeyId)
+                  }
+                }
+              },
+              [
+                _c("input", {
+                  attrs: { type: "button", id: "btn_" + item.KeyId, value: "+" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.NavTitle))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Linkurl))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsVisible))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.ParentID))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "tr",
+            { staticClass: "hide", attrs: { id: "key_" + item.KeyId } },
+            [
+              _c("td", { attrs: { colspan: "10" } }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-bordered" },
+                  [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _vm._l(item.ChildNodes, function(itemChild) {
+                      return _c("tbody", [
+                        _c("tr", [
+                          _c("td", [_vm._v(_vm._s(itemChild.NavTitle))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.Linkurl))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "Operates" },
+                              on: {
+                                click: function($event) {
+                                  _vm.startcheck(itemChild)
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]
+          )
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "success" }, [
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("链接地址")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否显示")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("排序")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("父类Id")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "warning" }, [
+        _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("链接")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("排序")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
 
 /***/ }),
 

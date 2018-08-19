@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品类型选择</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/fost-base-min.css">
+    <script>
+        window.onload=function(){
+            var deviceWidth = document.documentElement.clientWidth;
+            if(deviceWidth > 640) deviceWidth = 640;
+            document.body.style.fontSize = deviceWidth / 50 + 'px';
+
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        }
+
+
+
+    </script>
+    <style>
+
+        /*杂项*/
+        >*, :after, :before {
+            box-sizing: border-box
+        }
+
+        blockquote, body, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, html, input, li, ol, p, td, textarea, ul {
+            margin: 0;
+            padding: 0
+        }
+
+        body, html {
+            min-height: 100%;
+            line-height: 1.15;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            font-family: Segoe UI, Lucida Grande, Helvetica, Arial, Microsoft YaHei, FreeSans, Arimo, Droid Sans, wenquanyi micro hei, Hiragino Sans GB, Hiragino Sans GB W3, FontAwesome, sans-serif
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            background: #f1f1f1;
+            font-weight: 400;
+            color: #333
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+            display: block
+        }
+
+        summary {
+            display: list-item
+        }
+
+        audio, canvas, progress, video {
+            display: inline-block;
+            vertical-align: baseline
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0
+        }
+
+        [hidden], script, template {
+            display: none
+        }
+
+        a {
+            background-color: transparent;
+            color: #333;
+            -webkit-text-decoration-skip: objects
+        }
+
+        a:focus {
+            outline: none
+        }
+
+        a:active, a:hover {
+            outline: 0
+        }
+
+        a, ins {
+            text-decoration: none
+        }
+
+        abbr[title] {
+            border-bottom: 1px dotted
+        }
+
+        b, strong {
+            font-weight: 700
+        }
+
+        button {
+            background: transparent;
+            border: 0 none
+        }
+
+        li, ol, ul {
+            list-style: none
+        }
+
+        em, i {
+            font-style: normal
+        }
+
+        dir, menu, ul {
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            -webkit-padding-start: 0
+        }
+        .fw {
+            float: left;
+            width: 100%;
+            clear: both;
+        }
+        .border-bottom {
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        /*顶部游戏名称*/
+        .top-header {
+            width: 100%;
+            max-width: 768px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #f6f6f6;
+            line-height: .96rem;
+            z-index: 50
+        }
+
+        .top-header .top-back, .top-header .top-home {
+            position: absolute;
+            left: 0;
+            min-width: 10%;
+            height: .96rem
+        }
+
+        .top-header .top-back a, .top-header .top-home a {
+            display: inline-block;
+            min-width: .55rem;
+            width: 100%;
+            height: .96rem;
+            text-indent: -9999px
+        }
+
+        .top-header .top-home a {
+            background: url(../images/home.png?a16f0b8301dc2e46f87ab83e7d20a7dc) .3rem no-repeat;
+            background-size: .51rem
+        }
+
+        .top-header .top-back a {
+            background: url(../images/left.png?c784d2dbec9c6e24ef37a6fc98655660) .3rem no-repeat;
+            background-size: .21rem
+        }
+
+        .top-header h2 {
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            height: .96rem;
+            font-weight: 400;
+            line-height: .96rem;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0
+        }
+
+        .top-header .top-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 10%;
+            font-size: 0;
+            height: .96rem;
+            line-height: .96rem;
+            -webkit-text-size-adjust: none;
+            text-align: right
+        }
+        /*杂项2*/
+        .pb-200 {
+            padding-bottom: 2rem !important;
+        }
+        .f30 {
+            font-size: .3rem;
+        }
+        /*游戏搜索*/
+        .search-game .sgame {
+            position: relative;
+            padding: .15rem .3rem;
+            height: .9rem
+        }
+
+        .search-game .sgame span {
+            float: left;
+            width: 50%;
+            height: .36rem;
+            line-height: .36rem;
+            padding-left: .2rem;
+            margin-top: .1rem;
+            border-left: .07rem solid #f60;
+            white-space: nowrap
+        }
+
+        /*隐藏的搜索导航*/
+        #navigation {
+            left: .28rem;
+            background: url(../images/nav.png?8deca41ef69782a5e22a9c4d063f537f) 50% no-repeat;
+            background-size: .9rem
+        }
+
+        .navigationList {
+            max-width: 7.68rem;
+            width: 100%;
+            z-index: 1001;
+            position: fixed
+        }
+
+        .navigationList .navigationBody a {
+            width: 33.33%;
+            float: left;
+            height: 1.35rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: .72rem
+        }
+
+        .navigationList .navigationBody a span {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: .1rem;
+            border-radius: 10%;
+            width: .86rem;
+            height: .86rem;
+            border: 1px solid #555
+        }
+
+        .navigationList .navigationBody a.nav01 span {
+            background: url(../images/nav01.png?20c58e4fe8ea257e6254e055009fae0c) 50% no-repeat;
+            background-size: .46rem
+        }
+
+        .navigationList .navigationBody a.nav02 span {
+            background: url(../images/nav02.png?ce95598ebb749b52d9da6eb41a9fadf3) 50% no-repeat;
+            background-size: .4rem
+        }
+
+        .navigationList .navigationBody a.nav03 span {
+            background: url(../images/nav03.png?2bf4b3c886bce30dad24b7af9f99dffa) 50% no-repeat;
+            background-size: .38rem
+        }
+
+        .navigationList .navigationBody a.nav04 span {
+            background: url(../images/nav04.png?4be7e6991f7cff93c8e616706d4c37d9) 50% no-repeat;
+            background-size: .47rem
+        }
+
+        .navigationList .navigationBody a.nav05 span {
+            background: url(../images/nav05.png?087f41cf50b3b176a1ae550426e1c89b) 50% no-repeat;
+            background-size: .45rem
+        }
+
+        .navigationList .navigationBody a.nav06 span {
+            background: url(../images/nav06.png?c22fa251531d4af8e2b27edd6af2b689) 50% no-repeat;
+            background-size: .42rem
+        }
+
+        .navigationList .navigationBody a.nav07 span {
+            background: url(../images/nav07.png?cd25a465a481fbea0cdf1e1af337d205) 50% no-repeat;
+            background-size: .42rem
+        }
+
+        .navigationList .navigationBody a.nav08 span {
+            background: url(../images/nav08.png?355efd6d6dbce45046566a8f85a8f123) 50% no-repeat;
+            background-size: .47rem
+        }
+
+        .navigationList .navigationBuy {
+            margin-top: .24rem;
+            text-align: center
+        }
+
+        .navigationList .navigationBuy a {
+            display: block;
+            margin: 0 auto;
+            width: 3.55rem;
+            height: .86rem;
+            line-height: .86rem;
+            border-radius: .09rem;
+            border: 1px solid #555;
+            text-align: center;
+            color: #fff
+        }
+
+        .navigationList .navigationClose {
+            margin-top: .72rem
+        }
+
+        .navigationList .navigationClose a {
+            display: block;
+            margin: 0 auto;
+            width: .4rem;
+            height: .4rem;
+            background: url(../images/del-nav.png?4c3d73fa667c8f21b0849ffd40f868bb) 50% no-repeat;
+            background-size: .4rem;
+            text-indent: -9999px
+        }
+
+        .button-disable {
+            background: #bbb !important
+        }
+
+        .title-curent {
+            background: url(../images/curent.jpg?fbc7f18e85cda413e70becd06d7c8ab6) 0 no-repeat;
+            background-size: .06rem .35rem
+        }
+
+        .maskdiv0 {
+            z-index: 60;
+            filter: alpha(opacity=0);
+            opacity: 0
+        }
+
+        .maskdiv {
+            z-index: 60;
+            filter: alpha(opacity=70);
+            opacity: .75
+        }
+
+        .maskdiv4 {
+            z-index: 99;
+            filter: alpha(opacity=90);
+            opacity: .9
+        }
+
+        .maskdiv, .maskdiv0, .maskdiv4 {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: block
+        }
+        /*类型列表*/
+        .search-list .slist li {
+            line-height: 1.1rem;
+            float: left;
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0 .1rem;
+            white-space: nowrap;
+            overflow: hidden
+        }
+
+        .search-list .slist .style01 li {
+            width: 100%
+        }
+        .search-list .slist .style02 li, .search-list .slist .style03 li {
+            width: 50%;
+            border-right: 1px solid #e8e8e8
+        }
+
+        .search-list .slist a {
+            display: block
+        }
+    </style>
+</head>
+<body style="">
+<div id="wrapper">
+    <div class="top-header fixed-top border-bottom" style="z-index: 61;">
+        <div class="top-back">
+            <a>
+            </a>
+        </div>
+        <h2 class="f36">地下城与勇士</h2>
+        <div class="top-right"></div>
+    </div>
+    <div class="fixedspace2" style="height: 0.96rem;"></div>
+    <div class="search-game border-bottom fw">
+        <div class="sgame fw bg-fff f30">
+            <span>请选择商品类型</span></div>
+    </div>
+    <div class="search-list pb-200 fw ">
+        <div class="slist fw f30">
+            <!---->
+            <ul class="style03">
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/pcGoodsList/44343b06076d4a7a95a0ef22aac481ae/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB/2">游戏帐号</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=3&amp;gameType=1&amp;tradeType=0&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81">游戏币</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/equipmentList/44343b06076d4a7a95a0ef22aac481ae/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB/1">装备</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=7&amp;gameType=1&amp;tradeType=5&amp;typename=%E6%8C%91%E6%88%98%E4%B9%A6">挑战书</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/dl/dl-game?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB">游戏代练</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/search/search-game-area.html?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=851&amp;tradeType=0&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81%E6%89%B9%E5%8F%91">游戏币批发</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/search/search-game-area.html?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=957&amp;tradeType=undefined&amp;typename=%E5%A2%9E%E5%B9%85%E5%88%B8/%E5%BC%BA%E5%8C%96%E5%88%B8">增幅券/强化券</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=1096&amp;gameType=1&amp;tradeType=5&amp;typename=%E6%97%A0%E8%89%B2%E5%B0%8F%E6%99%B6%E5%9D%97">无色小晶块</a></li>
+                <li class="bg-fff">
+                    <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=1124&amp;gameType=1&amp;tradeType=5&amp;typename=%E9%AD%94%E5%88%B9%E7%9F%B3">魔刹石</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-v-9a6d962a="">
+        <div data-v-9a6d962a="" id="navigation"></div>
+        <div data-v-9a6d962a="" id="navigationModal">
+      <span data-v-9a6d962a="">
+        <div data-v-9a6d962a="" id="navigationList" class="navigationList" style="display: none;">
+          <div data-v-9a6d962a="" class="navigationBody f28 fw">
+            <a data-v-9a6d962a="" href="https://m.5173.com/" class="nav01">
+              <span data-v-9a6d962a=""></span>主页</a>
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=3&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81" class="nav02">
+              <span data-v-9a6d962a=""></span>买游戏币</a>
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=2&amp;typename=%E5%B8%90%E5%8F%B7" class="nav03">
+              <span data-v-9a6d962a=""></span>买帐号</a>
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/dl" class="nav04">
+              <span data-v-9a6d962a=""></span>代练</a>
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=1&amp;typename=%E8%A3%85%E5%A4%87" class="nav07">
+              <span data-v-9a6d962a=""></span>买装备</a>
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/center" class="nav08">
+              <span data-v-9a6d962a=""></span>我的</a>
+          </div>
+          <div data-v-9a6d962a="" class="navigationBuy f32 fw">
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/sell-home/2" class="toBuy">我要卖</a></div>
+          <div data-v-9a6d962a="" class="navigationClose fw">
+            <a data-v-9a6d962a="" href="https://m.5173.com/vue/search-all-app/search-class?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;gameType=1&amp;type=special#" class="toClose">关闭</a></div>
+        </div>
+        <div data-v-9a6d962a="" class="maskdiv4" style="display: none;"></div>
+      </span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

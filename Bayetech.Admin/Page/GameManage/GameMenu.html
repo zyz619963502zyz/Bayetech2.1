@@ -16,23 +16,23 @@
             <div class="form-group" id="lineTwo">
                 <div class="col-ms-10">
                     <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">游戏首字母</label>
+                        <label class="control-label col-md-3">游戏类型</label>
                         <div class="col-md-9">
-                            <select class="form-control" @change="GetByLetter(SearchParam.Param.SelectLetter)"  v-model="SearchParam.Param.SelectLetter">
-                                <option v-for="item in Letters" :value="item">{{item}}.</option>
+                            <select class="form-control" v-model="SearchParam.Param.SelectGameType">
+                                <option v-for="type in GameTypes" :value="type.code">{{type.name}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="input-group col-md-4">
-                        <label class="control-label col-md-3">游戏名称</label>
+                        <label class="control-label col-md-3">游戏首字母</label>
                         <div class="col-md-9">
-                            <select class="form-control" v-model="SearchParam.Param.SelectGame">
-                                <option v-for="game in GameArray" value="game.Alias">{{game.Name}}</option>
+                            <select class="form-control" @change="FindList(SearchParam.Param.SelectLetter)"  v-model="SearchParam.Param.SelectLetter">
+                                <option v-for="item in Letters" :value="item">{{item}}.</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
+                        <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="FindList" />
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         </div>
 
                         <!--传值案例-->
-                        <!--<comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>-->
+                        <comtable v-bind:gamearray="GameArray" v-bind:operatemodal="OperateModal"></comtable>
 
                         <nav aria-label="fenye" class="text-center right">
                             <ul id="paginator-test" class="pagination"></ul>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页轮播</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="../css/fost-base-min.css">
+    <style>
+        .swiper-container {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1
+        }
+        .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
+            height: auto
+        }
+
+        .swiper-container-autoheight .swiper-wrapper {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            transition-property: transform, height
+        }
+
+
+        .swiper-container .swiper-notification {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            opacity: 0;
+            z-index: -1000;
+        }
+        .swiper-slide[data-v-4a678b7c] {
+            text-align: center
+        }
+
+        .swiper-slide img[data-v-4a678b7c] {
+            width: 100% !important;
+            height: auto !important
+        }
+
+        .swiper-container[data-v-4a678b7c] {
+            width: 100%;
+            background: #000
+        }
+        .swiper-pagination {
+            position: absolute;
+            text-align: center;
+            transition: .3s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            z-index: 10
+        }
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #000;
+            opacity: .2
+        }
+        .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 5px
+        }
+        .swiper-container-android .swiper-slide, .swiper-wrapper {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .swiper-pagination-bullet {
+        opacity: .45;
+        background: #000
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #fff !important;
+        opacity: 1 !important
+    }
+
+    .newhmban .swiper-container .swiper-pagination-bullet {
+        opacity: .6
+    }
+
+    .newhmban .swiper-container .swiper-pagination {
+        margin-right: 0;
+        width: 100%;
+        background: none;
+        right: auto;
+        opacity: 1;
+        left: auto;
+        border-radius: 100%;
+        line-height: 0;
+        bottom: .2rem
+    }
+
+    .newhmban .swiper-wrapper {
+        width: 100%;
+        height: auto;
+        line-height: normal
+    }
+        .index-banner {
+         height: auto;
+         display: block;
+         overflow: hidden;
+         position: relative;
+     }
+
+    </style>
+    <script src="../js/1.ca84eec74dbe4b5863bd.js"></script>
+</head>
+<body>
+<div data-v-4a678b7c="" class="newhmban">
+    <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight"
+         data-v-4a678b7c="">
+        <div class="swiper-wrapper"
+             style="height: 146px; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+            <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;"><img data-v-4a678b7c=""
+                                                                                    src="../images/128c744f632b4ceb87bdfc84ad337be3.jpg">
+            </div>
+            <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
+                <img data-v-4a678b7c="" src="https://img1.5173.com//d5d84da2ff7e4a87a0cd207da876623a.jpg">
+            </div>
+            <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;"><img data-v-4a678b7c=""
+                                                                                    src="../images/ff15e3247cf342fcb0bd078f0969584c.jpg">
+            </div>
+            <div class="swiper-slide swiper-slide-prev" data-v-4a678b7c="" style="width: 375px;">
+                <img data-v-4a678b7c="" src="../images/f2b03764ce81476291e41bd5c27df2b4.jpg">
+            </div>
+            <div class="swiper-slide swiper-slide-active" data-v-4a678b7c="" style="width: 375px;"><img
+                    data-v-4a678b7c="" src="../images/582cf030c4fe4363836dca2228262235.jpg"></div>
+        </div>
+        <div data-v-4a678b7c="" class="swiper-pagination swiper-pagination-bullets"><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</div>
+</body>
+</html>
