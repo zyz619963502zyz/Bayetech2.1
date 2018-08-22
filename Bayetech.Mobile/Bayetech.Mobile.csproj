@@ -307,6 +307,7 @@
     <Content Include="content\images\sanjiao_1.png" />
     <Content Include="content\images\sanjiao_2.png" />
     <Content Include="content\images\sanjiao_3.png" />
+    <Content Include="content\images\search.jpg" />
     <Content Include="content\images\search4.png" />
     <Content Include="content\images\sell-out.png" />
     <Content Include="content\images\server.png" />
@@ -379,6 +380,7 @@
     <Content Include="content\images\touxiang_3.png" />
     <Content Include="content\images\zhuan.png" />
     <Content Include="Global.asax" />
+    <Content Include="Page\GameSearch\GameSearch.html" />
     <Content Include="Page\GoodsType\goodtype.html" />
     <Content Include="Page\Home\BrowseRecords.html" />
     <Content Include="Page\Home\chooseGame.html" />
