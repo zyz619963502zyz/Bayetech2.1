@@ -383,6 +383,7 @@
     <Content Include="Page\Home\BrowseRecords.html" />
     <Content Include="Page\Home\chooseGame.html" />
     <Content Include="Page\Home\headsearch.html" />
+    <Content Include="Page\Home\HomePage.html" />
     <Content Include="Page\Home\homeSwiper.html" />
     <Content Include="Page\Home\hotRecommend.html" />
     <Content Include="Page\Home\typeofTransation.html" />
