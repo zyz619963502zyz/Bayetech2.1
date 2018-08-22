@@ -1,0 +1,196 @@
+﻿@charset"utf-8";
+
+        .search2 .pl-30 {
+	padding:0 .3rem!important
+}
+.ps-r {
+	position:relative
+}
+.ps-a {
+	position:absolute
+}
+.fl {
+	float:left
+}
+.fr {
+	float:right
+}
+.font-w {
+	font-weight:400
+}
+.color-f7 {
+	color:#f60
+}
+.bg-f7 {
+	background-color:#f60
+}
+.pt-40 {
+	padding-top:.4rem
+}
+.dis-no {
+	display:none
+}
+.border-r {
+	border-right:1px solid #e8e8e8
+}
+.border-l {
+	border-left:1px solid #e8e8e8
+}
+.border-t {
+	border-top:1px solid #e8e8e8
+}
+.border-b {
+	border-bottom:1px solid #e8e8e8
+}
+.border-x {
+	border-right:1px solid #e8e8e8;
+	border-left:1px solid #e8e8e8
+}
+.dis-b {
+	display:block
+}
+.dis-in {
+	display:inline-block
+}
+.line-110 {
+	line-height:1.1rem
+}
+.line-100 {
+	line-height:1rem
+}
+.search2 {
+	background-color:#f1f1f1
+}
+.search2 .header {
+	line-height:.76rem;
+	padding:.16rem .3rem!important;
+	width:100%
+}
+.search2 .header .header-l {
+	float:left;
+	width:86%
+}
+.search2 .header h3 {
+	width:14%;
+	height:.76rem;
+	text-align:right;
+	float:left
+}
+.search2 .header input {
+	height:.76rem;
+	line-height:.76rem;
+	outline:none;
+	border:none;
+	background:url(../../content/images/search.jpg?1d1d5cdf41fe2c99693d9f6d74e9e839) 3% no-repeat;
+	background-size:.29rem;
+	padding-left:.66rem;
+	background-color:#fff;
+	width:100%
+}
+.search2 .header .header-l-ico {
+	line-height:.76rem;
+	width:.6rem;
+	position:absolute;
+	right:0;
+	top:0;
+	text-align:center
+}
+.search2 .header .header-l img {
+	height:.3rem;
+	width:.3rem
+}
+.search2 .header .header-r {
+	float:right
+}
+.search2 .his,.search2 .his input {
+	line-height:1.1rem;
+	height:1.1rem
+}
+.search2 .his input {
+	border:none;
+	outline:none;
+	background-color:transparent
+}
+.search2 .his img {
+	height:.3rem;
+	width:.3rem;
+	right:0;
+	top:.4rem;
+	position:absolute
+}
+.search2 .his .del-icon {
+	width:.8rem;
+	text-align:center;
+	position:relative
+}
+.search2 .his .del-icon,.search2 .Warrior {
+	height:1.1rem;
+	line-height:1.1rem
+}
+.search2 .Warrior-l h3 {
+	padding-left:.6rem;
+	background:url(../../content/images/com.png?999f7d1e6e0d9332eae5a15fea1ebe44) 3% no-repeat;
+	background-size:.35rem
+}
+.search2 .Warrior-r img {
+	width:.17rem;
+	height:.29rem
+}
+.search2 .game-n,.search2 .hot h4 {
+	height:1.1rem;
+	line-height:1.1rem
+}
+.search2 .game-n a {
+	width:50%
+}
+.search2 .game-n i {
+	display:block;
+	position:absolute;
+	height:.56rem;
+	width:1px;
+	left:50%;
+	top:.27rem;
+	background-color:#ddd
+}
+.search2 .game-n a span {
+	margin-left:.3rem
+}
+.search2 .rake-con {
+	height:1.1rem;
+	line-height:1.1rem
+}
+.search2 .rake-con a {
+	width:100%;
+	height:100%
+}
+.search2 .rake-con .rake-con-l {
+	left:0;
+	height:1.1rem
+}
+.search2 .rake-con-l i {
+	display:inline-block;
+	width:.5rem;
+	height:1.1rem;
+	background:url(../../content/images/com.png?999f7d1e6e0d9332eae5a15fea1ebe44) 0 no-repeat;
+	background-size:60%;
+	vertical-align:text-bottom;
+	position:absolute;
+	left:0;
+	top:0!important
+}
+.search2 .rake-con-l i.ph {
+	background:url(../../content/images/ph.png?e82135bc1df9da2a80ce67fd854ff313) 0 no-repeat;
+	background-size:50%
+}
+.search2 .rake-con-l h4 {
+	float:left;
+	line-height:1.1rem
+}
+.search2 .rake-con img {
+	right:0;
+	width:.17rem;
+	height:.29rem;
+	margin-top:.4rem
+}
+
+ 
