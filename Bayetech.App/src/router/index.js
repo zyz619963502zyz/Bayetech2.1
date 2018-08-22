@@ -19,7 +19,12 @@ export default new Router({
     {
         path: '/index',
         name: 'Index',
-        component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
+        component: r => require.ensure([], () => r(require('../page/indexback.vue')), 'Index')
+    },
+    {
+        path: '/gameSearch',
+        name: 'Index',
+        component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'Index')
     }
   ]
 })
