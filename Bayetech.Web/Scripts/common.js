@@ -302,16 +302,16 @@
         return {
             GameId: 0,
             GameName: "游戏名称",
-            GameGroupId: 0,
+            GameGroupId: 0,//上海区 
             GameGroupName: "游戏区",
-            GameServerId: 0,
+            GameServerId: 0,//上海一区
             GameServerName: "服务器",
-            GoodTypeId: 0,
+            GoodTypeId: 0,//账号 金币
             GoodTypeName: "物品类型",
-            DlTypeName: "代练类型",
-            GoodKeyWord: "",
-            AcrossId: 0,
-            AcrossName: "跨区", 
+            DlTypeName: "代练类型",//等级 冲杯 段位
+            GoodKeyWord: "",//关键字
+            AcrossId: 0,//跨区Id
+            AcrossName: "跨区"
         };
     };
 

@@ -29,12 +29,7 @@ body {
 }
 
 .appdownload {
-  .app {
-    #app3 {
-    }
-  }
-  .app2 {
-  }
+  
   background-color: #232323;
 }
 </style>
