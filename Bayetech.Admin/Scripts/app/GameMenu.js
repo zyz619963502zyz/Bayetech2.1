@@ -48,16 +48,12 @@ new Vue({
         //this.FindList();
     },
     methods: {
-        FindList(type,letter) {//type:手游/端游,letter:首字母
+        FindList() {//type:手游/端游,letter:首字母
             var self = this;
-            var param = {
-                type:self.SearchParam.Param.SelectGameType?self.SearchParam.Param.SelectGameType:0,
-                letter:letter
-            }
-            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, param, function (data) {
+            self.tools._comCompnent.postWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.GameArray = data.content;
+                    self.GameArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'),
                         self.SearchParam, self.FindList);
@@ -80,6 +76,9 @@ new Vue({
             self.SearchParam.Pagination.rows = page;
             self.FindList();
         },
+        OperateProperty(){
+            $("#GamePropertyModal").modal("show");
+        }
     },
     components:{
         comtable:componentTable

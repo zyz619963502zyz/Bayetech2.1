@@ -482,10 +482,13 @@ var comCompnent = {
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
-    props: ['gamearray', 'operatemodal']
+    props: ['gamearray', 'operatemodal'],
+    methods: {}
 });
 
 /***/ }),
@@ -10078,7 +10081,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10815,13 +10818,13 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         //this.FindList();
     },
     methods: {
-        FindList(type, letter) {
+        FindList() {
             //type:手游/端游,letter:首字母
             var self = this;
-            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, { type: type, letter: letter }, function (data) {
+            self.tools._comCompnent.postWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.GameArray = data.content;
+                    self.GameArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.FindList);
                 }
@@ -10840,6 +10843,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.FindList();
+        },
+        OperateProperty() {
+            $("#GamePropertyModal").modal("show");
         }
     },
     components: {
@@ -11271,17 +11277,23 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Img))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsDelete))]),
+            _c("td", [
+              _vm._v(_vm._s(item.IsDelete == "true" ? "已删除" : "正常"))
+            ]),
             _vm._v(" "),
             _c("td", [
-              _c("a", {
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    _vm.operatemodal()
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.operatemodal(item)
+                    }
                   }
-                }
-              })
+                },
+                [_vm._v("编辑游戏属性")]
+              )
             ])
           ])
         ])

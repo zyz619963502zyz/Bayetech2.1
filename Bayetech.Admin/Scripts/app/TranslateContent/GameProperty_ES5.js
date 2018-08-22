@@ -11245,7 +11245,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(9);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -11258,8 +11258,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11269,7 +11269,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("D:\\bay\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11278,7 +11278,7 @@ if (false) {
     } else {
       api.reload('93bba3e8', component.options)
     }
-    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&lang=html", function () {
+    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&id=BaseTable&lang=html", function () {
       api.rerender('93bba3e8', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11294,9 +11294,9 @@ component.options.__file = "Scripts\\components\\table-Process.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(12);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(12);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11437,42 +11437,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
-
 let vmData = {
-    //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
-    PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
-    ItemType: "good", //单据类型
+    GameListUrl: "/api/Game/",
+    GetByLetterUrl: "/api/Game/GetGameListByLetter",
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     },
-    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
-    CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
-    CheckGoodNo: "", //模态框打开的GoodNo
-    keyword: "",
-    GoodInfoArray: [],
+    Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
+    GameArray: [],
     ListObj: [{
-        GoodNo: "",
-        GoodFirstPicture: "",
-        aurl: "",
-        GoodTitle: "",
-        GroupName: "",
-        ServerName: "",
-        GoodPrice: ""
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
     }],
     SearchParam: {
         Param: { //查询条件的参数
-            GoodNo: "",
-            OrderNo: "",
-            Status: pagetype,
-            SelectType: "good", //form里选择的商品类型
-            SelectNo: "" //form里面选择的编号
+            SelectLetter: "", //选择的游戏首字母
+            SelectGame: "" //选择的游戏
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "GoodNo", //排序字段
+            order: "IsHot", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -11481,23 +11474,17 @@ let vmData = {
 };
 
 new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommForm',
+    el: '#app',
     data: vmData,
     created() {
-        this.findList();
+        //this.findList();
     },
     methods: {
         findList() {
             //获取商品的简要列表
-            $("#QueryList").Btns("loading");
-            var self = this;
-            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
-            //后台传值：
-            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.postWebJson(self.GameListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.GoodInfoArray = data.content.datas;
-                    self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
@@ -11505,11 +11492,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 $("#QueryList").Btns("reset");
             });
         },
-        StartCheck(GoodNo) {
-            //开始检查
+        GetByLetter(letter) {
+            //根据首字母去查询下拉游戏
             var self = this;
-            self.CheckGoodNo = GoodNo;
-            $("#checkModal").modal("show");
+            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, { "type": 0, "letter": letter }, function (data) {
+                self.GameArray = data.content;
+            });
         },
         TurnToPage(page) {
             var self = this;
@@ -11521,8 +11509,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     }
 });
-
-//剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
 
 /***/ })
 /******/ ]);

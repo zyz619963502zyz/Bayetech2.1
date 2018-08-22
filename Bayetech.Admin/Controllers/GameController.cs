@@ -1,9 +1,11 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.Service;
 using Bayetech.Service.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -19,11 +21,13 @@ namespace Bayetech.Admin.Controllers
         /// 根据字母获得游戏名称
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public JObject GetGameListByLetter(int type, string letter)
+        [HttpPost]
+        public JObject GetGameListByLetter(JObject json)
         {
-            var ret = gameService.GetList(g => g.Letter.Equals(letter, StringComparison.CurrentCultureIgnoreCase) && g.Platform == type && !g.IsDelete);
-            return ret;
+            int type = json["Param"]["SelectGameType"] == null?Convert.ToInt32(json["Param"]["SelectGameType"]):0;
+            string letter = json["Param"]["SelectLetter"].ToString().ToLower();
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("Letter") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+            return serviceGame.GetGameListByLetter(type,letter,page);
         }
 
         /// <summary>

@@ -20,16 +20,21 @@
                 <td>{{item.Alias}}</td>
                 <td>{{item.Letter}}</td>
                 <td>{{item.Img}}</td>
-                <td>{{item.IsDelete}}</td>
-                <td><a href="#" @click=operatemodal()></a></td>
+                <td>{{item.IsDelete=='true'?'已删除':'正常'}}</td>
+                <td><a href="#" @click=operatemodal(item)>编辑游戏属性</a></td>
             </tr>
         </tbody>
     </table>
+
+    
 </template>
 
 <script>
 export default{
     name:'AdminSetsTable',
-    props:['gamearray','operatemodal']
+    props:['gamearray','operatemodal'],
+    methods:{
+       
+    }
 }
 </script>

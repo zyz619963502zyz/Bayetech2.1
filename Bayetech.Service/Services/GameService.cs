@@ -1,8 +1,11 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Bayetech.Service.Services
 {
@@ -108,5 +111,34 @@ namespace Bayetech.Service.Services
             return ret;
         }
 
+        /// <summary>
+        /// 根据首字母获取列表
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public JObject GetGameListByLetter(int type,string letter,Pagination page) {
+            using (var db = new RepositoryBase())
+            {
+                Pagination outPage = new Pagination();
+                Expression<Func<Game, bool>> expression = PredicateExtensions.True<Game>();
+                PaginationResult<List<Game>> ResultPage = new PaginationResult<List<Game>>();
+                JObject ret = new JObject();
+
+                expression = expression.And(c => c.Platform == type);
+                if (!string.IsNullOrEmpty(letter))
+                {
+                    expression = expression.And(c => c.Letter == letter);
+                }
+
+                ResultPage.datas = db.FindList(page,out outPage, expression);
+                ResultPage.pagination = outPage;
+                if (ResultPage.datas.Count>0)
+                {
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
+                }
+                return ret;
+            }
+        }
     }
 }
