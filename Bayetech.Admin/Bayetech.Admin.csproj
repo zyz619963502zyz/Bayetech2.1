@@ -2757,6 +2757,7 @@
     <Content Include="Scripts\components\table-NavigationManage.vue" />
     <Content Include="Scripts\components\table-RolesManage.vue" />
     <Content Include="Scripts\components\table-ButtonsManage.vue" />
+    <Content Include="Scripts\components\table-GameSet.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-2.2.2.js" />

@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公用浏览记录</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="../css/fost-base-min.css">
+
+    <style>
+
+        .index-record {
+            height: auto;
+            display: block;
+            overflow: hidden
+        }
+
+        .index-record .record-titl {
+            height: .52rem;
+            line-height: .52rem
+        }
+
+        .index-record .record-conn {
+            height: auto;
+            display: block;
+            overflow: hidden
+        }
+
+        .index-record .record-conn:last-child .demolist {
+            border-bottom: none
+        }
+
+        .index-record .record-conn .demolist {
+            height: auto;
+            display: block;
+            overflow: hidden;
+            position: relative
+        }
+
+        .index-record .recor-pldn .demolist:last-child {
+            border-bottom: none
+        }
+
+        .record-conn .demolist .mbgmes-img {
+            width: 1.28rem;
+            overflow: hidden;
+            position: relative;
+            height: 1.28rem;
+            line-height: 1.28rem;
+            background: #f1f1f1;
+            border-radius: 15%
+        }
+
+        .record-conn .demolist .mbgmes-img img {
+            height: 1.28rem;
+            vertical-align: top
+        }
+
+        .record-conn .demolist .mbgmes-img div.img_bj {
+            height: .38rem;
+            opacity: .7;
+            width: 100%;
+            position: absolute;
+            bottom: 0
+        }
+
+        .record-conn .demolist .mbgmes-img div.img-text {
+            height: .38rem;
+            line-height: .38rem;
+            width: 100%;
+            position: absolute;
+            bottom: 0
+        }
+
+        .record-conn .demolist .mbgmes-con-index {
+            margin-left: 1.6rem;
+            height: auto;
+            display: block;
+            overflow: hidden
+        }
+
+        .record-conn .demolist .mbgmes-ico {
+            background: url(../images/mbgmes-ico.png?98e7237e31b080265c3d9a5088468c88) no-repeat 100%;
+            background-size: .16rem
+
+        }
+
+        .record-conn .demolist .mbgmes-con-index .mbl-title {
+            line-height: .48rem
+        }
+
+        .record-conn .demolist .mbgmes-con-index .mbl-cper {
+            height: auto;
+            display: block;
+            overflow: hidden
+        }
+
+        .record-conn .demolist .mbgmes-con-index .mbl-cper .mbl-money {
+            height: .68rem;
+            line-height: .68rem
+        }
+
+        .record-conn .demolist .mbgmes-con-index .mbl-cper .mbl-icon {
+            height: .68rem
+        }
+
+        .record-conn .demolist .sell-out {
+            width: 80%;
+            height: 100%;
+            position: absolute;
+            background: url(../images/sell-out.png?7f368da774af4e941ebe72a2b9622ba2) no-repeat 62%;
+            background-size: 1.85rem 1.14rem;
+            left: 0;
+            top: 0
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i {
+            display: inline-block;
+            float: left;
+            width: .45rem;
+            height: .58rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.tu {
+            background: url(../images/mbl-tu.png?92a6a6f87aa0588e9af12fb7abee2c75) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.ji {
+            background: url(../images/equ-ji.png?5c6d0465168b9c680004414913361955) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.tou {
+            background: url(../images/equ-tou.png?ca2811f629ee714f2a0419e6f3166bff) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.pei {
+            background: url(../images/equ-pei.png?9b514fd176c9de77e6f70cc3c2802f17) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.an {
+            background: url(../images/equ-an.png?cc5f38d8707ae96bbaa5b2be43540917) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.shi {
+            background: url(../images/equ-shi.png?0ad49ae97c358b5a1dea6ac53fb963d9) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbgmes-con-index .mbl-cper .mbl-icon i.bao {
+            background: url(../images/equ-bao.png?4a5c57113dfd473a4b0aeb37e5354bdb) no-repeat 100%;
+            background-size: .32rem
+        }
+
+        .mbl-parea, .mbl-parea span {
+            line-height: .48rem
+        }
+
+        .mbl-parea span {
+            display: inline-block;
+            width: 1.08rem;
+            height: .48rem;
+            border-radius: .1rem
+        }
+
+        .mbl-parea p.mbl-qfu {
+            width: 74%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        /*浏览记录日期*/
+        .mbl-time {
+            width: 100%;
+            height: .9rem;
+            line-height: .9rem;
+        }
+        .mbl-time .mbl-p {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div data-v-4be4f828="" class="top-header border-bottom fixed-top">
+    <div data-v-4be4f828="" class="top-back"><a data-v-4be4f828=""></a></div>
+    <h2 data-v-4be4f828="" class="f36 color-000">浏览记录</h2>
+    <div data-v-4be4f828="" class="top-right">
+        <ul data-v-4be4f828="" class="clearfix top-handle f30 color-666 text-center">
+            <li data-v-4be4f828="" class="fl"><span data-v-4be4f828="" class="border-right pr-25">清空</span></li>
+            <li data-v-4be4f828="" class="fl"><span data-v-4be4f828="" class="pr-30 pl-25">编辑</span></li>
+        </ul>
+    </div>
+</div>
+
+<div data-v-4be4f828="" style="height: 0.96rem;"></div>
+
+<div data-v-4a678b7c="" class="index-record bg-fff mb-20 mt-20 border-top border-bottom ">
+    <!--浏览记录标题  首页用-->
+    <div data-v-4a678b7c="" class="record-titl f34 color-333 mt-20 text-center fontbold px-30 ">浏览记录</div>
+    <!--浏览记录日期 列表页用-->
+    <div data-v-4be4f828="" class="mbl-time mt-20 bg-fff f28 color-666">
+        <p data-v-4be4f828="" class="mbl-p border-bottom ml-30">8月11日</p>
+    </div>
+    <!--浏览记录列表  首页及列表页均用-->
+    <div data-v-4a678b7c="" class="record-conn px-30 recor-pldn">
+        <div data-v-4a678b7c="" class="demolist border-bottom py-30">
+            <div data-v-4a678b7c="" class="mbgmes-img fl mt-10">
+                <img data-v-4a678b7c="" src="../images/RAKowFtoaGcAAAAAAAHkeVRfGP867.jpg">
+                <div data-v-4a678b7c="" class="img_bj bg-000"></div>
+                <div data-v-4a678b7c="" class="img-text f24 color-fff text-center">游戏帐号</div>
+            </div>
+            <div data-v-4a678b7c="" class="mbgmes-con-index">
+                <div data-v-4a678b7c="" class="mbl-title f32 color-000">【跨5华东1区 天帝 男 90级 QQ等级55级 135个QQ好友 不存在5天封号记录
+                    】超大路圣耀眼瞎子。深渊票1.4W 送L
+                </div>
+                <div data-v-4a678b7c="" class="mbl-cper ">
+                    <div data-v-4a678b7c="" class="mbl-money color-m1 f30 fl">￥1200</div>
+                    <div data-v-4a678b7c="" class="mbl-icon fr"><!----> <!----> <!----> <!----> <!----></div>
+                </div>
+                <div data-v-4a678b7c="" class="mbl-parea color-666 f26"><span data-v-4a678b7c=""
+                                                                              class="fr f24 color-666 text-center border">看相似</span>
+                    <p data-v-4a678b7c="" class="fl mbl-qfu">
+                        地下城与勇士/安徽区/安徽1区
+                    </p></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
