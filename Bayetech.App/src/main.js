@@ -7,6 +7,9 @@ import axios from 'axios'
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
+import './assets/css/fost-base-min.css';
+
+
 /* eslint-disable no-new */
 let $vm=new Vue({
   el: '#app',
