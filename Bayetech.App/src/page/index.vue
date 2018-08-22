@@ -19,9 +19,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <style lang="scss" >
 $background: #cccccc;
 body {
@@ -29,7 +27,6 @@ body {
 }
 
 .appdownload {
-  
   background-color: #232323;
 }
 </style>
@@ -37,18 +34,14 @@ body {
 
 <script>
 import top from "../components/top.vue";
-
 let vmdata = new Object();
-
 vmdata.PageType = "czxv";
 vmdata.goodinfoarray = 2;
-
 export default {
   name: "index",
   data() {
     return vmdata;
   },
-
   components: {
     top: top
   }
