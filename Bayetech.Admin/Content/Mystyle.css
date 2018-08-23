@@ -23,3 +23,8 @@
     padding-bottom: 5px;
     color: white;
 }
+
+.table-addbtn {
+    float: right;
+    right: 10px;
+}
