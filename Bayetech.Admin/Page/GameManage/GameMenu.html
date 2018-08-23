@@ -182,7 +182,39 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                        <br />
+                        <hr />
+                        <div class="input-group col-md-12" v-show="ItemType=='good'">
+                            <h4><strong>商品描述信息</strong></h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="danger">
+                                        <td class ="col-md-2">序号</td>
+                                        <td class ="col-md-3">默认商品属性名称</td>
+                                        <td class ="col-md-3">修改商品属性名称</td>
+                                        <td class ="col-md-2">排序</td>
+                                        <td class ="col-md-3">操作</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><label>1</label></td>
+                                        <td><label>等级</label></td>
+                                        <td><input class="" value="测试"/></td>
+                                        <td><input class="" value="10"/></td>
+                                        <td>
+                                            <div class="text-center row">
+                                                <button class="btn-success">新增</button>
+                                                <button class="btn-primary">保存</button>
+                                                <button class="btn-danger">删除</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         
+                        </div>
+                        </div>
                 </div>
                 <div class="modal-footer" id="modal_footer" style="text-align:center;">
                     <div class="btn-group col-md-12">
