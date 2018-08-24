@@ -248,4 +248,12 @@
 </template>
 <script>
   import '@/assets/css/gameSearch.css';
+let vmdata = new Object();
+export default {
+  name: "gameSearch",
+  data() {
+    return vmdata;
+  }
+};
 </script>
+
