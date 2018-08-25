@@ -489,6 +489,9 @@
   name: "index",
   data() {
   return vmdata;
+  },mounted:function(){
+    console.log(this.$get)
+
   }
 
   };

@@ -21,8 +21,11 @@ Vue.prototype.$SearchModel={
     AcrossName: "跨区"
 }
 import './assets/css/fost-base-min.css';
-import './assets/scripts/common.js';
-
+import {get,post,patch,put} from './assets/scripts/http.js';
+Vue.prototype.$post = post
+Vue.prototype.$get = get
+Vue.prototype.$patch = patch
+Vue.prototype.$put = put
 
 
 /* eslint-disable no-new */
