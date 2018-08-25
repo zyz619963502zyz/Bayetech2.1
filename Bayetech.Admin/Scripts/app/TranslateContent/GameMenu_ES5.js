@@ -10781,7 +10781,9 @@ let vmData = {
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
     GameTypes: [{ code: "0", name: "PC游戏" }, { code: "1", name: "手机游戏" }], //游戏类型
-    GameArray: [], //游戏列表
+    GameArray: [], //游戏列表数据
+    GameProfessionArray: [{}], //游戏职业列表数据
+    GameInfoDescriptionArray: [{}], //游戏商品属性列表数据
     ListObj: [{
         Name: "",
         Alias: "",
@@ -10830,12 +10832,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 $("#QueryList").Btns("reset");
             });
         },
-        //GetByLetter(letter){//根据首字母去查询下拉游戏
-        //    var self = this;
-        //    self.tools._comCompnent.getWebJson(self.GetByLetterUrl, {"type":0,"letter":letter}, function (data) {
-        //        self.GameArray = data.content;
-        //    });
-        //},
         OperateModal() {},
         TurnToPage(page) {
             var self = this;
@@ -10846,11 +10842,16 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //游戏属性模态框
             $("#GamePropertyModal").modal("show");
         },
-        OpenPropertyDetail() {
-            //游戏属性每行编辑
-            $("#EditProperties").modal("show");
+        AddProfession() {
+            var self = this;
+            self.GameProfessionArray.push([]); //游戏职业列表数据
         },
-        SaveDetail() {}
+        DelProfession() {},
+        AddDescription() {
+            var self = this;
+            self.GameInfoDescriptionArray.push([]); //游戏商品属性列表数据
+        },
+        DelDescription() {}
     },
     components: {
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__["a" /* default */]
