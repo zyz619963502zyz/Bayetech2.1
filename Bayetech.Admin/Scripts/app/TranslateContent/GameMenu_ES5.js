@@ -482,8 +482,6 @@ var comCompnent = {
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
@@ -10844,9 +10842,15 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.SearchParam.Pagination.rows = page;
             self.FindList();
         },
-        OperateProperty() {
+        OpenProperty() {
+            //游戏属性模态框
             $("#GamePropertyModal").modal("show");
-        }
+        },
+        OpenPropertyDetail() {
+            //游戏属性每行编辑
+            $("#EditProperties").modal("show");
+        },
+        SaveDetail() {}
     },
     components: {
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__["a" /* default */]

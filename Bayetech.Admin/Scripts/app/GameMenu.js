@@ -62,12 +62,6 @@ new Vue({
                 $("#QueryList").Btns("reset");
             });
         },
-        //GetByLetter(letter){//根据首字母去查询下拉游戏
-        //    var self = this;
-        //    self.tools._comCompnent.getWebJson(self.GetByLetterUrl, {"type":0,"letter":letter}, function (data) {
-        //        self.GameArray = data.content;
-        //    });
-        //},
         OperateModal(){
         
         },
@@ -76,8 +70,16 @@ new Vue({
             self.SearchParam.Pagination.rows = page;
             self.FindList();
         },
-        OperateProperty(){
+        OpenProperty(){
+            //游戏属性模态框
             $("#GamePropertyModal").modal("show");
+        },
+        OpenPropertyDetail(){
+            //游戏属性每行编辑
+            $("#EditProperties").modal("show");
+        },
+        SaveDetail(){
+            //具体的属性保存
         }
     },
     components:{

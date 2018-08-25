@@ -25,8 +25,6 @@
             </tr>
         </tbody>
     </table>
-
-    
 </template>
 
 <script>
@@ -34,7 +32,7 @@ export default{
     name:'AdminSetsTable',
     props:['gamearray','operatemodal'],
     methods:{
-       
+    
     }
 }
 </script>
