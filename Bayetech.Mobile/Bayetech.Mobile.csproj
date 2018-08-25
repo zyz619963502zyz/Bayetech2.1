@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\css\accountlist.css" />
     <Content Include="content\css\common.css" />
     <Content Include="content\css\fost-base-min.css" />
     <Content Include="content\css\game-dl.css" />
@@ -415,6 +416,7 @@
     <Content Include="content\images\touxiang_3.png" />
     <Content Include="content\images\zhuan.png" />
     <Content Include="Global.asax" />
+    <Content Include="Page\AccountList\AccountList.html" />
     <Content Include="Page\GameDL\GameDL.html" />
     <Content Include="Page\GameSearch\GameSearch.html" />
     <Content Include="Page\GoodsType\goodtype.html" />

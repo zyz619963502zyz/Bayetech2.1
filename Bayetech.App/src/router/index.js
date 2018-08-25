@@ -17,9 +17,9 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../components/home.vue')), 'home')
     },
     {
-        path: '/',
-        name: 'Index',
-        component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
+      path: '/',
+      name: 'Index',
+      component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
     },
     {
         path: '/gameSearch',

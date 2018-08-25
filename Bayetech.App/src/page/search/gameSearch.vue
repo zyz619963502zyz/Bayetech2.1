@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ $route.params.userId }}
+  
     <div id="wrapper" class="search2">
       <div>
         <div class="header pl-30 clearfix border-bottom">
