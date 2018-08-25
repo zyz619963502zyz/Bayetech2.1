@@ -8,19 +8,21 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$SearchModel={
     GameId: 0,
-    GameName: "ÓÎÏ·Ãû³Æ",
-    GameGroupId: 0,//ÉÏº£Çø 
-    GameGroupName: "ÓÎÏ·Çø",
-    GameServerId: 0,//ÉÏº£Ò»Çø
-    GameServerName: "·şÎñÆ÷",
-    GoodTypeId: 0,//ÕËºÅ ½ğ±Ò
-    GoodTypeName: "ÎïÆ·ÀàĞÍ",
-    DlTypeName: "´úÁ·ÀàĞÍ",//µÈ¼¶ ³å±­ ¶ÎÎ»
-    GoodKeyWord: "",//¹Ø¼ü×Ö
-    AcrossId: 0,//¿çÇøId
-    AcrossName: "¿çÇø"
+    GameName: "æ¸¸æˆåç§°",
+    GameGroupId: 0,//ä¸Šæµ·åŒº 
+    GameGroupName: "æ¸¸æˆåŒº",
+    GameServerId: 0,//ä¸Šæµ·ä¸€åŒº
+    GameServerName: "æœåŠ¡å™¨",
+    GoodTypeId: 0,//è´¦å· é‡‘å¸
+    GoodTypeName: "ç‰©å“ç±»å‹",
+    DlTypeName: "ä»£ç»ƒç±»å‹",//ç­‰çº§ å†²æ¯ æ®µä½
+    GoodKeyWord: "",//å…³é”®å­—
+    AcrossId: 0,//è·¨åŒºId
+    AcrossName: "è·¨åŒº"
 }
 import './assets/css/fost-base-min.css';
+import './assets/scripts/common.js';
+
 
 
 /* eslint-disable no-new */

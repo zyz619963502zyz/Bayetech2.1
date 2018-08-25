@@ -1,12 +1,13 @@
-﻿<template>
+<template>
   <div data-v-4a678b7c="" id="wrapper" class="pb-125">
+   
     <div class="appdownload hide" data-v-4a678b7c="">
       <div class="appload-conn fl">
         <div class="appload-close fl">
           <a href="javascript:void(0);" class="appclose"></a>
         </div>
         <div class="appload-ico fl pt-15">
-          <img src="@/assets/content/images/5173app-ico.png"/>
+          <img src="@/assets/content/images/5173app-ico.png" />
         </div>
         <div class="appload-info fl pt-15">
           <div class="appinfo-titl f28 color-fff">下载5173APP</div>
@@ -19,15 +20,14 @@
     </div>
     <div data-v-4a678b7c="" class="index-header">
       <div data-v-4a678b7c="" class="index-header-logo">
-        <img data-v-4a678b7c="" src="@/assets/content/images/logo.png" alt="5173游戏交易平台" class="img-responsive"/>
+        <img data-v-4a678b7c="" src="@/assets/content/images/logo.png" alt="5173游戏交易平台" class="img-responsive" />
       </div>
-      <a data-v-4a678b7c="">
-        <div data-v-4a678b7c="" class="index-header-search">
-          <div data-v-4a678b7c="" class="text-input">
-            <span data-v-4a678b7c="" class="f30">搜索游戏</span>
-          </div>
-        </div>
-      </a>
+      <router-link :to="{ name: 'gameSearch', params: { userId: 123 }}"><div data-v-4a678b7c="" class="index-header-search">
+  <div data-v-4a678b7c="" class="text-input">
+    <span data-v-4a678b7c="" class="f30">搜索游戏</span>
+  </div>
+</div></router-link>
+      
       <a data-v-4a678b7c="" rel="nofollow" href="http://www.5173.com/home" title="返回5173主站" class="toPc">
         <img data-v-4a678b7c="" src="@/assets/content/images/pc.png" />
       </a>
@@ -37,19 +37,19 @@
       <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" data-v-4a678b7c="">
         <div class="swiper-wrapper" style="height: 146px; transform: translate3d(-3072px, 0px, 0px); transition-duration: 0ms;">
           <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/89b143feec4646b68f8c49722e27a660.jpg"/>
+            <img data-v-4a678b7c="" src="@/assets/content/images/89b143feec4646b68f8c49722e27a660.jpg" />
           </div>
           <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/b55482e51de3458885385fc7b05d403d.jpg"/>
+            <img data-v-4a678b7c="" src="@/assets/content/images/b55482e51de3458885385fc7b05d403d.jpg" />
           </div>
           <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg"/>
+            <img data-v-4a678b7c="" src="@/assets/content/images/fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg" />
           </div>
           <div class="swiper-slide swiper-slide-prev" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/a29ec62d89bf4a6eb3ae850205cf30c2.jpg"/>
+            <img data-v-4a678b7c="" src="@/assets/content/images/a29ec62d89bf4a6eb3ae850205cf30c2.jpg" />
           </div>
           <div class="swiper-slide swiper-slide-active" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/f2b03764ce81476291e41bd5c27df2b4.jpg"/>
+            <img data-v-4a678b7c="" src="@/assets/content/images/f2b03764ce81476291e41bd5c27df2b4.jpg" />
           </div>
         </div>
         <div data-v-4a678b7c="" class="swiper-pagination swiper-pagination-bullets">
@@ -118,7 +118,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">地下城与勇士</p>
                   </a>
@@ -126,7 +126,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/lol.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/lol.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">英雄联盟</p>
                   </a>
@@ -134,7 +134,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/625.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/625.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">剑侠情缘Ⅲ</p>
                   </a>
@@ -142,7 +142,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/558.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/558.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">天涯明月刀</p>
                   </a>
@@ -150,7 +150,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/666.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/666.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">穿越火线</p>
                   </a>
@@ -158,7 +158,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/ms2.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/ms2.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">魔兽世界(国服)</p>
                   </a>
@@ -166,7 +166,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/038.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/038.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">绝地求生</p>
                   </a>
@@ -174,7 +174,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/610.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/610.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">流放之路</p>
                   </a>
@@ -193,7 +193,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/2453.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/2453.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">王者荣耀</p>
                   </a>
@@ -201,7 +201,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1711.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/1711.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">QQ飞车手游</p>
                   </a>
@@ -209,7 +209,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/2806.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/2806.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">阴阳师</p>
                   </a>
@@ -217,7 +217,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/0187.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/0187.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">穿越火线(手机游戏)</p>
                   </a>
@@ -225,7 +225,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1371.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/1371.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">梦幻西游(手机游戏)</p>
                   </a>
@@ -233,7 +233,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/SgKowFsggG8AAAAAAAE-nGdbboo58.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/SgKowFsggG8AAAAAAAE-nGdbboo58.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">征途2手游</p>
                   </a>
@@ -241,7 +241,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1168.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/1168.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">炉石传说</p>
                   </a>
@@ -249,7 +249,7 @@
                 <li data-v-4a678b7c="">
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/0052.jpg"/>
+                      <img data-v-4a678b7c="" src="@/assets/content/images/0052.jpg" />
                     </center>
                     <p data-v-4a678b7c="" class="f28 color-000">崩坏3</p>
                   </a>
@@ -271,19 +271,19 @@
       <div class="sale-goods">
 
         <a href="http://search.m.7881.com/201612382309802.html">
-          <img src="http://pic.7881.com/m7881/hotsale/56.jpg" width="100%"/>
+          <img src="http://pic.7881.com/m7881/hotsale/56.jpg" width="100%" />
         </a>
 
         <a href="/appstoreCard.html">
-          <img src="http://pic.7881.com/m7881/hotsale/47.jpg" width="100%"/>
+          <img src="http://pic.7881.com/m7881/hotsale/47.jpg" width="100%" />
         </a>
 
         <a href="http://search.m.7881.com/201612382490711.html">
-          <img src="http://pic.7881.com/m7881/hotsale/57.jpg" width="100%"/>
+          <img src="http://pic.7881.com/m7881/hotsale/57.jpg" width="100%" />
         </a>
 
         <a href="http://search.m.7881.com/toGoodsList.html?pageNum=1&amp;gameId=A5167&amp;gtid=100106">
-          <img src="http://pic.7881.com/m7881/hotsale/46.jpg" width="100%"/>
+          <img src="http://pic.7881.com/m7881/hotsale/46.jpg" width="100%" />
         </a>
 
       </div>
@@ -295,7 +295,7 @@
         <li data-v-50d7ab26="" class="record-conn px-30">
           <div data-v-50d7ab26="" class="demolist border-top py-30">
             <div data-v-50d7ab26="" class="mbgmes-img fl mt-10">
-              <img data-v-50d7ab26="" src="@/assets/content/images/5072c398eb6a4b019baeff8b78823c78.jpg"/>
+              <img data-v-50d7ab26="" src="@/assets/content/images/5072c398eb6a4b019baeff8b78823c78.jpg" />
               <div data-v-50d7ab26="" class="img_bj bg-000"></div>
               <div data-v-50d7ab26="" class="img-text f24 color-fff text-center">精品帐号</div>
             </div>
@@ -311,7 +311,7 @@
         <li data-v-50d7ab26="" class="record-conn px-30">
           <div data-v-50d7ab26="" class="demolist border-top py-30">
             <div data-v-50d7ab26="" class="mbgmes-img fl mt-10">
-              <img data-v-50d7ab26="" src="@/assets/content/images/2ef0f13216e241959708237db555b62c.jpg"/>
+              <img data-v-50d7ab26="" src="@/assets/content/images/2ef0f13216e241959708237db555b62c.jpg" />
               <div data-v-50d7ab26="" class="img_bj bg-000"></div>
               <div data-v-50d7ab26="" class="img-text f24 color-fff text-center">精品帐号</div>
             </div>
@@ -327,7 +327,7 @@
         <li data-v-50d7ab26="" class="record-conn px-30">
           <div data-v-50d7ab26="" class="demolist border-top py-30">
             <div data-v-50d7ab26="" class="mbgmes-img fl mt-10">
-              <img data-v-50d7ab26="" src="@/assets/content/images/beb4f3f8e9b741ddbff1649b051befc4.jpg"/>
+              <img data-v-50d7ab26="" src="@/assets/content/images/beb4f3f8e9b741ddbff1649b051befc4.jpg" />
               <div data-v-50d7ab26="" class="img_bj bg-000"></div>
               <div data-v-50d7ab26="" class="img-text f24 color-fff text-center">精品帐号</div>
             </div>
@@ -343,7 +343,7 @@
         <li data-v-50d7ab26="" class="record-conn px-30">
           <div data-v-50d7ab26="" class="demolist border-top py-30">
             <div data-v-50d7ab26="" class="mbgmes-img fl mt-10">
-              <img data-v-50d7ab26="" src="@/assets/content/images/ecb27993cfe440979e5a4f8cc7b266d4.jpg"/>
+              <img data-v-50d7ab26="" src="@/assets/content/images/ecb27993cfe440979e5a4f8cc7b266d4.jpg" />
               <div data-v-50d7ab26="" class="img_bj bg-000"></div>
               <div data-v-50d7ab26="" class="img-text f24 color-fff text-center">精品帐号</div>
             </div>
@@ -359,7 +359,7 @@
         <li data-v-50d7ab26="" class="record-conn px-30">
           <div data-v-50d7ab26="" class="demolist border-top py-30">
             <div data-v-50d7ab26="" class="mbgmes-img fl mt-10">
-              <img data-v-50d7ab26="" src="@/assets/content/images/beb4f3f8e9b741ddbff1649b051befc4.jpg"/>
+              <img data-v-50d7ab26="" src="@/assets/content/images/beb4f3f8e9b741ddbff1649b051befc4.jpg" />
               <div data-v-50d7ab26="" class="img_bj bg-000"></div>
               <div data-v-50d7ab26="" class="img-text f24 color-fff text-center">游戏币</div>
             </div>
@@ -384,7 +384,7 @@
           <p data-v-979c35b8="" class="f28 color-666 ">输入客服QQ号，可以为您验证是否为5173官方客服</p>
         </div>
         <div data-v-979c35b8="" class="prov-conn px-30 py-15">
-          <input data-v-979c35b8="" type="tel" placeholder="请输入客服QQ号" minlength="5" maxlength="11" class="prov-input color-333 f32"/>
+          <input data-v-979c35b8="" type="tel" placeholder="请输入客服QQ号" minlength="5" maxlength="11" class="prov-input color-333 f32" />
           <a data-v-979c35b8="" class="prov-btn color-fff f32 bg-f54 fr text-center">立即验证</a>
         </div>
       </div>
@@ -467,7 +467,9 @@
               <!---->
             </li>
           </a>
+
         </ul>
+
       </div>
       <!---->
     </div>
