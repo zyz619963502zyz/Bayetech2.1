@@ -53,7 +53,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<DLRequire> DLRequire { get; set; }
         public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
         public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
-        public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameAccount> GameAccount { get; set; }
         public virtual DbSet<GameInfoDescription> GameInfoDescription { get; set; }
         public virtual DbSet<GameProfession> GameProfession { get; set; }
@@ -86,6 +85,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<Admin_Sys_Login> Admin_Sys_Login { get; set; }
         public virtual DbSet<Admin_Sys_Navigations> Admin_Sys_Navigations { get; set; }
+        public virtual DbSet<Game> Game { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
