@@ -1,7 +1,7 @@
 
 import Axios from "axios";
 
-export function get(url ,param={}) {
+export function get(url ,params={}) {
     return new Promise((resolve,reject)=>{
         Axios.get(url,{params:params}).then(response=>{
             resolve(response.data);
@@ -13,7 +13,7 @@ export function get(url ,param={}) {
     })
 }
 
-export function post(url ,param={}) {
+export function post(url ,params={}) {
     return new Promise((resolve,reject)=>{
         Axios.post(url,{params:params}).then(response=>{
             resolve(response.data);
@@ -25,7 +25,7 @@ export function post(url ,param={}) {
     })
 }
 
-export function patch(url ,param={}) {
+export function patch(url ,params={}) {
     return new Promise((resolve,reject)=>{
         Axios.patch(url,{params:params}).then(response=>{
             resolve(response.data);
@@ -37,7 +37,7 @@ export function patch(url ,param={}) {
     })
 }
 
-export function put(url ,param={}) {
+export function put(url ,params={}) {
     return new Promise((resolve,reject)=>{
         Axios.put(url,{params:params}).then(response=>{
             resolve(response.data);
