@@ -73,7 +73,7 @@
        
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ path: '/gameSearch?goodsType=3'}">
+        <router-link :to="{ path: '/gameSearch' ,query:{goodsType:3}}">
           <span data-v-4a678b7c="" class="class02"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">帐号</p>
         </router-link>
