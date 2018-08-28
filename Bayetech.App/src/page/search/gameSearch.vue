@@ -249,23 +249,25 @@
 </template>
 <script>
   import '@/assets/css/gameSearch.css';
-let vmdata = new Object();
-export default {
+  let vmdata = new Object();
+  export default {
   name: "gameSearch",
   data() {
-    return vmdata;
-    },
-    mounted: function ()
-    {
-      console.log(this.$route.params.userId);
-      this.getdata();
-    }, methods: {
-      getdata()
-      {
+  return vmdata;
+  },
+  mounted: function ()
+  {
+  let id =this.$route.query.goodsType;
+  console.log(id)
+  console.log(this.$route.query)
+  this.getdata();
+  }, methods: {
+  getdata()
+  {
 
-      }
+  }
 
-    }
-};
+  }
+  };
 </script>
 

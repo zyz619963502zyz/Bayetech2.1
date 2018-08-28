@@ -926,6 +926,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\bayetechweb.pubxml" />
     <None Include="Properties\PublishProfiles\发布到服务器.pubxml" />
     <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
