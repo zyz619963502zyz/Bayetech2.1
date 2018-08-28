@@ -65,8 +65,7 @@
     </div>
     <div data-v-4a678b7c="" class="index-swiper bg-fff border-bottom py-30 mb-20">
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ path: '/gameSearch', query:{goodsType:1}}">
-         
+        <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
             <span data-v-4a678b7c="" class="class01"></span>
             <p data-v-4a678b7c="" class="f28 color-000 mt-10">游戏币</p>
           </router-link>
@@ -79,22 +78,23 @@
         </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 0 }}">
+        <router-link :to="{ path: '/hotGameSearch', query: { goodsType: 0}}">
           <span data-v-4a678b7c="" class="class03"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">手游充值</p>
         </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5 }}">
+        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
           <span data-v-4a678b7c="" class="class04"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
         </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 2 }}">
-          <span data-v-4a678b7c="" class="class05"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">装备</p>
-        </router-link>
+        <router-link :to="{name:'gameSearch',query:{goodsType:2}}">
+            <span data-v-4a678b7c="" class="class05"></span>
+            <p data-v-4a678b7c="" class="f28 color-000 mt-10">装备</p>
+        </router-link> 
+            
       </div>
     </div>
     <!--搜索游戏-->

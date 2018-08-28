@@ -20,16 +20,7 @@
     </div>
   </div>
 </template>
-<style lang="scss" >
-$background: #cccccc;
-body {
-  background: $background;
-}
 
-.appdownload {
-  background-color: #232323;
-}
-</style>
 
 
 <script>
