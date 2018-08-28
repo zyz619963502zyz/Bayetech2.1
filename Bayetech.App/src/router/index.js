@@ -22,9 +22,14 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
     },
     {
-      path: '/gameSearch',
-      name: 'gameSearch',
-      component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
+        path: '/index',
+        name: 'Indexback',
+        component: r => require.ensure([], () => r(require('../page/indexback.vue')), 'IndexBack')
+    },
+    {
+        path: '/gameSearch',
+        name: 'gameSearch',
+        component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
     },
     {
       path: '/goodtype',

@@ -16,5 +16,6 @@ namespace Bayetech.Core.Entity
     {
         public int DescriptionId { get; set; }
         public string DescriptionName { get; set; }
+        public Nullable<int> OrderId { get; set; }
     }
 }
