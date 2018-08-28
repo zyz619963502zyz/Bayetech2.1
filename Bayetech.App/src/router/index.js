@@ -22,14 +22,14 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
     },
     {
-        path: '/gameSearch',
-        name: 'gameSearch',
-        component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
+      path: '/gameSearch',
+      name: 'gameSearch',
+      component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
     },
     {
-        path: '/goodtype',
-        name: 'goodtype',
-        component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
+      path: '/goodtype',
+      name: 'goodtype',
+      component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
     }
   ]
 })
