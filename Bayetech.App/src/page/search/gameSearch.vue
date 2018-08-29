@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ $route.params.userId }}
+      <h1>{{gname}}</h1>
     <div id="wrapper" class="search2">
       <div>
         <div class="header pl-30 clearfix border-bottom">
@@ -249,7 +249,9 @@
 </template>
 <script>
 import "@/assets/css/gameSearch.css";
-let vmdata = new Object();
+let vmdata = {
+    gname:''
+};
 export default {
   name: "gameSearch",
   data() {
@@ -260,6 +262,7 @@ export default {
     console.log(id);
     console.log(this.$route.query);
     this.getdata();
+    this.gname = this.$route.query.typeName;
   },
   methods: {
     getdata() {}
