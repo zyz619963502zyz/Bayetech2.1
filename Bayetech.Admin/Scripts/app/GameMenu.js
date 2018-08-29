@@ -14,6 +14,8 @@ let vmData = {
     GameArray:[],//游戏列表数据
     GameProfessionArray:[{}],//游戏职业列表数据
     GameInfoDescriptionArray:[{}],//游戏商品属性列表数据
+    ServerList1:[{}],
+    ServerList2:[{}],
     ListObj: [
         {
             Name: "",
@@ -80,6 +82,15 @@ new Vue({
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.FindList();
+        },
+        AddServer(){//添加游戏区/服务器
+        
+        },
+        DelServer(){//删除游戏区/服务器
+        
+        },
+        OpenServerChild(){//打开服务器编辑模态框
+            $("#GameServer2").modal("show");
         },
         OpenProperty(){//游戏属性模态框
             $("#GamePropertyModal").modal("show");
