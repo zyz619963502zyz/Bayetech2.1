@@ -35,6 +35,10 @@ export default new Router({
         path: '/goodtype',
         name: 'goodtype',
         component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
+    },{
+        path: '/hotgameSearch_answer',
+        name: 'hotgameSearch_answer',
+        component: r => require.ensure([], () => r(require('../page/search/hotgameSearch_answer.vue')), 'hotgameSearch_answer')
     }
   ]
 })
