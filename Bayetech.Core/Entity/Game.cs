@@ -24,5 +24,6 @@ namespace Bayetech.Core.Entity
         public Nullable<int> Platform { get; set; }
         public string Img { get; set; }
         public bool IsDelete { get; set; }
+        public string FirstLetter { get; set; }
     }
 }

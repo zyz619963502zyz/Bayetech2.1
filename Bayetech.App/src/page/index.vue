@@ -22,7 +22,8 @@
       <div data-v-4a678b7c="" class="index-header-logo">
         <img data-v-4a678b7c="" src="@/assets/content/images/logo.png" alt="5173游戏交易平台" class="img-responsive" />
       </div>
-      <router-link :to="{ name: 'gameSearch', params: { userId: 123 }}"><div data-v-4a678b7c="" class="index-header-search">
+      <router-link :to="{ name: 'gameSearch', params: { userId: 123 }}">
+        <div data-v-4a678b7c="" class="index-header-search">
   <div data-v-4a678b7c="" class="text-input">
     <span data-v-4a678b7c="" class="f30">搜索游戏</span>
   </div>
@@ -64,34 +65,36 @@
     </div>
     <div data-v-4a678b7c="" class="index-swiper bg-fff border-bottom py-30 mb-20">
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <a data-v-4a678b7c="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=3" title="游戏币交易" class="open-indicator">
-          <span data-v-4a678b7c="" class="class01"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">游戏币</p>
-        </a>
+        <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
+            <span data-v-4a678b7c="" class="class01"></span>
+            <p data-v-4a678b7c="" class="f28 color-000 mt-10">游戏币</p>
+          </router-link>
+       
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <a data-v-4a678b7c="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=2" title="帐号交易" class="open-indicator">
+        <router-link :to="{ path: '/gameSearch' ,query:{goodsType:3}}">
           <span data-v-4a678b7c="" class="class02"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">帐号</p>
-        </a>
+        </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <a data-v-4a678b7c="" href="https://m.5173.com/vue/mobile-game/recharge" title="手游首充，手游代充" class="open-indicator">
+        <router-link :to="{ path: '/hotGameSearch', query: { goodsType: 0}}">
           <span data-v-4a678b7c="" class="class03"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">手游充值</p>
-        </a>
+        </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <a data-v-4a678b7c="" href="https://m.5173.com/vue/dl" title="游戏代练" class="open-indicator">
+        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
           <span data-v-4a678b7c="" class="class04"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
-        </a>
+        </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <a data-v-4a678b7c="" href="https://m.5173.com/vue/choice/buyEntry?goodsType=1" title="装备交易" class="open-indicator">
-          <span data-v-4a678b7c="" class="class05"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">装备</p>
-        </a>
+        <router-link :to="{name:'gameSearch',query:{goodsType:2}}">
+            <span data-v-4a678b7c="" class="class05"></span>
+            <p data-v-4a678b7c="" class="f28 color-000 mt-10">装备</p>
+        </router-link> 
+            
       </div>
     </div>
     <!--搜索游戏-->
@@ -486,13 +489,15 @@
   let vmdata = new Object();
 
   export default {
-  name: "index",
-  data() {
-  return vmdata;
-  },mounted:function(){
-    console.log(this.$get)
-
-  }
-
+    name: "index",
+    data() {
+      return vmdata;
+    },
+    mounted:function(){
+      console.log(this.$get)
+    },
+    methods:{
+    
+    }
   };
 </script>

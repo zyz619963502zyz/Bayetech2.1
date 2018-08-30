@@ -17,9 +17,14 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../components/home.vue')), 'home')
     },
     {
-        path: '/',
-        name: 'Index',
-        component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
+      path: '/',
+      name: 'Index',
+      component: r => require.ensure([], () => r(require('../page/index.vue')), 'Index')
+    },
+    {
+        path: '/index',
+        name: 'Indexback',
+        component: r => require.ensure([], () => r(require('../page/indexback.vue')), 'IndexBack')
     },
     {
         path: '/gameSearch',
@@ -27,9 +32,14 @@ export default new Router({
         component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
     },
     {
-        path: '/goodtype',
-        name: 'goodtype',
-        component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
+      path: '/goodtype',
+      name: 'goodtype',
+      component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
+    },
+	{
+      path: '/hotGameSearch',
+      name: 'hotGameSearch',
+      component: r => require.ensure([], () => r(require('../page/search/hotGameSearch.vue')), 'hotGameSearch')
     }
   ]
 })

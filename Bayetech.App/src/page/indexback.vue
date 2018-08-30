@@ -20,16 +20,7 @@
     </div>
   </div>
 </template>
-<style lang="scss" >
-$background: #cccccc;
-body {
-  background: $background;
-}
 
-.appdownload {
-  background-color: #232323;
-}
-</style>
 
 
 <script>
@@ -42,8 +33,27 @@ export default {
   data() {
     return vmdata;
   },
+  mounted:function(){
+    this.getdata();
+  },
   components: {
     top: top
+  },methods:{
+    getdata:function(){
+        letter='';
+       let letter=letter||"";
+                var _self=this;
+                let type=1;
+           console.log(1)
+        try
+          {
+             this.$get("web/api/Game/GetGameByName", { type: type, name: ''}).then(function(result){console.log(result)})
+          }
+         catch(err)
+        {
+          console.log(err)
+        }
+    }
   }
 };
 </script>

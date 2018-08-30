@@ -92,12 +92,12 @@
     </div>
 </template>
 <script>
-  import '@/assets/css/goodtype.css';
-  let vmdata = new Object();
-  export default {
+import "@/assets/css/goodtype.css";
+let vmdata = new Object();
+export default {
   name: "goodtype",
   data() {
-  return vmdata;
+    return vmdata;
   }
-  };
+};
 </script>

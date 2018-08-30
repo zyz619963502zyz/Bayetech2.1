@@ -482,8 +482,6 @@ var comCompnent = {
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
@@ -10081,7 +10079,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10783,7 +10781,11 @@ let vmData = {
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
     GameTypes: [{ code: "0", name: "PC游戏" }, { code: "1", name: "手机游戏" }], //游戏类型
-    GameArray: [], //游戏列表
+    GameArray: [], //游戏列表数据
+    GameProfessionArray: [{}], //游戏职业列表数据
+    GameInfoDescriptionArray: [{}], //游戏商品属性列表数据
+    ServerList1: [{}],
+    ServerList2: [{}],
     ListObj: [{
         Name: "",
         Alias: "",
@@ -10815,9 +10817,21 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     el: '#app',
     data: vmData,
     created() {
-        //this.FindList();
+        var self = this;
+        self.Init();
     },
     methods: {
+        Init() {
+            //页面初始化方法，获取游戏列表:GameArray
+            var self = this;
+            self.FindList();
+        },
+        InitModalList() {
+            //获取模态框里面两个游戏属性/商品属性的列表:GameProfessionArray/GameInfoDescriptionArray
+            self.tools._comCompnent.postWebJson("", self.SearchParam, function (data) {//todo
+
+            });
+        },
         FindList() {
             //type:手游/端游,letter:首字母
             var self = this;
@@ -10827,25 +10841,48 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                     self.GameArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.FindList);
+                } else {
+                    self.GameArray = []; //清空列表
                 }
             }, function () {
                 $("#QueryList").Btns("reset");
             });
         },
-        //GetByLetter(letter){//根据首字母去查询下拉游戏
-        //    var self = this;
-        //    self.tools._comCompnent.getWebJson(self.GetByLetterUrl, {"type":0,"letter":letter}, function (data) {
-        //        self.GameArray = data.content;
-        //    });
-        //},
-        OperateModal() {},
         TurnToPage(page) {
+            //翻页
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.FindList();
         },
-        OperateProperty() {
+        AddServer() {//添加游戏区/服务器
+
+        },
+        DelServer() {//删除游戏区/服务器
+
+        },
+        OpenServerChild() {
+            //打开服务器编辑模态框
+            $("#GameServer2").modal("show");
+        },
+        OpenProperty() {
+            //游戏属性模态框
             $("#GamePropertyModal").modal("show");
+        },
+        AddProfession() {
+            //添加游戏职业属性
+            var self = this;
+            self.GameProfessionArray.push([]); //游戏职业列表数据
+        },
+        DelProfession() {//删除职业列表数据一行todo
+
+        },
+        AddDescription() {
+            //添加游戏商品属性
+            var self = this;
+            self.GameInfoDescriptionArray.push([]);
+        },
+        DelDescription() {//删除游戏商品属性列表数据一行todo
+
         }
     },
     components: {

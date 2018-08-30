@@ -1,0 +1,494 @@
+﻿
+/*顶部游戏名 可共用*/
+.top-header {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #f6f6f6;
+    line-height: .96rem;
+    z-index: 50;
+}
+
+    .top-header .top-back, .top-header .top-home {
+        position: absolute;
+        left: 0;
+        min-width: 10%;
+        height: .96rem;
+    }
+
+        .top-header .top-back a, .top-header .top-home a {
+            display: inline-block;
+            min-width: .55rem;
+            width: 100%;
+            height: .96rem;
+            text-indent: -9999px;
+        }
+
+        .top-header .top-home a {
+            background: url(../images/home.png?a16f0b8301dc2e46f87ab83e7d20a7dc) .3rem no-repeat;            
+            background-size: .51rem;
+        }
+
+        .top-header .top-back a {
+            background: url(../images/left.png?c784d2dbec9c6e24ef37a6fc98655660) .3rem no-repeat;
+            background-size: .21rem;
+        }
+
+    .top-header h2 {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: .96rem;
+        font-weight: 400;
+        line-height: .96rem;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+    }
+
+    .top-header .top-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 10%;
+        font-size: 0;
+        height: .96rem;
+        line-height: .96rem;
+        -webkit-text-size-adjust: none;
+        text-align: right;
+    }
+/*搜索框*/
+.mt-193[data-v-6b09e788] {
+    margin-top: 1.93rem;
+    z-index: 2;
+}
+
+.mbaccounts-seach {
+    height: auto;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding: .16rem 0;
+    background: #c9c9ce;
+}
+
+    .mbaccounts-seach .container-ms {
+        text-align: center;
+    }
+
+        .mbaccounts-seach .container-ms .container-inp {
+            display: block;
+            height: .62rem;
+            line-height: .62rem;
+            border-radius: .1rem;
+        }
+
+        .mbaccounts-seach .container-ms span {
+            display: inline-block;
+            padding-left: .45rem;
+            background: url(/dist/src/assets/images/search4.png?f1c7c4fe050302588bbeed8011ab1ff2) no-repeat 0;
+            background-size: .33rem;
+        }
+
+    .mbaccounts-seach i.del-icon {
+        width: .3rem;
+        height: .76rem;
+        background: url(/dist/src/assets/images/del.png?a537a56f4088ef5981d19f125d0ea7ae) no-repeat 100%;
+        background-size: .3rem;
+        display: block;
+        position: absolute;
+        top: .1rem;
+        right: .5rem;
+    }
+
+/*列表头 可共用*/
+.pt-287[data-v-6b09e788] {
+    padding-top: 2.87rem;
+}
+
+.fixed-box {
+    width: 100%;
+    height: auto;
+    z-index: 500;
+}
+
+.default_numb {
+    z-index: 31;
+    position: fixed;
+    top: 1.97rem;
+    width: 100%;
+    text-align: left;
+    height: 100%;
+    bottom: 0;
+    max-width: 768px;
+}
+
+    .default_numb ul {
+        position: relative;
+        z-index: 999;
+    }
+
+        .default_numb ul li {
+            line-height: .96rem;
+            border-bottom: 1px solid #e8e8e8;
+            padding-left: .3rem;
+            font-size: .3rem;
+            background: #fff;
+        }
+
+            .default_numb ul li.active a {
+                color: #f60;
+            }
+
+            .default_numb ul li.active {
+                background: url(/dist/src/assets/images/ok.png?ed7b8c0c603af34623301197b6633906) 6.8rem no-repeat #fff;
+                background-size: .35rem;
+            }
+
+    .default_numb[data-v-6b09e788] {
+        top: 1.92rem;
+        overflow-y: scroll;
+    }
+
+.mobilegames-nav {
+    height: auto;
+    display: block;
+}
+
+    .mobilegames-nav .gmnav-mle {
+        height: auto;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        padding-left: .15rem;
+    }
+
+        .mobilegames-nav .gmnav-mle .navdemo {
+            float: left;
+            width: 25%;
+            height: .95rem;
+            text-align: center;
+        }
+
+        .mobilegames-nav .gmnav-mle .active span {
+            color: #f60;
+        }
+
+    .mobilegames-nav .navdemo span {
+        display: inline-block;
+        height: .95rem;
+        line-height: .95rem;
+        padding-right: .33rem;
+    }
+
+        .mobilegames-nav .navdemo span.mold {
+            background: url(../images/mold-md.png?20e7068b647979ad3e2dd420d7a8b5cb) no-repeat right .35rem;
+            background-size: .24rem .24rem;
+        }
+
+    .mobilegames-nav .gmnav-mle .active span.mold {
+        background: url(../images/mold-md-hov.png?7b2e5ad7988a895c56a970e51430be43) no-repeat right .35rem;
+        background-size: .24rem .24rem;
+    }
+
+    .mobilegames-nav .navdemo span.server {
+        background: url(../images/mold-sv.png?fe74c9bcd75aa3aaa1e0a3ec2ec935fd) no-repeat right .38rem;
+        background-size: .22rem .13rem;
+    }
+
+    .mobilegames-nav .gmnav-mle .active span.server {
+        background: url(../images/mold-sv-hov.png?41b81dbeb0de8a0c3aa6ade236aaead8) no-repeat right .38rem;
+        background-size: .22rem .13rem;
+    }
+
+    .mobilegames-nav .navdemo span.price {
+        background: url(../images/mold-pr.png?9cb72c76a77e591d545a3d8c143f5b40) no-repeat right .38rem;
+        background-size: .17rem .25rem;
+    }
+
+    .mobilegames-nav .gmnav-mle .active span.price {
+        background: url(../images/mold-pr-hov.png?eb5589c2c1858478e3782ca01b1b26c2) no-repeat right .38rem;
+        background-size: .17rem .25rem;
+        color: #666;
+    }
+
+    .mobilegames-nav .navdemo span.sortin {
+        background: url(../images/mold-px.png?f60fa252bca4d1eafc489ba5ede51dda) no-repeat right .34rem;
+        background-size: .23rem .25rem;
+    }
+
+    .mobilegames-nav .gmnav-mle .active span.sortin {
+        background: url(../images/mold-px-hov.png?c9e09aa5d0212685aa7d9d4923be55be) no-repeat right .34rem;
+        background-size: .23rem .25rem;
+    }
+
+    .mobilegames-nav .navdemo span.screen {
+        background: url(../images/mold-se.png?89b1d27d1427fba187824dbe5ff07a6f) no-repeat right .34rem;
+        background-size: .24rem .25rem;
+    }
+
+    .mobilegames-nav .gmnav-mle .active span.screen {
+        background: url(../images/mold-se-hov.png?34396fe409e1f411ab23910184ac55c3) no-repeat right .34rem;
+        background-size: .24rem .25rem;
+    }
+
+    .mobilegames-nav .gmnav-list {
+        position: absolute;
+        top: .97rem;
+        left: 0;
+        width: 100%;
+        background: #fbfbfb;
+        z-index: 999;
+    }
+
+        .mobilegames-nav .gmnav-list .gmvst-mold ul li {
+            height: .98rem;
+            line-height: .98rem;
+        }
+
+            .mobilegames-nav .gmnav-list .gmvst-mold ul li.active span {
+                display: block;
+                background: url(css/choice-ico.png?83434a624228bc130b8fd17e085b704c) no-repeat 100%;
+                height: .98rem;
+                background-size: .31rem .23rem;
+                color: #f60;
+            }
+/*账号列表*/
+
+.list-main .pro-list-01 {
+    padding: .3rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    height: auto;
+    overflow: hidden;
+}
+
+.mbilegames-list, .mbilegames-list .listware, .mobilegames-conn {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+    .mbilegames-list .listware {
+        position: relative;
+    }
+
+        .mbilegames-list .listware .mbgmes-img {
+            width: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            background: #f1f1f1;
+        }
+
+            .mbilegames-list .listware .mbgmes-img img {
+                height: 1.5rem;
+                vertical-align: top;
+            }
+
+.mbgmes-con .mbl-cper .mbl-icon i.an {
+    background: url(../images/mbl-an.png?522be9e22e5590de67ee686e7acecdf9) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.mbgmes-con .mbl-cper .mbl-icon i.shou {
+    background: url(../images/mbl-shou.png?917b6afb95d34dcc6f31c12cc33a9e1e) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.mbgmes-con .mbl-cper .mbl-icon i.tu {
+    background: url(../images/mbl-tu.png?92a6a6f87aa0588e9af12fb7abee2c75) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.mbgmes-con .mbl-cper .mbl-icon i.pei {
+    background: url(../images/mbl-pei.png?f7c2ac5b3da03cc6027dec4c2fffbcbc) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.mbgmes-con .mbl-cper .mbl-icon i.zhao {
+    background: url(../images/mbl-zhao.png?64dc9c3191db96d1e530cc28fa468053) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.mbgmes-con .mbl-cper .mbl-icon i.mai {
+    background: url(../images/mbl-mai.png?d77354a87637fb5c51108b28ea58ad92) no-repeat 100%;
+    background-size: .32rem;
+}
+
+.picmun[data-v-6b09e788] {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: .52rem;
+    height: .28rem;
+    line-height: .26rem;
+    background: rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+.picmun span[data-v-6b09e788] {
+    display: inline-block;
+    background: url(../images/picmun-ico.png?bde1aa7b7e34658f82abad676ac25cfc) no-repeat 0;
+    height: .22rem;
+    background-size: .18rem;
+    padding-left: .22rem;
+}
+
+.mbgmes-con .mbl-title[data-v-6b09e788] {
+    max-height: 1.3rem;
+    height: auto !important;
+}
+
+.mbgmes-con .mbl-title {
+    overflow: hidden;
+    line-height: .43rem;
+}
+
+.mbgmes-con .mbl-cper {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+    .mbgmes-con .mbl-cper .mbl-money {
+        height: .58rem;
+        line-height: .58rem;
+    }
+
+    .mbgmes-con .mbl-cper .mbl-icon {
+        height: .58rem;
+    }
+/*筛选*/
+.filter-content[data-v-6b09e788] {
+    z-index: 101 !important;
+    height: 100vh;
+    width: 82%;
+    position: fixed;
+    top: 0;
+    max-width: 768px;
+    margin-left: 17%;
+    padding-bottom: 1.2rem;
+}
+
+.filter-confirm[data-v-6b09e788] {
+    background: #fff;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+}
+
+.filter-mask[data-v-6b09e788] {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 100;
+    max-width: 768px;
+    overflow: hidden;
+}
+
+.filter-list[data-v-6b09e788] {
+    padding: 0 .3rem;
+    background: #fff;
+}
+
+.price-list, .price-type {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+.screen-titl {
+    height: 1.1rem;
+    line-height: 1.1rem;
+}
+
+.screen-price {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+    .screen-price .price-input {
+        border: 1px solid #e8e8e8;
+        height: .73rem;
+        line-height: .43rem;
+        padding: .15rem 0;
+        width: 43%;
+        background: #fafafa;
+        text-align: center;
+        color: #000;
+    }
+
+    .screen-price span.hern {
+        display: inline-block;
+        width: 14%;
+        height: .73rem;
+        background: url(css/and-ico.png?8541770e8bdfaf2f142ecc00eca398fc) no-repeat 50%;
+        background-size: .16rem .04rem;
+    }
+
+.screen-titl .src-ico {
+    height: 1.1rem;
+    background: url(css/out-ico.png?6fb92253cf3798e25e1c5b4bf5c41425) no-repeat 100%;
+    background-size: .14rem .23rem;
+    padding-right: .4rem;
+    padding-left: 30%;
+}
+
+.manycheck[data-v-6b09e788] {
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+    padding-left: 0;
+}
+/*底部确定和清除按钮*/
+
+.goodslist-btn {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+    .goodslist-btn .options {
+        height: .92rem;
+        line-height: .92rem;
+        background-color: #f6f6f6;
+        width: 32%;
+    }
+
+    .goodslist-btn .purchase {
+        display: block;
+        width: 63%;
+    }
+
+    .goodslist-btn .purchase, .goodslist-btn .suborder, .goodslist-btn .total {
+        height: .92rem;
+        line-height: .92rem;
+    }
+
+/*角色性别*/
+.price-type ul li {
+    height: .99rem;
+    width: 30%;
+    margin-right: 3%;
+}
+
+    .price-type ul li span[data-v-6b09e788] {
+        display: block;
+        line-height: .99rem;
+        height: .99rem;
+        text-align: center;
+        overflow: hidden;
+    }
