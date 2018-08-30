@@ -102,11 +102,10 @@ new Vue({
         DelProfession(){//删除职业列表数据一行todo
         
         },
-        AddDescription(){//添加游戏商品属性
-            var self = this;
-            self.GameInfoDescriptionArray.push([]);
+        OpenTradeType(){//打开商品类型模态框
+            $("#TradeTypeModal").modal("show");
         },
-        DelDescription(){//删除游戏商品属性列表数据一行todo
+        SaveTrade(){//将checkbox的数据保存到列表
         
         }
     },
