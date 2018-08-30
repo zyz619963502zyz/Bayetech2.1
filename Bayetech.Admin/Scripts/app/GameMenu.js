@@ -69,7 +69,7 @@ new Vue({
         //    });
         //},
         OperateModal(){
-        
+            alert(1);
         },
         TurnToPage(page){
             var self = this;
