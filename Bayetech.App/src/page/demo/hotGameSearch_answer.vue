@@ -2,7 +2,7 @@
   <div>
     {{ $route.params.userId }}
     <div id="wrapper" class="search2">
-   
+      
       
       <div class="rake pl-30 bg-fff " style=" position: absolute; width: 100%;">
         
@@ -26,42 +26,47 @@
 
 </template>
 <script>
-import "@/assets/css/gameSearch.css";
-let vmdata = new Object();
-vmdata.gameList = new Array();
-vmdata.goodsType = "";
-export default {
+  import "@/assets/css/gameSearch.css";
+  let vmdata = new Object();
+  vmdata.gameList = new Array();
+  vmdata.goodsType = "";
+
+  export default {
   name: "hotGameSearch",
   data() {
-    return vmdata;
+  return vmdata;
   },
+
   mounted: function() {
-    this.$data.goodsType = this.$route.query.goodsType;
-    console.log(this.$route.params.userId);
-    this.getHotGame();
+  let self=this;
+  self.goodsType = this.$route.query.goodsType;
+  console.log(this.$route.params.userId);
+  this.getHotGame();
   },
   methods: {
-    getHotGame: function() {
-      let self = this;
-      try {
-        this.$get("web/api/Game/GetHotGameList", { type: 0, count: 10 }).then(
-          function(result) {
-            console.log(self);
-            vmdata.gameList = result;
+  getHotGame: function() {
+  let self = this;
+  try {
+  this.$get("web/api/Game/GetHotGameList", { type: 0, count: 10 }).then(
+  function(result) {
+  console.log(result)
+ console.log(self);
+  self.gameList = result;
 
-            for (let game of vmdata.gameList) {
-              game.queryModel = {};
-              game.queryModel.id = game.Id;
-              game.queryModel.goodsType = self.goodsType;
-            }
-            console.log(result);
-          }
-        );
-      } catch (err) {
-        console.log(err);
-      }
-    }
+  for (let game of vmdata.gameList) {
+ 
+  game.queryModel = {};
+  game.queryModel.id = game.Id;
+  game.queryModel.goodsType = self.goodsType;
   }
-};
+  console.log(result);
+  }
+  );
+  } catch (err) {
+  console.log(err);
+  }
+  }
+  }
+  };
 </script>
 
