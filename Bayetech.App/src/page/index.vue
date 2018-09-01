@@ -394,7 +394,7 @@
       <div data-v-979c35b8="" class="dialog-box bg-fff" style="display: none;">
         <div data-v-979c35b8="" class="dialog-main">
           <div data-v-979c35b8="" class="dialog-body">
-            <h2 data-v-979c35b8="" class=" color-000">
+            <h2 data-v-979c35b8="" class="color-000">
               经验证，QQ客服
               <em data-v-979c35b8="" class="color-m1"></em>为假客服
             </h2>

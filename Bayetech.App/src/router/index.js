@@ -39,7 +39,7 @@ export default new Router({
 	{
       path: '/hotGameSearch',
       name: 'hotGameSearch',
-      component: r => require.ensure([], () => r(require('../page/search/hotGameSearch.vue')), 'hotGameSearch')
+      component: r => require.ensure([], () => r(require('../page/demo/hotGameSearch.vue')), 'hotGameSearch')
     }
   ]
 })

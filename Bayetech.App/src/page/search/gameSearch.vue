@@ -1,7 +1,8 @@
 <template>
   <div>
-      <h1>{{gname}}</h1>
+      
     <div id="wrapper" class="search2">
+        <h1>{{gname}}</h1>
       <div>
         <div class="header pl-30 clearfix border-bottom">
           <div class="header-l ps-r">
@@ -13,96 +14,96 @@
         <!---->
       </div>
       <!---->
-      <div class="rake pl-30 bg-fff " style=" position: absolute; width: 100%;">
-        <div class=" rake-con clearfix border-bottom">
+      <div class="rake pl-30 bg-fff " style="position: absolute; width: 100%;">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">地下城与勇士</h4>
+              <h4 class="f30 color-000 dis-in">地下城与勇士</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=cb718624f94446c9a4b266d1eb113d92&amp;gname=%E5%A4%A7%E5%A4%A9%E4%BD%BF%E4%B9%8B%E5%89%91&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">大天使之剑</h4>
+              <h4 class="f30 color-000 dis-in">大天使之剑</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=1114&amp;gname=%E5%86%92%E9%99%A9%E5%B2%9B&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">冒险岛</h4>
+              <h4 class="f30 color-000 dis-in">冒险岛</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=2fdfb7d3fcd84b97b1e702d02c9ee7a7&amp;gname=%E6%96%97%E6%88%98%E7%A5%9E&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">斗战神</h4>
+              <h4 class="f30 color-000 dis-in">斗战神</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=f3823b6683834acdbfbd82f67b394b88&amp;gname=%E9%97%AE%E9%81%93&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">问道</h4>
+              <h4 class="f30 color-000 dis-in">问道</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=3cb8fe8afd2743e08ab577cbb525650f&amp;gname=%E5%A4%A9%E6%B6%AF%E6%98%8E%E6%9C%88%E5%88%80&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">天涯明月刀</h4>
+              <h4 class="f30 color-000 dis-in">天涯明月刀</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=f817ac404a1641b7820ee1446ba4185b&amp;gname=%E5%88%80%E5%89%91%E8%8B%B1%E9%9B%84&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">刀剑英雄</h4>
+              <h4 class="f30 color-000 dis-in">刀剑英雄</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=19217d865b294d88b775744afb7bdfa5&amp;gname=%E5%86%92%E9%99%A9%E5%B2%9B2&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">冒险岛2</h4>
+              <h4 class="f30 color-000 dis-in">冒险岛2</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=fe9ddb5ed5274cf2b8ebec75aacba674&amp;gname=%E9%B9%BF%E9%BC%8E%E8%AE%B0&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
@@ -113,11 +114,11 @@
           <!---->
           <!---->
         </div>
-        <div class=" rake-con clearfix border-bottom">
+        <div class="rake-con clearfix border-bottom">
           <a href="/vue/search-all-app/search-class?gid=ddd44a893e504e10818418a955fe08b6&amp;gname=%E7%A5%9E%E9%AD%94%E5%A4%A7%E9%99%86&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
             <div class="search-all-head rake-con-l  ps-a">
               <i></i>
-              <h4 class=" f30 color-000 dis-in">神魔大陆</h4>
+              <h4 class="f30 color-000 dis-in">神魔大陆</h4>
             </div>
             <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
           </a>
@@ -137,7 +138,7 @@
             <a href="/vue/search-all-app/search-class?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
               <div class="search-all-head rake-con-l  ps-a">
                 <i></i>
-                <h4 class=" f30 color-000 dis-in">地下城与勇士</h4>
+                <h4 class="f30 color-000 dis-in">地下城与勇士</h4>
               </div>
               <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
             </a>
@@ -150,7 +151,7 @@
             <a href="/vue/search-all-app/search-class?gid=880&amp;gname=%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C%28%E5%9B%BD%E6%9C%8D%29&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
               <div class="search-all-head rake-con-l  ps-a">
                 <i></i>
-                <h4 class=" f30 color-000 dis-in">魔兽世界(国服)</h4>
+                <h4 class="f30 color-000 dis-in">魔兽世界(国服)</h4>
               </div>
               <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
             </a>
@@ -163,7 +164,7 @@
             <a href="/vue/search-all-app/search-class?gid=ff1c43a22868486db2f44b32f2688f23&amp;gname=%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
               <div class="search-all-head rake-con-l  ps-a">
                 <i></i>
-                <h4 class=" f30 color-000 dis-in">穿越火线</h4>
+                <h4 class="f30 color-000 dis-in">穿越火线</h4>
               </div>
               <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
             </a>
@@ -176,7 +177,7 @@
             <a href="/vue/search-all-app/search-class?gid=d2665a7bb03645bfb16fb999891258ea&amp;gname=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F&amp;gameType=1&amp;type=special&amp;goodsType=" class="dis-b clearfix ps-r">
               <div class="search-all-head rake-con-l  ps-a">
                 <i></i>
-                <h4 class=" f30 color-000 dis-in">英雄联盟</h4>
+                <h4 class="f30 color-000 dis-in">英雄联盟</h4>
               </div>
               <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
             </a>
@@ -263,6 +264,7 @@ export default {
     console.log(this.$route.query);
     this.getdata();
     this.gname = this.$route.query.typeName;
+   
   },
   methods: {
     getdata() {}
