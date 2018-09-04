@@ -1,6 +1,7 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -92,13 +93,44 @@ namespace Bayetech.Service.Services
         /// </summary>
         /// <param name="game"></param>
         /// <returns></returns>
-        public JObject UpdateGame(Game game) {
+        public JObject UpdateGame(JObject json) {
             JObject ret = new JObject();
+            ////游戏基本信息
+            Game game = json["GameArray"].ToString() == "" ? new Game() : JsonConvert.DeserializeObject<Game>(json["GameArray"].ToString());
+            //区服务信息
+            List<Server> server = json["ServerList1"].ToString() == "" ? new List<Server>() : JsonConvert.DeserializeObject<List<Server>>(json["ServerList1"].ToString());
+            //职业信息
+            List<GameProfession> gameProfession = json["GameProfessionArray"].ToString() == "" ? new List<GameProfession>() : JsonConvert.DeserializeObject<List<GameProfession>>(json["GameProfessionArray"].ToString());
+            //商品属性
+            List<GameInfoDescription> gameInfoDescription = json["GameInfoDescriptionArray"].ToString() == "" ? new List<GameInfoDescription>() : JsonConvert.DeserializeObject<List<GameInfoDescription>>(json["GameInfoDescriptionArray"].ToString());
             using (var db = new RepositoryBase().BeginTrans())
             {
+                server.ForEach(a => a.GameId = game.Id);
                 int flag = db.Update(game);
-                if (flag > 0)
+                var serveraList = db.IQueryable<Server>(a => a.Id == game.Id).ToList();
+                foreach (var item in serveraList)
                 {
+                    db.Delete<Server>(item);
+                }
+                foreach (var item in server)
+                {
+                    db.Insert<Server>(server);
+                }
+                var gameProfessionList = db.IQueryable<GameProfession>(a => a.GameId == game.Id);
+                foreach (var item in gameProfessionList)
+                {
+                    db.Delete<GameProfession>(item);
+                }
+                foreach (var item in gameProfession)
+                {
+                    db.Insert<GameProfession>(item);
+                }
+                var gameInfoDescription = from a in db.IQueryable<GoodAndDescription>()
+                                          join b in db.IQueryable<GameInfoDescription>() on a.DescriptionId equals b.DescriptionId
+                                          where a.GameId == game.Id
+                                          select b;
+                if (flag > 0)
+                {[dbo].[vw_NoToProperty]
                     ret.Add("result", true);
                     ret.Add("Mess", JObject.FromObject("更游戏新成功！"));
                 }
