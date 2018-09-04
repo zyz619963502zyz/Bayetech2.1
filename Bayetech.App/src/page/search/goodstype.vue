@@ -7,10 +7,11 @@
     <div id="wrapper">
         <div class="top-header fixed-top border-bottom" style="z-index: 61;">
             <div class="top-back">
-                <a>
-                </a>
+              <router-link :to="{ path: '/gameSearch'}" class="color-f7 f30 header-r">
+                取消
+              </router-link>
             </div>
-            <h2 class="f36">地下城与勇士</h2>
+            <h2 class="f36">{{gname}}</h2>
             <div class="top-right"></div>
         </div>
         <div class="fixedspace2" style="height: 0.96rem;"></div>
@@ -23,8 +24,13 @@
             <div class="slist fw f30">
                 <!---->
                 <ul class="style03">
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/pcGoodsList/44343b06076d4a7a95a0ef22aac481ae/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB/2">游戏帐号</a>
+                    <li class="bg-fff"  v-for="goodsType in goodsTypes">
+                      <router-link :to="{ path: '/goodstype', query: goodsType.queryModel }" class="dis-b clearfix ps-r">
+                         {{goodsType.Name}}
+                      </router-link>
+                        
+                        
+                       
                     </li>
                     <li class="bg-fff">
                         <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=3&amp;gameType=1&amp;tradeType=0&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81">游戏币</a>
@@ -92,12 +98,46 @@
     </div>
 </template>
 <script>
-import "@/assets/css/goodtype.css";
-let vmdata = new Object();
-export default {
+  import "@/assets/css/goodtype.css";
+  let vmdata ={
+  goodsTypes:[],
+  gname:'',
+  gid:'',
+  gameList:[]
+  };
+  export default {
   name: "goodtype",
   data() {
-    return vmdata;
+  return vmdata;
+  },
+  mounted:function(){
+  this.gname=this.$route.query.name;
+  this.gid=this.$route.query.id;
+  this. getGoodsType();
+  },
+  methods:
+  {
+  getGoodsType:function (params) {
+        let self = this;
+      try {
+        this.$get("web/api/GoodType/GetGoodType", { gameid: 1,type:'good' }).then(function(result) {
+          self.goodsTypes = result.content;
+          console.log( self.goodsTypes);
+          for (let goodsType of self.goodsTypes) {
+            goodsType.queryModel = {};
+            goodsType.queryModel.id = self.gid;
+            goodsType.queryModel.name=self.gname;
+            goodsType.queryModel.goodsType = goodsType.Id;
+            goodsType.queryModel.goodsTypeName = goodsType.Name;
+          }
+         
+        });
+      } catch (err) {
+        console.log(err);
+      }
   }
-};
+
+  }
+
+  };
 </script>

@@ -12,16 +12,10 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_GoodTypes
+    public partial class RelationshipType
     {
-        public long rowid { get; set; }
-        public Nullable<long> Id { get; set; }
-        public string Name { get; set; }
-        public string GameName { get; set; }
-        public Nullable<long> GameId { get; set; }
-        public string Unit { get; set; }
-        public string Alias { get; set; }
-        public string Type { get; set; }
-        public string En_Name { get; set; }
+        public int Id { get; set; }
+        public string code { get; set; }
+        public string name { get; set; }
     }
 }

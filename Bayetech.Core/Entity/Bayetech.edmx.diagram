@@ -39,7 +39,6 @@
         <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
@@ -47,7 +46,6 @@
         <EntityTypeShape EntityType="BayetechModel.MallGoodPictures" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_ArticleModule" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
@@ -64,6 +62,9 @@
         <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Login" Width="1.5" PointX="17.375" PointY="14.75" />
         <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Navigations" Width="1.5" PointX="15.375" PointY="18.75" />
         <EntityTypeShape EntityType="BayetechModel.Game" Width="1.5" PointX="7.375" PointY="19.75" />
+        <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="7.375" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.RelationshipType" Width="1.5" PointX="15.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="19.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
