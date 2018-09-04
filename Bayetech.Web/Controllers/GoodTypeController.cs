@@ -14,7 +14,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="gameId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public JObject GetGoodType(int gameId,int type, string name = null)
+        public JObject GetGoodType(int gameId,string type, string name = null)
         {
             name = Core.Common.Trim(name);
             if (string.IsNullOrEmpty(name))
@@ -39,11 +39,11 @@ namespace Bayetech.Web.Controllers
             name = Core.Common.Trim(name);
             if (string.IsNullOrEmpty(name))
             {
-                return mallTypeService.GetList(t => t.GameId == gameId && t.Type == 4);
+                return mallTypeService.GetList(t => t.GameId == gameId && t.Type == "4");
             }
             else
             {
-                return mallTypeService.GetList(t => t.GameId == gameId && t.Type == 4 && t.Name.Contains(name));
+                return mallTypeService.GetList(t => t.GameId == gameId && t.Type == "4" && t.Name.Contains(name));
             }
         }
     }

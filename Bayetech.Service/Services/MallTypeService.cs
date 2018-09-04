@@ -13,7 +13,7 @@ namespace Bayetech.Service.Services
             var a = db.MallType.Join(db.Relationship, m => m.Id, r => r.ParentKey, (m, r) => new { m });
             var b = a.ToList();
             var query = (from r in db.Relationship join m in db.MallType on r.Key equals m.Id
-                        where r.Type == 1 && r.ParentKey == gameId
+                        where r.Type == "good" && r.ParentKey == gameId
                          select new { m });
             return query.ToList().Select(m=>new MallType {Id = m.m.Id,Name = m.m.Name, }).ToList();
         }

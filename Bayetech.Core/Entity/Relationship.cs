@@ -17,7 +17,7 @@ namespace Bayetech.Core.Entity
         public long Id { get; set; }
         public Nullable<long> Key { get; set; }
         public string Value { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
         public Nullable<long> ParentKey { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> ModifyTime { get; set; }

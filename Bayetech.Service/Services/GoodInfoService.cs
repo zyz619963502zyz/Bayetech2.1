@@ -190,9 +190,10 @@ namespace Bayetech.Service
             var db = GetContext();
             var query = (from r in db.Relationship
                          join p in db.ExtraProperty on r.Key equals p.Id
-                         where r.Type == 2 && r.ParentKey == gameId && r.Value == goodTypeId.ToString()&&p.Type=="good"
+                         where r.Type == "dailian" && r.ParentKey == gameId && r.Value == goodTypeId.ToString()&&p.Type=="good"
                          select p);
             return query.ToList();
         } 
     }
 }
+

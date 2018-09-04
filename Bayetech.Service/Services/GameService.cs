@@ -22,7 +22,7 @@ namespace Bayetech.Service.Services
             var db = GetContext();
             var query = (from r in db.Relationship
                          join p in db.ExtraProperty on r.Key equals p.Id
-                         where r.Type == 3 && r.ParentKey == gameId  && p.Type == "game"
+                         where r.Type == "3" && r.ParentKey == gameId  && p.Type == "game"
                          select p);
             return query.ToList();
         }
