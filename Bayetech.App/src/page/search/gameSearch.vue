@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>{{gname}}</h1>
+    <h1>{{gname}}</h1>
     <div id="wrapper" class="search2">
       <div>
         <div class="header pl-30 clearfix border-bottom">
@@ -8,10 +8,10 @@
             <input type="text" placeholder="请输入游戏名称或首字母" class="f30" ref="txtkeywords"    v-model="keyWords" v-on:compositionstart="compositionstart()" v-on:compositionend="compositionend()" v-on:input="input()"   />
             <!---->
           </div>
-           <router-link :to="{ path: '/'}" class="color-f7 f30 header-r">
-           取消
+          <router-link :to="{ path: '/'}" class="color-f7 f30 header-r">
+            取消
           </router-link>
-        
+
         </div>
         <!---->
       </div>
@@ -28,7 +28,7 @@
           <!---->
           <!---->
         </div>
-      
+
       </div>
       <div class="pl-30 bg-fff mb-20  " v-show="searchGameList.length==0">
         <div class="his clearfix border-bottom">
@@ -37,7 +37,7 @@
             <img src="/dist/src/assets/images/common/del.png?a3d03c0678b2f6cefeb71365d6021b90"/>
           </div>
         </div>
-         <div class="Warrior clearfix border-bottom" v-for="game in historyGameList">
+        <div class="Warrior clearfix border-bottom" v-for="game in historyGameList">
           <div class="rake-con clearfix border-bottom">
             <router-link :to="{ path: '/goodstype', query: game.queryModel }" class="dis-b clearfix ps-r">
               <div class="search-all-head rake-con-l  ps-a">
@@ -46,12 +46,12 @@
               </div>
               <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a "/>
             </router-link>
-            
+
             <!---->
             <!---->
           </div>
         </div>
-    
+
       </div>
       <div data-v-f8bac10c="" class="hot pl-30 bg-fff border-bottom " v-show="searchGameList.length==0">
         <h4 data-v-f8bac10c="" class="f30 color-999 border-bottom">5173热搜</h4>
@@ -116,92 +116,92 @@
 
 </template>
 <script>
-import "@/assets/css/gameSearch.css";
-let vmdata = {
+  import "@/assets/css/gameSearch.css";
+  let vmdata = {
   flag: false,
   gname: "",
   gameList: [],
   keyWords: "",
   searchGameList: [],
   historyGameList:[]
-};
-export default {
+  };
+  export default {
   name: "gameSearch",
   data() {
-    return vmdata;
+  return vmdata;
   },
   mounted: function() {
-    let id = this.$route.query.goodsType;
-    
-    this.getGameList();
+  let id = this.$route.query.goodsType;
+
+  this.getGameList();
   },
   watch: {
-    keyWords: function(newval) {
-      let self = this;
-      if (newval) {
-        this.search();
-      } else {
-        self.searchGameList = [];
-      }
-    }
+  keyWords: function(newval) {
+  let self = this;
+  if (newval) {
+  this.search();
+  } else {
+  self.searchGameList = [];
+  }
+  }
   },
   methods: {
-    compositionstart: function() {
-      this.flag = true;
-    },
-    compositionend: function() {
-      this.flag = false;
-    },
-    input: function() {
-      var _this = this;
-      setTimeout(function() {
-        if (_this.flag) {
-          _this.keyWords = _this.$refs.txtkeywords.value;
-          console.log(_this.$refs.txtkeywords.value);
-        }
-      }, 0);
-    },
-    getGameList: function() {
-      let self = this;
-      try {
-        this.$get("web/api/Game/GetGameList", { game: "" }).then(function(
-          result
-        ) {
-          console.log(result);
-          console.log(self);
-          self.gameList = result.content;
-
-          for (let game of self.gameList) {
-            game.queryModel = {};
-            game.queryModel.id = game.Id;
-            game.queryModel.name=game.Name;
-            game.queryModel.goodsType = self.goodsType;
-          }
-          self.getHistory();
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    },
-    search: function() {
-      var self = this;
-      self.searchGameList = self.gameList.filter(function(game) {
-        return (
-          game.Name.indexOf(self.keyWords) >= 0 ||
-          game.FirstLetter.indexOf(self.keyWords) >= 0
-        );
-      });
-    },
-    getHistory:function(){
-       var self = this;
-      self.historyGameList = self.gameList.filter(function(game) {
-        return (
-          game.Name==='地下城与勇士' ||
-         game.Name==='英雄联盟' 
-        );
-      });
-    }
+  compositionstart: function() {
+  this.flag = true;
+  },
+  compositionend: function() {
+  this.flag = false;
+  },
+  input: function() {
+  var _this = this;
+  setTimeout(function() {
+  if (_this.flag) {
+  _this.keyWords = _this.$refs.txtkeywords.value;
+  console.log(_this.$refs.txtkeywords.value);
   }
-};
+  }, 0);
+  },
+  getGameList: function() {
+  let self = this;
+  try {
+  this.$get("web/api/Game/GetGameList", { game: "" }).then(function(
+  result
+  ) {
+  console.log(result);
+  console.log(self);
+  self.gameList = result.content;
+
+  for (let game of self.gameList) {
+  game.queryModel = {};
+  game.queryModel.id = game.Id;
+  game.queryModel.name=game.Name;
+  game.queryModel.goodsType = self.goodsType;
+  }
+  self.getHistory();
+  });
+  } catch (err) {
+  console.log(err);
+  }
+  },
+  search: function() {
+  var self = this;
+  self.searchGameList = self.gameList.filter(function(game) {
+  return (
+  game.Name.indexOf(self.keyWords) >= 0 ||
+  game.FirstLetter.indexOf(self.keyWords) >= 0
+  );
+  });
+  },
+  getHistory:function(){
+  var self = this;
+  self.historyGameList = self.gameList.filter(function(game) {
+  return (
+  game.Name==='地下城与勇士' ||
+  game.Name==='英雄联盟'
+  );
+  });
+  }
+  }
+  };
 </script>
 
