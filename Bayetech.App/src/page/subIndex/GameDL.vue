@@ -24,22 +24,22 @@
                 <section class="wh_content swiper-container index-banner bg-000 border-bottom  text-center mt-97">
                     <div class="wh_swiper wh_swiper_875" style="transform: translate3d(-375px, 0px, 0px); transition: 0s;">
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg"/>
                         </div>
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg"/>
                         </div>
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIsAAAAAAAAF9GkJGPXg6..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIsAAAAAAAAF9GkJGPXg6..jpg"/>
                         </div>
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIpIAAAAAAAHXgUqOLsM6..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIpIAAAAAAAHXgUqOLsM6..jpg"/>
                         </div>
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg"/>
                         </div>
                         <div class="wh_slide swiper-slide">
-                            <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg">
+                            <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg"/>
                         </div>
                     </div>
                     <div class="wh_indicator">
@@ -54,7 +54,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://html.5173.com/yunyin/201705/txtb/lol.jpg">
+                                    <img src="http://html.5173.com/yunyin/201705/txtb/lol.jpg"/>
                                 </span>
                                 <p class="f26 color-000">英雄联盟</p>
                             </a>
@@ -62,7 +62,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9khEAAAAAAAQb1hUQDl82..png">
+                                    <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9khEAAAAAAAQb1hUQDl82..png"/>
                                 </span>
                                 <p class="f26 color-000">魔兽世界(国服)</p>
                             </a>
@@ -70,7 +70,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://html.5173.com/yunyin/201705/txtb/wzry.jpg">
+                                    <img src="http://html.5173.com/yunyin/201705/txtb/wzry.jpg"/>
                                 </span>
                                 <p class="f26 color-000">王者荣耀</p>
                             </a>
@@ -78,7 +78,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png">
+                                    <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png"/>
                                 </span>
                                 <p class="f26 color-000">地下城与勇士</p>
                             </a>
@@ -86,7 +86,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://bo.5173cdn.com/5173_2/data/201807/00/EA/RAKowFtEE1QAAAAAAAAZ2QuNJjc2..jpg">
+                                    <img src="http://bo.5173cdn.com/5173_2/data/201807/00/EA/RAKowFtEE1QAAAAAAAAZ2QuNJjc2..jpg"/>
                                 </span>
                                 <p class="f26 color-000">逆冰塞OL</p>
                             </a>
@@ -94,7 +94,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://bo.5173cdn.com/5173_2/data/201807/00/3D/RAKowFs62Y0AAAAAAAEIXEnlwEc8..jpg">
+                                    <img src="http://bo.5173cdn.com/5173_2/data/201807/00/3D/RAKowFs62Y0AAAAAAAEIXEnlwEc8..jpg"/>
                                 </span>
                                 <p class="f26 color-000">逆*寒</p>
                             </a>
@@ -102,7 +102,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a class="open-indicator">
                                 <span>
-                                    <img src="http://html.5173.com/yunyin/201705/txtb/nz.jpg">
+                                    <img src="http://html.5173.com/yunyin/201705/txtb/nz.jpg"/>
                                 </span>
                                 <p class="f26 color-000">逆战</p>
                             </a>
@@ -110,7 +110,7 @@
                         <li class="swiper-slide fl text-center pt-20">
                             <a href="/vue/dl/dl-search-game" class="open-indicator">
                                 <span>
-                                    <img src="../../content/images/dl/other.png?4d67ee2ef546907598bdfc8e03eddfad">
+                                    <img src="../../content/images/dl/other.png?4d67ee2ef546907598bdfc8e03eddfad"/>
                                 </span>
                                 <p class="f26 color-000">其他游戏</p>
                             </a>
@@ -124,22 +124,22 @@
                     <ul class="active_enter">
                         <a>
                             <li>
-                                <img src="http://bo.5173cdn.com/5173_2/data/201803/02/D4/RAKowFq86icAAAAAAAEDJiJ4XuI2..jpg">
+                                <img src="http://bo.5173cdn.com/5173_2/data/201803/02/D4/RAKowFq86icAAAAAAAEDJiJ4XuI2..jpg"/>
                             </li>
                         </a>
                         <a>
                             <li>
-                                <img src="http://bo.5173cdn.com/5173_2/data/201803/02/D4/RAKowFq86o8AAAAAAADzlgulpRs8..jpg">
+                                <img src="http://bo.5173cdn.com/5173_2/data/201803/02/D4/RAKowFq86o8AAAAAAADzlgulpRs8..jpg"/>
                             </li>
                         </a>
                         <a>
                             <li>
-                                <img src="http://bo.5173cdn.com/5173_2/data/201804/00/3B/RAKowFrDB4wAAAAAAACgHWDl6F43..jpg">
+                                <img src="http://bo.5173cdn.com/5173_2/data/201804/00/3B/RAKowFrDB4wAAAAAAACgHWDl6F43..jpg"/>
                             </li>
                         </a>
                         <a>
                             <li>
-                                <img src="http://bo.5173cdn.com/5173_2/data/201804/00/B7/RAKowFrJtd8AAAAAAAEL2zV3Pdc3..jpg">
+                                <img src="http://bo.5173cdn.com/5173_2/data/201804/00/B7/RAKowFrJtd8AAAAAAAEL2zV3Pdc3..jpg"/>
                             </li>
                         </a>
                     </ul>

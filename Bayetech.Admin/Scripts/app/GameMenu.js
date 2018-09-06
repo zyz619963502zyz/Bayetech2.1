@@ -5,16 +5,19 @@ import componentTable from '../components/table-GameSet.vue'
 let vmData = {
     GameListUrl: "/api/Game/",
     GetByLetterUrl:"/api/Game/GetGameListByLetter",
+    UpdateGameUrl:"/api/Game/UpdateGame",
     tools:{
         _comCompnent:comCompnent,
         _componentTable:componentTable
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],//首字母集合
     GameTypes:[{code:"0",name:"PC游戏"},{code:"1",name:"手机游戏"}],//游戏类型
-    GameArray:[],//游戏列表数据
-    GameProfessionArray:[{}],//游戏职业列表数据
-    GameInfoDescriptionArray:[{}],//游戏商品属性列表数据
-    ServerList1:[{}],
+    GameArray:[],//游戏基本信息
+    EditData:[],//点击编辑的基本信息
+    GameProfessionArray:[],//职业信息列表数据
+    GameInfoDescriptionArray:[],//游戏商品属性列表数据
+
+    ServerList1:[],//区服务信息
     ServerList2:[{}],
     ListObj: [
         {
@@ -43,6 +46,7 @@ let vmData = {
             total: 10//总页数。
         }
     },
+
 };
 
 new Vue({
@@ -67,6 +71,7 @@ new Vue({
             self.tools._comCompnent.postWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
+                    
                     self.GameArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'),
@@ -92,12 +97,15 @@ new Vue({
         OpenServerChild(){//打开服务器编辑模态框
             $("#GameServer2").modal("show");
         },
-        OpenProperty(){//游戏属性模态框
+        OpenProperty(item){//游戏属性模态框
+            var self=this;
+            self.GameArray=item;
             $("#GamePropertyModal").modal("show");
+            alert(1);
         },
-        AddProfession(){//添加游戏职业属性
+        AddProfession(item){//添加游戏职业属性
             var self = this;
-            self.GameProfessionArray.push([]);//游戏职业列表数据
+            self.GameProfessionArray.push(item);//游戏职业列表数据
         },
         DelProfession(){//删除职业列表数据一行todo
         
@@ -107,6 +115,32 @@ new Vue({
         },
         SaveTrade(){//将checkbox的数据保存到列表
         
+        },
+        GameMenuSave(){//保存
+            debugger;
+            var updateSave={};
+            var self = this;
+            updateSave.GameArray=self.GameArray;
+            updateSave.ServerList1=self.ServerList1;
+            updateSave.GameProfessionArray=self.GameProfessionArray;
+            updateSave.GameInfoDescriptionArray=self.GameInfoDescriptionArray;
+            self.tools._comCompnent.postWebJson(self.UpdateGameUrl, updateSave, function (data) {
+                $("#QueryList").Btns("reset");
+                if (data.result) {
+                    
+                    self.GameArray = data.content.datas;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'),
+                        self.SearchParam, self.FindList);
+                }else {
+                    self.GameArray = [];//清空列表
+                }
+            },function(){
+                $("#QueryList").Btns("reset");
+            });
+        },
+        operatemodal(item){
+            alert(99);
         }
     },
     components:{

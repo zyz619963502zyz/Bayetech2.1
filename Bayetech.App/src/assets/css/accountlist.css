@@ -246,7 +246,7 @@
 
         .mobilegames-nav .gmnav-list .gmvst-mold ul li.active span {
             display: block;
-            background: url(css/choice-ico.png?83434a624228bc130b8fd17e085b704c) no-repeat 100%;
+            /*background: url(css/choice-ico.png?83434a624228bc130b8fd17e085b704c) no-repeat 100%;*/
             height: .98rem;
             background-size: .31rem .23rem;
             color: #f60
@@ -420,12 +420,12 @@
             display: inline-block;
             width: 14%;
             height: .73rem;
-            background: url(css/and-ico.png?8541770e8bdfaf2f142ecc00eca398fc) no-repeat 50%;
+            background: url(../images/Icon/and-ico.png?8541770e8bdfaf2f142ecc00eca398fc) no-repeat 50%;
             background-size: .16rem .04rem
         }
         .screen-titl .src-ico {
             height: 1.1rem;
-            background: url(css/out-ico.png?6fb92253cf3798e25e1c5b4bf5c41425) no-repeat 100%;
+            background: url(../images/Icon/out-ico.png?6fb92253cf3798e25e1c5b4bf5c41425) no-repeat 100%;
             background-size: .14rem .23rem;
             padding-right: .4rem;
             padding-left: 30%

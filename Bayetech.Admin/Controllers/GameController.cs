@@ -48,8 +48,7 @@ namespace Bayetech.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         public JObject UpdateGame(JObject json) {
-            Game game = JsonConvert.DeserializeObject<Game>(json.ToString());
-            return serviceGame.UpdateGame(game);
+            return serviceGame.UpdateGame(json);
         }
 
         /// <summary>

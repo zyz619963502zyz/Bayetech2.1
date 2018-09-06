@@ -10055,7 +10055,7 @@ var comCompnent = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__ = __webpack_require__(21);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -10068,8 +10068,8 @@ var comCompnent = {
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -10079,7 +10079,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("D:\\bay2018\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10088,7 +10088,7 @@ if (false) {
     } else {
       api.reload('186af22d', component.options)
     }
-    module.hot.accept("./table-GameSet.vue?vue&type=template&id=186af22d&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-GameSet.vue?vue&type=template&id=186af22d&lang=html", function () {
       api.rerender('186af22d', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -10775,16 +10775,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 let vmData = {
     GameListUrl: "/api/Game/",
     GetByLetterUrl: "/api/Game/GetGameListByLetter",
+    UpdateGameUrl: "/api/Game/UpdateGame",
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__["a" /* default */]
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
     GameTypes: [{ code: "0", name: "PC游戏" }, { code: "1", name: "手机游戏" }], //游戏类型
-    GameArray: [], //游戏列表数据
-    GameProfessionArray: [{}], //游戏职业列表数据
-    GameInfoDescriptionArray: [{}], //游戏商品属性列表数据
-    ServerList1: [{}],
+    GameArray: [], //游戏基本信息
+    EditData: [], //点击编辑的基本信息
+    GameProfessionArray: [{
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
+    }], //职业信息列表数据
+    GameInfoDescriptionArray: [{
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
+    }], //游戏商品属性列表数据
+
+    ServerList1: [{
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
+    }], //区服务信息
     ServerList2: [{}],
     ListObj: [{
         Name: "",
@@ -10811,6 +10844,7 @@ let vmData = {
             total: 10 //总页数。
         }
     }
+
 };
 
 new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
@@ -10838,6 +10872,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.tools._comCompnent.postWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
+
                     self.GameArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.FindList);
@@ -10864,14 +10899,17 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //打开服务器编辑模态框
             $("#GameServer2").modal("show");
         },
-        OpenProperty() {
+        OpenProperty(item) {
             //游戏属性模态框
+            var self = this;
+            self.GameArray = item;
             $("#GamePropertyModal").modal("show");
+            alert(1);
         },
-        AddProfession() {
+        AddProfession(item) {
             //添加游戏职业属性
             var self = this;
-            self.GameProfessionArray.push([]); //游戏职业列表数据
+            self.GameProfessionArray.push(item); //游戏职业列表数据
         },
         DelProfession() {//删除职业列表数据一行todo
 
@@ -10882,6 +10920,32 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         SaveTrade() {//将checkbox的数据保存到列表
 
+        },
+        GameMenuSave() {
+            //保存
+            debugger;
+            var updateSave = {};
+            var self = this;
+            updateSave.GameArray = self.GameArray;
+            updateSave.ServerList1 = self.ServerList1;
+            updateSave.GameProfessionArray = self.GameProfessionArray;
+            updateSave.GameInfoDescriptionArray = self.GameInfoDescriptionArray;
+            self.tools._comCompnent.postWebJson(self.UpdateGameUrl, updateSave, function (data) {
+                $("#QueryList").Btns("reset");
+                if (data.result) {
+
+                    self.GameArray = data.content.datas;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.FindList);
+                } else {
+                    self.GameArray = []; //清空列表
+                }
+            }, function () {
+                $("#QueryList").Btns("reset");
+            });
+        },
+        operatemodal(item) {
+            alert(99);
         }
     },
     components: {
@@ -11086,9 +11150,9 @@ process.umask = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__ = __webpack_require__(51);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(51);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["b"]; });
 
 
 /***/ }),

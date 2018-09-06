@@ -671,11 +671,21 @@
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Key" Type="bigint" />
           <Property Name="Value" Type="varchar" MaxLength="50" />
-          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="ParentKey" Type="bigint" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="ModifyTime" Type="datetime" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Bayetech.dbo.RelationshipType”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="RelationshipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Server">
           <Key>
@@ -787,14 +797,17 @@
         <EntityType Name="vw_GoodTypes">
           <Key>
             <PropertyRef Name="GameName" />
+            <PropertyRef Name="Alias" />
+            <PropertyRef Name="rowid" />
           </Key>
+          <Property Name="rowid" Type="bigint" Nullable="false" />
           <Property Name="Id" Type="bigint" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="GameName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="GameId" Type="bigint" />
           <Property Name="Unit" Type="nvarchar" MaxLength="20" />
-          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="30" />
           <Property Name="En_Name" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--生成过程中发现错误:
@@ -1179,6 +1192,13 @@
     [MallGoodPictures].[GoodPictureUrl] AS [GoodPictureUrl]
     FROM [dbo].[MallGoodPictures] AS [MallGoodPictures]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="RelationshipType" EntityType="Self.RelationshipType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RelationshipType].[Id] AS [Id], 
+    [RelationshipType].[code] AS [code], 
+    [RelationshipType].[name] AS [name]
+    FROM [dbo].[RelationshipType] AS [RelationshipType]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_ArticleModule" EntityType="Self.vw_ArticleModule" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_ArticleModule].[ModuleId] AS [ModuleId], 
@@ -1216,6 +1236,7 @@
           </EntitySet>
           <EntitySet Name="vw_GoodTypes" EntityType="Self.vw_GoodTypes" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vw_GoodTypes].[rowid] AS [rowid], 
     [vw_GoodTypes].[Id] AS [Id], 
     [vw_GoodTypes].[Name] AS [Name], 
     [vw_GoodTypes].[GameName] AS [GameName], 
@@ -1985,19 +2006,6 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Relationship">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Key" Type="Int64" />
-          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="ParentKey" Type="Int64" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Server">
           <Key>
             <PropertyRef Name="Id" />
@@ -2096,19 +2104,6 @@
           <Property Name="GameId" Type="Int64" Nullable="false" />
           <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="vw_GoodTypes">
-          <Key>
-            <PropertyRef Name="GameName" />
-          </Key>
-          <Property Name="Id" Type="Int64" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="En_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vw_LoginInfo">
           <Key>
@@ -2284,7 +2279,6 @@
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" />
           <EntitySet Name="MallType" EntityType="Self.MallType" />
           <EntitySet Name="Module" EntityType="Self.Module" />
-          <EntitySet Name="Relationship" EntityType="Self.Relationship" />
           <EntitySet Name="Server" EntityType="Self.Server" />
           <EntitySet Name="Settings" EntityType="Self.Settings" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -2292,7 +2286,6 @@
           <EntitySet Name="MallGoodPictures" EntityType="Self.MallGoodPictures" />
           <EntitySet Name="vw_ArticleModule" EntityType="Self.vw_ArticleModule" />
           <EntitySet Name="vw_GameServers" EntityType="Self.vw_GameServers" />
-          <EntitySet Name="vw_GoodTypes" EntityType="Self.vw_GoodTypes" />
           <EntitySet Name="vw_LoginInfo" EntityType="Self.vw_LoginInfo" />
           <EntitySet Name="vw_MallDLInfo" EntityType="Self.vw_MallDLInfo" />
           <EntitySet Name="vw_MallDLOrderInfo" EntityType="Self.vw_MallDLOrderInfo" />
@@ -2339,6 +2332,9 @@
           <EntitySet Name="Admin_Sys_Login" EntityType="BayetechModel.Admin_Sys_Login" />
           <EntitySet Name="Admin_Sys_Navigations" EntityType="BayetechModel.Admin_Sys_Navigations" />
           <EntitySet Name="Game" EntityType="BayetechModel.Game" />
+          <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
+          <EntitySet Name="RelationshipType" EntityType="BayetechModel.RelationshipType" />
+          <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2616,6 +2612,43 @@
           <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
           <Property Name="FirstLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="Int64" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ParentKey" Type="Int64" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RelationshipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_GoodTypes">
+          <Key>
+            <PropertyRef Name="GameName" />
+            <PropertyRef Name="Alias" />
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="En_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3166,20 +3199,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Relationship">
-            <EntityTypeMapping TypeName="BayetechModel.Relationship">
-              <MappingFragment StoreEntitySet="Relationship">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Key" ColumnName="Key" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="ParentKey" ColumnName="ParentKey" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Server">
             <EntityTypeMapping TypeName="BayetechModel.Server">
               <MappingFragment StoreEntitySet="Server">
@@ -3275,20 +3294,6 @@
                 <ScalarProperty Name="GameId" ColumnName="GameId" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_GoodTypes">
-            <EntityTypeMapping TypeName="BayetechModel.vw_GoodTypes">
-              <MappingFragment StoreEntitySet="vw_GoodTypes">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="En_Name" ColumnName="En_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3727,6 +3732,44 @@
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relationship">
+            <EntityTypeMapping TypeName="BayetechModel.Relationship">
+              <MappingFragment StoreEntitySet="Relationship">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ParentKey" ColumnName="ParentKey" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelationshipType">
+            <EntityTypeMapping TypeName="BayetechModel.RelationshipType">
+              <MappingFragment StoreEntitySet="RelationshipType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_GoodTypes">
+            <EntityTypeMapping TypeName="BayetechModel.vw_GoodTypes">
+              <MappingFragment StoreEntitySet="vw_GoodTypes">
+                <ScalarProperty Name="En_Name" ColumnName="En_Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
