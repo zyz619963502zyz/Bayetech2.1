@@ -4,67 +4,67 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="20a457d87ff04c18b19cbf26079b187c" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="BayetechModel.Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_C1_Customer" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area_bac" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Buttons" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Config" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Departments" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_DicCategory" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Dics" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_LogDetails" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_logs" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_NavButtons" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_RoleNavBtns" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles_Departments" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserNavBtns" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserRoles" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users_Departments" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Article" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.ArticleContent" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Category" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.DLRequire" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.ExtraProperty" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.ExtraPropertyValue" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.GameAccount" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.GameInfoDescription" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.GameProfession" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.GoodStatus" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Login" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.GoodAndDescription" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.MallGoodPictures" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_ArticleModule" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallPictureInfo" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.vw_NoToProperty" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="15.375" PointY="23.75" />
-        <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="11.375" PointY="22.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodInfo" Width="1.5" PointX="23.375" PointY="0.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="17.375" PointY="23.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="23.375" PointY="3.75" />
-        <EntityTypeShape EntityType="BayetechModel.OrderStatus" Width="1.5" PointX="23.375" PointY="12.75" />
-        <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="23.375" PointY="22.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="5.375" PointY="24.75" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Login" Width="1.5" PointX="17.375" PointY="14.75" />
-        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Navigations" Width="1.5" PointX="15.375" PointY="18.75" />
-        <EntityTypeShape EntityType="BayetechModel.Game" Width="1.5" PointX="7.375" PointY="19.75" />
-        <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="7.375" PointY="23.75" />
-        <EntityTypeShape EntityType="BayetechModel.RelationshipType" Width="1.5" PointX="15.375" PointY="8.75" />
-        <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="19.375" PointY="6.75" />
+      <Diagram DiagramId="20a457d87ff04c18b19cbf26079b187c" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="BayetechModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_C1_Customer" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Area_bac" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Buttons" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Config" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Departments" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_DicCategory" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Dics" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_LogDetails" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_logs" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_NavButtons" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Navigations" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_RoleNavBtns" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Roles_Departments" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserNavBtns" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_UserRoles" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Users_Departments" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BayetechModel.Article" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.ArticleContent" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BayetechModel.Category" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.DLRequire" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.ExtraProperty" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BayetechModel.ExtraPropertyValue" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Game" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.GameAccount" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BayetechModel.GameInfoDescription" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BayetechModel.GameProfession" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.GoodStatus" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.Login" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallDLInfo" Width="1.5" PointX="16.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallGoodInfo" Width="1.5" PointX="2.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="12.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallType" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.Module" Width="1.5" PointX="18.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BayetechModel.OrderStatus" Width="1.5" PointX="4.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="18.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="18.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.Settings" Width="1.5" PointX="18.75" PointY="14.75" />
+        <EntityTypeShape EntityType="BayetechModel.sysdiagrams" Width="1.5" PointX="18.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BayetechModel.User" Width="1.5" PointX="14.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BayetechModel.Admin_Sys_Login" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.GoodAndDescription" Width="1.5" PointX="20.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BayetechModel.MallGoodPictures" Width="1.5" PointX="6.75" PointY="20.75" />
+        <EntityTypeShape EntityType="BayetechModel.RelationshipType" Width="1.5" PointX="20.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_ArticleModule" Width="1.5" PointX="8.75" PointY="20.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_GameServers" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="20.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_LoginInfo" Width="1.5" PointX="20.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallDLInfo" Width="1.5" PointX="16.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallDLOrderInfo" Width="1.5" PointX="18.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodInfo" Width="1.5" PointX="20.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="22.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="22.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_MallPictureInfo" Width="1.5" PointX="4.75" PointY="23.75" />
+        <EntityTypeShape EntityType="BayetechModel.vw_NoToProperty" Width="1.5" PointX="24.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
