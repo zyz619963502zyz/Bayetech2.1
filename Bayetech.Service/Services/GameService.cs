@@ -101,8 +101,9 @@ namespace Bayetech.Service.Services
             List<Server> server = json["ServerList1"].ToString() == "" ? new List<Server>() : JsonConvert.DeserializeObject<List<Server>>(json["ServerList1"].ToString());
             //职业信息
             List<GameProfession> gameProfession = json["GameProfessionArray"].ToString() == "" ? new List<GameProfession>() : JsonConvert.DeserializeObject<List<GameProfession>>(json["GameProfessionArray"].ToString());
-            //商品属性
-            List<GameInfoDescription> gameInfoDescription = json["GameInfoDescriptionArray"].ToString() == "" ? new List<GameInfoDescription>() : JsonConvert.DeserializeObject<List<GameInfoDescription>>(json["GameInfoDescriptionArray"].ToString());
+            //交易类型
+            List<MallType> gameInfoDescription = json["GameMallTypeArray"].ToString() == "" ? new List<MallType>() : JsonConvert.DeserializeObject<List<MallType>>(json["GameMallTypeArray"].ToString());
+
             using (var db = new RepositoryBase().BeginTrans())
             {
                 server.ForEach(a => a.GameId =Convert.ToInt32(game.Id));
@@ -125,7 +126,26 @@ namespace Bayetech.Service.Services
                 {
                     db.Insert<GameProfession>(item);
                 }
-               
+                List<Relationship> mallType = (from a in db.IQueryable<MallType>().DefaultIfEmpty()
+                                           join b in db.IQueryable<Relationship>() on a.Id equals b.Key
+                                           join c in db.IQueryable<Game>().DefaultIfEmpty() on b.ParentKey equals c.Id
+                                           where c.Id == game.Id
+                                           select b).ToList();
+                foreach (var item in mallType)
+                {
+                    db.Insert<Relationship>(item);
+                }
+                foreach (var item in gameInfoDescription)
+                {
+                    Relationship re = new Relationship();
+                    re.Key = item.Id;
+                    re.Type = item.En_Name;
+                    re.ParentKey = game.Id;
+                    re.CreateTime = DateTime.Now;
+                    db.Insert(re);
+
+                }
+
             }
             return ret;
         }

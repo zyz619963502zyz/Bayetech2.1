@@ -10885,6 +10885,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                     self.ServerList1 = data.server;
                     self.GameProfessionArray = data.gameProfession;
                     self.GameMallTypeArray = data.mallType;
+                    for (var i = 0; i < self.GameMallTypeArray.length; i++) {
+                        self.GameMallTypeArray[i].checkvalue = true;
+                    }
+
                     self.MallTypeArray = data.mallTypeArray;
                     //self.tools._comCompnent.SetPagination($('#paginator-test'),
                     //self.SearchParam, self.FindList);
@@ -10915,7 +10919,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         AddMallT(item) {
             var self = this;
             self.GameMallTypeArray.push(item);
-            alert(9999);
+        },
+        DelectMallT(item) {
+            var self = this;
+            self.GameMallTypeArray.splice(item);
         },
         GameMenuSave() {
             //保存

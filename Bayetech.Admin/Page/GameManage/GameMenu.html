@@ -215,9 +215,9 @@
                                 <button class="btn btn-primary" @click="OpenTradeType">查看所有交易类型</button>
                                 <br />
                                 <div v-for="item in GameMallTypeArray" class="inline" style="float:left;padding:5px">
-                                    <input  type="checkbox" id="runoob"  checked="checked" value="{{item.Id}}" v-model="item.checked">
+                                    <input  type="checkbox" id="runoob"  value="{{item.Id}}" v-model="item.checkvalue" @click="DelectMallT(item)">
                                     <label>{{item.Name}}</label>
-                                    <label>{{item.checked}}</label>
+                                    <label>{{item.checkvalue}}</label>
                                 </div>
                             </div><!--交易类型-->
                         </div>
@@ -297,7 +297,7 @@
                     </div>
                     <div id="GameServer2_body" class="modal-body" style="width:1300px;height:500px;">
                         <div v-for="item in MallTypeArray" class="inline" style="float:left;padding:5px">
-                            <input type="checkbox" id="runoob" value="{{item.Id}}" v-model="item.checked" @click="AddMallT(item)">
+                            <input type="checkbox" id="runoob" value="{{item.Id}}" v-model="item.checkvalue" @click="AddMallT(item)">
                             <label>{{item.Name}}</label>
                         </div>
                     </div>
