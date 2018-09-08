@@ -35,7 +35,22 @@ namespace Bayetech.Web.Controllers
                 return gameService.GetList(g => g.Platform == type && g.Name.Contains(name) && !g.IsDelete);
             }
         }
-
+        [HttpGet]
+        /// <summary>
+        /// 获取游戏
+        /// </summary>    
+        public JObject GetGameList( string name = null)
+        {
+            name = Core.Common.Trim(name);
+            if (string.IsNullOrEmpty(name))
+            {
+                return gameService.GetList(g => !g.IsDelete);
+            }
+            else
+            {
+                return gameService.GetList(g =>  g.Name.Contains(name) && !g.IsDelete);
+            }
+        }
         /// <summary>
         /// 获取热门游戏
         /// </summary>

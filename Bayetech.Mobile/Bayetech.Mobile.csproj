@@ -418,6 +418,7 @@
     <Content Include="Global.asax" />
     <Content Include="Page\AccountList\AccountList.html" />
     <Content Include="Page\GameDL\GameDL.html" />
+    <Content Include="Page\gamelist\GameList.html" />
     <Content Include="Page\GameSearch\GameSearch.html" />
     <Content Include="Page\GoodsType\goodtype.html" />
     <Content Include="Page\Home\BrowseRecords.html" />
