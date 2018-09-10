@@ -15,7 +15,7 @@ export function get(url ,params={}) {
 
 export function post(url ,params={}) {
     return new Promise((resolve,reject)=>{
-        Axios.post(url,{params:params}).then(response=>{
+        Axios.post(url,params).then(response=>{
             resolve(response.data);
 
         }).catch(err=>{
