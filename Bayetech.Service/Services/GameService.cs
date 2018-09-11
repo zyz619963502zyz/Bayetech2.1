@@ -125,12 +125,12 @@ namespace Bayetech.Service.Services
                 {
                     db.Insert<GameProfession>(item);
                 }
-                var gameInfoDescription = from a in db.IQueryable<GoodAndDescription>()
-                                          join b in db.IQueryable<GameInfoDescription>() on a.DescriptionId equals b.DescriptionId
-                                          where a.GameId == game.Id
-                                          select b;
+                //var gameInfoDescription = from a in db.IQueryable<GoodAndDescription>()
+                //                          join b in db.IQueryable<GameInfoDescription>() on a.DescriptionId equals b.DescriptionId
+                //                          where a.GameId == game.Id
+                //                          select b;
                 if (flag > 0)
-                {[dbo].[vw_NoToProperty]
+                {
                     ret.Add("result", true);
                     ret.Add("Mess", JObject.FromObject("更游戏新成功！"));
                 }
