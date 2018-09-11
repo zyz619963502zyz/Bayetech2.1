@@ -17,8 +17,7 @@ namespace TestForm
         private void button1_Click(object sender, EventArgs e)
         {
             int str = Convert.ToInt32(conditionText.Text);
-            WorkflowApplication app = 
-            new WorkflowApplication(new test(), new Dictionary<string, object>() {{"TextInput",str }});
+            WorkflowApplication app = new WorkflowApplication(new test(), new Dictionary<string, object>() {{"TextInput",str }});
             app.Run();
 
             //持久化操作的环节 

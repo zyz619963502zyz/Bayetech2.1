@@ -8,6 +8,7 @@ namespace BayetechWorkFlow
 
         //public OutArgument<string> condition{ get; set; }
 
+
         protected override void Execute(NativeActivityContext context)
         {
             context.CreateBookmark("当前流程名称", new BookmarkCallback(BookMarkCallBack));
