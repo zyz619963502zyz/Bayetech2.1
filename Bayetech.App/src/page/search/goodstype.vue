@@ -72,47 +72,61 @@
     </div>
 </template>
 <script>
-  import "@/assets/css/goodtype.css";
- 
-  let vmdata ={
-  goodsTypes:[],
-  gname:'',
-  gid:'',
-  gameList:[]
-  };
-  export default {
+import "@/assets/css/goodtype.css";
+
+let vmdata = {
+  goodsTypes: [{}, {}],
+  gname: "",
+  gid: "",
+  gameList: []
+};
+export default {
   name: "goodtype",
   data() {
-  return vmdata;
+    return vmdata;
   },
-  mounted:function(){
-  this.gname=this.$route.query.name;
-  this.gid=this.$route.query.id;
-  this. getGoodsType();
+  mounted: function() {
+    this.gname = this.$route.query.name;
+    this.gid = this.$route.query.id;
+    this.getGoodsType();
   },
-  methods:
-  {
-  getGoodsType:function (params) {
-  let self = this;
-  try {
-  self.$get("web/api/GoodType/GetGoodType", { gameid: 1,type:'good' }).then(function(result) {
-  self.goodsTypes = result.content;
-  console.log( self.goodsTypes);
-  for (let goodsType of self.goodsTypes) {
-  goodsType.queryModel = {};
-  goodsType.queryModel.gameId = self.gid;
-  goodsType.queryModel.gameName=self.gname;
-  goodsType.queryModel.goodsType = goodsType.Id;
-  goodsType.queryModel.goodsTypeName = goodsType.Name;
-  }
+  methods: {
+    getGoodsType: function(params) {
+      let self = this;
+      self.goodsTypes[0].queryModel = {};
+      self.goodsTypes[0].queryModel.gameId = self.gid;
+      self.goodsTypes[0].queryModel.gameName = self.gname;
+      self.goodsTypes[0].queryModel.goodsType = "dailian";
+      self.goodsTypes[0].queryModel.goodsTypeName = "代练";
+      self.goodsTypes[0].Name = "代练";
 
-  });
-  } catch (err) {
-  console.log(err);
+      self.goodsTypes[1].queryModel = {};
+      self.goodsTypes[1].queryModel.gameId = self.gid;
+      self.goodsTypes[1].queryModel.gameName = self.gname;
+      self.goodsTypes[1].queryModel.goodsType = "good";
+      self.goodsTypes[1].queryModel.goodsTypeName = "商品";
+      self.goodsTypes[1].Name = "商品";
+    },
+    getGoodsTypeBack: function(params) {
+      let self = this;
+      try {
+        self
+          .$get("web/api/GoodType/GetGoodType", { gameid: 1, type: "good" })
+          .then(function(result) {
+            self.goodsTypes = result.content;
+            console.log(self.goodsTypes);
+            for (let goodsType of self.goodsTypes) {
+              goodsType.queryModel = {};
+              goodsType.queryModel.gameId = self.gid;
+              goodsType.queryModel.gameName = self.gname;
+              goodsType.queryModel.goodsType = goodsType.Id;
+              goodsType.queryModel.goodsTypeName = goodsType.Name;
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
-  }
-
-  }
-
-  };
+};
 </script>

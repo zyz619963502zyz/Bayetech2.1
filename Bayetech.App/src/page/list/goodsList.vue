@@ -20,7 +20,8 @@
               </div>
               <div data-v-6b09e788="" class="navdemo">
                 <a data-v-6b09e788="" @click="ToggleConditionTab('server')" >
-                  <span data-v-6b09e788="" class="server color-666 f30">全区全服</span>
+                  <span data-v-6b09e788="" class="server color-666 f30" v-show="!searchModel.GameServerName">全区全服</span>
+                   <span data-v-6b09e788="" class="server color-666 f30"  v-show="!!searchModel.GameServerName">{{searchModel.GameServerName}}</span>
                 </a>
               </div>
               <div data-v-6b09e788="" class="navdemo">
@@ -76,9 +77,13 @@
                   <ul data-v-7b64404c="">
                     <!---->
                     <li data-v-7b64404c="" class="border-bottom curren">
-                      <a data-v-7b64404c="">
-                        <span data-v-7b64404c="" class="f30 color-000">
+                      <a data-v-7b64404c="" @click='setValue({GameGroupName:""})'>
+                        <span data-v-7b64404c="" class="f30 color-000" v-show="!searchModel.GameGroupName">
                           选择区
+                          <i data-v-7b64404c="" class="close"></i>
+                        </span>
+                        <span data-v-7b64404c="" class="f30 color-000" v-show="!!searchModel.GameGroupName">
+                          {{searchModel.GameGroupName}}
                           <i data-v-7b64404c="" class="close"></i>
                         </span>
                       </a>
@@ -99,94 +104,24 @@
                       <input data-v-7b64404c="" name="" type="text" placeholder="请输入服务器名称" class="server-input">
                     </div>
                   </div>
-                  <ul data-v-7b64404c="" class="pl-30">
+                  <ul data-v-7b64404c="" class="pl-30" v-show="!searchModel.GameGroupName">
+                    <a @click='setValue({GameGroupName:group})' v-for='group in groupList' v-bind:key="group">
                     <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">广东区</span>
+                      <span data-v-7b64404c="" class="f30 color-000">{{group}}</span>
                     </li>
+                    </a>
+                    
                     <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">北京区</span>
+                      <span data-v-7b64404c="" class="f30 color-000">体验区</span>
                     </li>
+                  </ul>
+                  <ul data-v-7b64404d="" class="pl-30" v-show="!!searchModel.GameGroupName">
+                    <a @click="setValue({GameServerName:server});ToggleConditionTab('server')" v-for='server in serverList' v-bind:key="server">
                     <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">四川区</span>
+                      <span data-v-7b64404c="" class="f30 color-000">{{server}}</span>
                     </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">江苏区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">湖北区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">广西区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">东北区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">浙江区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">山东区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">上海区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">西南区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">安徽区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">河北区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">辽宁区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">福建区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">华北区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">重庆区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">黑龙江区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">江西区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">西北区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">陕西区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">吉林区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">山西区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">天津区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">河南区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">湖南区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">新疆区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">内蒙古区</span>
-                    </li>
-                    <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">云贵区</span>
-                    </li>
+                    </a>
+                    
                     <li data-v-7b64404c="" class="border-bottom">
                       <span data-v-7b64404c="" class="f30 color-000">体验区</span>
                     </li>
@@ -216,7 +151,7 @@
               <div class="mint-loadmore-content" style="transform: translate3d(0px, 0px, 0px);">
                 <!---->
                 <div data-v-6b09e788="" id="istScroll 111" class="lists bg-f1">
-                  <div v-for="good in goodsList">
+                  <div v-for="good in goodsList" v-bind:key="good">
                     <a data-v-6b09e788="" style="display: block; width: 100%;">
                       <div data-v-6b09e788="" class="account-01 pro-list-01 mb-20 border-top" style="overflow: visible;">
                         <div data-v-6b09e788="" class="mbilegames-list" style="overflow: visible;">
@@ -708,13 +643,14 @@ import "@/assets/css/accountlist.css";
 
 let vmdata = {
   waterInfo: {
-    loading:false,
+    loading: false,
     index: 0,
-    lastPageIndex:3,
+    lastPageIndex: 3,
     loadLock: false,
     isEnd: false
   },
-
+  groupList: ["上海区", "广东区"],
+  serverList: ["上海1区", "上海2区"],
   goodsList: [],
   conditionTab: {
     goodsType: false,
@@ -736,9 +672,9 @@ let vmdata = {
     GameId: 0,
     GameName: "游戏名称",
     GameGroupId: 0, //上海区
-    GameGroupName: "游戏区",
+    GameGroupName: "",
     GameServerId: 0, //上海一区
-    GameServerName: "服务器",
+    GameServerName: "",
     GoodTypeId: 0, //账号 金币
     GoodTypeName: "", //物品类型
     DlTypeName: "代练类型", //等级 冲杯 段位
@@ -801,13 +737,13 @@ export default {
         let data = {};
         data.Param = self.searchModel;
         data.Pagination = self.Pagination;
-        self.waterInfo.loading=true;
+        self.waterInfo.loading = true;
         //let t= JSON.stringify(data)
         // console.log(t);
         setTimeout(() => {
-          self.$post("http://localhost:15786/api/GoodInfo/GetList", data)
+          self
+            .$post("http://localhost:15786/api/GoodInfo/GetList", data)
             .then(function(result) {
-
               //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
               for (let data of result.content.datas) {
                 self.$set(self.goodsList, self.goodsList.length, data);
@@ -817,13 +753,13 @@ export default {
               if (self.waterInfo.index >= self.waterInfo.lastPageIndex) {
                 self.waterInfo.isEnd = true;
               }
-              self.waterInfo.loading=false;
+              self.waterInfo.loading = false;
               //console.log(self.waterInfo.index);
               // self.goodsList = result.content.datas;
 
               //console.log(result);
             });
-        },2000);
+        }, 2000);
       } catch (err) {
         console.log(err);
       }
@@ -854,7 +790,20 @@ export default {
       }
     },
 
-    GetGroup: function() {},
+    GetGroup: function() {
+      let self = this;
+      try {
+        this.$get("web/api/GoodType/GetGoodType", {
+          gameid: 1,
+          type: "good"
+        }).then(function(result) {
+          self.searchModel.goodsTypes = result.content;
+          self.$set(self.searchModel, "goodsTypes", result.content);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
     setActive: function(value, type) {
       let self = this;
       let dic = {};
