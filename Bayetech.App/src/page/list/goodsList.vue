@@ -40,8 +40,8 @@
           </div>
           <div data-v-6b09e788="" class="default_numb" v-show="conditionTab.goodsType">
             <ul data-v-6b09e788="" class="dft-coin">
-              <li data-v-6b09e788="" v-for="type in searchModel.goodsTypes" :class="setActive(type.Name,'goodsTypes')" >
-                <a data-v-6b09e788="" @click="setValue({GoodTypeId:type.Id,GoodTypeName:type.Name});ToggleConditionTab('goodsType')">{{type.Name}}</a>
+              <li data-v-6b09e788=""  v-for="goodtype in searchModel.goodsTypes" v-bind:key="goodtype.Id" :class="setActive(goodtype.Name,'goodsTypes')"  >
+                <a data-v-6b09e788="" @click="setValue({GoodTypeId:goodtype.Id,GoodTypeName:goodtype.Name});ToggleConditionTab('goodsType')">{{goodtype.Name}}</a>
               </li>
 
 
@@ -105,9 +105,9 @@
                     </div>
                   </div>
                   <ul data-v-7b64404c="" class="pl-30" v-show="!searchModel.GameGroupName">
-                    <a @click='setValue({GameGroupName:group})' v-for='group in groupList' v-bind:key="group">
+                    <a @click='setValue({GameGroupName:group.Name,GameGroupId:group.Id})' v-for='group in groupList' v-bind:key="group.Id" >
                     <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">{{group}}</span>
+                      <span data-v-7b64404c="" class="f30 color-000">{{group.Name}}</span>
                     </li>
                     </a>
                     
@@ -116,9 +116,9 @@
                     </li>
                   </ul>
                   <ul data-v-7b64404d="" class="pl-30" v-show="!!searchModel.GameGroupName">
-                    <a @click="setValue({GameServerName:server});ToggleConditionTab('server')" v-for='server in serverList' v-bind:key="server">
+                    <a @click="setValue({GameServerName:server.Name,GameServerId:server.Id});ToggleConditionTab('server')" v-for='server in serverList' v-bind:key="server.Id">
                     <li data-v-7b64404c="" class="border-bottom">
-                      <span data-v-7b64404c="" class="f30 color-000">{{server}}</span>
+                      <span data-v-7b64404c="" class="f30 color-000">{{server.Name}}</span>
                     </li>
                     </a>
                     
@@ -151,7 +151,7 @@
               <div class="mint-loadmore-content" style="transform: translate3d(0px, 0px, 0px);">
                 <!---->
                 <div data-v-6b09e788="" id="istScroll 111" class="lists bg-f1">
-                  <div v-for="good in goodsList" v-bind:key="good">
+                  <div v-for="good in goodsList" v-bind:key="good.Id">
                     <a data-v-6b09e788="" style="display: block; width: 100%;">
                       <div data-v-6b09e788="" class="account-01 pro-list-01 mb-20 border-top" style="overflow: visible;">
                         <div data-v-6b09e788="" class="mbilegames-list" style="overflow: visible;">
@@ -319,9 +319,9 @@
           价格区间
         </div>
         <div data-v-6b09e788="" class="price-list px-30 py-30">
-          <input data-v-6b09e788="" type="tel" placeholder="最低" maxlength="7" class="price-input fl f30"/>
+          <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30"/>
           <span data-v-6b09e788="" class="hern fl"></span>
-          <input data-v-6b09e788="" type="tel" placeholder="最高" maxlength="7" class="price-input fl f30"/>
+          <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30"/>
         </div>
       </div>
       <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
@@ -650,6 +650,7 @@ let vmdata = {
     isEnd: false
   },
   groupList: ["上海区", "广东区"],
+  filterGroupList: [],
   serverList: ["上海1区", "上海2区"],
   goodsList: [],
   conditionTab: {
@@ -681,6 +682,9 @@ let vmdata = {
     GoodKeyWord: "", //关键字
     AcrossId: 0, //跨区Id
     AcrossName: "跨区"
+  },searchModelSub:{
+    minPrice:0,
+    maxPrice
   }
 };
 
@@ -691,11 +695,12 @@ export default {
   },
   mounted: function() {
     //this.searchModel.GameName = this.$route.query.gameName;
-    //this.searchModel.GameId = this.$route.query.gameId;
+    this.searchModel.GameId = this.$route.query.gameId;
     //this.searchModel.GoodTypeId = this.$route.query.goodsType;
     this.searchModel.GoodTypeName = this.$route.query.goodsTypeName;
     this.GetGoodsType();
     this.SearchList();
+    this.GetGroup();
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
@@ -778,11 +783,11 @@ export default {
     GetGoodsType: function() {
       let self = this;
       try {
-        this.$get("web/api/GoodType/GetGoodType", {
-          gameid: 1,
+        this.$get("http://localhost:15786/api/GoodType/GetGoodType", {
+          gameid: self.searchModel.GameId,
           type: "good"
         }).then(function(result) {
-          self.searchModel.goodsTypes = result.content;
+          self.group = result.content;
           self.$set(self.searchModel, "goodsTypes", result.content);
         });
       } catch (err) {
@@ -793,12 +798,22 @@ export default {
     GetGroup: function() {
       let self = this;
       try {
-        this.$get("web/api/GoodType/GetGoodType", {
-          gameid: 1,
-          type: "good"
+        this.$get("http://localhost:15786/api/GameServer/GetGroup", {
+          gameid: self.searchModel.GameId
         }).then(function(result) {
-          self.searchModel.goodsTypes = result.content;
-          self.$set(self.searchModel, "goodsTypes", result.content);
+          self.groupList = result.content;
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    GetServer:function (groupId) {
+      let self = this;
+      try {
+        this.$get("http://localhost:15786/api/GameServer/GetServer", {
+          parenId: groupId
+        }).then(function(result) {
+          self.serverList = result.content;
         });
       } catch (err) {
         console.log(err);
@@ -815,6 +830,11 @@ export default {
       for (var key in obj) {
         self.searchModel[key] = obj[key];
       }
+    }
+  },
+  watch: {
+    "searchModel.GameGroupId": function(newVal, oldVal) {
+      this.GetServer(newVal);
     }
   }
 };
