@@ -29,26 +29,34 @@ namespace Bayetech.Service.Services
         }
 
         /// <summary>
-        /// 修改游戏额外的属性
+        /// 修改游戏服务器编辑
         /// </summary>
         /// <param name="game"></param>
         /// <returns></returns>
-        public JObject UpdateExtraProperty(GameProfession profess) {
+        public JObject UpdateExtraProperty(JObject json) {
             using (var db = new RepositoryBase().BeginTrans())
             {
                 JObject ret = new JObject();
-                int flag = db.Update(profess);
+                //区服务信息
+                List<Server> server = json["ServerList2"].ToString() == "" ? new List<Server>() : JsonConvert.DeserializeObject<List<Server>>(json["ServerList2"].ToString());
+                //var serveraList = db.IQueryable<Server>(a => a.GameId == se.Id).ToList();
+                Server GetServerList2= json["GetServerList2"].ToString() == "" ? new Server() : JsonConvert.DeserializeObject<Server>(json["GetServerList2"].ToString());
+
+                foreach (var item in server)
+                {
+                    if(item.Id==0)
+                    {
+                        item.ParentId = Convert.ToInt32(GetServerList2.Id);
+                        item.GameId = GetServerList2.GameId;
+                        db.Insert<Server>(item);
+                    }
+                    else
+                    {
+                        db.Update<Server>(item);
+                    }
+                }
                 db.Commit();
-                if (flag > 0)
-                {
-                    ret.Add("result", true);
-                    ret.Add("Mess", JObject.FromObject("添加成功！"));
-                }
-                else
-                {
-                    ret.Add("result", false);
-                    ret.Add("Mess", JObject.FromObject("插入数据库失败！"));
-                }
+                ret.Add(ResultInfo.Result, true);
                 return ret;
             }
         }
@@ -106,46 +114,61 @@ namespace Bayetech.Service.Services
 
             using (var db = new RepositoryBase().BeginTrans())
             {
-                server.ForEach(a => a.GameId =Convert.ToInt32(game.Id));
+                server.ForEach(a => a.GameId = Convert.ToInt32(game.Id));
                 int flag = db.Update(game);
-                var serveraList = db.IQueryable<Server>(a => a.GameId == game.Id).ToList();
-                foreach (var item in serveraList)
-                {
-                    db.Delete<Server>(item);
-                }
                 foreach (var item in server)
                 {
-                    db.Insert<Server>(server);
+                    if(item.Id==0)
+                    {
+                        item.ParentId = 0;
+                        db.Insert<Server>(item);
+                    }
+                    else
+                    {
+                        db.Update<Server>(item);
+                    }
                 }
-                var gameProfessionList = db.IQueryable<GameProfession>(a => a.GameId == game.Id);
-                foreach (var item in gameProfessionList)
-                {
-                    db.Delete<GameProfession>(item);
-                }
+                gameProfession.ForEach(a => a.GameId = game.Id);
+                int count = 0;
                 foreach (var item in gameProfession)
                 {
-                    db.Insert<GameProfession>(item);
+                    if (item.Id == 0)
+                    {
+                        count += 1;
+                        item.ProfessionId = count;
+                        item.ParentId = count;
+                        db.Insert<GameProfession>(item);
+                    }
+                    else
+                    {
+                        db.Update<GameProfession>(item);
+                    }
                 }
                 List<Relationship> mallType = (from a in db.IQueryable<MallType>().DefaultIfEmpty()
                                            join b in db.IQueryable<Relationship>() on a.Id equals b.Key
                                            join c in db.IQueryable<Game>().DefaultIfEmpty() on b.ParentKey equals c.Id
                                            where c.Id == game.Id
                                            select b).ToList();
-                foreach (var item in mallType)
-                {
-                    db.Insert<Relationship>(item);
-                }
+
                 foreach (var item in gameInfoDescription)
                 {
-                    Relationship re = new Relationship();
-                    re.Key = item.Id;
-                    re.Type = item.En_Name;
-                    re.ParentKey = game.Id;
-                    re.CreateTime = DateTime.Now;
-                    db.Insert(re);
+                   if(item.Id==0)
+                    {
+                        Relationship re = new Relationship();
+                        re.Key = item.Id;
+                        re.Type = item.En_Name;
+                        re.ParentKey = game.Id;
+                        re.CreateTime = DateTime.Now;
+                        db.Insert(re);
+                    }
+                   else
+                    {
+                        db.Update(item);
+                    }
 
                 }
-
+                db.Commit();
+                ret.Add(ResultInfo.Result, true);
             }
             return ret;
         }
@@ -161,7 +184,7 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 //区服务信息
-                List<Server> server = db.IQueryable<Server>(a => a.GameId == game.Id).ToList();
+                List<Server> server = db.IQueryable<Server>(a => a.GameId == game.Id && a.ParentId==0).ToList();
                 //职业信息
                 List<GameProfession> gameProfession = db.IQueryable<GameProfession>(a => a.GameId == game.Id).ToList();
                 //交易类型
@@ -174,7 +197,7 @@ namespace Bayetech.Service.Services
 
                 List<MallType> mallTypeList = db.IQueryable<MallType>().ToList();
 
-                if (server.Count>0)
+                if (game.Id>0)
                 {
                     ret.Add(ResultInfo.Result, true);
                     ret.Add("server", JProperty.FromObject(server));
@@ -190,6 +213,41 @@ namespace Bayetech.Service.Services
             }
             return ret;
                
+        }
+
+
+        public JObject GetbyServiceTwo(JObject json)
+        {
+            JObject ret = new JObject();
+            if(json!=null)
+            {
+                Server server = json["ServerList2"].ToString() == "" ? new Server() : JsonConvert.DeserializeObject<Server>(json["ServerList2"].ToString());
+                if (server.Id > 0)
+                {
+                    //市
+                    using (var db = new RepositoryBase().BeginTrans())
+                    {
+                        List<Server> serverList = db.IQueryable<Server>(a => a.ParentId == server.Id).ToList();
+                        if (serverList.Count > 0)
+                        {
+                            ret.Add(ResultInfo.Result, true);
+                            ret.Add("Server2", JProperty.FromObject(serverList));
+                        }
+                        else
+                        {
+                            ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                            ret.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
+                        }
+                    }
+                }
+                else
+                {
+                    ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
+                }
+            }
+           
+            return ret;
         }
 
         /// <summary>

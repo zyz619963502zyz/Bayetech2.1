@@ -1,13 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Filters;
-
-namespace Bayetech.Core
+﻿namespace Bayetech.Core
 {
-    public class WebApiExceptionFilterAttribute: ExceptionFilterAttribute
+    public class WebApiExceptionFilterAttribute //: ExceptionFilterAttribute
     {
         /// <summary>
         /// 报错异常处理
