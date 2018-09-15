@@ -25,6 +25,8 @@ namespace BayetechWorkFlow
             }
         }
 
+
+        //bookmark恢复以后的回调函数
         public void BookMarkCallBack(NativeActivityContext context, Bookmark bookmark, object value) {
             //context.SetValue(Num, Convert.ToInt32(value));
         }

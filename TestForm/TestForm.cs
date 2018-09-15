@@ -7,9 +7,9 @@ using System.Activities.DurableInstancing;
 
 namespace TestForm
 {
-    public partial class Form1 : Form
+    public partial class TestForm : Form
     {
-        public Form1()
+        public TestForm()
         {
             InitializeComponent();
         }
@@ -17,7 +17,7 @@ namespace TestForm
         private void button1_Click(object sender, EventArgs e)
         {
             int str = Convert.ToInt32(conditionText.Text);
-            WorkflowApplication app = new WorkflowApplication(new test(), new Dictionary<string, object>() {{"TextInput",str }});
+            WorkflowApplication app = new WorkflowApplication(new AccountWF(), new Dictionary<string, object>() {{"TextInput",str }});
             app.Run();
 
             //持久化操作的环节 

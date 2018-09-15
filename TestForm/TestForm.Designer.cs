@@ -1,6 +1,6 @@
 ﻿namespace TestForm
 {
-    partial class Form1
+    partial class TestForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -46,7 +46,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(277, 181);
+            this.button2.Location = new System.Drawing.Point(277, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
