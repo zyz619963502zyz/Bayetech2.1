@@ -48,10 +48,13 @@ namespace Bayetech.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         public JObject UpdateGame(JObject json) {
-            Game game = JsonConvert.DeserializeObject<Game>(json.ToString());
-            return serviceGame.UpdateGame(game);
+            return serviceGame.UpdateGame(json);
         }
-
+        [HttpPost]
+        public JObject GetGameService(JObject json)
+        {
+            return serviceGame.GetGameService(json);
+        }
         /// <summary>
         /// 根据游戏的Alias去删除一个游戏
         /// </summary>

@@ -13,7 +13,7 @@
               <i></i>
               <h4 class=" f30 color-000 dis-in">{{game.Name}}</h4>
             </div>
-            <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a ">
+            <img src="/dist/src/assets/images/common/right.png?38b0535618eb695ef1dcfa7c88a64ff0" class="ps-a "/>
           </router-link>
      
           <!---->
@@ -26,47 +26,46 @@
 
 </template>
 <script>
-  import "@/assets/css/gameSearch.css";
-  let vmdata = new Object();
-  vmdata.gameList = new Array();
-  vmdata.goodsType = "";
+import "@/assets/css/gameSearch.css";
+let vmdata = new Object();
+vmdata.gameList = new Array();
+vmdata.goodsType = "";
 
-  export default {
+export default {
   name: "hotGameSearch",
   data() {
-  return vmdata;
+    return vmdata;
   },
 
   mounted: function() {
-  let self=this;
-  self.goodsType = this.$route.query.goodsType;
-  console.log(this.$route.params.userId);
-  this.getHotGame();
+    let self = this;
+    self.goodsType = this.$route.query.goodsType;
+    console.log(this.$route.params.userId);
+    this.getHotGame();
   },
   methods: {
-  getHotGame: function() {
-  let self = this;
-  try {
-  this.$get("web/api/Game/GetHotGameList", { type: 0, count: 10 }).then(
-  function(result) {
-  console.log(result)
- console.log(self);
-  self.gameList = result;
+    getHotGame: function() {
+      let self = this;
+      try {
+        this.$get("web/api/Game/GetHotGameList", { type: 0, count: 10 }).then(
+          function(result) {
+            console.log(result);
+            console.log(self);
+            self.gameList = result;
 
-  for (let game of vmdata.gameList) {
- 
-  game.queryModel = {};
-  game.queryModel.id = game.Id;
-  game.queryModel.goodsType = self.goodsType;
+            for (let game of vmdata.gameList) {
+              game.queryModel = {};
+              game.queryModel.id = game.Id;
+              game.queryModel.goodsType = self.goodsType;
+            }
+            console.log(result);
+          }
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
-  console.log(result);
-  }
-  );
-  } catch (err) {
-  console.log(err);
-  }
-  }
-  }
-  };
+};
 </script>
 

@@ -32,14 +32,19 @@ export default new Router({
         component: r => require.ensure([], () => r(require('../page/search/gameSearch.vue')), 'gameSearch')
     },
     {
-      path: '/goodtype',
-      name: 'goodtype',
-      component: r => require.ensure([], () => r(require('../page/search/goodtype.vue')), 'goodType')
+      path: '/goodstype',
+      name: 'goodstype',
+      component: r => require.ensure([], () => r(require('../page/search/goodstype.vue')), 'goodsType')
     },
 	{
       path: '/hotGameSearch',
       name: 'hotGameSearch',
       component: r => require.ensure([], () => r(require('../page/demo/hotGameSearch.vue')), 'hotGameSearch')
-    }
+	},
+	{
+	    path: '/goodsList',
+	    name: 'goodsList',
+	    component: r => require.ensure([], () => r(require('../page/list/goodsList.vue')), 'goodsList')
+	}
   ]
 })

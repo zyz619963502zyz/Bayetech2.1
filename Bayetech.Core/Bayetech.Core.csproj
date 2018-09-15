@@ -199,6 +199,9 @@
     <Compile Include="Entity\Relationship.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\RelationshipType.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Server.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

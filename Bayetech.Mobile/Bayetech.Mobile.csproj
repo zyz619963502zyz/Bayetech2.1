@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\css\account-detail.css" />
     <Content Include="content\css\accountlist.css" />
     <Content Include="content\css\common.css" />
     <Content Include="content\css\fost-base-min.css" />
@@ -158,6 +159,7 @@
     <Content Include="content\images\89b143feec4646b68f8c49722e27a660.jpg" />
     <Content Include="content\images\a29ec62d89bf4a6eb3ae850205cf30c2.jpg" />
     <Content Include="content\images\applist-ico.png" />
+    <Content Include="content\images\axm.png" />
     <Content Include="content\images\b55482e51de3458885385fc7b05d403d.jpg" />
     <Content Include="content\images\beb4f3f8e9b741ddbff1649b051befc4.jpg" />
     <Content Include="content\images\bi.png" />
@@ -166,6 +168,13 @@
     <Content Include="content\images\callmenu11.png" />
     <Content Include="content\images\callmenu12.png" />
     <Content Include="content\images\com.png" />
+    <Content Include="content\images\common\bgcheck.png" />
+    <Content Include="content\images\common\colleclist.png" />
+    <Content Include="content\images\common\downmore.png" />
+    <Content Include="content\images\common\greyok.png" />
+    <Content Include="content\images\common\redok.png" />
+    <Content Include="content\images\common\upmore.png" />
+    <Content Include="content\images\common\whitesearch.png" />
     <Content Include="content\images\curent.jpg" />
     <Content Include="content\images\curent_1.jpg" />
     <Content Include="content\images\curent_2.jpg" />
@@ -246,6 +255,27 @@
     <Content Include="content\images\icon-xiaoneng_1.png" />
     <Content Include="content\images\icon-xiaoneng_2.png" />
     <Content Include="content\images\icon-xiaoneng_3.png" />
+    <Content Include="content\images\icon\equright-ico.png" />
+    <Content Include="content\images\icon\excon-five.png" />
+    <Content Include="content\images\icon\excon-four.png" />
+    <Content Include="content\images\icon\excon-one.png" />
+    <Content Include="content\images\icon\excon-three.png" />
+    <Content Include="content\images\icon\excon-titl-bj.png" />
+    <Content Include="content\images\icon\excon-two.png" />
+    <Content Include="content\images\icon\firm-ico.png" />
+    <Content Include="content\images\icon\hist-list-ico-iphone.png" />
+    <Content Include="content\images\icon\hist-list-ico.png" />
+    <Content Include="content\images\icon\history-ico.png" />
+    <Content Include="content\images\icon\mbgames-ico.png" />
+    <Content Include="content\images\icon\mbl-an.png" />
+    <Content Include="content\images\icon\mbl-mai.png" />
+    <Content Include="content\images\icon\mbl-pei.png" />
+    <Content Include="content\images\icon\mbl-shou.png" />
+    <Content Include="content\images\icon\mbl-tu.png" />
+    <Content Include="content\images\icon\mbl-zhao.png" />
+    <Content Include="content\images\icon\mbmore-ico.png" />
+    <Content Include="content\images\icon\sgamels-ico.png" />
+    <Content Include="content\images\icon\share_02.png" />
     <Content Include="content\images\left.png" />
     <Content Include="content\images\left_1.png" />
     <Content Include="content\images\left_2.png" />
@@ -325,6 +355,10 @@
     <Content Include="content\images\RAKowFtoY90AAAAAAAAQEDe2QdM54.jpg" />
     <Content Include="content\images\RAKowFtoYzMAAAAAAAAOXnt_1ds75.jpg" />
     <Content Include="content\images\RAKowFtoZGQAAAAAAAAKH0AgL9087.jpg" />
+    <Content Include="content\images\recharge\rech-pyq.png" />
+    <Content Include="content\images\recharge\rech-qq %281%29.png" />
+    <Content Include="content\images\recharge\rech-qq.png" />
+    <Content Include="content\images\recharge\rech-weix.png" />
     <Content Include="content\images\rech_z.png" />
     <Content Include="content\images\redmessage.png" />
     <Content Include="content\images\redmessage_1.png" />
@@ -345,6 +379,9 @@
     <Content Include="content\images\sanjiao_3.png" />
     <Content Include="content\images\search.jpg" />
     <Content Include="content\images\search4.png" />
+    <Content Include="content\images\secure\icon-id-guarantee.png" />
+    <Content Include="content\images\secure\icon-kf-guarantee.png" />
+    <Content Include="content\images\secure\icon-zc-guarantee.png" />
     <Content Include="content\images\sell-out.png" />
     <Content Include="content\images\server.png" />
     <Content Include="content\images\sgamels-ico.png" />
@@ -416,8 +453,10 @@
     <Content Include="content\images\touxiang_3.png" />
     <Content Include="content\images\zhuan.png" />
     <Content Include="Global.asax" />
+    <Content Include="Page\AccountDetail\AccountDetail.html" />
     <Content Include="Page\AccountList\AccountList.html" />
     <Content Include="Page\GameDL\GameDL.html" />
+    <Content Include="Page\gamelist\GameList.html" />
     <Content Include="Page\GameSearch\GameSearch.html" />
     <Content Include="Page\GoodsType\goodtype.html" />
     <Content Include="Page\Home\BrowseRecords.html" />
