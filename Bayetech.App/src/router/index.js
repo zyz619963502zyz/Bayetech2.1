@@ -45,6 +45,11 @@ export default new Router({
 	    path: '/goodsList',
 	    name: 'goodsList',
 	    component: r => require.ensure([], () => r(require('../page/list/goodsList.vue')), 'goodsList')
+	},
+	{
+	    path: '/goodsDetail',
+	    name: 'goodsDetail',
+	    component: r => require.ensure([], () => r(require('../page/detail/goodsDetail.vue')), 'goodsDetail')
 	}
   ]
 })

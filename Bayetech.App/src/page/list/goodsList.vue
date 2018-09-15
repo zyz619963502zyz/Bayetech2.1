@@ -1,4 +1,4 @@
-﻿<template>
+<template>
 <div id="wrapper">
     <div class="" style="display: block">
         <div class="top-header fixed-top border-bottom" style="z-index: 61;">
@@ -151,39 +151,43 @@
                                 <!---->
                                 <div data-v-6b09e788="" id="istScroll 111" class="lists bg-f1">
                                     <div v-for="good in goodsList" v-bind:key="good.Id">
+                                      
+                                      <router-link :to="{ path: '/goodsDetail', query: {GoodNo:good.GoodNo} }" class="dis-b clearfix ps-r" >
+                                        <div data-v-6b09e788="" class="account-01 pro-list-01 mb-20 border-top" style="overflow: visible;">
+                                          <div data-v-6b09e788="" class="mbilegames-list" style="overflow: visible;">
+                                            <div data-v-6b09e788="" class="listware">
+                                              <div data-v-6b09e788="" class="mbgmes-img fl">
+                                                <img data-v-6b09e788="" src="" />
+                                                <div data-v-6b09e788="" class="picmun">
+                                                  <span data-v-6b09e788="" class="f22 color-fff fontarial">1</span>
+                                                </div>
+                                              </div>
+                                              <div data-v-6b09e788="" class="mbgmes-con">
+                                                <div data-v-6b09e788="" class="mbl-title f32 color-000">
+                                                  {{good.GoodTitle}}
+                                                </div>
+                                                <div data-v-6b09e788="" class="mbl-cper">
+                                                  <div data-v-6b09e788="" class="mbl-money color-m1 f32 fl">
+                                                    ￥{{good.GoodPrice}}
+                                                  </div>
+                                                  <!---->
+                                                  <div data-v-6b09e788="" class="mbl-icon fr">
+                                                    <i data-v-6b09e788="" class="an"></i>
+                                                    <i data-v-6b09e788="" class="tu"></i>
+                                                    <i data-v-6b09e788="" class="zhao"></i>
+                                                    <i data-v-6b09e788="" class="pei"></i>
+                                                  </div>
+                                                </div>
+                                                <div data-v-6b09e788="" class="mbl-parea color-666 f26">
+                                                  {{good.GroupName}}/{{good.ServerName}}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </router-link>
                                         <a data-v-6b09e788="" style="display: block; width: 100%;">
-                      <div data-v-6b09e788="" class="account-01 pro-list-01 mb-20 border-top" style="overflow: visible;">
-                        <div data-v-6b09e788="" class="mbilegames-list" style="overflow: visible;">
-                          <div data-v-6b09e788="" class="listware">
-                            <div data-v-6b09e788="" class="mbgmes-img fl">
-                              <img data-v-6b09e788="" src=""/>
-                              <div data-v-6b09e788="" class="picmun">
-                                <span data-v-6b09e788="" class="f22 color-fff fontarial">1</span>
-                              </div>
-                            </div>
-                            <div data-v-6b09e788="" class="mbgmes-con">
-                              <div data-v-6b09e788="" class="mbl-title f32 color-000">
-                                {{good.GoodTitle}}
-                              </div>
-                              <div data-v-6b09e788="" class="mbl-cper">
-                                <div data-v-6b09e788="" class="mbl-money color-m1 f32 fl">
-                                  ￥{{good.GoodPrice}}
-                                </div>
-                                <!---->
-                                <div data-v-6b09e788="" class="mbl-icon fr">
-                                  <i data-v-6b09e788="" class="an" ></i>
-                                  <i data-v-6b09e788="" class="tu" ></i>
-                                  <i data-v-6b09e788="" class="zhao" ></i>
-                                  <i data-v-6b09e788="" class="pei" ></i>
-                                </div>
-                              </div>
-                              <div data-v-6b09e788="" class="mbl-parea color-666 f26">
-                                {{good.GroupName}}/{{good.ServerName}}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                     
                       <!---->
                       <!---->
                       <!---->
@@ -665,6 +669,9 @@ export default {
         this.SearchList();
         this.GetGroup();
         window.addEventListener("scroll", this.handleScroll);
+    },
+    destroyed:function(){
+            window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
         handleScroll: function () {
