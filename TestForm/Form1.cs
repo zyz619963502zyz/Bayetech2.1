@@ -21,7 +21,7 @@ namespace TestForm
             app.Run();
 
             //持久化操作的环节 
-            string conStr = @"Server=.\MSSQLSERVER2012;database=WorkFlowDB;uid=sa;pwd=yujie1127";
+            string conStr = @"Server=47.98.176.184;database=WF;uid=sa;pwd=sh.1234";
             SqlWorkflowInstanceStore store = new SqlWorkflowInstanceStore(conStr);
             app.InstanceStore = store;
         }

@@ -25,37 +25,11 @@
                 <!---->
                 <ul class="style03">
                     <li class="bg-fff"  v-for="goodsType in goodsTypes">
-                      <router-link :to="{ path: '/goodstype', query: goodsType.queryModel }" class="dis-b clearfix ps-r">
+                      <router-link :to="{ path: '/goodsList', query: goodsType.queryModel }" class="dis-b clearfix ps-r">
                          {{goodsType.Name}}
                       </router-link>
-                        
-                        
-                       
                     </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=3&amp;gameType=1&amp;tradeType=0&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81">游戏币</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/equipmentList/44343b06076d4a7a95a0ef22aac481ae/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB/1">装备</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=7&amp;gameType=1&amp;tradeType=5&amp;typename=%E6%8C%91%E6%88%98%E4%B9%A6">挑战书</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/dl/dl-game?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB">游戏代练</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/search/search-game-area.html?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=851&amp;tradeType=0&amp;typename=%E6%B8%B8%E6%88%8F%E5%B8%81%E6%89%B9%E5%8F%91">游戏币批发</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/search/search-game-area.html?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=957&amp;tradeType=undefined&amp;typename=%E5%A2%9E%E5%B9%85%E5%88%B8/%E5%BC%BA%E5%8C%96%E5%88%B8">增幅券/强化券</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=1096&amp;gameType=1&amp;tradeType=5&amp;typename=%E6%97%A0%E8%89%B2%E5%B0%8F%E6%99%B6%E5%9D%97">无色小晶块</a>
-                    </li>
-                    <li class="bg-fff">
-                        <a href="https://m.5173.com/vue/search/searchArea?gameId=44343b06076d4a7a95a0ef22aac481ae&amp;gName=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;goodsType=1124&amp;gameType=1&amp;tradeType=5&amp;typename=%E9%AD%94%E5%88%B9%E7%9F%B3">魔刹石</a>
-                    </li>
+                
                 </ul>
             </div>
         </div>
@@ -98,46 +72,61 @@
     </div>
 </template>
 <script>
-  import "@/assets/css/goodtype.css";
-  let vmdata ={
-  goodsTypes:[],
-  gname:'',
-  gid:'',
-  gameList:[]
-  };
-  export default {
+import "@/assets/css/goodtype.css";
+
+let vmdata = {
+  goodsTypes: [{}, {}],
+  gname: "",
+  gid: "",
+  gameList: []
+};
+export default {
   name: "goodtype",
   data() {
-  return vmdata;
+    return vmdata;
   },
-  mounted:function(){
-  this.gname=this.$route.query.name;
-  this.gid=this.$route.query.id;
-  this. getGoodsType();
+  mounted: function() {
+    this.gname = this.$route.query.name;
+    this.gid = this.$route.query.id;
+    this.getGoodsType();
   },
-  methods:
-  {
-  getGoodsType:function (params) {
-        let self = this;
+  methods: {
+    getGoodsType: function(params) {
+      let self = this;
+      self.goodsTypes[0].queryModel = {};
+      self.goodsTypes[0].queryModel.gameId = self.gid;
+      self.goodsTypes[0].queryModel.gameName = self.gname;
+      self.goodsTypes[0].queryModel.goodsType = "dailian";
+      self.goodsTypes[0].queryModel.goodsTypeName = "代练";
+      self.goodsTypes[0].Name = "代练";
+
+      self.goodsTypes[1].queryModel = {};
+      self.goodsTypes[1].queryModel.gameId = self.gid;
+      self.goodsTypes[1].queryModel.gameName = self.gname;
+      self.goodsTypes[1].queryModel.goodsType = "good";
+      self.goodsTypes[1].queryModel.goodsTypeName = "商品";
+      self.goodsTypes[1].Name = "商品";
+    },
+    getGoodsTypeBack: function(params) {
+      let self = this;
       try {
-        this.$get("web/api/GoodType/GetGoodType", { gameid: 1,type:'good' }).then(function(result) {
-          self.goodsTypes = result.content;
-          console.log( self.goodsTypes);
-          for (let goodsType of self.goodsTypes) {
-            goodsType.queryModel = {};
-            goodsType.queryModel.id = self.gid;
-            goodsType.queryModel.name=self.gname;
-            goodsType.queryModel.goodsType = goodsType.Id;
-            goodsType.queryModel.goodsTypeName = goodsType.Name;
-          }
-         
-        });
+        self
+          .$get("web/api/GoodType/GetGoodType", { gameid: 1, type: "good" })
+          .then(function(result) {
+            self.goodsTypes = result.content;
+            console.log(self.goodsTypes);
+            for (let goodsType of self.goodsTypes) {
+              goodsType.queryModel = {};
+              goodsType.queryModel.gameId = self.gid;
+              goodsType.queryModel.gameName = self.gname;
+              goodsType.queryModel.goodsType = goodsType.Id;
+              goodsType.queryModel.goodsTypeName = goodsType.Name;
+            }
+          });
       } catch (err) {
         console.log(err);
       }
+    }
   }
-
-  }
-
-  };
+};
 </script>

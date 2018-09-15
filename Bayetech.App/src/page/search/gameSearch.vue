@@ -56,7 +56,10 @@
       <div data-v-f8bac10c="" class="hot pl-30 bg-fff border-bottom " v-show="searchGameList.length==0">
         <h4 data-v-f8bac10c="" class="f30 color-999 border-bottom">5173热搜</h4>
         <div data-v-f8bac10c="" class="search-all-hot game-n ps-r clearfix border-bottom">
-          <a href="/vue/search-all-app/search-class?gid=44343b06076d4a7a95a0ef22aac481ae&amp;gname=%E5%9C%B0%E4%B8%8B%E5%9F%8E%E4%B8%8E%E5%8B%87%E5%A3%AB&amp;gameType=1&amp;type=special" class="fl f30 color-000" data-v-f8bac10c="">地下城与勇士</a>
+          <router-link :to="{ path: '/goodstype', query: {id:1,name:'地下城与勇士'} }"class="fl f30 color-000">
+            地下城与勇士
+          </router-link>
+         
           <!---->
           <!---->
           <i data-v-f8bac10c="" class="pa"></i>
@@ -116,92 +119,89 @@
 
 </template>
 <script>
-  import "@/assets/css/gameSearch.css";
-    let vmdata = {
-        flag: false,
-        gname: "",
-        gameList: [],
-        keyWords: "",
-        searchGameList: [],
-        historyGameList:[]
-    };
-  export default {
-    name: "gameSearch",
-    data() {
-        return vmdata;
-    },
-    mounted: function() {
-        let id = this.$route.query.goodsType;
+import "@/assets/css/gameSearch.css";
+let vmdata = {
+  flag: false,
+  gname: "",
+  gameList: [],
+  keyWords: "",
+  searchGameList: [],
+  historyGameList: []
+};
+export default {
+  name: "gameSearch",
+  data() {
+    return vmdata;
+  },
+  mounted: function() {
+    let id = this.$route.query.goodsType;
 
-        this.getGameList();
-    },
-    watch: {
-            keyWords: function(newval) {
-                let self = this;
-                if (newval) {
-                    this.search();
-                } else {
-                    self.searchGameList = [];
-                }
-            }
-    },
-    methods: {
-            compositionstart: function() {
-                this.flag = true;
-            },
-            compositionend: function() {
-                this.flag = false;
-            },
-            input: function() {
-                var _this = this;
-                setTimeout(function() {
-                    if (_this.flag) {
-                        _this.keyWords = _this.$refs.txtkeywords.value;
-                        console.log(_this.$refs.txtkeywords.value);
-                    }
-                }, 0);
-            },
-            getGameList: function() {
-                let self = this;
-                try {
-                    this.$get("web/api/Game/GetGameList", { game: "" }).then(function(
-                    result
-                    ) {
-                        console.log(result);
-                        console.log(self);
-                        self.gameList = result.content;
-
-                        for (let game of self.gameList) {
-                            game.queryModel = {};
-                            game.queryModel.id = game.Id;
-                            game.queryModel.name=game.Name;
-                            game.queryModel.goodsType = self.goodsType;
-                        }
-                        self.getHistory();
-                    });
-                } catch (err) {
-                    console.log(err);
-                }
-            },
-            search: function() {
-                var self = this;
-                self.searchGameList = self.gameList.filter(function(game) {
-                    return (
-                    game.Name.indexOf(self.keyWords) >= 0 ||
-                    game.FirstLetter.indexOf(self.keyWords) >= 0
-                    );
-                });
-            },
-            getHistory:function(){
-                var self = this;
-                self.historyGameList = self.gameList.filter(function(game) {
-                    return (
-                    game.Name==='地下城与勇士' ||
-                    game.Name==='英雄联盟'
-                    );
-                });
-            }
+    this.getGameList();
+  },
+  watch: {
+    keyWords: function(newval) {
+      let self = this;
+      if (newval) {
+        this.search();
+      } else {
+        self.searchGameList = [];
+      }
     }
-    };
+  },
+  methods: {
+    compositionstart: function() {
+      this.flag = true;
+    },
+    compositionend: function() {
+      this.flag = false;
+    },
+    input: function() {
+      var _this = this;
+      setTimeout(function() {
+        if (_this.flag) {
+          _this.keyWords = _this.$refs.txtkeywords.value;
+          console.log(_this.$refs.txtkeywords.value);
+        }
+      }, 0);
+    },
+    getGameList: function() {
+      let self = this;
+      try {
+        this.$get("web/api/Game/GetGameList", { game: "" }).then(function(
+          result
+        ) {
+          console.log(result);
+          console.log(self);
+          self.gameList = result.content;
+
+          for (let game of self.gameList) {
+            game.queryModel = {};
+            game.queryModel.id = game.Id;
+            game.queryModel.name = game.Name;
+            game.queryModel.goodsType = self.goodsType;
+          }
+          self.getHistory();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    search: function() {
+      var self = this;
+      self.searchGameList = self.gameList.filter(function(game) {
+        return (
+          game.Name.indexOf(self.keyWords) >= 0 ||
+          game.FirstLetter.indexOf(self.keyWords) >= 0
+        );
+      });
+    },
+    getHistory: function() {
+      var self = this;
+      self.historyGameList = self.gameList.filter(function(game) {
+        return game.Name === "地下城与勇士" || game.Name === "英雄联盟";
+      });
+    }
+  }
+};
 </script>
 

@@ -39,7 +39,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Admin_Sys_LogDetails> Admin_Sys_LogDetails { get; set; }
         public virtual DbSet<Admin_Sys_logs> Admin_Sys_logs { get; set; }
         public virtual DbSet<Admin_Sys_NavButtons> Admin_Sys_NavButtons { get; set; }
-        public virtual DbSet<Admin_Sys_Navigations> Admin_Sys_Navigations { get; set; }
         public virtual DbSet<Admin_Sys_RoleNavBtns> Admin_Sys_RoleNavBtns { get; set; }
         public virtual DbSet<Admin_Sys_Roles> Admin_Sys_Roles { get; set; }
         public virtual DbSet<Admin_Sys_Roles_Departments> Admin_Sys_Roles_Departments { get; set; }
@@ -54,39 +53,40 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<DLRequire> DLRequire { get; set; }
         public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
         public virtual DbSet<ExtraPropertyValue> ExtraPropertyValue { get; set; }
-        public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<GameAccount> GameAccount { get; set; }
         public virtual DbSet<GameInfoDescription> GameInfoDescription { get; set; }
         public virtual DbSet<GameProfession> GameProfession { get; set; }
         public virtual DbSet<GoodStatus> GoodStatus { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<MallDLInfo> MallDLInfo { get; set; }
-        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
-        public virtual DbSet<MallOrder> MallOrder { get; set; }
         public virtual DbSet<MallType> MallType { get; set; }
         public virtual DbSet<Module> Module { get; set; }
-        public virtual DbSet<OrderStatus> OrderStatus { get; set; }
-        public virtual DbSet<Relationship> Relationship { get; set; }
-        public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Admin_Sys_Login> Admin_Sys_Login { get; set; }
         public virtual DbSet<GoodAndDescription> GoodAndDescription { get; set; }
         public virtual DbSet<MallGoodPictures> MallGoodPictures { get; set; }
-        public virtual DbSet<RelationshipType> RelationshipType { get; set; }
         public virtual DbSet<vw_ArticleModule> vw_ArticleModule { get; set; }
         public virtual DbSet<vw_GameServers> vw_GameServers { get; set; }
-        public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
         public virtual DbSet<vw_LoginInfo> vw_LoginInfo { get; set; }
         public virtual DbSet<vw_MallDLInfo> vw_MallDLInfo { get; set; }
         public virtual DbSet<vw_MallDLOrderInfo> vw_MallDLOrderInfo { get; set; }
-        public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
-        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
-        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
-        public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
         public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
+        public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
+        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
+        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+        public virtual DbSet<OrderStatus> OrderStatus { get; set; }
+        public virtual DbSet<MallOrder> MallOrder { get; set; }
+        public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
+        public virtual DbSet<Admin_Sys_Login> Admin_Sys_Login { get; set; }
+        public virtual DbSet<Admin_Sys_Navigations> Admin_Sys_Navigations { get; set; }
+        public virtual DbSet<Relationship> Relationship { get; set; }
+        public virtual DbSet<RelationshipType> RelationshipType { get; set; }
+        public virtual DbSet<vw_GoodTypes> vw_GoodTypes { get; set; }
+        public virtual DbSet<Game> Game { get; set; }
+        public virtual DbSet<Server> Server { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
