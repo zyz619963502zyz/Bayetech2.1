@@ -6,6 +6,7 @@ let vmData = {
     GameListUrl: "/api/Game/",
     GetByLetterUrl:"/api/Game/GetGameListByLetter",
     UpdateGameUrl:"/api/Game/UpdateGame",
+    GetByGameUrl:"/api/Game/GetGameService",
     tools:{
         _comCompnent:comCompnent,
         _componentTable:componentTable
@@ -14,10 +15,11 @@ let vmData = {
     GameTypes:[{code:"0",name:"PC游戏"},{code:"1",name:"手机游戏"}],//游戏类型
     GameArray:[],//游戏基本信息
     EditData:[],//点击编辑的基本信息
-    GameProfessionArray:[],//职业信息列表数据
+    GameProfessionArray:[{}],//职业信息列表数据
     GameInfoDescriptionArray:[],//游戏商品属性列表数据
-
-    ServerList1:[],//区服务信息
+    GameMallTypeArray:[{}],
+    MallTypeArray:[{}],
+    ServerList1:[{}],//区服务信息
     ServerList2:[{}],
     ListObj: [
         {
@@ -89,7 +91,8 @@ new Vue({
             self.FindList();
         },
         AddServer(){//添加游戏区/服务器
-        
+            var self = this;
+            self.ServerList1.push({});
         },
         DelServer(){//删除游戏区/服务器
         
@@ -100,12 +103,33 @@ new Vue({
         OpenProperty(item){//游戏属性模态框
             var self=this;
             self.GameArray=item;
+            var GameArray={};
+            GameArray.GameArray=self.GameArray;
+            self.tools._comCompnent.postWebJson(self.GetByGameUrl, GameArray, function (data) {
+                $("#QueryList").Btns("reset");
+                if (data.result) {
+                    self.ServerList1=data.server;
+                    self.GameProfessionArray=data.gameProfession;
+                    self.GameMallTypeArray =data.mallType;
+                    for (var i = 0; i < self.GameMallTypeArray.length; i++) {
+                        self.GameMallTypeArray[i].checkvalue =true;
+                    }
+
+                    self.MallTypeArray=data.mallTypeArray;
+                    //self.tools._comCompnent.SetPagination($('#paginator-test'),
+                        //self.SearchParam, self.FindList);
+                }else {
+                    self.GameArray = [];//清空列表
+                }
+            },function(){
+                $("#QueryList").Btns("reset");
+            });
             $("#GamePropertyModal").modal("show");
-            alert(1);
         },
         AddProfession(item){//添加游戏职业属性
             var self = this;
-            self.GameProfessionArray.push(item);//游戏职业列表数据
+            var obj = {};
+            self.GameProfessionArray.push(obj);//游戏职业列表数据
         },
         DelProfession(){//删除职业列表数据一行todo
         
@@ -116,14 +140,23 @@ new Vue({
         SaveTrade(){//将checkbox的数据保存到列表
         
         },
+        AddMallT(item){
+            var self=this;
+            self.GameMallTypeArray.push(item);
+        },
+        DelectMallT(item){
+            var self=this;
+            self.GameMallTypeArray.splice(item);
+        },
         GameMenuSave(){//保存
+            alert(111);
             debugger;
             var updateSave={};
             var self = this;
             updateSave.GameArray=self.GameArray;
             updateSave.ServerList1=self.ServerList1;
             updateSave.GameProfessionArray=self.GameProfessionArray;
-            updateSave.GameInfoDescriptionArray=self.GameInfoDescriptionArray;
+            updateSave.GameMallTypeArray=self.GameMallTypeArray;
             self.tools._comCompnent.postWebJson(self.UpdateGameUrl, updateSave, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {

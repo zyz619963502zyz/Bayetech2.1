@@ -50,7 +50,11 @@ namespace Bayetech.Admin.Controllers
         public JObject UpdateGame(JObject json) {
             return serviceGame.UpdateGame(json);
         }
-
+        [HttpPost]
+        public JObject GetGameService(JObject json)
+        {
+            return serviceGame.GetGameService(json);
+        }
         /// <summary>
         /// 根据游戏的Alias去删除一个游戏
         /// </summary>

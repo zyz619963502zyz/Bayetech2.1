@@ -101,13 +101,14 @@ namespace Bayetech.Service.Services
             List<Server> server = json["ServerList1"].ToString() == "" ? new List<Server>() : JsonConvert.DeserializeObject<List<Server>>(json["ServerList1"].ToString());
             //职业信息
             List<GameProfession> gameProfession = json["GameProfessionArray"].ToString() == "" ? new List<GameProfession>() : JsonConvert.DeserializeObject<List<GameProfession>>(json["GameProfessionArray"].ToString());
-            //商品属性
-            List<GameInfoDescription> gameInfoDescription = json["GameInfoDescriptionArray"].ToString() == "" ? new List<GameInfoDescription>() : JsonConvert.DeserializeObject<List<GameInfoDescription>>(json["GameInfoDescriptionArray"].ToString());
+            //交易类型
+            List<MallType> gameInfoDescription = json["GameMallTypeArray"].ToString() == "" ? new List<MallType>() : JsonConvert.DeserializeObject<List<MallType>>(json["GameMallTypeArray"].ToString());
+
             using (var db = new RepositoryBase().BeginTrans())
             {
-                server.ForEach(a => a.GameId = game.Id);
+                server.ForEach(a => a.GameId =Convert.ToInt32(game.Id));
                 int flag = db.Update(game);
-                var serveraList = db.IQueryable<Server>(a => a.Id == game.Id).ToList();
+                var serveraList = db.IQueryable<Server>(a => a.GameId == game.Id).ToList();
                 foreach (var item in serveraList)
                 {
                     db.Delete<Server>(item);
@@ -125,22 +126,70 @@ namespace Bayetech.Service.Services
                 {
                     db.Insert<GameProfession>(item);
                 }
-                //var gameInfoDescription = from a in db.IQueryable<GoodAndDescription>()
-                //                          join b in db.IQueryable<GameInfoDescription>() on a.DescriptionId equals b.DescriptionId
-                //                          where a.GameId == game.Id
-                //                          select b;
-                if (flag > 0)
+                List<Relationship> mallType = (from a in db.IQueryable<MallType>().DefaultIfEmpty()
+                                           join b in db.IQueryable<Relationship>() on a.Id equals b.Key
+                                           join c in db.IQueryable<Game>().DefaultIfEmpty() on b.ParentKey equals c.Id
+                                           where c.Id == game.Id
+                                           select b).ToList();
+                foreach (var item in mallType)
                 {
-                    ret.Add("result", true);
-                    ret.Add("Mess", JObject.FromObject("更游戏新成功！"));
+                    db.Insert<Relationship>(item);
+                }
+                foreach (var item in gameInfoDescription)
+                {
+                    Relationship re = new Relationship();
+                    re.Key = item.Id;
+                    re.Type = item.En_Name;
+                    re.ParentKey = game.Id;
+                    re.CreateTime = DateTime.Now;
+                    db.Insert(re);
+
+                }
+
+            }
+            return ret;
+        }
+        /// <summary>
+        /// 编辑属性查询
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public JObject GetGameService(JObject json)
+        {
+            JObject ret = new JObject();
+            Game game = json["GameArray"].ToString() == "" ? new Game() : JsonConvert.DeserializeObject<Game>(json["GameArray"].ToString());
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                //区服务信息
+                List<Server> server = db.IQueryable<Server>(a => a.GameId == game.Id).ToList();
+                //职业信息
+                List<GameProfession> gameProfession = db.IQueryable<GameProfession>(a => a.GameId == game.Id).ToList();
+                //交易类型
+                List<MallType> mallType = (from a in db.IQueryable<MallType>().DefaultIfEmpty()
+                                          join b in db.IQueryable<Relationship>() on a.Id equals b.Key
+                                          join c in db.IQueryable<Game>().DefaultIfEmpty() on b.ParentKey equals c.Id
+                                          where c.Id == game.Id
+                                          select a).ToList();
+
+
+                List<MallType> mallTypeList = db.IQueryable<MallType>().ToList();
+
+                if (server.Count>0)
+                {
+                    ret.Add(ResultInfo.Result, true);
+                    ret.Add("server", JProperty.FromObject(server));
+                    ret.Add("gameProfession",JProperty.FromObject(gameProfession));
+                    ret.Add("mallType", JProperty.FromObject(mallType));
+                    ret.Add("mallTypeArray", JProperty.FromObject(mallTypeList));
                 }
                 else
                 {
-                    ret.Add("result", false);
-                    ret.Add("Mess", JObject.FromObject("游戏更新失败，请联系管理员！"));
+                    ret.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    ret.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
                 }
             }
             return ret;
+               
         }
 
         /// <summary>

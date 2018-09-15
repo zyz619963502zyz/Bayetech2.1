@@ -14,7 +14,7 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_GoodTypes
     {
-        public long rowid { get; set; }
+        public Nullable<long> rowid { get; set; }
         public Nullable<long> Id { get; set; }
         public string Name { get; set; }
         public string GameName { get; set; }
