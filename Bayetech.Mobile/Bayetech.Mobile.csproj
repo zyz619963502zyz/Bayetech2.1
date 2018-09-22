@@ -133,6 +133,7 @@
     <Content Include="content\css\account-detail.css" />
     <Content Include="content\css\accountlist.css" />
     <Content Include="content\css\common.css" />
+    <Content Include="content\css\dl-detail.css" />
     <Content Include="content\css\dl-list.css" />
     <Content Include="content\css\fost-base-min.css" />
     <Content Include="content\css\game-dl.css" />
@@ -457,6 +458,7 @@
     <Content Include="Global.asax" />
     <Content Include="Page\AccountDetail\AccountDetail.html" />
     <Content Include="Page\AccountList\AccountList.html" />
+    <Content Include="Page\GameDL\dlDetail.html" />
     <Content Include="Page\GameDL\dlList.html" />
     <Content Include="Page\GameDL\GameDL.html" />
     <Content Include="Page\gamelist\GameList.html" />
