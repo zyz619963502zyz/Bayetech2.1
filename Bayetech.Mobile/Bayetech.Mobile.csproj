@@ -133,6 +133,8 @@
     <Content Include="content\css\account-detail.css" />
     <Content Include="content\css\accountlist.css" />
     <Content Include="content\css\common.css" />
+    <Content Include="content\css\dl-detail.css" />
+    <Content Include="content\css\dl-list.css" />
     <Content Include="content\css\fost-base-min.css" />
     <Content Include="content\css\game-dl.css" />
     <Content Include="content\css\gamesearch.css" />
@@ -221,6 +223,7 @@
     <Content Include="content\images\dl\sgamels-ico.png" />
     <Content Include="content\images\dl\shouji-gray.png" />
     <Content Include="content\images\dl\shouji.png" />
+    <Content Include="content\images\dl\sj.png" />
     <Content Include="content\images\dl\touxiang.png" />
     <Content Include="content\images\dnf.jpg" />
     <Content Include="content\images\down4.png" />
@@ -455,6 +458,9 @@
     <Content Include="Global.asax" />
     <Content Include="Page\AccountDetail\AccountDetail.html" />
     <Content Include="Page\AccountList\AccountList.html" />
+    <Content Include="Page\GameDL\dlBuy.html" />
+    <Content Include="Page\GameDL\dlDetail.html" />
+    <Content Include="Page\GameDL\dlList.html" />
     <Content Include="Page\GameDL\GameDL.html" />
     <Content Include="Page\gamelist\GameList.html" />
     <Content Include="Page\GameSearch\GameSearch.html" />
