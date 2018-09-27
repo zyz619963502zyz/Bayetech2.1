@@ -282,13 +282,13 @@
                     价格区间
                 </div>
                 <div data-v-6b09e788="" class="price-list px-30 py-30">
-                    <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30"/>
+                    <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.minPrice" />
                     <span data-v-6b09e788="" class="hern fl"></span>
-                    <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30"/>
+                    <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.maxPrice" />
         </div>
                 </div>
                 <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-                    <i data-v-6b09e788="" class="fr src-ico manycheck">不限</i>
+                    <i data-v-6b09e788="" class="fr src-ico manycheck" @click="searchModelSub.chooseZQ=true">不限</i>
                     战区
                     <!---->
                 </div>
@@ -296,7 +296,7 @@
                     <!---->
                     <!---->
                     <!---->
-                    <div data-v-6b09e788="" style="display: none;">
+                    <div data-v-6b09e788="" v-show="searchModelSub.chooseZQ">
                         <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
                         <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
                             <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
@@ -650,8 +650,9 @@ let vmdata = {
         AcrossName: "跨区"
     },
     searchModelSub: {
-        minPrice: 0,
-        maxPrice: 0
+        minPrice: "",
+        maxPrice:"",
+        chooseZQ:false
     }
 };
 

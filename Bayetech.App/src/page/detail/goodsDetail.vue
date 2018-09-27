@@ -364,7 +364,7 @@
               一口价：
               <em data-v-932364c8="" class="color-m1 f32 ml-10">
                 ￥
-                <i data-v-932364c8="" class="fontarial f32 fontbold">2000.00</i>
+                <i data-v-932364c8="" class="fontarial f32 fontbold">{{GoodInfo.GoodPrice}}</i>
               </em>
             </div>
             <div data-v-932364c8="" class="fr collectbuy">
@@ -514,45 +514,46 @@
 <script>
   import "@/assets/css/account-detail.css";
   let vmdata = {
- 
-    GoodNo:'',
-    GoodInfo: {}
+
+  GoodNo:'',
+  GoodInfo: {}
   };
- 
+
   export default {
-    name: "goodsDetail",
-  
-    data() {
-      return vmdata;
-    },
-    mounted: function () {
-      this.GoodNo = this.$route.query.GoodNo;
-      this.GameName = this.$route.query.Name;
-      this.GetGoodInfo();
-    },
-    methods: {
-     GetGoodInfo: function () {
-         let self = this;
-         let data = {
-           goodNo:self.GoodNo
+  name: "goodsDetail",
 
-         };
-                
-            try {
-                self.$get("http://localhost:15786/api/GoodInfo/GetGoodInfo", data)
-                        .then(function (result) {
-                            //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
-                            if (result.result) {
-                                self.GoodInfo=result.content;
+  data() {
+  return vmdata;
+  },
+  mounted: function () {
+  this.GoodNo = this.$route.query.GoodNo;
+  this.GameName = this.$route.query.Name;
+  this.GetGoodInfo();
+  },
+  methods: {
+  GetGoodInfo: function () {
+  let self = this;
+  let data = {
+  goodNo:self.GoodNo
 
-                            } 
+  };
 
-                        });
-            } catch (err) {
-                console.log(err);
-            }
+  try {
+  self.$get("http://localhost:15786/api/GoodInfo/GetGoodInfo", data)
+  .then(function (result) {
+  //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
+  if (result.result) {
+  console.log(result.content);
+  self.GoodInfo=result.content;
 
-    }
-    }
+  }
+
+  });
+  } catch (err) {
+  console.log(err);
+  }
+
+  }
+  }
   }
 </script>
