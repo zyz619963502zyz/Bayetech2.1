@@ -3000,9 +3000,3 @@ html {
     -webkit-animation-name: slideOutUp;
     animation-name: slideOutUp;
 }
-.fixed-top {
-    position: fixed !important;
-    top: 0;
-    max-width: 768px;
-    width: 100%;
-}
