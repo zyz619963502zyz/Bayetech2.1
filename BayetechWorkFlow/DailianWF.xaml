@@ -37,7 +37,7 @@
   </TextExpression.ReferencesForImplementation>
   <StateMachine DisplayName="代练下单流程" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <StateMachine.InitialState>
-      <State x:Name="__ReferenceID1" DisplayName="客服上号验证" sap2010:WorkflowViewState.IdRef="State_1">
+      <State x:Name="__ReferenceID1" DisplayName="客服上号验证" Code="ceshi" sap2010:WorkflowViewState.IdRef="State_1">
         <State.Transitions>
           <Transition DisplayName="T1" sap2010:WorkflowViewState.IdRef="Transition_2">
             <Transition.Condition>
