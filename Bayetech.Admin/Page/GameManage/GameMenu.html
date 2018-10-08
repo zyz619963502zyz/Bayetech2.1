@@ -86,13 +86,13 @@
                                     <div class="col-md-6">
                                         <label class="control-label col-md-3">游戏名称</label>
                                         <div class="col-md-offset-1 col-md-8">
-                                            <input class="form-control" value="zhangzaitian" readonly />
+                                            <input class="form-control" v-model="GameArray.Name" readonly />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="control-label col-md-3">游戏简称</label>
                                         <div class="col-md-offset-1 col-md-8">
-                                            <input class="form-control" value="dnf" />
+                                            <input class="form-control" v-model="GameArray.Alias" />
                                         </div>
                                     </div>
                                 </div>
@@ -101,13 +101,13 @@
                                     <div class="col-md-6">
                                         <label class="control-label col-md-3">游戏首字母</label>
                                         <div class="col-md-offset-1 col-md-8">
-                                            <input class="form-control" value="d" readonly />
+                                            <input class="form-control" v-model="GameArray.Letter" readonly />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="control-label col-md-3">是否热门</label>
                                         <div class="col-md-offset-1 col-md-8">
-                                            <select v-model="" class="select form-control">
+                                            <select class="select form-control">
                                                 <option value="0">非热门游戏</option>
                                                 <option value="1">热门游戏</option>
                                             </select>
@@ -165,15 +165,15 @@
                                     <tbody>
                                         <tr v-for="item in ServerList1">
                                             <td>{{item.Id}}</td>
-                                            <td><input class="form-control" value="item.Name" /></td>
-                                            <td><input class="form-control" value="item.Letter" /></td>
-                                            <td><input class="form-control" value="item.Order" /></td>
-                                            <td><input class="form-control" value="item.Remark" /></td>
+                                            <td><input class="form-control" v-model="item.Name" /></td>
+                                            <td><input class="form-control" v-model="item.Letter" /></td>
+                                            <td><input class="form-control" v-model="item.Order" /></td>
+                                            <td><input class="form-control" v-model="item.Remark" /></td>
                                             <td>
                                                 <div class="text-center row">
                                                     <button class="btn-primary" @click="AddServer">新增</button>
-                                                    <button class="btn-danger" @click="DelServer">删除</button>
-                                                    <button class="btn-success" @click="OpenServerChild">服务器编辑</button>
+                                                    <button class="btn-danger" @click="DelServer(item)">删除</button>
+                                                    <button class="btn-success" @click="OpenServerChild(item)">服务器编辑</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -196,12 +196,12 @@
                                     <tbody>
                                         <tr v-for="item in GameProfessionArray">
                                             <td>{{item.ProfessionId}}</td>
-                                            <td><input class="form-control" value="item.ProfessionName" /></td>
-                                            <td><input class="form-control" value="item.Remark" /></td>
+                                            <td><input class="form-control" v-model="item.ProfessionName" /></td>
+                                            <td><input class="form-control" v-model="item.Remark" /></td>
                                             <td>
                                                 <div class="text-center row">
-                                                    <button class="btn-primary" @click="AddProfession">新增</button>
-                                                    <button class="btn-danger" @click="DelProfession">删除</button>
+                                                    <button class="btn-primary" @click="AddProfession()">新增</button>
+                                                    <button class="btn-danger" @click="DelProfession(item)">删除</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -214,14 +214,9 @@
                                 <h4><strong>交易类型</strong></h4>
                                 <button class="btn btn-primary" @click="OpenTradeType">查看所有交易类型</button>
                                 <br />
-                                <div class="inline">
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
-                                    <label style="border:solid 1px #000">交易类型1</label>
+                                <div v-for="item in GameMallTypeArray" class="inline" style="float:left;padding:5px">
+                                    <input  type="checkbox" id="runoob"  value="{{item.Id}}" v-model="item.checkvalue" @click="DelectMallT(item)">
+                                    <label>{{item.Name}}</label>
                                 </div>
                             </div><!--交易类型-->
                         </div>
@@ -229,8 +224,8 @@
                     <div class="modal-footer" id="modal_footer" style="text-align:center;">
                         <div class="btn-group col-md-12">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary col-md-offset-8 col-md-2" data-loading-text="保存中.." name="SaveTrade" @click="SaveTrade">保存</button>
-                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="CancelTrade">取消</button>
+                                <button type="button" class="btn btn-primary col-md-offset-8 col-md-2" data-loading-text="保存中.." name="CheckConfirm" @click="GameMenuSave">保存</button>
+                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
                             </div>
                         </div>
                     </div>
@@ -238,7 +233,7 @@
             </div>
         </div>
 
-        <!--服务器编辑模态框-->
+        <!--<!--<!--服务器编辑模态框-->
         <div class="modal form-horizontal" id="GameServer2" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
             <div class="modal-dialog" style="width:1300px">
                 <div class="modal-content animated bounceInRight">
@@ -263,14 +258,14 @@
                             <tbody>
                                 <tr v-for="item in ServerList2">
                                     <td>{{item.Id}}</td>
-                                    <td><input class="form-control" value="item.Name" /></td>
-                                    <td><input class="form-control" value="item.Letter" /></td>
-                                    <td><input class="form-control" value="item.Order" /></td>
-                                    <td><input class="form-control" value="item.Remark" /></td>
+                                    <td><input class="form-control" v-model="item.Name" /></td>
+                                    <td><input class="form-control" v-model="item.Letter" /></td>
+                                    <td><input class="form-control" v-model="item.Order" /></td>
+                                    <td><input class="form-control" v-model="item.Remark" /></td>
                                     <td class="text-center">
                                         <div class="text-center row">
-                                            <button class="btn-primary" @click="AddServer">新增</button>
-                                            <button class="btn-danger" @click="DelServer">删除</button>
+                                            <button class="btn-primary" @click="AddServer2">新增</button>
+                                            <button class="btn-danger" @click="DelServer2">删除</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -280,7 +275,7 @@
                     <div id="GameServer2_foot" class="modal-footer">
                         <div class="btn-group col-md-12">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary col-md-offset-8 col-md-2" data-loading-text="保存中.." name="CheckConfirm" @click="">保存</button>
+                                <button type="button" class="btn btn-primary col-md-offset-8 col-md-2" data-loading-text="保存中.." name="CheckConfirm" @click="ServerMenuSave">保存</button>
                                 <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
                             </div>
                         </div>
@@ -291,7 +286,7 @@
         
         <!--交易类型编辑-->
         <div class="modal form-horizontal" id="TradeTypeModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" style="width:1300px">
+            <div class="modal-dialog" style="width:1300px;height:500px;">
                 <div class="modal-content animated bounceInRight">
                     <div id="GameServer2_head" class="modal-header">
                         <a class="close" data-dismiss="modal" name="btnModalClose">
@@ -299,28 +294,13 @@
                         </a>
                         <h3 class="modal-title text-center" id="modal_title"><strong>服务器编辑</strong></h3>
                     </div>
-                    <div id="GameServer2_body" class="modal-body">
-                       <div>
-                           <input type="checkbox"/>
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                           <input type="checkbox" />
-                       </div>
-                    </div>
-                    <div id="GameServer2_foot" class="modal-footer">
-                        <div class="btn-group col-md-12">
-                            <div class="col-md-12">
-                                <button type="button" class="btn btn-primary col-md-offset-8 col-md-2" data-loading-text="保存中.." name="CheckConfirm" @click="">保存</button>
-                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
-                            </div>
+                    <div id="GameServer2_body" class="modal-body" style="width:1300px;height:500px;">
+                        <div v-for="item in MallTypeArray" class="inline" style="float:left;padding:5px">
+                            <input type="checkbox" id="runoob" value="{{item.Id}}" v-model="item.checkvalue" @click="AddMallT(item)">
+                            <label>{{item.Name}}</label>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>

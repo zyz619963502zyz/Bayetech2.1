@@ -1,7 +1,7 @@
 <template>
-  <div data-v-4a678b7c="" id="wrapper" class="pb-125">
+  <div  id="wrapper" class="pb-125">
    
-    <div class="appdownload hide" data-v-4a678b7c="">
+    <div class="appdownload hide" >
       <div class="appload-conn fl">
         <div class="appload-close fl">
           <a href="javascript:void(0);" class="appclose"></a>
@@ -18,42 +18,43 @@
         <a href="javascript:;" class="appbtn f30 color-fff">立即下载</a>
       </div>
     </div>
-    <div data-v-4a678b7c="" class="index-header">
-      <div data-v-4a678b7c="" class="index-header-logo">
-        <img data-v-4a678b7c="" src="@/assets/content/images/logo.png" alt="5173游戏交易平台" class="img-responsive" />
+    <div  class="index-header">
+      <div  class="index-header-logo">
+        <img  src="@/assets/content/images/logo.png" alt="5173游戏交易平台" class="img-responsive" />
       </div>
       <router-link :to="{ name: 'gameSearch', params: { userId: 123 }}">
-        <div data-v-4a678b7c="" class="index-header-search">
-  <div data-v-4a678b7c="" class="text-input">
-    <span data-v-4a678b7c="" class="f30">搜索游戏</span>
+        <div  class="index-header-search">
+  <div  class="text-input">
+    <span  class="f30">搜索游戏</span>
   </div>
 </div></router-link>
       
-      <a data-v-4a678b7c="" rel="nofollow" href="http://www.5173.com/home" title="返回5173主站" class="toPc">
-        <img data-v-4a678b7c="" src="@/assets/content/images/pc.png" />
+      <a  rel="nofollow" href="http://www.5173.com/home" title="返回5173主站" class="toPc">
+        <img  src="@/assets/content/images/pc.png" />
       </a>
     </div>
-    <div data-v-4a678b7c="" class=""></div>
-    <div data-v-4a678b7c="" class="newhmban">
-      <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" data-v-4a678b7c="">
+    <div  class=""></div>
+
+    <div  class="newhmban search-bar">
+      <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" >
         <div class="swiper-wrapper" style="height: 146px; transform: translate3d(-3072px, 0px, 0px); transition-duration: 0ms;">
-          <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/89b143feec4646b68f8c49722e27a660.jpg" />
+          <div class="swiper-slide"  style="width: 375px;">
+            <img  src="@/assets/content/images/89b143feec4646b68f8c49722e27a660.jpg" />
           </div>
-          <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/b55482e51de3458885385fc7b05d403d.jpg" />
+          <div class="swiper-slide"  style="width: 375px;">
+            <img  src="@/assets/content/images/b55482e51de3458885385fc7b05d403d.jpg" />
           </div>
-          <div class="swiper-slide" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg" />
+          <div class="swiper-slide"  style="width: 375px;">
+            <img  src="@/assets/content/images/fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg" />
           </div>
-          <div class="swiper-slide swiper-slide-prev" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/a29ec62d89bf4a6eb3ae850205cf30c2.jpg" />
+          <div class="swiper-slide swiper-slide-prev"  style="width: 375px;">
+            <img  src="@/assets/content/images/a29ec62d89bf4a6eb3ae850205cf30c2.jpg" />
           </div>
-          <div class="swiper-slide swiper-slide-active" data-v-4a678b7c="" style="width: 375px;">
-            <img data-v-4a678b7c="" src="@/assets/content/images/f2b03764ce81476291e41bd5c27df2b4.jpg" />
+          <div class="swiper-slide swiper-slide-active"  style="width: 375px;">
+            <img  src="@/assets/content/images/f2b03764ce81476291e41bd5c27df2b4.jpg" />
           </div>
         </div>
-        <div data-v-4a678b7c="" class="swiper-pagination swiper-pagination-bullets">
+        <div  class="swiper-pagination swiper-pagination-bullets">
           <span class="swiper-pagination-bullet"></span>
           <span class="swiper-pagination-bullet"></span>
           <span class="swiper-pagination-bullet"></span>
@@ -63,205 +64,206 @@
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
     </div>
-    <div data-v-4a678b7c="" class="index-swiper bg-fff border-bottom py-30 mb-20">
-      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+
+    <div  class="index-swiper bg-fff border-bottom py-30 mb-20">
+      <div  class="swiper-slide fl text-center">
         <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
-            <span data-v-4a678b7c="" class="class01"></span>
-            <p data-v-4a678b7c="" class="f28 color-000 mt-10">游戏币</p>
+            <span  class="class01"></span>
+            <p  class="f28 color-000 mt-10">游戏币</p>
           </router-link>
        
       </div>
-      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+      <div  class="swiper-slide fl text-center">
         <router-link :to="{ path: '/gameSearch' ,query:{goodsType:3}}">
-          <span data-v-4a678b7c="" class="class02"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">帐号</p>
+          <span  class="class02"></span>
+          <p  class="f28 color-000 mt-10">帐号</p>
         </router-link>
       </div>
-      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+      <div  class="swiper-slide fl text-center">
         <router-link :to="{ path: '/hotGameSearch', query: { goodsType: 0}}">
-          <span data-v-4a678b7c="" class="class03"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">手游充值</p>
+          <span  class="class03"></span>
+          <p  class="f28 color-000 mt-10">手游充值</p>
         </router-link>
       </div>
-      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+      <div  class="swiper-slide fl text-center">
         <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
-          <span data-v-4a678b7c="" class="class04"></span>
-          <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
+          <span  class="class04"></span>
+          <p  class="f28 color-000 mt-10">代练</p>
         </router-link>
       </div>
-      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+      <div  class="swiper-slide fl text-center">
         <router-link :to="{name:'gameSearch',query:{goodsType:2}}">
-            <span data-v-4a678b7c="" class="class05"></span>
-            <p data-v-4a678b7c="" class="f28 color-000 mt-10">装备</p>
+            <span  class="class05"></span>
+            <p  class="f28 color-000 mt-10">装备</p>
         </router-link> 
             
       </div>
     </div>
     <!--搜索游戏-->
-    <div data-v-4a678b7c="" class="search-game-tab bg-fff border-top mb-20 border-bottom hide">
-      <div data-v-4a678b7c="" class="tab">
-        <div data-v-4a678b7c="" class="tab-head">
-          <ul data-v-4a678b7c="" class="tab-nav">
-            <li data-v-4a678b7c="" class="active">
-              <a data-v-4a678b7c="">
-                <span data-v-4a678b7c="" class="sj">热门手游</span>
+    <div  class="search-game-tab bg-fff border-top mb-20 border-bottom hide">
+      <div  class="tab">
+        <div  class="tab-head">
+          <ul  class="tab-nav">
+            <li  class="active">
+              <a >
+                <span  class="sj">热门手游</span>
               </a>
             </li>
-            <li data-v-4a678b7c="" class="">
-              <a data-v-4a678b7c="">
-                <span data-v-4a678b7c="" class="dn">热门端游</span>
+            <li  class="">
+              <a >
+                <span  class="dn">热门端游</span>
               </a>
             </li>
           </ul>
         </div>
-        <div data-v-4a678b7c="" class="tab-body">
-          <div data-v-4a678b7c="" class="tab-panel">
-            <div data-v-4a678b7c="" class="tab-class01">
-              <ul data-v-4a678b7c="">
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg" />
+        <div  class="tab-body">
+          <div  class="tab-panel">
+            <div  class="tab-class01">
+              <ul >
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/dnf.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">地下城与勇士</p>
+                    <p  class="f28 color-000">地下城与勇士</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/lol.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/lol.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">英雄联盟</p>
+                    <p  class="f28 color-000">英雄联盟</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/625.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/625.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">剑侠情缘Ⅲ</p>
+                    <p  class="f28 color-000">剑侠情缘Ⅲ</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/558.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/558.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">天涯明月刀</p>
+                    <p  class="f28 color-000">天涯明月刀</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/666.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/666.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">穿越火线</p>
+                    <p  class="f28 color-000">穿越火线</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/ms2.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/ms2.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">魔兽世界(国服)</p>
+                    <p  class="f28 color-000">魔兽世界(国服)</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/038.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/038.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">绝地求生</p>
+                    <p  class="f28 color-000">绝地求生</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/610.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/610.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">流放之路</p>
+                    <p  class="f28 color-000">流放之路</p>
                   </a>
                 </li>
               </ul>
             </div>
-            <a data-v-4a678b7c="" href="https://m.5173.com/vue/gameList/1">
-              <div data-v-4a678b7c="" class="tab-more border-top">
-                <a data-v-4a678b7c="" class="more f30 color-666">更多游戏</a>
+            <a  href="https://m.5173.com/vue/gameList/1">
+              <div  class="tab-more border-top">
+                <a  class="more f30 color-666">更多游戏</a>
               </div>
             </a>
           </div>
-          <div data-v-4a678b7c="" class="tab-panel active">
-            <div data-v-4a678b7c="" class="tab-class01">
-              <ul data-v-4a678b7c="">
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/2453.jpg" />
+          <div  class="tab-panel active">
+            <div  class="tab-class01">
+              <ul >
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/2453.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">王者荣耀</p>
+                    <p  class="f28 color-000">王者荣耀</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1711.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/1711.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">QQ飞车手游</p>
+                    <p  class="f28 color-000">QQ飞车手游</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/2806.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/2806.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">阴阳师</p>
+                    <p  class="f28 color-000">阴阳师</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/0187.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/0187.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">穿越火线(手机游戏)</p>
+                    <p  class="f28 color-000">穿越火线(手机游戏)</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1371.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/1371.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">梦幻西游(手机游戏)</p>
+                    <p  class="f28 color-000">梦幻西游(手机游戏)</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/SgKowFsggG8AAAAAAAE-nGdbboo58.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/SgKowFsggG8AAAAAAAE-nGdbboo58.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">征途2手游</p>
+                    <p  class="f28 color-000">征途2手游</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/1168.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/1168.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">炉石传说</p>
+                    <p  class="f28 color-000">炉石传说</p>
                   </a>
                 </li>
-                <li data-v-4a678b7c="">
-                  <a data-v-4a678b7c="">
-                    <center data-v-4a678b7c="">
-                      <img data-v-4a678b7c="" src="@/assets/content/images/0052.jpg" />
+                <li >
+                  <a >
+                    <center >
+                      <img  src="@/assets/content/images/0052.jpg" />
                     </center>
-                    <p data-v-4a678b7c="" class="f28 color-000">崩坏3</p>
+                    <p  class="f28 color-000">崩坏3</p>
                   </a>
                 </li>
               </ul>
             </div>
-            <a data-v-4a678b7c="" href="https://m.5173.com/vue/gameList/2">
-              <div data-v-4a678b7c="" class="tab-more border-top">
-                <a data-v-4a678b7c="" class="more f30 color-666">更多游戏</a>
+            <a  href="https://m.5173.com/vue/gameList/2">
+              <div  class="tab-more border-top">
+                <a  class="more f30 color-666">更多游戏</a>
               </div>
             </a>
           </div>
@@ -380,7 +382,7 @@
         <a data-v-50d7ab26="" class="pend-more"></a>
       </div>
     </div>
-    <div data-v-979c35b8="" data-v-4a678b7c="">
+    <div data-v-979c35b8="" >
       <div data-v-979c35b8="" class="index-proving bg-fff border-bottom border-top mb-20">
         <div data-v-979c35b8="" class="prov-titl text-center py-20 border-bottom">
           <h2 data-v-979c35b8="" class="f34 color-333 fontbold">验证中心</h2>
@@ -418,30 +420,30 @@
         </div>
       </div>
     </div>
-    <div data-v-4a678b7c="" class="index-feedback bg-fff border-bottom border-top">
-      <div data-v-4a678b7c="" class="fdback-titl text-center f34 color-333 fontbold border-bottom">问题反馈</div>
-      <div data-v-4a678b7c="" class="fdback-conn">
-        <ul data-v-4a678b7c="">
-          <a data-v-4a678b7c="" href="http://sc.5173.com/?question/ask/41.html">
-            <li data-v-4a678b7c="" class="fl border-right">
-              <span data-v-4a678b7c="" class="zhix f28 color-666">咨询</span>
+    <div  class="index-feedback bg-fff border-bottom border-top">
+      <div  class="fdback-titl text-center f34 color-333 fontbold border-bottom">问题反馈</div>
+      <div  class="fdback-conn">
+        <ul >
+          <a  href="http://sc.5173.com/?question/ask/41.html">
+            <li  class="fl border-right">
+              <span  class="zhix f28 color-666">咨询</span>
             </li>
           </a>
-          <a data-v-4a678b7c="" href="http://sc.5173.com/?question/complain/41.html">
-            <li data-v-4a678b7c="" class="fl border-right">
-              <span data-v-4a678b7c="" class="tous f28 color-666">投诉</span>
+          <a  href="http://sc.5173.com/?question/complain/41.html">
+            <li  class="fl border-right">
+              <span  class="tous f28 color-666">投诉</span>
             </li>
           </a>
-          <a data-v-4a678b7c="" href="http://sc.5173.com/?question/suggest/41.html">
-            <li data-v-4a678b7c="" class="fl">
-              <span data-v-4a678b7c="" class="jiany f28 color-666">建议</span>
+          <a  href="http://sc.5173.com/?question/suggest/41.html">
+            <li  class="fl">
+              <span  class="jiany f28 color-666">建议</span>
             </li>
           </a>
         </ul>
       </div>
     </div>
     <!---->
-    <div data-v-4a678b7c="">
+    <div >
       <div data-style="fixed-bottom" class="newfooter fixed-bottom">
         <ul>
           <a href="https://m.5173.com/" class="foot-home">
@@ -481,6 +483,113 @@
   </div>
 
 </template>
+
+<style scoped>
+    .search-bar{
+        width:100%;
+    }
+                .swiper-container {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1
+        }
+        .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
+            height: auto
+        }
+
+        .swiper-container-autoheight .swiper-wrapper {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            transition-property: transform, height
+        }
+
+
+        .swiper-container .swiper-notification {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            opacity: 0;
+            z-index: -1000;
+        }
+        .swiper-slide {
+            text-align: center
+        }
+
+        .swiper-slide img {
+            width: 100% !important;
+            height: auto !important
+        }
+
+        .swiper-container {
+            width: 100%;
+            background: #000
+        }
+        .swiper-pagination {
+            position: absolute;
+            text-align: center;
+            transition: .3s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            z-index: 10
+        }
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #000;
+            opacity: .2
+        }
+        .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 5px
+        }
+        .swiper-container-android .swiper-slide, .swiper-wrapper {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .swiper-pagination-bullet {
+        opacity: .45;
+        background: #000
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #fff !important;
+        opacity: 1 !important
+    }
+
+    .newhmban .swiper-container .swiper-pagination-bullet {
+        opacity: .6
+    }
+
+    .newhmban .swiper-container .swiper-pagination {
+        margin-right: 0;
+        width: 100%;
+        background: none;
+        right: auto;
+        opacity: 1;
+        left: auto;
+        border-radius: 100%;
+        line-height: 0;
+        bottom: .2rem
+    }
+
+    .newhmban .swiper-wrapper {
+        width: 100%;
+        height: auto;
+        line-height: normal
+    }
+        .index-banner {
+         height: auto;
+         display: block;
+         overflow: hidden;
+         position: relative;
+     }
+</style>
 
 <script>
   import '@/assets/content/css/fost-base-min.css'

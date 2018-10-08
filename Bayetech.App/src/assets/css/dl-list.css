@@ -1,0 +1,203 @@
+﻿@charset'utf-8';
+.app-touch {
+    -webkit-overflow-scrolling: touch;
+}
+.app {
+    width: 100%;
+}
+.bg-fff {
+    background-color: #fff!important;
+}
+.top-header .dl-right {
+    position: absolute;
+    right: .3rem;
+    top: 0;
+    width: 1.2rem;
+    text-align: center;
+}
+.prov-conn {
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+.prov-conn .default-sort {
+    width: 1.65rem;
+    text-align: center;
+    height: .5rem;
+    line-height: .5rem;
+    display: inline-block;
+    float: left;
+}
+.prov-conn .num-radio {
+    width: .24rem;
+    height: .24rem;
+    margin: .15rem .1rem 0 .25rem;
+}
+.prov-conn .default-sort01 {
+    height: .5rem;
+    line-height: .5rem;
+    display: inline-block;
+    float: left;
+}
+
+/*列表*/
+.mageslt {
+    height: auto;
+    overflow: hidden;
+    display: block;
+}
+.bg-fec {
+    background-color: #fffcec;
+}
+.mageslt .mancon-img {
+    width: 2rem;
+    height: 2rem;
+}
+.mageslt .mancon-tn {
+    margin-left: 2.2rem;
+}
+.mageslt .mancon-img img {
+    width: 100%;
+    height: 100%;
+}
+.mageslt .mancon-tn .tn-hxtxt01 {
+    line-height: .5rem;
+}
+.mageslt .mancon-tn .tn-hxtxt02 {
+    width: 100%;
+    height: .64rem;
+    background: url(/content/images/dl/sj.png) no-repeat 0;
+    line-height: .64rem;
+    padding-left: .3rem;
+    background-size: .26rem;
+}
+.mageslt .mancon-tn .tn-hxtxt03 {
+    margin-top: .2rem;
+}
+.color-bbb {
+    color: #bbb;
+}
+/*选择游戏*/
+.top-search {
+    position: relative;
+    padding: .16rem 0;
+    z-index: 999;
+}
+.container-ms {
+    padding: 0;
+    text-align: center;
+}
+.container-ms .container-inp {
+    display: block;
+    height: .62rem;
+    line-height: .62rem;
+    color: #8e8e93;
+    border-radius: .1rem;
+}
+.container-ms .search-game, .container-ms .search-gamenew {
+    display: inline-block;
+    padding-left: .45rem;
+    line-height: .62rem;
+    border: none;
+}
+<style>…</style>
+.container-ms .search-game {
+    background: url(/vue_dl/src/assets/images/search4.png?f1c7c4f…) no-repeat 2.6rem;
+    background-size: .33rem;
+    font-size: .3rem;
+    text-align: center;
+}
+input[type=tel], input[type=text] {
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+}
+.search-game {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.search-game .tab {
+    float: left;
+    width: 100%;
+    background: #fff;
+}
+.search-game .tab .tab-body {
+    position: relative;
+    clear: both;
+}
+.search-game .tab .tab-body .tab-panel {
+    display: none;
+}
+.search-game .tab .tab-body .active {
+    display: block;
+}
+.search-game .tab-class01 {
+    float: left;
+    width: 86%;
+    margin-bottom: .5rem;
+    padding-top: .2rem;
+}
+.search-game .tab-class01 ul li[data-v-4c4cd6b8] {
+    width: 100%;
+    padding: 0 .3rem;
+    font-size: .32rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #e8e8e8;
+    color: #000;
+    text-align: left;
+}
+.search-game .tab-class01 ul li a {
+    display: block;
+    text-align: center;
+    color: #333;
+}
+.search-game .tab-class01 ul li a[data-v-4c4cd6b8] {
+    text-align: left;
+}
+.search-game .tab-class01 ul li a p {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 5%;
+}
+.search-game .tab-letter {
+    position: relative;
+    right: 0;
+    width: 14%;
+    overflow-y: scroll;
+    height: 8.64rem;
+    z-index: 19;
+    background: #f1f1f1;
+    -webkit-overflow-scrolling: touch;
+}
+.search-game .tab-letter a {
+    display: block;
+    line-height: 1rem;
+    text-align: center;
+    font-size: .42rem;
+    color: #333;
+    background: #f1f1f1;
+    font-family: Microsoft Yahei,Arial,sans-serif;
+}
+.search-game .tab-letter a.active {
+    background: #fff;
+    color: #f60;
+}
+.search-game .tab-letter a.active span.hot-img {
+    background: url(/content/images/dl/hot2.png) 50% no-repeat;
+    background-size: .4rem;
+}
+.search-game .tab-letter a span {
+    display: block;
+    height: 1rem;
+}
+.search-game .tab-letter .letter-bottom, .top-search {
+    background: #f1f1f1;
+}
+
+
+
+

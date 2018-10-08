@@ -48,10 +48,18 @@ namespace Bayetech.Admin.Controllers
         /// <returns></returns>
         [HttpPost]
         public JObject UpdateGame(JObject json) {
-            Game game = JsonConvert.DeserializeObject<Game>(json.ToString());
-            return serviceGame.UpdateGame(game);
+            return serviceGame.UpdateGame(json);
         }
-
+        [HttpPost]
+        public JObject GetGameService(JObject json)
+        {
+            return serviceGame.GetGameService(json);
+        }
+        [HttpPost]
+        public JObject GetbyServiceTwo(JObject json)
+        {
+            return serviceGame.GetbyServiceTwo(json);
+        }
         /// <summary>
         /// 根据游戏的Alias去删除一个游戏
         /// </summary>
@@ -75,12 +83,12 @@ namespace Bayetech.Admin.Controllers
 
 
         /// <summary>
-        /// 编辑游戏的属性
+        /// 编辑游戏服务器编辑
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JObject UpdateGameProperty(GameProfession profession) {
-            return serviceGame.UpdateExtraProperty(profession);
+        public JObject UpdateGameProperty(JObject json) {
+            return serviceGame.UpdateExtraProperty(json);
         }
     }
 }

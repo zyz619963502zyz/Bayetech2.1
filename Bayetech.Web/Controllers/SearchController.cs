@@ -57,7 +57,7 @@ namespace Bayetech.Web.Controllers
                     }
                     else
                     {
-                        data.List = typeService.FindList(c => c.GameId == id && c.Type == serviceType).ToList();
+                        data.List = typeService.FindList(c => c.GameId == id && c.Type == serviceType.ToString()).ToList();
                     }
                     break;
                 case SearchType.Across:
