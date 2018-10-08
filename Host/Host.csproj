@@ -52,12 +52,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BayetechWorkFlow\Bayetech.WorkFlow.csproj">
-      <Project>{7181af72-3d63-40e0-8418-0d9e40d77914}</Project>
-      <Name>Bayetech.WorkFlow</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
