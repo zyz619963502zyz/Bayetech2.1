@@ -2791,6 +2791,7 @@
     <Folder Include="Module\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\router\" />
+    <Folder Include="Page\workflow\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Home\" />
