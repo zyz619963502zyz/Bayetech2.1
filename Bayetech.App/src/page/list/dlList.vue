@@ -22,11 +22,17 @@
                     <div data-v-d93403b6="" class="mancon-img fl mt-30">
                         <img data-v-d93403b6="" src="http://bo.5173cdn.com/5173_2/data/201807/02/15/RAKowFtRTxoAAAAAAADAjGu8Ug40..jpg">
                     </div>
+
+                  <router-link :to="{ path: '/dlDetail', query: { goodsType: 5}}" class="open-indicator">
                     <div data-v-d93403b6="" class="mancon-tn mt-15">
-                        <div data-v-d93403b6="" class="tn-hxtxt01 f32 color-000">★实体工作室★极速等级1-90★站街/深渊★PK/超时空/卢克/天空</div>
-                        <div data-v-d93403b6="" class="tn-hxtxt02 f24 color-bbb ">QQ888</div>
-                        <div data-v-d93403b6="" class="tn-hxtxt03 f26 color-666"><em data-v-d93403b6="" class="fl f30 color-m1">￥1</em> <em data-v-d93403b6="" class="fr f24 color-bbb">近30天成交8882笔</em></div>
+                      <div data-v-d93403b6="" class="tn-hxtxt01 f32 color-000">★实体工作室★极速等级1-90★站街/深渊★PK/超时空/卢克/天空</div>
+                      <div data-v-d93403b6="" class="tn-hxtxt02 f24 color-bbb ">QQ888</div>
+                      <div data-v-d93403b6="" class="tn-hxtxt03 f26 color-666">
+                        <em data-v-d93403b6="" class="fl f30 color-m1">￥1</em>
+                        <em data-v-d93403b6="" class="fr f24 color-bbb">近30天成交8882笔</em>
+                      </div>
                     </div>
+                  </router-link>
                 </div>
                 <div data-v-d93403b6="" class="mageslt bg-faf px-30 pb-30  border-bottom">
                     <div data-v-d93403b6="" class="mancon-img fl mt-30"><img data-v-d93403b6="" src="http://bo.5173cdn.com/5173_2/data/201807/02/16/RAKowFtRWTgAAAAAAAC0mXZxPUg7..jpg"></div> <div data-v-d93403b6="" class="mancon-tn mt-15">
@@ -60,7 +66,7 @@
                     </div>
                 </div> <div data-v-4c4cd6b8="" class="search-game">
                     <div data-v-4c4cd6b8="" class="tab">
-                        <div data-v-4c4cd6b8="" class="tab-body">
+                        <div data-v-4c4cd6b8="" class="tab-body" v-show="false">
                             <div data-v-4c4cd6b8="" id="tab-class01" class="tab-panel active">
                                 <div data-v-4c4cd6b8="" class="tab-class01">
                                     <ul data-v-4c4cd6b8="">
