@@ -148,6 +148,9 @@
     <Compile Include="Entity\Category.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\DefinitionIdentityTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\DLRequire.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -174,6 +177,24 @@
     </Compile>
     <Compile Include="Entity\GoodStatus.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\IdentityOwnerTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\InstanceMetadataChangesTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\InstancePromotedPropertiesTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\InstancesTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KeysTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LockOwnersTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Login.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -205,8 +226,14 @@
     <Compile Include="Entity\RelationshipType.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\RunnableInstancesTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Server.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ServiceDeploymentsTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Settings.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -217,8 +244,35 @@
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SqlWorkflowInstanceStoreVersionTable.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_BitAndItem.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_DISPOSAL.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_STATUS.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_TYPE.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Assign.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_FlowMain.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogMonitor.cs">
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Notify.cs">
+      <DependentUpon>WF.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -259,6 +313,21 @@
     <Compile Include="Entity\vw_NoToProperty.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\WF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WF.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Enum\GamePlatform.cs" />
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
@@ -285,6 +354,13 @@
     <None Include="Entity\Bayetech.edmx.diagram">
       <DependentUpon>Bayetech.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Entity\WF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\WF.edmx.diagram">
+      <DependentUpon>WF.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +376,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Bayetech.edmx</DependentUpon>
       <LastGenOutput>Bayetech.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\WF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WF.edmx</DependentUpon>
+      <LastGenOutput>WF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\WF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WF.edmx</DependentUpon>
+      <LastGenOutput>WF.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />

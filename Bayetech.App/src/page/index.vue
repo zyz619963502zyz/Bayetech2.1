@@ -85,10 +85,10 @@
           <p  class="f28 color-000 mt-10">手游充值</p>
         </router-link>
       </div>
-      <div  class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
-          <span  class="class04"></span>
-          <p  class="f28 color-000 mt-10">代练</p>
+      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+        <router-link :to="{ path: '/gameDL', query: { goodsType: 5}}">
+          <span data-v-4a678b7c="" class="class04"></span>
+          <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
         </router-link>
       </div>
       <div  class="swiper-slide fl text-center">
@@ -116,14 +116,15 @@
             </li>
           </ul>
         </div>
-        <div  class="tab-body">
-          <div  class="tab-panel">
-            <div  class="tab-class01">
-              <ul >
-                <li >
-                  <a >
-                    <center >
-                      <img  src="@/assets/content/images/dnf.jpg" />
+        <div data-v-4a678b7c="" class="tab-body">
+          <div data-v-4a678b7c="" class="tab-panel">
+            <div data-v-4a678b7c="" class="tab-class01">
+              <ul data-v-4a678b7c="">
+                <li data-v-4a678b7c="">
+                  
+                  <a data-v-4a678b7c="">
+                    <center data-v-4a678b7c="">
+                      <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg" />
                     </center>
                     <p  class="f28 color-000">地下城与勇士</p>
                   </a>
