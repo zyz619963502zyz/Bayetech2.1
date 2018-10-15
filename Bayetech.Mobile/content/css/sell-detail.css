@@ -1,0 +1,324 @@
+﻿.mt-80[data-v-08a3bc62] {
+    margin-top: -.8rem;
+}
+.notice_risk[data-v-509ef1b0] {
+    height: auto;
+    display: block;
+    overflow: hidden;
+    background-color: #fffdf4;
+    z-index: 9;
+}
+.notice_risk .notice_public[data-v-509ef1b0] {
+    padding: .2rem 0;
+    width: 95%;
+}
+.notice_risk .notice_public p[data-v-509ef1b0] {
+    height: .35rem;
+    line-height: .35rem;
+    color: #be8600;
+    overflow: hidden;
+}
+.mt-174[data-v-08a3bc62] {
+    margin-top: 1.74rem;
+}
+.order-container {
+    padding: .24rem .4rem;
+    position: relative;
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+.order-container span {
+    display: inline-block;
+    line-height: .6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.span-icon-xinhao {
+    display: inline-block;
+    line-height: .48rem;
+    padding-left: .2rem;
+    background: url(../../content/images/common/icon-red.png?fde9492…) no-repeat 0;
+    background-size: .14rem .14rem;
+}
+.order-container input, .order-container textarea {
+    border: none;
+    position: absolute;
+    font-size: .3rem;
+    top: .24rem;
+}
+.order-container input {
+    height: .6rem;
+    width: 55%;
+    left: 2.9rem;
+    line-height: .6rem;
+}
+.danwei {
+    float: right;
+    width: 63%;
+    line-height: .6rem;
+    text-align: right;
+    padding-right: .2rem;
+}
+p.p-tip span {
+    display: inline-block;
+}
+.to-right, .toRight {
+    width: .18rem;
+    position: absolute;
+    right: .3rem;
+}
+.toRight {
+    height: .32rem;
+    top: .38rem;
+    background: url(../../content/images/right.png?8d1c222…) 50% no-repeat;
+    background-size: .12rem;
+}
+.dialog_cover {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    _position: absolute;
+    background: #333;
+    filter: alpha(opacity=80);
+    opacity: .8;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 555;
+}
+
+.dialog_cover {
+    z-index: 19;
+}
+/*选择职业*/
+.bottom-bomb[data-v-6027fbac] {
+    z-index: 20;
+}
+.bomb-danxuan {
+    min-height: 2.96rem;
+}
+.bottom-bomb {
+    width: 100%;
+    max-width: 768px;
+    max-height: 8.7rem;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
+.bomb-title {
+    width: 100%;
+    height: 1.06rem;
+    line-height: 1.06rem;
+    position: relative;
+}
+.bomb-title .bomb-close {
+    width: 1.06rem;
+    height: 1.06rem;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url(/dist/src/assets/images/close.png?6fa4a6f…) 50% no-repeat;
+    background-size: .24rem;
+}
+
+.bomb-danxuan .bomb-content {
+    width: 100%;
+    max-height: 7.64rem;
+    overflow-y: auto;
+}
+.bomb-danxuan .bomb-content .bomb-li-item li {
+    line-height: .96rem;
+    height: .96rem;
+    padding-left: .48rem;
+    font-size: .3rem;
+    color: #000;
+}
+
+.release {
+    padding: .3rem;
+    text-align: center;
+    background: #fff;
+}
+.release a {
+    width: 100%;
+    height: .86rem;
+    display: inline-block;
+}
+.release a input {
+    background: #f60;
+    border-radius: .1rem;
+}
+.release a input {
+    width: 100%;
+    height: .86rem;
+    border: none;
+    color: #fff;
+    font-size: .36rem;
+}
+.sec-tip {
+    margin: .3rem auto;
+    text-align: center;
+    color: #666;
+}
+.order-container span.sec-buy-server {
+    padding-right: .5rem;
+}
+.sec-buy, .sec-buy div {
+    height: .5rem;
+    line-height: .5rem;
+}
+.sec-buy {
+    width: 100%;
+}
+.gray-price[data-v-08a3bc62] {
+    color: gray;
+    font-size: .36rem;
+}
+.sec-buy div {
+    margin-left: .2rem;
+}
+i.chrd-inp {
+    float: left;
+    background: url(../images/common/dlpub-list-hov.png?09c7dbf…)50% no-repeat;
+    background-size: 100%;
+}
+    i.chrd-inp, i.chrd-inp.selected {
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 100%;
+}
+   
+.sec-buy div span {
+    float: right;
+    margin-left: .2rem;
+}
+i.chrd-inp, i.chrd-inp.selected {
+    background-size: .48rem;
+}
+
+    i.chrd-inp.selected {
+        background: url(../images/common/glradio-ico-hov.png?4ee8c10…)50% no-repeat;
+        background-size: 100%;
+    }
+    .button-switch {
+    display: block;
+    width: 1.18rem;
+    height: .6rem;
+}
+    .order-container .button-switch {
+    position: absolute;
+    top: 50%;
+    margin-top: -.36rem;
+    right: .3rem;
+}
+    .label-switch {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: .4rem;
+    -webkit-align-self: center;
+    align-self: center;
+}
+    .label-switch, .label-switch .checkbox {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+    .label-switch input[type=checkbox] {
+    display: none;
+}
+    .label-switch input[type=checkbox]+.checkbox, .label-switch input[type=checkbox]+.checkbox:after, html.android .label-switch input[type=checkbox]+.checkbox:before {
+    transition-duration: 0;
+}
+    .label-switch .checkbox, .label-switch .checkbox:before {
+    background: #dcdcdc;
+}
+    .label-switch .checkbox {
+    border-radius: .4rem;
+    background: #9f9d9d;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border: none;
+    margin-top: .06rem;
+}
+    .label-switch .checkbox:after, .label-switch .checkbox:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 2%;
+    border-radius: .4rem;
+    transition-duration: .3s;
+}
+    .label-switch .checkbox:before {
+    width: 96%;
+    box-sizing: border-box;
+    height: 98%;
+    background: #9f9d9d;
+    z-index: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+    .label-switch input[type=checkbox]:checked+.checkbox {
+    background: #4cd964;
+}
+    .label-switch input[type=checkbox]:checked+.checkbox:before {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+    .label-switch input[type=checkbox]:checked+.checkbox:after {
+    -webkit-transform: translateX(92%);
+    transform: translateX(92%);
+}
+    
+    .label-switch .checkbox:after {
+    height: 92%;
+    width: 50%;
+    background: #fff;
+    z-index: 2;
+    box-shadow: 0 0.05rem 0.12rem rgba(0,0,0,.4);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+    /*upload new img*/
+    .new-upload-img {
+    width: 100%;
+    height: 2.4rem;
+    position: relative;
+}    
+    .new-upload-img div {
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: .4rem;
+    left: 50%;
+    margin-left: -.7rem;
+}
+    .new-upload-img label {
+    width: 1.4rem;
+    height: 1rem;
+    background: url(../images/common/icon-camera.png?6e40ef4…) no-repeat 50%;
+    background-size: .8rem .65rem;
+    display: inline-block;
+    cursor: pointer;
+}
+    .upload {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+}
+    input[type=file] {
+    visibility: hidden;
+}

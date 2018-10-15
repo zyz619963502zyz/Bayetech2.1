@@ -54,7 +54,6 @@
                 disableOnInteraction:false
             },
             loop:true,
-            paginationType:'bullets',
             pagination: {    
                 el: '.swiper-pagination'  
             },
