@@ -35,7 +35,7 @@
       </a>
     </div>
     <div class=""></div>
-    <div class="newhmban">
+    <!--<div class="newhmban">
       <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" >
         <div class="swiper-wrapper" style="height: 146px; transform: translate3d(-3072px, 0px, 0px); transition-duration: 0ms;">
           <div class="swiper-slide" style="width: 375px;">
@@ -63,8 +63,8 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-    </div>
-      
+    </div>-->
+      <swiper></swiper>
     <div class="index-swiper bg-fff border-bottom py-30 mb-20">
       <div class="swiper-slide fl text-center">
         <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
@@ -484,144 +484,12 @@
 
 </template>
 
-<style scoped lang="scss">
-    .swiper-container {
-        width: 100%;
-        height: 4rem;
-        margin-top: 0.9rem;
-        .swiper-wrapper {
-            width: 100%;
-            height: 100%;
-            .swiper-slide {
-                background-size: cover;
-                width: 100%;
-                height: 4rem;
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
-    }
-
-    /*.search-bar {
-        width: 100%;
-    }
-
-    .swiper-container {
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
-
-    .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
-        height: auto;
-    }
-
-        .swiper-container-autoheight .swiper-wrapper {
-            -webkit-box-align: start;
-            -ms-flex-align: start;
-            align-items: flex-start;
-            transition-property: transform, height;
-        }
-
-
-    .swiper-container .swiper-notification {
-        position: absolute;
-        left: 0;
-        top: 0;
-        pointer-events: none;
-        opacity: 0;
-        z-index: -1000;
-    }
-
-    .swiper-slide {
-        text-align: center;
-    }
-
-        .swiper-slide img {
-            width: 100% !important;
-            height: auto !important;
-        }
-
-    .swiper-container {
-        width: 100%;
-        background: #000;
-    }
-
-    .swiper-pagination {
-        position: absolute;
-        text-align: center;
-        transition: .3s;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        z-index: 10;
-    }
-
-    .swiper-pagination-bullet {
-        width: 8px;
-        height: 8px;
-        display: inline-block;
-        border-radius: 100%;
-        background: #000;
-        opacity: .2;
-    }
-
-    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-        margin: 0 5px;
-    }
-
-    .swiper-container-android .swiper-slide, .swiper-wrapper {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-
-    .swiper-pagination-bullet {
-        opacity: .45;
-        background: #000;
-    }
-
-    .swiper-pagination-bullet-active {
-        background: #fff !important;
-        opacity: 1 !important;
-    }
-
-    .newhmban .swiper-container .swiper-pagination-bullet {
-        opacity: .6;
-    }
-
-    .newhmban .swiper-container .swiper-pagination {
-        margin-right: 0;
-        width: 100%;
-        background: none;
-        right: auto;
-        opacity: 1;
-        left: auto;
-        border-radius: 100%;
-        line-height: 0;
-        bottom: .2rem;
-    }
-
-    .newhmban .swiper-wrapper {
-        width: 100%;
-        height: auto;
-        line-height: normal;
-    }
-
-    .index-banner {
-        height: auto;
-        display: block;
-        overflow: hidden;
-        position: relative;
-    }*/
-</style>
+<style></style>
 
 
 
 <script>
-
+  import Swiper from '@/components/swiper.vue'
 
   import '@/assets/content/css/fost-base-min.css'
   import '@/assets/content/css/style-min.css'
@@ -637,6 +505,7 @@
   mounted:function(){
   console.log(this.$get)
   },
+    components:{Swiper},
   methods:{
 
   }
