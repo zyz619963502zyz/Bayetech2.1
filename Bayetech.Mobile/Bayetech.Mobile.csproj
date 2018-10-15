@@ -138,7 +138,9 @@
     <Content Include="content\css\fost-base-min.css" />
     <Content Include="content\css\game-dl.css" />
     <Content Include="content\css\gamesearch.css" />
+    <Content Include="content\css\goods-publish-new.css" />
     <Content Include="content\css\homepage.css" />
+    <Content Include="content\css\sell-detail.css" />
     <Content Include="content\css\style-min.css" />
     <Content Include="content\images\0052.jpg" />
     <Content Include="content\images\0187.jpg" />
@@ -172,9 +174,15 @@
     <Content Include="content\images\com.png" />
     <Content Include="content\images\common\bgcheck.png" />
     <Content Include="content\images\common\colleclist.png" />
+    <Content Include="content\images\common\dlpub-list-hov.png" />
     <Content Include="content\images\common\downmore.png" />
+    <Content Include="content\images\common\glradio-ico-hov.png" />
     <Content Include="content\images\common\greyok.png" />
+    <Content Include="content\images\common\icon-camera.png" />
+    <Content Include="content\images\common\icon-new-check.png" />
+    <Content Include="content\images\common\icon-red.png" />
     <Content Include="content\images\common\redok.png" />
+    <Content Include="content\images\common\right2.png" />
     <Content Include="content\images\common\upmore.png" />
     <Content Include="content\images\common\whitesearch.png" />
     <Content Include="content\images\curent.jpg" />
@@ -186,6 +194,7 @@
     <Content Include="content\images\del-nav_1.png" />
     <Content Include="content\images\del-nav_2.png" />
     <Content Include="content\images\del-nav_3.png" />
+    <Content Include="content\images\del-th.png" />
     <Content Include="content\images\del.png" />
     <Content Include="content\images\diannao-gray.png" />
     <Content Include="content\images\diannao.png" />
@@ -244,6 +253,7 @@
     <Content Include="content\images\fbc0ca1405b94f41b11aafb7cf9eb4c3.jpg" />
     <Content Include="content\images\ff15e3247cf342fcb0bd078f0969584c.jpg" />
     <Content Include="content\images\gamelist.png" />
+    <Content Include="content\images\gamelogo.png" />
     <Content Include="content\images\hao.png" />
     <Content Include="content\images\header-member-top.png" />
     <Content Include="content\images\header-member-top_1.png" />
@@ -380,7 +390,7 @@
     <Content Include="content\images\sanjiao_1.png" />
     <Content Include="content\images\sanjiao_2.png" />
     <Content Include="content\images\sanjiao_3.png" />
-    <Content Include="content\images\search.jpg" />
+    <Content Include="content\images\common\search.jpg" />
     <Content Include="content\images\search4.png" />
     <Content Include="content\images\secure\icon-id-guarantee.png" />
     <Content Include="content\images\secure\icon-kf-guarantee.png" />
@@ -473,7 +483,7 @@
     <Content Include="Page\Home\hotRecommend.html" />
     <Content Include="Page\Home\typeofTransation.html" />
     <Content Include="Page\Seller\GoodsPublishN.html" />
-    <Content Include="Page\Seller\Sell-home.html" />
+    <Content Include="Page\Seller\Sell-detail.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
