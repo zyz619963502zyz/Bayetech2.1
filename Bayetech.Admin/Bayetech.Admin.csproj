@@ -2183,6 +2183,7 @@
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
+    <Content Include="Page\workflow\workflow.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\app\Auth_ButtonsManage.js" />
     <Content Include="Scripts\app\Auth_AdminManage.js" />
@@ -2791,7 +2792,6 @@
     <Folder Include="Module\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\router\" />
-    <Folder Include="Page\workflow\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Home\" />
