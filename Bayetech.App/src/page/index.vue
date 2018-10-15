@@ -84,7 +84,7 @@
         </router-link>
       </div>
       <div data-v-4a678b7c="" class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
+        <router-link :to="{ path: '/gameDL', query: { goodsType: 5}}">
           <span data-v-4a678b7c="" class="class04"></span>
           <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
         </router-link>
@@ -119,6 +119,7 @@
             <div data-v-4a678b7c="" class="tab-class01">
               <ul data-v-4a678b7c="">
                 <li data-v-4a678b7c="">
+                  
                   <a data-v-4a678b7c="">
                     <center data-v-4a678b7c="">
                       <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg" />
