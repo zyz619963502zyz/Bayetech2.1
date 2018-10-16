@@ -213,6 +213,7 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRolesController.cs" />
+    <Compile Include="Controllers\WFController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2183,6 +2184,7 @@
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
+    <Content Include="Page\workflow\workflow.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\app\Auth_ButtonsManage.js" />
     <Content Include="Scripts\app\Auth_AdminManage.js" />
@@ -2216,6 +2218,8 @@
     <Content Include="Scripts\app\TranslateContent\GameProperty_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Login_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\WFManage_ES5.js" />
+    <Content Include="Scripts\app\WFManage.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

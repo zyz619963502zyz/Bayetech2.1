@@ -7,6 +7,7 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+
 Vue.prototype.$SearchModel={
     GameId: 0,
     GameName: "游戏名称",
@@ -28,6 +29,14 @@ Vue.prototype.$get = get
 Vue.prototype.$patch = patch
 Vue.prototype.$put = put
 
+/*已改为使用 vue-meta 来设置meta以及title*/
+//router.beforeEach((to, from, next) => {
+//  /* 路由发生变化修改页面title */
+//  if (to.meta.title) {
+//    document.title = to.meta.title;
+//  }
+//  next();
+//})
 
 /* eslint-disable no-new */
 let $vm=new Vue({

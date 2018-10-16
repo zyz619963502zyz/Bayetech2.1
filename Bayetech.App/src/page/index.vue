@@ -35,7 +35,7 @@
     </div>
     <div  class=""></div>
 
-    <div  class="newhmban search-bar">
+    <!--<div  class="newhmban search-bar">
       <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" >
         <div class="swiper-wrapper" style="height: 146px; transform: translate3d(-3072px, 0px, 0px); transition-duration: 0ms;">
           <div class="swiper-slide"  style="width: 375px;">
@@ -63,8 +63,8 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-    </div>
-
+    </div>-->
+      <swiper></swiper>
     <div  class="index-swiper bg-fff border-bottom py-30 mb-20">
       <div  class="swiper-slide fl text-center">
         <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
@@ -85,10 +85,10 @@
           <p  class="f28 color-000 mt-10">手游充值</p>
         </router-link>
       </div>
-      <div  class="swiper-slide fl text-center">
-        <router-link :to="{ name: 'gameSearch', query: { goodsType: 5}}">
-          <span  class="class04"></span>
-          <p  class="f28 color-000 mt-10">代练</p>
+      <div data-v-4a678b7c="" class="swiper-slide fl text-center">
+        <router-link :to="{ path: '/gameDL', query: { goodsType: 5}}">
+          <span data-v-4a678b7c="" class="class04"></span>
+          <p data-v-4a678b7c="" class="f28 color-000 mt-10">代练</p>
         </router-link>
       </div>
       <div  class="swiper-slide fl text-center">
@@ -116,14 +116,15 @@
             </li>
           </ul>
         </div>
-        <div  class="tab-body">
-          <div  class="tab-panel">
-            <div  class="tab-class01">
-              <ul >
-                <li >
-                  <a >
-                    <center >
-                      <img  src="@/assets/content/images/dnf.jpg" />
+        <div data-v-4a678b7c="" class="tab-body">
+          <div data-v-4a678b7c="" class="tab-panel">
+            <div data-v-4a678b7c="" class="tab-class01">
+              <ul data-v-4a678b7c="">
+                <li data-v-4a678b7c="">
+                  
+                  <a data-v-4a678b7c="">
+                    <center data-v-4a678b7c="">
+                      <img data-v-4a678b7c="" src="@/assets/content/images/dnf.jpg" />
                     </center>
                     <p  class="f28 color-000">地下城与勇士</p>
                   </a>
@@ -592,6 +593,7 @@
 </style>
 
 <script>
+    import Swiper from '@/components/swiper.vue'
   import '@/assets/content/css/fost-base-min.css'
   import '@/assets/content/css/style-min.css'
   import '@/assets/css/index.css'
@@ -599,9 +601,13 @@
 
   export default {
     name: "index",
+    metaInfo:{
+        title:'首页',
+    },
     data() {
       return vmdata;
     },
+    components:{Swiper},
     mounted:function(){
       console.log(this.$get)
     },

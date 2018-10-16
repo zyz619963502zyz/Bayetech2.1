@@ -1,0 +1,264 @@
+﻿ .top-header .top-right {
+    font-size: .3rem;
+    color: #1864ff;
+    padding-right: .3rem;
+}
+        .dl_seek {
+    height: .96rem;
+    line-height: .96rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-right: .3rem;
+    color: #1864ff;
+}
+        .Mnotice_top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+        .notice_risk {
+    height: auto;
+    display: block;
+    overflow: hidden;
+    background-color: #fffdf4;
+    z-index: 9;
+}
+        .notice_risk .notice_public {
+    padding: .2rem 0;
+    width: 95%;
+}
+        .notice_risk .notice_public p {
+    height: .35rem;
+    line-height: .35rem;
+    color: #be8600;
+    overflow: hidden;
+}
+        .order-container {
+    padding: .24rem .4rem;
+    position: relative;
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+        .new-pubilsh01.order-container {
+    padding: .2rem .3rem .2rem .2rem;
+}
+        .order-container span {
+    display: inline-block;
+    line-height: .6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+        .span-icon-xinhao {
+            display: inline-block;
+            line-height: .48rem;
+            padding-left: .2rem;
+            background: url(../../content/images/common/icon-red.png) no-repeat 0;
+            background-size: .14rem .14rem;
+        }
+        .order-container span {
+    display: inline-block;
+    line-height: .6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+        .new-pubilsh01.order-container .span-icon-xinhao {
+    color: #333;
+}
+        .new-pubilsh01.publish-type {
+    padding: .3rem .4rem 0;
+    text-align: center;
+}
+        .new-pubilsh01.publish-type ul li {
+    width: 31%;
+    height: .76rem;
+    line-height: .76rem;
+    border-color: #b5b5b5;
+    color: #000;
+    margin-bottom: .3rem;
+    margin-right: .24rem;
+    border-radius: .06rem;
+}
+        .new-pubilsh01.publish-type ul li:nth-child(3n) {
+    margin-right: 0;
+}
+        .new-pubilsh01.publish-type ul li.selected {
+    border-color: #f60;
+    background-image: url(../../content/images/common/icon-new-check.png);
+    background-repeat: no-repeat;
+    background-color: #fff7f5;
+}
+        .new-pubilsh01.publish-type .open-more-select {
+    padding-bottom: .4rem;
+}
+        .publish-type ul li.selected {
+    border-color: #f60;
+    background: url(/dist/src/assets/images/check.png?c5dedce…) no-repeat 100% 100%;
+    background-size: 22%;
+}
+        .new-pubilsh01.publish-type .open-more-select .icon-open {
+    width: .22rem;
+    height: .13rem;
+    display: inline-block;
+    background: url(/dist/src/assets/images/Icon/mold-sv.png?fe74c9b…) no-repeat 50%;
+    margin-bottom: .02rem;
+    background-size: 100%;
+    transition: all .2s linear;
+}
+        .new-pubilsh01.publish-type .open-more-select span {
+    line-height: .34rem;
+    overflow: visible;
+}
+        .danwei {
+    float: right;
+    width: 63%;
+    line-height: .6rem;
+    text-align: right;
+    padding-right: .2rem;
+}
+    
+      .danwei[data-v-484bcaae] {
+    padding-right: .3rem;
+}
+        .new-pubilsh01.order-container .danwei {
+    right: .6rem;
+}
+        .to-right, .toRight {
+    width: .18rem;
+    position: absolute;
+    right: .3rem;
+}
+        .toRight {
+    height: .32rem;
+    top: .38rem;
+    background: url(../../content/images/common/right2.png?8d1c222…) 50% no-repeat;
+    background-size: .12rem;
+}
+        .new-pubilsh01.order-container .toRight {
+    top: .35rem;
+}
+        .release {
+    padding: .3rem;
+    text-align: center;
+    background: #fff;
+}
+        .release a {
+    width: 100%;
+    height: .86rem;
+    display: inline-block;
+}
+        .release a input {
+    width: 100%;
+    height: .86rem;
+    border: none;
+    color: #fff;
+    font-size: .36rem;
+}
+        .release a input {
+    background: #f60;
+    border-radius: .1rem;
+}
+        /*选择服务器*/
+        .one-screen {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    max-width: 768px;
+}
+        .search-container {
+    padding: .2rem;
+    position: relative;
+    z-index: 200;
+    background: #c9c9ce;
+}
+        .search-box {
+    width: 100%;
+    height: .76rem;
+    position: relative;
+    z-index: 100;
+    border-radius: .1rem;
+}
+        .search-box input {
+    height: .76rem;
+    padding-left: .76rem;
+    border: none;
+    border-radius: .1rem;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background-image: url(../../content/images/common/search.jpg);
+    background-repeat: no-repeat;
+    background-size: .32rem .32rem;
+    background-position: .2rem .22rem;
+}
+        .clear1 {
+    background: url(../../content/images/del-th.png?be5a0b9…) no-repeat 50%;
+    background-size: .3rem;
+    top: .23rem;
+    right: .3rem;
+}
+        .qufu-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+        .qufu-container .fu, .qufu-container .qu {
+    position: absolute;
+    overflow-y: auto;
+}
+        .qufu-container .qu {
+    width: 40%;
+    height: 100vh;
+    position: fixed;
+    padding-top: 2.12rem;
+    top: 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    z-index: 1;
+}
+        .qufu-container .fu {
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 40%;
+    padding-top: 2.12rem;
+    z-index: 1;
+    overflow-y: scroll;
+}
+        .qufu-container div.qu ul li {
+    height: auto;
+    line-height: .48rem;
+    padding: .3rem;
+    white-space: normal;
+}
+            .qufu-container .qu ul li.selected {
+    background: #fff;
+}
+        .qufu-container .qu ul li.selected[data-v-4d8e3562] {
+    border-right: 0;
+}
+        .qufu-container div ul li {
+    border-bottom: 1px solid #e8e8e8;
+    height: 1.12rem;
+    text-align: left;
+    line-height: 1.12rem;
+    white-space: nowrap;
+    padding: 0 .1rem 0 .3rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+        .qufu-container .fu ul li {
+    width: 100%;
+    float: left;
+    border-right: 1px solid #e8e8e8;
+}
+    .qufu-container .fu ul li {
+    border-bottom: none;
+}
+    .qufu-container .fu ul li span {
+    height: 1.12rem;
+    display:block;
+}
+   

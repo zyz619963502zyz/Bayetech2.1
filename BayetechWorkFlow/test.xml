@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Permission4>0</Permission4>
+  <Permission7>0</Permission7>
+  <Permission6>0</Permission6>
+  <TimeOutNoticeSet>0</TimeOutNoticeSet>
+  <Permission8>0</Permission8>
+  <TimeOutNoticeNormalHour>2</TimeOutNoticeNormalHour>
+  <Description></Description>
+  <TimeOutNoticeLow>1</TimeOutNoticeLow>
+  <TimeOutNoticeHighLoopHour>2</TimeOutNoticeHighLoopHour>
+  <DispartRuleType>0</DispartRuleType>
+  <TimeOutPassHour></TimeOutPassHour>
+  <BaseEventName>0</BaseEventName>
+  <TimeOutNoticeHighType>0</TimeOutNoticeHighType>
+  <HandlerType>0</HandlerType>
+  <StatusCode>Status1</StatusCode>
+  <TimeOutNoticeLowType>0</TimeOutNoticeLowType>
+  <TimeOutDealTime></TimeOutDealTime>
+  <TimeOutNoticeHigh>1</TimeOutNoticeHigh>
+  <FunctionList>CreateFlow;SaveFlow;FirstStep</FunctionList>
+  <TimeOutNoticeLowHour>2</TimeOutNoticeLowHour>
+  <TimeOutNoticeLowLoopHour>2</TimeOutNoticeLowLoopHour>
+  <TimeOutNoticeNormal>1</TimeOutNoticeNormal>
+  <TimeOutNoticeNormalLoopHour>2</TimeOutNoticeNormalLoopHour>
+  <DefaultEventName>0</DefaultEventName>
+  <CombineRuleSet></CombineRuleSet>
+  <CombineRuleType>0</CombineRuleType>
+  <TimeOutNoticeNormalType>0</TimeOutNoticeNormalType>
+  <TimeOutDealSet>0</TimeOutDealSet>
+  <CheckTime></CheckTime>
+  <TimeOutNoticeHighHour>2</TimeOutNoticeHighHour>
+  <EngineScript></EngineScript>
+  <TimeOutDealEvent>0</TimeOutDealEvent>
+  <Permission1>510</Permission1>
+  <Permission3>0</Permission3>
+  <Permission2>14</Permission2>
+  <Permission5>0</Permission5>
+</Root>
