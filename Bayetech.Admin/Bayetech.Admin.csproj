@@ -2217,6 +2217,8 @@
     <Content Include="Scripts\app\TranslateContent\GameProperty_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Login_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\WFManage_ES5.js" />
+    <Content Include="Scripts\app\WFManage.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

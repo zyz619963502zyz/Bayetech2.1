@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11424,7 +11424,10 @@ render._withStripped = true
 /* 36 */,
 /* 37 */,
 /* 38 */,
-/* 39 */
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11444,17 +11447,12 @@ let vmData = {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     },
-    Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
-    GameArray: [],
     ListObj: [{
-        Name: "",
-        Alias: "",
-        Letter: "",
-        IsHot: "",
-        Parentid: "",
-        Order: "", //排序
-        Platform: "",
-        Img: "",
+        FLOW_ID: "",
+        FLOW_NAME: "",
+        Flow_Type_Name: "",
+        Flow_Type_Code: "",
+        Remark: "", //排序
         IsDelete: "" //是否被删除
     }],
     SearchParam: {

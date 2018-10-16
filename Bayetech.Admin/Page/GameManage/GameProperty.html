@@ -57,25 +57,7 @@
                         </div>
 
                         <!--传值案例-->
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr class="success">
-                                    <th class="text-center col-md-1">流程编号</th>
-                                    <th class="text-center col-md-2">流程名称</th>
-                                    <th class="text-center col-md-2">父级流程名</th>
-                                    <th class="text-center col-md-2">是否作废</th>
-                                </tr>
-                            </thead>
-                            <tbody v-for="item in adminsetsarray">
-                                <tr class="text-center">
-                                    <td><label class="table-firsttitle">{{item.FLOW_ID}}</label></td>
-                                    <td>{{item.FLOW_NAME}}</td>
-                                    <td>{{item.Flow_Type_Name}}</td>
-                                    <td>{{item.IsWaste == '0':"正常":"已作废"}}</td>
-                                    <td><input type="radio" name="Operates" @click="startcheck(item)" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>
 
                         <nav aria-label="fenye" class="text-center right">
                             <ul id="paginator-test" class="pagination"></ul>
