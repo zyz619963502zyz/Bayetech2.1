@@ -10058,7 +10058,7 @@ var comCompnent = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_AdminSets_vue_vue_type_script_lang_js__ = __webpack_require__(19);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -10071,8 +10071,8 @@ var comCompnent = {
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_AdminSets_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -10082,7 +10082,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("D:\\bay2018\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10091,7 +10091,7 @@ if (false) {
     } else {
       api.reload('a4a48bc6', component.options)
     }
-    module.hot.accept("./table-AdminSets.vue?vue&type=template&id=a4a48bc6&lang=html", function () {
+    module.hot.accept("./table-AdminSets.vue?vue&type=template&id=a4a48bc6&id=BaseTable&lang=html", function () {
       api.rerender('a4a48bc6', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11155,99 +11155,13 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__ = __webpack_require__(49);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_lang_html__["b"]; });
-
-
-/***/ }),
-
-/***/ 49:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table table-bordered" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.adminsetsarray, function(item) {
-        return _c("tbody", [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.UserName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.TrueName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Mobile))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsDisabled))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Remark))]),
-            _vm._v(" "),
-            _c("td", [
-              _c("input", {
-                attrs: { type: "radio", name: "Operates" },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item)
-                  }
-                }
-              })
-            ])
-          ])
-        ])
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("用户账号")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("真实姓名")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("手机")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("超管")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("状态")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-3" }, [_vm._v("描述")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__ = __webpack_require__(50);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_AdminSets_vue_vue_type_template_id_a4a48bc6_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11438,6 +11352,92 @@ render._withStripped = true
     attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "table",
+    { staticClass: "table table-bordered" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.adminsetsarray, function(item) {
+        return _c("tbody", [
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [
+              _c("label", { staticClass: "table-firsttitle" }, [
+                _vm._v(_vm._s(item.KeyId))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.UserName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.TrueName))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Mobile))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.IsDisabled))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.Remark))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("input", {
+                attrs: { type: "radio", name: "Operates" },
+                on: {
+                  click: function($event) {
+                    _vm.startcheck(item)
+                  }
+                }
+              })
+            ])
+          ])
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "success" }, [
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("用户账号")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("真实姓名")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("手机")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("超管")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("状态")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-3" }, [_vm._v("描述")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("操作")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
 
 /***/ }),
 
