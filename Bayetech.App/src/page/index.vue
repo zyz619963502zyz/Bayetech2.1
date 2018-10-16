@@ -35,7 +35,7 @@
     </div>
     <div  class=""></div>
 
-    <div  class="newhmban search-bar">
+    <!--<div  class="newhmban search-bar">
       <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight" >
         <div class="swiper-wrapper" style="height: 146px; transform: translate3d(-3072px, 0px, 0px); transition-duration: 0ms;">
           <div class="swiper-slide"  style="width: 375px;">
@@ -63,8 +63,8 @@
         </div>
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
       </div>
-    </div>
-
+    </div>-->
+      <swiper></swiper>
     <div  class="index-swiper bg-fff border-bottom py-30 mb-20">
       <div  class="swiper-slide fl text-center">
         <router-link :to="{ path: '/gameSearch', query:{goodsType:1,typeName:'游戏币'}}">
@@ -593,6 +593,7 @@
 </style>
 
 <script>
+    import Swiper from '@/components/swiper.vue'
   import '@/assets/content/css/fost-base-min.css'
   import '@/assets/content/css/style-min.css'
   import '@/assets/css/index.css'
@@ -600,9 +601,13 @@
 
   export default {
     name: "index",
+    metaInfo:{
+        title:'首页',
+    },
     data() {
       return vmdata;
     },
+    components:{Swiper},
     mounted:function(){
       console.log(this.$get)
     },
