@@ -101,24 +101,9 @@
     }
   }
 
-  /*.swiper-container {
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-  }*/
-
   .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
     height: auto;
   }
-
-  /*.swiper-container-autoheight .swiper-wrapper {
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: flex-start;
-      transition-property: transform, height;
-  }*/
 
   .swiper-container .swiper-notification {
     position: absolute;
@@ -128,15 +113,6 @@
     opacity: 0;
     z-index: -1000;
   }
-
-  /*.swiper-slide {
-      text-align: center;
-  }*/
-
-  /*.swiper-slide img {
-      width: 100% !important;
-      height: auto !important;
-  }*/
 
   .swiper-pagination {
     position: absolute;

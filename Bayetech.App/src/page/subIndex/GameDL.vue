@@ -23,7 +23,7 @@
       </div>
       <div class="dlIndex">
         <section class="wh_content swiper-container index-banner bg-000 border-bottom  text-center mt-97">
-          <div class="wh_swiper wh_swiper_875" style="transform: translate3d(-375px, 0px, 0px); transition: 0s;">
+         <!--  <div class="wh_swiper wh_swiper_875" style="transform: translate3d(-375px, 0px, 0px); transition: 0s;">
             <div class="wh_slide swiper-slide">
               <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg">
                         </div>
@@ -48,7 +48,8 @@
             <div class="wh_indicator_item"></div>
             <div class="wh_indicator_item"></div>
             <div class="wh_indicator_item"></div>
-          </div>
+          </div> -->
+          <swiper></swiper>
         </section>
         <div class="index-swiper bg-fff border-bottom pb-30 pt-10">
           <ul>
@@ -153,6 +154,7 @@
 </template>
 
 <script>
+import Swiper from "@/components/swiper.vue";
 import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
 import "@/assets/css/game-dl.css";
@@ -165,9 +167,10 @@ export default {
   data() {
     return vmdata;
   },
-  mounted: function() {
-    
-  }
+  components: {
+    Swiper
+  },
+  mounted: function() {}
 };
 </script>
 
