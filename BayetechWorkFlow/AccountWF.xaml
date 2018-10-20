@@ -43,28 +43,28 @@
   </TextExpression.ReferencesForImplementation>
   <StateMachine DisplayName="账号购买流程" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <StateMachine.InitialState>
-      <State x:Name="__ReferenceID5" DisplayName="等待截图" sap2010:WorkflowViewState.IdRef="State_9">
+      <State x:Name="__ReferenceID5" DisplayName="客服截图" sap2010:WorkflowViewState.IdRef="State_9">
         <State.Transitions>
           <Transition DisplayName="T1" sap2010:WorkflowViewState.IdRef="Transition_9">
             <Transition.Condition>
               <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "截图成功"</mca:CSharpValue>
             </Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID4" DisplayName="等待确认" sap2010:WorkflowViewState.IdRef="State_8">
+              <State x:Name="__ReferenceID4" DisplayName="等待买家确认" sap2010:WorkflowViewState.IdRef="State_8">
                 <State.Transitions>
                   <Transition DisplayName="tojiebang" sap2010:WorkflowViewState.IdRef="Transition_12">
                     <Transition.Condition>
                       <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "解绑成功"</mca:CSharpValue>
                     </Transition.Condition>
                     <Transition.To>
-                      <State x:Name="__ReferenceID2" DisplayName="等待解绑" sap2010:WorkflowViewState.IdRef="State_4">
+                      <State x:Name="__ReferenceID2" DisplayName="等待卖家解绑" sap2010:WorkflowViewState.IdRef="State_4">
                         <State.Transitions>
                           <Transition DisplayName="topick" sap2010:WorkflowViewState.IdRef="Transition_3">
                             <Transition.Condition>
                               <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "5"</mca:CSharpValue>
                             </Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID0" DisplayName="等待提取资料" sap2010:WorkflowViewState.IdRef="State_3">
+                              <State x:Name="__ReferenceID0" DisplayName="等待提取资料（3天后内给卖家打款）" sap2010:WorkflowViewState.IdRef="State_3">
                                 <State.Transitions>
                                   <Transition DisplayName="toend" sap2010:WorkflowViewState.IdRef="Transition_14">
                                     <Transition.Condition>
@@ -152,7 +152,7 @@
     <StateMachine.Variables>
       <Variable x:TypeArguments="x:String" Name="conditions" />
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>dy5FOlxCYXlldGVjaDIuMVxCYXlldGVjaFdvcmtGbG93XEFjY291bnRXRi54YW1sFQFmAWwBAiwDnAESAgEBLgePAQ8CATE1D4YBFwIBJTwXeB8CARlDH18nAgENVydbLwIBCmcfbycCAQRKJ0qUAQIBAjIPMmICATaLAQ+LAV0CATM5FzlqAgEtfRd9ZwIBKoIBF4IBZQIBJ0AfQG8CASFkH2R1AgEedB90bQIBG0cnR3oCARVPJ091AgESVCdUfAIBD2sna3UCAQY=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dy5FOlxCYXlldGVjaDIuMlxCYXlldGVjaFdvcmtGbG93XEFjY291bnRXRi54YW1sFQFmAWwBAiwDnAESAgEBLgePAQ8CATE1D4YBFwIBJTwXeB8CARlDH18nAgENVydbLwIBCmcfbycCAQRKJ0qUAQIBAjIPMmICATaLAQ+LAV0CATM5FzlqAgEtfRd9ZwIBKoIBF4IBZQIBJ0AfQG8CASFkH2R1AgEedB90bQIBG0cnR3oCARVPJ091AgESVCdUfAIBD2sna3UCAQY=</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
