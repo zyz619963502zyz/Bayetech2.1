@@ -89,6 +89,17 @@ namespace Bayetech.Admin.Controllers
         [HttpPost]
         public JObject UpdateGameProperty(JObject json) {
             return serviceGame.UpdateExtraProperty(json);
+
+            ////自营请入库
+            //using (resource)
+            //{
+
+            //}
+            ////调用主引擎
+            ////aa
+
+            //return JObject
         }
+
     }
 }
