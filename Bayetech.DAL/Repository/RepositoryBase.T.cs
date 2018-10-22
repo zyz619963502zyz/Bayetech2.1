@@ -24,21 +24,7 @@ namespace Bayetech.DAL
     /// <typeparam name="TEntity"></typeparam>
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class,new()
     {
-        public DbContext dbcontext;
-        public WFEntities WFcontext = new WFEntities();
-        public BayetechEntities Baycontext = new BayetechEntities();
-
-        public RepositoryBase(string EfName) {
-            if (EfName == "WF")
-            {
-                dbcontext = WFcontext;
-            }
-            else
-            {
-                dbcontext = Baycontext;
-            }
-        }
-
+        public BayetechEntities dbcontext = new BayetechEntities();
         public int Insert(TEntity entity)
         {
             dbcontext.Entry<TEntity>(entity).State = EntityState.Added;
