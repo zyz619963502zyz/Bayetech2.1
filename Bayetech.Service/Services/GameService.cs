@@ -180,7 +180,7 @@ namespace Bayetech.Service.Services
         public JObject GetGameService(JObject json)
         {
             JObject ret = new JObject();
-            Game game = json["GameArray"].ToString() == "" ? new Game() : JsonConvert.DeserializeObject<Game>(json["GameArray"].ToString());
+            Game game = json["item"].ToString() == "" ? new Game() : JsonConvert.DeserializeObject<Game>(json["item"].ToString());
             using (var db = new RepositoryBase().BeginTrans())
             {
                 //区服务信息

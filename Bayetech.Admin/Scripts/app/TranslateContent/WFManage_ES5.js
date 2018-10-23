@@ -11468,7 +11468,7 @@ let vmData = {
             records: 10, //总记录数
             total: 10 //总页数。
         },
-        startcheck() {//
+        SyncBtn() {//同步发布
 
         }
     }
@@ -11483,7 +11483,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         findList() {
             //获取商品的简要列表
-            self.tools._comCompnent.postWebJson(self.GameListUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.postWebJson(self.FlowListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.SearchParam.Pagination = data.content.pagination;

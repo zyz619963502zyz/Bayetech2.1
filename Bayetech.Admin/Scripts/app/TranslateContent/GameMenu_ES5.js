@@ -10902,12 +10902,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             $("#GameServer2").modal("show");
         },
         OpenProperty(item) {
-            //游戏属性模态框
+            //打开表单页
             var self = this;
-            self.GameArray = item;
-            var GameArray = {};
-            GameArray.GameArray = self.GameArray;
-            self.tools._comCompnent.postWebJson(self.GetByGameUrl, GameArray, function (data) {
+            self.tools._comCompnent.postWebJson(self.GetByGameUrl, { item }, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     debugger;

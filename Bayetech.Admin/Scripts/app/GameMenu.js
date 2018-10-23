@@ -126,12 +126,9 @@ new Vue({
             });
             $("#GameServer2").modal("show");
         },
-        OpenProperty(item){//游戏属性模态框
+        OpenProperty(item){//打开表单页
             var self=this;
-            self.GameArray=item;
-            var GameArray={};
-            GameArray.GameArray=self.GameArray;
-            self.tools._comCompnent.postWebJson(self.GetByGameUrl, GameArray, function (data) {
+            self.tools._comCompnent.postWebJson(self.GetByGameUrl, {item}, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     debugger;
