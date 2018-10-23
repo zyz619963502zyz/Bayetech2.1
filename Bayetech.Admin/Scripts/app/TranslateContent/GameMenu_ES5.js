@@ -10947,12 +10947,27 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         AddMallT(item) {
             var self = this;
+            var index = self.GameMallTypeArray.indexOf(item);
+            for (var value of self.GameMallTypeArray) {
+                if (value.Name == item.Name) {
+                    if (item.checkvalue) {
+                        self.GameMallTypeArray.splice(index, 1);
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+            }
             self.GameMallTypeArray.push(item);
         },
         DelectMallT(item) {
             var self = this;
             var index = self.GameMallTypeArray.indexOf(item);
-            self.GameMallTypeArray.splice(index, 1);
+            for (var value of self.GameMallTypeArray) {
+                if (value.Name == item.Name) {
+                    self.GameMallTypeArray.splice(index, 1);
+                }
+            }
         },
         GameMenuSave() {
             //保存

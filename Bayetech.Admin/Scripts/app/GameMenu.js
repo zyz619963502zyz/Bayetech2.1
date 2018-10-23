@@ -181,12 +181,27 @@ new Vue({
         },
         AddMallT(item){
             var self=this;
+            var index = self.GameMallTypeArray.indexOf(item);
+            for (var value of self.GameMallTypeArray) {
+                if (value.Name==item.Name) {
+                    if (item.checkvalue) {
+                        self.GameMallTypeArray.splice(index,1);
+                        return;
+                    }else {
+                        return;
+                    }
+                }
+            }
             self.GameMallTypeArray.push(item);
         },
         DelectMallT(item){
             var self=this;
-            var index = self.GameMallTypeArray.indexOf(item)
-            self.GameMallTypeArray.splice(index,1);
+            var index = self.GameMallTypeArray.indexOf(item);
+            for (var value of self.GameMallTypeArray) {
+                if (value.Name==item.Name) {
+                    self.GameMallTypeArray.splice(index,1);
+                }
+            }
         },
         GameMenuSave(){//保存
             var updateSave={};
@@ -226,6 +241,7 @@ new Vue({
             });
         },
         operatemodal(item){
+
         }
     },
     components:{

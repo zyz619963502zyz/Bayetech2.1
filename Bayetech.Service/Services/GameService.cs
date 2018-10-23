@@ -184,6 +184,7 @@ namespace Bayetech.Service.Services
             using (var db = new RepositoryBase().BeginTrans())
             {
                 //区服务信息
+
                 List<Server> server = db.IQueryable<Server>(a => a.GameId == game.Id && a.ParentId==0).ToList();
                 //职业信息
                 List<GameProfession> gameProfession = db.IQueryable<GameProfession>(a => a.GameId == game.Id).ToList();

@@ -213,9 +213,9 @@
                             <div class="input-group col-md-12">
                                 <h4><strong>交易类型</strong></h4>
                                 <button class="btn btn-primary" @click="OpenTradeType">查看所有交易类型</button>
-                                <br />
-                                <div v-for="item in GameMallTypeArray" class="inline" style="float:left;padding:5px">
-                                    <input  type="checkbox" id="runoob"  :value="item.Id" v-model="item.checkvalue" @click="DelectMallT(item)">
+                                <br/>
+                                <div v-for="item in GameMallTypeArray" class="inline" style="float: left;padding: 5px; border:1px dotted #FF00FF;">
+                                    <label class="glyphicon glyphicon-remove" @click="DelectMallT(item)"></label>
                                     <label>{{item.Name}}</label>
                                 </div>
                             </div><!--交易类型-->
