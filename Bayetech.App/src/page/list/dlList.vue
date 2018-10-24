@@ -155,7 +155,10 @@ import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
 import "@/assets/css/dl-list.css";
 
-let vmdata = new Object();
+  let vmdata = {
+    list: [],
+    
+  };
 vmdata.PageType = "czxv";
 vmdata.goodinfoarray = 2;
 export default {
@@ -165,7 +168,19 @@ export default {
   },
   mounted: function() {
     
-  }
+    },
+    methods: {
+      getGoodsList: function () {
+        let that = this;
+
+        try {
+          let tempData = {};
+
+        } catch(err){
+
+        }
+      }
+    }
 };
 </script>
 
