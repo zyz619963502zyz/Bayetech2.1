@@ -28,8 +28,8 @@
 
 
 <script>
-  import Swiper from 'swiper'
-  import '@/assets/css/swiper/swiper.css'
+  import Swiper from 'swiper';
+  import '@/assets/css/swiper/swiper.css';
 
   export default {
     name: 'swiper',
