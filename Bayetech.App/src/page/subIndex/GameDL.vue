@@ -78,7 +78,7 @@
               </a>
             </li>
             <li class="swiper-slide fl text-center pt-20">
-              <router-link :to="{ path: '/dlList', query: { goodsType: 5}}" class="open-indicator">
+              <router-link :to="{ path: '/dlList', query: { goodsType: 5,gname:'地下城与勇士'}}" class="open-indicator">
 
                 <span>
                   <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png">
@@ -159,7 +159,10 @@ import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
 import "@/assets/css/game-dl.css";
 
-let vmdata = new Object();
+let vmdata = {
+  gname:'',
+  gid:''
+};
 vmdata.PageType = "czxv";
 vmdata.goodinfoarray = 2;
 export default {
@@ -170,7 +173,9 @@ export default {
   components: {
     Swiper
   },
-  mounted: function() {}
+  mounted: function() {
+
+  }
 };
 </script>
 

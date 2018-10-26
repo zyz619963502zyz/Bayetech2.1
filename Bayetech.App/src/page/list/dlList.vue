@@ -7,7 +7,7 @@
             <div class="dlHeader">
                 <div class="top-header border-bottom bg-fff fixed-top">
                     <div class="top-back"><a></a></div>
-                    <h2 class="f36">地下城与勇士</h2>
+                    <h2 class="f36">{{gname}}</h2>
                     <div class="dl-right f24 color-666">
                         切换游戏
                     </div>
@@ -59,7 +59,7 @@
             </div>
 
             <!--选择游戏-->
-            <div  class="dlSearchGame">
+            <div  class="dlSearchGame hide">
                 <div  class="top-search py-20 px-30 bg-c9c fixed-top mt-97">
                     <div  class="container-ms">
                         <div  class="container-inp bg-fff"><input  type="text" placeholder="搜索游戏" class="search-game"></div>
@@ -156,8 +156,8 @@ import "@/assets/content/css/style-min.css";
 import "@/assets/css/dl-list.css";
 
   let vmdata = {
-    list: [],
-    
+    dlList: [],
+    gname:'游戏名称 '
   };
 //vmdata.PageType = "czxv";
 //vmdata.goodinfoarray = 2;
@@ -168,6 +168,8 @@ export default {
     return vmdata; 
   },
     mounted: function() {
+        this.gname = this.$route.query.gname;
+
         //this.getGoodsList();
     },
     methods: {
@@ -179,9 +181,9 @@ export default {
 
                     setTimeout(() => {
 
-                        that.$post('http://localhost:15786/api/GoodInfo/GetList',data).then(function(result){
+                        that.$post('http://localhost:15786/api/GoodInfo/GetList',data).then(function(res){
 
-                            console.log(result.result)
+                            console.log(res.result)
 
                       })
 
