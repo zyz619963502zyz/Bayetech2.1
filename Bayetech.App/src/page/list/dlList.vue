@@ -157,7 +157,18 @@ import "@/assets/css/dl-list.css";
 
   let vmdata = {
     dlList: [],
-    gname:'游戏名称 '
+    gname: '游戏名称 ',
+    Pagenation: {
+      rows: 10,
+      page: 1,
+      order: "GoodNo",
+      sord: "asc",
+      records: 10,
+      total:10
+    },
+    postData: {
+      goodTypes: [],
+    }
   };
 //vmdata.PageType = "czxv";
 //vmdata.goodinfoarray = 2;
@@ -170,20 +181,22 @@ export default {
     mounted: function() {
         this.gname = this.$route.query.gname;
 
-        //this.getGoodsList();
+        this.getGoodsList();
     },
     methods: {
             getGoodsList: function () {
                 let that = this;
                 //debugger;
                 try {
-                    let data = {};
+                  let data = {};
+                  data.Pagenation = that.Pagenation;
+                  data.postData = that.postData;
 
                     setTimeout(() => {
 
-                        that.$post('http://localhost:15786/api/GoodInfo/GetList',data).then(function(res){
+                        that.$post('http://localhost:15786/api/GoodInfo/GetList',data).then(function(result){
 
-                            console.log(res.result)
+                          console.log(result)
 
                       })
 
