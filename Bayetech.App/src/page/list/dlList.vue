@@ -171,6 +171,7 @@ export default {
         //this.getGoodsList();
     },
     methods: {
+
             getGoodsList: function () {
                 let that = this;
                 //debugger;
