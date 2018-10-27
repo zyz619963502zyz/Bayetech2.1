@@ -7,10 +7,7 @@
     <div id="wrapper">
       <div class="dlHeader">
         <div class="top-header border-bottom bg-fff fixed-top">
-          <div class="top-back">
-            <a>
-            </a>
-          </div>
+          <div class="top-back" @click="$router.go(-1)"><a></a></div>
           <h2 class="f36">代练主页</h2>
           <!---->
           <!---->
@@ -22,33 +19,7 @@
         </div>
       </div>
       <div class="dlIndex">
-        <section class="wh_content swiper-container index-banner bg-000 border-bottom  text-center mt-97">
-         <!--  <div class="wh_swiper wh_swiper_875" style="transform: translate3d(-375px, 0px, 0px); transition: 0s;">
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg">
-                        </div>
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg">
-                        </div>
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIsAAAAAAAAF9GkJGPXg6..jpg">
-                        </div>
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201807/01/2D/RAKowFtHIpIAAAAAAAHXgUqOLsM6..jpg">
-                        </div>
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201804/00/F3/RAKowFrMgwwAAAAAAADYfUJtmoA1..jpg">
-                        </div>
-            <div class="wh_slide swiper-slide">
-              <img src="http://bo.5173cdn.com/5173_2/data/201808/02/62/RAKowFt8xsIAAAAAAAD3GnMWFmM9..jpg">
-                        </div>
-          </div>
-          <div class="wh_indicator">
-            <div class="wh_indicator_item wh_show_bgcolor"></div>
-            <div class="wh_indicator_item"></div>
-            <div class="wh_indicator_item"></div>
-            <div class="wh_indicator_item"></div>
-          </div> -->
+        <section class="wh_content border-bottom  mt-97">
           <swiper></swiper>
         </section>
         <div class="index-swiper bg-fff border-bottom pb-30 pt-10">
@@ -113,7 +84,7 @@
             <li class="swiper-slide fl text-center pt-20">
               <a href="/vue/dl/dl-search-game" class="open-indicator">
                 <span>
-                  <img src="">
+                  <img src="../../assets/images/mold-md.png">
                                 </span>
                 <p class="f26 color-000">其他游戏</p>
               </a>
