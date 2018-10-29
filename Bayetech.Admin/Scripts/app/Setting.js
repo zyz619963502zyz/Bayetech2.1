@@ -4,7 +4,7 @@ import componentTable from '../components/table-Process.vue'
 
 let vmData = {
     GameListUrl: "/api/Game/",
-    GetByLetterUrl: "/api/Game/GetGameListByLetter",
+    GetSettingUrl: "/api/Game/GetGameListByLetter",
     tools: {
         _comCompnent: comCompnent,
         _componentTable: componentTable
@@ -46,7 +46,9 @@ new Vue({
     el: '#CommForm',
     data: vmData,
     created() {
-        //this.findList();
+        var self = this;
+        self.GetParentSettings();
+
     },
     methods: {
         findList(parentId) {//获取Setting内容
@@ -65,7 +67,7 @@ new Vue({
         GetParentSettings() {//获取一级下拉类型
             var self = this;
             self.SearchParam.Param.ParentId = 0;
-            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingUrl, self.SearchParam, function (data) {
                 self.Types = data.content;
             });
         },

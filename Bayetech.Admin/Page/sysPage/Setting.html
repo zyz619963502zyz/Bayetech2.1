@@ -24,12 +24,6 @@
                         </div>
                     </div>
                     <div class="input-group col-md-4">
-                        <!--<label class="control-label col-md-3">游戏首字母</label>
-                        <div class="col-md-9">
-                            <select class="form-control" @change="FindList" v-model="SearchParam.Param.SelectLetter">
-                                <option v-for="item in Letters" :value="item"></option>
-                            </select>
-                        </div>-->
                     </div>
                     <div class="col-md-2">
                         <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="FindList" />
@@ -248,9 +242,9 @@
                             <thead>
                                 <tr class="warning">
                                     <th>编号</th>
-                                    <th>服务器名称</th>
-                                    <th>首字母</th>
-                                    <th>排序</th>
+                                    <th>名称</th>
+                                    <th>父级</th>
+                                    <th>创建时间</th>
                                     <th>备注</th>
                                     <th>操作</th>
                                 </tr>
@@ -258,9 +252,9 @@
                             <tbody>
                                 <tr v-for="item in ServerList2">
                                     <td>{{item.Id}}</td>
-                                    <td><input class="form-control" v-model="item.Name" /></td>
-                                    <td><input class="form-control" v-model="item.Letter" /></td>
-                                    <td><input class="form-control" v-model="item.Order" /></td>
+                                    <td><input class="form-control" v-model="item.Value" /></td>
+                                    <td><input class="form-control" v-model="item.ParentId" /></td>
+                                    <td><input class="form-control" v-model="item.CreateTime" /></td>
                                     <td><input class="form-control" v-model="item.Remark" /></td>
                                     <td class="text-center">
                                         <div class="text-center row">
