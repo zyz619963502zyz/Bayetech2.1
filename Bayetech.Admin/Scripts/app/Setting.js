@@ -2,6 +2,7 @@
 import comCompnent from '../common.js'
 import componentTable from '../components/table-Process.vue'
 let vmData = {
+    GetSettingsList: "/api/Setting/GetSettingsList",
     GetSettingUrl: "/api/Setting/GetSettings",
     tools: {
         _comCompnent: comCompnent,
@@ -24,10 +25,7 @@ let vmData = {
             Id: "",
             key: "",
             Value: "",
-            ParentId: "",
-            CreateTime: "",//排序
-            IsDelete: "",//是否被删除
-            Remark: ""
+            ParentId: ""
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -50,10 +48,10 @@ new Vue({
     methods: {
         findList(parentId) {//获取Setting内容
             var self = this;
-            self.SearchParam.Param.ParentId = parentId;
-            self.tools._comCompnent.getWebJson(self.GetSettingList, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingsList, { parentId: parentId }, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
+                    self.ListObj = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'),
                         self.SearchParam, self.findList);
@@ -64,14 +62,20 @@ new Vue({
         },
         GetParentSettings() {//获取一级下拉类型
             var self = this;
-            self.tools._comCompnent.getWebJson(self.GetSettingUrl, {id:0}, function (data) {
-                self.Types = data.content;
+            self.tools._comCompnent.getWebJson(self.GetSettingUrl, {parentId:0}, function (data) {
+                self.Types = data.setting;
             });
         },
         TurnToPage(page) {
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.findList();
+        },
+        Save() {
+
+        },
+        Del() {
+
         }
     },
     components: {
