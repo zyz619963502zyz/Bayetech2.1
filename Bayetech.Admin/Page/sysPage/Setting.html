@@ -23,10 +23,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="input-group col-md-4">
+                    <div class="input-group col-md-2">
                     </div>
                     <div class="col-md-2">
-                        <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList(SearchParam.Param.Id)" />
+                        <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询中..." value="查询" @click="findList(SearchParam.Param.Id)" />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="button" id="QueryList" class="btn btn-danger form-control" data-loading-text="新增中..." value="新增" @click="Add()" />
                     </div>
                 </div>
             </div>

@@ -76,6 +76,9 @@ new Vue({
         },
         Del() {
 
+        },
+        Add() {
+            
         }
     },
     components: {

@@ -11509,7 +11509,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.findList();
         },
         Save() {},
-        Del() {}
+        Del() {},
+        Add() {}
     },
     components: {
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
