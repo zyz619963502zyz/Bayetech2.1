@@ -2184,6 +2184,7 @@
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
+    <Content Include="Page\sysPage\Setting.html" />
     <Content Include="Page\workflow\workflow.html" />
     <Content Include="Resource\Spring\SpringObjects.xml" />
     <Content Include="Scripts\app\Auth_ButtonsManage.js" />
@@ -2208,6 +2209,7 @@
     <Content Include="Scripts\app\GoodCheck.js" />
     <Content Include="Scripts\app\GameMenu.js" />
     <Content Include="Scripts\app\Login.js" />
+    <Content Include="Scripts\app\Setting.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_AdminManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_CustomerManage_ES5.js" />
@@ -2218,6 +2220,7 @@
     <Content Include="Scripts\app\TranslateContent\GameProperty_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\GoodCheck_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Login_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Setting_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\WFManage_ES5.js" />
     <Content Include="Scripts\app\WFManage.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />

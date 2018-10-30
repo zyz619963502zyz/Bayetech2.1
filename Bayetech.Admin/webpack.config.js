@@ -20,7 +20,9 @@ module.exports = {
 
         //字典
         GameMenu:"./Scripts/app/GameMenu.js",
-        GameProperty:"./Scripts/app/GameProperty.js",
+        GameProperty: "./Scripts/app/GameProperty.js",
+        Setting: "./Scripts/app/Setting.js",
+
         //流程
         WFManage:"./Scripts/app/WFManage.js"
     },
