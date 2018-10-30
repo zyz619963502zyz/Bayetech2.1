@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="../../content/css/common.css"/>
     <link rel="stylesheet" href="../../content/css/game-dl.css"/>-->
 <template>
-  <div class="app app-touch ">
+ 
     <div id="wrapper">
       <div class="dlHeader">
         <div class="top-header border-bottom bg-fff fixed-top">
@@ -120,7 +120,7 @@
         </div>
       </div>
     </div>
-  </div>
+  
 
 </template>
 

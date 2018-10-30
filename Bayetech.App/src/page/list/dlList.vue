@@ -218,6 +218,7 @@ export default {
     },
     methods: {
 
+
             getGoodsList: function () {
                 let that = this;
                 //debugger;
