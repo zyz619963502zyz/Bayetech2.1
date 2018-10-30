@@ -1,4 +1,4 @@
-﻿@charset'utf-8';
+@charset'utf-8';
 .app-touch {
     -webkit-overflow-scrolling: touch;
 }
@@ -76,6 +76,10 @@
 }
 .color-bbb {
     color: #bbb;
+}
+.bgNone{
+  background: none !important;
+  padding-left: 0 !important;
 }
 /*选择游戏*/
 .top-search {

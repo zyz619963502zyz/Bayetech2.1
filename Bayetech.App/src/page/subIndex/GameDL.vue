@@ -25,12 +25,12 @@
         <div class="index-swiper bg-fff border-bottom pb-30 pt-10">
           <ul>
             <li class="swiper-slide fl text-center pt-20">
-              <a class="open-indicator">
+              <router-link :to="{path:'/dlList',query:{goodsType:2,gname:'英雄联盟'}}" class="open-indicator" >
                 <span>
                   <img src="http://html.5173.com/yunyin/201705/txtb/lol.jpg">
                                 </span>
                 <p class="f26 color-000">英雄联盟</p>
-              </a>
+              </router-link>
             </li>
             <li class="swiper-slide fl text-center pt-20">
               <a class="open-indicator">
