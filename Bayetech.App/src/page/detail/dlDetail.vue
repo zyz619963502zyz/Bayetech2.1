@@ -14,43 +14,43 @@
           <!---->
         </div>
       </div>
-      <div data-v-ed1c4f4e="" class="dlGoodsDetail mt-97 pb-200">
-        <div data-v-ed1c4f4e="" class="det01">
-          <img data-v-ed1c4f4e="" src="http://bo.5173cdn.com/5173_2/data/201803/00/CC/RAKowFqiAWsAAAAAAAISqGTGrHk3..jpg">
+      <div class="dlGoodsDetail mt-97 pb-200">
+        <div class="det01">
+          <img src="http://bo.5173cdn.com/5173_2/data/201803/00/CC/RAKowFqiAWsAAAAAAAISqGTGrHk3..jpg">
         </div>
-        <div data-v-ed1c4f4e="" class="det02 f30  px-30">
-          <p data-v-ed1c4f4e="" class="catagory">地下城与勇士</p>
-          <span data-v-ed1c4f4e="" style="padding: 0px;">★今日活动特价★超速等级/PK印章/深渊◆超时空/卢克/乌龟天空√</span>
+        <div class="det02 f30  px-30">
+          <p class="catagory">地下城与勇士</p>
+          <span style="padding: 0px;">★今日活动特价★超速等级/PK印章/深渊◆超时空/卢克/乌龟天空√</span>
         </div>
-        <div data-v-ed1c4f4e="" class="det03">
-          <span data-v-ed1c4f4e="" class="f40">
+        <div class="det03">
+          <span class="f40">
             <i data-v-ed1c4f4e="">￥</i>1
           </span>
-          <em data-v-ed1c4f4e="" class="f26">销量196696元</em>
+          <em class="f26">销量196696元</em>
         </div>
-        <div data-v-ed1c4f4e="" class="det04">
-          <div data-v-ed1c4f4e="" class="studio mt-20">
-            <div data-v-ed1c4f4e="" class="studio01">
-              <img data-v-ed1c4f4e="" src="http://bo.5173cdn.com/5173_2/data/201803/00/CC/RAKowFqiAWsAAAAAAAISqGTGrHk3..jpg">
+        <div class="det04">
+          <div class="studio mt-20">
+            <div class="studio01">
+              <img src="http://bo.5173cdn.com/5173_2/data/201803/00/CC/RAKowFqiAWsAAAAAAAISqGTGrHk3..jpg">
             </div>
-            <div data-v-ed1c4f4e="" class="studio02">
-              <p data-v-ed1c4f4e="" class="p1 f28"></p>
-              <p data-v-ed1c4f4e="" class="p2 f26">
+            <div class="studio02">
+              <p class="p1 f28"></p>
+              <p class="p2 f26">
                 已交10000元保证金
               </p>
             </div>
-            <div data-v-ed1c4f4e="" class="studio03 f26">
-              <p data-v-ed1c4f4e="" class="s1">
+            <div class="studio03 f26">
+              <p class="s1">
                 <span data-v-ed1c4f4e="">97%</span>
               </p>
-              <p data-v-ed1c4f4e="" class="s2">
+              <p class="s2">
                 好评率
                 <em data-v-ed1c4f4e="">100%</em>
               </p>
             </div>
           </div>
         </div>
-          <div data-v-ed1c4f4e="" class="detail-img bg-fff px-30 mt-10 pt-20">
+          <div class="detail-img bg-fff px-30 mt-10 pt-20">
               【诚实是用不完的资本 信誉是打不倒的招牌】
               <br>
               【英雄相逢良者胜 欢迎品鉴】
@@ -183,14 +183,14 @@
               3.如果玩家只合二件，需要加40元
               <br>4.3件或者3件以上不需要加钱！
           </div>
-        <div data-v-ed1c4f4e="" class="detail-img bg-fff px-30 pt-20">
+        <div class="detail-img bg-fff px-30 pt-20">
           <p data-v-ed1c4f4e="">
-            <img data-v-ed1c4f4e="" src="">
+            <img src="">
                     </p>
         </div>
-        <div data-v-ed1c4f4e="" class="warcraft-button f36 fixed-bottom">
-          <a data-v-ed1c4f4e="" id="playerContact" class="button01" style="">联系商家</a>
-          <a data-v-ed1c4f4e="" id="buy" class="button02" style="">立即购买</a>
+        <div class="warcraft-button f36 fixed-bottom">
+          <a id="playerContact" class="button01" style="">联系商家</a>
+          <a id="buy" class="button02" style="">立即购买</a>
         </div>
       </div>
     </div>
