@@ -11439,10 +11439,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 let vmData = {
-    GameListUrl: "/api/Game/",
-    GetByLetterUrl: "/api/Game/GetGameListByLetter",
+    GetSettingUrl: "/api/Setting/GetSettings",
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
@@ -11479,16 +11477,18 @@ let vmData = {
 };
 
 new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommForm',
+    el: '#app',
     data: vmData,
     created() {
-        //this.findList();
+        var self = this;
+        self.GetParentSettings();
     },
     methods: {
         findList(parentId) {
             //获取Setting内容
+            var self = this;
             self.SearchParam.Param.ParentId = parentId;
-            self.tools._comCompnent.postWebJson(self.GetSettingList, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingList, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.SearchParam.Pagination = data.content.pagination;
@@ -11501,8 +11501,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         GetParentSettings() {
             //获取一级下拉类型
             var self = this;
-            self.SearchParam.Param.ParentId = 0;
-            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingUrl, { id: 0 }, function (data) {
                 self.Types = data.content;
             });
         },

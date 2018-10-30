@@ -211,6 +211,7 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\RoleNavBtnsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Controllers\WFController.cs" />

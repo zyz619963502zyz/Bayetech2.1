@@ -1,10 +1,8 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
 import componentTable from '../components/table-Process.vue'
-
 let vmData = {
-    GameListUrl: "/api/Game/",
-    GetSettingUrl: "/api/Game/GetGameListByLetter",
+    GetSettingUrl: "/api/Setting/GetSettings",
     tools: {
         _comCompnent: comCompnent,
         _componentTable: componentTable
@@ -43,17 +41,17 @@ let vmData = {
 };
 
 new Vue({
-    el: '#CommForm',
+    el: '#app',
     data: vmData,
     created() {
         var self = this;
         self.GetParentSettings();
-
     },
     methods: {
         findList(parentId) {//获取Setting内容
+            var self = this;
             self.SearchParam.Param.ParentId = parentId;
-            self.tools._comCompnent.postWebJson(self.GetSettingList, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingList, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.SearchParam.Pagination = data.content.pagination;
@@ -66,8 +64,7 @@ new Vue({
         },
         GetParentSettings() {//获取一级下拉类型
             var self = this;
-            self.SearchParam.Param.ParentId = 0;
-            self.tools._comCompnent.getWebJson(self.GetSettingUrl, self.SearchParam, function (data) {
+            self.tools._comCompnent.getWebJson(self.GetSettingUrl, {id:0}, function (data) {
                 self.Types = data.content;
             });
         },
@@ -75,7 +72,7 @@ new Vue({
             var self = this;
             self.SearchParam.Pagination.rows = page;
             self.findList();
-        },
+        }
     },
     components: {
         comtable: componentTable
