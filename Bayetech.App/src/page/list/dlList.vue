@@ -188,19 +188,14 @@ import "@/assets/css/dl-list.css";
             total:10
         },
         postData: {
-            goodTypes: [],
-            //GameId: 0,
-            //GameName: "游戏名称",
-            //GameGroupId: 0, //上海区
-            //GameGroupName: "",
-            //GameServerId: 0, //上海一区
-            //GameServerName: "",
-            //GoodTypeId: 0, //账号 金币
-            GoodTypeName: "", //物品类型
-            DlTypeName: "代练类型", //等级 冲杯 段位
-            //GoodKeyWord: "", //关键字
-            //AcrossId: 0, //跨区Id
-            //AcrossName: "跨区"
+            Id:'',  //
+            Title:'',
+            Price:'',
+            WorkerType:'',
+            DlNo:'',
+            DLAccountId:'',
+            MonthVolume:'',
+            GoodImg:''
         }
     };
     //vmdata.PageType = "czxv";
