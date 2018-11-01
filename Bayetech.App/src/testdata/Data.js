@@ -1,5 +1,11 @@
-//代练的数据模型
-  /** 代练列表 */
+/*
+ * 临时用的数据模型，后续可根据此来修改数据库
+ */
+
+/*
+ * 代练的数据模型
+ * 代练列表页    
+ */
   var dlListData = [
     /* MonthVolume 字段数据库没有，月成交量
      * GoodImg   字段数据库没有，列表页图片
@@ -105,12 +111,12 @@
       GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/01/42/RAKowFvCuVIAAAAAAAJGDXgwaqU7..jpg'
     },
   ];
-
-  var arr = [];
+  /** 代练详情页*/
+  var dlDetailData = [];
 
 
 export {
-  arr,
+  dlDetailData,
   dlListData
 }
 

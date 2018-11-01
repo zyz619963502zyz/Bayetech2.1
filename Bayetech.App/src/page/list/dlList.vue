@@ -175,7 +175,7 @@
 import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
 import "@/assets/css/dl-list.css";
-  import { dlListData, arr} from "@/testdata/Data.js";
+  import { dlListData } from "@/testdata/Data.js";
     let vmdata = {
         dlList: [],
         gname: '游戏名称',
@@ -221,7 +221,7 @@ export default {
                   //data.Pagenation = that.Pagenation;
                   //data.Param = that.postData;
                   data = dlListData;
-                  console.log(data,arr)
+                  console.log(data)
                   
                   for (let datas of data) {
                        that.$set(that.dlList, that.dlList.length, datas)
