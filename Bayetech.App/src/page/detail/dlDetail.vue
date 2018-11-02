@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="../../content/css/common.css"/>
     <link rel="stylesheet" href="../../content/css/game-dl.css"/>-->
 <template>
-  <div class="app app-touch ">
+  
     <div id="wrapper">
       <div class="dlHeader">
         <div class="top-header border-bottom bg-fff fixed-top">
@@ -189,31 +189,42 @@
                     </p>
         </div>
         <div class="warcraft-button f36 fixed-bottom">
-          <a id="playerContact" class="button01" style="">联系商家</a>
-          <a id="buy" class="button02" style="">立即购买</a>
+          <!--<router-link id="playerContact" class="button01" style="">联系商家</router-link>
+          <router-link id="buy" class="button02" style="">立即购买</router-link>-->
         </div>
       </div>
     </div>
-  </div>
+
 
 </template>
 
 <script>
 import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
-import "@/assets/css/dl-detail.css";
+  import "@/assets/css/dl-detail.css";
+  import { dlDetailData } from "@/testdata/Data.js";
 
-let vmdata = new Object();
+  let vmdata = {
+
+  };
 vmdata.PageType = "czxv";
 vmdata.goodinfoarray = 2;
 export default {
   name: "dlDetail",
   data() {
     return vmdata; 
-  },
+    },
   mounted: function() {
     
-  }
+    },
+    methods: {
+
+    },
+    created: function () {
+      let newID = this.$route.query.id;
+      console.log(newID)
+
+    }
 };
 </script>
 

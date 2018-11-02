@@ -24,7 +24,7 @@
                 <div class="mancon-img fl mt-30">
                     <img :src="DlGood.GoodImg"> 
                 </div>
-                <router-link to="{ path: '/dlDetail', query:DlGood.Id}" class="open-indicator">
+                <router-link :to="{ path: '/dlDetail', query:{id:DlGood.Id}}" class="open-indicator">
                     <div class="mancon-tn mt-15">
                       <div class="tn-hxtxt01 f32 color-000">{{DlGood.Title}}</div>
                       <div class="tn-hxtxt02 f24 color-bbb" v-bind:class="(DlGood.WorkerType == 'individual')?'bgNone':''">QQ888</div>
@@ -186,17 +186,18 @@ import "@/assets/css/dl-list.css";
             sord: "asc",
             records: 10,
             total:10
-        },
-        postData: {
-            Id:'',  //
-            Title:'',
-            Price:'',
-            WorkerType:'',
-            DlNo:'',
-            DLAccountId:'',
-            MonthVolume:'',
-            GoodImg:''
         }
+        /*postdata  或者 getdata 等接口确定再定*/
+        //,postData: {
+        //    Id:'',  //
+        //    Title:'',
+        //    Price:'',
+        //    WorkerType:'',
+        //    DlNo:'',
+        //    DLAccountId:'',
+        //    MonthVolume:'',
+        //    GoodImg:''
+        //}
     };
     //vmdata.PageType = "czxv";
     //vmdata.goodinfoarray = 2;
@@ -228,8 +229,6 @@ export default {
                    }
 
                     //data.param = that.postData;
-                    
-                    //setTimeout(() => {
 
                     //    that.$post('http://localhost:15786/api/GoodInfo/GetList', data).then(function(res){
                             
@@ -241,7 +240,7 @@ export default {
                     //        }
                     //    })
 
-                    //},2000)
+                    
 
 
                 } catch(err){
