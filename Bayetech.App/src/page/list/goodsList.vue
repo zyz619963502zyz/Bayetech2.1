@@ -680,7 +680,14 @@ export default {
             //  console.log(window.scrollY+document.documentElement.clientHeight)
 
             // console.log(document.body.clientHeight)  // 网页可见区域高
-
+          //console.log(
+          //  'clientHeight:' + (document.body.clientHeight) + ',',
+          //  'window.scrollY:' + (window.scrollY) + ',',
+          //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
+          //  'result:' + (document.body.clientHeight -
+          //    window.scrollY -
+          //    document.documentElement.clientHeight)
+          //);
             console.log(
                 document.body.clientHeight -
                 window.scrollY -
