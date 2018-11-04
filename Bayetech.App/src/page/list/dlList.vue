@@ -14,68 +14,30 @@
         </div>
         <!--列表-->
         <div class="dlGame mt-97">
-            <div class="prov-conn px-30 bg-fff border-bottom mt-20 py-20">
-                <span class="color-m1 f28 default-sort border-right">默认排序</span>
-                <input name="" type="checkbox" value="" class="num-radio fl">
-                <span class="default-sort01 f28 color-333">仅显示商城店铺</span>
-            </div>
+          <div class="prov-conn px-30 bg-fff border-bottom mt-20 py-20">
+            <span class="color-m1 f28 default-sort border-right">默认排序</span>
+            <input name="" type="checkbox" value="" class="num-radio fl">
+            <span class="default-sort01 f28 color-333">仅显示商城店铺</span>
+          </div>
 
-            <div class="mageslt bg-faf px-30 pb-30 border-bottom" v-for="(DlGood,index) in dlList" :key="index">
-                <div class="mancon-img fl mt-30">
-                    <img :src="DlGood.GoodImg"> 
-                </div>
-                <router-link :to="{ path: '/dlDetail', query:{id:DlGood.Id}}" class="open-indicator">
-                    <div class="mancon-tn mt-15">
-                      <div class="tn-hxtxt01 f32 color-000">{{DlGood.Title}}</div>
-                      <div class="tn-hxtxt02 f24 color-bbb" v-bind:class="(DlGood.WorkerType == 'individual')?'bgNone':''">QQ888</div>
-                        <div class="tn-hxtxt03 f26 color-666">
-                          <em class="fl f30 color-m1">￥{{DlGood.Price}}</em>
-                          <em class="fr f24 color-bbb">近30天成交{{DlGood.MonthVolume}}笔</em>
-                        </div>
-                    </div>
-                </router-link>
+          <div class="mageslt bg-faf px-30 pb-30 border-bottom" v-for="(DlGood,index) in dlList" :key="index">
+            <div class="mancon-img fl mt-30">
+              <img :src="DlGood.GoodImg">
             </div>
-
-            <!--<div class="mageslt bg-faf px-30 pb-30  border-bottom">
-                <div class="mancon-img fl mt-30">
-                    <img src="http://bo.5173cdn.com/5173_2/data/201807/02/16/RAKowFtRWTgAAAAAAAC0mXZxPUg7..jpg">
+            <router-link :to="{ path: '/dlDetail', query:{id:DlGood.Id}}" class="open-indicator">
+              <div class="mancon-tn mt-15">
+                <div class="tn-hxtxt01 f32 color-000">{{DlGood.Title}}</div>
+                <div class="tn-hxtxt02 f24 color-bbb" v-bind:class="(DlGood.WorkerType == 'individual')?'bgNone':''">QQ888</div>
+                <div class="tn-hxtxt03 f26 color-666">
+                  <em class="fl f30 color-m1">￥{{DlGood.Price}}</em>
+                  <em class="fr f24 color-bbb">近30天成交{{DlGood.MonthVolume}}笔</em>
                 </div>
-                <div class="mancon-tn mt-15">
-                    <div class="tn-hxtxt01 f32 color-000">★今日活动特价★超速等级/PK印章/深渊◆超时空/卢克/乌龟天空√</div>
-                    <div class="tn-hxtxt02 f24 color-bbb ">AA007</div>
-                    <div class="tn-hxtxt03 f26 color-666">
-                        <em class="fl f30 color-m1">￥1</em>
-                        <em class="fr f24 color-bbb">近30天成交196985笔</em>
-                    </div>
-                </div>
-            </div>
-            <div class="mageslt bg-faf px-30 pb-30  border-bottom bg-fec">
-                <div class="mancon-img fl mt-30">
-                    <img src="http://bo.5173cdn.com/5173_2/data/201809/00/7E/RAKowFuPav4AAAAAAAIuxEQVpRo8..jpg">
-                </div>
-                <div class="mancon-tn mt-15">
-                    <div class="tn-hxtxt01 f32 color-000">【活动送送送】等级◆深渊◆PK印章◆新天空◆安图恩◆卢克超时空</div>
-                    <div class="tn-hxtxt02 f24 color-bbb ">HY138</div>
-                    <div class="tn-hxtxt03 f26 color-666">
-                        <em class="fl f30 color-m1">￥1</em>
-                        <em class="fr f24 color-bbb">近30天成交28664笔</em>
-                    </div>
-                </div>
-            </div>
-            <div class="mageslt bg-faf px-30 pb-30  border-bottom">
-                <div class="mancon-img fl mt-30">
-                    <img src="http://bo.5173cdn.com/5173_2/data/201807/01/F3/RAKowFtP5qsAAAAAAARc72rw27g5..jpg">
-                </div>
-                <div class="mancon-tn mt-15">
-                    <div class="tn-hxtxt01 f32 color-000">下单送卢克.安图恩.超时空.专业代练：.SS.图鉴.天空.更多咨询</div>
-                    <div class="tn-hxtxt02 f24 color-bbb  bgNone">UF174 </div>
-                    <div class="tn-hxtxt03 f26 color-666">
-                        <em class="fl f30 color-m1">￥1</em>
-                        <em class="fr f24 color-bbb">近30天成交182247笔</em>
-                    </div>
-                </div>
-            </div>-->
-
+              </div>
+            </router-link>
+          </div>
+          <div class="page-infinite-loading" v-show="waterInfo.loading">
+            <span class="loading">加载中...</span>
+          </div>
         </div>
 
         <!--选择游戏-->
@@ -170,83 +132,135 @@
     </div>
 
 </template>
-
+<style scoped></style>
 <script>
 import "@/assets/content/css/fost-base-min.css";
 import "@/assets/content/css/style-min.css";
 import "@/assets/css/dl-list.css";
-  import { dlListData } from "@/testdata/Data.js";
-    let vmdata = {
-        dlList: [],
-        gname: '游戏名称',
-        Pagenation: {
-            rows: 10,
-            page: 1,
-            order: "GoodNo",
-            sord: "asc",
-            records: 10,
-            total:10
-        }
-        /*postdata  或者 getdata 等接口确定再定*/
-        //,postData: {
-        //    Id:'',  //
-        //    Title:'',
-        //    Price:'',
-        //    WorkerType:'',
-        //    DlNo:'',
-        //    DLAccountId:'',
-        //    MonthVolume:'',
-        //    GoodImg:''
-        //}
-    };
+import { dlListData } from "@/testdata/Data.js";
+  let vmdata = {
+    waterInfo: {
+      loading: false,
+      index: 0,
+      lastPageIndex: 3,
+      loadLock: false,
+      isEnd: false
+    },
+    dlList: [],
+    gname: '游戏名称',
+    Pagenation: {
+      rows: 10,
+      page: 1,
+      order: "GoodNo",
+      sord: "asc",
+      records: 10,
+      total: 10
+    }
+    /*postdata  或者 getdata 等接口确定再定*/
+    //,postData: {
+    //    Id:'',  //
+    //    Title:'',
+    //    Price:'',
+    //    WorkerType:''
+    //    MonthVolume:'',
+    //    GoodImg:''
+    //}
+  };
     //vmdata.PageType = "czxv";
     //vmdata.goodinfoarray = 2;
 
-export default {
+  export default {
     name: "dlList",
     data() {
-        return vmdata;
+      return vmdata;
     },
-    mounted: function() {
-        this.gname = this.$route.query.gname;
+    mounted: function () {
+      this.gname = this.$route.query.gname;
 
-        this.getGoodsList();
+      this.getGoodsList();
+      window.addEventListener("scroll", this.handleScroll);
+    },
+    destroyed: function () {
+      window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-      getGoodsList: function () {
+      handleScroll: function () {
+        let that = this;
+        //  console.log(window.scrollY+document.documentElement.clientHeight)
+
+        // console.log(document.body.clientHeight)  // 网页可见区域高
+        //console.log(
+        //   'clientHeight:' + (document.body.clientHeight) + ',',
+        //  'window.scrollY:' + (window.scrollY) + ',',
+        //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
+        //  'result:' + (document.body.clientHeight -
+        //    window.scrollY -
+        //    document.documentElement.clientHeight)
+        //);
+
+        console.log(
+         'result:'+(document.body.clientHeight -
+          window.scrollY -
+          document.documentElement.clientHeight)
+        );
+        if (
+          document.body.clientHeight -
+          window.scrollY -
+          document.documentElement.clientHeight <
+          10 &&
+          !that.waterInfo.loadLock &&
+          !that.waterInfo.isEnd
+        ) {
+          that.waterInfo.loadLock = true;
+          console.log("加载");
+          that.getGoodsList(false);
+        }
+      },
+      
+      getGoodsList: function (isreset = true) {
         //testData();
-                let that = this;
-                //debugger;
-                try {
-                    let data = [];
-                  //data.Pagenation = that.Pagenation;
-                  //data.Param = that.postData;
-                  data = dlListData;
-                  console.log(data)
-                  
-                  for (let datas of data) {
-                       that.$set(that.dlList, that.dlList.length, datas)
-                   }
-
-                    //data.param = that.postData;
-
-                    //    that.$post('http://localhost:15786/api/GoodInfo/GetList', data).then(function(res){
-                            
-                    //        console.log(res)
-                    //        if(res.result){
-                    //            for(let datas of res.content.datas){
-                    //                that.$set(that.dlList, that.dlList.length, datas)
-                    //            }
-                    //        }
-                    //    })
-
-                    
-
-
-                } catch(err){
-                    alert(err)
-                }
+        let that = this;
+        //debugger;
+        if (!!isreset) {
+          that.dlList = [];
+          that.waterInfo.index = 0;
+          that.waterInfo.isEnd = false;
+        }
+        try {
+          //console.log(dlListData)
+          that.waterInfo.loading = true;
+          //let data = [];
+          //data = dlListData;
+          //console.log(data)
+          if (dlListData) {
+            for (let datas of dlListData) {
+              that.$set(that.dlList, that.dlList.length, datas)
             }
+          } else {
+            that.waterInfo.isEnd = true;
+          }
+          that.waterInfo.loadLock = false;
+          that.waterInfo.index++;
+
+          if (that.waterInfo.index >= that.waterInfo.lastPageIndex) {
+            that.waterInfo.isEnd = true;
+          }
+          that.waterInfo.loading = false;
+          //let data = {};
+          //data.Pagenation = that.Pagenation;
+          //data.Param = that.postData;
+          //that.$post('http://localhost:15786/api/GoodInfo/GetList', data).then(function(res){
+          //    console.log(res)
+          //    if(res.result){
+          //        for(let datas of res.content.datas){
+          //            that.$set(that.dlList, that.dlList.length, datas)
+          //        }
+          //    }
+          //})
+        } catch (err) {
+          console.log(err)
+        }
+      }
     }
-    }
+  }
 </script>

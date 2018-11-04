@@ -126,7 +126,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/00/CC/RAKowFu8XHYAAAAAAAIjhX0rIM09..png',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: ` ┏┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┓ < br >
+    ContentTxt: ` ┏┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┓ < br >
       <br>no.1◆◇十年老店. 【信誉指数★★★★★】
 <br>
           <br>no.2◆◇月销量过万. 【人气指数★★★★★】
@@ -151,7 +151,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201807/02/16/RAKowFtRWTgAAAAAAAC0mXZxPUg7..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `【诚实是用不完的资本 信誉是打不倒的招牌】 
+    ContentTxt: `【诚实是用不完的资本 信誉是打不倒的招牌】 
 <br>【英雄相逢良者胜 欢迎品鉴】 
 <br>
 <br>宝贝们，下单请咨询客服qq，由于临时会话经常出现我这里收不到消息的情况，建议大家先加上好友在咨询！ 
@@ -242,7 +242,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201807/02/15/RAKowFtRTxoAAAAAAADAjGu8Ug40..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `★谈好后按照商议的价格是多少钱就拍多少件 
+    ContentTxt: `★谈好后按照商议的价格是多少钱就拍多少件 
 <br>
 <br>预约角色咨询客服，特价超速！顺利帮您领取到活动奖励 
 <br>
@@ -330,7 +330,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/02/C0/RAKowFvWhmQAAAAAAAJ2unF1g582..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `173官方认证工作室，专业代练：卢克包月100元.卢克完美装备.海伯伦.b套材料399元.超时空199元包月。荒古.圣耀.安图恩.90级史武器诗制作.工会勋章.史诗图鉴.史诗装备.天空.异界装备.强化.等级.等 
+    ContentTxt: `173官方认证工作室，专业代练：卢克包月100元.卢克完美装备.海伯伦.b套材料399元.超时空199元包月。荒古.圣耀.安图恩.90级史武器诗制作.工会勋章.史诗图鉴.史诗装备.天空.异界装备.强化.等级.等 
 <br>下面是价格参照列表：需要购买的套餐(乘以)件数 直接立即购买即可 
 <br>
 <br>帝国竞技场：包月300元
@@ -438,7 +438,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/01/13/RAKowFvAOZ4AAAAAAAHxVUVWU9Y9..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `专业dnf代练：任意区服装备强化增幅、荒古、卢克、超时空团队任意号代打、 
+    ContentTxt: `专业dnf代练：任意区服装备强化增幅、荒古、卢克、超时空团队任意号代打、 
 <br>深渊ss图鉴代刷、公会勋章、pk段位代刷、随机、纯色、透明天空代合、账号细节打造。 
 <br>【右上方工作室信息→qq交谈 小q24小时为您服务，现提供全职业装备搭配推荐指导】 
 <br>
@@ -564,7 +564,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/02/4F/RAKowFvQXskAAAAAAADawmHdVtA2..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `......................................................................
+    ContentTxt: `......................................................................
 <br>★15年团队合作， 老司机带您畅玩游戏。
 <br>★月销量过万，   诚信是我们必备的条件。
 <br>★多年来无一差评，实力证明一切。
@@ -591,7 +591,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `★★★全能dnf代练工作室vi576★★★5173官方认证工作室★★★！ 
+    ContentTxt: `★★★全能dnf代练工作室vi576★★★5173官方认证工作室★★★！ 
 <br>【右上方工作室信息→qq交谈 小q24小时为您服务，现提供全职业装备搭配推荐指导】 
 <br>
 <br>此链接为1元方便连接，请按照谈好的价格选择件数下单，凌晨2点后可自助下单 
@@ -633,7 +633,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201809/00/5A/RAKowFuN7R4AAAAAAARzyWzS4YI4..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `★★★aa009好评百分百dnf全能代练★★★5173官方认证工作室★★★！ 
+    ContentTxt: `★★★aa009好评百分百dnf全能代练★★★5173官方认证工作室★★★！ 
 <br>
 <br>专业dnf代练：任意区服装备强化增幅、安徒恩、卢克、超时空团队任意号代打、 
 <br>深渊ss图鉴代刷、pk上分、斗兽场印章、段位代刷、随机、纯色、透明天空代合、账号细节打造。 
@@ -762,7 +762,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201808/02/76/RAKowFt9hWwAAAAAAAAx9jWPYaY3..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: `谈好后按照商议的价格是多少钱就拍多少件 
+    ContentTxt: `谈好后按照商议的价格是多少钱就拍多少件 
 <br>5173入驻工作室，专业代练 
 <br>安图恩包月40元一个月8次包翻牌 材料号主自备 
 <br>5个角色以上包月安图恩优惠哦，咨询客服 
@@ -806,7 +806,7 @@ var dlDetailData = [
     GoodImg: 'http://bo.5173cdn.com/5173_2/data/201810/01/42/RAKowFvCuVIAAAAAAAJGDXgwaqU7..jpg',
     PraisePct: '100%',
     Guaranty: '已交保证金',
-    Content: ` 强化12：荒古360元起（圣耀/自制/时空/90普通）：价格详细咨询客服
+    ContentTxt: ` 强化12：荒古360元起（圣耀/自制/时空/90普通）：价格详细咨询客服
 <br>强化13：荒古1740起 （圣耀/自制/时空/90普通）：价格详细咨询客服 
 <br>            强化13必须自带赫尔德（或者加270送您永久赫尔德）
 <br>强化14：价格详细咨询客服，全网最低价。
