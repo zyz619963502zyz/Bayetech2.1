@@ -103,12 +103,12 @@ new Vue({
         },
         DelServer(item){//删除游戏区/服务器
             var self=this;
-            var index = self.ServerList1.indexOf(item)
+            var index = self.ServerList1.indexOf(item);
             self.ServerList1.splice(index,1);
         },
         DelServer2(item){
             var self=this;
-            var index = self.ServerList1.indexOf(item)
+            var index = self.ServerList1.indexOf(item);
             self.ServerList2.splice(index,1);
         },
         OpenServerChild(item){//打开服务器编辑模态框
@@ -170,7 +170,7 @@ new Vue({
         },
         DelProfession(item){//删除职业列表数据一行todo
             var self=this;
-            var index = self.GameProfessionArray.indexOf(item)
+            var index = self.GameProfessionArray.indexOf(item);
             self.GameProfessionArray.splice(index,1);
         },
         OpenTradeType(){//打开商品类型模态框

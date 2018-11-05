@@ -2,6 +2,7 @@
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Bayetech.Service;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,49 @@ namespace Bayetech.Admin.Controllers
                 }
                 ret.Add(ResultInfo.Result, true);
                 ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
+                return ret;
+            }
+        }
+
+        [HttpPost]
+        public JObject AddSettings(JObject json)
+        {
+            try
+            {
+                using (var db = new RepositoryBase().BeginTrans())
+                {
+                    Settings set;
+                    JObject ret = new JObject();
+                    if (json["model"] != null)
+                    {
+                        set = JsonConvert.DeserializeObject<Settings>(json["model"].ToString());
+                        db.Insert(set);
+                        db.Commit();
+                    }
+                    return ret;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        [HttpGet]
+        public JObject DelSettings(string id)
+        {
+            using (BayetechEntities bay = new BayetechEntities())
+            {
+                var ret = new JObject();
+                if (!string.IsNullOrEmpty(id))
+                {
+                    int _id = Convert.ToInt32(id);
+
+                    Settings settings = bay.Settings.Where(c => c.Id == _id).FirstOrDefault();
+                    settings.IsDelete = true;
+                    bay.SaveChanges();
+                }
                 return ret;
             }
         }

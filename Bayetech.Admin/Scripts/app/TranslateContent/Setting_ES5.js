@@ -11439,14 +11439,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 let vmData = {
     GetSettingsList: "/api/Setting/GetSettingsList",
     GetSettingUrl: "/api/Setting/GetSettings",
+    AddSettingUrl: "/api/Setting/AddSettings",
+    DelSettingUrl: "/api/Setting/DelSettings",
+    ParentId: "", //模态框用来保存ID
+    SaveModel: {
+        key: "",
+        Value: "",
+        ParentId: "",
+        CreateTime: "",
+        IsDelete: 0,
+        Remark: ""
+    },
     tools: {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     },
     Types: [], //父级列表select绑定
+    IsDeletes: [{ text: "有效", value: "0" }, { text: "无效", value: "1" }],
     ListObj: [{
         Id: "",
         key: "",
@@ -11460,8 +11473,7 @@ let vmData = {
         Param: { //查询条件的参数
             Id: "",
             key: "",
-            Value: "",
-            ParentId: ""
+            Value: ""
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -11508,9 +11520,30 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.SearchParam.Pagination.rows = page;
             self.findList();
         },
-        Save() {},
-        Del() {},
-        Add() {}
+        Save() {
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.AddSettingUrl, { "model": self.SaveModel }, function (data) {
+                self.Types = data.setting;
+            });
+        },
+        Del(id) {
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.DelSettingUrl, { id: id }, function (data) {
+                self.Types = data.setting;
+            });
+        },
+        Add() {
+            $("#SettingDetail").modal("show");
+        },
+        Update(item) {
+            var self = this;
+            self.SaveModel = item;
+            $("#SettingDetail").modal("show");
+            return false;
+        },
+        SettingDetail() {//详细设置
+
+        }
     },
     components: {
         comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
