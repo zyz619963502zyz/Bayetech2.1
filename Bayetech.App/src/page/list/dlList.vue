@@ -186,8 +186,6 @@ import { dlListData } from "@/testdata/Data.js";
     methods: {
       handleScroll: function () {
         let that = this;
-        //  console.log(window.scrollY+document.documentElement.clientHeight)
-
         // console.log(document.body.clientHeight)  // 网页可见区域高
         //console.log(
         //   'clientHeight:' + (document.body.clientHeight) + ',',

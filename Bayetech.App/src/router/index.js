@@ -69,6 +69,11 @@ export default new Router({
 	    path: '/dlDetail',
 	    name: 'dlDetail',
 	    component: r => require.ensure([], () => r(require('../page/detail/dlDetail.vue')), 'dlDetail')
+	},
+	{
+		path:'/dlOrder',
+		name:'dlOrder',
+		component:r =>require.ensure([],()=>r(require('../page/placeOrder/dlorder.vue')),'dlOrder')
 	}
   ]
 })
