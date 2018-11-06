@@ -1,7 +1,392 @@
-<template>
 
+<!---->
+
+<template>
+    <div id="wrapper">
+        <div class="dlHeader">
+            <div class="top-header border-bottom bg-fff fixed-top">
+                <div class="top-back"><a></a></div>
+                <h2 class="f36">立即购买</h2>
+            </div>
+        </div> <div class="dlBuy mt-97 pb-200">
+            <div class="prov-conn px-30 bg-fff border-bottom list_detail"><span class="recode_detail f30">帐号信息</span></div> <div class="dlbox border-bottom">
+                <span class="f32 color-000">购买件数</span>
+                <div class="count2">
+                    <input name="" type="button" value="-" class="reduce fl f48 dlGray">
+                    <input name="" type="tel" class="num fl f36"> <input name="" type="button" value="+" class="add fl common-color f48 dlGray">
+                </div>
+            </div>
+            <div class="dl-msg bg-fff clearfix">
+                <ul class="bg-fff">
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">系统平台</span> <input type="text" name="" placeholder="请输入系统平台" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">具体区服</span> <input type="text" name="" placeholder="请输入具体区服" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">游戏帐号</span> <input type="text" name="" placeholder="请输入游戏帐号" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">游戏密码</span> <input type="text" name="" placeholder="请输入游戏密码" class="dl-input"></li>
+                    <div class="error_ts border-bottom">请确认帐号密码准确，以免造成不必要的麻烦</div>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">游戏角色名</span> <input type="text" name="" placeholder="请输入游戏角色名" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">代练时间</span> <input disabled="disabled" type="text" name="" placeholder="请选择代练时间" class="dl-input"> <span class="to-right"></span></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">其他信息</span> <textarea type="text" name="" placeholder="如有其他补充信息，请填写" class="tearea"></textarea></li>
+                </ul>
+            </div> <div class="prov-conn px-30 bg-fff border-bottom list_detail mt-20"><span class="recode_detail f30">个人信息</span></div>
+            <div class="dl-msg bg-fff clearfix">
+                <ul class="bg-fff">
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">姓名</span> <input type="text" name="" placeholder="请输入姓名" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">联系方式</span> <input type="text" name="" placeholder="请输入联系方式" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">QQ号</span> <input type="text" name="" placeholder="请输入QQ号" class="dl-input"></li>
+                    <div class="warndl">*请确认联系方式准确，如无法联系到您导致工作室退单，佣金费 用需您自行承担</div>
+                </ul>
+            </div>
+            <div class="order-submit bg-fff clearfix border-top fixed-bottom" style="z-index: 40;">
+                <div class="fl w50 clear_item"><span class="color-000 f32">合计</span> <span class="color-m1  f40">￥1.00</span></div>
+                <div class="fr clear_item"><a class="submits text-center color-fff f36">去支付</a></div>
+            </div> <!---->
+            <!--代练时间选择-->
+
+            <div class="maskdiv" style="display:none"></div>
+            <div class="rankpop fixed-bottom bg-fff" style="display:none">
+                <div class="rankpop-titl border-bottom">
+                    <a class="cancel f32 pl-30">取消</a>
+                    <span class="f32 color-000 text-center">请选择代练时间</span>
+                    <a class="finish f32 pr-30">完成</a>
+                </div> <div class="rankpop-conn">
+                    <div class="list fl text-center f32">
+                        <ul data-v-57a213d0="">
+                            <li class="">
+                                0天
+                            </li>
+                            <li class="active">
+                                1天
+                            </li>
+                            <li class="">
+                                2天
+                            </li>
+                            <li class="">
+                                3天
+                            </li>
+                            <li class="">
+                                4天
+                            </li>
+                            <li class="">
+                                5天
+                            </li>
+                            <li class="">
+                                6天
+                            </li>
+                            <li class="">
+                                7天
+                            </li>
+                            <li class="">
+                                8天
+                            </li>
+                            <li class="">
+                                9天
+                            </li>
+                            <li class="">
+                                10天
+                            </li>
+                            <li class="">
+                                11天
+                            </li>
+                            <li class="">
+                                12天
+                            </li>
+                            <li class="">
+                                13天
+                            </li>
+                            <li class="">
+                                14天
+                            </li>
+                            <li class="">
+                                15天
+                            </li>
+                            <li class="">
+                                16天
+                            </li>
+                            <li class="">
+                                17天
+                            </li>
+                            <li class="">
+                                18天
+                            </li>
+                            <li class="">
+                                19天
+                            </li>
+                            <li class="">
+                                20天
+                            </li>
+                            <li class="">
+                                21天
+                            </li>
+                            <li class="">
+                                22天
+                            </li>
+                            <li class="">
+                                23天
+                            </li>
+                            <li class="">
+                                24天
+                            </li>
+                            <li class="">
+                                25天
+                            </li>
+                            <li class="">
+                                26天
+                            </li>
+                            <li class="">
+                                27天
+                            </li>
+                            <li class="">
+                                28天
+                            </li>
+                            <li class="">
+                                29天
+                            </li>
+                            <li class="">
+                                30天
+                            </li>
+                            <li class="">
+                                31天
+                            </li>
+                            <li class="">
+                                32天
+                            </li>
+                            <li class="">
+                                33天
+                            </li>
+                            <li class="">
+                                34天
+                            </li>
+                            <li class="">
+                                35天
+                            </li>
+                            <li class="">
+                                36天
+                            </li>
+                            <li class="">
+                                37天
+                            </li>
+                            <li class="">
+                                38天
+                            </li>
+                            <li class="">
+                                39天
+                            </li>
+                            <li class="">
+                                40天
+                            </li>
+                            <li class="">
+                                41天
+                            </li>
+                            <li class="">
+                                42天
+                            </li>
+                            <li class="">
+                                43天
+                            </li>
+                            <li class="">
+                                44天
+                            </li>
+                            <li class="">
+                                45天
+                            </li>
+                            <li class="">
+                                46天
+                            </li>
+                            <li class="">
+                                47天
+                            </li>
+                            <li class="">
+                                48天
+                            </li>
+                            <li class="">
+                                49天
+                            </li>
+                            <li class="">
+                                50天
+                            </li>
+                            <li class="">
+                                51天
+                            </li>
+                            <li class="">
+                                52天
+                            </li>
+                            <li class="">
+                                53天
+                            </li>
+                            <li class="">
+                                54天
+                            </li>
+                            <li class="">
+                                55天
+                            </li>
+                            <li class="">
+                                56天
+                            </li>
+                            <li class="">
+                                57天
+                            </li>
+                            <li class="">
+                                58天
+                            </li>
+                            <li class="">
+                                59天
+                            </li>
+                            <li class="">
+                                60天
+                            </li>
+                            <li class="">
+                                61天
+                            </li>
+                            <li class="">
+                                62天
+                            </li>
+                            <li class="">
+                                63天
+                            </li>
+                            <li class="">
+                                64天
+                            </li>
+                            <li class="">
+                                65天
+                            </li>
+                            <li class="">
+                                66天
+                            </li>
+                            <li class="">
+                                67天
+                            </li>
+                            <li class="">
+                                68天
+                            </li>
+                            <li class="">
+                                69天
+                            </li>
+                            <li class="">
+                                70天
+                            </li>
+                            <li class="">
+                                71天
+                            </li>
+                            <li class="">
+                                72天
+                            </li>
+                            <li class="">
+                                73天
+                            </li>
+                            <li class="">
+                                74天
+                            </li>
+                            <li class="">
+                                75天
+                            </li>
+                            <li class="">
+                                76天
+                            </li>
+                            <li class="">
+                                77天
+                            </li>
+                            <li class="">
+                                78天
+                            </li>
+                            <li class="">
+                                79天
+                            </li>
+                            <li class="">
+                                80天
+                            </li>
+                            <li class="">
+                                81天
+                            </li>
+                            <li class="">
+                                82天
+                            </li>
+                            <li class="">
+                                83天
+                            </li>
+                            <li class="">
+                                84天
+                            </li>
+                            <li class="">
+                                85天
+                            </li>
+                            <li class="">
+                                86天
+                            </li>
+                            <li class="">
+                                87天
+                            </li>
+                            <li class="">
+                                88天
+                            </li>
+                            <li class="">
+                                89天
+                            </li>
+                            <li class="">
+                                90天
+                            </li>
+                            <li class="">
+                                91天
+                            </li>
+                            <li class="">
+                                92天
+                            </li>
+                            <li class="">
+                                93天
+                            </li>
+                            <li class="">
+                                94天
+                            </li>
+                            <li class="">
+                                95天
+                            </li>
+                            <li class="">
+                                96天
+                            </li>
+                            <li class="">
+                                97天
+                            </li>
+                            <li class="">
+                                98天
+                            </li>
+                        </ul>
+                    </div> <div class="list fr text-center f32">
+                        <ul data-v-57a213d0="">
+                            <li class="">
+                                0小时
+                            </li>
+                            <li class="active">
+                                6小时
+                            </li>
+                            <li class="">
+                                12小时
+                            </li>
+                            <li class="">
+                                18小时
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+    import "@/assets/content/css/fost-base-min.css";
+  import "@/assets/content/css/style-min.css";
+  import "@/assets/css/dl-detail.css";
 
+  let vmdata ={}
+    export default {
+    name:'dlorder',
+    data:{
+        return vmdata
+    },
+    mounted:function(){
+    
+    },
+    methods:function(){
+
+    }
+    }
 </script>
