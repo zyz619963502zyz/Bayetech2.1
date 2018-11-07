@@ -57,11 +57,11 @@
         </p>
       </div>
       <div class="warcraft-button f36 fixed-bottom">
-        <!--<router-link id="playerContact" class="button01" style="">联系商家</router-link>
-        <router-link id="buy" class="button02" style="">立即购买</router-link>-->
+        <!--<router-link id="playerContact" class="button01" style="">联系商家</router-link>-->
         <a id="playerContact" class="button01" style="">联系商家</a>
-        <a id="buy" class="button02" style="">立即购买</a>
-      </div>
+          <router-link id="buy" :to="{path:/dlorder,query:'123'}" class="button02" style="">立即购买</router-link>
+        <!--<a id="buy" class="button02" style="">立即购买</a>
+      </div>-->
     </div>
   </div>
 
