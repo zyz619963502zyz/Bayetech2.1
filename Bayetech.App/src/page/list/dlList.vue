@@ -171,12 +171,14 @@ import { dlListData } from "@/testdata/Data.js";
 
   export default {
     name: "dlList",
+    metaInfo: {
+      title: '地下城与勇士',
+    },
     data() {
       return vmdata;
     },
     mounted: function () {
-      this.gname = this.$route.query.gname;
-
+      this.gname = this.$route.query.gname;      
       this.getGoodsList();
       window.addEventListener("scroll", this.handleScroll);
     },
@@ -187,15 +189,7 @@ import { dlListData } from "@/testdata/Data.js";
       handleScroll: function () {
         let that = this;
         // console.log(document.body.clientHeight)  // 网页可见区域高
-        //console.log(
-        //   'clientHeight:' + (document.body.clientHeight) + ',',
-        //  'window.scrollY:' + (window.scrollY) + ',',
-        //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
-        //  'result:' + (document.body.clientHeight -
-        //    window.scrollY -
-        //    document.documentElement.clientHeight)
-        //);
-
+        
         console.log(
          'result:'+(document.body.clientHeight -
           window.scrollY -

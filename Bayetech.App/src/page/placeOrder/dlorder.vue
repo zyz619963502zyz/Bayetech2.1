@@ -5,363 +5,73 @@
     <div id="wrapper">
         <div class="dlHeader">
             <div class="top-header border-bottom bg-fff fixed-top">
-                <div class="top-back"><a></a></div>
-                <h2 class="f36">Á¢¼´¹ºÂò</h2>
+                <div class="top-back" @click="$router.go(-1)"><a></a></div>
+                <h2 class="f36">ç«‹å³è´­ä¹°</h2>
             </div>
         </div> <div class="dlBuy mt-97 pb-200">
-            <div class="prov-conn px-30 bg-fff border-bottom list_detail"><span class="recode_detail f30">ÕÊºÅĞÅÏ¢</span></div> <div class="dlbox border-bottom">
-                <span class="f32 color-000">¹ºÂò¼şÊı</span>
+            <div class="prov-conn px-30 bg-fff border-bottom list_detail"><span class="recode_detail f30">å¸å·ä¿¡æ¯</span></div> <div class="dlbox border-bottom">
+                <span class="f32 color-000">è´­ä¹°ä»¶æ•°</span>
                 <div class="count2">
-                    <input name="" type="button" value="-" class="reduce fl f48 dlGray">
-                    <input name="" type="tel" class="num fl f36"> <input name="" type="button" value="+" class="add fl common-color f48 dlGray">
+                    <input name="" @click="sub" type="button" value="-" class="reduce fl f48 dlGray">
+                    <input name="" v-model="countnum" type="number" class="num fl f36" >
+                    <input name="" @click="add" type="button" value="+" class="add fl common-color f48 dlGray">
                 </div>
             </div>
             <div class="dl-msg bg-fff clearfix">
-                <ul class="bg-fff">
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÏµÍ³Æ½Ì¨</span> <input type="text" name="" placeholder="ÇëÊäÈëÏµÍ³Æ½Ì¨" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">¾ßÌåÇø·ş</span> <input type="text" name="" placeholder="ÇëÊäÈë¾ßÌåÇø·ş" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÓÎÏ·ÕÊºÅ</span> <input type="text" name="" placeholder="ÇëÊäÈëÓÎÏ·ÕÊºÅ" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÓÎÏ·ÃÜÂë</span> <input type="text" name="" placeholder="ÇëÊäÈëÓÎÏ·ÃÜÂë" class="dl-input"></li>
-                    <div class="error_ts border-bottom">ÇëÈ·ÈÏÕÊºÅÃÜÂë×¼È·£¬ÒÔÃâÔì³É²»±ØÒªµÄÂé·³</div>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÓÎÏ·½ÇÉ«Ãû</span> <input type="text" name="" placeholder="ÇëÊäÈëÓÎÏ·½ÇÉ«Ãû" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">´úÁ·Ê±¼ä</span> <input disabled="disabled" type="text" name="" placeholder="ÇëÑ¡Ôñ´úÁ·Ê±¼ä" class="dl-input"> <span class="to-right"></span></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÆäËûĞÅÏ¢</span> <textarea type="text" name="" placeholder="ÈçÓĞÆäËû²¹³äĞÅÏ¢£¬ÇëÌîĞ´" class="tearea"></textarea></li>
-                </ul>
-            </div> <div class="prov-conn px-30 bg-fff border-bottom list_detail mt-20"><span class="recode_detail f30">¸öÈËĞÅÏ¢</span></div>
+              <ul class="bg-fff">
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">ç³»ç»Ÿå¹³å°</span> <input type="text" name="" placeholder="è¯·è¾“å…¥ç³»ç»Ÿå¹³å°" class="dl-input"></li>
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">å…·ä½“åŒºæœ</span> <input type="text" name="" placeholder="è¯·è¾“å…¥å…·ä½“åŒºæœ" class="dl-input"></li>
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">æ¸¸æˆå¸å·</span> <input type="text" name="" placeholder="è¯·è¾“å…¥æ¸¸æˆå¸å·" class="dl-input"></li>
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">æ¸¸æˆå¯†ç </span> <input type="text" name="" placeholder="è¯·è¾“å…¥æ¸¸æˆå¯†ç " class="dl-input"></li>
+                <li class="error_ts border-bottom">è¯·ç¡®è®¤å¸å·å¯†ç å‡†ç¡®ï¼Œä»¥å…é€ æˆä¸å¿…è¦çš„éº»çƒ¦</li>
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">æ¸¸æˆè§’è‰²å</span> <input type="text" name="" placeholder="è¯·è¾“å…¥æ¸¸æˆè§’è‰²å" class="dl-input"></li>
+                <li class="choose-list clearfix f32 pl-30">
+                  <span class="f32">ä»£ç»ƒæ—¶é—´</span>
+                  <input disabled="disabled" type="text" name="" placeholder="è¯·é€‰æ‹©ä»£ç»ƒæ—¶é—´" class="dl-input"> <span class="to-right"></span>
+                </li>
+                <li class="choose-list clearfix f32 pl-30"><span class="f32">å…¶ä»–ä¿¡æ¯</span> <textarea type="text" name="" placeholder="å¦‚æœ‰å…¶ä»–è¡¥å……ä¿¡æ¯ï¼Œè¯·å¡«å†™" class="tearea"></textarea></li>
+              </ul>
+            </div> <div class="prov-conn px-30 bg-fff border-bottom list_detail mt-20"><span class="recode_detail f30">ä¸ªäººä¿¡æ¯</span></div>
             <div class="dl-msg bg-fff clearfix">
                 <ul class="bg-fff">
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ĞÕÃû</span> <input type="text" name="" placeholder="ÇëÊäÈëĞÕÃû" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">ÁªÏµ·½Ê½</span> <input type="text" name="" placeholder="ÇëÊäÈëÁªÏµ·½Ê½" class="dl-input"></li>
-                    <li class="choose-list clearfix f32 pl-30"><span class="f32">QQºÅ</span> <input type="text" name="" placeholder="ÇëÊäÈëQQºÅ" class="dl-input"></li>
-                    <div class="warndl">*ÇëÈ·ÈÏÁªÏµ·½Ê½×¼È·£¬ÈçÎŞ·¨ÁªÏµµ½Äúµ¼ÖÂ¹¤×÷ÊÒÍËµ¥£¬Ó¶½ğ·Ñ ÓÃĞèÄú×ÔĞĞ³Ğµ£</div>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">å§“å</span> <input type="text" name="" placeholder="è¯·è¾“å…¥å§“å" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">è”ç³»æ–¹å¼</span> <input type="text" name="" placeholder="è¯·è¾“å…¥è”ç³»æ–¹å¼" class="dl-input"></li>
+                    <li class="choose-list clearfix f32 pl-30"><span class="f32">QQå·</span> <input type="text" name="" placeholder="è¯·è¾“å…¥QQå·" class="dl-input"></li>
+                    <li class="warndl">*è¯·ç¡®è®¤è”ç³»æ–¹å¼å‡†ç¡®ï¼Œå¦‚æ— æ³•è”ç³»åˆ°æ‚¨å¯¼è‡´å·¥ä½œå®¤é€€å•ï¼Œä½£é‡‘è´¹ ç”¨éœ€æ‚¨è‡ªè¡Œæ‰¿æ‹…</li>
                 </ul>
             </div>
             <div class="order-submit bg-fff clearfix border-top fixed-bottom" style="z-index: 40;">
-                <div class="fl w50 clear_item"><span class="color-000 f32">ºÏ¼Æ</span> <span class="color-m1  f40">£¤1.00</span></div>
-                <div class="fr clear_item"><a class="submits text-center color-fff f36">È¥Ö§¸¶</a></div>
+                <div class="fl w50 clear_item"><span class="color-000 f32">åˆè®¡</span> <span class="color-m1  f40">ï¿¥{{total}}</span></div>
+                <div class="fr clear_item"><a class="submits text-center color-fff f36">å»æ”¯ä»˜</a></div>
             </div> <!---->
-            <!--´úÁ·Ê±¼äÑ¡Ôñ-->
+            <!--ä»£ç»ƒæ—¶é—´é€‰æ‹©-->
 
             <div class="maskdiv" style="display:none"></div>
             <div class="rankpop fixed-bottom bg-fff" style="display:none">
                 <div class="rankpop-titl border-bottom">
-                    <a class="cancel f32 pl-30">È¡Ïû</a>
-                    <span class="f32 color-000 text-center">ÇëÑ¡Ôñ´úÁ·Ê±¼ä</span>
-                    <a class="finish f32 pr-30">Íê³É</a>
+                    <a class="cancel f32 pl-30">å–æ¶ˆ</a>
+                    <span class="f32 color-000 text-center">è¯·é€‰æ‹©ä»£ç»ƒæ—¶é—´</span>
+                    <a class="finish f32 pr-30">å®Œæˆ</a>
                 </div> <div class="rankpop-conn">
                     <div class="list fl text-center f32">
                         <ul data-v-57a213d0="">
-                            <li class="">
-                                0Ìì
-                            </li>
-                            <li class="active">
-                                1Ìì
-                            </li>
-                            <li class="">
-                                2Ìì
-                            </li>
-                            <li class="">
-                                3Ìì
-                            </li>
-                            <li class="">
-                                4Ìì
-                            </li>
-                            <li class="">
-                                5Ìì
-                            </li>
-                            <li class="">
-                                6Ìì
-                            </li>
-                            <li class="">
-                                7Ìì
-                            </li>
-                            <li class="">
-                                8Ìì
-                            </li>
-                            <li class="">
-                                9Ìì
-                            </li>
-                            <li class="">
-                                10Ìì
-                            </li>
-                            <li class="">
-                                11Ìì
-                            </li>
-                            <li class="">
-                                12Ìì
-                            </li>
-                            <li class="">
-                                13Ìì
-                            </li>
-                            <li class="">
-                                14Ìì
-                            </li>
-                            <li class="">
-                                15Ìì
-                            </li>
-                            <li class="">
-                                16Ìì
-                            </li>
-                            <li class="">
-                                17Ìì
-                            </li>
-                            <li class="">
-                                18Ìì
-                            </li>
-                            <li class="">
-                                19Ìì
-                            </li>
-                            <li class="">
-                                20Ìì
-                            </li>
-                            <li class="">
-                                21Ìì
-                            </li>
-                            <li class="">
-                                22Ìì
-                            </li>
-                            <li class="">
-                                23Ìì
-                            </li>
-                            <li class="">
-                                24Ìì
-                            </li>
-                            <li class="">
-                                25Ìì
-                            </li>
-                            <li class="">
-                                26Ìì
-                            </li>
-                            <li class="">
-                                27Ìì
-                            </li>
-                            <li class="">
-                                28Ìì
-                            </li>
-                            <li class="">
-                                29Ìì
-                            </li>
-                            <li class="">
-                                30Ìì
-                            </li>
-                            <li class="">
-                                31Ìì
-                            </li>
-                            <li class="">
-                                32Ìì
-                            </li>
-                            <li class="">
-                                33Ìì
-                            </li>
-                            <li class="">
-                                34Ìì
-                            </li>
-                            <li class="">
-                                35Ìì
-                            </li>
-                            <li class="">
-                                36Ìì
-                            </li>
-                            <li class="">
-                                37Ìì
-                            </li>
-                            <li class="">
-                                38Ìì
-                            </li>
-                            <li class="">
-                                39Ìì
-                            </li>
-                            <li class="">
-                                40Ìì
-                            </li>
-                            <li class="">
-                                41Ìì
-                            </li>
-                            <li class="">
-                                42Ìì
-                            </li>
-                            <li class="">
-                                43Ìì
-                            </li>
-                            <li class="">
-                                44Ìì
-                            </li>
-                            <li class="">
-                                45Ìì
-                            </li>
-                            <li class="">
-                                46Ìì
-                            </li>
-                            <li class="">
-                                47Ìì
-                            </li>
-                            <li class="">
-                                48Ìì
-                            </li>
-                            <li class="">
-                                49Ìì
-                            </li>
-                            <li class="">
-                                50Ìì
-                            </li>
-                            <li class="">
-                                51Ìì
-                            </li>
-                            <li class="">
-                                52Ìì
-                            </li>
-                            <li class="">
-                                53Ìì
-                            </li>
-                            <li class="">
-                                54Ìì
-                            </li>
-                            <li class="">
-                                55Ìì
-                            </li>
-                            <li class="">
-                                56Ìì
-                            </li>
-                            <li class="">
-                                57Ìì
-                            </li>
-                            <li class="">
-                                58Ìì
-                            </li>
-                            <li class="">
-                                59Ìì
-                            </li>
-                            <li class="">
-                                60Ìì
-                            </li>
-                            <li class="">
-                                61Ìì
-                            </li>
-                            <li class="">
-                                62Ìì
-                            </li>
-                            <li class="">
-                                63Ìì
-                            </li>
-                            <li class="">
-                                64Ìì
-                            </li>
-                            <li class="">
-                                65Ìì
-                            </li>
-                            <li class="">
-                                66Ìì
-                            </li>
-                            <li class="">
-                                67Ìì
-                            </li>
-                            <li class="">
-                                68Ìì
-                            </li>
-                            <li class="">
-                                69Ìì
-                            </li>
-                            <li class="">
-                                70Ìì
-                            </li>
-                            <li class="">
-                                71Ìì
-                            </li>
-                            <li class="">
-                                72Ìì
-                            </li>
-                            <li class="">
-                                73Ìì
-                            </li>
-                            <li class="">
-                                74Ìì
-                            </li>
-                            <li class="">
-                                75Ìì
-                            </li>
-                            <li class="">
-                                76Ìì
-                            </li>
-                            <li class="">
-                                77Ìì
-                            </li>
-                            <li class="">
-                                78Ìì
-                            </li>
-                            <li class="">
-                                79Ìì
-                            </li>
-                            <li class="">
-                                80Ìì
-                            </li>
-                            <li class="">
-                                81Ìì
-                            </li>
-                            <li class="">
-                                82Ìì
-                            </li>
-                            <li class="">
-                                83Ìì
-                            </li>
-                            <li class="">
-                                84Ìì
-                            </li>
-                            <li class="">
-                                85Ìì
-                            </li>
-                            <li class="">
-                                86Ìì
-                            </li>
-                            <li class="">
-                                87Ìì
-                            </li>
-                            <li class="">
-                                88Ìì
-                            </li>
-                            <li class="">
-                                89Ìì
-                            </li>
-                            <li class="">
-                                90Ìì
-                            </li>
-                            <li class="">
-                                91Ìì
-                            </li>
-                            <li class="">
-                                92Ìì
-                            </li>
-                            <li class="">
-                                93Ìì
-                            </li>
-                            <li class="">
-                                94Ìì
-                            </li>
-                            <li class="">
-                                95Ìì
-                            </li>
-                            <li class="">
-                                96Ìì
-                            </li>
-                            <li class="">
-                                97Ìì
-                            </li>
-                            <li class="">
-                                98Ìì
-                            </li>
+                            <li class="">0å¤©</li>
+                            <li class="active">1å¤©</li>
+                            <li class="">2å¤©</li>
                         </ul>
                     </div> <div class="list fr text-center f32">
                         <ul data-v-57a213d0="">
                             <li class="">
-                                0Ğ¡Ê±
+                                0å°æ—¶
                             </li>
                             <li class="active">
-                                6Ğ¡Ê±
+                                6å°æ—¶
                             </li>
                             <li class="">
-                                12Ğ¡Ê±
+                                12å°æ—¶
                             </li>
                             <li class="">
-                                18Ğ¡Ê±
+                                18å°æ—¶
                             </li>
                         </ul>
                     </div>
@@ -374,19 +84,257 @@
 <script>
     import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
-  import "@/assets/css/dl-detail.css";
 
-  let vmdata ={}
-    export default {
-    name:'dlorder',
-    data:{
-        return vmdata
-    },
-    mounted:function(){
-    
-    },
-    methods:function(){
 
+  let vmdata = {
+    countnum: 1,
+    total:1
+  };
+  export default {
+    name: 'dlorder',
+    data() {
+      return vmdata;
+    },
+    watch: {
+      countnum: function () {
+        let that = this;
+        
+        that.count();
+      }
+    },
+    mounted: function() {
+
+    },
+    methods: {
+      add: function () {
+        this.countnum++;
+      },
+      sub: function () {
+        this.countnum--;
+        if (this.countnum <= 1 || this.countnum == null) {
+          this.countnum = 1;
+        };
+      },
+      count: function () {
+        let totalPrice = 0;
+        totalPrice += this.countnum * 1;
+        this.total = totalPrice.toFixed(2)
+      }
     }
-    }
+  }
 </script>
+
+
+<style scoped>
+  /*ä»£ç»ƒbuy è¾“å…¥ä¿¡æ¯é¡µé¢*/
+  .prov-conn {
+    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+    .prov-conn .list_code, .prov-conn .recode_detail {
+      display: inline-block;
+      height: 1.05rem;
+      line-height: 1.05rem;
+      padding-left: .23rem;
+    }
+
+    .prov-conn .recode_detail {
+      background: url(/content/images/dl/curent.jpg?fbc7f18â€¦) no-repeat 0;
+      background-size: .06rem .35rem;
+    }
+
+  /*ä»£ç»ƒå¡«å•*/
+  .dlbox {
+    width: 100%;
+    padding: 0 .3rem;
+    background: #fff;
+    position: relative;
+    height: 1.04rem;
+    line-height: 1.04rem;
+  }
+
+    .dlbox .count2 {
+      width: 2.28rem;
+      height: .65rem;
+      position: absolute;
+      right: .3rem;
+      top: .2rem;
+    }
+
+      .dlbox .count2 .add, .reduce {
+        width: .66rem;
+        height: .65rem;
+        border: 1px solid #e8e8e8;
+        font-family: arial;
+        background: #fff;
+        cursor: pointer;
+      }
+
+  .dlGray {
+    color: #999;
+  }
+
+  .dlbox .count2 .num {
+    width: .96rem;
+    height: .65rem;
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    text-align: center;
+  }
+
+  input[type=tel], input[type=text] {
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+  }
+
+  .dl-msg, .dl-msg ul li {
+    position: relative;
+  }
+
+    .dl-msg ul li {
+      line-height: .5rem;
+      padding-top: .265rem;
+      padding-bottom: .265rem;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+      .dl-msg ul li .dl-input {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding-right: .3rem;
+        width: 60%;
+        border: none;
+        left: 30%;
+        vertical-align: top !important;
+        position: absolute;
+        background: #fff;
+      }
+
+  .choose-list .tearea, .prov-conn .tearea {
+    display: block;
+    border: none;
+    width: 95%;
+    resize: none;
+  }
+
+  .to-right {
+    width: .8rem;
+    height: 100%;
+    background: url(/content/images/dl/right2.png?8d1c222â€¦)100% no-repeat;
+    position: absolute;
+    right: .3rem;
+    background-size: .18rem .32rem;
+    top: 0;
+  }
+
+  .error_ts {
+    height: .72rem;
+    line-height: .72rem;
+    background-color: #fffdf4;
+    font-size: .24rem;
+    color: #be8600;
+    padding-left: .3rem;
+  }
+
+  .warndl {
+    background-color: #f1f1f1;
+    padding: .1rem .3rem;
+    line-height: .4rem;
+    color: #f60;
+    font-size: .24rem;
+  }
+
+  .order-submit {
+    padding: .2rem .3rem;
+  }
+
+    .order-submit .clear_item {
+      width: 50%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .order-submit .submits, .order-submit span {
+      display: inline-block;
+      height: .85rem;
+      line-height: .85rem;
+      text-align: center;
+    }
+
+    .order-submit .submits {
+      width: 100%;
+      background: #f60;
+    }
+
+
+  /*åº•éƒ¨æ—¶é—´é€‰æ‹©*/
+  .maskdiv0, .maskdiv, .maskdiv4 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+  }
+
+  .rankpop, .rankpop .rankpop-titl {
+    height: auto;
+    display: block;
+    overflow: hidden;
+    z-index: 99;
+  }
+
+    .rankpop .rankpop-titl {
+      position: relative;
+    }
+
+      .rankpop .rankpop-titl a {
+        position: absolute;
+      }
+
+      .rankpop .rankpop-titl a, .rankpop .rankpop-titl span {
+        display: block;
+        line-height: .9rem;
+        height: .9rem;
+      }
+
+        .rankpop .rankpop-titl a.cancel {
+          top: 0;
+          left: 0;
+        }
+
+        .rankpop .rankpop-titl a.finish {
+          top: 0;
+          right: 0;
+        }
+
+  .rankpop-conn {
+    height: 4.4rem;
+    display: block;
+    overflow: hidden;
+  }
+
+    .rankpop-conn .list {
+      width: 50%;
+      height: 4.09rem;
+      margin-top: .2rem;
+      overflow-x: auto;
+    }
+
+      .rankpop-conn .list ul li {
+        height: .7rem;
+        line-height: .7rem;
+        color: #aeaeae;
+      }
+</style>
