@@ -11540,9 +11540,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.SaveModel = item;
             $("#SettingDetail").modal("show");
             return false;
-        },
-        SettingDetail() {//详细设置
-
         }
     },
     components: {
