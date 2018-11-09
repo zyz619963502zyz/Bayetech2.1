@@ -11,14 +11,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/web': {
-             target: 'http://localhost/Bayetech.Web/',
-            // target: 'http://localhost:15786/',
+      '/web': {
+      
+          target: 'http://47.98.176.184/',
+            // target: 'http://localhost/Bayetech.Web/',
             changeOrigin: true,
             pathRewrite: {
                 '^/web':'/'
             }
-
         }
     },
 

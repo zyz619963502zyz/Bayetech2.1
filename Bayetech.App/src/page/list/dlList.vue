@@ -16,7 +16,7 @@
         <div class="dlGame mt-97">
           <div class="prov-conn px-30 bg-fff border-bottom mt-20 py-20">
             <span class="color-m1 f28 default-sort border-right">默认排序</span>
-            <input name="" @change="filterShop" v-model="" type="checkbox" class="num-radio fl">
+            <input name="" @change="filterShop"  type="checkbox" class="num-radio fl">
             <span class="default-sort01 f28 color-333">仅显示商城店铺</span>
           </div>
 
