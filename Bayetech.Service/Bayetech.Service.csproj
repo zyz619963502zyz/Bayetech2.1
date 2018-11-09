@@ -77,7 +77,6 @@
     <Compile Include="Services\ButtonsManageService.cs" />
     <Compile Include="Services\CheckService.cs" />
     <Compile Include="Services\DlService.cs" />
-    <Compile Include="Services\EngineService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
