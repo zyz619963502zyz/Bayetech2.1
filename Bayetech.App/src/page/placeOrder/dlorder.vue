@@ -98,7 +98,6 @@
     watch: {
       countnum: function () {
         let that = this;
-        
         that.count();
       }
     },
@@ -116,6 +115,7 @@
         };
       },
       count: function () {
+        //计算总价
         let totalPrice = 0;
         totalPrice += this.countnum * 1;
         this.total = totalPrice.toFixed(2)
