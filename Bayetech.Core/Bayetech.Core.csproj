@@ -157,6 +157,9 @@
     <Compile Include="Entity\ExtraPropertyValue.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\fn_Str_Split_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Game.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -196,6 +199,24 @@
     <Compile Include="Entity\Module.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\NB_YWUser_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OasEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OasEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OasEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Oas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oas.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\OrderStatus.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -211,6 +232,15 @@
     <Compile Include="Entity\Settings.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SP_GetRoleMenu_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_GetUserMenuDefault_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_GetUserMenu_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -219,6 +249,303 @@
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SYS_XmlConfig.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TWF_TCB_Estate.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TWF_TCB_Exchange.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TWF_TCB_Property.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_Admin.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_BitAndItem.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_DISPOSAL.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_FormLimit.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_FunctionDefault.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_OperatePerm.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_OperateUser.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_OptiomItem.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_OptiomTextItem.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_Role.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_Role_CUT.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_STATUS.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_StatusRole.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_Trust.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_TYPE.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_Type_20180311.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_Type_Bigclass.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_Type_Info.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FLOW_UI.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_UpdateLog.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_flow_UserRole.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Flow_WindowsClass.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FrameWork_Detali.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_FrameWork_Summary.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_INSTANCE_FLOW_DISPOSAL.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_INSTANCE_FLOW_STATUS.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pro_CaseStatus.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pro_Menu.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pro_MenuRole.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pro_MenuRole_new.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pro_Menu_new.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\t_pub_company.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\t_pub_dept.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Duty.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Module.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Org.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Org_Member.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Rights.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_Role.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_User.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_UserRights.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Pub_UserRole.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\t_pub_user_parents.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Status_OperationPerm.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_Status_OperationRole.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_STATUS_TYPE.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Assign.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_AssignBiz.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Attachments.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_AttCatalog.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_AttPattern.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_AttSelfReMark.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_AttTrackChange.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_AttType.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_BalanceSeting.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_BalanceSetingHis.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_BalanceSetingLog.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_BizFollow.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Diffluence.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_EXCHCHANGE.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_EXCHCHANGE_TYPE.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_FLOWEXPAND.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\t_WorkFlow_FlowInfo.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\t_WorkFlow_FlowInfo2.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_FlowMain.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_GlobalData.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogFLOWEXPAND.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogFlowMain.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogMainAtt.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogMainField.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogMonitor.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogNotify.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogPrint.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_LogZaiBan.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_MainAtt.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_MainField.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Notify.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_Number.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_PageChange.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WORKFLOW_PARENTID.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_ROLEIDEA.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_SelfRemark.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\T_WorkFlow_ZaiBan.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetMenuRole_New_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetMenuRole_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetNotify_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserAllRole_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenuDefault_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenu_New_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenu_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserOneRole_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserRole_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUsersRole_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_Get_DownOrgName_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_Get_DownUsers_Result.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -259,6 +586,57 @@
     <Compile Include="Entity\vw_NoToProperty.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\V_FLOW_ROLE.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_Flow_StatusUser.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_Flow_StatusUserAll.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_flow_user.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_framework_main.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_framework_notify.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_framework_zaiban.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_member_org.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_PUB_MEMBER_USER.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_org.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_user.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_user_member.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_user_parents.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_WorkFlow_FlowMain.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_WorkFlow_Notify.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_WorkFlow_OtherAttDetail.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\V_WorkFlow_ZaiBan.cs">
+      <DependentUpon>OasEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enum\GamePlatform.cs" />
     <Compile Include="Enum\Module.cs" />
     <Compile Include="Enum\Relationship.cs" />
@@ -285,6 +663,13 @@
     <None Include="Entity\Bayetech.edmx.diagram">
       <DependentUpon>Bayetech.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Entity\Oas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Oas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\Oas.edmx.diagram">
+      <DependentUpon>Oas.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +685,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Bayetech.edmx</DependentUpon>
       <LastGenOutput>Bayetech.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\OasEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Oas.edmx</DependentUpon>
+      <LastGenOutput>OasEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\OasEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Oas.edmx</DependentUpon>
+      <LastGenOutput>OasEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />

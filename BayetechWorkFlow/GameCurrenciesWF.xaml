@@ -69,7 +69,10 @@
               </State>
             </Transition.To>
           </Transition>
-          <Transition DisplayName="T2">
+          <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_7">
+            <Transition.Condition>
+              <mca:CSharpValue x:TypeArguments="x:Boolean">conditions == "3"</mca:CSharpValue>
+            </Transition.Condition>
             <Transition.To>
               <State x:Name="__ReferenceID4" DisplayName="交易失败" sap2010:WorkflowViewState.IdRef="State_4">
                 <State.Transitions>
@@ -81,7 +84,6 @@
                 </State.Transitions>
               </State>
             </Transition.To>
-            <sap2010:WorkflowViewState.IdRef>Transition_7</sap2010:WorkflowViewState.IdRef>
           </Transition>
         </State.Transitions>
       </State>
@@ -98,7 +100,7 @@
         </Variable.Default>
       </Variable>
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>dzVFOlxCYXlldGVjaDIuMlxCYXlldGVjaFdvcmtGbG93XEdhbWVDdXJyZW5jaWVzV0YueGFtbAsmA2YSAgEBYQthOgIBGCgHVw8CARMvD0UXAgEONhdBHwIBCUoPUhcCAQQ9Hz2KAQIBAiwPLF0CARUzFzNlAgEQOh86bQIBC04XTmYCAQY=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz9EOlxyZXNwb3NpdHlcQmF5ZXRlY2gyLjFcQmF5ZXRlY2hXb3JrRmxvd1xHYW1lQ3VycmVuY2llc1dGLnhhbWwMJgNoEgIBAWMLYzoCARooB1kPAgETLw9FFwIBDjYXQR8CAQlND1UXAgEEPR89igECAQIsDyxdAgEXSg9KXwIBFTMXM2UCARA6HzptAgELURdRZgIBBg==</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -182,7 +184,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_7">
+      <sap2010:ViewStateData Id="Transition_7" sap:VirtualizedContainerService.HintSize="430,555">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">308.95,185.2 308.95,215.2 467.35,215.2 467.35,387</av:PointCollection>
