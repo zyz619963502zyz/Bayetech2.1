@@ -100,7 +100,7 @@
         </Variable.Default>
       </Variable>
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>dzVFOlxCYXlldGVjaDIuMlxCYXlldGVjaFdvcmtGbG93XEdhbWVDdXJyZW5jaWVzV0YueGFtbAwmA2gSAgEBYwtjOgIBGigHWQ8CARMvD0UXAgEONhdBHwIBCU0PVRcCAQQ9Hz2KAQIBAiwPLF0CARdKD0pfAgEVMxczZQIBEDofOm0CAQtRF1FmAgEG</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz9EOlxyZXNwb3NpdHlcQmF5ZXRlY2gyLjFcQmF5ZXRlY2hXb3JrRmxvd1xHYW1lQ3VycmVuY2llc1dGLnhhbWwMJgNoEgIBAWMLYzoCARooB1kPAgETLw9FFwIBDjYXQR8CAQlND1UXAgEEPR89igECAQIsDyxdAgEXSg9KXwIBFTMXM2UCARA6HzptAgELURdRZgIBBg==</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -184,7 +184,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Transition_7" sap:VirtualizedContainerService.HintSize="430,550">
+      <sap2010:ViewStateData Id="Transition_7" sap:VirtualizedContainerService.HintSize="430,555">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:PointCollection x:Key="ConnectorLocation">308.95,185.2 308.95,215.2 467.35,215.2 467.35,387</av:PointCollection>
