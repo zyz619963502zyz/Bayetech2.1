@@ -59,7 +59,9 @@ import { dlListData } from "@/testdata/Data.js";
     condition: {
       checkVal: false //复选按钮，是否为商家
     },
-    dlList: [],
+    dlList: [],//页面绑定的数组
+    tempList: [],//筛选后数组
+    DataList:[],//原始数据保存
     gname: '游戏名称',
     Pagenation: {
       rows: 10,
@@ -132,14 +134,16 @@ import { dlListData } from "@/testdata/Data.js";
           that.waterInfo.isEnd = false;
         }
         try {
-          //console.log(dlListData)
+         
           that.waterInfo.loading = true;
-          //let data = [];
-          //data = dlListData;
+          
+          
           //console.log(data)
+
           if (dlListData) {
             for (let datas of dlListData) {
-              that.$set(that.dlList, that.dlList.length, datas)
+              that.$set(that.dlList, that.dlList.length, datas);
+              that.$set(that.DataList, that.DataList.length, datas);
             }
           } else {
             that.waterInfo.isEnd = true;
@@ -168,15 +172,18 @@ import { dlListData } from "@/testdata/Data.js";
       },
       filterShop() {
         let that = this;
-        let tempArr = [];
         if (that.condition.checkVal) {
           that.condition.checkVal = true;
-          for (let datas of dlListData) {
-            console.log(datas)
-            
+          for (let item of dlListData) {
+            if (item.WorkerType == 'workshop' || item.WorkerType == 'company') {
+              that.tempList.push(item);
+            }
           }
+          
+          that.dlList = that.tempList;
         } else {
-
+          //that.getGoodsList();
+          that.dlList = that.DataList;
         }
       }
     }
