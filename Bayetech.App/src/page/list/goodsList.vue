@@ -738,7 +738,7 @@ export default {
                 // console.log(t);
                 setTimeout(() => {
                     self
-                        .$post("http://localhost:15786/api/GoodInfo/GetList", data)
+                        .$post("/web/api/GoodInfo/GetList", data)
                         .then(function (result) {
                             //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
                             if (result.result) {
@@ -779,7 +779,7 @@ export default {
         GetGoodsType: function () {
             let self = this;
             try {
-                this.$get("http://localhost:15786/api/GoodType/GetGoodType", {
+                this.$get("/web/api/GoodType/GetGoodType", {
                     gameid: self.searchModel.GameId,
                     type: "good"
                 }).then(function (result) {
@@ -794,7 +794,7 @@ export default {
         GetGroup: function () {
             let self = this;
             try {
-                this.$get("http://localhost:15786/api/GameServer/GetGroup", {
+                this.$get("/web/api/GameServer/GetGroup", {
                     gameid: self.searchModel.GameId
                 }).then(function (result) {
                     self.groupList = result.content;
