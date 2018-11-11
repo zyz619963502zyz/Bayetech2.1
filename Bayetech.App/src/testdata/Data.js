@@ -14,7 +14,7 @@ var dlListData = [
     Id: 0,
     Title: '【活动送送送】等级◆深渊◆PK印章◆新天空◆安图恩◆卢克超时空',
     Price: '1',
-    WorkerType: 'workshop',
+    WorkerType: 'individual',
     DlNo: '',
     DLAccountId: '',
     MonthVolume: 45772,

@@ -445,7 +445,7 @@
     </div>
     <!---->
     <div >
-      <div data-style="fixed-bottom" class="newfooter fixed-bottom">
+      <!--<div data-style="fixed-bottom" class="newfooter fixed-bottom">
         <ul>
           <a href="https://m.5173.com/" class="foot-home">
             <li class="active">
@@ -470,13 +470,14 @@
           <a href="https://m.5173.com/vue/center" class="foot-home">
             <li class="">
               <span class="i_tx">我的</span>
-              <!---->
+              
             </li>
           </a>
 
         </ul>
 
-      </div>
+      </div>-->
+      <BottomNav></BottomNav>
       <!---->
     </div>
     <!---->
@@ -593,7 +594,8 @@
 </style>
 
 <script>
-    import Swiper from '@/components/swiper.vue'
+  import Swiper from '@/components/swiper.vue';//轮播
+  import BottomNav from '@/components/bottomNav.vue';//底部导航
   import '@/assets/content/css/fost-base-min.css'
   import '@/assets/content/css/style-min.css'
   import '@/assets/css/index.css'
@@ -607,7 +609,10 @@
     data() {
       return vmdata;
     },
-    components:{Swiper},
+    components: {
+      Swiper,
+      BottomNav
+    },
     mounted:function(){
       console.log(this.$get)
     },

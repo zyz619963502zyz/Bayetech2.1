@@ -25,10 +25,19 @@
         <div class="index-swiper bg-fff border-bottom pb-30 pt-10">
           <ul>
             <li class="swiper-slide fl text-center pt-20">
-              <router-link :to="{path:'/dlList',query:{goodsType:2,gname:'英雄联盟'}}" class="open-indicator" >
+              <router-link :to="{ path: '/dlList', query: { goodsType: 5,gname:'地下城与勇士'}}" class="open-indicator">
+
+                <span>
+                  <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png">
+                </span>
+                <p class="f26 color-000">地下城与勇士</p>
+              </router-link>
+            </li>
+            <li class="swiper-slide fl text-center pt-20">
+              <router-link :to="{path:'/dlList',query:{goodsType:2,gname:'英雄联盟'}}" class="open-indicator">
                 <span>
                   <img src="http://html.5173.com/yunyin/201705/txtb/lol.jpg">
-                                </span>
+                </span>
                 <p class="f26 color-000">英雄联盟</p>
               </router-link>
             </li>
@@ -36,7 +45,7 @@
               <a class="open-indicator">
                 <span>
                   <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9khEAAAAAAAQb1hUQDl82..png">
-                                </span>
+                </span>
                 <p class="f26 color-000">魔兽世界(国服)</p>
               </a>
             </li>
@@ -44,51 +53,43 @@
               <a class="open-indicator">
                 <span>
                   <img src="http://html.5173.com/yunyin/201705/txtb/wzry.jpg">
-                                </span>
+                </span>
                 <p class="f26 color-000">王者荣耀</p>
               </a>
             </li>
-            <li class="swiper-slide fl text-center pt-20">
-              <router-link :to="{ path: '/dlList', query: { goodsType: 5,gname:'地下城与勇士'}}" class="open-indicator">
 
-                <span>
-                  <img src="http://bo.5173cdn.com/5173_2/data/201803/02/DD/RAKowFq9k3EAAAAAAAj_plLZdz08..png">
-                                </span>
-                <p class="f26 color-000">地下城与勇士</p>
-              </router-link>
-            </li>
-            <li class="swiper-slide fl text-center pt-20">
-              <a class="open-indicator">
-                <span>
-                  <img src="http://bo.5173cdn.com/5173_2/data/201807/00/EA/RAKowFtEE1QAAAAAAAAZ2QuNJjc2..jpg">
-                                </span>
-                <p class="f26 color-000">逆冰塞OL</p>
-              </a>
-            </li>
-            <li class="swiper-slide fl text-center pt-20">
-              <a class="open-indicator">
-                <span>
-                  <img src="http://bo.5173cdn.com/5173_2/data/201807/00/3D/RAKowFs62Y0AAAAAAAEIXEnlwEc8..jpg">
-                                </span>
-                <p class="f26 color-000">逆*寒</p>
-              </a>
-            </li>
-            <li class="swiper-slide fl text-center pt-20">
-              <a class="open-indicator">
-                <span>
-                  <img src="http://html.5173.com/yunyin/201705/txtb/nz.jpg">
-                                </span>
-                <p class="f26 color-000">逆战</p>
-              </a>
-            </li>
-            <li class="swiper-slide fl text-center pt-20">
-              <a href="/vue/dl/dl-search-game" class="open-indicator">
-                <span>
-                  <img src="../../assets/images/mold-md.png">
-                                </span>
-                <p class="f26 color-000">其他游戏</p>
-              </a>
-            </li>
+            <!--<li class="swiper-slide fl text-center pt-20">
+    <a class="open-indicator">
+      <span>
+        <img src="http://bo.5173cdn.com/5173_2/data/201807/00/EA/RAKowFtEE1QAAAAAAAAZ2QuNJjc2..jpg">
+                      </span>
+      <p class="f26 color-000">逆冰塞OL</p>
+    </a>
+  </li>
+  <li class="swiper-slide fl text-center pt-20">
+    <a class="open-indicator">
+      <span>
+        <img src="http://bo.5173cdn.com/5173_2/data/201807/00/3D/RAKowFs62Y0AAAAAAAEIXEnlwEc8..jpg">
+                      </span>
+      <p class="f26 color-000">逆*寒</p>
+    </a>
+  </li>
+  <li class="swiper-slide fl text-center pt-20">
+    <a class="open-indicator">
+      <span>
+        <img src="http://html.5173.com/yunyin/201705/txtb/nz.jpg">
+                      </span>
+      <p class="f26 color-000">逆战</p>
+    </a>
+  </li>
+  <li class="swiper-slide fl text-center pt-20">
+    <a href="/vue/dl/dl-search-game" class="open-indicator">
+      <span>
+        <img src="../../assets/images/mold-md.png">
+                      </span>
+      <p class="f26 color-000">其他游戏</p>
+    </a>
+  </li>-->
           </ul>
         </div>
         <div class="index-swiper bg-fff border-bottom mt-20">
