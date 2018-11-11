@@ -3,7 +3,7 @@
     <div class="" style="display: block">
       <div class="top-header fixed-top border-bottom" style="z-index: 61;">
         <div class="top-back">
-          <a>
+          <a @click="PageBack">
           </a>
         </div>
         <h2 class="f36">{{searchModel.GameName}}</h2>
@@ -282,13 +282,41 @@
           价格区间
         </div>
         <div data-v-6b09e788="" class="price-list px-30 py-30">
-          <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.minPrice" />
+          <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.minPrice" @keydown="searchModelSub.priceRangeLock=true;searchModelSub.priceRange=new Array()" @blur="searchModelSub.priceRangeLock=false" />
           <span data-v-6b09e788="" class="hern fl"></span>
-          <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.maxPrice" />
+          <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.maxPrice"  @keydown="searchModelSub.priceRangeLock=true;searchModelSub.priceRange=new Array()" @blur="searchModelSub.priceRangeLock=false" />
+        </div>
+        <div data-v-324f8118="" class="price-type pl-30">
+          <ul data-v-324f8118="">
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','1-50',true),fl:true,'mb-30':true}"@click="choose('priceRange','1-50',true)" >
+              <a data-v-324f8118="" >
+                <span data-v-324f8118="" class="border f30">50元以下</span>
+              </a>
+            </li>
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','50-100'),fl:true,'mb-30':true}"@click="choose('priceRange','50-100',true)" >
+              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">50-100元</span></a>
+            </li>
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','100-500'),fl:true,'mb-30':true}"@click="choose('priceRange','100-500',true)" >
+              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">100-500元</span></a>
+            </li>
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','500-1000'),fl:true,'mb-30':true}"@click="choose('priceRange','500-1000',true)" >
+              <a data-v-324f8118=""><span data-v-324f8118="" class="border f30">500-1000元</span></a>
+            </li>
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','1000-2000'),fl:true,'mb-30':true}"@click="choose('priceRange','1000-2000',true)" >
+              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">1000-2000元</span></a>
+            </li>
+            <li data-v-324f8118="" :class="{active:isChoice('priceRange','2000-'),fl:true,'mb-30':true}"@click="choose('priceRange','2000-',true)" >
+              <a data-v-324f8118=""><span data-v-324f8118="" class="border f30">2000元以上</span></a>
+            </li>
+          </ul>
         </div>
       </div>
       <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <i data-v-6b09e788="" class="fr src-ico manycheck" @click="searchModelSub.chooseZQ=true">不限</i>
+        <i data-v-6b09e788="" class="fr src-ico manycheck" @click="searchModelSub.chooseZQ=true">
+
+          <span v-show="searchModelSub.accrossList.length==0">不限</span>
+          {{searchModelSub.accrossListName.join(',')}}
+        </i>
         战区
         <!---->
       </div>
@@ -301,7 +329,7 @@
           <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
             <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
               <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
+                <a data-v-6b09e788="" @click="searchModelSub.chooseZQ=false">返回</a>
               </div>
               <h2 data-v-6b09e788="" class="f36">战区</h2>
             </div>
@@ -310,17 +338,24 @@
                 <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
               </div>
             </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
+            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;" >
+              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;">
+                <li v-for="accross in  accrossList" @click="choose('accrossList', accross.accrossId);choose('accrossListName', accross.accrossName)">{{accross.accrossName}} <a :class="{'chore-ico':true,fr:true,'chore-ico-hov':isChoice('accrossList',accross.accrossId)}"  /></li>
+              <!--  <a :class="{chore-ico:true,fr:true,chore-ico-hov:isChoice('accrossList',accorssId)}" @click="choose('accrossList', accross.Id)"></a>-->
+              </ul>
             </div>
             <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
+              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff" @click="searchModelSub.chooseZQ=false">确定</a>
             </div>
           </div>
         </div>
       </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <i data-v-6b09e788="" class="fr src-ico manycheck">不限</i>
+      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico" @click="searchModelSub.chooseZY=true">
+        <i data-v-6b09e788="" class="fr src-ico manycheck">
+          <span v-show="searchModelSub.jobList.length==0">不限</span>
+          {{searchModelSub.jobListName.join(',')}}
+
+        </i>
         角色职业
         <!---->
       </div>
@@ -328,12 +363,12 @@
         <!---->
         <!---->
         <!---->
-        <div data-v-6b09e788="" style="display: none;">
+        <div data-v-6b09e788="" v-show="searchModelSub.chooseZY">
           <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
           <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
             <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
               <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
+                <a data-v-6b09e788="" @click="searchModelSub.chooseZY=false">返回</a>
               </div>
               <h2 data-v-6b09e788="" class="f36">角色职业</h2>
             </div>
@@ -343,10 +378,13 @@
               </div>
             </div>
             <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
+              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;">
+                <li v-for="job in  jobList" @click="choose('jobList', job.jobId);choose('jobListName', job.jobName)">{{job.jobName}} <a :class="{'chore-ico':true,fr:true,'chore-ico-hov':isChoice('jobList',job.jobId)}"  /></li>
+
+              </ul>
             </div>
             <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
+              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff" @click="searchModelSub.chooseZY=false">确定</a>
             </div>
           </div>
         </div>
@@ -360,12 +398,11 @@
         <!---->
         <div data-v-6b09e788="" class="price-type pl-30 pt-30">
           <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" class="fl mb-30">
-              <a data-v-6b09e788="">
+            <li data-v-6b09e788="" :class="{active:isChoice('gender','男'),fl:true,'mb-30':true}" @click="choose('gender','男')">
                 <span data-v-6b09e788="" class="border f30">男</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('gender','女'),fl:true,'mb-30':true}"@click="choose('gender','女')">
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">女</span>
               </a>
@@ -434,37 +471,37 @@
         <!---->
         <div data-v-6b09e788="" class="price-type pl-30 pt-30">
           <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','0'),fl:true,'mb-30':true}"@click="choose('qqLevel','0')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级0级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788=""  :class="{active:isChoice('qqLevel','1-5'),fl:true,'mb-30':true}"@click="choose('qqLevel','1-5')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级1-5级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','6-10'),fl:true,'mb-30':true}"@click="choose('qqLevel','6-10')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级6-10级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','11-20'),fl:true,'mb-30':true}"@click="choose('qqLevel','11-20')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级11-20级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','21-30'),fl:true,'mb-30':true}"@click="choose('qqLevel','21-30')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级21-30级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','31-40'),fl:true,'mb-30':true}"@click="choose('qqLevel','31-40')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级31-40级</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','40'),fl:true,'mb-30':true}"@click="choose('qqLevel','40')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">QQ等级40级以上</span>
               </a>
@@ -478,7 +515,7 @@
           <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
             <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
               <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
+                <a data-v-6b09e788="" @click="ToggleConditionTab('filter')">返回</a>
               </div>
               <h2 data-v-6b09e788="" class="f36">QQ等级</h2>
             </div>
@@ -505,12 +542,12 @@
         <!---->
         <div data-v-6b09e788="" class="price-type pl-30 pt-30">
           <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqFriend','1'),fl:true,'mb-30':true}"@click="choose('qqFriend','1')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">有QQ好友</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('qqFriend','0'),fl:true,'mb-30':true}"@click="choose('qqFriend','0')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">无QQ好友</span>
               </a>
@@ -551,12 +588,12 @@
         <!---->
         <div data-v-6b09e788="" class="price-type pl-30 pt-30">
           <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('punishHistory','1'),fl:true,'mb-30':true}"@click="choose('punishHistory','1')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">存在5天封号记录</span>
               </a>
             </li>
-            <li data-v-6b09e788="" class="fl mb-30">
+            <li data-v-6b09e788="" :class="{active:isChoice('punishHistory','0'),fl:true,'mb-30':true}"@click="choose('punishHistory','0')" >
               <a data-v-6b09e788="">
                 <span data-v-6b09e788="" class="border f30">不存在5天封号记录</span>
               </a>
@@ -591,7 +628,7 @@
       <div data-v-6b09e788="" class="fixed-bottom border-top">
         <div data-v-6b09e788="" class="goodslist-btn px-30 py-30 bg-fff">
           <a data-v-6b09e788="" class="options f32 color-666 fl text-center">清除选项</a>
-          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center">确定</a>
+          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center" @click="ToggleConditionTab('filter')">确定</a>
         </div>
       </div>
     </div>
@@ -600,244 +637,318 @@
 </template>
 
 <script>
-import "@/assets/content/css/fost-base-min.css";
-import "@/assets/content/css/style-min.css";
-import "@/assets/css/index.css";
-import "@/assets/css/accountlist.css";
+  import "@/assets/content/css/fost-base-min.css";
+  import "@/assets/content/css/style-min.css";
+  import "@/assets/css/index.css";
+  import "@/assets/css/accountlist.css";
 
-let vmdata = {
+  let vmdata = {
+    test:true,
     waterInfo: {
-        loading: false,
-        index: 0,
-        lastPageIndex: 3,
-        loadLock: false,
-        isEnd: false
+      loading: false,
+      index: 0,
+      lastPageIndex: 3,
+      loadLock: false,
+      isEnd: false
     },
     serverKeyWords: '',
     groupList: ["上海区", "广东区"],
+    accrossList: [{ accrossId: 1, accrossName: '跨5华东1区' }, { accrossId: 2, accrossName: '跨6华北1区' }],
+    jobList: [{ jobId: 1, jobName: '剑圣' }, { jobId: 2, jobName: '噬魂' }, { jobId: 3, jobName: '武神' }],
     filterGroupList: [],
     serverList: ["上海1区", "上海2区"],
     filterServerList: [],
     goodsList: [],
     conditionTab: {
-        goodsType: false,
-        server: false,
-        sort: false,
-        filter: false
+      goodsType: false,
+      server: false,
+      sort: false,
+      filter: false
     },
     Pagination: {
-        //分页对象
-        rows: 10, //每页行数，
-        page: 1, //当前页码
-        order: "GoodNo", //排序字段
-        sord: "asc", //排序类型
-        records: 10, //总记录数
-        total: 10 //总页数。
+      //分页对象
+      rows: 10, //每页行数，
+      page: 1, //当前页码
+      order: "GoodNo", //排序字段
+      sord: "asc", //排序类型
+      records: 10, //总记录数
+      total: 10 //总页数。
     },
     searchModel: {
-        goodsTypes: [],
-        GameId: 0,
-        GameName: "游戏名称",
-        GameGroupId: 0, //上海区
-        GameGroupName: "",
-        GameServerId: 0, //上海一区
-        GameServerName: "",
-        GoodTypeId: 0, //账号 金币
-        GoodTypeName: "", //物品类型
-        DlTypeName: "代练类型", //等级 冲杯 段位
-        GoodKeyWord: "", //关键字
-        AcrossId: 0, //跨区Id
-        AcrossName: "跨区"
+      goodsTypes: [],
+      GameId: 0,
+      GameName: "游戏名称",
+      GameGroupId: 0, //上海区
+      GameGroupName: "",
+      GameServerId: 0, //上海一区
+      GameServerName: "",
+      GoodTypeId: 0, //账号 金币
+      GoodTypeName: "", //物品类型
+      DlTypeName: "代练类型", //等级 冲杯 段位
+      GoodKeyWord: "", //关键字
+      AcrossId: 0, //跨区Id
+      AcrossName: "跨区"
     },
     searchModelSub: {
-        minPrice: "",
-        maxPrice:"",
-        chooseZQ:false
+      minPrice: "",
+      maxPrice: "",
+      priceRangeLock: false,
+      chooseZQ: false,
+      chooseZY: false,
+      gender:[],
+      gender_male: false,
+      gender_female: false,
+      qqLevel: [],
+      qqFriend: [],
+      punishHistory: [],
+      priceRange: [],
+      accrossList: [],
+      accrossListName:[],
+      jobList: [],
+      jobListName:[]
     }
-};
+  };
 
-export default {
+  export default {
     name: "goodsList",
     data() {
-        return vmdata;
+      return vmdata;
     },
     mounted: function () {
-        //this.searchModel.GameName = this.$route.query.gameName;
-        this.searchModel.GameId = this.$route.query.gameId;
-        //this.searchModel.GoodTypeId = this.$route.query.goodsType;
-        this.searchModel.GoodTypeName = this.$route.query.goodsTypeName;
-        this.GetGoodsType();
-        this.SearchList();
-        this.GetGroup();
-        window.addEventListener("scroll", this.handleScroll);
+      //this.searchModel.GameName = this.$route.query.gameName;
+      this.searchModel.GameId = this.$route.query.gameId;
+      //this.searchModel.GoodTypeId = this.$route.query.goodsType;
+      this.searchModel.GoodTypeName = this.$route.query.goodsTypeName;
+      this.GetGoodsType();
+      this.SearchList();
+      this.GetGroup();
+      window.addEventListener("scroll", this.handleScroll);
     },
-    destroyed:function(){
-            window.removeEventListener("scroll", this.handleScroll);
+    destroyed: function () {
+      window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        handleScroll: function () {
-            let self = this;
-            //  console.log(window.scrollY+document.documentElement.clientHeight)
+      handleScroll: function () {
+        let self = this;
+        //  console.log(window.scrollY+document.documentElement.clientHeight)
 
-            // console.log(document.body.clientHeight)  // 网页可见区域高
-          //console.log(
-          //  'clientHeight:' + (document.body.clientHeight) + ',',
-          //  'window.scrollY:' + (window.scrollY) + ',',
-          //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
-          //  'result:' + (document.body.clientHeight -
-          //    window.scrollY -
-          //    document.documentElement.clientHeight)
-          //);
-            console.log(
-                document.body.clientHeight -
-                window.scrollY -
-                document.documentElement.clientHeight
-            );
-            if (
-                document.body.clientHeight -
-                window.scrollY -
-                document.documentElement.clientHeight <
-                10 &&
-                !self.waterInfo.loadLock &&
-                !self.waterInfo.isEnd
-            ) {
-                self.waterInfo.loadLock = true;
-                console.log("加载");
-                self.SearchList(false);
-            }
-        },
-        SearchServer: function () {
-            let self = this;
-            if (self.serverKeyWords.length == 0) {
-                self.filterGroupList = self.groupList;
-                self.filterServerList = self.serverList;
-                return ;
-            }
-
-            self.filterGroupList = self.groupList.filter((group) => {
-               return group.Name.indexOf(self.serverKeyWords) >= 0
-            });
-            self.filterServerList = self.serverList.filter((server) => {
-               return server.Name.indexOf(self.serverKeyWords) >= 0
-            })
-        },
-        SearchList: function (isreset = true) {
-            let self = this;
-            if (!!isreset) {
-                self.goodsList = [];
-                self.waterInfo.index = 0;
-                self.waterInfo.isEnd = false;
-            }
-
-            try {
-                let data = {};
-                data.Param = self.searchModel;
-                data.Pagination = self.Pagination;
-                self.waterInfo.loading = true;
-                //let t= JSON.stringify(data)
-                // console.log(t);
-                setTimeout(() => {
-                    self
-                        .$post("/web/api/GoodInfo/GetList", data)
-                        .then(function (result) {
-                            //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
-                            if (result.result) {
-                                for (let data of result.content.datas) {
-                                    self.$set(self.goodsList, self.goodsList.length, data);
-                                }
-                            } else {
-                                self.waterInfo.isEnd = true;
-                            }
-
-                            self.waterInfo.loadLock = false;
-                            self.waterInfo.index++;
-                            if (self.waterInfo.index >= self.waterInfo.lastPageIndex) {
-                                self.waterInfo.isEnd = true;
-                            }
-                            self.waterInfo.loading = false;
-                            //console.log(self.waterInfo.index);
-                            // self.goodsList = result.content.datas;
-
-                            //console.log(result);
-                        });
-                }, 2000);
-            } catch (err) {
-                console.log(err);
-            }
-        },
-
-        ToggleConditionTab: function (type) {
-            let status = this.conditionTab[type];
-            if (status == false) {
-                this.conditionTab.goodsType = false;
-                this.conditionTab.server = false;
-                this.conditionTab.sort = false;
-                this.conditionTab.filter = false;
-            }
-            this.conditionTab[type] = !this.conditionTab[type];
-        },
-        GetGoodsType: function () {
-            let self = this;
-            try {
-                this.$get("/web/api/GoodType/GetGoodType", {
-                    gameid: self.searchModel.GameId,
-                    type: "good"
-                }).then(function (result) {
-                    self.group = result.content;
-                    self.$set(self.searchModel, "goodsTypes", result.content);
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        },
-
-        GetGroup: function () {
-            let self = this;
-            try {
-                this.$get("/web/api/GameServer/GetGroup", {
-                    gameid: self.searchModel.GameId
-                }).then(function (result) {
-                    self.groupList = result.content;
-                    self.filterGroupList=self.groupList;
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        },
-        GetServer: function (groupId) {
-            let self = this;
-            try {
-                this.$get("http://localhost:15786/api/GameServer/GetServer", {
-                    parenId: groupId
-                }).then(function (result) {
-                    self.serverList = result.content;
-                    self.filterServerList=self.serverList;
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        },
-        setActive: function (value, type) {
-            let self = this;
-            let dic = {};
-            dic[self.searchModel.GoodTypeName] = true;
-            return dic[value] ? "active" : "";
-        },
-        setValue: function (obj) {
-            let self = this;
-            for (var key in obj) {
-                self.searchModel[key] = obj[key];
-            }
+        // console.log(document.body.clientHeight)  // 网页可见区域高
+        //console.log(
+        //  'clientHeight:' + (document.body.clientHeight) + ',',
+        //  'window.scrollY:' + (window.scrollY) + ',',
+        //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
+        //  'result:' + (document.body.clientHeight -
+        //    window.scrollY -
+        //    document.documentElement.clientHeight)
+        //);
+        console.log(
+          document.body.clientHeight -
+          window.scrollY -
+          document.documentElement.clientHeight
+        );
+        if (
+          document.body.clientHeight -
+          window.scrollY -
+          document.documentElement.clientHeight <
+          10 &&
+          !self.waterInfo.loadLock &&
+          !self.waterInfo.isEnd
+        ) {
+          self.waterInfo.loadLock = true;
+          console.log("加载");
+          self.SearchList(false);
         }
+      },
+      SearchServer: function () {
+        let self = this;
+        if (self.serverKeyWords.length == 0) {
+          self.filterGroupList = self.groupList;
+          self.filterServerList = self.serverList;
+          return;
+        }
+
+        self.filterGroupList = self.groupList.filter((group) => {
+          return group.Name.indexOf(self.serverKeyWords) >= 0
+        });
+        self.filterServerList = self.serverList.filter((server) => {
+          return server.Name.indexOf(self.serverKeyWords) >= 0
+        })
+      },
+      SearchList: function (isreset = true) {
+        let self = this;
+        if (!!isreset) {
+          self.goodsList = [];
+          self.waterInfo.index = 0;
+          self.waterInfo.isEnd = false;
+        }
+
+        try {
+          let data = {};
+          data.Param = self.searchModel;
+          data.Pagination = self.Pagination;
+          self.waterInfo.loading = true;
+          //let t= JSON.stringify(data)
+          // console.log(t);
+          setTimeout(() => {
+            self
+              .$post("/web/api/GoodInfo/GetList", data)
+              .then(function (result) {
+                //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
+                if (result.result) {
+                  for (let data of result.content.datas) {
+                    self.$set(self.goodsList, self.goodsList.length, data);
+                  }
+                } else {
+                  self.waterInfo.isEnd = true;
+                }
+
+                self.waterInfo.loadLock = false;
+                self.waterInfo.index++;
+                if (self.waterInfo.index >= self.waterInfo.lastPageIndex) {
+                  self.waterInfo.isEnd = true;
+                }
+                self.waterInfo.loading = false;
+                //console.log(self.waterInfo.index);
+                // self.goodsList = result.content.datas;
+
+                //console.log(result);
+              });
+          }, 2000);
+        } catch (err) {
+          console.log(err);
+        }
+      },
+
+      ToggleConditionTab: function (type) {
+
+        let status = this.conditionTab[type];
+        if (status == false) {
+          this.conditionTab.goodsType = false;
+          this.conditionTab.server = false;
+          this.conditionTab.sort = false;
+          this.conditionTab.filter = false;
+        }
+        this.conditionTab[type] = !this.conditionTab[type];
+      },
+      PageBack: function () {
+        this.conditionTab.goodsType = false;
+        this.conditionTab.server = false;
+        this.conditionTab.sort = false;
+        this.conditionTab.filter = false;
+        history.go(-1);
+      },
+      GetGoodsType: function () {
+        let self = this;
+        try {
+          this.$get("/web/api/GoodType/GetGoodType", {
+            gameid: self.searchModel.GameId,
+            type: "good"
+          }).then(function (result) {
+            self.group = result.content;
+            self.$set(self.searchModel, "goodsTypes", result.content);
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+
+      GetGroup: function () {
+        let self = this;
+        try {
+          this.$get("/web/api/GameServer/GetGroup", {
+            gameid: self.searchModel.GameId
+          }).then(function (result) {
+            self.groupList = result.content;
+            self.filterGroupList = self.groupList;
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      GetServer: function (groupId) {
+        let self = this;
+        try {
+          this.$get("/web/api/GameServer/GetServer", {
+            parenId: groupId
+          }).then(function (result) {
+            self.serverList = result.content;
+            self.filterServerList = self.serverList;
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      setActive: function (value, type) {
+        let self = this;
+        let dic = {};
+        dic[self.searchModel.GoodTypeName] = true;
+        return dic[value] ? "active" : "";
+      },
+      setValue: function (obj) {
+        let self = this;
+        for (var key in obj) {
+          self.searchModel[key] = obj[key];
+        }
+      }
+      ,
+      //筛选明细
+     
+      choose: function (key, value,reset)
+      {
+        
+       // value = ',' + value;
+        if (reset && value != this.searchModelSub[key])
+        {
+          this.$set(this.searchModelSub, key, new Array())
+        }
+      
+        let t = 1;
+        let obj = this.searchModelSub[key]
+
+        if (obj.indexOf(value) >= 0) {
+           obj.splice(obj.indexOf(value), 1)
+        } else {
+          obj .push (value);
+        }
+        this.$set(this.searchModelSub, key, obj)
+      },
+     
+      isChoice: function (key, value) {
+        
+        return this.searchModelSub[key].indexOf(value) >= 0;
+         
+      }
     },
     watch: {
-        "searchModel.GameGroupId": function (newVal, oldVal) {
-            this.GetServer(newVal);
-        },
-        serverKeyWords:function(newVal){
-            this.SearchServer();
+      "searchModel.GameGroupId": function (newVal, oldVal) {
+        this.GetServer(newVal);
+      },
+      serverKeyWords: function (newVal) {
+        this.SearchServer();
 
-        }
+      },
+       "searchModelSub.priceRange": function (newVal,oldVal)
+       {
+        
+
+         let self = this;
+
+         if (self.searchModelSub.priceRangeLock)
+         {
+           return;
+         }
+
+         if (newVal.length==0)
+         {
+           self.searchModelSub.minPrice = undefined;
+           self.searchModelSub.maxPrice = undefined;
+           return;
+         }
+         let s = newVal[0].split('-');
+         self.searchModelSub.minPrice = s[0];
+         
+         self.searchModelSub.maxPrice = s[1];
+      }
     }
-};
+  };
 </script>

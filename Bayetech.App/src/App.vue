@@ -16,7 +16,7 @@ export default {
             {name:'apple-mobile-web-app-status-bar-style',content:'black'},
             {name:'format-detection',content:'telephone=no, email=no'}
         ]
-    }
+    } 
 }
 </script>
 
