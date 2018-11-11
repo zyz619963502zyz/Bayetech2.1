@@ -31,5 +31,5 @@
 export default{
     name:'BaseTable',
     props:['pagetype','goodinfoarray','startcheck','itemtype']
-}
+    }
 </script>

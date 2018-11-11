@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,6 +102,7 @@ module.exports = g;
 
 
 var comCompnent = {
+    EngineUrl: "http://47.98.176.184:8080/api/Engine/",
     init: function () {
         // 对Date的扩展，将 Date 转化为指定格式的String
         // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -11398,14 +11399,157 @@ render._withStripped = true
 
 
 /***/ }),
-/* 13 */,
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data() {
+        return {
+            name: 'Approve',
+            com: "", //公共方法库
+            flowId: "",
+            com: com,
+            NewFlowExampleUrl: this.com.EngineUrl + "Get_StatusAllDisposal",
+            FlowBeginStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
+            OnNextStepUrl: com.EngineUrl + "Get_StatusAllDisposal",
+            FlowStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
+            PermListUrl: com.EngineUrl + "Get_StatusAllDisposal",
+            StatusAllDisposal: com.EngineUrl + "Get_StatusAllDisposal",
+            DispUserInfoUrl: com.EngineUrl + "Get_DispUserInfo",
+            DisposalList: [],
+            NextRoleList: [],
+            DisposalSelected: "",
+            NextRoleSelected: "",
+            Param: {}
+        };
+    },
+    props: {
+        FlowId: "FlowId"
+    },
+    mounted() {
+        self.Get_PermList();
+    },
+    methods: {
+        Create_NewFlowExample() {
+            //创建流程实例
+            var self = this;
+            self.com.getWebJson(self.NewFlowExampleUrl, param, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Get_FlowBeginStatusInfo() {
+            //获取流程开始环节信息
+            var self = this;
+            self.com.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Execute_OnNextStep() {
+            //提交送下一步
+            var self = this;
+            self.com.getWebJson(self.OnNextStepUrl, param, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Get_FlowStatusInfo() {
+            //获取当前流程及环节信息
+            var self = this;
+            self.com.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Get_PermList() {
+            //获取权限
+            var self = this;
+            self.com.getWebJson(self.PermListUrl, null, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Get_StatusAllDisposal() {
+            //获取当前环节流程线
+            var self = this;
+            var param = {
+                p_lStatus_ID: "0",
+                p_lFlow_ID: "1",
+                PageConditionRule: ""
+            };
+            self.com.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
+                if (data) {
+                    self.DisposalList = data;
+                    alert("返回成功!");
+                }
+            });
+        },
+        Get_DispUserInfo() {
+            //获取下一处理人
+            var self = this;
+            self.com.getWebJson(self.DispUserInfoUrl, data, function (data) {
+                if (data) {
+                    self.NextRoleList = data;
+                    alert("返回成功!");
+                }
+            });
+        }
+    }
+});
+
+/***/ }),
 /* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */,
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_script_lang_js__ = __webpack_require__(13);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_script_lang_js__["a" /* default */]); 
+
+/***/ }),
 /* 21 */,
 /* 22 */,
 /* 23 */,
@@ -11413,7 +11557,55 @@ render._withStripped = true
 /* 25 */,
 /* 26 */,
 /* 27 */,
-/* 28 */,
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(20);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('8b73532e', component.options)
+    } else {
+      api.reload('8b73532e', component.options)
+    }
+    module.hot.accept("./Approve.vue?vue&type=template&id=8b73532e", function () {
+      api.rerender('8b73532e', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\Approve.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
 /* 29 */,
 /* 30 */,
 /* 31 */,
@@ -11425,7 +11617,10 @@ render._withStripped = true
 /* 37 */,
 /* 38 */,
 /* 39 */,
-/* 40 */
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11434,6 +11629,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(28);
+
 
 
 
@@ -11448,6 +11645,7 @@ let vmData = {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
     },
+    FlowId: "1",
     GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
     CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
     CheckGoodNo: "", //模态框打开的GoodNo
@@ -11538,11 +11736,145 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */],
+        approve: __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__["a" /* default */]
     }
 });
 
 //剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(55);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["b"]; });
+
+
+/***/ }),
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {}, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("label", { staticClass: "control-label col-md-3" }, [
+        _vm._v("下一处理线:")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-offset-1 col-md-8" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.DisposalSelected,
+                expression: "DisposalSelected"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.DisposalSelected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.DisposalList, function(item) {
+            return _c("option", { domProps: { value: item.DisposalCode } }, [
+              _vm._v(_vm._s(item.Disposal_Name))
+            ])
+          })
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("label", { staticClass: "control-label col-md-3" }, [
+        _vm._v("下一处理人:")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-offset-1 col-md-8" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.NextRoleSelected,
+                expression: "NextRoleSelected"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.NextRoleSelected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.NextRoleList, function(item) {
+            return _c("option", { domProps: { value: item.User_ID } }, [
+              _vm._v(_vm._s(item.User_DisplayName))
+            ])
+          })
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [_c("strong", [_vm._v("流程送审:")])])
+  }
+]
+render._withStripped = true
+
+
 
 /***/ })
 /******/ ]);

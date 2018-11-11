@@ -2765,6 +2765,7 @@
     <Content Include="Scripts\components\table-GameSet.vue" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
+    <Content Include="Scripts\components\Test.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\router\router.js" />
@@ -2790,6 +2791,7 @@
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\components\toolBar.vue" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Scripts\components\Approve.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

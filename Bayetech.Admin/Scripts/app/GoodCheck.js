@@ -1,6 +1,7 @@
 ﻿import Vue from '../vue.js'
 import comCompnent from '../common.js'
 import componentTable from '../components/table-Process.vue'
+import approve from '../components/Approve.vue'
 
 let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL,"type");
 
@@ -10,8 +11,9 @@ let vmData = {
     ItemType:"good",//单据类型
     tools:{
         _comCompnent:comCompnent,
-        _componentTable:componentTable
+        _componentTable: componentTable
     },
+    FlowId:"1",
     GoodListUrl:comCompnent.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
@@ -103,7 +105,8 @@ new Vue({
         }
     },
     components:{
-        comtable:componentTable
+        comtable: componentTable,
+        approve: approve
     }
 });
 

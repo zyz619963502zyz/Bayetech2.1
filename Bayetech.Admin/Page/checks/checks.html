@@ -13,7 +13,6 @@
 <body>
     <!--局部Modal放在当前文件-->
     <div id="CommForm">
-
         <div class="modal form-horizontal" id="checkModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
             <div class="modal-dialog" style="width:1200px">
                 <div class="modal-content animated bounceInRight">
@@ -61,28 +60,14 @@
                             <div class="input-group col-md-12">
                                 <h4><strong>账号截图信息:</strong></h4>
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-3">
-                                        <a href="#">
-                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <a href="#">
-                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <a href="#">
-                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <a href="#">
-                                            <img src="http://localhost:15786/Content/Images/A3507.png" />
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <hr />
+                        <br />
+                        <div class="input-group col-md-12">
+                            <!--传值案例-->
+                            <approve v-bind:com="tools._comCompnent" v-bind:FlowId="FlowId"></approve>
                         </div>
                         <hr />
                         <br />
@@ -93,16 +78,16 @@
                     </div>
                     <div class="modal-footer" id="modal_footer" style="text-align:center;">
                         <div class="btn-group col-md-12">
-                            <div class="col-md-12">
-                                <button type="button" class="btn btn-primary col-md-offset-6 col-md-2" data-loading-text="提交中.." name="CheckConfirm" @click="CheckGoods('Y')">提交</button>
-                                <button type="button" class="btn btn-default col-md-2" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-primary col-md-6" data-loading-text="提交" name="CheckConfirm" @click="CheckGoods('Y')">提交</button>
+                                <button type="button" class="btn btn-default col-md-6" data-dismiss="modal" data-loading-text="取消" name="Cancel">取消</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div id="" style="padding:20px 0 20px 0;">
             <form class="form form-search form-horizontal" role="form">
@@ -159,7 +144,6 @@
                             <nav aria-label="fenye" class="text-center right">
                                 <ul id="paginator-test" class="pagination"></ul>
                             </nav>
-
                         </div>
                     </div>
                 </div>
