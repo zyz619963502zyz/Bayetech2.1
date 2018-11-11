@@ -1,4 +1,4 @@
-﻿/*顶部游戏名 可共用*/
+/*顶部游戏名 可共用*/
         .top-header {
             width: 100%;
             max-width: 768px;
@@ -481,11 +481,23 @@
             text-align: center;
             overflow: hidden;
         }
-        .page-infinite-loading {
+          .price-type ul li.active span {
+            border-color: #f60;
+            color: #f60;
+          }
+          .price-type ul li span {
+            display: block;
+            line-height: .8rem;
+            height: .8rem;
+            overflow: hidden;
+            text-align: center;
+            border-radius: .1rem;
+          }
+          .page-infinite-loading {
             text-align: center;
             height: 50px;
             line-height: 50px;
-        }
+          }
         .gmvst-profile {
     position: absolute;
     
@@ -555,3 +567,29 @@
     line-height: 1.1rem;
     padding-right: .3rem;
 }
+.manyul li {
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .3rem;
+}
+
+  .manyul li .chore-ico {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 1rem;
+    background: url(../images/Icon/chore-ico.png?62b571f…) 0 no-repeat;
+    width: .3rem;
+    background-size: .3rem;
+  }
+  .manyul li .chore-ico-hov {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 1rem;
+    background: url(../images/Icon/chore-ico-hov.png?62b571f…) 0 no-repeat;
+    width: .3rem;
+    background-size: .3rem;
+  }

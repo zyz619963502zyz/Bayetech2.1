@@ -539,7 +539,7 @@
   };
 
   try {
-  self.$get("http://localhost:15786/api/GoodInfo/GetGoodInfo", data)
+  self.$get("/web/api/GoodInfo/GetGoodInfo", data)
   .then(function (result) {
   //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
   if (result.result) {
