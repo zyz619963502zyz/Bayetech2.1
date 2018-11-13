@@ -1,20 +1,22 @@
 ﻿import Vue from '../vue.js'
-import comCompnent from '../common.js'
 import componentTable from '../components/table-Process.vue'
 import approve from '../components/Approve.vue'
 
-let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL,"type");
+//import comCompnent from '../common.js'(已在配置文件全局引用)
+//Vue.prototype.com = comCompnent;单页面引用公共js的另外一种方式，先import后赋值到Vue全局对象上。
 
+let pagetype = comCompnent.default.GetUrlParam($(".NFine_iframe").context.URL,"type");
+    
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType:"good",//单据类型
     tools:{
-        _comCompnent:comCompnent,
+        _comCompnent:comCompnent.default,
         _componentTable: componentTable
     },
     FlowId:"1",
-    GoodListUrl:comCompnent.MenuUrl[pagetype],
+    GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",

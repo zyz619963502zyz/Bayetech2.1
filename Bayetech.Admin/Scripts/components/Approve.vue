@@ -27,22 +27,20 @@
         data() {
             return {
                 name: 'Approve',
-                com: "",//公共方法库
                 flowId: "",
-                com: com,
-                NewFlowExampleUrl: this.com.EngineUrl + "Get_StatusAllDisposal",
-                FlowBeginStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
-                OnNextStepUrl: com.EngineUrl + "Get_StatusAllDisposal",
-                FlowStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
-                PermListUrl: com.EngineUrl + "Get_StatusAllDisposal",
-                StatusAllDisposal: com.EngineUrl + "Get_StatusAllDisposal",
-                DispUserInfoUrl: com.EngineUrl + "Get_DispUserInfo",
+                NewFlowExampleUrl: "/api//Create_NewFlowExample",
+                FlowBeginStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
+                OnNextStepUrl: comCompnent.default.EngineUrl + "Execute_OnNextStep",
+                FlowStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
+                PermListUrl: comCompnent.default.EngineUrl + "Get_PermList",
+                StatusAllDisposal: comCompnent.default.EngineUrl + "Get_StatusAllDisposal",
+                DispUserInfoUrl: comCompnent.default.EngineUrl + "Get_DispUserInfo",
                 DisposalList: [],
                 NextRoleList: [],
                 DisposalSelected: "",
                 NextRoleSelected: "",
                 Param: {
-
+                     
                 },
             }
         },
@@ -50,12 +48,13 @@
             FlowId: "FlowId"
         },
         mounted() {
+            var self = this;
             self.Get_PermList();
         },
         methods: {
             Create_NewFlowExample() {//创建流程实例
                 var self = this;
-                self.com.getWebJson(self.NewFlowExampleUrl, param, function (data) {
+                comCompnent.default.getWebJson(self.NewFlowExampleUrl, param, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -64,7 +63,7 @@
             },
             Get_FlowBeginStatusInfo() {//获取流程开始环节信息
                 var self = this;
-                self.com.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
+                comCompnent.default.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -73,7 +72,7 @@
             },
             Execute_OnNextStep() {//提交送下一步
                 var self = this;
-                self.com.getWebJson(self.OnNextStepUrl, param, function (data) {
+                comCompnent.default.getWebJson(self.OnNextStepUrl, param, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -82,7 +81,7 @@
             },
             Get_FlowStatusInfo() {//获取当前流程及环节信息
                 var self = this;
-                self.com.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
+                comCompnent.default.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -91,7 +90,8 @@
             },
             Get_PermList() {//获取权限
                 var self = this;
-                self.com.getWebJson(self.PermListUrl, null, function (data) {
+                document.domain = "47.98.176.184";  
+                comCompnent.default.getWebJson(self.PermListUrl, null, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -105,7 +105,7 @@
                     p_lFlow_ID: "1",
                     PageConditionRule: ""
                 }
-                self.com.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
+                comCompnent.default.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
                     if (data) {
                         self.DisposalList = data;
                         alert("返回成功!");
@@ -114,7 +114,7 @@
             },
             Get_DispUserInfo() {//获取下一处理人
                 var self = this;
-                self.com.getWebJson(self.DispUserInfoUrl, data, function (data) {
+                comCompnent.default.getWebJson(self.DispUserInfoUrl, data, function (data) {
                     if (data) {
                         self.NextRoleList = data;
                         alert("返回成功!");

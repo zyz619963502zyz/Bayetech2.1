@@ -98,6 +98,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__);
 //import "./jquery-1.10.2.min.js"
@@ -154,7 +155,7 @@ var comCompnent = {
         }
     },
 
-    /**
+    /*
         * ajax封装
         * url 发送请求的地址
         * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}
@@ -446,7 +447,7 @@ var comCompnent = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (comCompnent);
+/* harmony default export */ __webpack_exports__["default"] = (comCompnent);
 
 /***/ }),
 
@@ -10776,14 +10777,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
+let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["default"].GetUrlParam($(".NFine_iframe").context.URL, "type");
 
 let vmData = {
     tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_AdminSets_vue__["a" /* default */]
     },
-    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
+    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"].MenuUrl[pagetype],
     AdminSetsUrl: "/api/AdminManage/GetList", //管理员设置列表表格
     AdminUserAdd: "/api/AdminManage/UserAdd",
     AdminUserDelete: "/api/AdminManage/DeleteUser",

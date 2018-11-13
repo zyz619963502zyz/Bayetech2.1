@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');//解决Make sure to include VueLoaderPlugin in your webpack config问题
 
+
 module.exports = {
     entry:{
         Login:"./Scripts/app/Login",//登录页
@@ -43,6 +44,7 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
+                        
                     }
                 }
             },
@@ -53,9 +55,15 @@ module.exports = {
         ],
     },
     resolve:{
-        extensions:['.js','.json','.vue'],
+        extensions: ['.js', '.json', '.vue'],
+        alias: {
+            COM: path.resolve('./Scripts/common.js')
+        }
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.ProvidePlugin({
+            comCompnent: 'COM' //全局引用COM插件已经跑通。
+        })
     ]
 };

@@ -96,6 +96,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__);
 //import "./jquery-1.10.2.min.js"
@@ -152,7 +153,7 @@ var comCompnent = {
         }
     },
 
-    /**
+    /*
         * ajax封装
         * url 发送请求的地址
         * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}
@@ -444,7 +445,7 @@ var comCompnent = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (comCompnent);
+/* harmony default export */ __webpack_exports__["default"] = (comCompnent);
 
 /***/ }),
 /* 2 */
@@ -11403,7 +11404,7 @@ render._withStripped = true
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-//
+/* WEBPACK VAR INJECTION */(function(comCompnent) {//
 //
 //
 //
@@ -11432,16 +11433,14 @@ render._withStripped = true
     data() {
         return {
             name: 'Approve',
-            com: "", //公共方法库
             flowId: "",
-            com: com,
-            NewFlowExampleUrl: this.com.EngineUrl + "Get_StatusAllDisposal",
-            FlowBeginStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
-            OnNextStepUrl: com.EngineUrl + "Get_StatusAllDisposal",
-            FlowStatusInfoUrl: com.EngineUrl + "Get_StatusAllDisposal",
-            PermListUrl: com.EngineUrl + "Get_StatusAllDisposal",
-            StatusAllDisposal: com.EngineUrl + "Get_StatusAllDisposal",
-            DispUserInfoUrl: com.EngineUrl + "Get_DispUserInfo",
+            NewFlowExampleUrl: "/api//Create_NewFlowExample",
+            FlowBeginStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
+            OnNextStepUrl: comCompnent.default.EngineUrl + "Execute_OnNextStep",
+            FlowStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
+            PermListUrl: comCompnent.default.EngineUrl + "Get_PermList",
+            StatusAllDisposal: comCompnent.default.EngineUrl + "Get_StatusAllDisposal",
+            DispUserInfoUrl: comCompnent.default.EngineUrl + "Get_DispUserInfo",
             DisposalList: [],
             NextRoleList: [],
             DisposalSelected: "",
@@ -11453,13 +11452,14 @@ render._withStripped = true
         FlowId: "FlowId"
     },
     mounted() {
+        var self = this;
         self.Get_PermList();
     },
     methods: {
         Create_NewFlowExample() {
             //创建流程实例
             var self = this;
-            self.com.getWebJson(self.NewFlowExampleUrl, param, function (data) {
+            comCompnent.default.getWebJson(self.NewFlowExampleUrl, param, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11469,7 +11469,7 @@ render._withStripped = true
         Get_FlowBeginStatusInfo() {
             //获取流程开始环节信息
             var self = this;
-            self.com.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
+            comCompnent.default.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11479,7 +11479,7 @@ render._withStripped = true
         Execute_OnNextStep() {
             //提交送下一步
             var self = this;
-            self.com.getWebJson(self.OnNextStepUrl, param, function (data) {
+            comCompnent.default.getWebJson(self.OnNextStepUrl, param, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11489,7 +11489,7 @@ render._withStripped = true
         Get_FlowStatusInfo() {
             //获取当前流程及环节信息
             var self = this;
-            self.com.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
+            comCompnent.default.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11499,7 +11499,8 @@ render._withStripped = true
         Get_PermList() {
             //获取权限
             var self = this;
-            self.com.getWebJson(self.PermListUrl, null, function (data) {
+            document.domain = "47.98.176.184";
+            comCompnent.default.getWebJson(self.PermListUrl, null, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11514,7 +11515,7 @@ render._withStripped = true
                 p_lFlow_ID: "1",
                 PageConditionRule: ""
             };
-            self.com.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
+            comCompnent.default.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
                 if (data) {
                     self.DisposalList = data;
                     alert("返回成功!");
@@ -11524,7 +11525,7 @@ render._withStripped = true
         Get_DispUserInfo() {
             //获取下一处理人
             var self = this;
-            self.com.getWebJson(self.DispUserInfoUrl, data, function (data) {
+            comCompnent.default.getWebJson(self.DispUserInfoUrl, data, function (data) {
                 if (data) {
                     self.NextRoleList = data;
                     alert("返回成功!");
@@ -11533,6 +11534,7 @@ render._withStripped = true
         }
     }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 14 */,
@@ -11625,28 +11627,29 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__ = __webpack_require__(28);
 
 
 
 
+//import comCompnent from '../common.js'(已在配置文件全局引用)
+//Vue.prototype.com = comCompnent;单页面引用公共js的另外一种方式，先import后赋值到Vue全局对象上。
 
-let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].GetUrlParam($(".NFine_iframe").context.URL, "type");
+let pagetype = comCompnent.default.GetUrlParam($(".NFine_iframe").context.URL, "type");
 
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good", //单据类型
     tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+        _comCompnent: comCompnent.default,
+        _componentTable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */]
     },
     FlowId: "1",
-    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */].MenuUrl[pagetype],
+    GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
@@ -11736,12 +11739,13 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */],
-        approve: __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__["a" /* default */]
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */],
+        approve: __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */]
     }
 });
 
 //剩余功能缺乏鉴定前后端加载的是订单还是商品的逻辑。后台。
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 44 */,
