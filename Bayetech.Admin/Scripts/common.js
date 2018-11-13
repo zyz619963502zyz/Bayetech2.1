@@ -52,7 +52,7 @@ var comCompnent = {
         }
     },
 
-    /**
+    /*
         * ajax封装
         * url 发送请求的地址
         * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}

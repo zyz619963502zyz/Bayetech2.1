@@ -98,6 +98,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap_paginator_js__);
 //import "./jquery-1.10.2.min.js"
@@ -154,7 +155,7 @@ var comCompnent = {
         }
     },
 
-    /**
+    /*
         * ajax封装
         * url 发送请求的地址
         * data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}
@@ -446,7 +447,7 @@ var comCompnent = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (comCompnent);
+/* harmony default export */ __webpack_exports__["default"] = (comCompnent);
 
 /***/ }),
 
@@ -10972,7 +10973,7 @@ let vmData = {
     GetByServerUrl: "/api/Game/GetbyServiceTwo",
     GetByServerTwoUrl: "/api/Game/UpdateGameProperty",
     tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["a" /* default */],
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
         _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__["a" /* default */]
     },
     Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
