@@ -791,7 +791,7 @@
           // console.log(t);
           setTimeout(() => {
             self
-              .$post("/web/api/GoodInfo/GetList", data)
+              .$post("http://localhost:15786/api/GoodInfo/GetList", self.searchModel, self.Pagination)
               .then(function (result) {
                 //this.$post("web/api/GoodInfo/GetList", data).then(function(result) {
                 if (result.result) {
@@ -840,9 +840,9 @@
       GetGoodsType: function () {
         let self = this;
         try {
-          this.$get("/web/api/GoodType/GetGoodType", {
-            gameid: self.searchModel.GameId,
-            type: "good"
+          this.$get("http://localhost:15786/api/GoodType/GetGoodType", {
+            gameId: self.searchModel.GameId,
+            type: "good",name:''
           }).then(function (result) {
             self.group = result.content;
             self.$set(self.searchModel, "goodsTypes", result.content);
@@ -855,7 +855,7 @@
       GetGroup: function () {
         let self = this;
         try {
-          this.$get("/web/api/GameServer/GetGroup", {
+          this.$get("http://localhost:15786/api/GameServer/GetGroup", {
             gameid: self.searchModel.GameId
           }).then(function (result) {
             self.groupList = result.content;
@@ -903,14 +903,14 @@
         }
       
         let t = 1;
-        let obj = this.searchModelSub[key]
+        let list = this.searchModelSub[key]
 
-        if (obj.indexOf(value) >= 0) {
-           obj.splice(obj.indexOf(value), 1)
+        if (list.indexOf(value) >= 0) {
+          list.splice(list.indexOf(value), 1)
         } else {
-          obj .push (value);
+          list .push (value);
         }
-        this.$set(this.searchModelSub, key, obj)
+        this.$set(this.searchModelSub, key, list)
       },
      
       isChoice: function (key, value) {

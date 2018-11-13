@@ -1,9 +1,11 @@
 
 import Axios from "axios";
 
-export function get(url ,params={}) {
-    return new Promise((resolve,reject)=>{
-        Axios.get(url,{params:params}).then(response=>{
+
+export function get(url, params = {}, pagination = {}) {
+ 
+  return new Promise((resolve, reject) => {
+    Axios.get(url, { params: params, pagination: pagination }).then(response => {
             resolve(response.data);
 
         }).catch(err=>{
@@ -13,9 +15,13 @@ export function get(url ,params={}) {
     })
 }
 
-export function post(url ,params={}) {
+export function post(url, params, pagination ) {
+  let data = {};
+  data.Param = params;
+  data.Pagination = pagination;
+     
     return new Promise((resolve,reject)=>{
-        Axios.post(url,params).then(response=>{
+      Axios.post(url, data).then(response=>{
             resolve(response.data);
 
         }).catch(err=>{

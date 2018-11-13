@@ -14,6 +14,7 @@ namespace Bayetech.Web.Controllers
         /// <param name="gameId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
+        [HttpGet]
         public JObject GetGoodType(int gameId,string type, string name = null)
         {
             name = Core.Common.Trim(name);
