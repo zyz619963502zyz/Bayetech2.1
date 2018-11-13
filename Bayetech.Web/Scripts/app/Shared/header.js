@@ -4,7 +4,7 @@
                 <!--logo-->
                 <div class ="logo clearfix">
                     <a href="#">
-                        <img src="/Content/Images/logo1.png" alt="Alternate Text" />
+                        <img src="/Content/Images/logo/52yxb.png" alt="Alternate Text" />
                     </a>
                 </div>
                 <!--search-->
