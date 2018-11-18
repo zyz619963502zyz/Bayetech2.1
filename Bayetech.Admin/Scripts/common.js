@@ -60,7 +60,7 @@ var comCompnent = {
         * successfn 成功回调函数
         * errorfn 失败回调函数
         * asyncC:此为第五个参数传就是同步，不穿默认异步。
-    */
+    */ 
     getWebJson :function (url, data, successfn, errorfn, asyncC, callLoading) {
         var self = this;
         if (!callLoading) {
