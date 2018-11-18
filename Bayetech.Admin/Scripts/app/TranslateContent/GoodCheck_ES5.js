@@ -103,7 +103,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
-    EngineUrl: "http://47.98.176.184:8080/api/Engine/",
+    EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
+    //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {
         // 对Date的扩展，将 Date 转化为指定格式的String
         // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -11434,7 +11435,7 @@ render._withStripped = true
         return {
             name: 'Approve',
             flowId: "",
-            NewFlowExampleUrl: "/api//Create_NewFlowExample",
+            NewFlowExampleUrl: "/api/Create_NewFlowExample",
             FlowBeginStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
             OnNextStepUrl: comCompnent.default.EngineUrl + "Execute_OnNextStep",
             FlowStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
@@ -11499,7 +11500,6 @@ render._withStripped = true
         Get_PermList() {
             //获取权限
             var self = this;
-            document.domain = "47.98.176.184";
             comCompnent.default.getWebJson(self.PermListUrl, null, function (data) {
                 if (data) {
                     self.DisposalList = data;
