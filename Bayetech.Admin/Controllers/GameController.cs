@@ -5,7 +5,6 @@ using Bayetech.Service.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -24,10 +23,10 @@ namespace Bayetech.Admin.Controllers
         [HttpPost]
         public JObject GetGameListByLetter(JObject json)
         {
-            int type = json["Param"]["SelectGameType"] == null?Convert.ToInt32(json["Param"]["SelectGameType"]):0;
+            int type = json["Param"]["SelectGameType"] == null ? Convert.ToInt32(json["Param"]["SelectGameType"]) : 0;
             string letter = json["Param"]["SelectLetter"].ToString().ToLower();
             Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("Letter") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-            return serviceGame.GetGameListByLetter(type,letter,page);
+            return serviceGame.GetGameListByLetter(type, letter, page);
         }
 
         /// <summary>
@@ -36,7 +35,8 @@ namespace Bayetech.Admin.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
-        public JObject AddGame(JObject json) {
+        public JObject AddGame(JObject json)
+        {
             Game game = JsonConvert.DeserializeObject<Game>(json.ToString());
             return serviceGame.CreatGame(game);
         }
@@ -47,7 +47,8 @@ namespace Bayetech.Admin.Controllers
         /// <param name="json"></param>
         /// <returns></returns>
         [HttpPost]
-        public JObject UpdateGame(JObject json) {
+        public JObject UpdateGame(JObject json)
+        {
             return serviceGame.UpdateGame(json);
         }
         [HttpPost]
@@ -66,11 +67,12 @@ namespace Bayetech.Admin.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpPost]
-        public JObject DelGameById(string alias) {
+        public JObject DelGameById(string alias)
+        {
             JObject ret = new JObject();
             Game game = gameService.FindEntity(c => c.Alias == alias);
             game.IsDelete = true;
-            if (gameService.Update(game)>0)
+            if (gameService.Update(game) > 0)
             {
                 ret.Add("result", "删除成功!");
             }
@@ -87,7 +89,8 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public JObject UpdateGameProperty(JObject json) {
+        public JObject UpdateGameProperty(JObject json)
+        {
             return serviceGame.UpdateExtraProperty(json);
 
             ////自营请入库

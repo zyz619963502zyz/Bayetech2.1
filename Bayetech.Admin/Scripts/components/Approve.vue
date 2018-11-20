@@ -28,7 +28,7 @@
             return {
                 name: 'Approve',
                 flowId: "",
-                NewFlowExampleUrl: "/api//Create_NewFlowExample",
+                NewFlowExampleUrl: "/api/Create_NewFlowExample",
                 FlowBeginStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
                 OnNextStepUrl: comCompnent.default.EngineUrl + "Execute_OnNextStep",
                 FlowStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
@@ -90,7 +90,6 @@
             },
             Get_PermList() {//获取权限
                 var self = this;
-                document.domain = "47.98.176.184";  
                 comCompnent.default.getWebJson(self.PermListUrl, null, function (data) {
                     if (data) {
                         self.DisposalList = data;
