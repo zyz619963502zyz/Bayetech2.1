@@ -11429,28 +11429,57 @@ render._withStripped = true
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data() {
         return {
             name: 'Approve',
             flowId: "",
-            NewFlowExampleUrl: "/api/Create_NewFlowExample",
-            FlowBeginStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
-            OnNextStepUrl: comCompnent.default.EngineUrl + "Execute_OnNextStep",
-            FlowStatusInfoUrl: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
-            PermListUrl: comCompnent.default.EngineUrl + "Get_PermList",
-            StatusAllDisposal: comCompnent.default.EngineUrl + "Get_StatusAllDisposal",
-            DispUserInfoUrl: comCompnent.default.EngineUrl + "Get_DispUserInfo",
-            DisposalList: [],
-            NextRoleList: [],
             DisposalSelected: "",
             NextRoleSelected: "",
-            Param: {}
+            Url: { //接口连接字符串
+                NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
+                FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
+                OnNextStep: comCompnent.default.EngineUrl + "Execute_OnNextStep",
+                FlowStatusInfo: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
+                PermList: comCompnent.default.EngineUrl + "Get_PermList",
+                StatusAllDisposal: comCompnent.default.EngineUrl + "Get_StatusAllDisposal",
+                DispUserInfo: comCompnent.default.EngineUrl + "Get_DispUserInfo"
+            },
+            Param: { //参数
+                NewFlowExample: {
+                    Flow_Id: "",
+                    Cur_Status_Id: "",
+                    New_Status_Id: "",
+                    Reciever_Id: "",
+                    Sender_Id: "",
+                    Send_Time: ""
+                },
+                FlowBeginStatusInfo: {},
+                OnNextStep: {},
+                FlowStatusInfo: {},
+                PermList: {},
+                StatusAllDisposal: {},
+                DispUserInfo: {}
+            },
+            ResultList: {
+                NewFlowExample: [],
+                FlowBeginStatusInfo: [],
+                OnNextStep: [],
+                FlowStatusInfo: [],
+                PermList: [],
+                StatusAllDisposal: [],
+                DispUserInfo: []
+            }
         };
     },
     props: {
         FlowId: "FlowId"
+    },
+    Created() {
+        var self = this;
+        self.flowId = self.props.FlowId;
     },
     mounted() {
         var self = this;
@@ -11462,8 +11491,8 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.NewFlowExampleUrl, param, function (data) {
                 if (data) {
-                    self.DisposalList = data;
-                    alert("返回成功!");
+                    self.NewFlowExampleList = data;
+                    alert("实例创建成功!");
                 }
             });
         },
@@ -11472,7 +11501,7 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.FlowBeginStatusInfoUrl, param, function (data) {
                 if (data) {
-                    self.DisposalList = data;
+                    self.FlowBeginStatusInfoList = data;
                     alert("返回成功!");
                 }
             });
@@ -11482,7 +11511,7 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.OnNextStepUrl, param, function (data) {
                 if (data) {
-                    self.DisposalList = data;
+                    self.FlowBeginStatusInfoList = data;
                     alert("返回成功!");
                 }
             });
@@ -11492,7 +11521,7 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.FlowStatusInfoUrl, param, function (data) {
                 if (data) {
-                    self.DisposalList = data;
+                    self.FlowStatusInfoList = data;
                     alert("返回成功!");
                 }
             });
@@ -11502,7 +11531,7 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.PermListUrl, null, function (data) {
                 if (data) {
-                    self.DisposalList = data;
+                    self.PermList = data;
                     alert("返回成功!");
                 }
             });
@@ -11517,7 +11546,7 @@ render._withStripped = true
             };
             comCompnent.default.getWebJson(self.StatusAllDisposalUrl, param, function (data) {
                 if (data) {
-                    self.DisposalList = data;
+                    self.StatusAllDisposalList = data;
                     alert("返回成功!");
                 }
             });
@@ -11527,7 +11556,7 @@ render._withStripped = true
             var self = this;
             comCompnent.default.getWebJson(self.DispUserInfoUrl, data, function (data) {
                 if (data) {
-                    self.NextRoleList = data;
+                    self.DispUserInfoList = data;
                     alert("返回成功!");
                 }
             });
@@ -11815,7 +11844,7 @@ var render = function() {
               }
             }
           },
-          _vm._l(_vm.DisposalList, function(item) {
+          _vm._l(_vm.ResultList.StatusAllDisposal, function(item) {
             return _c("option", { domProps: { value: item.DisposalCode } }, [
               _vm._v(_vm._s(item.Disposal_Name))
             ])
@@ -11858,7 +11887,7 @@ var render = function() {
               }
             }
           },
-          _vm._l(_vm.NextRoleList, function(item) {
+          _vm._l(_vm.ResultList.DispUserInfo, function(item) {
             return _c("option", { domProps: { value: item.User_ID } }, [
               _vm._v(_vm._s(item.User_DisplayName))
             ])
