@@ -79,6 +79,11 @@ export default new Router({
       path: '/center',
       name: 'center',
       component: r => require.ensure([], () => r(require('../page/center/PersonalCenter.vue')), 'center')
+    },
+    {
+      path: '/gameOrder',
+      name: 'gameOrder',
+      component: r => require.ensure([], () => r(require('../page/placeOrder/gameOrder.vue')), 'center')
     }
   ]
 })
