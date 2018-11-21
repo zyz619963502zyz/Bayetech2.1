@@ -94,7 +94,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.NewFlowExampleUrl, self.Param.NewFlowExample, function (data) {
                     if (data) {
-                        self.NewFlowExampleList = data;
+                        self.ResultList.NewFlowExample = data;
                         alert("实例创建成功!");
                     }
                 })
@@ -103,7 +103,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.FlowBeginStatusInfoUrl, self.Param.FlowBeginStatusInfo, function (data) {
                     if (data) {
-                        self.FlowBeginStatusInfoList = data;
+                        self.ResultList.FlowBeginStatusInfo = data;
                         alert("返回成功!");
                     }
                 })
@@ -112,7 +112,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.OnNextStepUrl, self.Param.OnNextStep, function (data) {
                     if (data) {
-                        self.FlowBeginStatusInfoList = data;
+                        self.ResultList.OnNextStep = data;
                         alert("返回成功!");
                     }
                 })
@@ -121,7 +121,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.FlowStatusInfoUrl, self.Param.FlowStatusInfo, function (data) {
                     if (data) {
-                        self.FlowStatusInfoList = data;
+                        self.ResultList.FlowStatusInfo = data;
                         alert("返回成功!");
                     }
                 })
@@ -130,7 +130,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.PermListUrl, self.Param.PermList, function (data) {
                     if (data) {
-                        self.PermList = data;
+                        self.ResultList.PermList = data;
                         alert("返回成功!");
                     }
                 })
@@ -144,7 +144,7 @@
                 }
                 comCompnent.default.getWebJson(self.StatusAllDisposalUrl, self.Param.StatusAllDisposal, function (data) {
                     if (data) {
-                        self.StatusAllDisposalList = data;
+                        self.ResultList.StatusAllDisposal = data;
                         alert("返回成功!");
                     }
                 })
@@ -153,7 +153,7 @@
                 var self = this;
                 comCompnent.default.getWebJson(self.DispUserInfoUrl, self.Param.DispUserInfo, function (data) {
                     if (data) {
-                        self.DispUserInfoList = data;
+                        self.ResultList.DispUserInfo = data;
                         alert("返回成功!");
                     }
                 })
