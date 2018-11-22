@@ -1,7 +1,7 @@
 <!--
     * 下订单页
-    * equipment装备，account账号，coins金币，stone（挑战书）
-    *
+    * equipment装备，account账号，coins金币，stone（挑战书）等大部分公用
+    * 后续一些小块可能需要单独拆分出来，作为一个独立的小组件
  -->
 <template>
 
@@ -104,6 +104,19 @@
                 <div data-v-64038a77="" class="shade eqshade" style="display: block;"></div>
               </div>
             </div>
+            <!--交易区服-->
+            <div data-v-b0cdc27e="" class="qufu-box fadeUp border-top bg-fff">
+              <div data-v-b0cdc27e="" class="title border-bottom"><h2 data-v-b0cdc27e="">交易区服</h2> <span data-v-b0cdc27e="" class="icon-close"></span></div> <div data-v-b0cdc27e="" class="select-area clearfix">
+                <div data-v-b0cdc27e="" class="select-left fl">
+                  <div data-v-b0cdc27e="" class="select-name color-000 f36 text-center" style="position: relative;">
+                    <span data-v-b0cdc27e="">
+                      选择区
+                      <span data-v-b0cdc27e="" class="inline" style="width: 100%; height: 2px; position: absolute; left: 0px; bottom: 0px;"></span>
+                    </span>
+                  </div> <div data-v-b0cdc27e="" class="select-item f30 color-666"><ul data-v-b0cdc27e="" style="height: 4.36rem;"><li data-v-b0cdc27e="" class="" style="border-bottom: 0px; text-align: center;"><span data-v-b0cdc27e="">广东区</span></li><li data-v-b0cdc27e="" class="" style="border-bottom: 0px; text-align: center;"><span data-v-b0cdc27e="">广西区</span></li></ul></div>
+                </div> <div data-v-b0cdc27e="" class="fl line1 border-bottom"></div> <!---->
+              </div>
+            </div>
           </div>
         </div>
         <div data-v-7e6830d1="" class="fixed-button4 bg-fff">
@@ -114,6 +127,18 @@
           </div>
           <a data-v-7e6830d1="" class="fright f36 fr">提交订单</a>
         </div>
+      </div>
+    </div>
+
+    <!-- 友情提示 -->
+    <div data-v-52efbd22="" class="filter-masks" data-v-7e6830d1="">
+      <div data-v-52efbd22="" class="top-header fixed-top border-bottom"><div data-v-52efbd22="" class="top-back"><a data-v-52efbd22=""></a></div> <h2 data-v-52efbd22="" class="f36 ">友情提示</h2> <div data-v-52efbd22="" class="top-right"></div></div> <div data-v-52efbd22="" class="friend-tip-content mt-140 px-30">
+        <div data-v-52efbd22="" class="lh-48 f30 color-333 mt-50">
+        </div><div data-v-52efbd22="" class="lh-48 f30 color-333 mt-50">
+          1.任何一个（包括客服和卖家）向您取回已交易商品，或索要5173帐号和游戏帐号信息的人都是骗子。
+        </div><div data-v-52efbd22="" class="lh-48 f30 color-333 mt-50">
+          2.如果您选择信用卡直接支付购买，如遇订单取消交易，资金将在7至15个工作日内原路退回。
+        </div><div data-v-52efbd22="" class="lh-48 f30 color-333 mt-50">为快速交易，请您支付后及时加接手客服QQ进行交易，感谢您的配合。</div>
       </div>
     </div>
   </div>
@@ -527,5 +552,108 @@
       line-height: .98rem;
       height: .98rem;
       color: #fff;
+    }
+
+    /*友情提示*/
+  .filter-masks[data-v-52efbd22] {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  .top-header .top-right {
+    font-size: .3rem;
+    color: #1864ff;
+    padding-right: .3rem;
+  }
+  .mt-140 {
+    margin-top: 1.4rem;
+  }
+  .mt-50 {
+    margin-top: .5rem;
+  }
+  .lh-48 {
+    line-height: .48rem !important;
+  }
+
+  /*交易区服*/
+  .fadeUp {
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    max-width: 768px;
+  }
+    .fadeUp .cointitl, .fadeUp .title {
+      padding: 0;
+    }
+    .fadeUp .title {
+      padding: .3rem;
+      font-size: .36rem;
+      text-align: center;
+      color: #000;
+      position: relative;
+    }
+  .title {
+    height: .9rem;
+    line-height: .9rem;
+    font-size: .28rem;
+    color: #bbb;
+  }
+  .icon-close {
+    width: .8rem;
+    height: 100%;
+    position: absolute;
+    right: .3rem;
+    top: 0;
+    background: url(../../assets/images/tran-close.png)100% no-repeat;
+    background-size: 30%;
+  }
+  .select-area {
+    padding: 0 .3rem;
+  }
+    .select-area .select-left, .select-right {
+      width: 45%;
+    }
+    .select-area .line1 {
+      width: 10%;
+      height: 1.2rem;
+    }
+  .select-name {
+    width: 100%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-bottom: 2px solid #f60;
+  }
+  .select-name[data-v-b0cdc27e] {
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .select-item ul {
+    max-height: 4.36rem;
+    overflow-y: scroll;
+  }
+  .select-left .select-item ul li.active {
+    background: url(../../assets/images/ok.png)100% no-repeat;
+    background-size: 12%;
+  }
+    .select-left .select-item ul li.active span[data-v-b0cdc27e] {
+      display: inline-block;
+      background-size: .38rem .3rem;
+      color: #f60;
+    }
+  .select-item ul li {
+    padding: .36rem 0;
+    max-width: 100%;
+  }
+  .inline[data-v-b0cdc27e] {
+    border-bottom: 2px solid #f60;
+  }
+  .select-right .select-item ul li {
+    text-align: center;
+  }
+    .select-right .select-item ul li span {
+      padding-right: 1rem;
     }
 </style>
