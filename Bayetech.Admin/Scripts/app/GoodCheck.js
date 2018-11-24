@@ -48,7 +48,7 @@ let vmData = {
             records: 10,//总记录数
             total: 10//总页数。
         }
-    },
+    }
 };
 
 new Vue({

@@ -2,7 +2,26 @@
 import "./bootstrap-paginator.js"
 
 var comCompnent = {
-    EngineUrl:"http://47.98.176.184:8080/api/Engine/",
+    EngineUrl:"http://47.98.176.184:8080/api/Engine/",//服务器
+    //EngineUrl: "http://localhost:8082/api/Engine/",//本地
+
+    Model: {
+        EngineInfo: {//引擎信息
+            Flow_Id: "",
+            Wfm_Id: "",
+            Sender_Id: "",
+            Sender_Code: "",
+            Reciever_Id: "",
+            Reciever_Code: "",
+            Cur_Status_Id: "",
+            New_Status_Id: "",
+            Disposal_Id: "",
+            Send_Time:""
+        },
+        PageInfo: {//页面信息
+            txtPageConditionRule99:""
+        }
+    },
     init:function(){
         // 对Date的扩展，将 Date 转化为指定格式的String
         // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -60,7 +79,7 @@ var comCompnent = {
         * successfn 成功回调函数
         * errorfn 失败回调函数
         * asyncC:此为第五个参数传就是同步，不穿默认异步。
-    */
+    */ 
     getWebJson :function (url, data, successfn, errorfn, asyncC, callLoading) {
         var self = this;
         if (!callLoading) {
