@@ -17,6 +17,24 @@
         <!---->
         <div data-v-932364c8="" class="detail-main pb-200 bg-f1 fw mt-97">
           <div data-v-932364c8="" class="detail-content  fw bg-fff">
+            <div class="banner">
+              <swiper :options="swiperOption">
+                <swiper-slide ><div  style="width: 100%;background:black;">slide 1</div></swiper-slide>
+                <swiper-slide>Slide 2</swiper-slide>
+                <swiper-slide>Slide 3</swiper-slide>
+                <swiper-slide>Slide 4</swiper-slide>
+                <swiper-slide>Slide 5</swiper-slide>
+                <swiper-slide>Slide 6</swiper-slide>
+                <swiper-slide>Slide 7</swiper-slide>
+                <swiper-slide>Slide 8</swiper-slide>
+                <swiper-slide>Slide 9</swiper-slide>
+                <swiper-slide>Slide 10</swiper-slide>
+                <div class="swiper-pagination" slot="pagination"></div>
+              </swiper>
+                <div class="swiper-pagination" slot="pagination"></div>
+              <!--</swiper>-->
+              <div class="jc"></div>
+            </div>
             <div data-v-932364c8="" class="swiper-container border-bottom piccont bg-000">
               <div data-v-932364c8="" class="swiper-wrapper text-center middle" style="width: 1280px;">
                 <img data-v-932364c8="" class="previewer-demo-img"
@@ -86,47 +104,47 @@
             <!--商品描述 ↓ -->
             <div data-v-932364c8="" class="describe" style="">
 
-              
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30" v-for="info in GoodInfo.mallGoodInfo" >
+
+              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30" v-for="info in GoodInfo.mallGoodInfo">
                 <div data-v-932364c8="" class="sto_mes f30 fl">{{info.DescriptionName}}</div>
                 <div data-v-932364c8="" class="sto_right f30 fr text-left">
                   {{info.DescriptionValue}}
                 </div>
               </div>
-             <!-- <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">角色职业</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">狱血魔神</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">角色性别</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">男</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">角色等级</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">90级</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">QQ等级</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">QQ等级40级以上</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">QQ好友</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">无QQ好友</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">历史处罚记录</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">不存在5天封号记录</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
-                <div data-v-932364c8="" class="sto_mes f30 fl">战区</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">跨3-B华西区B</div>
-              </div>
-              <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30" style="display: none;">
-                <div data-v-932364c8="" class="sto_mes f30 fl">商品有效期</div>
-                <div data-v-932364c8="" class="sto_right f30 fr text-left">-->
+              <!-- <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">角色职业</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">狱血魔神</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">角色性别</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">男</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">角色等级</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">90级</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">QQ等级</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">QQ等级40级以上</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">QQ好友</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">无QQ好友</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">历史处罚记录</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">不存在5天封号记录</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30">
+       <div data-v-932364c8="" class="sto_mes f30 fl">战区</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">跨3-B华西区B</div>
+     </div>
+     <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30" style="display: none;">
+       <div data-v-932364c8="" class="sto_mes f30 fl">商品有效期</div>
+       <div data-v-932364c8="" class="sto_right f30 fr text-left">-->
 
-                </div>
-              </div>
+            </div>
+          </div>
             </div>
             <div data-v-932364c8="" class="clearfix"></div>
             <!--交易说明 ↓ -->
@@ -513,15 +531,34 @@
 
 <script>
   import "@/assets/css/account-detail.css";
+  
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   let vmdata = {
-
+    bannerphoto: [{ items: '123.jpg' }, { items: '1243.jpg' }],
   GoodNo:'',
-  GoodInfo: {}
+    GoodInfo: {},
+    swiperOption: {
+pagination: '.swiper-pagination',
+paginationClickable: true,
+autoplay: 2500,
+autoplayDisableOnInteraction: false,
+loop: false,
+coverflow: {
+　　rotate: 30,
+　　stretch: 10,
+　　depth: 60,
+　　modifier: 2,
+　　slideShadows : true
+　　}
+}
   };
 
   export default {
   name: "goodsDetail",
-
+    components: {
+      swiper,
+      swiperSlide
+    },
   data() {
   return vmdata;
   },
