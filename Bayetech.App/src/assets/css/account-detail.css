@@ -263,13 +263,15 @@ em, i {
 }
 
 .explain-coner {
-    height: auto;
-    display: block;
-    overflow: hidden;
-    margin: .56rem .44rem .1rem
+  height: auto;
+  display: block;
+  overflow: hidden;
+  /*margin: .56rem .44rem .1rem*/
+  padding: .56rem .44rem .1rem;
+  background: #fff ;
 }
 .explain-coner .excon-titl {
-    background: #fff url(../images/Icon/excon-titl-bj.png?1d5d1511bd44e0d3b40330f6bb2dd86b) repeat-y .17rem 0;
+    background: #fff url(../images/Icon/excon-titl-bj.png?1d5d1511bd44e0d3b40330f6bb2dd86b) repeat-y .12rem 0;
     height: auto;
     display: block;
     overflow: hidden;
@@ -576,7 +578,7 @@ em, i {
     height: .45rem;
     line-height: .45rem
 }
-.empty-conn img {
+.empty-conn img { 
     width: 100%;
     height: 100%
 }
