@@ -50,18 +50,18 @@
           <!---->
           <div data-v-6b09e788="" class="default_numb" v-show="conditionTab.sort">
             <ul data-v-6b09e788="">
-              <li data-v-6b09e788="" class="active">
-                <a data-v-6b09e788="">
+              <li data-v-6b09e788="" :class="{active:Pagination.order=='AddTime'}">
+                <a data-v-6b09e788="" @click="setValue({order:'AddTime',sord:'desc'},'Pagination');SearchList();ToggleConditionTab('sort')">
                   默认排序 <span class="color-999">(按最新发布排序)</span>
                 </a>
               </li>
-              <li data-v-6b09e788="" class="">
-                <a data-v-6b09e788="">
+              <li data-v-6b09e788="" :class="{active:Pagination.order=='GoodPrice'&&Pagination.sord=='asc'}">
+                <a data-v-6b09e788="" @click="setValue({order:'GoodPrice',sord:'asc'},'Pagination');SearchList();ToggleConditionTab('sort')">
                   价格最低 <span class="color-999">(按价格从低到高排序)</span>
                 </a>
               </li>
-              <li data-v-6b09e788="" class="">
-                <a data-v-6b09e788="">
+              <li data-v-6b09e788="" :class="{active:Pagination.order=='GoodPrice'&&Pagination.sord=='desc'}">
+                <a data-v-6b09e788=""  @click="setValue({order:'GoodPrice',sord:'desc'},'Pagination');SearchList();ToggleConditionTab('sort')">
                   价格最高 <span class="color-999">(按价格从高到低排序)</span>
                 </a>
               </li>
@@ -651,6 +651,8 @@
       loadLock: false,
       isEnd: false
     },
+    //排序规则mapping
+    
     serverKeyWords: '',
     groupList: ["上海区", "广东区"],
     accrossList: [{ accrossId: 1, accrossName: '跨5华东1区' }, { accrossId: 2, accrossName: '跨6华北1区' }],
@@ -659,6 +661,7 @@
     serverList: ["上海1区", "上海2区"],
     filterServerList: [],
     goodsList: [],
+   // sortName,
     conditionTab: {
       goodsType: false,
       server: false,
@@ -669,8 +672,8 @@
       //分页对象
       rows: 10, //每页行数，
       page: 1, //当前页码
-      order: "GoodNo", //排序字段
-      sord: "asc", //排序类型
+      order: "AddTime", //排序字段
+      sord: "desc", //排序类型
       records: 10, //总记录数
       total: 10 //总页数。
     },
@@ -884,15 +887,19 @@
         dic[self.searchModel.GoodTypeName] = true;
         return dic[value] ? "active" : "";
       },
-      setValue: function (obj) {
+      setValue: function (obj, model='searchModel') {
+        
         let self = this;
         for (var key in obj) {
-          self.searchModel[key] = obj[key];
+          self[model][key] = obj[key];
         }
       }
       ,
       //筛选明细
-     
+
+      //key : 容器对象，类型为数组 ，如jobList
+      //value:选中的值,如剑圣，容器里没有就添加，有就删除
+      //reset :每次选择前清空容器，实现单选，传true
       choose: function (key, value,reset)
       {
         
@@ -912,7 +919,9 @@
         }
         this.$set(this.searchModelSub, key, list)
       },
-     
+     //检查是否选择
+      //key ：检查的容器，如jobList
+      //value :值，如剑圣 容器里有剑圣，则为true ,没有为false ,方便切换class
       isChoice: function (key, value) {
         
         return this.searchModelSub[key].indexOf(value) >= 0;
@@ -927,6 +936,23 @@
         this.SearchServer();
 
       },
+      "Pagination.order": function (newVal) {
+        let self = this;
+        if (self.Pagination.order == "AddTime") {
+          //self.sortName = '默认排序';
+        }
+        else if (self.Pagination.order == "GoodPrice" && self.Pagination.sord == "asc")
+        {
+
+        }
+      },
+      "Pagination.sord": function (newVal)
+      {
+
+      }
+
+      ,
+
        "searchModelSub.priceRange": function (newVal,oldVal)
        {
         

@@ -15,7 +15,7 @@
       <p>{{GoodInfo}}</p>
       <div data-v-932364c8="">
         <!---->
-        <div data-v-932364c8="" class="detail-main pb-200 bg-f1 fw mt-97">
+        <div data-v-932364c8="" class="detail-main bg-f1 fw">
           <div data-v-932364c8="" class="detail-content  fw bg-fff">
             <div data-v-932364c8="" class="swiper-container border-bottom piccont bg-000">
               <div data-v-932364c8="" class="swiper-wrapper text-center middle" style="width: 1280px;">
@@ -80,11 +80,11 @@
             </div>
             <div data-v-17bb81ca="" data-v-932364c8=""><!----> <!----> <!----></div>
             <div data-v-932364c8="" class="mbgame-iftion fw border-20">
-              <div data-v-932364c8="" class="iftdemo fl border-top"><a data-v-932364c8="" class="text-center bg-f8 f32 active">商品描述</a></div>
-              <div data-v-932364c8="" class="iftdemo fl border-top"><a data-v-932364c8="" class="text-center bg-f8 f32">交易说明</a></div>
+              <div data-v-932364c8="" class="iftdemo fl border-top"><a data-v-932364c8="" :class="{active:conditionTab.goodsDescribe,'bg-f8':true,f32:true,'text-center':true}" @click="ToggleConditionTab('goodsDescribe')"  >商品描述</a></div>
+              <div data-v-932364c8="" class="iftdemo fl border-top"><a data-v-932364c8="" :class="{active:conditionTab.tradeInfo,'bg-f8':true,f32:true,'text-center':true}"  @click="ToggleConditionTab('tradeInfo')">交易说明</a></div>
             </div>
             <!--商品描述 ↓ -->
-            <div data-v-932364c8="" class="describe" style="">
+            <div data-v-932364c8="" class="describe"  v-show="conditionTab.goodsDescribe">
 
 
               <div data-v-932364c8="" class="rechseach-titl bg-fff   border-bottom  fw px-30" v-for="info in GoodInfo.mallGoodInfo">
@@ -130,7 +130,7 @@
         </div>
         <div data-v-932364c8="" class="clearfix"></div>
         <!--交易说明 ↓ -->
-        <div data-v-932364c8="" class="explainn" style="display: none;">
+        <div data-v-932364c8="" class="explainn"  v-show="conditionTab.tradeInfo">
           <div data-v-932364c8="" class="explain-coner">
             <div data-v-932364c8="" class="excon-titl color-m1"><i data-v-932364c8="" class="one fl">1</i> <span data-v-932364c8="" class="fl ml-15 f30">下单支付</span></div>
             <div data-v-932364c8="" class="excon-titl excon-hihg py-20">
@@ -516,7 +516,11 @@
   let vmdata = {
 
     GoodNo: '',
-    GoodInfo: {}
+    GoodInfo: {},
+    conditionTab: {
+      goodsDescribe: true,
+      tradeInfo: false
+    }
   };
 
   export default {
@@ -531,6 +535,16 @@
       this.GetGoodInfo();
     },
     methods: {
+      ToggleConditionTab: function (type) {
+
+        let status = this.conditionTab[type];
+        if (status == false) {
+          this.conditionTab.goodsDescribe = false;
+          this.conditionTab.tradeInfo = false;
+          this.conditionTab[type] = !this.conditionTab[type];
+        }
+       
+      },
       GetGoodInfo: function () {
         let self = this;
         let data = {
