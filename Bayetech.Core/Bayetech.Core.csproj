@@ -655,7 +655,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Entity\Bayetech.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Bayetech.Designer.cs</LastGenOutput>

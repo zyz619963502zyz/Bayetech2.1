@@ -15,7 +15,8 @@ let vmData = {
         _comCompnent:comCompnent.default,
         _componentTable: componentTable
     },
-    FlowId:"1",
+    flowId: "1",
+    wfmid:"zhaoyz520181124111053798",
     GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
