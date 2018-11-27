@@ -56,7 +56,7 @@
                         p_lFlow_ID:""
                     },
                     CurFlowStatusInfo: {//获取当前流程当前环节信息
-                        wfmId: ""
+                        wfmid: ""
                     },
                     PermList: {//获取流程权限
                         lngPerm:""//权限累加算出来的值
@@ -124,7 +124,7 @@
             Execute_OnNextStep() {//提交送下一步
                 var self = this;
                 comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
-                    if (data) {
+                    if (data) { 
                         self.ResultList.OnNextStep = data;
                         alert("提交送下一步成功!");
                     }
@@ -132,6 +132,7 @@
             },
             Get_CurFlowStatusInfo() {//获取当前流程及环节信息
                 var self = this;
+                self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
                 comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.OnNextStep = data;

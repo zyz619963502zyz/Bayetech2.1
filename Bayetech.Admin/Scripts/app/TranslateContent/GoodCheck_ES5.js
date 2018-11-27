@@ -11481,7 +11481,7 @@ render._withStripped = true
                     p_lFlow_ID: ""
                 },
                 CurFlowStatusInfo: { //获取当前流程当前环节信息
-                    wfmId: ""
+                    wfmid: ""
                 },
                 PermList: { //获取流程权限
                     lngPerm: "" //权限累加算出来的值
@@ -11561,6 +11561,7 @@ render._withStripped = true
         Get_CurFlowStatusInfo() {
             //获取当前流程及环节信息
             var self = this;
+            self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
             comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
