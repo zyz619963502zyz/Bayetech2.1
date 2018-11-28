@@ -62,8 +62,8 @@
                         lngPerm:""//权限累加算出来的值
                     },
                     StatusAllDisposal: {//获取当前环节流程线
-                        p_lFlow_ID: "",//流程ID
                         p_lStatus_ID: "",//环节ID
+                        p_lFlow_ID: "",//流程ID
                         PageConditionRule:""//页面规则
                     },
                     DispUserInfo: {//获取流程线 所有人员(无数据权限)
@@ -99,7 +99,7 @@
                 self.Get_CurFlowStatusInfo();
                 //获取流程线
                 self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
-                self.Param.StatusAllDisposal.p_lStatus_ID = 0;
+                self.Param.StatusAllDisposal.p_lStatus_ID = 1;
                 self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
                 self.Get_StatusAllDisposal();
             },
