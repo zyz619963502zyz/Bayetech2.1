@@ -83,7 +83,7 @@ new Vue({
             var self = this;
             self.CheckGoodNo = item.GoodNo;
             self.wfmid = item.WFM_ID;//订单的wfmid.
-            self.component(approve,approve);//打开表单实例化审批流组件
+            self.$children[0].Init();//调用审批组件。
             $("#checkModal").modal("show");
         },
         TurnToPage(page){
@@ -93,25 +93,29 @@ new Vue({
         },
         CheckGoods(flag){
             var self = this;
-            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
-            self.SearchParam.Param.Status = (flag=='Y'?'PutOnsale':'PutDownsale');
-            if (confirm(flag=='Y'?"确定审批通过？":"确认审批不通过？")) {
-               $("#CheckConfirm").Btns("loading");
-               self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                   if (data.result) {
-                       alert("审批成功!");
-                   } 
-                   $("#checkModal").modal("hide");
-                   $("#CheckConfirm").Btns("reset");
-               },function(){
-                  $("#CheckConfirm").Btns("reset");
-               });
+            if (self.SearchParam.Param.SelectType == "good") {//商品审核
+                self.SearchParam.Param.GoodNo = self.CheckGoodNo;
+                self.SearchParam.Param.Status = (flag == 'Y' ? 'PutOnsale' : 'PutDownsale');
+                if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
+                    $("#CheckConfirm").Btns("loading");
+                    self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                        if (data.result) {
+                            alert("审批成功!");
+                        }
+                        $("#checkModal").modal("hide");
+                        $("#CheckConfirm").Btns("reset");
+                    }, function () {
+                        $("#CheckConfirm").Btns("reset");
+                    });
+                }
+            } else {//订单审核
+                self.$children[0].
             }
         }
     },
     components:{
         comtable: componentTable,
-        //approve: approve
+        approve: approve
     }
 });
 

@@ -11271,7 +11271,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(9);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -11284,8 +11284,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11295,7 +11295,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11304,7 +11304,7 @@ if (false) {
     } else {
       api.reload('93bba3e8', component.options)
     }
-    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&lang=html", function () {
       api.rerender('93bba3e8', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11320,9 +11320,9 @@ component.options.__file = "Scripts\\components\\table-Process.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(12);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(12);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11516,28 +11516,26 @@ render._withStripped = true
         };
     },
     props: ["flowid", "wfmid"],
-    created() {
-        var self = this;
-        self.Init();
-    },
-    mounted() {
-        var self = this;
-        //self.Get_PermList();
+    computed: {},
+    watch: {
+        DisposalSelected: function (val, oldval) {
+            var self = this;
+            self.Get_DispUserInfo();
+        }
     },
     methods: {
         Init() {
             var self = this;
-            //获取当前流程信息
-            self.Get_CurFlowStatusInfo();
-            //获取流程线
-            self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
-            self.Param.StatusAllDisposal.p_lStatus_ID = 1;
-            self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则
-            self.Get_StatusAllDisposal();
-            //获取下一处理角色
-            self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
-            self.Param.DispUserInfo.p_lDisosal_ID = "";
-            self.Get_DispUserInfo();
+            if (self.flowid) {
+                //获取当前流程信息
+                self.Get_CurFlowStatusInfo();
+                //获取流程线
+                self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
+                self.Param.StatusAllDisposal.p_lStatus_ID = 1;
+                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则
+                self.Get_StatusAllDisposal();
+                //获取下一处理角色
+            }
         },
         Create_NewFlowExample() {
             //创建流程实例
@@ -11559,21 +11557,43 @@ render._withStripped = true
                 }
             });
         },
-        Execute_OnNextStep() {
-            //提交送下一步
+        Get_CurFlowStatusInfo() {
+            //获取当前流程及环节信息
             var self = this;
-            comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+            self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
+            comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
                     alert("提交送下一步成功!");
                 }
             });
         },
-        Get_CurFlowStatusInfo() {
-            //获取当前流程及环节信息
+        Get_StatusAllDisposal() {
+            //获取当前环节流程线
             var self = this;
-            self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
-            comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
+            comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
+                if (data) {
+                    self.ResultList.StatusAllDisposal = data;
+                    alert("获取当前环节流程线成功!");
+                }
+            });
+        },
+        Get_DispUserInfo() {
+            //获取下一处理人
+            var self = this;
+            self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
+            self.Param.DispUserInfo.p_lDisosal_ID = self.DisposalSelected;
+            comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
+                if (data) {
+                    self.ResultList.DispUserInfo = data;
+                    alert("获取下一处理人成功!");
+                }
+            });
+        },
+        Execute_OnNextStep() {
+            //提交送下一步
+            var self = this;
+            comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
                     alert("提交送下一步成功!");
@@ -11599,26 +11619,6 @@ render._withStripped = true
                 if (data) {
                     self.ResultList.PermList = data;
                     alert("获取权限成功!");
-                }
-            });
-        },
-        Get_StatusAllDisposal() {
-            //获取当前环节流程线
-            var self = this;
-            comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
-                if (data) {
-                    self.ResultList.StatusAllDisposal = data;
-                    alert("获取当前环节流程线成功!");
-                }
-            });
-        },
-        Get_DispUserInfo() {
-            //获取下一处理人
-            var self = this;
-            comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
-                if (data) {
-                    self.ResultList.DispUserInfo = data;
-                    alert("获取下一处理人成功!");
                 }
             });
         }
@@ -11677,7 +11677,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11805,7 +11805,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             self.CheckGoodNo = item.GoodNo;
             self.wfmid = item.WFM_ID; //订单的wfmid.
-            self.component(__WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */]); //打开表单实例化审批流组件
+            self.$children[0].Init(); //调用审批组件。
             $("#checkModal").modal("show");
         },
         TurnToPage(page) {
@@ -11832,8 +11832,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */]
-        //approve: approve
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */],
+        approve: __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */]
     }
 });
 
@@ -11909,7 +11909,7 @@ var render = function() {
             }
           },
           _vm._l(_vm.ResultList.StatusAllDisposal, function(item) {
-            return _c("option", { domProps: { value: item.DisposalCode } }, [
+            return _c("option", { domProps: { value: item.Disposal_ID } }, [
               _vm._v(_vm._s(item.Disposal_Name))
             ])
           })

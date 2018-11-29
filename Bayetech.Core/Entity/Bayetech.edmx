@@ -260,9 +260,12 @@
           </Key>
           <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleCode" Type="varchar" MaxLength="50" />
+          <Property Name="RoleValue" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Sortnum" Type="int" />
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
           <Property Name="isDefault" Type="int" />
+          <Property Name="RoleColumn" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Admin_Sys_Roles_Departments">
           <Key>
@@ -557,6 +560,8 @@
           <Property Name="ValidityPeriod" Type="int" />
           <Property Name="SecretCode" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="int" />
+          <Property Name="MonthVolume" Type="varchar" MaxLength="50" />
+          <Property Name="ContentTxt" Type="bigint" />
         </EntityType>
         <EntityType Name="MallGoodInfo">
           <Key>
@@ -632,6 +637,7 @@
           <Property Name="RefundReason" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="255" />
           <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
+          <Property Name="WFM_ID" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MallType">
           <Key>
@@ -1061,6 +1067,7 @@
           <Property Name="BackName" Type="nvarchar" MaxLength="30" />
           <Property Name="FrontName" Type="nvarchar" MaxLength="30" />
           <Property Name="StatusKey" Type="varchar" MaxLength="20" />
+          <Property Name="WFM_ID" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallPictureInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1471,7 +1478,8 @@
     [vw_MallOrderInfo].[FrontParentId] AS [FrontParentId], 
     [vw_MallOrderInfo].[BackName] AS [BackName], 
     [vw_MallOrderInfo].[FrontName] AS [FrontName], 
-    [vw_MallOrderInfo].[StatusKey] AS [StatusKey]
+    [vw_MallOrderInfo].[StatusKey] AS [StatusKey], 
+    [vw_MallOrderInfo].[WFM_ID] AS [WFM_ID]
     FROM [dbo].[vw_MallOrderInfo] AS [vw_MallOrderInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallPictureInfo" EntityType="Self.vw_MallPictureInfo" store:Type="Views" store:Schema="dbo">
@@ -1721,6 +1729,9 @@
           <Property Name="Sortnum" Type="Int32" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="isDefault" Type="Int32" />
+          <Property Name="RoleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RoleColumn" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Admin_Sys_Roles_Departments">
           <Key>
@@ -1987,6 +1998,8 @@
           <Property Name="ValidityPeriod" Type="Int32" />
           <Property Name="SecretCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" />
+          <Property Name="MonthVolume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContentTxt" Type="Int64" />
         </EntityType>
         <EntityType Name="MallType">
           <Key>
@@ -2312,8 +2325,6 @@
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="BayetechModel.vw_MallGoodMainInfo" />
           <EntitySet Name="OrderStatus" EntityType="BayetechModel.OrderStatus" />
-          <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
-          <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
           <EntitySet Name="Admin_Sys_Login" EntityType="BayetechModel.Admin_Sys_Login" />
           <EntitySet Name="Admin_Sys_Navigations" EntityType="BayetechModel.Admin_Sys_Navigations" />
           <EntitySet Name="Relationship" EntityType="BayetechModel.Relationship" />
@@ -2321,6 +2332,8 @@
           <EntitySet Name="vw_GoodTypes" EntityType="BayetechModel.vw_GoodTypes" />
           <EntitySet Name="Game" EntityType="BayetechModel.Game" />
           <EntitySet Name="Server" EntityType="BayetechModel.Server" />
+          <EntitySet Name="MallOrder" EntityType="BayetechModel.MallOrder" />
+          <EntitySet Name="vw_MallOrderInfo" EntityType="BayetechModel.vw_MallOrderInfo" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2485,73 +2498,6 @@
           <Property Name="IsDelete" Type="Boolean" />
           <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="MallOrder">
-          <Key>
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="OrderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OrderLineNum" Type="Int32" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
-          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceQQ" Type="Int64" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerPhone" Type="Int64" />
-          <Property Name="BuyerQQ" Type="Int64" />
-          <Property Name="InternalTypeId" Type="Int32" />
-          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
-          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vw_MallOrderInfo">
-          <Key>
-            <PropertyRef Name="OrderNo" />
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="BuyerQQ" Type="Int64" />
-          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GameId" Type="Int64" />
-          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ServiceQQ" Type="Int64" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerPhone" Type="Int64" />
-          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
-          <Property Name="GameGroupId" Type="Int32" />
-          <Property Name="GameServerId" Type="Int32" />
-          <Property Name="GoodTypeId" Type="Int64" />
-          <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDelete" Type="Boolean" />
-          <Property Name="BackParentId" Type="Int32" />
-          <Property Name="FrontParentId" Type="Int32" />
-          <Property Name="BackName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="StatusKey" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Admin_Sys_Login">
           <Key>
             <PropertyRef Name="LoginId" />
@@ -2649,6 +2595,75 @@
           <Property Name="GameId" Type="Int64" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MallOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderLineNum" Type="Int32" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="InternalTypeId" Type="Int32" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="WFM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_MallOrderInfo">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GameId" Type="Int64" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="GameGroupId" Type="Int32" />
+          <Property Name="GameServerId" Type="Int32" />
+          <Property Name="GoodTypeId" Type="Int64" />
+          <Property Name="OrderTypeValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderTypeKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="BackParentId" Type="Int32" />
+          <Property Name="FrontParentId" Type="Int32" />
+          <Property Name="BackName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FrontName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StatusKey" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WFM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2887,6 +2902,9 @@
           <EntitySetMapping Name="Admin_Sys_Roles">
             <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Roles">
               <MappingFragment StoreEntitySet="Admin_Sys_Roles">
+                <ScalarProperty Name="RoleColumn" ColumnName="RoleColumn" />
+                <ScalarProperty Name="RoleValue" ColumnName="RoleValue" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
                 <ScalarProperty Name="KeyId" ColumnName="KeyId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="Sortnum" ColumnName="Sortnum" />
@@ -3145,6 +3163,8 @@
           <EntitySetMapping Name="MallDLInfo">
             <EntityTypeMapping TypeName="BayetechModel.MallDLInfo">
               <MappingFragment StoreEntitySet="MallDLInfo">
+                <ScalarProperty Name="ContentTxt" ColumnName="ContentTxt" />
+                <ScalarProperty Name="MonthVolume" ColumnName="MonthVolume" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="CreatTime" ColumnName="CreatTime" />
@@ -3602,74 +3622,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MallOrder">
-            <EntityTypeMapping TypeName="BayetechModel.MallOrder">
-              <MappingFragment StoreEntitySet="MallOrder">
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
-                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
-                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
-                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
-                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
-                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
-                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_MallOrderInfo">
-            <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
-              <MappingFragment StoreEntitySet="vw_MallOrderInfo">
-                <ScalarProperty Name="StatusKey" ColumnName="StatusKey" />
-                <ScalarProperty Name="FrontName" ColumnName="FrontName" />
-                <ScalarProperty Name="BackName" ColumnName="BackName" />
-                <ScalarProperty Name="FrontParentId" ColumnName="FrontParentId" />
-                <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="OrderTypeKey" ColumnName="OrderTypeKey" />
-                <ScalarProperty Name="OrderTypeValue" ColumnName="OrderTypeValue" />
-                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
-                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
-                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
-                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
-                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="GameName" ColumnName="GameName" />
-                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
-                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Admin_Sys_Login">
             <EntityTypeMapping TypeName="BayetechModel.Admin_Sys_Login">
               <MappingFragment StoreEntitySet="Admin_Sys_Login">
@@ -3770,6 +3722,76 @@
                 <ScalarProperty Name="Letter" ColumnName="Letter" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MallOrder">
+            <EntityTypeMapping TypeName="BayetechModel.MallOrder">
+              <MappingFragment StoreEntitySet="MallOrder">
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
+                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MallOrderInfo">
+            <EntityTypeMapping TypeName="BayetechModel.vw_MallOrderInfo">
+              <MappingFragment StoreEntitySet="vw_MallOrderInfo">
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
+                <ScalarProperty Name="StatusKey" ColumnName="StatusKey" />
+                <ScalarProperty Name="FrontName" ColumnName="FrontName" />
+                <ScalarProperty Name="BackName" ColumnName="BackName" />
+                <ScalarProperty Name="FrontParentId" ColumnName="FrontParentId" />
+                <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="OrderTypeKey" ColumnName="OrderTypeKey" />
+                <ScalarProperty Name="OrderTypeValue" ColumnName="OrderTypeValue" />
+                <ScalarProperty Name="GoodTypeId" ColumnName="GoodTypeId" />
+                <ScalarProperty Name="GameServerId" ColumnName="GameServerId" />
+                <ScalarProperty Name="GameGroupId" ColumnName="GameGroupId" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

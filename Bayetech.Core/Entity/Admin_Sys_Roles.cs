@@ -19,5 +19,8 @@ namespace Bayetech.Core.Entity
         public Nullable<int> Sortnum { get; set; }
         public string Remark { get; set; }
         public Nullable<int> isDefault { get; set; }
+        public string RoleCode { get; set; }
+        public Nullable<decimal> RoleValue { get; set; }
+        public string RoleColumn { get; set; }
     }
 }

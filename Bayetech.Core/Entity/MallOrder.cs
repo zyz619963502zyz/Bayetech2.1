@@ -39,5 +39,6 @@ namespace Bayetech.Core.Entity
         public string RefundReason { get; set; }
         public string Remark { get; set; }
         public string OrderStatus { get; set; }
+        public string WFM_ID { get; set; }
     }
 }

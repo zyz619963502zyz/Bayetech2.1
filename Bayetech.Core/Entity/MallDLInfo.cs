@@ -45,5 +45,7 @@ namespace Bayetech.Core.Entity
         public Nullable<int> ValidityPeriod { get; set; }
         public string SecretCode { get; set; }
         public Nullable<int> Status { get; set; }
+        public string MonthVolume { get; set; }
+        public Nullable<long> ContentTxt { get; set; }
     }
 }

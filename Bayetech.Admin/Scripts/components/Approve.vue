@@ -8,7 +8,7 @@
             <label class="control-label col-md-3">下一处理线:</label>
             <div class="col-md-offset-1 col-md-8">
                 <select class="form-control" v-model="DisposalSelected">
-                    <option v-for="item in ResultList.StatusAllDisposal" :value="item.DisposalCode">{{item.Disposal_Name}}</option>
+                    <option v-for="item in ResultList.StatusAllDisposal" :value="item.Disposal_ID">{{item.Disposal_Name}}</option>
                 </select>
             </div>
         </div>
@@ -86,28 +86,29 @@
             }
         },
         props: ["flowid","wfmid"],
-        created() {
-            var self = this;
-            self.Init();
+        computed: {
+            
         },
-        mounted() {
-            var self = this;
-            //self.Get_PermList();
+        watch: {
+            DisposalSelected: function (val, oldval) {
+                var self = this; 
+                self.Get_DispUserInfo();
+            }
         },
         methods: {
             Init() {
                 var self = this;
-                //获取当前流程信息
-                self.Get_CurFlowStatusInfo();
-                //获取流程线
-                self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
-                self.Param.StatusAllDisposal.p_lStatus_ID = 1;
-                self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
-                self.Get_StatusAllDisposal();
-                //获取下一处理角色
-                self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
-                self.Param.DispUserInfo.p_lDisosal_ID = "";
-                self.Get_DispUserInfo();
+                if (self.flowid) {
+                    //获取当前流程信息
+                    self.Get_CurFlowStatusInfo();
+                    //获取流程线
+                    self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
+                    self.Param.StatusAllDisposal.p_lStatus_ID = 1;
+                    self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
+                    self.Get_StatusAllDisposal();
+                    //获取下一处理角色
+                    
+                }
             },
             Create_NewFlowExample() {//创建流程实例
                 var self = this;
@@ -127,20 +128,40 @@
                     }
                 })
             },
-            Execute_OnNextStep() {//提交送下一步
-                var self = this;
-                comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
-                    if (data) { 
-                        self.ResultList.OnNextStep = data;
-                        alert("提交送下一步成功!");
-                    }
-                })
-            },
             Get_CurFlowStatusInfo() {//获取当前流程及环节信息
                 var self = this;
                 self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
                 comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                     if (data) {
+                        self.ResultList.OnNextStep = data;
+                        alert("提交送下一步成功!");
+                    }
+                })
+            },
+            Get_StatusAllDisposal() {//获取当前环节流程线
+                var self = this;
+                comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
+                    if (data) {
+                        self.ResultList.StatusAllDisposal = data;
+                        alert("获取当前环节流程线成功!");
+                    }
+                })
+            },
+            Get_DispUserInfo() {//获取下一处理人
+                var self = this;
+                self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
+                self.Param.DispUserInfo.p_lDisosal_ID = self.DisposalSelected;
+                comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
+                    if (data) {
+                        self.ResultList.DispUserInfo = data;
+                        alert("获取下一处理人成功!");
+                    }
+                })
+            },
+            Execute_OnNextStep() {//提交送下一步
+                var self = this;
+                comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+                    if (data) { 
                         self.ResultList.OnNextStep = data;
                         alert("提交送下一步成功!");
                     }
@@ -165,25 +186,7 @@
                         alert("获取权限成功!");
                     }
                 })
-            },
-            Get_StatusAllDisposal() {//获取当前环节流程线
-                var self = this;
-                comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
-                    if (data) {
-                        self.ResultList.StatusAllDisposal = data;
-                        alert("获取当前环节流程线成功!");
-                    }
-                })
-            },
-            Get_DispUserInfo() {//获取下一处理人
-                var self = this;
-                comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
-                    if (data) {
-                        self.ResultList.DispUserInfo = data;
-                        alert("获取下一处理人成功!");
-                    }
-                })
-            },
+            }
         }
     }
 </script>

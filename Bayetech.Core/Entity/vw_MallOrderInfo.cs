@@ -45,5 +45,6 @@ namespace Bayetech.Core.Entity
         public string BackName { get; set; }
         public string FrontName { get; set; }
         public string StatusKey { get; set; }
+        public string WFM_ID { get; set; }
     }
 }
