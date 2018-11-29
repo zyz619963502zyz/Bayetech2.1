@@ -81,9 +81,21 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../page/center/PersonalCenter.vue')), 'center')
     },
     {
+      //下订单页
+      //equipment装备，account账号，coins金币，stone（挑战书）等大部分公用
       path: '/gameOrder',
       name: 'gameOrder',
       component: r => require.ensure([], () => r(require('../page/placeOrder/gameOrder.vue')), 'center')
+    },
+    {
+      path: '/goodsCreated',
+      name: 'goodsCreated',
+      component: r => require.ensure([], () => r(require('../page/sales/goodsCreated.vue')), 'sales')
+    },
+    {
+      path: '/goodsPublish',
+      name: 'goodsPublish',
+      component: r => require.ensure([], () => r(require('../page/sales/goodsPublish.vue')), 'sales')
     }
   ]
 })

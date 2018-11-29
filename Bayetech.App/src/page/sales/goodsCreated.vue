@@ -371,6 +371,21 @@
   </div>
 </template>
 
+<script>
+  import "@/assets/content/css/fost-base-min.css";
+  import "@/assets/content/css/style-min.css";
+  let vmdata = {
+
+  }
+  export default {
+    name: 'goodsCreated',
+    data() {
+      return vmdata;
+    }
+  }
+
+</script>
+
 <style>
   .notice_risk[data-v-509ef1b0] {
     height: auto;

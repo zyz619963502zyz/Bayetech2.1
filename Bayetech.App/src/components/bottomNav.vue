@@ -4,9 +4,12 @@
   <div data-style="fixed-bottom" class="newfooter fixed-bottom">
     <ul>
       <li class="">
-        <a href="#" class="foot-home">
+        <router-link :to="{path:'/'}" class="foot-home">
+          <span class="i_tx">主页</span>
+        </router-link>
+        <!--<a href="#" class="foot-home">
           <span class="i_home">主页</span>
-        </a>
+        </a>-->
       </li>
       <li class="">
         <a href="#" class="foot-home">
@@ -14,9 +17,12 @@
         </a>
       </li>
       <li class="">
-        <a href="#" class="foot-home">
+        <router-link :to="{path:'/goodsPublish'}" class="foot-home">
+          <span class="i_tx">我要卖</span>
+        </router-link>
+        <!--<a href="#" class="foot-home">
           <span class="i_mysell">我要卖</span>
-        </a>
+        </a>-->
       </li>
       <li class="">
         <a href="#" class="foot-message">

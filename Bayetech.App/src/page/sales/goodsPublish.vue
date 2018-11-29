@@ -4,11 +4,23 @@
     *-->
 <template>
   <div id="wrapper" style="height: 100%;">
+    <div data-v-dfc73fe2="">
+      <div data-v-dfc73fe2="" class="top-header border-bottom fixed-top">
+      <div data-v-dfc73fe2="" class="top-back" @click="$router.go(-1)">
+        <a data-v-dfc73fe2="" class=""></a>
+        </div>
+      <h2 data-v-dfc73fe2="" class="f36">商品发布</h2>
+      <div data-v-dfc73fe2="" class="top-right">
+        <a data-v-dfc73fe2="" href="/" class="back-home" style="display: none;"></a>
+      </div>
+      <div data-v-dfc73fe2="" class="dl_seek f30">发布流程</div>
+      </div>
+    </div>
     <div data-v-484bcaae="">
       <div data-v-484bcaae="">
-        <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-97" data-v-484bcaae="">
+        <div data-v-509ef1b0="" class="fw px-30 notice_risk Mnotice_top mt-97" data-v-484bcaae="">
           <div data-v-509ef1b0="" class="fl notice_public">
-            <p data-v-509ef1b0="" class="f24  fl">出售商品无需缴纳保证金，无需扫码，切勿私下交易！</p>
+            <p data-v-509ef1b0="" class="f24 fl">出售商品无需缴纳保证金，无需扫码，切勿私下交易！</p>
           </div>
         </div>
         <div data-v-484bcaae="" style="position: absolute; width: 100%; top: 0.77rem;">
@@ -51,22 +63,41 @@
       </div>
     </div>
   </div>
-  <!--加载动画-->
-  <div class="mint-indicator mint-indicator-enter-to" style="display: none;"><div class="mint-indicator-wrapper" style="padding: 20px;"><span class="mint-indicator-spin"><div class="mint-spinner-fading-circle circle-color-28" style="width: 32px; height: 32px;"><div class="mint-spinner-fading-circle-circle is-circle2"></div><div class="mint-spinner-fading-circle-circle is-circle3"></div><div class="mint-spinner-fading-circle-circle is-circle4"></div><div class="mint-spinner-fading-circle-circle is-circle5"></div><div class="mint-spinner-fading-circle-circle is-circle6"></div><div class="mint-spinner-fading-circle-circle is-circle7"></div><div class="mint-spinner-fading-circle-circle is-circle8"></div><div class="mint-spinner-fading-circle-circle is-circle9"></div><div class="mint-spinner-fading-circle-circle is-circle10"></div><div class="mint-spinner-fading-circle-circle is-circle11"></div><div class="mint-spinner-fading-circle-circle is-circle12"></div><div class="mint-spinner-fading-circle-circle is-circle13"></div></div></span> <span class="mint-indicator-text" style="">加载中...</span></div> <div class="mint-indicator-mask"></div></div>
+ 
 </template>
+
 <script>
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
 
   let vmdata = {}
   export default {
-    name: 'goodpublish',
+    name: 'goodsPublish',
     data() {
       return vmdata;
     }
   }
 </script>
+
 <style>
+  .top-header[data-v-dfc73fe2] {
+    z-index: 62 !important;
+  }
+  .top-header .top-right {
+    font-size: .3rem;
+    color: #1864ff;
+    padding-right: .3rem;
+  }
+  .dl_seek[data-v-dfc73fe2] {
+    height: .96rem;
+    line-height: .96rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-right: .3rem;
+    color: #1864ff;
+  }
+
 .notice_risk[data-v-509ef1b0] {
     height: auto;
     display: block;
@@ -129,12 +160,20 @@
       margin-right: .24rem;
       border-radius: .06rem;
     }
-    .new-pubilsh01.publish-type ul li.selected {
-      border-color: #f60;
-      background-image: url(../../assets/images/common/icon-new-check.png);
-      background-repeat: no-repeat;
-      background-color: #fff7f5;
-    }
+  /*.publish-type ul li.selected {
+    border-color: #f60;
+    background: url(/dist/src/assets/images/check.png) no-repeat 100% 100%;
+    background-size: 22%;
+  }*/
+  .new-pubilsh01.publish-type ul li.selected {
+    border-color: #f60;
+    background-image: url(../../assets/images/common/icon-new-check.png);
+    background-repeat: no-repeat;
+    background-position:100% 100%;
+    background-color: #fff7f5;
+    background-size: 22%;
+  }
+  
       .new-pubilsh01.publish-type ul li:nth-child(3n) {
         margin-right: 0;
       }

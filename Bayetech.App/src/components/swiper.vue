@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="newhmban">
     <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight">
       <div class="swiper-wrapper">
@@ -29,7 +29,7 @@
 
 <script>
   import Swiper from 'swiper';
-  import '@/assets/css/swiper/swiper.css';
+  import '@/assets/css/plugin/swiper/swiper.css';
 
   export default {
     name: 'swiper',
