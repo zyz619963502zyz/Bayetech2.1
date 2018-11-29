@@ -107,20 +107,25 @@ var comCompnent = {
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
 
     Model: {
-        EngineInfo: { //引擎信息
-            Flow_Id: "",
-            Wfm_Id: "",
-            Sender_Id: "",
-            Sender_Code: "",
-            Reciever_Id: "",
-            Reciever_Code: "",
-            Cur_Status_Id: "",
-            New_Status_Id: "",
-            Disposal_Id: "",
-            Send_Time: ""
+        EngineInfo: function () {
+            return { //引擎信息
+                Flow_Id: "",
+                Wfm_Id: "",
+                Sender_Id: "",
+                Sender_Code: "",
+                Reciever_Id: "",
+                Reciever_Code: "",
+                Cur_Status_Id: "",
+                New_Status_Id: "",
+                Disposal_Id: "",
+                Send_Time: ""
+            };
         },
-        PageInfo: { //页面信息
-            txtPageConditionRule99: ""
+        PageInfo: function () {
+            //页面信息
+            return {
+                txtPageConditionRule99: ""
+            };
         }
     },
     init: function () {
@@ -11401,7 +11406,7 @@ var render = function() {
                 },
                 on: {
                   click: function($event) {
-                    _vm.startcheck(item.GoodNo)
+                    _vm.startcheck(item)
                   }
                 }
               })
@@ -11455,6 +11460,8 @@ render._withStripped = true
             name: 'Approve',
             DisposalSelected: "",
             NextRoleSelected: "",
+            FlowId: "", //流程ID
+            Wfmid: "", //工作流ID。
             Url: { //接口连接字符串
                 NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
                 FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
@@ -11466,12 +11473,12 @@ render._withStripped = true
                 DispUserInfo: comCompnent.default.EngineUrl + "Get_DispUserInfo"
             },
             Param: { //参数
-                NewFlowExample: {//新建流程实例
-                    //EngineInfo: JSON.parse(JSON.stringify(comCompnent.default.EngineInfo)),//对象深拷贝
+                NewFlowExample: { //新建流程实例
+                    EngineInfo: new comCompnent.default.Model.EngineInfo() //引擎对象
                 },
-                OnNextStep: {//提交送下一步
-                    //EngineInfo: JSON.parse(JSON.stringify(comCompnent.default.EngineInfo)),//对象深拷贝
-                    //PageInfo: JSON.parse(JSON.stringify(comCompnent.default.PageInfo))
+                OnNextStep: { //提交送下一步
+                    EngineInfo: new comCompnent.default.Model.EngineInfo(), //引擎对象
+                    PageInfo: new comCompnent.default.Model.PageInfo() //页面对象
                 },
                 FlowBeginStatusInfo: { //获取当前流程的第一个环节
                     flowId: ""
@@ -11527,6 +11534,10 @@ render._withStripped = true
             self.Param.StatusAllDisposal.p_lStatus_ID = 1;
             self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则
             self.Get_StatusAllDisposal();
+            //获取下一处理角色
+            self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
+            self.Param.DispUserInfo.p_lDisosal_ID = "";
+            self.Get_DispUserInfo();
         },
         Create_NewFlowExample() {
             //创建流程实例
@@ -11789,10 +11800,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 $("#QueryList").Btns("reset");
             });
         },
-        StartCheck(GoodNo) {
-            //开始检查
+        StartCheck(item) {
+            //开始审批
             var self = this;
-            self.CheckGoodNo = GoodNo;
+            self.CheckGoodNo = item.GoodNo;
+            self.wfmid = item.WFM_ID; //订单的wfmid.
+            self.component(__WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */]); //打开表单实例化审批流组件
             $("#checkModal").modal("show");
         },
         TurnToPage(page) {
@@ -11819,8 +11832,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */],
-        approve: __WEBPACK_IMPORTED_MODULE_2__components_Approve_vue__["a" /* default */]
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */]
+        //approve: approve
     }
 });
 

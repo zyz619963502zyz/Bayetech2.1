@@ -21,7 +21,7 @@
                 <td>{{item.GoodTypeName}}</td>
                 <td>{{item.GoodKeyWord}}</td>
                 <td>{{item.GoodTitle}}</td>
-                <td class="text-center"><input type="button" v-bind:flag="item.Status" class="btn btn-primary" v-bind:value="(item.Status=='PutOnsale'||item.Status=='PutDownsale')?'查看':'审核'" @click="startcheck(item.GoodNo)"></td>
+                <td class="text-center"><input type="button" v-bind:flag="item.Status" class="btn btn-primary" v-bind:value="(item.Status=='PutOnsale'||item.Status=='PutDownsale')?'查看':'审核'" @click="startcheck(item)"></td>
             </tr>
         </tbody>
     </table>

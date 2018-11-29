@@ -107,20 +107,25 @@ var comCompnent = {
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
 
     Model: {
-        EngineInfo: { //引擎信息
-            Flow_Id: "",
-            Wfm_Id: "",
-            Sender_Id: "",
-            Sender_Code: "",
-            Reciever_Id: "",
-            Reciever_Code: "",
-            Cur_Status_Id: "",
-            New_Status_Id: "",
-            Disposal_Id: "",
-            Send_Time: ""
+        EngineInfo: function () {
+            return { //引擎信息
+                Flow_Id: "",
+                Wfm_Id: "",
+                Sender_Id: "",
+                Sender_Code: "",
+                Reciever_Id: "",
+                Reciever_Code: "",
+                Cur_Status_Id: "",
+                New_Status_Id: "",
+                Disposal_Id: "",
+                Send_Time: ""
+            };
         },
-        PageInfo: { //页面信息
-            txtPageConditionRule99: ""
+        PageInfo: function () {
+            //页面信息
+            return {
+                txtPageConditionRule99: ""
+            };
         }
     },
     init: function () {
@@ -11401,7 +11406,7 @@ var render = function() {
                 },
                 on: {
                   click: function($event) {
-                    _vm.startcheck(item.GoodNo)
+                    _vm.startcheck(item)
                   }
                 }
               })

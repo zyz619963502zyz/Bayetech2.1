@@ -79,9 +79,11 @@ new Vue({
                 $("#QueryList").Btns("reset");
             });
         },
-        StartCheck(GoodNo) {//开始检查
+        StartCheck(item) {//开始审批
             var self = this;
-            self.CheckGoodNo = GoodNo;
+            self.CheckGoodNo = item.GoodNo;
+            self.wfmid = item.WFM_ID;//订单的wfmid.
+            self.component(approve,approve);//打开表单实例化审批流组件
             $("#checkModal").modal("show");
         },
         TurnToPage(page){
@@ -109,7 +111,7 @@ new Vue({
     },
     components:{
         comtable: componentTable,
-        approve: approve
+        //approve: approve
     }
 });
 

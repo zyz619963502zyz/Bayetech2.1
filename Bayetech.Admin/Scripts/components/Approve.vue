@@ -30,6 +30,8 @@
                 name: 'Approve',
                 DisposalSelected: "",
                 NextRoleSelected: "",
+                FlowId:"",//流程ID
+                Wfmid:"",//工作流ID。
                 Url: {//接口连接字符串
                     NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
                     FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
@@ -42,11 +44,11 @@
                 },
                 Param: {//参数
                     NewFlowExample: {//新建流程实例
-                        //EngineInfo: JSON.parse(JSON.stringify(comCompnent.default.EngineInfo)),//对象深拷贝
+                        EngineInfo: new comCompnent.default.Model.EngineInfo(),//引擎对象
                     },
                     OnNextStep: {//提交送下一步
-                        //EngineInfo: JSON.parse(JSON.stringify(comCompnent.default.EngineInfo)),//对象深拷贝
-                        //PageInfo: JSON.parse(JSON.stringify(comCompnent.default.PageInfo))
+                        EngineInfo:  new comCompnent.default.Model.EngineInfo(),//引擎对象
+                        PageInfo:  new comCompnent.default.Model.PageInfo()//页面对象
                     },
                     FlowBeginStatusInfo: {//获取当前流程的第一个环节
                         flowId:"",
@@ -102,6 +104,10 @@
                 self.Param.StatusAllDisposal.p_lStatus_ID = 1;
                 self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
                 self.Get_StatusAllDisposal();
+                //获取下一处理角色
+                self.Param.DispUserInfo.p_lFlow_ID = self.flowid;
+                self.Param.DispUserInfo.p_lDisosal_ID = "";
+                self.Get_DispUserInfo();
             },
             Create_NewFlowExample() {//创建流程实例
                 var self = this;
