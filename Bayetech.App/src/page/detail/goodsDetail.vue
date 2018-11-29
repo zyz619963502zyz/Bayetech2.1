@@ -12,7 +12,7 @@
           <div data-v-4fef8ba0="" class="show-right"><a data-v-4fef8ba0="" class="sharelist"></a></div> <!----> <!----> <!----> <!---->
         </div> <!----> <!----> <!---->
       </div>
-      <p>{{GoodInfo}}</p>
+      <!--<p>{{GoodInfo}}</p>-->
       <div data-v-932364c8="">
         <!---->
         <div data-v-932364c8="" class="detail-main bg-f1 fw">
