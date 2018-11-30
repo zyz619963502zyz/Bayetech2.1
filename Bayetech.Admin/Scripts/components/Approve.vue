@@ -30,8 +30,21 @@
                 name: 'Approve',
                 DisposalSelected: "",
                 NextRoleSelected: "",
-                EngineInfo:new comCompnent.default.Model.EngineInfo(),
-                PageInfo:new comCompnent.default.Model.PageInfo(),//页面对象
+                EngineInfo:{//引擎对象
+                    Flow_Id: "",
+                    Wfm_Id: "",
+                    Sender_Id: "",
+                    Sender_Code: "",
+                    Reciever_Id: "",
+                    Reciever_Code: "",
+                    Cur_Status_Id: "",
+                    New_Status_Id: "",
+                    Disposal_Id: "",
+                    Send_Time:""
+                },
+                PageInfo:{//页面对象
+                    txtPageConditionRule99:""
+                },
                 FlowId:"",//流程ID
                 Wfmid:"",//工作流ID。
                 Url: {//接口连接字符串
@@ -78,12 +91,64 @@
                 ResultList: {
                     NewFlowExample: [],
                     FlowBeginStatusInfo: [],
-                    OnNextStep: [],
-                    FlowStatusInfo: {},
-                    CurFlowStatusInfo: {},
+                    OnNextStep: "",//true/false 提交成功，失败
+                    FlowStatusInfo: {
+                        Status_ID:"",
+                        Flow_ID:"",
+                        Status_Type_ID:"",
+                        Status_Name:"",//环节名
+                        UI_Url:"",//页面URL
+                        OperationRole_ID:"",//业务角色ID
+                        OperationRole_Name:"",//业务角色名
+                        OperationPerm_Value:"",//状态权限值
+                        IsNextStatus:"",//是否后续节点还有本节点
+                        Status_Attribute:"",//属性字段
+                        Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
+                    },
+                    CurFlowStatusInfo: {//同上，当前环节信息
+                        Status_ID:"",
+                        Flow_ID:"",
+                        Status_Type_ID:"",
+                        Status_Name:"",//环节名
+                        UI_Url:"",//页面URL
+                        OperationRole_ID:"",//业务角色ID
+                        OperationRole_Name:"",//业务角色名
+                        OperationPerm_Value:"",//状态权限值
+                        IsNextStatus:"",//是否后续节点还有本节点
+                        Status_Attribute:"",//属性字段
+                        Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
+                    },
                     PermList: [],
                     StatusAllDisposal: [],
-                    DispUserInfo: []
+                    DispUserInfo: [
+                        {//V_Flow_StatusUser
+                            Company_ID:"",
+                            User_ID:"",
+                            User_Name:"",
+                            User_DisplayName:"",
+                            User_Code:"",
+                            Parent_ID:"",
+                            Parent_Name:"",
+                            Parent_DisplayName:"",
+                            OrderBy:"",
+                            userrole_id:"",
+                            userrole_name:"",
+                            userrole_display:"",
+                            userrole_column:"",
+                            Org_ID:"",
+                            Org_GB:"",
+                            Org_Name:"",
+                            Org_Display:"",
+                            Org_Level_id:"",
+                            Org_Order:"",
+                            Org_Code:"",
+                            GUID_Path:"",
+                            Status_Id:"",
+                            Flow_Id:"",
+                            id:"",
+                            IsTempUser:""
+                        }
+                    ]
                 } 
             }
         },
@@ -97,6 +162,12 @@
             NextRoleSelected:function(val,oldval){//角色选中
                 var self = this;
                 self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
+                for (var i = 0; i <self.ResultList.DispUserInfo.length; i++) {
+                    if (self.ResultList.DispUserInfo[i].User_ID == val) {
+                        self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人ID
+                        break;
+                    }
+                }
                 self.EngineInfo.Reciever_Code = code;//接收人code?待定
             }
         },
@@ -172,7 +243,7 @@
                     self.Param.OnNextStep.EngineInfo = param.EngineInfo;
                     self.Param.OnNextStep.PageInfo = param.PageInfo;
                 }else {
-                    self.Param.OnNextSte.EngineInfo = self.EngineInfo;//收集到的页面信息
+                    self.Param.OnNextStep.EngineInfo = self.EngineInfo;//收集到的页面信息
                     self.Param.OnNextStep.PageInfo = self.PageInfo;//txtPageConditionRule99.
                 }
                 comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {

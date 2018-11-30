@@ -108,7 +108,7 @@ var comCompnent = {
 
     Model: {
         EngineInfo: function () {
-            return { //引擎信息
+            return { //引擎代码里的EngineInfo对象
                 Flow_Id: "",
                 Wfm_Id: "",
                 Sender_Id: "",
