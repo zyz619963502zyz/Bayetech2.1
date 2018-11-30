@@ -92,7 +92,7 @@
                     NewFlowExample: [],
                     FlowBeginStatusInfo: [],
                     OnNextStep: "",//true/false 提交成功，失败
-                    FlowStatusInfo: {
+                    FlowStatusInfo: {//通用环节信息CStatus
                         Status_ID:"",
                         Flow_ID:"",
                         Status_Type_ID:"",
@@ -105,7 +105,7 @@
                         Status_Attribute:"",//属性字段
                         Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
                     },
-                    CurFlowStatusInfo: {//同上，当前环节信息
+                    CurFlowStatusInfo: {//同上，当前环节信息CStatus
                         Status_ID:"",
                         Flow_ID:"",
                         Status_Type_ID:"",
@@ -118,10 +118,31 @@
                         Status_Attribute:"",//属性字段
                         Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
                     },
-                    PermList: [],
-                    StatusAllDisposal: [],
+                    PermList: [],//权限
+                    StatusAllDisposal: [//流程线对象CDisposal
+                        {
+                            TRANSACT_STATUS_ID:"",//经办环节ID
+                            Disposal_ID:"",//处理线ID
+                            Flow_ID:"",//流程ID
+                            Dept_limit:"",//部门限定
+                            Role_limit:"",//角色限定
+                            Cur_Status_ID:"",//当前环节ID
+                            Pre_Status_ID:"",//上环节ID
+                            Priority:"",//默认路径
+                            Disposal_Hint:"",//处理过程提示
+                            Disposal_Name:"",//处理过程名称
+                            Action_Content:"",//条件规则XML字符串
+                            ConditionRule:"",//引擎条件规则
+                            PageConditionRule:"",//页面条件规则
+                            DisposalCode:"",//处理线编号
+                            ConsignRelation:"",//委托关系设置值
+                            PageDisposalRule:"",//页面入库规则
+                            DisposalDefaultAtt:"",//处理线设置的处理选项
+                            FlowDisposalRule:"",//流程处理步骤规则
+                        }
+                    ],
                     DispUserInfo: [
-                        {//V_Flow_StatusUser
+                        {//下一处理人信息V_Flow_StatusUser
                             Company_ID:"",
                             User_ID:"",
                             User_Name:"",
