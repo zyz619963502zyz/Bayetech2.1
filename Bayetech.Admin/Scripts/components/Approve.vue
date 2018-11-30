@@ -30,6 +30,8 @@
                 name: 'Approve',
                 DisposalSelected: "",
                 NextRoleSelected: "",
+                EngineInfo:new comCompnent.default.Model.EngineInfo(),
+                PageInfo:new comCompnent.default.Model.PageInfo(),//页面对象
                 FlowId:"",//流程ID
                 Wfmid:"",//工作流ID。
                 Url: {//接口连接字符串
@@ -44,11 +46,11 @@
                 },
                 Param: {//参数
                     NewFlowExample: {//新建流程实例
-                        EngineInfo: new comCompnent.default.Model.EngineInfo(),//引擎对象
+                        EngineInfo: {}
                     },
                     OnNextStep: {//提交送下一步
-                        EngineInfo:  new comCompnent.default.Model.EngineInfo(),//引擎对象
-                        PageInfo:  new comCompnent.default.Model.PageInfo()//页面对象
+                        EngineInfo: {},
+                        PageInfo:  {}
                     },
                     FlowBeginStatusInfo: {//获取当前流程的第一个环节
                         flowId:"",
@@ -86,19 +88,25 @@
             }
         },
         props: ["flowid","wfmid"],
-        computed: {
-            
-        },
         watch: {
-            DisposalSelected: function (val, oldval) {
+            DisposalSelected: function (val, oldval) {//流程线选中
                 var self = this; 
                 self.Get_DispUserInfo();
+                self.EngineInfo.Disposal_Id = val;
+            },
+            NextRoleSelected:function(val,oldval){//角色选中
+                var self = this;
+                self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
+                self.EngineInfo.Reciever_Code = code;//接收人code?待定
             }
         },
         methods: {
             Init() {
                 var self = this;
-                if (self.flowid) {
+                if (self.flowid&&self.wfmid) {
+                    //赋值流程对象
+                    self.EngineInfo.Flow_Id = self.flowid;//通用流程信息赋值
+                    self.EngineInfo.Wfm_Id = self.wfmid;//通用流程信息赋值。
                     //获取当前流程信息
                     self.Get_CurFlowStatusInfo();
                     //获取流程线
@@ -106,8 +114,6 @@
                     self.Param.StatusAllDisposal.p_lStatus_ID = 1;
                     self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
                     self.Get_StatusAllDisposal();
-                    //获取下一处理角色
-                    
                 }
             },
             Create_NewFlowExample() {//创建流程实例
@@ -134,7 +140,8 @@
                 comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.OnNextStep = data;
-                        alert("提交送下一步成功!");
+                        self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
+                        alert("获取当前流程信息成功!");
                     }
                 })
             },
@@ -143,6 +150,7 @@
                 comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
                     if (data) {
                         self.ResultList.StatusAllDisposal = data;
+                        //self.EngineInfo.New_Status_Id =  data.Cur_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
                         alert("获取当前环节流程线成功!");
                     }
                 })
@@ -158,8 +166,15 @@
                     }
                 })
             },
-            Execute_OnNextStep() {//提交送下一步
+            Execute_OnNextStep(param) {//提交送下一步
                 var self = this;
+                if (param) {
+                    self.Param.OnNextStep.EngineInfo = param.EngineInfo;
+                    self.Param.OnNextStep.PageInfo = param.PageInfo;
+                }else {
+                    self.Param.OnNextSte.EngineInfo = self.EngineInfo;//收集到的页面信息
+                    self.Param.OnNextStep.PageInfo = self.PageInfo;//txtPageConditionRule99.
+                }
                 comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                     if (data) { 
                         self.ResultList.OnNextStep = data;

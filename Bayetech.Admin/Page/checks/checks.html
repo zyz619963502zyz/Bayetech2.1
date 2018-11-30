@@ -67,7 +67,7 @@
                         <br />
                         <div class="input-group col-md-12">
                             <!--流程引擎组件-->
-                            <approve v-bind:flowid="flowId" v-bind:wfmid="wfmid" ></approve>
+                            <approve v-bind:flowid="flowId" v-bind:wfmid="wfmid" ref="approve"></approve>
                         </div>
                         <hr />
                         <br />
@@ -135,7 +135,7 @@
                             </div>
 
                             <!--传值案例-->
-                            <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType"></comtable>
+                            <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType" ref="comtable"></comtable>
 
                             <!--<div class="pull-right" id="">
                                 <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>

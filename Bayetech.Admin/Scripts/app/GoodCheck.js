@@ -109,7 +109,7 @@ new Vue({
                     });
                 }
             } else {//订单审核
-                self.$children[0].
+                self.$refs.approve.Execute_OnNextStep();//提交送下一步
             }
         }
     },

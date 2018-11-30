@@ -11271,7 +11271,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(9);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -11284,8 +11284,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11295,7 +11295,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11304,7 +11304,7 @@ if (false) {
     } else {
       api.reload('93bba3e8', component.options)
     }
-    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&lang=html", function () {
+    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&id=BaseTable&lang=html", function () {
       api.rerender('93bba3e8', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11320,9 +11320,9 @@ component.options.__file = "Scripts\\components\\table-Process.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(12);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(12);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11460,6 +11460,8 @@ render._withStripped = true
             name: 'Approve',
             DisposalSelected: "",
             NextRoleSelected: "",
+            EngineInfo: new comCompnent.default.Model.EngineInfo(),
+            PageInfo: new comCompnent.default.Model.PageInfo(), //页面对象
             FlowId: "", //流程ID
             Wfmid: "", //工作流ID。
             Url: { //接口连接字符串
@@ -11474,11 +11476,11 @@ render._withStripped = true
             },
             Param: { //参数
                 NewFlowExample: { //新建流程实例
-                    EngineInfo: new comCompnent.default.Model.EngineInfo() //引擎对象
+                    EngineInfo: {}
                 },
                 OnNextStep: { //提交送下一步
-                    EngineInfo: new comCompnent.default.Model.EngineInfo(), //引擎对象
-                    PageInfo: new comCompnent.default.Model.PageInfo() //页面对象
+                    EngineInfo: {},
+                    PageInfo: {}
                 },
                 FlowBeginStatusInfo: { //获取当前流程的第一个环节
                     flowId: ""
@@ -11516,17 +11518,27 @@ render._withStripped = true
         };
     },
     props: ["flowid", "wfmid"],
-    computed: {},
     watch: {
         DisposalSelected: function (val, oldval) {
+            //流程线选中
             var self = this;
             self.Get_DispUserInfo();
+            self.EngineInfo.Disposal_Id = val;
+        },
+        NextRoleSelected: function (val, oldval) {
+            //角色选中
+            var self = this;
+            self.EngineInfo.Reciever_Id = val;
+            self.EngineInfo.Reciever_Code = code; //接收人code
         }
     },
     methods: {
         Init() {
             var self = this;
-            if (self.flowid) {
+            if (self.flowid && self.wfmid) {
+                //赋值流程对象
+                self.EngineInfo.Flow_Id = self.flowid; //流程对象参数赋值
+                self.EngineInfo.Wfm_Id = self.wfmid; //wfmid赋值。
                 //获取当前流程信息
                 self.Get_CurFlowStatusInfo();
                 //获取流程线
@@ -11534,7 +11546,6 @@ render._withStripped = true
                 self.Param.StatusAllDisposal.p_lStatus_ID = 1;
                 self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则
                 self.Get_StatusAllDisposal();
-                //获取下一处理角色
             }
         },
         Create_NewFlowExample() {
@@ -11564,7 +11575,8 @@ render._withStripped = true
             comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
-                    alert("提交送下一步成功!");
+                    self.EngineInfo.Cur_Status_Id = data.Status_ID;
+                    alert("获取当前流程信息成功!");
                 }
             });
         },
@@ -11574,6 +11586,7 @@ render._withStripped = true
             comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
                 if (data) {
                     self.ResultList.StatusAllDisposal = data;
+                    //self.EngineInfo.New_Status_Id =  data.Cur_Status_ID;
                     alert("获取当前环节流程线成功!");
                 }
             });
@@ -11590,9 +11603,13 @@ render._withStripped = true
                 }
             });
         },
-        Execute_OnNextStep() {
+        Execute_OnNextStep(param) {
             //提交送下一步
             var self = this;
+            if (param) {
+                self.Param.OnNextStep.EngineInfo = param.EngineInfo;
+                self.Param.OnNextStep.PageInfo = param.PageInfo;
+            }
             comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
@@ -11677,7 +11694,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11815,19 +11832,26 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         CheckGoods(flag) {
             var self = this;
-            self.SearchParam.Param.GoodNo = self.CheckGoodNo;
-            self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
-            if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
-                $("#CheckConfirm").Btns("loading");
-                self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
-                    if (data.result) {
-                        alert("审批成功!");
-                    }
-                    $("#checkModal").modal("hide");
-                    $("#CheckConfirm").Btns("reset");
-                }, function () {
-                    $("#CheckConfirm").Btns("reset");
-                });
+            if (self.SearchParam.Param.SelectType == "good") {
+                //商品审核
+                self.SearchParam.Param.GoodNo = self.CheckGoodNo;
+                self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
+                if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
+                    $("#CheckConfirm").Btns("loading");
+                    self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                        if (data.result) {
+                            alert("审批成功!");
+                        }
+                        $("#checkModal").modal("hide");
+                        $("#CheckConfirm").Btns("reset");
+                    }, function () {
+                        $("#CheckConfirm").Btns("reset");
+                    });
+                }
+            } else {
+                //订单审核
+                var aa = 1;
+                self.$refs.approve.Execute_OnNextStep(); //提交送下一步
             }
         }
     },
