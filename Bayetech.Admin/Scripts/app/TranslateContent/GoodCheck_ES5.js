@@ -105,29 +105,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var comCompnent = {
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
-
-    Model: {
-        EngineInfo: function () {
-            return { //引擎代码里的EngineInfo对象
-                Flow_Id: "",
-                Wfm_Id: "",
-                Sender_Id: "",
-                Sender_Code: "",
-                Reciever_Id: "",
-                Reciever_Code: "",
-                Cur_Status_Id: "",
-                New_Status_Id: "",
-                Disposal_Id: "",
-                Send_Time: ""
-            };
-        },
-        PageInfo: function () {
-            //页面信息
-            return {
-                txtPageConditionRule99: ""
-            };
-        }
-    },
     init: function () {
         // 对Date的扩展，将 Date 转化为指定格式的String
         // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -11271,7 +11248,7 @@ function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__ = __webpack_require__(9);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(7);
@@ -11284,8 +11261,8 @@ function normalizeComponent (
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_Process_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11295,7 +11272,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11304,7 +11281,7 @@ if (false) {
     } else {
       api.reload('93bba3e8', component.options)
     }
-    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-Process.vue?vue&type=template&id=93bba3e8&lang=html", function () {
       api.rerender('93bba3e8', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11320,9 +11297,9 @@ component.options.__file = "Scripts\\components\\table-Process.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__ = __webpack_require__(12);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__ = __webpack_require__(12);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_Process_vue_vue_type_template_id_93bba3e8_lang_html__["b"]; });
 
 
 /***/ }),
@@ -11460,10 +11437,23 @@ render._withStripped = true
             name: 'Approve',
             DisposalSelected: "",
             NextRoleSelected: "",
-            EngineInfo: new comCompnent.default.Model.EngineInfo(),
-            PageInfo: new comCompnent.default.Model.PageInfo(), //页面对象
-            FlowId: "", //流程ID
-            Wfmid: "", //工作流ID。
+            flowid: "", //根据wfmid计算出来的flowid
+            wfmid: "", //页面传来的wfmid
+            EngineInfo: { //引擎对象
+                Flow_Id: "",
+                Wfm_Id: "",
+                Sender_Id: "",
+                Sender_Code: "",
+                Reciever_Id: "",
+                Reciever_Code: "",
+                Cur_Status_Id: "",
+                New_Status_Id: "",
+                Disposal_Id: "",
+                Send_Time: ""
+            },
+            PageInfo: { //页面对象
+                txtPageConditionRule99: ""
+            },
             Url: { //接口连接字符串
                 NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
                 FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
@@ -11508,43 +11498,130 @@ render._withStripped = true
             ResultList: {
                 NewFlowExample: [],
                 FlowBeginStatusInfo: [],
-                OnNextStep: [],
-                FlowStatusInfo: {},
-                CurFlowStatusInfo: {},
-                PermList: [],
-                StatusAllDisposal: [],
-                DispUserInfo: []
+                OnNextStep: "", //true/false 提交成功，失败
+                FlowStatusInfo: { //通用环节信息CStatus
+                    Status_ID: "",
+                    Flow_ID: "",
+                    Status_Type_ID: "",
+                    Status_Name: "", //环节名
+                    UI_Url: "", //页面URL
+                    OperationRole_ID: "", //业务角色ID
+                    OperationRole_Name: "", //业务角色名
+                    OperationPerm_Value: "", //状态权限值
+                    IsNextStatus: "", //是否后续节点还有本节点
+                    Status_Attribute: "", //属性字段
+                    Userrole_ID: "" //用户角色ID,后面权限字段省略...引擎看
+                },
+                CurFlowStatusInfo: { //同上，当前环节信息CStatus
+                    Status_ID: "",
+                    Flow_ID: "",
+                    Status_Type_ID: "",
+                    Status_Name: "", //环节名
+                    UI_Url: "", //页面URL
+                    OperationRole_ID: "", //业务角色ID
+                    OperationRole_Name: "", //业务角色名
+                    OperationPerm_Value: "", //状态权限值
+                    IsNextStatus: "", //是否后续节点还有本节点
+                    Status_Attribute: "", //属性字段
+                    Userrole_ID: "" //用户角色ID,后面权限字段省略...引擎看
+                },
+                PermList: [], //权限
+                StatusAllDisposal: [//流程线对象CDisposal
+                {
+                    TRANSACT_STATUS_ID: "", //经办环节ID
+                    Disposal_ID: "", //处理线ID
+                    Flow_ID: "", //流程ID
+                    Dept_limit: "", //部门限定
+                    Role_limit: "", //角色限定
+                    Cur_Status_ID: "", //当前环节ID
+                    Pre_Status_ID: "", //上环节ID
+                    Priority: "", //默认路径
+                    Disposal_Hint: "", //处理过程提示
+                    Disposal_Name: "", //处理过程名称
+                    Action_Content: "", //条件规则XML字符串
+                    ConditionRule: "", //引擎条件规则
+                    PageConditionRule: "", //页面条件规则
+                    DisposalCode: "", //处理线编号
+                    ConsignRelation: "", //委托关系设置值
+                    PageDisposalRule: "", //页面入库规则
+                    DisposalDefaultAtt: "", //处理线设置的处理选项
+                    FlowDisposalRule: "" //流程处理步骤规则
+                }],
+                DispUserInfo: [{ //下一处理人信息V_Flow_StatusUser
+                    Company_ID: "",
+                    User_ID: "",
+                    User_Name: "",
+                    User_DisplayName: "",
+                    User_Code: "",
+                    Parent_ID: "",
+                    Parent_Name: "",
+                    Parent_DisplayName: "",
+                    OrderBy: "",
+                    userrole_id: "",
+                    userrole_name: "",
+                    userrole_display: "",
+                    userrole_column: "",
+                    Org_ID: "",
+                    Org_GB: "",
+                    Org_Name: "",
+                    Org_Display: "",
+                    Org_Level_id: "",
+                    Org_Order: "",
+                    Org_Code: "",
+                    GUID_Path: "",
+                    Status_Id: "",
+                    Flow_Id: "",
+                    id: "",
+                    IsTempUser: ""
+                }]
             }
         };
     },
-    props: ["flowid", "wfmid"],
+    //props: ["wfmid"],
     watch: {
         DisposalSelected: function (val, oldval) {
             //流程线选中
             var self = this;
             self.Get_DispUserInfo();
             self.EngineInfo.Disposal_Id = val;
+            for (var i = 0; i < self.ResultList.StatusAllDisposal.length; i++) {
+                if (self.ResultList.StatusAllDisposal[i].Disposal_ID == self.EngineInfo.Disposal_Id) {
+                    self.EngineInfo.New_Status_Id = self.ResultList.StatusAllDisposal[i].Pre_Status_ID;
+                    break;
+                }
+            }
         },
         NextRoleSelected: function (val, oldval) {
             //角色选中
             var self = this;
             self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
-            self.EngineInfo.Reciever_Code = code; //接收人code?待定
+            for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
+                if (self.ResultList.DispUserInfo[i].User_ID == val) {
+                    self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code; //发送人ID
+                    break;
+                }
+            }
         }
+        //wfmid: function (val) {//wfmid发生变化不为空以后执行Init，这样父组件不需要再次ref调用。
+        //    if (val) {
+        //        var self = this;
+        //        self.Init(val);
+        //    }
+        //}
     },
     methods: {
-        Init() {
+        Init(wfmid) {
             var self = this;
-            if (self.flowid && self.wfmid) {
-                //赋值流程对象
-                self.EngineInfo.Flow_Id = self.flowid; //通用流程信息赋值
-                self.EngineInfo.Wfm_Id = self.wfmid; //通用流程信息赋值。
+            if (wfmid) {
                 //获取当前流程信息
-                self.Get_CurFlowStatusInfo();
+                self.wfmid = wfmid;
+                self.Get_CurFlowStatusInfo(false); //同步执行。
+                self.EngineInfo.Wfm_Id = wfmid; //通用流程信息赋值。
+                self.EngineInfo.Flow_Id = self.flowid; //缓存flowid
                 //获取流程线
                 self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
-                self.Param.StatusAllDisposal.p_lStatus_ID = 1;
-                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则
+                self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
+                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则,每笔订单给定。
                 self.Get_StatusAllDisposal();
             }
         },
@@ -11568,25 +11645,26 @@ render._withStripped = true
                 }
             });
         },
-        Get_CurFlowStatusInfo() {
+        Get_CurFlowStatusInfo(sync) {
             //获取当前流程及环节信息
             var self = this;
             self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
             comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                 if (data) {
-                    self.ResultList.OnNextStep = data;
+                    self.ResultList.CurFlowStatusInfo = data;
                     self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
+                    self.flowid = data.Flow_ID;
                     alert("获取当前流程信息成功!");
                 }
-            });
+            }, null, sync); //同步获取当前流程信息
         },
         Get_StatusAllDisposal() {
             //获取当前环节流程线
             var self = this;
             comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
                 if (data) {
-                    self.ResultList.StatusAllDisposal = data;
-                    //self.EngineInfo.New_Status_Id =  data.Cur_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
+                    self.ResultList.StatusAllDisposal = data; //data[0]
+                    self.EngineInfo.New_Status_Id = data.Pre_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
                     alert("获取当前环节流程线成功!");
                 }
             });
@@ -11617,6 +11695,7 @@ render._withStripped = true
                 if (data) {
                     self.ResultList.OnNextStep = data;
                     alert("提交送下一步成功!");
+                    $("#checkModal").modal("hide");
                 }
             });
         },
@@ -11697,7 +11776,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11759,7 +11838,7 @@ let vmData = {
         _componentTable: __WEBPACK_IMPORTED_MODULE_1__components_table_Process_vue__["a" /* default */]
     },
     flowId: "1",
-    wfmid: "zhaoyz520181124111053798",
+    wfmid: "",
     GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl: "/api/CheckGood/CheckGoodInfo",
     CheckGoodNo: "", //模态框打开的GoodNo
@@ -11821,12 +11900,12 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             });
         },
         StartCheck(item) {
-            //开始审批
+            //开始审批 
             var self = this;
             self.CheckGoodNo = item.GoodNo;
-            self.wfmid = item.WFM_ID; //订单的wfmid.
-            self.$children[0].Init(); //调用审批组件。
+            self.$refs.approve.Init(item.WFM_ID); //调用审批组件直接调用改为监听
             $("#checkModal").modal("show");
+            //self.wfmid = item.WFM_ID; 监听方式，暂时有漏洞，关闭
         },
         TurnToPage(page) {
             var self = this;

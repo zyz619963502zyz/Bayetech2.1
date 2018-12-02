@@ -30,6 +30,8 @@
                 name: 'Approve',
                 DisposalSelected: "",
                 NextRoleSelected: "",
+                flowid: "",//根据wfmid计算出来的flowid
+                wfmid:"",//页面传来的wfmid
                 EngineInfo:{//引擎对象
                     Flow_Id: "",
                     Wfm_Id: "",
@@ -45,8 +47,6 @@
                 PageInfo:{//页面对象
                     txtPageConditionRule99:""
                 },
-                FlowId:"",//流程ID
-                Wfmid:"",//工作流ID。
                 Url: {//接口连接字符串
                     NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
                     FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
@@ -173,12 +173,18 @@
                 } 
             }
         },
-        props: ["flowid","wfmid"],
+        //props: ["wfmid"],
         watch: {
             DisposalSelected: function (val, oldval) {//流程线选中
                 var self = this; 
                 self.Get_DispUserInfo();
                 self.EngineInfo.Disposal_Id = val;
+                for (var i = 0; i < self.ResultList.StatusAllDisposal.length; i++) {
+                    if (self.ResultList.StatusAllDisposal[i].Disposal_ID == self.EngineInfo.Disposal_Id) {
+                        self.EngineInfo.New_Status_Id = self.ResultList.StatusAllDisposal[i].Pre_Status_ID;
+                        break;
+                    }
+                }
             },
             NextRoleSelected:function(val,oldval){//角色选中
                 var self = this;
@@ -189,22 +195,27 @@
                         break;
                     }
                 }
-                self.EngineInfo.Reciever_Code = code;//接收人code?待定
-            }
+            },
+            //wfmid: function (val) {//wfmid发生变化不为空以后执行Init，这样父组件不需要再次ref调用。
+            //    if (val) {
+            //        var self = this;
+            //        self.Init(val);
+            //    }
+            //}
         },
         methods: {
-            Init() {
+            Init(wfmid) {
                 var self = this;
-                if (self.flowid&&self.wfmid) {
-                    //赋值流程对象
-                    self.EngineInfo.Flow_Id = self.flowid;//通用流程信息赋值
-                    self.EngineInfo.Wfm_Id = self.wfmid;//通用流程信息赋值。
+                if (wfmid) {                   
                     //获取当前流程信息
-                    self.Get_CurFlowStatusInfo();
+                    self.wfmid = wfmid;
+                    self.Get_CurFlowStatusInfo(false);//同步执行。
+                    self.EngineInfo.Wfm_Id = wfmid;//通用流程信息赋值。
+                    self.EngineInfo.Flow_Id = self.flowid;//缓存flowid
                     //获取流程线
                     self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
-                    self.Param.StatusAllDisposal.p_lStatus_ID = 1;
-                    self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则
+                    self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
+                    self.Param.StatusAllDisposal.PageConditionRule = "";//页面规则,每笔订单给定。
                     self.Get_StatusAllDisposal();
                 }
             },
@@ -226,23 +237,24 @@
                     }
                 })
             },
-            Get_CurFlowStatusInfo() {//获取当前流程及环节信息
+            Get_CurFlowStatusInfo(sync) {//获取当前流程及环节信息
                 var self = this;
                 self.Param.CurFlowStatusInfo.wfmid = self.wfmid;
                 comCompnent.default.getWebJson(self.Url.CurFlowStatusInfo, self.Param.CurFlowStatusInfo, function (data) {
                     if (data) {
-                        self.ResultList.OnNextStep = data;
+                        self.ResultList.CurFlowStatusInfo = data;
                         self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
+                        self.flowid = data.Flow_ID;
                         alert("获取当前流程信息成功!");
                     }
-                })
+                }, null, sync)//同步获取当前流程信息
             },
             Get_StatusAllDisposal() {//获取当前环节流程线
                 var self = this;
                 comCompnent.default.getWebJson(self.Url.StatusAllDisposal, self.Param.StatusAllDisposal, function (data) {
                     if (data) {
-                        self.ResultList.StatusAllDisposal = data;
-                        //self.EngineInfo.New_Status_Id =  data.Cur_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
+                        self.ResultList.StatusAllDisposal = data;//data[0]
+                        self.EngineInfo.New_Status_Id = data.Pre_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
                         alert("获取当前环节流程线成功!");
                     }
                 })
@@ -268,11 +280,12 @@
                     self.Param.OnNextStep.PageInfo = self.PageInfo;//txtPageConditionRule99.
                 }
                 comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
-                    if (data) { 
+                    if (data) {
                         self.ResultList.OnNextStep = data;
                         alert("提交送下一步成功!");
+                        $("#checkModal").modal("hide");
                     }
-                })
+                });
             },
             Get_FlowStatusInfo() {//获取所有流程及环节信息
                 var self = this;

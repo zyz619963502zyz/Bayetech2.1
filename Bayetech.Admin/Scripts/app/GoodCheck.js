@@ -16,7 +16,7 @@ let vmData = {
         _componentTable: componentTable
     },
     flowId: "1",
-    wfmid:"zhaoyz520181124111053798",
+    wfmid:"",
     GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
@@ -77,14 +77,14 @@ new Vue({
                 }
             },function(){
                 $("#QueryList").Btns("reset");
-            });
+            }); 
         },
-        StartCheck(item) {//开始审批
+        StartCheck(item) {//开始审批 
             var self = this;
             self.CheckGoodNo = item.GoodNo;
-            self.wfmid = item.WFM_ID;//订单的wfmid.
-            self.$children[0].Init();//调用审批组件。
+            self.$refs.approve.Init(item.WFM_ID);//调用审批组件直接调用改为监听
             $("#checkModal").modal("show");
+            //self.wfmid = item.WFM_ID; 监听方式，暂时有漏洞，关闭
         },
         TurnToPage(page){
             var self = this;
