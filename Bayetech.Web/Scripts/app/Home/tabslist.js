@@ -29,7 +29,7 @@ define(['jquery'], function ($) {
         object: [
             {
                 name: "地下城与勇士",
-                img: "../../Content/NewImages/homeImg6.jpg",
+                img: "../../Content/images2018/5比2焦点海报lol-3.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -49,7 +49,7 @@ define(['jquery'], function ($) {
             },
             {
                 name: "剑侠情缘3",
-                img: "../../Content/NewImages/homeImg9.jpg",
+                img: "../../Content/images2018/1比2焦点海报魔兽-3.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },
@@ -69,7 +69,7 @@ define(['jquery'], function ($) {
             },
             {
                 name: "王者荣耀",
-                img: "../../Content/NewImages/homeImg12.jpg",
+                img: "../../Content/images2018/5比2焦点海报dnf-3.jpg",
                 url: "http://www.7881.com/buy-G10.html",
                 typeList: [{ title: '游戏币', url: 'http://www.7881.com/buy-G10-0-100001-0-0-0-0-0-0-0-1a1500.html' },
                 { title: '装备', url: 'http://www.7881.com/buy-G10-0-100002-0-0-0-0-0-0-0-0.html' },

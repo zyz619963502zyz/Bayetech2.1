@@ -18,7 +18,7 @@
     <AssemblyName>Bayetech.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -356,33 +356,6 @@
     <Content Include="Content\good_list.css" />
     <Content Include="Content\helpcenter.css" />
     <Content Include="Content\homepage.css" />
-    <Content Include="Content\Images\001.jpg" />
-    <Content Include="Content\Images\002.jpg" />
-    <Content Include="Content\Images\003.jpg" />
-    <Content Include="Content\Images\004.jpg" />
-    <Content Include="Content\Images\01.jpg" />
-    <Content Include="Content\Images\02.jpg" />
-    <Content Include="Content\Images\03.jpg" />
-    <Content Include="Content\Images\04.jpg" />
-    <Content Include="Content\Images\05.jpg" />
-    <Content Include="Content\Images\06.jpg" />
-    <Content Include="Content\Images\07.jpg" />
-    <Content Include="Content\Images\076.jpg" />
-    <Content Include="Content\Images\08.jpg" />
-    <Content Include="Content\Images\17173.png" />
-    <Content Include="Content\Images\2-005.jpg" />
-    <Content Include="Content\Images\2-1.jpg" />
-    <Content Include="Content\Images\2-5.jpg" />
-    <Content Include="Content\Images\249.jpg" />
-    <Content Include="Content\Images\255.jpg" />
-    <Content Include="Content\Images\257.jpg" />
-    <Content Include="Content\Images\258.jpg" />
-    <Content Include="Content\Images\259.jpg" />
-    <Content Include="Content\Images\262.jpg" />
-    <Content Include="Content\Images\35.jpg" />
-    <Content Include="Content\Images\360.png" />
-    <Content Include="Content\Images\51508.png" />
-    <Content Include="Content\Images\700280-1.jpg" />
     <Content Include="Content\Images\7881app_right.png" />
     <Content Include="Content\Images\7881bmzx.png" />
     <Content Include="Content\Images\7881_logo.jpg" />
@@ -972,6 +945,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images2018\" />
     <Folder Include="Models\FlowInfo\" />
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />
