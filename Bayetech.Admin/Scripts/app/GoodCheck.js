@@ -1,5 +1,6 @@
 ﻿import Vue from '../vue.js'
-import componentTable from '../components/table-Process.vue'
+import goodprocess from '../components/table-GoodProcess.vue'
+import orderprocess from '../components/table-OrderProcess.vue'
 import approve from '../components/Approve.vue'
 
 //import comCompnent from '../common.js'(已在配置文件全局引用)
@@ -16,7 +17,8 @@ let vmData = {
         _componentTable: componentTable
     },
     flowId: "1",
-    wfmid:"",
+    wfmid: "",
+    currentcomponent:"",//当前组件
     GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
@@ -57,6 +59,16 @@ new Vue({
     data: vmData,
     created(){
         this.findList();
+    },
+    watch: {
+        SearchParam.Param.SelectType: function(val, oldval) {//类型切换
+            var self = this;
+            if (val == "good") {
+                self.currentcomponent = self.components.goodprocess;
+            } else if (val == "order") {
+                self.currentcomponent = self.components.orderprocess;
+            }
+        }
     },
     methods: {
         findList() {//获取商品的简要列表
@@ -114,8 +126,9 @@ new Vue({
         }
     },
     components:{
-        comtable: componentTable,
-        approve: approve
+        goodprocess,
+        orderprocess,
+        approve
     }
 });
 

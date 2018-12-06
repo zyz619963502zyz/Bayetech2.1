@@ -2770,6 +2770,8 @@
     <Content Include="Scripts\components\table-ButtonsManage.vue" />
     <Content Include="Scripts\components\table-GameSet.vue" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Scripts\components\table-OrderProcess.vue" />
+    <Content Include="Scripts\components\table-GoodProcess.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\components\Test.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
