@@ -11,10 +11,10 @@ let pagetype = comCompnent.default.GetUrlParam($(".NFine_iframe").context.URL,"t
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
-    ItemType:"good",//单据类型
+    ItemType: "good",//单据类型
+    SelectType:"good",
     tools:{
-        _comCompnent:comCompnent.default,
-        _componentTable: componentTable
+        _comCompnent:comCompnent.default
     },
     flowId: "1",
     wfmid: "",
@@ -23,7 +23,12 @@ let vmData = {
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
-    GoodInfoArray:[],
+    GoodInfoArray: [],
+    components: {
+        goodprocess: 'goodprocess',
+        orderprocess:'orderprocess',
+        approve:'approve'
+    },
     ListObj: [
         {
             GoodNo: "",
@@ -57,18 +62,21 @@ let vmData = {
 new Vue({
     el: '#CommForm',
     data: vmData,
-    created(){
+    created() {
+        this.currentcomponent = goodprocess;
         this.findList();
     },
     watch: {
-        SearchParam.Param.SelectType: function(val, oldval) {//类型切换
+        SelectType(val, oldval) {//类型切换
             var self = this;
             if (val == "good") {
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
                 self.currentcomponent = self.components.orderprocess;
             }
-        }
+        },
+        deep: true,
+        immediate: true
     },
     methods: {
         findList() {//获取商品的简要列表
