@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="61189defe0394e69a33f9075aabc54c4" Name="Diagram1" ZoomLevel="79">
+      <Diagram DiagramId="61189defe0394e69a33f9075aabc54c4" Name="Diagram1" ZoomLevel="41">
         <EntityTypeShape EntityType="Bayetech.Core.Entity.SYS_XmlConfig" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_Admin" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_BitAndItem" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
@@ -97,7 +97,6 @@
         <EntityTypeShape EntityType="Bayetech.Core.Entity.V_Flow_StatusUserAll" Width="1.5" PointX="31.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.v_flow_user" Width="1.5" PointX="31.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.v_framework_main" Width="1.5" PointX="23.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Bayetech.Core.Entity.v_framework_notify" Width="1.5" PointX="31.75" PointY="27.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.v_framework_zaiban" Width="1.5" PointX="17.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.v_pub_member_org" Width="1.5" PointX="25.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.V_PUB_MEMBER_USER" Width="1.5" PointX="33.75" PointY="0.75" IsExpanded="true" />
@@ -112,6 +111,7 @@
         <AssociationConnector Association="Bayetech.Core.Entity.FK_T_WorkFlow_Attachments_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
         <AssociationConnector Association="Bayetech.Core.Entity.FK_T_WORKFLOW_AttPattern_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
         <AssociationConnector Association="Bayetech.Core.Entity.T_WORKFLOW_EXCHCHANGE_TYPE_T_WORKFLOW_EXCHCHANGE_FK1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Bayetech.Core.Entity.v_framework_notify" Width="1.5" PointX="30.375" PointY="33.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

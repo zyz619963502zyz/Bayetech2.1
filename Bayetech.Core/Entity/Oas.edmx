@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Bayetech.Core.Entity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Bayetech.Core.Entity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SYS_XmlConfig">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,13 +16,6 @@
           <Property Name="userID" Type="varchar" MaxLength="50" />
           <Property Name="drecordTime" Type="datetime" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“oas.dbo.T_commissionDate”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_commissionDate">
-          <Property Name="Wfmid" Type="varchar" MaxLength="50" />
-          <Property Name="Parentid" Type="varchar" MaxLength="50" />
-          <Property Name="CommissionDate" Type="datetime" />
-        </EntityType>-->
         <EntityType Name="T_Flow_Admin">
           <Key>
             <PropertyRef Name="USER_ID" />
@@ -950,17 +943,6 @@
           <Property Name="duty_id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="coopfolman" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“oas.dbo.T_WorkFlow_CleanCase”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WorkFlow_CleanCase">
-          <Property Name="ID" Type="varchar" MaxLength="60" />
-          <Property Name="RootId" Type="varchar" MaxLength="100" />
-          <Property Name="CompanyNum" Type="varchar" MaxLength="50" />
-          <Property Name="CaseNum" Type="varchar" MaxLength="50" />
-          <Property Name="IsWaster" Type="int" />
-          <Property Name="CreateTime" Type="datetime" />
-          <Property Name="DrecordTime" Type="nchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="T_WorkFlow_Diffluence">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -2068,33 +2050,8 @@
             <PropertyRef Name="IsSigned" />
             <PropertyRef Name="IsWaster " />
             <PropertyRef Name="TransFlag" />
-            <PropertyRef Name="PassedStatus" />
-            <PropertyRef Name="ownerOrgId" />
-            <PropertyRef Name="ownerUserId" />
-            <PropertyRef Name="ownerUserCode" />
-            <PropertyRef Name="user_name" />
-            <PropertyRef Name="org_code" />
-            <PropertyRef Name="WFRootID" />
-            <PropertyRef Name="StartFlag" />
-            <PropertyRef Name="CheckAction" />
-            <PropertyRef Name="CheckInTime" />
-            <PropertyRef Name="CheckOutTime" />
-            <PropertyRef Name="EstateName" />
             <PropertyRef Name="BizEstate" />
-            <PropertyRef Name="ExchangeType" />
-            <PropertyRef Name="VerilyPassedStatus" />
-            <PropertyRef Name="paybank" />
-            <PropertyRef Name="paymode" />
             <PropertyRef Name="DealFolder" />
-            <PropertyRef Name="CredenceCode" />
-            <PropertyRef Name="FundFullCode" />
-            <PropertyRef Name="CompanyFullCode" />
-            <PropertyRef Name="PageFullCode" />
-            <PropertyRef Name="UserDefaultColumn3" />
-            <PropertyRef Name="UserDefaultColumn4" />
-            <PropertyRef Name="lastroleidea" />
-            <PropertyRef Name="UserDefaultDateTime1" />
-            <PropertyRef Name="UserDefaultDateTimeFlag" />
             <PropertyRef Name="BalanceTime" />
             <PropertyRef Name="BalanceUseTime" />
             <PropertyRef Name="BalanceValid" />
@@ -2111,6 +2068,7 @@
             <PropertyRef Name="DateTime" />
             <PropertyRef Name="Disp_ID" />
             <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
           </Key>
           <Property Name="WFM_ID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="255" />
@@ -2131,41 +2089,11 @@
           <Property Name="LockUserID" Type="varchar" MaxLength="50" />
           <Property Name="IS_Pigeonhole" Type="bit" />
           <Property Name="TransFlag" Type="int" Nullable="false" />
-          <Property Name="huanji" Type="varchar" MaxLength="10" />
-          <Property Name="PassedStatus" Type="text" Nullable="false" />
-          <Property Name="ownerOrgId" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="ownerUserId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ownerUserCode" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="org_name" Type="varchar" MaxLength="100" />
-          <Property Name="org_code" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="WFRootID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="StartFlag" Type="bigint" Nullable="false" />
-          <Property Name="CheckAction" Type="datetime" Nullable="false" />
-          <Property Name="CheckInTime" Type="datetime" Nullable="false" />
-          <Property Name="CheckOutTime" Type="datetime" Nullable="false" />
-          <Property Name="owner_name" Type="nvarchar" MaxLength="100" />
-          <Property Name="clientName" Type="varchar" MaxLength="200" />
-          <Property Name="RootFlowCode" Type="varchar" MaxLength="50" />
-          <Property Name="EstateName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="ProAddr" Type="varchar" MaxLength="500" />
+          <Property Name="HuanJi" Type="varchar" MaxLength="10" />
           <Property Name="BizEstate" Type="bigint" Nullable="false" />
           <Property Name="CURSTATUS_ID" Type="numeric" Precision="10" Scale="0" />
           <Property Name="CURSTATUS_NAME" Type="varchar" MaxLength="200" />
-          <Property Name="ExchangeType" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="VerilyPassedStatus" Type="text" Nullable="false" />
-          <Property Name="paybank" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="paymode" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="DealFolder" Type="int" Nullable="false" />
-          <Property Name="CredenceCode" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="FundFullCode" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="CompanyFullCode" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="PageFullCode" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="UserDefaultColumn3" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="UserDefaultColumn4" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="lastroleidea" Type="text" Nullable="false" />
-          <Property Name="UserDefaultDateTime1" Type="datetime" Nullable="false" />
-          <Property Name="UserDefaultDateTimeFlag" Type="int" Nullable="false" />
           <Property Name="BalanceTime" Type="datetime" Nullable="false" />
           <Property Name="BalanceUseTime" Type="datetime" Nullable="false" />
           <Property Name="BalanceValid" Type="int" Nullable="false" />
@@ -2184,6 +2112,30 @@
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Disp_ID" Type="int" Nullable="false" />
           <Property Name="DelayLimit" Type="int" Nullable="false" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="int" />
+          <Property Name="OrderDiscount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderType" Type="varchar" MaxLength="10" />
+          <Property Name="ReceiveRole" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderUpdateTime" Type="datetime" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+          <Property Name="ServiceId" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServiceQQ" Type="bigint" />
+          <Property Name="BuyerId" Type="nvarchar" MaxLength="30" />
+          <Property Name="BuyerPhone" Type="bigint" />
+          <Property Name="InternalTypeId" Type="int" />
+          <Property Name="BuyerQQ" Type="bigint" />
+          <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderCreatTime" Type="datetime" />
+          <Property Name="PromoNum" Type="varchar" MaxLength="30" />
+          <Property Name="Editor" Type="nvarchar" MaxLength="30" />
+          <Property Name="RefundReason" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
+          <Property Name="BuyTypeCode" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“oas.dbo.v_framework_zaiban”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3150,8 +3102,6 @@
         <Function Name="SP_GetUserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
           <Parameter Name="USERID" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-          <Parameter Name="ISDep" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_GetUserMenuDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
@@ -3786,41 +3736,11 @@
     [v_framework_notify].[LockUserID] AS [LockUserID], 
     [v_framework_notify].[IS_Pigeonhole] AS [IS_Pigeonhole], 
     [v_framework_notify].[TransFlag] AS [TransFlag], 
-    [v_framework_notify].[huanji] AS [huanji], 
-    [v_framework_notify].[PassedStatus] AS [PassedStatus], 
-    [v_framework_notify].[ownerOrgId] AS [ownerOrgId], 
-    [v_framework_notify].[ownerUserId] AS [ownerUserId], 
-    [v_framework_notify].[ownerUserCode] AS [ownerUserCode], 
-    [v_framework_notify].[user_name] AS [user_name], 
-    [v_framework_notify].[org_name] AS [org_name], 
-    [v_framework_notify].[org_code] AS [org_code], 
-    [v_framework_notify].[WFRootID] AS [WFRootID], 
-    [v_framework_notify].[StartFlag] AS [StartFlag], 
-    [v_framework_notify].[CheckAction] AS [CheckAction], 
-    [v_framework_notify].[CheckInTime] AS [CheckInTime], 
-    [v_framework_notify].[CheckOutTime] AS [CheckOutTime], 
-    [v_framework_notify].[owner_name] AS [owner_name], 
-    [v_framework_notify].[clientName] AS [clientName], 
-    [v_framework_notify].[RootFlowCode] AS [RootFlowCode], 
-    [v_framework_notify].[EstateName] AS [EstateName], 
-    [v_framework_notify].[ProAddr] AS [ProAddr], 
+    [v_framework_notify].[HuanJi] AS [HuanJi], 
     [v_framework_notify].[BizEstate] AS [BizEstate], 
     [v_framework_notify].[CURSTATUS_ID] AS [CURSTATUS_ID], 
     [v_framework_notify].[CURSTATUS_NAME] AS [CURSTATUS_NAME], 
-    [v_framework_notify].[ExchangeType] AS [ExchangeType], 
-    [v_framework_notify].[VerilyPassedStatus] AS [VerilyPassedStatus], 
-    [v_framework_notify].[paybank] AS [paybank], 
-    [v_framework_notify].[paymode] AS [paymode], 
     [v_framework_notify].[DealFolder] AS [DealFolder], 
-    [v_framework_notify].[CredenceCode] AS [CredenceCode], 
-    [v_framework_notify].[FundFullCode] AS [FundFullCode], 
-    [v_framework_notify].[CompanyFullCode] AS [CompanyFullCode], 
-    [v_framework_notify].[PageFullCode] AS [PageFullCode], 
-    [v_framework_notify].[UserDefaultColumn3] AS [UserDefaultColumn3], 
-    [v_framework_notify].[UserDefaultColumn4] AS [UserDefaultColumn4], 
-    [v_framework_notify].[lastroleidea] AS [lastroleidea], 
-    [v_framework_notify].[UserDefaultDateTime1] AS [UserDefaultDateTime1], 
-    [v_framework_notify].[UserDefaultDateTimeFlag] AS [UserDefaultDateTimeFlag], 
     [v_framework_notify].[BalanceTime] AS [BalanceTime], 
     [v_framework_notify].[BalanceUseTime] AS [BalanceUseTime], 
     [v_framework_notify].[BalanceValid] AS [BalanceValid], 
@@ -3838,7 +3758,31 @@
     [v_framework_notify].[Name] AS [Name], 
     [v_framework_notify].[DateTime] AS [DateTime], 
     [v_framework_notify].[Disp_ID] AS [Disp_ID], 
-    [v_framework_notify].[DelayLimit] AS [DelayLimit]
+    [v_framework_notify].[DelayLimit] AS [DelayLimit], 
+    [v_framework_notify].[OrderNo] AS [OrderNo], 
+    [v_framework_notify].[OrderPrice] AS [OrderPrice], 
+    [v_framework_notify].[OrderNumber] AS [OrderNumber], 
+    [v_framework_notify].[OrderDiscount] AS [OrderDiscount], 
+    [v_framework_notify].[OrderAmount] AS [OrderAmount], 
+    [v_framework_notify].[OrderDiscountName] AS [OrderDiscountName], 
+    [v_framework_notify].[OrderType] AS [OrderType], 
+    [v_framework_notify].[ReceiveRole] AS [ReceiveRole], 
+    [v_framework_notify].[OrderUpdateTime] AS [OrderUpdateTime], 
+    [v_framework_notify].[GoodNo] AS [GoodNo], 
+    [v_framework_notify].[ServiceId] AS [ServiceId], 
+    [v_framework_notify].[ServiceQQ] AS [ServiceQQ], 
+    [v_framework_notify].[BuyerId] AS [BuyerId], 
+    [v_framework_notify].[BuyerPhone] AS [BuyerPhone], 
+    [v_framework_notify].[InternalTypeId] AS [InternalTypeId], 
+    [v_framework_notify].[BuyerQQ] AS [BuyerQQ], 
+    [v_framework_notify].[GoodType] AS [GoodType], 
+    [v_framework_notify].[OrderCreatTime] AS [OrderCreatTime], 
+    [v_framework_notify].[PromoNum] AS [PromoNum], 
+    [v_framework_notify].[Editor] AS [Editor], 
+    [v_framework_notify].[RefundReason] AS [RefundReason], 
+    [v_framework_notify].[Remark] AS [Remark], 
+    [v_framework_notify].[OrderStatus] AS [OrderStatus], 
+    [v_framework_notify].[BuyTypeCode] AS [BuyTypeCode]
     FROM [dbo].[v_framework_notify] AS [v_framework_notify]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" store:Type="Views" store:Schema="dbo">
@@ -4445,8 +4389,7 @@
             <End Role="T_WORKFLOW_EXCHCHANGE" EntitySet="T_WORKFLOW_EXCHCHANGE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Bayetech.Core.Entity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -6447,136 +6390,6 @@
           <Property Name="LDClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LDDealCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="v_framework_notify">
-          <Key>
-            <PropertyRef Name="WFM_ID" />
-            <PropertyRef Name="Flow_ID" />
-            <PropertyRef Name="FlowType" />
-            <PropertyRef Name="Flow_Name" />
-            <PropertyRef Name="CreateTime" />
-            <PropertyRef Name="Creator" />
-            <PropertyRef Name="IsFinish" />
-            <PropertyRef Name="UpdateTime" />
-            <PropertyRef Name="IsSigned" />
-            <PropertyRef Name="IsWaster_" />
-            <PropertyRef Name="TransFlag" />
-            <PropertyRef Name="PassedStatus" />
-            <PropertyRef Name="ownerOrgId" />
-            <PropertyRef Name="ownerUserId" />
-            <PropertyRef Name="ownerUserCode" />
-            <PropertyRef Name="user_name" />
-            <PropertyRef Name="org_code" />
-            <PropertyRef Name="WFRootID" />
-            <PropertyRef Name="StartFlag" />
-            <PropertyRef Name="CheckAction" />
-            <PropertyRef Name="CheckInTime" />
-            <PropertyRef Name="CheckOutTime" />
-            <PropertyRef Name="EstateName" />
-            <PropertyRef Name="BizEstate" />
-            <PropertyRef Name="ExchangeType" />
-            <PropertyRef Name="VerilyPassedStatus" />
-            <PropertyRef Name="paybank" />
-            <PropertyRef Name="paymode" />
-            <PropertyRef Name="DealFolder" />
-            <PropertyRef Name="CredenceCode" />
-            <PropertyRef Name="FundFullCode" />
-            <PropertyRef Name="CompanyFullCode" />
-            <PropertyRef Name="PageFullCode" />
-            <PropertyRef Name="UserDefaultColumn3" />
-            <PropertyRef Name="UserDefaultColumn4" />
-            <PropertyRef Name="lastroleidea" />
-            <PropertyRef Name="UserDefaultDateTime1" />
-            <PropertyRef Name="UserDefaultDateTimeFlag" />
-            <PropertyRef Name="BalanceTime" />
-            <PropertyRef Name="BalanceUseTime" />
-            <PropertyRef Name="BalanceValid" />
-            <PropertyRef Name="WNT_ID" />
-            <PropertyRef Name="Executor" />
-            <PropertyRef Name="ExecutorName" />
-            <PropertyRef Name="Receiver" />
-            <PropertyRef Name="ReceiverName" />
-            <PropertyRef Name="Sender" />
-            <PropertyRef Name="SenderName" />
-            <PropertyRef Name="ReceiveTime" />
-            <PropertyRef Name="IsShow" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="DateTime" />
-            <PropertyRef Name="Disp_ID" />
-            <PropertyRef Name="DelayLimit" />
-          </Key>
-          <Property Name="WFM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FlowType" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="Flow_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FinishTime" Type="DateTime" Precision="3" />
-          <Property Name="IsFinish" Type="Int32" Nullable="false" />
-          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SubFinished" Type="Int32" />
-          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
-          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
-          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IS_Pigeonhole" Type="Boolean" />
-          <Property Name="TransFlag" Type="Int32" Nullable="false" />
-          <Property Name="huanji" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PassedStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ownerOrgId" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="ownerUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ownerUserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="org_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="org_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="WFRootID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StartFlag" Type="Int64" Nullable="false" />
-          <Property Name="CheckAction" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CheckInTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CheckOutTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="owner_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="clientName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="RootFlowCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EstateName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProAddr" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="BizEstate" Type="Int64" Nullable="false" />
-          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ExchangeType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="VerilyPassedStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="paybank" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="paymode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DealFolder" Type="Int32" Nullable="false" />
-          <Property Name="CredenceCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FundFullCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CompanyFullCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PageFullCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserDefaultColumn3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserDefaultColumn4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="lastroleidea" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserDefaultDateTime1" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserDefaultDateTimeFlag" Type="Int32" Nullable="false" />
-          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
-          <Property Name="WNT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Executor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ExecutorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ReceiverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsShow" Type="Int32" Nullable="false" />
-          <Property Name="IsTempSave" Type="Int32" />
-          <Property Name="IsNew" Type="Boolean" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
-          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="v_framework_zaiban">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -7539,7 +7352,6 @@
           <EntitySet Name="V_Flow_StatusUserAll" EntityType="Self.V_Flow_StatusUserAll" />
           <EntitySet Name="v_flow_user" EntityType="Self.v_flow_user" />
           <EntitySet Name="v_framework_main" EntityType="Self.v_framework_main" />
-          <EntitySet Name="v_framework_notify" EntityType="Self.v_framework_notify" />
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" />
           <EntitySet Name="v_pub_member_org" EntityType="Self.v_pub_member_org" />
           <EntitySet Name="V_PUB_MEMBER_USER" EntityType="Self.V_PUB_MEMBER_USER" />
@@ -7577,7 +7389,7 @@
             <Parameter Name="pageindex" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_BX_Import_CleanCase">
-            <Parameter Name="成交编号" Mode="In" Type="String" />
+          <Parameter Name="成交编号" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_GetRoleMenu" ReturnType="Collection(Bayetech.Core.Entity.SP_GetRoleMenu_Result)">
             <Parameter Name="MODULE_ID" Mode="In" Type="String" />
@@ -7587,8 +7399,6 @@
           <FunctionImport Name="SP_GetUserMenu" ReturnType="Collection(Bayetech.Core.Entity.SP_GetUserMenu_Result)">
             <Parameter Name="MODULE_ID" Mode="In" Type="String" />
             <Parameter Name="USERID" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-            <Parameter Name="ISDep" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_GetUserMenuDefault" ReturnType="Collection(Bayetech.Core.Entity.SP_GetUserMenuDefault_Result)">
             <Parameter Name="MODULE_ID" Mode="In" Type="String" />
@@ -7605,7 +7415,7 @@
             <Parameter Name="USERID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_Get_DownUsers" ReturnType="Collection(Bayetech.Core.Entity.UP_Get_DownUsers_Result)">
-            <Parameter Name="USERID" Mode="In" Type="String" />
+          <Parameter Name="USERID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_GetAttUploadList">
             <Parameter Name="Att_Name" Mode="In" Type="String" />
@@ -7614,17 +7424,17 @@
             <Parameter Name="endtime" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="UP_GetMenuRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetMenuRole_Result)">
-            <Parameter Name="MenuID" Mode="In" Type="String" />
+          <Parameter Name="MenuID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_GetMenuRole_New" ReturnType="Collection(Bayetech.Core.Entity.UP_GetMenuRole_New_Result)">
-            <Parameter Name="MenuID" Mode="In" Type="String" />
+          <Parameter Name="MenuID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_GetNotify" ReturnType="Collection(Bayetech.Core.Entity.UP_GetNotify_Result)">
             <Parameter Name="WfmID" Mode="In" Type="String" />
             <Parameter Name="UserID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_GetUserAllRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserAllRole_Result)">
-            <Parameter Name="USERID" Mode="In" Type="String" />
+          <Parameter Name="USERID" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_GetUserMenu" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserMenu_Result)">
             <Parameter Name="MODULE_ID" Mode="In" Type="String" />
@@ -7671,6 +7481,7 @@
             <Parameter Name="pageIndex" Mode="In" Type="Int32" />
             <Parameter Name="TotalPage" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="v_framework_notify" EntityType="Bayetech.Core.Entity.v_framework_notify" />
         </EntityContainer>
         <ComplexType Name="NB_YWUser_Result">
           <Property Type="Int64" Name="RowNumber" Nullable="true" />
@@ -7872,6 +7683,106 @@
           <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="v_framework_notify">
+          <Key>
+            <PropertyRef Name="WFM_ID" />
+            <PropertyRef Name="Flow_ID" />
+            <PropertyRef Name="FlowType" />
+            <PropertyRef Name="Flow_Name" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Creator" />
+            <PropertyRef Name="IsFinish" />
+            <PropertyRef Name="UpdateTime" />
+            <PropertyRef Name="IsSigned" />
+            <PropertyRef Name="IsWaster_" />
+            <PropertyRef Name="TransFlag" />
+            <PropertyRef Name="BizEstate" />
+            <PropertyRef Name="DealFolder" />
+            <PropertyRef Name="BalanceTime" />
+            <PropertyRef Name="BalanceUseTime" />
+            <PropertyRef Name="BalanceValid" />
+            <PropertyRef Name="WNT_ID" />
+            <PropertyRef Name="Executor" />
+            <PropertyRef Name="ExecutorName" />
+            <PropertyRef Name="Receiver" />
+            <PropertyRef Name="ReceiverName" />
+            <PropertyRef Name="Sender" />
+            <PropertyRef Name="SenderName" />
+            <PropertyRef Name="ReceiveTime" />
+            <PropertyRef Name="IsShow" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Disp_ID" />
+            <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="FlowType" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="Flow_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFinish" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubFinished" Type="Int32" />
+          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
+          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
+          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_Pigeonhole" Type="Boolean" />
+          <Property Name="TransFlag" Type="Int32" Nullable="false" />
+          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BizEstate" Type="Int64" Nullable="false" />
+          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DealFolder" Type="Int32" Nullable="false" />
+          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
+          <Property Name="WNT_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Executor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsShow" Type="Int32" Nullable="false" />
+          <Property Name="IsTempSave" Type="Int32" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
+          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="InternalTypeId" Type="Int32" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9857,84 +9768,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_framework_notify">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_notify">
-              <MappingFragment StoreEntitySet="v_framework_notify">
-                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
-                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
-                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
-                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
-                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
-                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
-                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
-                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
-                <ScalarProperty Name="huanji" ColumnName="huanji" />
-                <ScalarProperty Name="PassedStatus" ColumnName="PassedStatus" />
-                <ScalarProperty Name="ownerOrgId" ColumnName="ownerOrgId" />
-                <ScalarProperty Name="ownerUserId" ColumnName="ownerUserId" />
-                <ScalarProperty Name="ownerUserCode" ColumnName="ownerUserCode" />
-                <ScalarProperty Name="user_name" ColumnName="user_name" />
-                <ScalarProperty Name="org_name" ColumnName="org_name" />
-                <ScalarProperty Name="org_code" ColumnName="org_code" />
-                <ScalarProperty Name="WFRootID" ColumnName="WFRootID" />
-                <ScalarProperty Name="StartFlag" ColumnName="StartFlag" />
-                <ScalarProperty Name="CheckAction" ColumnName="CheckAction" />
-                <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
-                <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
-                <ScalarProperty Name="owner_name" ColumnName="owner_name" />
-                <ScalarProperty Name="clientName" ColumnName="clientName" />
-                <ScalarProperty Name="RootFlowCode" ColumnName="RootFlowCode" />
-                <ScalarProperty Name="EstateName" ColumnName="EstateName" />
-                <ScalarProperty Name="ProAddr" ColumnName="ProAddr" />
-                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
-                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
-                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
-                <ScalarProperty Name="ExchangeType" ColumnName="ExchangeType" />
-                <ScalarProperty Name="VerilyPassedStatus" ColumnName="VerilyPassedStatus" />
-                <ScalarProperty Name="paybank" ColumnName="paybank" />
-                <ScalarProperty Name="paymode" ColumnName="paymode" />
-                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
-                <ScalarProperty Name="CredenceCode" ColumnName="CredenceCode" />
-                <ScalarProperty Name="FundFullCode" ColumnName="FundFullCode" />
-                <ScalarProperty Name="CompanyFullCode" ColumnName="CompanyFullCode" />
-                <ScalarProperty Name="PageFullCode" ColumnName="PageFullCode" />
-                <ScalarProperty Name="UserDefaultColumn3" ColumnName="UserDefaultColumn3" />
-                <ScalarProperty Name="UserDefaultColumn4" ColumnName="UserDefaultColumn4" />
-                <ScalarProperty Name="lastroleidea" ColumnName="lastroleidea" />
-                <ScalarProperty Name="UserDefaultDateTime1" ColumnName="UserDefaultDateTime1" />
-                <ScalarProperty Name="UserDefaultDateTimeFlag" ColumnName="UserDefaultDateTimeFlag" />
-                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
-                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
-                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
-                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
-                <ScalarProperty Name="Executor" ColumnName="Executor" />
-                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
-                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="v_framework_zaiban">
             <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_zaiban">
               <MappingFragment StoreEntitySet="v_framework_zaiban">
@@ -10824,6 +10657,78 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UP_Super_Page" FunctionName="Bayetech.Core.Entity.Store.UP_Super_Page" />
           <FunctionImportMapping FunctionImportName="UP_Super_PageThreeMonth" FunctionName="Bayetech.Core.Entity.Store.UP_Super_PageThreeMonth" />
+          <EntitySetMapping Name="v_framework_notify">
+            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_notify">
+              <MappingFragment StoreEntitySet="v_framework_notify">
+                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
+                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
+                <ScalarProperty Name="Executor" ColumnName="Executor" />
+                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
+                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
+                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
+                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
+                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
+                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
+                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
+                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
+                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
+                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
+                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
+                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
+                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
+                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
+                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
+                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
