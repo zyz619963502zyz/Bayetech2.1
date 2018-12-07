@@ -1,5 +1,6 @@
 ﻿import Vue from '../vue.js'
-import componentTable from '../components/table-Process.vue'
+import goodprocess from '../components/table-GoodProcess.vue'
+import orderprocess from '../components/table-OrderProcess.vue'
 import approve from '../components/Approve.vue'
 
 //import comCompnent from '../common.js'(已在配置文件全局引用)
@@ -10,18 +11,24 @@ let pagetype = comCompnent.default.GetUrlParam($(".NFine_iframe").context.URL,"t
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
-    ItemType:"good",//单据类型
+    ItemType: "good",//单据类型
+    SelectType:"good",
     tools:{
-        _comCompnent:comCompnent.default,
-        _componentTable: componentTable
+        _comCompnent:comCompnent.default
     },
     flowId: "1",
-    wfmid:"",
+    wfmid: "",
+    currentcomponent:"",//当前组件
     GoodListUrl: comCompnent.default.MenuUrl[pagetype],
     CheckGoodUrl:"/api/CheckGood/CheckGoodInfo",
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
-    GoodInfoArray:[],
+    GoodInfoArray: [],
+    components: {
+        goodprocess: 'goodprocess',
+        orderprocess:'orderprocess',
+        approve:'approve'
+    },
     ListObj: [
         {
             GoodNo: "",
@@ -55,8 +62,21 @@ let vmData = {
 new Vue({
     el: '#CommForm',
     data: vmData,
-    created(){
+    created() {
+        this.currentcomponent = goodprocess;
         this.findList();
+    },
+    watch: {
+        SelectType(val, oldval) {//类型切换
+            var self = this;
+            if (val == "good") {
+                self.currentcomponent = self.components.goodprocess;
+            } else if (val == "order") {
+                self.currentcomponent = self.components.orderprocess;
+            }
+        },
+        deep: true,
+        immediate: true
     },
     methods: {
         findList() {//获取商品的简要列表
@@ -114,8 +134,9 @@ new Vue({
         }
     },
     components:{
-        comtable: componentTable,
-        approve: approve
+        goodprocess,
+        orderprocess,
+        approve
     }
 });
 

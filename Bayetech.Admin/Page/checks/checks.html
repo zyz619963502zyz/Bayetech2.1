@@ -92,18 +92,38 @@
         <div id="" style="padding:20px 0 20px 0;">
             <form class="form form-search form-horizontal" role="form">
                 <div class="form-group" id="lineTwo">
-                    <div class="col-ms-10">
+                    <div class="col-ms-10 row">
                         <div class="input-group col-md-4">
                             <label class="control-label col-md-3">商品类型</label>
                             <div class="col-md-9">
-                                <select class="form-control" v-model="SearchParam.Param.SelectType">
+                                <select class="form-control" v-model="SelectType">
                                     <option value="good">商品审核</option>
                                     <option value="order">订单审核</option>
                                 </select>
                             </div>
                         </div>
                         <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">{{SearchParam.Param.SelectType=='good'?'商品编号':'订单编号'}}</label>
+                            <label class="control-label col-md-3">{{SelectType=='good'?'商品编号':'订单编号'}}</label>
+                            <div class="col-md-9">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-ms-10 row">
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">{{SelectType=='good'?'上架时间':'下单时间'}}</label>
+                            <div class="col-md-9">
+                                <select class="form-control" v-model="SelectType">
+                                    <option value="good">商品审核</option>
+                                    <option value="order">订单审核</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group col-md-4">
+                            <label class="control-label col-md-3">当前环节</label>
                             <div class="col-md-9">
                                 <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
                             </div>
@@ -135,7 +155,9 @@
                             </div>
 
                             <!--传值案例-->
-                            <comtable v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType" ref="comtable"></comtable>
+                            <keep-alive>
+                                <component ref="table" v-bind:is="currentcomponent" v-bind:pagetype="PageType" v-bind:goodinfoarray="GoodInfoArray" v-bind:startcheck="StartCheck" v-bind:itemtype="ItemType" ref="comtable"></component>
+                            </keep-alive>
 
                             <!--<div class="pull-right" id="">
                                 <ul class="pagination pagination-sm m-0"><li class="first disabled"><a href="#">首页</a></li><li class="prev disabled"><a href="#">上一页</a></li><li class="page active"><a href="#">1</a></li><li class="next"><a href="#">下一页</a></li><li class="last"><a href="#">尾页</a></li></ul>
