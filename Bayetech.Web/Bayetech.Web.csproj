@@ -356,6 +356,39 @@
     <Content Include="Content\good_list.css" />
     <Content Include="Content\helpcenter.css" />
     <Content Include="Content\homepage.css" />
+    <Content Include="Content\images2018\1比2公告优惠dnf-1.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠dnf-2.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠dnf-3.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠lol-1.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠lol-2.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠王者荣耀-1.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠王者荣耀00.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠魔兽世界-1.jpg" />
+    <Content Include="Content\images2018\1比2公告优惠魔兽世界00.jpg" />
+    <Content Include="Content\images2018\300X600-1.jpg" />
+    <Content Include="Content\images2018\300X600-2.jpg" />
+    <Content Include="Content\images2018\300X600-3.jpg" />
+    <Content Include="Content\images2018\300X600-4.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf-1.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf-2.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf-3.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf-4.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf2-5.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf2-6.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf2-7.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报dnf2-8.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报lol-1.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报lol-2.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报lol-3.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报lol-4.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报王者荣耀1.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报王者荣耀2.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报王者荣耀3.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报王者荣耀4.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报魔兽-1.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报魔兽-2.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报魔兽-3.jpg" />
+    <Content Include="Content\images2018\5比2焦点海报魔兽-4.jpg" />
     <Content Include="Content\Images\7881app_right.png" />
     <Content Include="Content\Images\7881bmzx.png" />
     <Content Include="Content\Images\7881_logo.jpg" />
@@ -945,7 +978,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images2018\" />
     <Folder Include="Models\FlowInfo\" />
     <Folder Include="Page\Article\" />
     <Folder Include="Page\Use\" />

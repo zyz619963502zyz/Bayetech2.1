@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页</title>
@@ -7,6 +7,12 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+    <script>
+        //设置字体大小,为计算做准备
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
     <link rel="icon" href="../../Content/NewImages/logo.ico"/>
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>

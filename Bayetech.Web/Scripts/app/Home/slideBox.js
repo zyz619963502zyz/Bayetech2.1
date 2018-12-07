@@ -25,7 +25,7 @@ define(['jquery', 'swiper'], function ($, Swiper) {
         }, {
             title: "假期已完 福利不断",
             url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
-            img: "../../Content/images2018/5比2焦点海报-魔兽-1.jpg"
+            img: "../../Content/images2018/5比2焦点海报魔兽-1.jpg"
         }, {
             title: "假期已完 福利不断",
             url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
