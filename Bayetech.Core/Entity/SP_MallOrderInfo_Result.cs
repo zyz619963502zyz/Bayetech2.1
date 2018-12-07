@@ -10,9 +10,8 @@
 namespace Bayetech.Core.Entity
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class vw_MallOrderInfo
+    public partial class SP_MallOrderInfo_Result
     {
         public string OrderNo { get; set; }
         public Nullable<decimal> OrderPrice { get; set; }
@@ -45,8 +44,5 @@ namespace Bayetech.Core.Entity
         public string BackName { get; set; }
         public string FrontName { get; set; }
         public string StatusKey { get; set; }
-        public string WFM_ID { get; set; }
-        public string BuyTypeCode { get; set; }
-        public string BuyType { get; set; }
     }
 }

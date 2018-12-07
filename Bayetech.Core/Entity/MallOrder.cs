@@ -40,5 +40,6 @@ namespace Bayetech.Core.Entity
         public string Remark { get; set; }
         public string OrderStatus { get; set; }
         public string WFM_ID { get; set; }
+        public string BuyTypeCode { get; set; }
     }
 }

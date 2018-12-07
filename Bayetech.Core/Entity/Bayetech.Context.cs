@@ -73,10 +73,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_MallPictureInfo> vw_MallPictureInfo { get; set; }
         public virtual DbSet<vw_NoToProperty> vw_NoToProperty { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
         public virtual DbSet<vw_MallGoodInfo> vw_MallGoodInfo { get; set; }
-        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
-        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Admin_Sys_Login> Admin_Sys_Login { get; set; }
         public virtual DbSet<Admin_Sys_Navigations> Admin_Sys_Navigations { get; set; }
@@ -87,6 +84,9 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Server> Server { get; set; }
         public virtual DbSet<MallOrder> MallOrder { get; set; }
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
+        public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
+        public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+        public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -189,6 +189,106 @@ namespace Bayetech.Core.Entity
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<SP_ArticleModule_Result> SP_ArticleModule(string moduleId)
+        {
+            var moduleIdParameter = moduleId != null ?
+                new ObjectParameter("ModuleId", moduleId) :
+                new ObjectParameter("ModuleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ArticleModule_Result>("SP_ArticleModule", moduleIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_GameServers_Result> SP_GameServers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GameServers_Result>("SP_GameServers");
+        }
+    
+        public virtual ObjectResult<SP_GoodTypes_Result> SP_GoodTypes(Nullable<long> gameId, Nullable<int> type)
+        {
+            var gameIdParameter = gameId.HasValue ?
+                new ObjectParameter("GameId", gameId) :
+                new ObjectParameter("GameId", typeof(long));
+    
+            var typeParameter = type.HasValue ?
+                new ObjectParameter("Type", type) :
+                new ObjectParameter("Type", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GoodTypes_Result>("SP_GoodTypes", gameIdParameter, typeParameter);
+        }
+    
+        public virtual ObjectResult<SP_LoginInfo_Result> SP_LoginInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LoginInfo_Result>("SP_LoginInfo");
+        }
+    
+        public virtual ObjectResult<SP_MallDLInfo_Result> SP_MallDLInfo(Nullable<long> gameId, Nullable<long> groupId, Nullable<long> serverId, string dlType, string workerType, string dlNo)
+        {
+            var gameIdParameter = gameId.HasValue ?
+                new ObjectParameter("GameId", gameId) :
+                new ObjectParameter("GameId", typeof(long));
+    
+            var groupIdParameter = groupId.HasValue ?
+                new ObjectParameter("GroupId", groupId) :
+                new ObjectParameter("GroupId", typeof(long));
+    
+            var serverIdParameter = serverId.HasValue ?
+                new ObjectParameter("ServerId", serverId) :
+                new ObjectParameter("ServerId", typeof(long));
+    
+            var dlTypeParameter = dlType != null ?
+                new ObjectParameter("DlType", dlType) :
+                new ObjectParameter("DlType", typeof(string));
+    
+            var workerTypeParameter = workerType != null ?
+                new ObjectParameter("WorkerType", workerType) :
+                new ObjectParameter("WorkerType", typeof(string));
+    
+            var dlNoParameter = dlNo != null ?
+                new ObjectParameter("DlNo", dlNo) :
+                new ObjectParameter("DlNo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MallDLInfo_Result>("SP_MallDLInfo", gameIdParameter, groupIdParameter, serverIdParameter, dlTypeParameter, workerTypeParameter, dlNoParameter);
+        }
+    
+        public virtual int SP_MallDLOrderInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MallDLOrderInfo");
+        }
+    
+        public virtual ObjectResult<SP_MallGoodInfo_Result> SP_MallGoodInfo(string goodInfoId)
+        {
+            var goodInfoIdParameter = goodInfoId != null ?
+                new ObjectParameter("GoodInfoId", goodInfoId) :
+                new ObjectParameter("GoodInfoId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MallGoodInfo_Result>("SP_MallGoodInfo", goodInfoIdParameter);
+        }
+    
+        public virtual int SP_MallGoodMainInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MallGoodMainInfo");
+        }
+    
+        public virtual int SP_MallGoodSearch()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MallGoodSearch");
+        }
+    
+        public virtual ObjectResult<SP_MallOrderInfo_Result> SP_MallOrderInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MallOrderInfo_Result>("SP_MallOrderInfo");
+        }
+    
+        public virtual ObjectResult<SP_MallPictureInfo_Result> SP_MallPictureInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_MallPictureInfo_Result>("SP_MallPictureInfo");
+        }
+    
+        public virtual ObjectResult<SP_NoToProperty_Result> SP_NoToProperty()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_NoToProperty_Result>("SP_NoToProperty");
         }
     }
 }

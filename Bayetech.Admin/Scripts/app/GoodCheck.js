@@ -10,12 +10,14 @@ let pagetype = comCompnent.default.GetUrlParam($(".NFine_iframe").context.URL,"t
     
 let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
+    tools: {
+        _comCompnent: comCompnent.default
+    },
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good",//单据类型
-    SelectType:"good",
-    tools:{
-        _comCompnent:comCompnent.default
-    },
+    SelectType: "good",//选择类型直接放到参数里面无法监听。
+    SelectFlow: "1",//选中的流程ID
+    SelectStatus:"0",//选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent:"",//当前组件
@@ -24,6 +26,8 @@ let vmData = {
     CheckGoodNo:"",//模态框打开的GoodNo
     keyword: "",
     GoodInfoArray: [],
+    Flows: [],//流程名称
+    Status:[],//环节名称
     components: {
         goodprocess: 'goodprocess',
         orderprocess:'orderprocess',
@@ -46,7 +50,9 @@ let vmData = {
             OrderNo:"",
             Status:pagetype,
             SelectType:"good",//form里选择的商品类型
-            SelectNo:""//form里面选择的编号
+            SelectNo: "",//form里面选择的编号
+            CURSTATUS_ID:"",//当前环节ID.
+            CURSTATUS_NAME:""//当前环节名称
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
