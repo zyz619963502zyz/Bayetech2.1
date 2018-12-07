@@ -102,33 +102,71 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">{{SelectType=='good'?'商品编号':'订单编号'}}</label>
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
+                            <label class="control-label col-md-3">商品编号</label>
                             <div class="col-md-9">
                                 <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='order'}">
+                            <label class="control-label col-md-3">订单编号</label>
+                            <div class="col-md-9">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
                         </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <br />
+                    <div class="col-ms-10 row">
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
+                            <label class="control-label col-md-3">卖家网站账号</label>
+                            <div class="col-md-9">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='order'}">
+                            <label class="control-label col-md-3">买家网站账号</label>
+                            <div class="col-md-9">
+                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="input-group col-md-4"  v-bind:class="{ hide: SelectType=='order'}">
+                            <label class="control-label col-md-3">上架时间</label>
+                            <div class="col-md-9">
+                                <select class="form-control" v-model="SelectType">
+                                    <option v-for="item in ">商品审核</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
+                            <label class="control-label col-md-3">下单时间</label>
+                            <div class="col-md-9">
+                                <select class="form-control" v-model="SelectType">
+                                    <option v-for="item in ">商品审核</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
                     <br />
                     <div class="col-ms-10 row">
                         <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">{{SelectType=='good'?'上架时间':'下单时间'}}</label>
+                            <label class="control-label col-md-3">流程名称</label>
                             <div class="col-md-9">
                                 <select class="form-control" v-model="SelectType">
-                                    <option value="good">商品审核</option>
-                                    <option value="order">订单审核</option>
+                                    <option v-for="item in Flows">商品审核</option>
                                 </select>
                             </div>
                         </div>
                         <div class="input-group col-md-4">
-                            <label class="control-label col-md-3">当前环节</label>
+                            <label class="control-label col-md-3">环节名称</label>
                             <div class="col-md-9">
-                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                                <select class="form-control" v-model="SelectType">
+                                    <option v-for="item in Status">商品审核</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-md-offset-1">
                             <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
                         </div>
                     </div>

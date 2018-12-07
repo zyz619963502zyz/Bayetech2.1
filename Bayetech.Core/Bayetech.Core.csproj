@@ -232,6 +232,12 @@
     <Compile Include="Entity\Settings.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SP_ArticleModule_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_GameServers_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\SP_GetRoleMenu_Result.cs">
       <DependentUpon>OasEntities.tt</DependentUpon>
     </Compile>
@@ -241,10 +247,31 @@
     <Compile Include="Entity\SP_GetUserMenu_Result.cs">
       <DependentUpon>OasEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SP_GoodTypes_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_LoginInfo_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_MallDLInfo_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_MallGoodInfo_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_MallOrderInfo_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_MallPictureInfo_Result.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_NoToProperty_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
