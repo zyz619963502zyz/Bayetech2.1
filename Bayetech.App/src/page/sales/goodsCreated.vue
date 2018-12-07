@@ -312,13 +312,14 @@
             <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" type="button" value="确定" class="bg-f54" /></a>
           </div>
         </div>
+        <!-- 安心买服务规定 -->
         <div data-v-08a3bc62="" id="pop_register" class="phlog hide" style="position: fixed; z-index: 1001; left: 50%; top: 50%; margin-left: -44%; margin-top: 0px;">
           <div data-v-08a3bc62="" class="pgbis">
             <h2 data-v-08a3bc62="" class="f30 color-000">安心买服务规定</h2>
             <p data-v-08a3bc62="" class="f28"> 鉴于5173作为网络第三方交易平台，仅能对卖家、买家、商品信息进行形式审查，为此5173特引入安心买服务。若卖家、买家任何一方选择了安心买服务，则卖家出售的商品，买家购买该商品出现被卖家找回、被运营商收回、封号等情况，您可以申请安心买服务，安心买保障体系会优先帮您找回帐号或者给予您购买商品的全额退款；并且本网站将根据该用户违规的情节和程度，对违规用户直接作出删除商品信息，限制交易权限甚至冻结用户帐号的处罚。若发生上述情况造成买家损失的，由本网站代卖家先行向买家退还购买上述商品的货款（服务费不退还）</p>
           </div>
         </div>
-        <div data-v-08a3bc62="" class="dialog_cover hide"></div>
+        <!--<div data-v-08a3bc62="" class="dialog_cover hide"></div>-->
       </div>
       
       <div data-v-08a3bc62="" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%; display: none;">

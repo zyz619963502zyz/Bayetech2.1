@@ -47,10 +47,22 @@
               <span data-v-484bcaae="" class="f30 color-999">收起</span>
             </div>
           </div>
+          <!-- 商品小类 -->
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-000">商品小类</span></div>
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw"><ul data-v-f82175a2="" class="clearfix"><li data-v-f82175a2="" class="border fl">武器</li><li data-v-f82175a2="" class="border fl">防具</li><li data-v-f82175a2="" class="border fl">首饰</li><li data-v-f82175a2="" class="border fl">特殊装备</li><li data-v-f82175a2="" class="border fl">套装</li></ul> <div data-v-f82175a2="" class="open-more-select"><i data-v-f82175a2="" class="icon-open"></i> <span data-v-f82175a2="" class="f30 color-999">展开</span></div></div>
+          <!-- 游戏区服 -->
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
             <span data-v-484bcaae="" class="danwei">请选择</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
+          </div>
+          <!-- 交易类型-->
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-333">交易类型</span></div>
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
+            <ul data-v-f82175a2="" class="clearfix">
+              <li data-v-f82175a2="" class="border fl">寄售</li>
+              <li data-v-f82175a2="" class="border fl">担保</li>
+            </ul>
           </div>
           <div data-v-484bcaae="" class="release fw mt-20">
             <a data-v-484bcaae="" class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>
@@ -196,6 +208,13 @@
         line-height: .34rem;
         overflow: visible;
       }
+  .danwei {
+    float: right;
+    width: 63%;
+    line-height: .6rem;
+    text-align: right;
+    padding-right: .2rem;
+  }
   .new-pubilsh01.order-container .danwei {
     right: .6rem;
   }
