@@ -27,12 +27,12 @@ namespace Bayetech.DAL
     /// </summary>
     public class RepositoryBase : IRepositoryBase, IDisposable
     {
-        private BayetechEntities dbcontext = new BayetechEntities();
         private DbTransaction dbTransaction { get; set; }
+        DbContext dbcontext = null;
 
-        public BayetechEntities GetContext()
+        public RepositoryBase(DbContext db = null)
         {
-            return dbcontext;
+            dbcontext = (db == null ? DBFactory.Bayetech : db);
         }
 
         public IRepositoryBase BeginTrans()

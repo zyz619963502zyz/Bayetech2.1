@@ -6,12 +6,17 @@ using System.Linq.Expressions;
 using Bayetech.Core.Entity;
 using Bayetech.Core;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Bayetech.Service
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
-        protected RepositoryBase repository = new RepositoryBase();
+        protected RepositoryBase repository = null;
+
+        public BaseService(DbContext db=null) {
+            repository = new RepositoryBase(db);
+        }
 
         /// <summary>
         /// 删除
