@@ -12,12 +12,7 @@ namespace Bayetech.Service
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
-        //protected RepositoryBase repository = null;
-        //public BaseService(DbContext db = null)
-        //{
-        //    //_db = db;
-        //    repository = new RepositoryBase(db);
-        //}
+        //原先RepositoryBase repository = new RepositoryBase()；IOC报错。
 
         protected RepositoryBase repository = null;
 

@@ -13,7 +13,7 @@ namespace Bayetech.Admin.Controllers
     public class FlowController : ApiController
     {
 
-        BaseService<T_FLOW_TYPE> flowService = new BaseService<T_FLOW_TYPE>();//快速读取
+        BaseService<T_FLOW_TYPE> flowService = new BaseService<T_FLOW_TYPE>(DBFactory.oas);//快速读取
         BaseService<T_FLOW_STATUS> statusService = new BaseService<T_FLOW_STATUS>();//快速读取
 
         /// <summary>
