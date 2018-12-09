@@ -219,6 +219,19 @@ namespace Bayetech.DAL
         }
 
         /// <summary>
+        /// 查询集合带分页对象
+        /// </summary>
+        /// <param name="page">分页对象</param>
+        /// <param name="predicate">lamad表达式</param>
+        /// <returns></returns>
+        public JObject GetList<TEntity>(Expression<Func<TEntity, bool>> predicate=null, Pagination page = null) where TEntity : class, new()
+        {
+            var jObect = new JObject();
+            var result = FindList(page, out page, predicate);
+            return Common.PackageJObect(result.Count > 0, result, page);
+        }
+
+        /// <summary>
         /// 通用获取JObject类型的内容不适合列表,
         /// 对上面方法FindList进行进一步封装，供列表使用
         /// </summary>
@@ -227,27 +240,29 @@ namespace Bayetech.DAL
         /// <param name="pagination"></param>
         /// <param name="NewPage"></param>
         /// <returns></returns>
-        public JObject GetList<TEntity>(Pagination pagination, out Pagination NewPage, Expression<Func<TEntity, bool>> predicate=null) where TEntity : class, new()
-        {
-            var ret = new JObject();
-            var result = new List<TEntity>() ;
+        //public JObject GetList<TEntity>(Pagination pagination, out Pagination NewPage, Expression<Func<TEntity, bool>> predicate=null) where TEntity : class, new()
+        //{
+        //    var ret = new JObject();
+        //    var result = new List<TEntity>() ;
 
-            result = FindList(pagination, out pagination, predicate);
+        //    result = FindList(pagination, out pagination, predicate);
 
 
-            //查询结果集
-            if (result.Count > 0)
-            {
-                ret.Add(ResultInfo.Result, true);
-                ret.Add(ResultInfo.Content, JToken.FromObject(result));
-            }
-            else
-            {
-                ret.Add(ResultInfo.Result, false);
-            }
-            NewPage = null;
-            return ret;
-        }
+        //    //查询结果集
+        //    if (result.Count > 0)
+        //    {
+        //        ret.Add(ResultInfo.Result, true);
+        //        ret.Add(ResultInfo.Content, JToken.FromObject(result));
+        //    }
+        //    else
+        //    {
+        //        ret.Add(ResultInfo.Result, false);
+        //    }
+        //    NewPage = null;
+        //    return ret;
+        //}
+
+
 
         public bool BulkInsert<TEntity>(List<TEntity> list) where TEntity : class
         {

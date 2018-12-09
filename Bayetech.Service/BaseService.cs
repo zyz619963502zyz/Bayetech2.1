@@ -70,6 +70,7 @@ namespace Bayetech.Service
             return repository.FindList(Pagination.GetDefaultPagination(page), predicate);
         }
 
+
         /// <summary>
         /// 查找单个对象
         /// </summary>
@@ -88,11 +89,25 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public JObject GetList(Expression<Func<TEntity, bool>> predicate)
+        //public JObject GetList(Expression<Func<TEntity, bool>> predicate)
+        //{
+        //    var jObect = new JObject();
+        //    var result = repository.IQueryable(predicate).ToList();
+        //    return Common.PackageJObect(result.Count > 0, result);
+        //}
+
+
+        /// <summary>
+        /// 查询集合带分页对象
+        /// </summary>
+        /// <param name="page">分页对象</param>
+        /// <param name="predicate">lamad表达式</param>
+        /// <returns></returns>
+        public JObject GetList(Expression<Func<TEntity, bool>> predicate, Pagination page= null)
         {
             var jObect = new JObject();
-            var result = repository.IQueryable(predicate).ToList();
-            return Common.PackageJObect(result.Count > 0, result);
+            var result = repository.FindList(page, out page, predicate);
+            return Common.PackageJObect(result.Count > 0, result,page);
         }
 
         /// <summary>

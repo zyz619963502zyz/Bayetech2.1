@@ -31,7 +31,7 @@ namespace Bayetech.DAL
         List<TEntity> FindList<TEntity>(string strSql, DbParameter[] dbParameter) where TEntity : class;
         List<TEntity> FindList<TEntity>(Pagination pagination,Expression<Func<TEntity, bool>> predicate) where TEntity : class,new();
         List<TEntity> FindList<TEntity>(Pagination pagination, out Pagination newPage,Expression<Func<TEntity, bool>> predicate) where TEntity : class, new();
-        JObject GetList<TEntity>(Pagination pagination, out Pagination NewPage, Expression<Func<TEntity, bool>> predicate = null) where TEntity : class, new();
+        JObject GetList<TEntity>( Expression<Func<TEntity, bool>> predicate = null, Pagination pagination =null) where TEntity : class, new();
 
     }
 }

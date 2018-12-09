@@ -24,7 +24,7 @@ namespace Bayetech.Service
             {
                 using (var db = new RepositoryBase())
                 {
-                    JObject ret = db.GetList<vw_MallDLInfo>(page,out page, c => c.GameId == 1);
+                    JObject ret = db.GetList<vw_MallDLInfo>(c => c.GameId == 1,page);
                     return ret;
                 }
             }
@@ -107,7 +107,7 @@ namespace Bayetech.Service
                 if (!string.IsNullOrEmpty(No))
                 {
                     var page = Pagination.GetDefaultPagination("PropertyId");
-                    ret = db.GetList<vw_NoToProperty>(page, out page,c=>c.No == No);
+                    ret = db.GetList<vw_NoToProperty>(c => c.No == No,page);
                 }
                 return ret;
             }

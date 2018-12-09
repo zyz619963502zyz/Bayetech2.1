@@ -9,7 +9,7 @@ namespace Bayetech.Service
     {
         JObject CreatOrder(MallOrder order);
 
-        JObject GetOrderInfo(v_framework_notify order, DateTime? startTime, DateTime? endTime, Pagination page = null);
+        JObject GetOrderInfo(vw_MallOrderInfo order, DateTime? startTime, DateTime? endTime, Pagination page = null);
 
     }
 

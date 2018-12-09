@@ -40,8 +40,12 @@ namespace Bayetech.Admin.Controllers
             else if (json["Param"]["SelectType"].ToString() == "order")
             {
                 v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
-               
-                return orderService.GetOrderInfo(OrderInfo, null, null, page);//获取商品订单信息
+                //todo开发待处理视图。
+                return processService.GetList(null, page);
+
+                //不能沿用订单的视图，重新开发视图               
+                //return orderService.GetOrderInfo(OrderInfo, null, null, page);//获取商品订单信息
+
             }
             else
             {
