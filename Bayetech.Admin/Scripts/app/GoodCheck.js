@@ -13,8 +13,8 @@ let vmData = {
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good",//单据类型
     SelectType: "good",//选择类型直接放到参数里面无法监听。
-    SelectFlow: "1",//选中的流程ID
-    SelectStatus:"0",//选中的环节ID
+    SelectFlowId: "1",//选中的流程ID
+    SelectStatusId:"0",//选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent:"",//当前组件
@@ -91,7 +91,7 @@ new Vue({
             var self = this;
             comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
                 if (data) {
-                    self.Flows = data;
+                    self.Flows = data.content;
                 }
             });
         },
@@ -101,7 +101,7 @@ new Vue({
             };
             comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
                 if (data) {
-                    self.Status = data;
+                    self.Status = data.content;
                 }
             });
         },
@@ -117,7 +117,7 @@ new Vue({
                     self.GoodInfoArray=data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._coCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }else {
                     self.GoodInfoArray = [];
                 }

@@ -44,14 +44,16 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public JObject GetOrderInfo(vw_MallOrderInfo order,DateTime? startTime,DateTime? endTime,Pagination page=null)
+        public JObject GetOrderInfo(v_framework_notify order,DateTime? startTime,DateTime? endTime,Pagination page=null)
         {
-            using (var db = new RepositoryBase())
+            using (var db = new RepositoryBase(DBFactory.oas))
             {
                 JObject ret = new JObject();
                 List<object> ResultGames = new List<object>();
-                PaginationResult<List<vw_MallOrderInfo>> ResultPage = new PaginationResult<List<vw_MallOrderInfo>>();
-                Expression<Func<vw_MallOrderInfo, bool>> expressions = PredicateExtensions.True<vw_MallOrderInfo>();
+                PaginationResult<List<v_framework_notify>> ResultPage = new PaginationResult<List<v_framework_notify>>();
+                Expression<Func<v_framework_notify, bool>> expressions = PredicateExtensions.True<v_framework_notify>();
+
+
                 if (order != null)
                 {
                     if (!string.IsNullOrEmpty(order.OrderNo))
@@ -91,7 +93,7 @@ namespace Bayetech.Service
                 }
                 else
                 {
-                    ResultPage.datas = db.FindList<vw_MallOrderInfo>(page == null ? Pagination.GetDefaultPagination("OrderNo") : page).ToList();
+                    ResultPage.datas = db.FindList<v_framework_notify>(page == null ? Pagination.GetDefaultPagination("OrderNo") : page).ToList();
                 }
                 var Games = ResultPage.datas.Select(c => new { GameId = c.GameId, GameName = c.GameName })
                     .GroupBy(q => new { q.GameId, q.GameName });

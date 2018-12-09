@@ -33,41 +33,11 @@ namespace Bayetech.Core.Entity
         public string LockUserID { get; set; }
         public Nullable<bool> IS_Pigeonhole { get; set; }
         public int TransFlag { get; set; }
-        public string huanji { get; set; }
-        public string PassedStatus { get; set; }
-        public decimal ownerOrgId { get; set; }
-        public string ownerUserId { get; set; }
-        public string ownerUserCode { get; set; }
-        public string user_name { get; set; }
-        public string org_name { get; set; }
-        public string org_code { get; set; }
-        public string WFRootID { get; set; }
-        public long StartFlag { get; set; }
-        public System.DateTime CheckAction { get; set; }
-        public System.DateTime CheckInTime { get; set; }
-        public System.DateTime CheckOutTime { get; set; }
-        public string owner_name { get; set; }
-        public string clientName { get; set; }
-        public string RootFlowCode { get; set; }
-        public string EstateName { get; set; }
-        public string ProAddr { get; set; }
+        public string HuanJi { get; set; }
         public long BizEstate { get; set; }
         public Nullable<decimal> CURSTATUS_ID { get; set; }
         public string CURSTATUS_NAME { get; set; }
-        public string ExchangeType { get; set; }
-        public string VerilyPassedStatus { get; set; }
-        public string paybank { get; set; }
-        public string paymode { get; set; }
         public int DealFolder { get; set; }
-        public string CredenceCode { get; set; }
-        public string FundFullCode { get; set; }
-        public string CompanyFullCode { get; set; }
-        public string PageFullCode { get; set; }
-        public string UserDefaultColumn3 { get; set; }
-        public string UserDefaultColumn4 { get; set; }
-        public string lastroleidea { get; set; }
-        public System.DateTime UserDefaultDateTime1 { get; set; }
-        public int UserDefaultDateTimeFlag { get; set; }
         public System.DateTime BalanceTime { get; set; }
         public System.DateTime BalanceUseTime { get; set; }
         public int BalanceValid { get; set; }
@@ -86,5 +56,30 @@ namespace Bayetech.Core.Entity
         public System.DateTime DateTime { get; set; }
         public int Disp_ID { get; set; }
         public int DelayLimit { get; set; }
+        public string OrderNo { get; set; }
+        public Nullable<decimal> OrderPrice { get; set; }
+        public Nullable<int> OrderNumber { get; set; }
+        public Nullable<decimal> OrderDiscount { get; set; }
+        public Nullable<decimal> OrderAmount { get; set; }
+        public string OrderDiscountName { get; set; }
+        public string OrderType { get; set; }
+        public string ReceiveRole { get; set; }
+        public Nullable<System.DateTime> OrderUpdateTime { get; set; }
+        public string GoodNo { get; set; }
+        public string ServiceId { get; set; }
+        public Nullable<long> ServiceQQ { get; set; }
+        public string BuyerId { get; set; }
+        public Nullable<long> BuyerPhone { get; set; }
+        public Nullable<int> InternalTypeId { get; set; }
+        public Nullable<long> BuyerQQ { get; set; }
+        public string GoodType { get; set; }
+        public Nullable<System.DateTime> OrderCreatTime { get; set; }
+        public string PromoNum { get; set; }
+        public string Editor { get; set; }
+        public string RefundReason { get; set; }
+        public string Remark { get; set; }
+        public string OrderStatus { get; set; }
+        public string BuyTypeCode { get; set; }
+        public Nullable<int> OrderLineNum { get; set; }
     }
 }

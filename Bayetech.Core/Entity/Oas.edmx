@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Bayetech.Core.Entity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="oasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SYS_XmlConfig">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,6 +16,23 @@
           <Property Name="userID" Type="varchar" MaxLength="50" />
           <Property Name="drecordTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oas.dbo.T_commissionDate”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_commissionDate">
+          <Property Name="Wfmid" Type="varchar" MaxLength="50" />
+          <Property Name="Parentid" Type="varchar" MaxLength="50" />
+          <Property Name="CommissionDate" Type="datetime" />
+        </EntityType>-->
         <EntityType Name="T_Flow_Admin">
           <Key>
             <PropertyRef Name="USER_ID" />
@@ -943,6 +960,17 @@
           <Property Name="duty_id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="coopfolman" Type="varchar" MaxLength="200" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oas.dbo.T_WorkFlow_CleanCase”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_WorkFlow_CleanCase">
+          <Property Name="ID" Type="varchar" MaxLength="60" />
+          <Property Name="RootId" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyNum" Type="varchar" MaxLength="50" />
+          <Property Name="CaseNum" Type="varchar" MaxLength="50" />
+          <Property Name="IsWaster" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DrecordTime" Type="nchar" MaxLength="10" />
+        </EntityType>-->
         <EntityType Name="T_WorkFlow_Diffluence">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -2136,6 +2164,7 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="255" />
           <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
           <Property Name="BuyTypeCode" Type="varchar" MaxLength="30" />
+          <Property Name="OrderLineNum" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“oas.dbo.v_framework_zaiban”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3028,164 +3057,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_Str_Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="String" Type="varchar(max)" Mode="In" />
-          <Parameter Name="Separator" Type="varchar" Mode="In" />
-          <ReturnType>
-            <CollectionType>
-              <RowType>
-                <Property Name="id" Type="varchar" MaxLength="100" />
-              </RowType>
-            </CollectionType>
-          </ReturnType>
-        </Function>
-        <Function Name="GetHisTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime">
-          <Parameter Name="dtDateTime1" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime2" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime3" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime4" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime5" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime6" Type="datetime" Mode="In" />
-          <Parameter Name="dtDateTime7" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="GetOrgState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-          <Parameter Name="OrgState" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetRest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
-          <Parameter Name="BalanceTime" Type="datetime" Mode="In" />
-          <Parameter Name="Org_Code" Type="varchar" Mode="In" />
-          <Parameter Name="MoneyType" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetRestGB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
-          <Parameter Name="FinishTime" Type="datetime" Mode="In" />
-          <Parameter Name="Org_Code" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetRestMY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
-          <Parameter Name="FinishTime" Type="datetime" Mode="In" />
-          <Parameter Name="Org_Code" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetRestRMB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
-          <Parameter Name="FinishTime" Type="datetime" Mode="In" />
-          <Parameter Name="Org_Code" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetRestRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
-          <Parameter Name="FinishTime" Type="datetime" Mode="In" />
-          <Parameter Name="Org_Code" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-          <Parameter Name="custid" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-          <Parameter Name="proid" Type="varchar" Mode="In" />
-          <Parameter Name="userid" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="GetUserState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-          <Parameter Name="UserState" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="NB_YWUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="username" Type="varchar" Mode="In" />
-          <Parameter Name="istempuser" Type="int" Mode="In" />
-          <Parameter Name="orgname" Type="varchar" Mode="In" />
-          <Parameter Name="usercode" Type="varchar" Mode="In" />
-          <Parameter Name="orggb" Type="varchar" Mode="In" />
-          <Parameter Name="pagesize" Type="int" Mode="In" />
-          <Parameter Name="pageindex" Type="int" Mode="In" />
-        </Function>
-        <Function Name="SP_BX_Import_CleanCase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="成交编号" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="SP_GetRoleMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="RoleName" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="SP_GetUserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="SP_GetUserMenuDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_DealUserNotify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="receiveId" Type="varchar" Mode="In" />
-          <Parameter Name="receiveName" Type="varchar" Mode="In" />
-          <Parameter Name="oldRecieveId" Type="varchar" Mode="In" />
-          <Parameter Name="wfmId" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_Get_DownOrgName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_Get_DownUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetAttUploadList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Att_Name" Type="varchar" Mode="In" />
-          <Parameter Name="ProjectLimit" Type="varchar" Mode="In" />
-          <Parameter Name="starttime" Type="datetime" Mode="In" />
-          <Parameter Name="endtime" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="UP_GetMenuRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MenuID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetMenuRole_New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MenuID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetNotify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="WfmID" Type="varchar" Mode="In" />
-          <Parameter Name="UserID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserAllRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserMenu_New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserMenuDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserOneRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-          <Parameter Name="ROLENAME" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="USERID" Type="varchar" Mode="In" />
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_GetUsersRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="USERIDS" Type="varchar" Mode="In" />
-          <Parameter Name="ROLENAME" Type="varchar" Mode="In" />
-          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="UP_Super_Page" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="TableName" Type="varchar(max)" Mode="In" />
-          <Parameter Name="Fields" Type="varchar(max)" Mode="In" />
-          <Parameter Name="OrderField" Type="varchar" Mode="In" />
-          <Parameter Name="sqlWhere" Type="varchar(max)" Mode="In" />
-          <Parameter Name="pageSize" Type="int" Mode="In" />
-          <Parameter Name="pageIndex" Type="int" Mode="In" />
-          <Parameter Name="TotalPage" Type="int" Mode="InOut" />
-        </Function>
-        <Function Name="UP_Super_PageThreeMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="TableName" Type="varchar(max)" Mode="In" />
-          <Parameter Name="Fields" Type="varchar(max)" Mode="In" />
-          <Parameter Name="OrderField" Type="varchar" Mode="In" />
-          <Parameter Name="sqlWhere" Type="varchar(max)" Mode="In" />
-          <Parameter Name="pageSize" Type="int" Mode="In" />
-          <Parameter Name="pageIndex" Type="int" Mode="In" />
-          <Parameter Name="TotalPage" Type="int" Mode="InOut" />
-        </Function>
-        <EntityContainer Name="BayetechCoreEntityStoreContainer">
+        <EntityContainer Name="oasModelStoreContainer">
           <EntitySet Name="SYS_XmlConfig" EntityType="Self.SYS_XmlConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Flow_Admin" EntityType="Self.T_Flow_Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Flow_BitAndItem" EntityType="Self.T_Flow_BitAndItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Flow_FunctionDefault" EntityType="Self.T_Flow_FunctionDefault" Schema="dbo" store:Type="Tables" />
@@ -3782,7 +3656,8 @@
     [v_framework_notify].[RefundReason] AS [RefundReason], 
     [v_framework_notify].[Remark] AS [Remark], 
     [v_framework_notify].[OrderStatus] AS [OrderStatus], 
-    [v_framework_notify].[BuyTypeCode] AS [BuyTypeCode]
+    [v_framework_notify].[BuyTypeCode] AS [BuyTypeCode], 
+    [v_framework_notify].[OrderLineNum] AS [OrderLineNum]
     FROM [dbo].[v_framework_notify] AS [v_framework_notify]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" store:Type="Views" store:Schema="dbo">
@@ -4389,13 +4264,11 @@
             <End Role="T_WORKFLOW_EXCHCHANGE" EntitySet="T_WORKFLOW_EXCHCHANGE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Bayetech.Core.Entity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <ComplexType Name="fn_Str_Split_Result">
-          <Property Name="id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </ComplexType>
+      <Schema Namespace="oasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="SYS_XmlConfig">
           <Key>
             <PropertyRef Name="ID" />
@@ -4406,6 +4279,16 @@
           <Property Name="IsNew" Type="Int32" />
           <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="drecordTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="T_Flow_Admin">
           <Key>
@@ -4558,6 +4441,36 @@
           <Property Name="isHalfConsign" Type="Int32" />
           <Property Name="DisplayType" Type="Int32" Nullable="false" />
           <Property Name="Trust_Relation" Type="String" MaxLength="7000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_FLOW_TYPE">
+          <Key>
+            <PropertyRef Name="FLOW_ID" />
+          </Key>
+          <Property Name="FLOW_ID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="Company_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FLOW_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WordDot" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WINDOWS_CLASS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AUTO_PRESS_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="NORMAL_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="DISPATCH_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="URGENCY_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="SUPERFINE_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="Is_Special" Type="Int32" />
+          <Property Name="Example_Limit" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="UI_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_Type_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RecordDept_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_Attribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sortorder" Type="Int32" />
+          <Property Name="Flow_Type_Bigclass_Id" Type="Int32" />
+          <Property Name="comProperty" Type="Int32" />
+          <Property Name="BU_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="linelimit" Type="Boolean" Nullable="false" />
+          <Property Name="msrepl_tran_version" Type="Guid" Nullable="false" />
+          <Property Name="FlowType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutStanding" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_Flow_Type_Bigclass">
           <Key>
@@ -6360,6 +6273,107 @@
           <Property Name="LDClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LDDealCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="v_framework_notify">
+          <Key>
+            <PropertyRef Name="WFM_ID" />
+            <PropertyRef Name="Flow_ID" />
+            <PropertyRef Name="FlowType" />
+            <PropertyRef Name="Flow_Name" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Creator" />
+            <PropertyRef Name="IsFinish" />
+            <PropertyRef Name="UpdateTime" />
+            <PropertyRef Name="IsSigned" />
+            <PropertyRef Name="IsWaster_" />
+            <PropertyRef Name="TransFlag" />
+            <PropertyRef Name="BizEstate" />
+            <PropertyRef Name="DealFolder" />
+            <PropertyRef Name="BalanceTime" />
+            <PropertyRef Name="BalanceUseTime" />
+            <PropertyRef Name="BalanceValid" />
+            <PropertyRef Name="WNT_ID" />
+            <PropertyRef Name="Executor" />
+            <PropertyRef Name="ExecutorName" />
+            <PropertyRef Name="Receiver" />
+            <PropertyRef Name="ReceiverName" />
+            <PropertyRef Name="Sender" />
+            <PropertyRef Name="SenderName" />
+            <PropertyRef Name="ReceiveTime" />
+            <PropertyRef Name="IsShow" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Disp_ID" />
+            <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
+          </Key>
+          <Property Name="WFM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="FlowType" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="Flow_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFinish" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubFinished" Type="Int32" />
+          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
+          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
+          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_Pigeonhole" Type="Boolean" />
+          <Property Name="TransFlag" Type="Int32" Nullable="false" />
+          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BizEstate" Type="Int64" Nullable="false" />
+          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DealFolder" Type="Int32" Nullable="false" />
+          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
+          <Property Name="WNT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Executor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExecutorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReceiverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsShow" Type="Int32" Nullable="false" />
+          <Property Name="IsTempSave" Type="Int32" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
+          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="InternalTypeId" Type="Int32" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderLineNum" Type="Int32" />
+        </EntityType>
         <EntityType Name="v_framework_zaiban">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -7231,6 +7245,7 @@
         </Association>
         <EntityContainer Name="oasEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SYS_XmlConfig" EntityType="Self.SYS_XmlConfig" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="T_Flow_Admin" EntityType="Self.T_Flow_Admin" />
           <EntitySet Name="T_Flow_BitAndItem" EntityType="Self.T_Flow_BitAndItem" />
           <EntitySet Name="T_Flow_FunctionDefault" EntityType="Self.T_Flow_FunctionDefault" />
@@ -7242,6 +7257,7 @@
           <EntitySet Name="T_FLOW_STATUS" EntityType="Self.T_FLOW_STATUS" />
           <EntitySet Name="T_Flow_StatusRole" EntityType="Self.T_Flow_StatusRole" />
           <EntitySet Name="T_Flow_Trust" EntityType="Self.T_Flow_Trust" />
+          <EntitySet Name="T_FLOW_TYPE" EntityType="Self.T_FLOW_TYPE" />
           <EntitySet Name="T_Flow_Type_Bigclass" EntityType="Self.T_Flow_Type_Bigclass" />
           <EntitySet Name="T_Flow_Type_Info" EntityType="Self.T_Flow_Type_Info" />
           <EntitySet Name="T_Flow_UpdateLog" EntityType="Self.T_Flow_UpdateLog" />
@@ -7321,6 +7337,7 @@
           <EntitySet Name="V_Flow_StatusUserAll" EntityType="Self.V_Flow_StatusUserAll" />
           <EntitySet Name="v_flow_user" EntityType="Self.v_flow_user" />
           <EntitySet Name="v_framework_main" EntityType="Self.v_framework_main" />
+          <EntitySet Name="v_framework_notify" EntityType="Self.v_framework_notify" />
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" />
           <EntitySet Name="v_pub_member_org" EntityType="Self.v_pub_member_org" />
           <EntitySet Name="V_PUB_MEMBER_USER" EntityType="Self.V_PUB_MEMBER_USER" />
@@ -7344,453 +7361,15 @@
             <End Role="T_WORKFLOW_EXCHCHANGE_TYPE" EntitySet="T_WORKFLOW_EXCHCHANGE_TYPE" />
             <End Role="T_WORKFLOW_EXCHCHANGE" EntitySet="T_WORKFLOW_EXCHCHANGE" />
           </AssociationSet>
-          <FunctionImport Name="fn_Str_Split" IsComposable="true" ReturnType="Collection(Bayetech.Core.Entity.fn_Str_Split_Result)">
-            <Parameter Name="String" Mode="In" Type="String" />
-            <Parameter Name="Separator" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="NB_YWUser" ReturnType="Collection(Bayetech.Core.Entity.NB_YWUser_Result)">
-            <Parameter Name="username" Mode="In" Type="String" />
-            <Parameter Name="istempuser" Mode="In" Type="Int32" />
-            <Parameter Name="orgname" Mode="In" Type="String" />
-            <Parameter Name="usercode" Mode="In" Type="String" />
-            <Parameter Name="orggb" Mode="In" Type="String" />
-            <Parameter Name="pagesize" Mode="In" Type="Int32" />
-            <Parameter Name="pageindex" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SP_BX_Import_CleanCase">
-          <Parameter Name="成交编号" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_GetRoleMenu" ReturnType="Collection(Bayetech.Core.Entity.SP_GetRoleMenu_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="RoleName" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_GetUserMenu" ReturnType="Collection(Bayetech.Core.Entity.SP_GetUserMenu_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="USERID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_GetUserMenuDefault" ReturnType="Collection(Bayetech.Core.Entity.SP_GetUserMenuDefault_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_DealUserNotify">
-            <Parameter Name="receiveId" Mode="In" Type="String" />
-            <Parameter Name="receiveName" Mode="In" Type="String" />
-            <Parameter Name="oldRecieveId" Mode="In" Type="String" />
-            <Parameter Name="wfmId" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_Get_DownOrgName" ReturnType="Collection(Bayetech.Core.Entity.UP_Get_DownOrgName_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="USERID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_Get_DownUsers" ReturnType="Collection(Bayetech.Core.Entity.UP_Get_DownUsers_Result)">
-          <Parameter Name="USERID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetAttUploadList">
-            <Parameter Name="Att_Name" Mode="In" Type="String" />
-            <Parameter Name="ProjectLimit" Mode="In" Type="String" />
-            <Parameter Name="starttime" Mode="In" Type="DateTime" />
-            <Parameter Name="endtime" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetMenuRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetMenuRole_Result)">
-          <Parameter Name="MenuID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetMenuRole_New" ReturnType="Collection(Bayetech.Core.Entity.UP_GetMenuRole_New_Result)">
-          <Parameter Name="MenuID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetNotify" ReturnType="Collection(Bayetech.Core.Entity.UP_GetNotify_Result)">
-            <Parameter Name="WfmID" Mode="In" Type="String" />
-            <Parameter Name="UserID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserAllRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserAllRole_Result)">
-          <Parameter Name="USERID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserMenu" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserMenu_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="USERID" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserMenu_New" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserMenu_New_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="USERID" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserMenuDefault" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserMenuDefault_Result)">
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-            <Parameter Name="SysFlag" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserOneRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserOneRole_Result)">
-            <Parameter Name="USERID" Mode="In" Type="String" />
-            <Parameter Name="ROLENAME" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUserRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUserRole_Result)">
-            <Parameter Name="USERID" Mode="In" Type="String" />
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_GetUsersRole" ReturnType="Collection(Bayetech.Core.Entity.UP_GetUsersRole_Result)">
-            <Parameter Name="USERIDS" Mode="In" Type="String" />
-            <Parameter Name="ROLENAME" Mode="In" Type="String" />
-            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UP_Super_Page">
-            <Parameter Name="TableName" Mode="In" Type="String" />
-            <Parameter Name="Fields" Mode="In" Type="String" />
-            <Parameter Name="OrderField" Mode="In" Type="String" />
-            <Parameter Name="sqlWhere" Mode="In" Type="String" />
-            <Parameter Name="pageSize" Mode="In" Type="Int32" />
-            <Parameter Name="pageIndex" Mode="In" Type="Int32" />
-            <Parameter Name="TotalPage" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="UP_Super_PageThreeMonth">
-            <Parameter Name="TableName" Mode="In" Type="String" />
-            <Parameter Name="Fields" Mode="In" Type="String" />
-            <Parameter Name="OrderField" Mode="In" Type="String" />
-            <Parameter Name="sqlWhere" Mode="In" Type="String" />
-            <Parameter Name="pageSize" Mode="In" Type="Int32" />
-            <Parameter Name="pageIndex" Mode="In" Type="Int32" />
-            <Parameter Name="TotalPage" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="v_framework_notify" EntityType="Bayetech.Core.Entity.v_framework_notify" />
-          <EntitySet Name="T_FLOW_TYPE" EntityType="Bayetech.Core.Entity.T_FLOW_TYPE" />
         </EntityContainer>
-        <ComplexType Name="NB_YWUser_Result">
-          <Property Type="Int64" Name="RowNumber" Nullable="true" />
-          <Property Type="Decimal" Name="OrgId" Nullable="true" Precision="10" Scale="0" />
-          <Property Type="String" Name="OrgName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="OrgCode" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="OrgGb" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="UserCode" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ParentId" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="User_DisplayName" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="IsTempUser" Nullable="true" Precision="1" Scale="0" />
-          <Property Type="String" Name="Org_Type" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="duty_name" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ParentUserName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ParentUserCode" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="ParentOrgId" Nullable="true" Precision="10" Scale="0" />
-          <Property Type="String" Name="ParentOrgName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="ParentOrgCode" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ParentOrgGb" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="SP_GetRoleMenu_Result">
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="sortid" Nullable="true" />
-          <Property Type="String" Name="url" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="SysFlag" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="picid" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Remark" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="SP_GetUserMenu_Result">
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="SortID" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="picid" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Remark" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="SP_GetUserMenuDefault_Result">
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="SortID" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="PicID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Remark" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_Get_DownOrgName_Result">
-          <Property Type="String" Name="Org_Display" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Org_Name" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="Org_id" Nullable="false" Precision="18" Scale="0" />
-        </ComplexType>
-        <ComplexType Name="UP_Get_DownUsers_Result">
-          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="user_id" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="user_code" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_GetMenuRole_Result">
-          <Property Type="String" Name="module_ID" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Role_Name" Nullable="true" MaxLength="200" />
-          <Property Type="Decimal" Name="role_id" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="RoleSerial" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="role_column" Nullable="false" MaxLength="20" />
-          <Property Type="Int64" Name="role_value" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="UP_GetMenuRole_New_Result">
-          <Property Type="String" Name="module_ID" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Role_Name" Nullable="true" MaxLength="200" />
-          <Property Type="Decimal" Name="role_id" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="RoleSerial" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="role_column" Nullable="false" MaxLength="20" />
-          <Property Type="Int64" Name="role_value" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="UP_GetNotify_Result">
-          <Property Type="String" Name="WFM_ID" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
-          <Property Type="Decimal" Name="Flow_ID" Nullable="false" Precision="9" Scale="0" />
-          <Property Type="Decimal" Name="FlowType" Nullable="false" Precision="9" Scale="0" />
-          <Property Type="String" Name="Flow_Name" Nullable="false" MaxLength="255" />
-          <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="23" />
-          <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="FinishTime" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="IsFinish" Nullable="false" />
-          <Property Type="DateTime" Name="UpdateTime" Nullable="false" Precision="23" />
-          <Property Type="String" Name="ModifyFlag" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="SubFinished" Nullable="true" />
-          <Property Type="String" Name="SpeciID" Nullable="true" MaxLength="3000" />
-          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="IsSigned" Nullable="false" />
-          <Property Type="Boolean" Name="IsWaster_" Nullable="false" />
-          <Property Type="String" Name="LockUserID" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="IS_Pigeonhole" Nullable="true" />
-          <Property Type="Int32" Name="TransFlag" Nullable="false" />
-          <Property Type="String" Name="huanji" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="PassedStatus" Nullable="false" MaxLength="Max" />
-          <Property Type="Decimal" Name="ownerOrgId" Nullable="false" Precision="10" Scale="0" />
-          <Property Type="String" Name="ownerUserId" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ownerUserCode" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="user_name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="org_name" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="org_code" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="WFRootID" Nullable="false" MaxLength="50" />
-          <Property Type="Int64" Name="StartFlag" Nullable="false" />
-          <Property Type="DateTime" Name="CheckAction" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="CheckInTime" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="CheckOutTime" Nullable="false" Precision="23" />
-          <Property Type="String" Name="owner_name" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="clientName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="RootFlowCode" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="EstateName" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="ProAddr" Nullable="true" MaxLength="500" />
-          <Property Type="Int64" Name="BizEstate" Nullable="false" />
-          <Property Type="Decimal" Name="CURSTATUS_ID" Nullable="true" Precision="10" Scale="0" />
-          <Property Type="String" Name="CURSTATUS_NAME" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ExchangeType" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="VerilyPassedStatus" Nullable="false" MaxLength="Max" />
-          <Property Type="String" Name="paybank" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="paymode" Nullable="false" MaxLength="200" />
-          <Property Type="Int32" Name="DealFolder" Nullable="false" />
-          <Property Type="String" Name="CredenceCode" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="FundFullCode" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="CompanyFullCode" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="PageFullCode" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="UserDefaultColumn3" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="UserDefaultColumn4" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="lastroleidea" Nullable="false" MaxLength="Max" />
-          <Property Type="DateTime" Name="UserDefaultDateTime1" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="UserDefaultDateTimeFlag" Nullable="false" />
-          <Property Type="DateTime" Name="BalanceTime" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="BalanceUseTime" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="BalanceValid" Nullable="false" />
-          <Property Type="String" Name="WNT_ID" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Executor" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ExecutorName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Receiver" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ReceiverName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Sender" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="SenderName" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="ReceiveTime" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="IsShow" Nullable="false" />
-          <Property Type="Int32" Name="IsTempSave" Nullable="true" />
-          <Property Type="Boolean" Name="IsNew" Nullable="true" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="DateTime" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="Disp_ID" Nullable="false" />
-          <Property Type="Int32" Name="DelayLimit" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserAllRole_Result">
-          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
-          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserMenu_Result">
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="SortID" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserMenu_New_Result">
-          <Property Type="String" Name="Remark" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="SortID" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserMenuDefault_Result">
-          <Property Type="Int32" Name="MenuID" Nullable="false" />
-          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ParentID" Nullable="true" />
-          <Property Type="Int32" Name="SortID" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserOneRole_Result">
-          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
-          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUserRole_Result">
-          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
-          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="MODULE_ID" Nullable="false" MaxLength="20" />
-        </ComplexType>
-        <ComplexType Name="UP_GetUsersRole_Result">
-          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
-          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <EntityType Name="v_framework_notify">
-          <Key>
-            <PropertyRef Name="WFM_ID" />
-            <PropertyRef Name="Flow_ID" />
-            <PropertyRef Name="FlowType" />
-            <PropertyRef Name="Flow_Name" />
-            <PropertyRef Name="CreateTime" />
-            <PropertyRef Name="Creator" />
-            <PropertyRef Name="IsFinish" />
-            <PropertyRef Name="UpdateTime" />
-            <PropertyRef Name="IsSigned" />
-            <PropertyRef Name="IsWaster_" />
-            <PropertyRef Name="TransFlag" />
-            <PropertyRef Name="BizEstate" />
-            <PropertyRef Name="DealFolder" />
-            <PropertyRef Name="BalanceTime" />
-            <PropertyRef Name="BalanceUseTime" />
-            <PropertyRef Name="BalanceValid" />
-            <PropertyRef Name="WNT_ID" />
-            <PropertyRef Name="Executor" />
-            <PropertyRef Name="ExecutorName" />
-            <PropertyRef Name="Receiver" />
-            <PropertyRef Name="ReceiverName" />
-            <PropertyRef Name="Sender" />
-            <PropertyRef Name="SenderName" />
-            <PropertyRef Name="ReceiveTime" />
-            <PropertyRef Name="IsShow" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="DateTime" />
-            <PropertyRef Name="Disp_ID" />
-            <PropertyRef Name="DelayLimit" />
-            <PropertyRef Name="OrderNo" />
-          </Key>
-          <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
-          <Property Name="FlowType" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
-          <Property Name="Flow_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FinishTime" Type="DateTime" Precision="3" />
-          <Property Name="IsFinish" Type="Int32" Nullable="false" />
-          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SubFinished" Type="Int32" />
-          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
-          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
-          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IS_Pigeonhole" Type="Boolean" />
-          <Property Name="TransFlag" Type="Int32" Nullable="false" />
-          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BizEstate" Type="Int64" Nullable="false" />
-          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DealFolder" Type="Int32" Nullable="false" />
-          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
-          <Property Name="WNT_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Executor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ExecutorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsShow" Type="Int32" Nullable="false" />
-          <Property Name="IsTempSave" Type="Int32" />
-          <Property Name="IsNew" Type="Boolean" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
-          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
-          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceQQ" Type="Int64" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerPhone" Type="Int64" />
-          <Property Name="InternalTypeId" Type="Int32" />
-          <Property Name="BuyerQQ" Type="Int64" />
-          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
-          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="T_FLOW_TYPE">
-          <Key>
-            <PropertyRef Name="FLOW_ID" />
-          </Key>
-          <Property Name="FLOW_ID" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
-          <Property Name="Company_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
-          <Property Name="FLOW_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="WordDot" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="WINDOWS_CLASS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AUTO_PRESS_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="NORMAL_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="DISPATCH_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="URGENCY_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="SUPERFINE_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="Is_Special" Type="Int32" />
-          <Property Name="Example_Limit" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="UI_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_Type_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="RecordDept_Id" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_Attribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="sortorder" Type="Int32" />
-          <Property Name="Flow_Type_Bigclass_Id" Type="Int32" />
-          <Property Name="comProperty" Type="Int32" />
-          <Property Name="BU_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="linelimit" Type="Boolean" Nullable="false" />
-          <Property Name="msrepl_tran_version" Type="Guid" Nullable="false" />
-          <Property Name="FlowType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OutStanding" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BayetechCoreEntityStoreContainer" CdmEntityContainer="oasEntities">
+        <EntityContainerMapping StorageEntityContainer="oasModelStoreContainer" CdmEntityContainer="oasEntities">
           <EntitySetMapping Name="SYS_XmlConfig">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.SYS_XmlConfig">
+            <EntityTypeMapping TypeName="oasModel.SYS_XmlConfig">
               <MappingFragment StoreEntitySet="SYS_XmlConfig">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SysType" ColumnName="SysType" />
@@ -7801,8 +7380,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="oasModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_Admin">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_Admin">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Admin">
               <MappingFragment StoreEntitySet="T_Flow_Admin">
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
@@ -7811,7 +7401,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_BitAndItem">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_BitAndItem">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_BitAndItem">
               <MappingFragment StoreEntitySet="T_Flow_BitAndItem">
                 <ScalarProperty Name="Item_Key" ColumnName="Item_Key" />
                 <ScalarProperty Name="Item_Value" ColumnName="Item_Value" />
@@ -7824,7 +7414,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_FunctionDefault">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_FunctionDefault">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_FunctionDefault">
               <MappingFragment StoreEntitySet="T_Flow_FunctionDefault">
                 <ScalarProperty Name="Fn_Code" ColumnName="Fn_Code" />
                 <ScalarProperty Name="Fn_Name" ColumnName="Fn_Name" />
@@ -7839,7 +7429,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_OperatePerm">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_OperatePerm">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_OperatePerm">
               <MappingFragment StoreEntitySet="T_FLOW_OperatePerm">
                 <ScalarProperty Name="operateperm_id" ColumnName="operateperm_id" />
                 <ScalarProperty Name="operateperm_name" ColumnName="operateperm_name" />
@@ -7848,7 +7438,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_OperateUser">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_OperateUser">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_OperateUser">
               <MappingFragment StoreEntitySet="T_FLOW_OperateUser">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="flow_id" ColumnName="flow_id" />
@@ -7857,7 +7447,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_OptiomItem">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_OptiomItem">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_OptiomItem">
               <MappingFragment StoreEntitySet="T_Flow_OptiomItem">
                 <ScalarProperty Name="Item_Key" ColumnName="Item_Key" />
                 <ScalarProperty Name="Item_Value" ColumnName="Item_Value" />
@@ -7869,7 +7459,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_OptiomTextItem">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_OptiomTextItem">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_OptiomTextItem">
               <MappingFragment StoreEntitySet="T_Flow_OptiomTextItem">
                 <ScalarProperty Name="Item_Key" ColumnName="Item_Key" />
                 <ScalarProperty Name="Item_Value" ColumnName="Item_Value" />
@@ -7881,7 +7471,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_Role_CUT">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_Role_CUT">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_Role_CUT">
               <MappingFragment StoreEntitySet="T_FLOW_Role_CUT">
                 <ScalarProperty Name="userrole_id" ColumnName="userrole_id" />
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
@@ -7896,7 +7486,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_STATUS">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_STATUS">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_STATUS">
               <MappingFragment StoreEntitySet="T_FLOW_STATUS">
                 <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
@@ -7936,7 +7526,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_StatusRole">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_StatusRole">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_StatusRole">
               <MappingFragment StoreEntitySet="T_Flow_StatusRole">
                 <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
                 <ScalarProperty Name="Flow_Id" ColumnName="Flow_Id" />
@@ -7949,7 +7539,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_Trust">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_Trust">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Trust">
               <MappingFragment StoreEntitySet="T_Flow_Trust">
                 <ScalarProperty Name="Trust_ID" ColumnName="Trust_ID" />
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
@@ -7962,8 +7552,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_FLOW_TYPE">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_TYPE">
+              <MappingFragment StoreEntitySet="T_FLOW_TYPE">
+                <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+                <ScalarProperty Name="FLOW_NAME" ColumnName="FLOW_NAME" />
+                <ScalarProperty Name="WordDot" ColumnName="WordDot" />
+                <ScalarProperty Name="WINDOWS_CLASS" ColumnName="WINDOWS_CLASS" />
+                <ScalarProperty Name="AUTO_PRESS_TIME" ColumnName="AUTO_PRESS_TIME" />
+                <ScalarProperty Name="NORMAL_DESTINE_TIME" ColumnName="NORMAL_DESTINE_TIME" />
+                <ScalarProperty Name="DISPATCH_DESTINE_TIME" ColumnName="DISPATCH_DESTINE_TIME" />
+                <ScalarProperty Name="URGENCY_DESTINE_TIME" ColumnName="URGENCY_DESTINE_TIME" />
+                <ScalarProperty Name="SUPERFINE_DESTINE_TIME" ColumnName="SUPERFINE_DESTINE_TIME" />
+                <ScalarProperty Name="Is_Special" ColumnName="Is_Special" />
+                <ScalarProperty Name="Example_Limit" ColumnName="Example_Limit" />
+                <ScalarProperty Name="UI_Url" ColumnName="UI_Url" />
+                <ScalarProperty Name="Flow_Type_Name" ColumnName="Flow_Type_Name" />
+                <ScalarProperty Name="RecordDept_Id" ColumnName="RecordDept_Id" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Flow_Attribute" ColumnName="Flow_Attribute" />
+                <ScalarProperty Name="sortorder" ColumnName="sortorder" />
+                <ScalarProperty Name="Flow_Type_Bigclass_Id" ColumnName="Flow_Type_Bigclass_Id" />
+                <ScalarProperty Name="comProperty" ColumnName="comProperty" />
+                <ScalarProperty Name="BU_NAME" ColumnName="BU_NAME" />
+                <ScalarProperty Name="linelimit" ColumnName="linelimit" />
+                <ScalarProperty Name="msrepl_tran_version" ColumnName="msrepl_tran_version" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="OutStanding" ColumnName="OutStanding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_Type_Bigclass">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_Type_Bigclass">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Type_Bigclass">
               <MappingFragment StoreEntitySet="T_Flow_Type_Bigclass">
                 <ScalarProperty Name="Flow_Type_Bigclass_Id" ColumnName="Flow_Type_Bigclass_Id" />
                 <ScalarProperty Name="Flow_Type_Bigclass_Name" ColumnName="Flow_Type_Bigclass_Name" />
@@ -7977,7 +7598,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_Type_Info">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_Type_Info">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Type_Info">
               <MappingFragment StoreEntitySet="T_Flow_Type_Info">
                 <ScalarProperty Name="Flow_Type_Name" ColumnName="Flow_Type_Name" />
                 <ScalarProperty Name="Flow_Type_Remark" ColumnName="Flow_Type_Remark" />
@@ -7986,7 +7607,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_UpdateLog">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_UpdateLog">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_UpdateLog">
               <MappingFragment StoreEntitySet="T_Flow_UpdateLog">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="MachineName" ColumnName="MachineName" />
@@ -8006,7 +7627,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_WindowsClass">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_WindowsClass">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_WindowsClass">
               <MappingFragment StoreEntitySet="T_Flow_WindowsClass">
                 <ScalarProperty Name="windows_class" ColumnName="windows_class" />
                 <ScalarProperty Name="chinesename" ColumnName="chinesename" />
@@ -8017,7 +7638,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FrameWork_Detali">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FrameWork_Detali">
+            <EntityTypeMapping TypeName="oasModel.T_FrameWork_Detali">
               <MappingFragment StoreEntitySet="T_FrameWork_Detali">
                 <ScalarProperty Name="WfmId" ColumnName="WfmId" />
                 <ScalarProperty Name="ReceiptNum" ColumnName="ReceiptNum" />
@@ -8041,7 +7662,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FrameWork_Summary">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FrameWork_Summary">
+            <EntityTypeMapping TypeName="oasModel.T_FrameWork_Summary">
               <MappingFragment StoreEntitySet="T_FrameWork_Summary">
                 <ScalarProperty Name="WfmId" ColumnName="WfmId" />
                 <ScalarProperty Name="RootId" ColumnName="RootId" />
@@ -8068,7 +7689,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pro_CaseStatus">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pro_CaseStatus">
+            <EntityTypeMapping TypeName="oasModel.T_Pro_CaseStatus">
               <MappingFragment StoreEntitySet="T_Pro_CaseStatus">
                 <ScalarProperty Name="EstateValue" ColumnName="EstateValue" />
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
@@ -8076,7 +7697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pro_Menu">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pro_Menu">
+            <EntityTypeMapping TypeName="oasModel.T_Pro_Menu">
               <MappingFragment StoreEntitySet="T_Pro_Menu">
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
@@ -8093,7 +7714,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pro_MenuRole">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pro_MenuRole">
+            <EntityTypeMapping TypeName="oasModel.T_Pro_MenuRole">
               <MappingFragment StoreEntitySet="T_Pro_MenuRole">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
@@ -8107,7 +7728,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Duty">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Duty">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Duty">
               <MappingFragment StoreEntitySet="T_Pub_Duty">
                 <ScalarProperty Name="Duty_Name" ColumnName="Duty_Name" />
                 <ScalarProperty Name="Duty_Level" ColumnName="Duty_Level" />
@@ -8119,7 +7740,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Module">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Module">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Module">
               <MappingFragment StoreEntitySet="T_Pub_Module">
                 <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
                 <ScalarProperty Name="Module_Name" ColumnName="Module_Name" />
@@ -8134,7 +7755,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Org">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Org">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Org">
               <MappingFragment StoreEntitySet="T_Pub_Org">
                 <ScalarProperty Name="Org_id" ColumnName="Org_id" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -8170,7 +7791,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Org_Member">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Org_Member">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Org_Member">
               <MappingFragment StoreEntitySet="T_Pub_Org_Member">
                 <ScalarProperty Name="Org_Member_ID" ColumnName="Org_Member_ID" />
                 <ScalarProperty Name="Org_ID" ColumnName="Org_ID" />
@@ -8181,7 +7802,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Rights">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Rights">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Rights">
               <MappingFragment StoreEntitySet="T_Pub_Rights">
                 <ScalarProperty Name="Rights_id" ColumnName="Rights_id" />
                 <ScalarProperty Name="Rights_Value" ColumnName="Rights_Value" />
@@ -8195,7 +7816,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_Role">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_Role">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_Role">
               <MappingFragment StoreEntitySet="T_Pub_Role">
                 <ScalarProperty Name="Role_id" ColumnName="Role_id" />
                 <ScalarProperty Name="Role_Value" ColumnName="Role_Value" />
@@ -8211,7 +7832,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_User">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_User">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_User">
               <MappingFragment StoreEntitySet="T_Pub_User">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -8258,7 +7879,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_pub_user_parents">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.t_pub_user_parents">
+            <EntityTypeMapping TypeName="oasModel.t_pub_user_parents">
               <MappingFragment StoreEntitySet="t_pub_user_parents">
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
@@ -8294,7 +7915,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_UserRights">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_UserRights">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_UserRights">
               <MappingFragment StoreEntitySet="T_Pub_UserRights">
                 <ScalarProperty Name="UserRights_id" ColumnName="UserRights_id" />
                 <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
@@ -8307,7 +7928,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pub_UserRole">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pub_UserRole">
+            <EntityTypeMapping TypeName="oasModel.T_Pub_UserRole">
               <MappingFragment StoreEntitySet="T_Pub_UserRole">
                 <ScalarProperty Name="Userrole_id" ColumnName="Userrole_id" />
                 <ScalarProperty Name="User_id" ColumnName="User_id" />
@@ -8322,7 +7943,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Status_OperationRole">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Status_OperationRole">
+            <EntityTypeMapping TypeName="oasModel.T_Status_OperationRole">
               <MappingFragment StoreEntitySet="T_Status_OperationRole">
                 <ScalarProperty Name="OperationRole_ID" ColumnName="OperationRole_ID" />
                 <ScalarProperty Name="Windows_Class" ColumnName="Windows_Class" />
@@ -8333,7 +7954,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_STATUS_TYPE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_STATUS_TYPE">
+            <EntityTypeMapping TypeName="oasModel.T_STATUS_TYPE">
               <MappingFragment StoreEntitySet="T_STATUS_TYPE">
                 <ScalarProperty Name="STATUS_TYPE_ID" ColumnName="STATUS_TYPE_ID" />
                 <ScalarProperty Name="STATUS_TYPE_NAME" ColumnName="STATUS_TYPE_NAME" />
@@ -8341,7 +7962,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_Assign">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_Assign">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_Assign">
               <MappingFragment StoreEntitySet="T_WorkFlow_Assign">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="SourceUserId" ColumnName="SourceUserId" />
@@ -8360,7 +7981,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_AssignBiz">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_AssignBiz">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_AssignBiz">
               <MappingFragment StoreEntitySet="T_WorkFlow_AssignBiz">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="SourceOwnerOrgId" ColumnName="SourceOwnerOrgId" />
@@ -8383,7 +8004,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_Attachments">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_Attachments">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_Attachments">
               <MappingFragment StoreEntitySet="T_WorkFlow_Attachments">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="FATT_ID" ColumnName="FATT_ID" />
@@ -8411,7 +8032,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_AttCatalog">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_AttCatalog">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_AttCatalog">
               <MappingFragment StoreEntitySet="T_WORKFLOW_AttCatalog">
                 <ScalarProperty Name="wacc_code" ColumnName="wacc_code" />
                 <ScalarProperty Name="wacc_name" ColumnName="wacc_name" />
@@ -8419,7 +8040,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_AttPattern">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_AttPattern">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_AttPattern">
               <MappingFragment StoreEntitySet="T_WORKFLOW_AttPattern">
                 <ScalarProperty Name="watp_code" ColumnName="watp_code" />
                 <ScalarProperty Name="watp_name" ColumnName="watp_name" />
@@ -8428,7 +8049,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_AttSelfReMark">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_AttSelfReMark">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_AttSelfReMark">
               <MappingFragment StoreEntitySet="T_WorkFlow_AttSelfReMark">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="FATT_ID" ColumnName="FATT_ID" />
@@ -8444,7 +8065,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_AttTrackChange">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_AttTrackChange">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_AttTrackChange">
               <MappingFragment StoreEntitySet="T_WorkFlow_AttTrackChange">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="FATT_ID" ColumnName="FATT_ID" />
@@ -8460,7 +8081,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_AttType">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_AttType">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_AttType">
               <MappingFragment StoreEntitySet="T_WorkFlow_AttType">
                 <ScalarProperty Name="AttType_ID" ColumnName="AttType_ID" />
                 <ScalarProperty Name="AttType_Name" ColumnName="AttType_Name" />
@@ -8468,7 +8089,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_BalanceSeting">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_BalanceSeting">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_BalanceSeting">
               <MappingFragment StoreEntitySet="T_WorkFlow_BalanceSeting">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="BS_StartTime" ColumnName="BS_StartTime" />
@@ -8485,7 +8106,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_BalanceSetingHis">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_BalanceSetingHis">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_BalanceSetingHis">
               <MappingFragment StoreEntitySet="T_WorkFlow_BalanceSetingHis">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="BS_Year" ColumnName="BS_Year" />
@@ -8502,7 +8123,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_BalanceSetingLog">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_BalanceSetingLog">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_BalanceSetingLog">
               <MappingFragment StoreEntitySet="T_WorkFlow_BalanceSetingLog">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="BSL_User_ID" ColumnName="BSL_User_ID" />
@@ -8515,7 +8136,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_BizFollow">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_BizFollow">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_BizFollow">
               <MappingFragment StoreEntitySet="T_WorkFlow_BizFollow">
                 <ScalarProperty Name="WF_BF_ID" ColumnName="WF_BF_ID" />
                 <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
@@ -8537,7 +8158,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_Diffluence">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_Diffluence">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_Diffluence">
               <MappingFragment StoreEntitySet="T_WorkFlow_Diffluence">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
@@ -8554,7 +8175,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_EXCHCHANGE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_EXCHCHANGE">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_EXCHCHANGE">
               <MappingFragment StoreEntitySet="T_WORKFLOW_EXCHCHANGE">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="EXT_ID" ColumnName="EXT_ID" />
@@ -8569,7 +8190,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_EXCHCHANGE_TYPE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_EXCHCHANGE_TYPE">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE">
               <MappingFragment StoreEntitySet="T_WORKFLOW_EXCHCHANGE_TYPE">
                 <ScalarProperty Name="EXT_ID" ColumnName="EXT_ID" />
                 <ScalarProperty Name="EXT_NAME" ColumnName="EXT_NAME" />
@@ -8581,7 +8202,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_FLOWEXPAND">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_FLOWEXPAND">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_FLOWEXPAND">
               <MappingFragment StoreEntitySet="T_WORKFLOW_FLOWEXPAND">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
@@ -8656,7 +8277,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_WorkFlow_FlowInfo">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.t_WorkFlow_FlowInfo">
+            <EntityTypeMapping TypeName="oasModel.t_WorkFlow_FlowInfo">
               <MappingFragment StoreEntitySet="t_WorkFlow_FlowInfo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="parentID" ColumnName="parentID" />
@@ -8697,7 +8318,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_FlowMain">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_FlowMain">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_FlowMain">
               <MappingFragment StoreEntitySet="T_WorkFlow_FlowMain">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -8764,7 +8385,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_GlobalData">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_GlobalData">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_GlobalData">
               <MappingFragment StoreEntitySet="T_WorkFlow_GlobalData">
                 <ScalarProperty Name="Data_ID" ColumnName="Data_ID" />
                 <ScalarProperty Name="Data_Type" ColumnName="Data_Type" />
@@ -8773,7 +8394,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogFLOWEXPAND">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogFLOWEXPAND">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogFLOWEXPAND">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogFLOWEXPAND">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
@@ -8832,7 +8453,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogFlowMain">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogFlowMain">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogFlowMain">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogFlowMain">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -8890,7 +8511,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogMainAtt">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogMainAtt">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogMainAtt">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogMainAtt">
                 <ScalarProperty Name="Attachments" ColumnName="Attachments" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -8900,7 +8521,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogMainField">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogMainField">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogMainField">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogMainField">
                 <ScalarProperty Name="Fields" ColumnName="Fields" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -8911,7 +8532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogMonitor">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogMonitor">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogMonitor">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogMonitor">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
@@ -8948,7 +8569,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogNotify">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogNotify">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogNotify">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogNotify">
                 <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
                 <ScalarProperty Name="Receiver" ColumnName="Receiver" />
@@ -8977,7 +8598,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogPrint">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogPrint">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogPrint">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogPrint">
                 <ScalarProperty Name="Guid" ColumnName="Guid" />
                 <ScalarProperty Name="wfm_id" ColumnName="wfm_id" />
@@ -8995,7 +8616,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_LogZaiBan">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_LogZaiBan">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_LogZaiBan">
               <MappingFragment StoreEntitySet="T_WorkFlow_LogZaiBan">
                 <ScalarProperty Name="WZB_ID" ColumnName="WZB_ID" />
                 <ScalarProperty Name="Executor" ColumnName="Executor" />
@@ -9022,7 +8643,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_MainAtt">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_MainAtt">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_MainAtt">
               <MappingFragment StoreEntitySet="T_WorkFlow_MainAtt">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Attachments" ColumnName="Attachments" />
@@ -9030,7 +8651,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_MainField">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_MainField">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_MainField">
               <MappingFragment StoreEntitySet="T_WorkFlow_MainField">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Fields" ColumnName="Fields" />
@@ -9042,7 +8663,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_Notify">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_Notify">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_Notify">
               <MappingFragment StoreEntitySet="T_WorkFlow_Notify">
                 <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -9073,7 +8694,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_Number">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_Number">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_Number">
               <MappingFragment StoreEntitySet="T_WorkFlow_Number">
                 <ScalarProperty Name="BN_GUID" ColumnName="BN_GUID" />
                 <ScalarProperty Name="BN_WFM_ID" ColumnName="BN_WFM_ID" />
@@ -9113,7 +8734,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_PageChange">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_PageChange">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_PageChange">
               <MappingFragment StoreEntitySet="T_WorkFlow_PageChange">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -9132,7 +8753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_SelfRemark">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_SelfRemark">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_SelfRemark">
               <MappingFragment StoreEntitySet="T_WorkFlow_SelfRemark">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="Case_WFM_ID" ColumnName="Case_WFM_ID" />
@@ -9145,7 +8766,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_ZaiBan">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_ZaiBan">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_ZaiBan">
               <MappingFragment StoreEntitySet="T_WorkFlow_ZaiBan">
                 <ScalarProperty Name="WZB_ID" ColumnName="WZB_ID" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -9173,7 +8794,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TWF_TCB_Estate">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.TWF_TCB_Estate">
+            <EntityTypeMapping TypeName="oasModel.TWF_TCB_Estate">
               <MappingFragment StoreEntitySet="TWF_TCB_Estate">
                 <ScalarProperty Name="EstateValue" ColumnName="EstateValue" />
                 <ScalarProperty Name="EstateName" ColumnName="EstateName" />
@@ -9181,7 +8802,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TWF_TCB_Exchange">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.TWF_TCB_Exchange">
+            <EntityTypeMapping TypeName="oasModel.TWF_TCB_Exchange">
               <MappingFragment StoreEntitySet="TWF_TCB_Exchange">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Case_WFM_ID" ColumnName="Case_WFM_ID" />
@@ -9202,7 +8823,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TWF_TCB_Property">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.TWF_TCB_Property">
+            <EntityTypeMapping TypeName="oasModel.TWF_TCB_Property">
               <MappingFragment StoreEntitySet="TWF_TCB_Property">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Case_WFM_ID" ColumnName="Case_WFM_ID" />
@@ -9237,7 +8858,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_DISPOSAL">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_DISPOSAL">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_DISPOSAL">
               <MappingFragment StoreEntitySet="T_FLOW_DISPOSAL">
                 <ScalarProperty Name="DISPOSAL_ID" ColumnName="DISPOSAL_ID" />
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
@@ -9260,7 +8881,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_FormLimit">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_FormLimit">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_FormLimit">
               <MappingFragment StoreEntitySet="T_Flow_FormLimit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FlowKey" ColumnName="FlowKey" />
@@ -9274,7 +8895,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_Type_20180311">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_Type_20180311">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_Type_20180311">
               <MappingFragment StoreEntitySet="T_FLOW_Type_20180311">
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
                 <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
@@ -9305,7 +8926,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_FLOW_UI">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_UI">
+            <EntityTypeMapping TypeName="oasModel.T_FLOW_UI">
               <MappingFragment StoreEntitySet="T_FLOW_UI">
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
                 <ScalarProperty Name="UI_Url" ColumnName="UI_Url" />
@@ -9314,7 +8935,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_INSTANCE_FLOW_DISPOSAL">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_INSTANCE_FLOW_DISPOSAL">
+            <EntityTypeMapping TypeName="oasModel.T_INSTANCE_FLOW_DISPOSAL">
               <MappingFragment StoreEntitySet="T_INSTANCE_FLOW_DISPOSAL">
                 <ScalarProperty Name="DISPOSAL_ID" ColumnName="DISPOSAL_ID" />
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
@@ -9332,7 +8953,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_INSTANCE_FLOW_STATUS">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_INSTANCE_FLOW_STATUS">
+            <EntityTypeMapping TypeName="oasModel.T_INSTANCE_FLOW_STATUS">
               <MappingFragment StoreEntitySet="T_INSTANCE_FLOW_STATUS">
                 <ScalarProperty Name="FLOW_INS_ID" ColumnName="FLOW_INS_ID" />
                 <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
@@ -9361,7 +8982,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pro_Menu_new">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pro_Menu_new">
+            <EntityTypeMapping TypeName="oasModel.T_Pro_Menu_new">
               <MappingFragment StoreEntitySet="T_Pro_Menu_new">
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
@@ -9377,7 +8998,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pro_MenuRole_new">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Pro_MenuRole_new">
+            <EntityTypeMapping TypeName="oasModel.T_Pro_MenuRole_new">
               <MappingFragment StoreEntitySet="T_Pro_MenuRole_new">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
@@ -9391,7 +9012,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Status_OperationPerm">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Status_OperationPerm">
+            <EntityTypeMapping TypeName="oasModel.T_Status_OperationPerm">
               <MappingFragment StoreEntitySet="T_Status_OperationPerm">
                 <ScalarProperty Name="windows_class" ColumnName="windows_class" />
                 <ScalarProperty Name="operationperm_id" ColumnName="operationperm_id" />
@@ -9401,7 +9022,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_WorkFlow_FlowInfo2">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.t_WorkFlow_FlowInfo2">
+            <EntityTypeMapping TypeName="oasModel.t_WorkFlow_FlowInfo2">
               <MappingFragment StoreEntitySet="t_WorkFlow_FlowInfo2">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="parentID" ColumnName="parentID" />
@@ -9433,7 +9054,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WORKFLOW_PARENTID">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WORKFLOW_PARENTID">
+            <EntityTypeMapping TypeName="oasModel.T_WORKFLOW_PARENTID">
               <MappingFragment StoreEntitySet="T_WORKFLOW_PARENTID">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="updatetime" ColumnName="updatetime" />
@@ -9441,7 +9062,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_WorkFlow_ROLEIDEA">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_WorkFlow_ROLEIDEA">
+            <EntityTypeMapping TypeName="oasModel.T_WorkFlow_ROLEIDEA">
               <MappingFragment StoreEntitySet="T_WorkFlow_ROLEIDEA">
                 <ScalarProperty Name="WRD_ID" ColumnName="WRD_ID" />
                 <ScalarProperty Name="Role_NAME" ColumnName="Role_NAME" />
@@ -9458,7 +9079,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Flow_Role">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_Flow_Role">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Role">
               <MappingFragment StoreEntitySet="T_Flow_Role">
                 <ScalarProperty Name="userrole_id" ColumnName="userrole_id" />
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
@@ -9473,7 +9094,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_flow_UserRole">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_flow_UserRole">
+            <EntityTypeMapping TypeName="oasModel.T_flow_UserRole">
               <MappingFragment StoreEntitySet="T_flow_UserRole">
                 <ScalarProperty Name="User_Id" ColumnName="User_Id" />
                 <ScalarProperty Name="UserRoleColumn1" ColumnName="UserRoleColumn1" />
@@ -9487,7 +9108,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_pub_company">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.t_pub_company">
+            <EntityTypeMapping TypeName="oasModel.t_pub_company">
               <MappingFragment StoreEntitySet="t_pub_company">
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
                 <ScalarProperty Name="parent_id" ColumnName="parent_id" />
@@ -9508,7 +9129,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_pub_dept">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.t_pub_dept">
+            <EntityTypeMapping TypeName="oasModel.t_pub_dept">
               <MappingFragment StoreEntitySet="t_pub_dept">
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
                 <ScalarProperty Name="dept_id" ColumnName="dept_id" />
@@ -9534,7 +9155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_FLOW_ROLE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_FLOW_ROLE">
+            <EntityTypeMapping TypeName="oasModel.V_FLOW_ROLE">
               <MappingFragment StoreEntitySet="V_FLOW_ROLE">
                 <ScalarProperty Name="UserRole_ID" ColumnName="UserRole_ID" />
                 <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
@@ -9546,7 +9167,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_Flow_StatusUser">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_Flow_StatusUser">
+            <EntityTypeMapping TypeName="oasModel.V_Flow_StatusUser">
               <MappingFragment StoreEntitySet="V_Flow_StatusUser">
                 <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
@@ -9577,7 +9198,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_Flow_StatusUserAll">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_Flow_StatusUserAll">
+            <EntityTypeMapping TypeName="oasModel.V_Flow_StatusUserAll">
               <MappingFragment StoreEntitySet="V_Flow_StatusUserAll">
                 <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
@@ -9608,7 +9229,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_flow_user">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_flow_user">
+            <EntityTypeMapping TypeName="oasModel.v_flow_user">
               <MappingFragment StoreEntitySet="v_flow_user">
                 <ScalarProperty Name="Org_id" ColumnName="Org_id" />
                 <ScalarProperty Name="Org_Parent" ColumnName="Org_Parent" />
@@ -9670,7 +9291,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_framework_main">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_main">
+            <EntityTypeMapping TypeName="oasModel.v_framework_main">
               <MappingFragment StoreEntitySet="v_framework_main">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -9737,8 +9358,81 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_framework_notify">
+            <EntityTypeMapping TypeName="oasModel.v_framework_notify">
+              <MappingFragment StoreEntitySet="v_framework_notify">
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
+                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
+                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
+                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
+                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
+                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
+                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
+                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
+                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
+                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
+                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
+                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
+                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
+                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
+                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
+                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
+                <ScalarProperty Name="Executor" ColumnName="Executor" />
+                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
+                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
+                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_framework_zaiban">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_zaiban">
+            <EntityTypeMapping TypeName="oasModel.v_framework_zaiban">
               <MappingFragment StoreEntitySet="v_framework_zaiban">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -9814,7 +9508,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_pub_member_org">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_pub_member_org">
+            <EntityTypeMapping TypeName="oasModel.v_pub_member_org">
               <MappingFragment StoreEntitySet="v_pub_member_org">
                 <ScalarProperty Name="Org_id" ColumnName="Org_id" />
                 <ScalarProperty Name="Org_Code" ColumnName="Org_Code" />
@@ -9845,7 +9539,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_PUB_MEMBER_USER">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_PUB_MEMBER_USER">
+            <EntityTypeMapping TypeName="oasModel.V_PUB_MEMBER_USER">
               <MappingFragment StoreEntitySet="V_PUB_MEMBER_USER">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -9892,7 +9586,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_pub_org">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_pub_org">
+            <EntityTypeMapping TypeName="oasModel.v_pub_org">
               <MappingFragment StoreEntitySet="v_pub_org">
                 <ScalarProperty Name="Org_id" ColumnName="Org_id" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -9924,7 +9618,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_pub_user">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_pub_user">
+            <EntityTypeMapping TypeName="oasModel.v_pub_user">
               <MappingFragment StoreEntitySet="v_pub_user">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -9971,7 +9665,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_pub_user_member">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_pub_user_member">
+            <EntityTypeMapping TypeName="oasModel.v_pub_user_member">
               <MappingFragment StoreEntitySet="v_pub_user_member">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
@@ -10023,7 +9717,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_pub_user_parents">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_pub_user_parents">
+            <EntityTypeMapping TypeName="oasModel.v_pub_user_parents">
               <MappingFragment StoreEntitySet="v_pub_user_parents">
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
@@ -10058,7 +9752,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_WorkFlow_FlowMain">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_WorkFlow_FlowMain">
+            <EntityTypeMapping TypeName="oasModel.V_WorkFlow_FlowMain">
               <MappingFragment StoreEntitySet="V_WorkFlow_FlowMain">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -10149,7 +9843,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_WorkFlow_Notify">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_WorkFlow_Notify">
+            <EntityTypeMapping TypeName="oasModel.V_WorkFlow_Notify">
               <MappingFragment StoreEntitySet="V_WorkFlow_Notify">
                 <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
@@ -10244,7 +9938,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_WorkFlow_OtherAttDetail">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_WorkFlow_OtherAttDetail">
+            <EntityTypeMapping TypeName="oasModel.V_WorkFlow_OtherAttDetail">
               <MappingFragment StoreEntitySet="V_WorkFlow_OtherAttDetail">
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
                 <ScalarProperty Name="ATT_Catalog" ColumnName="ATT_Catalog" />
@@ -10259,7 +9953,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_WorkFlow_ZaiBan">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.V_WorkFlow_ZaiBan">
+            <EntityTypeMapping TypeName="oasModel.V_WorkFlow_ZaiBan">
               <MappingFragment StoreEntitySet="V_WorkFlow_ZaiBan">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
@@ -10347,385 +10041,6 @@
                 <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
                 <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
                 <ScalarProperty Name="CheckAction" ColumnName="CheckAction" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionName="Bayetech.Core.Entity.Store.fn_Str_Split" FunctionImportName="fn_Str_Split">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.fn_Str_Split_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="NB_YWUser" FunctionName="Bayetech.Core.Entity.Store.NB_YWUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.NB_YWUser_Result">
-                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
-                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
-                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
-                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
-                <ScalarProperty Name="OrgGb" ColumnName="OrgGb" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="User_DisplayName" ColumnName="User_DisplayName" />
-                <ScalarProperty Name="IsTempUser" ColumnName="IsTempUser" />
-                <ScalarProperty Name="Org_Type" ColumnName="Org_Type" />
-                <ScalarProperty Name="duty_name" ColumnName="duty_name" />
-                <ScalarProperty Name="ParentUserName" ColumnName="ParentUserName" />
-                <ScalarProperty Name="ParentUserCode" ColumnName="ParentUserCode" />
-                <ScalarProperty Name="ParentOrgId" ColumnName="ParentOrgId" />
-                <ScalarProperty Name="ParentOrgName" ColumnName="ParentOrgName" />
-                <ScalarProperty Name="ParentOrgCode" ColumnName="ParentOrgCode" />
-                <ScalarProperty Name="ParentOrgGb" ColumnName="ParentOrgGb" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_BX_Import_CleanCase" FunctionName="Bayetech.Core.Entity.Store.SP_BX_Import_CleanCase" />
-          <FunctionImportMapping FunctionImportName="SP_GetRoleMenu" FunctionName="Bayetech.Core.Entity.Store.SP_GetRoleMenu">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.SP_GetRoleMenu_Result">
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="sortid" ColumnName="sortid" />
-                <ScalarProperty Name="url" ColumnName="url" />
-                <ScalarProperty Name="SysFlag" ColumnName="SysFlag" />
-                <ScalarProperty Name="picid" ColumnName="picid" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_GetUserMenu" FunctionName="Bayetech.Core.Entity.Store.SP_GetUserMenu">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.SP_GetUserMenu_Result">
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SortID" ColumnName="SortID" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-                <ScalarProperty Name="picid" ColumnName="picid" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_GetUserMenuDefault" FunctionName="Bayetech.Core.Entity.Store.SP_GetUserMenuDefault">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.SP_GetUserMenuDefault_Result">
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SortID" ColumnName="SortID" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="PicID" ColumnName="PicID" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_DealUserNotify" FunctionName="Bayetech.Core.Entity.Store.UP_DealUserNotify" />
-          <FunctionImportMapping FunctionImportName="UP_Get_DownOrgName" FunctionName="Bayetech.Core.Entity.Store.UP_Get_DownOrgName">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_Get_DownOrgName_Result">
-                <ScalarProperty Name="Org_Display" ColumnName="Org_Display" />
-                <ScalarProperty Name="Org_Name" ColumnName="Org_Name" />
-                <ScalarProperty Name="Org_id" ColumnName="Org_id" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_Get_DownUsers" FunctionName="Bayetech.Core.Entity.Store.UP_Get_DownUsers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_Get_DownUsers_Result">
-                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="user_code" ColumnName="user_code" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetAttUploadList" FunctionName="Bayetech.Core.Entity.Store.UP_GetAttUploadList" />
-          <FunctionImportMapping FunctionImportName="UP_GetMenuRole" FunctionName="Bayetech.Core.Entity.Store.UP_GetMenuRole">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetMenuRole_Result">
-                <ScalarProperty Name="module_ID" ColumnName="module_ID" />
-                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
-                <ScalarProperty Name="role_id" ColumnName="role_id" />
-                <ScalarProperty Name="RoleSerial" ColumnName="RoleSerial" />
-                <ScalarProperty Name="role_column" ColumnName="role_column" />
-                <ScalarProperty Name="role_value" ColumnName="role_value" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetMenuRole_New" FunctionName="Bayetech.Core.Entity.Store.UP_GetMenuRole_New">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetMenuRole_New_Result">
-                <ScalarProperty Name="module_ID" ColumnName="module_ID" />
-                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
-                <ScalarProperty Name="role_id" ColumnName="role_id" />
-                <ScalarProperty Name="RoleSerial" ColumnName="RoleSerial" />
-                <ScalarProperty Name="role_column" ColumnName="role_column" />
-                <ScalarProperty Name="role_value" ColumnName="role_value" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetNotify" FunctionName="Bayetech.Core.Entity.Store.UP_GetNotify">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetNotify_Result">
-                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
-                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
-                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
-                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
-                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
-                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
-                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
-                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
-                <ScalarProperty Name="huanji" ColumnName="huanji" />
-                <ScalarProperty Name="PassedStatus" ColumnName="PassedStatus" />
-                <ScalarProperty Name="ownerOrgId" ColumnName="ownerOrgId" />
-                <ScalarProperty Name="ownerUserId" ColumnName="ownerUserId" />
-                <ScalarProperty Name="ownerUserCode" ColumnName="ownerUserCode" />
-                <ScalarProperty Name="user_name" ColumnName="user_name" />
-                <ScalarProperty Name="org_name" ColumnName="org_name" />
-                <ScalarProperty Name="org_code" ColumnName="org_code" />
-                <ScalarProperty Name="WFRootID" ColumnName="WFRootID" />
-                <ScalarProperty Name="StartFlag" ColumnName="StartFlag" />
-                <ScalarProperty Name="CheckAction" ColumnName="CheckAction" />
-                <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
-                <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
-                <ScalarProperty Name="owner_name" ColumnName="owner_name" />
-                <ScalarProperty Name="clientName" ColumnName="clientName" />
-                <ScalarProperty Name="RootFlowCode" ColumnName="RootFlowCode" />
-                <ScalarProperty Name="EstateName" ColumnName="EstateName" />
-                <ScalarProperty Name="ProAddr" ColumnName="ProAddr" />
-                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
-                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
-                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
-                <ScalarProperty Name="ExchangeType" ColumnName="ExchangeType" />
-                <ScalarProperty Name="VerilyPassedStatus" ColumnName="VerilyPassedStatus" />
-                <ScalarProperty Name="paybank" ColumnName="paybank" />
-                <ScalarProperty Name="paymode" ColumnName="paymode" />
-                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
-                <ScalarProperty Name="CredenceCode" ColumnName="CredenceCode" />
-                <ScalarProperty Name="FundFullCode" ColumnName="FundFullCode" />
-                <ScalarProperty Name="CompanyFullCode" ColumnName="CompanyFullCode" />
-                <ScalarProperty Name="PageFullCode" ColumnName="PageFullCode" />
-                <ScalarProperty Name="UserDefaultColumn3" ColumnName="UserDefaultColumn3" />
-                <ScalarProperty Name="UserDefaultColumn4" ColumnName="UserDefaultColumn4" />
-                <ScalarProperty Name="lastroleidea" ColumnName="lastroleidea" />
-                <ScalarProperty Name="UserDefaultDateTime1" ColumnName="UserDefaultDateTime1" />
-                <ScalarProperty Name="UserDefaultDateTimeFlag" ColumnName="UserDefaultDateTimeFlag" />
-                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
-                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
-                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
-                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
-                <ScalarProperty Name="Executor" ColumnName="Executor" />
-                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
-                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserAllRole" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserAllRole">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserAllRole_Result">
-                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
-                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
-                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
-                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserMenu" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserMenu">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserMenu_Result">
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SortID" ColumnName="SortID" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserMenu_New" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserMenu_New">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserMenu_New_Result">
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SortID" ColumnName="SortID" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserMenuDefault" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserMenuDefault">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserMenuDefault_Result">
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SortID" ColumnName="SortID" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserOneRole" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserOneRole">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserOneRole_Result">
-                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
-                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
-                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
-                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUserRole" FunctionName="Bayetech.Core.Entity.Store.UP_GetUserRole">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUserRole_Result">
-                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
-                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
-                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
-                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
-                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_GetUsersRole" FunctionName="Bayetech.Core.Entity.Store.UP_GetUsersRole">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Bayetech.Core.Entity.UP_GetUsersRole_Result">
-                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
-                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
-                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
-                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UP_Super_Page" FunctionName="Bayetech.Core.Entity.Store.UP_Super_Page" />
-          <FunctionImportMapping FunctionImportName="UP_Super_PageThreeMonth" FunctionName="Bayetech.Core.Entity.Store.UP_Super_PageThreeMonth" />
-          <EntitySetMapping Name="v_framework_notify">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.v_framework_notify">
-              <MappingFragment StoreEntitySet="v_framework_notify">
-                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
-                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
-                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
-                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
-                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
-                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
-                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
-                <ScalarProperty Name="Executor" ColumnName="Executor" />
-                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
-                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
-                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
-                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
-                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
-                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
-                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
-                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
-                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
-                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
-                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
-                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
-                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
-                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
-                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
-                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_FLOW_TYPE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_TYPE">
-              <MappingFragment StoreEntitySet="T_FLOW_TYPE">
-                <ScalarProperty Name="OutStanding" ColumnName="OutStanding" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="msrepl_tran_version" ColumnName="msrepl_tran_version" />
-                <ScalarProperty Name="linelimit" ColumnName="linelimit" />
-                <ScalarProperty Name="BU_NAME" ColumnName="BU_NAME" />
-                <ScalarProperty Name="comProperty" ColumnName="comProperty" />
-                <ScalarProperty Name="Flow_Type_Bigclass_Id" ColumnName="Flow_Type_Bigclass_Id" />
-                <ScalarProperty Name="sortorder" ColumnName="sortorder" />
-                <ScalarProperty Name="Flow_Attribute" ColumnName="Flow_Attribute" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="RecordDept_Id" ColumnName="RecordDept_Id" />
-                <ScalarProperty Name="Flow_Type_Name" ColumnName="Flow_Type_Name" />
-                <ScalarProperty Name="UI_Url" ColumnName="UI_Url" />
-                <ScalarProperty Name="Example_Limit" ColumnName="Example_Limit" />
-                <ScalarProperty Name="Is_Special" ColumnName="Is_Special" />
-                <ScalarProperty Name="SUPERFINE_DESTINE_TIME" ColumnName="SUPERFINE_DESTINE_TIME" />
-                <ScalarProperty Name="URGENCY_DESTINE_TIME" ColumnName="URGENCY_DESTINE_TIME" />
-                <ScalarProperty Name="DISPATCH_DESTINE_TIME" ColumnName="DISPATCH_DESTINE_TIME" />
-                <ScalarProperty Name="NORMAL_DESTINE_TIME" ColumnName="NORMAL_DESTINE_TIME" />
-                <ScalarProperty Name="AUTO_PRESS_TIME" ColumnName="AUTO_PRESS_TIME" />
-                <ScalarProperty Name="WINDOWS_CLASS" ColumnName="WINDOWS_CLASS" />
-                <ScalarProperty Name="WordDot" ColumnName="WordDot" />
-                <ScalarProperty Name="FLOW_NAME" ColumnName="FLOW_NAME" />
-                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
-                <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

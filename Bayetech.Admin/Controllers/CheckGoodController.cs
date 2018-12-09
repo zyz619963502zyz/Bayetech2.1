@@ -1,5 +1,6 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Bayetech.DAL;
 using Bayetech.Service;
 using Bayetech.Service.Services;
 using Newtonsoft.Json;
@@ -19,6 +20,9 @@ namespace Bayetech.Admin.Controllers
         CheckService checkService = new CheckService();
         OrderService orderService = new OrderService();
 
+        BaseService<v_framework_notify> processService = new BaseService<v_framework_notify>(DBFactory.oas);
+
+
         /// <summary>
         /// 获取列待处理列表页数据
         /// </summary>
@@ -35,7 +39,8 @@ namespace Bayetech.Admin.Controllers
             }
             else if (json["Param"]["SelectType"].ToString() == "order")
             {
-                vw_MallOrderInfo OrderInfo = JsonConvert.DeserializeObject<vw_MallOrderInfo>((json["Param"] ?? "").ToString());
+                v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
+               
                 return orderService.GetOrderInfo(OrderInfo, null, null, page);//获取商品订单信息
             }
             else
