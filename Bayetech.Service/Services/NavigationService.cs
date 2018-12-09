@@ -15,7 +15,7 @@ using Bayetech.DAL;
 
 namespace Bayetech.Service
 {
-    public class NavigationService : BaseService<Admin_Sys_Navigations>, INavigationService
+    public class NavigationService : BaseService<T_Pro_Menu>, INavigationService
     {
         public JObject AddNavigation(JObject json)
         {
@@ -137,50 +137,28 @@ namespace Bayetech.Service
         /// <returns></returns>
         public ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, Admin_Sys_Users currentUser)
         {
-            var db = GetContext();
-            
-            var list = repository.IQueryable<Admin_Sys_Navigations>(a =>(bool)a.IsVisible).ToList();
-            //if (!currentUser.IsAdmin)
-            if(menuId>8)
-            {
-                var currentRole = 0;
-                var d = repository.FindEntity<Admin_Sys_UserRoles>(c => c.UserID == 9);//
-                if (d != null)
-                {
-                    currentRole = Convert.ToInt32(d.RoleID);
+            repository = new RepositoryBase(DBFactory.oas);
+            var list = repository.IQueryable<T_Pro_Menu>(a =>a.isdelete==0).ToList();
 
-                    var sql =
-                        string.Format(
-                            "select s.* FROM [Cup2017].[dbo].[Sys_Navigations] s left join Sys_RoleNavBtns r on s.KeyId=r.NavId where r.RoleId = {0} ",
-                            currentRole);
-                    //list = repository.<Admin_Sys_Navigations>(sql);
-                    //list = list.Where(c => c.IsVisible).ToList();
-                }
-                else
-                {
-                    return null;
-                }
-            }
             var menuList = new List<MenuModel>();
 
             foreach (var item in list.Where(it => it.ParentID == menuId))
             {
                 var menuModel = new MenuModel();
-                menuModel.Id = item.KeyId;
-                menuModel.Name = item.NavTitle;
-                menuModel.Icon = item.iconCls;
-                menuModel.SortCode = (int)item.Sortnum;
+                menuModel.Id = item.MenuID;
+                menuModel.Name = item.MenuName;
+                menuModel.SortCode = (int)item.sortid;
 
                 menuModel.ChildNodes =
-                    list.Where(c => c.ParentID == item.KeyId)
+                    list.Where(c => c.ParentID == item.MenuID)
                         .Select(
                             c =>
                                 new ChildNodes
                                 {
-                                    Id = c.KeyId,
-                                    Name = c.NavTitle,
-                                    UrlAddress = c.Linkurl,
-                                    SortCode = (int)c.Sortnum
+                                    Id = c.MenuID,
+                                    Name = c.MenuName,
+                                    UrlAddress = c.url,
+                                    SortCode = (int)c.sortid
                                 })
                         .OrderBy(c => c.SortCode).ToList();
                 menuList.Add(menuModel);

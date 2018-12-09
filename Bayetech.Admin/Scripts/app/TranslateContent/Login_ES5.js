@@ -13027,8 +13027,8 @@ var data = {
         _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"]
     },
     Param: {
-        UserName: "admin",
-        Password: "111111"
+        User_ID: "admin",
+        User_PWD: "111111"
     }
 };
 
