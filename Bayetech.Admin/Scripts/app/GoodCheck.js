@@ -117,7 +117,7 @@ new Vue({
                     self.GoodInfoArray=data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._coCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }else {
                     self.GoodInfoArray = [];
                 }

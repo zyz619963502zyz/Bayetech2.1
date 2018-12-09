@@ -148,6 +148,14 @@ namespace Bayetech.Service
         {
             return new BayetechEntities();
         }
+        /// <summary>
+        /// 获取oas
+        /// </summary>
+        /// <returns></returns>
+        public oasEntities GetOasContext()
+        {
+            return new oasEntities();
+        }
 
         /// <summary>
         /// 默认分页参数

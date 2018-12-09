@@ -1,13 +1,14 @@
 ﻿using Bayetech.Core;
 using Bayetech.Core.Entity;
+using Bayetech.DAL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Data.Entity;
 
-namespace Bayetech.Service
+namespace Bayetech.Service 
 {
-    public class LogionService : BaseService<Admin_Sys_Users>, ILogionService
+    public class LogionService : BaseService<T_Pub_User>, ILogionService
     {
         /// <summary>
         /// 获取用户登录信息
@@ -16,15 +17,16 @@ namespace Bayetech.Service
         /// <returns></returns>
         public JObject GetVerificationLogion(JObject json)
         {
-            Admin_Sys_Users _admin_Sys_User = (Admin_Sys_Users)JsonConvert.DeserializeObject(json.ToString(), typeof(Admin_Sys_Users));
-            Admin_Sys_Users _adminUser = repository.FindEntity<Admin_Sys_Users>(a=>a.UserName==_admin_Sys_User.UserName);
+            repository = new RepositoryBase(DBFactory.oas);
+            T_Pub_User t_pub_user = (T_Pub_User)JsonConvert.DeserializeObject(json.ToString(), typeof(T_Pub_User));
+            T_Pub_User user = repository.FindEntity<T_Pub_User>(a => a.User_ID == t_pub_user.User_ID);
             JObject result = new JObject();
-            if (_adminUser != null)
+            if (user != null)
             {
-                if (_adminUser.IsDisabled == false)
+                if (user.IsAvailab == 1)
                 {
-                    string dbPassword = Md5.EncryptString(_admin_Sys_User.Password);
-                    if (dbPassword == _adminUser.Password)
+                    string dbPassword = Md5.EncryptString(t_pub_user.User_PWD);
+                    if (dbPassword == user.User_PWD)
                     {
                         //数据库对象
                         //Admin_Sys_Login _login = new Admin_Sys_Login();
@@ -37,8 +39,8 @@ namespace Bayetech.Service
                         CurrentLogin _currentLogin = new CurrentLogin();
                         _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginIpInt = Common.IpToInt(_currentLogin.LoginIp);
-                        _currentLogin.UserName = _adminUser.UserName;
-                        _currentLogin.PassWord = _adminUser.Password;
+                        _currentLogin.UserName = user.User_ID;
+                        _currentLogin.PassWord = user.User_PWD;
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
 
