@@ -244,10 +244,7 @@ namespace Bayetech.DAL
         //{
         //    var ret = new JObject();
         //    var result = new List<TEntity>() ;
-
         //    result = FindList(pagination, out pagination, predicate);
-
-
         //    //查询结果集
         //    if (result.Count > 0)
         //    {

@@ -118,7 +118,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\Engine\" />
+    <Folder Include="IServices\IoasService\" />
+    <Folder Include="Services\oasService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
