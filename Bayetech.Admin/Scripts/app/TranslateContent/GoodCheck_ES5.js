@@ -11832,10 +11832,9 @@ let vmData = {
     //BaseUrl: GetBaseUrl()+"Good/GoodInfo.html?GoodNo=",
     PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good", //单据类型
-    SelectType: "good",
-    tools: {
-        _comCompnent: comCompnent.default
-    },
+    SelectType: "good", //选择类型直接放到参数里面无法监听。
+    SelectFlow: "1", //选中的流程ID
+    SelectStatus: "0", //选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent: "", //当前组件
@@ -11844,6 +11843,8 @@ let vmData = {
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
     GoodInfoArray: [],
+    Flows: [], //流程名称
+    Status: [], //环节名称
     components: {
         goodprocess: 'goodprocess',
         orderprocess: 'orderprocess',
@@ -11864,7 +11865,9 @@ let vmData = {
             OrderNo: "",
             Status: pagetype,
             SelectType: "good", //form里选择的商品类型
-            SelectNo: "" //form里面选择的编号
+            SelectNo: "", //form里面选择的编号
+            CURSTATUS_ID: "", //当前环节ID.
+            CURSTATUS_NAME: "" //当前环节名称
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -11882,6 +11885,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     data: vmData,
     created() {
         this.currentcomponent = __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__["a" /* default */];
+        this.GetFlows(); //获取流程绑定列表
         this.findList();
     },
     watch: {
@@ -11894,23 +11898,48 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 self.currentcomponent = self.components.orderprocess;
             }
         },
+        SelectFlow(val, oldval) {
+            //根据选中的流程获取环节
+            var self = this;
+            self.GetStatus(val);
+        },
         deep: true,
         immediate: true
     },
     methods: {
+        GetFlows() {
+            //获取所有的流程信息
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+                if (data) {
+                    self.Flows = data;
+                }
+            });
+        },
+        GetStatus(flowId) {
+            //根据流程获取环节信息
+            var param = {
+                flowId: flowId
+            };
+            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+                if (data) {
+                    self.Status = data;
+                }
+            });
+        },
         findList() {
             //获取商品的简要列表
             $("#QueryList").Btns("loading");
             var self = this;
             self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
             //后台传值：
-            self.tools._comCompnent.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
                     self.GoodInfoArray = data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
                     self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    self.tools._coCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 } else {
                     self.GoodInfoArray = [];
                 }
@@ -11939,7 +11968,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 self.SearchParam.Param.Status = flag == 'Y' ? 'PutOnsale' : 'PutDownsale';
                 if (confirm(flag == 'Y' ? "确定审批通过？" : "确认审批不通过？")) {
                     $("#CheckConfirm").Btns("loading");
-                    self.tools._comCompnent.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
+                    comCompnent.default.postWebJson(self.CheckGoodUrl, self.SearchParam, function (data) {
                         if (data.result) {
                             alert("审批成功!");
                         }

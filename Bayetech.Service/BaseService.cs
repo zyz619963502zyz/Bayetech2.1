@@ -12,9 +12,17 @@ namespace Bayetech.Service
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
+        //protected RepositoryBase repository = null;
+        //public BaseService(DbContext db = null)
+        //{
+        //    //_db = db;
+        //    repository = new RepositoryBase(db);
+        //}
+
         protected RepositoryBase repository = null;
 
-        public BaseService(DbContext db=null) {
+        public BaseService(DbContext db = null)
+        {
             repository = new RepositoryBase(db);
         }
 
@@ -133,15 +141,18 @@ namespace Bayetech.Service
             return repository.Update(entity);
         }
 
+        //public BayetechEntities GetContext()
+        //{
+        //    return repository.GetContext();
+        //}
         /// <summary>
         /// 获取上下文
         /// </summary>
         /// <returns></returns>
         public BayetechEntities GetContext()
         {
-            return repository.GetContext();
+            return new BayetechEntities();
         }
-
 
         /// <summary>
         /// 默认分页参数

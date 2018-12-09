@@ -15,6 +15,7 @@ namespace Bayetech.Admin.Controller
     {
 
         ILogionService logionService = new LogionService();
+
         /// <summary>
         /// 验证登陆，返回token
         /// </summary>

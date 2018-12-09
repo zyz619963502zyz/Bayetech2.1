@@ -28,7 +28,7 @@ namespace Bayetech.DAL
     public class RepositoryBase : IRepositoryBase, IDisposable
     {
         private DbTransaction dbTransaction { get; set; }
-        DbContext dbcontext = null;
+        public DbContext dbcontext = null;
 
         public RepositoryBase(DbContext db = null)
         {

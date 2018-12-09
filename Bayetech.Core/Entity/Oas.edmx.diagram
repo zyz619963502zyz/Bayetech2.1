@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_FLOW_STATUS" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_StatusRole" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_Trust" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Bayetech.Core.Entity.T_FLOW_TYPE" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_Type_Bigclass" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_Type_Info" Width="1.5" PointX="11.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.T_Flow_UpdateLog" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
@@ -112,6 +111,7 @@
         <AssociationConnector Association="Bayetech.Core.Entity.FK_T_WORKFLOW_AttPattern_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
         <AssociationConnector Association="Bayetech.Core.Entity.T_WORKFLOW_EXCHCHANGE_TYPE_T_WORKFLOW_EXCHCHANGE_FK1" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Bayetech.Core.Entity.v_framework_notify" Width="1.5" PointX="30.375" PointY="33.75" />
+        <EntityTypeShape EntityType="Bayetech.Core.Entity.T_FLOW_TYPE" Width="1.5" PointX="3.375" PointY="35.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

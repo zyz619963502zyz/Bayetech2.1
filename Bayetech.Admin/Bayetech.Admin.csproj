@@ -68,6 +68,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -2191,7 +2192,9 @@
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\sysPage\Setting.html" />
     <Content Include="Page\workflow\workflow.html" />
-    <Content Include="Resource\Spring\SpringObjects.xml" />
+    <Content Include="Resource\Spring\SpringObjects.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\app\Auth_ButtonsManage.js" />
     <Content Include="Scripts\app\Auth_AdminManage.js" />
     <Content Include="Scripts\app\Auth_DicsManage.js" />
@@ -2786,7 +2789,9 @@
     </Content>
     <Content Include="Scripts\TestES6.js" />
     <Content Include="Scripts\vue.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2861,6 +2866,9 @@
       <Project>{3ef73d1b-5a98-4c22-bcc5-c353d7e90ec2}</Project>
       <Name>Bayetech.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4559,36 +4559,6 @@
           <Property Name="DisplayType" Type="Int32" Nullable="false" />
           <Property Name="Trust_Relation" Type="String" MaxLength="7000" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="T_FLOW_TYPE">
-          <Key>
-            <PropertyRef Name="FLOW_ID" />
-          </Key>
-          <Property Name="FLOW_ID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="Company_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="FLOW_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="WordDot" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="WINDOWS_CLASS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AUTO_PRESS_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="NORMAL_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="DISPATCH_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="URGENCY_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="SUPERFINE_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
-          <Property Name="Is_Special" Type="Int32" />
-          <Property Name="Example_Limit" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="UI_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_Type_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="RecordDept_Id" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_Attribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="sortorder" Type="Int32" />
-          <Property Name="Flow_Type_Bigclass_Id" Type="Int32" />
-          <Property Name="comProperty" Type="Int32" />
-          <Property Name="BU_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="linelimit" Type="Boolean" Nullable="false" />
-          <Property Name="msrepl_tran_version" Type="Guid" Nullable="false" />
-          <Property Name="FlowType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OutStanding" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="T_Flow_Type_Bigclass">
           <Key>
             <PropertyRef Name="Flow_Type_Bigclass_Id" />
@@ -7272,7 +7242,6 @@
           <EntitySet Name="T_FLOW_STATUS" EntityType="Self.T_FLOW_STATUS" />
           <EntitySet Name="T_Flow_StatusRole" EntityType="Self.T_Flow_StatusRole" />
           <EntitySet Name="T_Flow_Trust" EntityType="Self.T_Flow_Trust" />
-          <EntitySet Name="T_FLOW_TYPE" EntityType="Self.T_FLOW_TYPE" />
           <EntitySet Name="T_Flow_Type_Bigclass" EntityType="Self.T_Flow_Type_Bigclass" />
           <EntitySet Name="T_Flow_Type_Info" EntityType="Self.T_Flow_Type_Info" />
           <EntitySet Name="T_Flow_UpdateLog" EntityType="Self.T_Flow_UpdateLog" />
@@ -7482,6 +7451,7 @@
             <Parameter Name="TotalPage" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="v_framework_notify" EntityType="Bayetech.Core.Entity.v_framework_notify" />
+          <EntitySet Name="T_FLOW_TYPE" EntityType="Bayetech.Core.Entity.T_FLOW_TYPE" />
         </EntityContainer>
         <ComplexType Name="NB_YWUser_Result">
           <Property Type="Int64" Name="RowNumber" Nullable="true" />
@@ -7783,6 +7753,36 @@
           <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="T_FLOW_TYPE">
+          <Key>
+            <PropertyRef Name="FLOW_ID" />
+          </Key>
+          <Property Name="FLOW_ID" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="Company_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="FLOW_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WordDot" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WINDOWS_CLASS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AUTO_PRESS_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="NORMAL_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="DISPATCH_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="URGENCY_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="SUPERFINE_DESTINE_TIME" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="Is_Special" Type="Int32" />
+          <Property Name="Example_Limit" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="UI_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_Type_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RecordDept_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_Attribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sortorder" Type="Int32" />
+          <Property Name="Flow_Type_Bigclass_Id" Type="Int32" />
+          <Property Name="comProperty" Type="Int32" />
+          <Property Name="BU_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="linelimit" Type="Boolean" Nullable="false" />
+          <Property Name="msrepl_tran_version" Type="Guid" Nullable="false" />
+          <Property Name="FlowType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutStanding" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7959,37 +7959,6 @@
                 <ScalarProperty Name="isHalfConsign" ColumnName="isHalfConsign" />
                 <ScalarProperty Name="DisplayType" ColumnName="DisplayType" />
                 <ScalarProperty Name="Trust_Relation" ColumnName="Trust_Relation" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_FLOW_TYPE">
-            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_TYPE">
-              <MappingFragment StoreEntitySet="T_FLOW_TYPE">
-                <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
-                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
-                <ScalarProperty Name="FLOW_NAME" ColumnName="FLOW_NAME" />
-                <ScalarProperty Name="WordDot" ColumnName="WordDot" />
-                <ScalarProperty Name="WINDOWS_CLASS" ColumnName="WINDOWS_CLASS" />
-                <ScalarProperty Name="AUTO_PRESS_TIME" ColumnName="AUTO_PRESS_TIME" />
-                <ScalarProperty Name="NORMAL_DESTINE_TIME" ColumnName="NORMAL_DESTINE_TIME" />
-                <ScalarProperty Name="DISPATCH_DESTINE_TIME" ColumnName="DISPATCH_DESTINE_TIME" />
-                <ScalarProperty Name="URGENCY_DESTINE_TIME" ColumnName="URGENCY_DESTINE_TIME" />
-                <ScalarProperty Name="SUPERFINE_DESTINE_TIME" ColumnName="SUPERFINE_DESTINE_TIME" />
-                <ScalarProperty Name="Is_Special" ColumnName="Is_Special" />
-                <ScalarProperty Name="Example_Limit" ColumnName="Example_Limit" />
-                <ScalarProperty Name="UI_Url" ColumnName="UI_Url" />
-                <ScalarProperty Name="Flow_Type_Name" ColumnName="Flow_Type_Name" />
-                <ScalarProperty Name="RecordDept_Id" ColumnName="RecordDept_Id" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Flow_Attribute" ColumnName="Flow_Attribute" />
-                <ScalarProperty Name="sortorder" ColumnName="sortorder" />
-                <ScalarProperty Name="Flow_Type_Bigclass_Id" ColumnName="Flow_Type_Bigclass_Id" />
-                <ScalarProperty Name="comProperty" ColumnName="comProperty" />
-                <ScalarProperty Name="BU_NAME" ColumnName="BU_NAME" />
-                <ScalarProperty Name="linelimit" ColumnName="linelimit" />
-                <ScalarProperty Name="msrepl_tran_version" ColumnName="msrepl_tran_version" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="OutStanding" ColumnName="OutStanding" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10726,6 +10695,37 @@
                 <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_FLOW_TYPE">
+            <EntityTypeMapping TypeName="Bayetech.Core.Entity.T_FLOW_TYPE">
+              <MappingFragment StoreEntitySet="T_FLOW_TYPE">
+                <ScalarProperty Name="OutStanding" ColumnName="OutStanding" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="msrepl_tran_version" ColumnName="msrepl_tran_version" />
+                <ScalarProperty Name="linelimit" ColumnName="linelimit" />
+                <ScalarProperty Name="BU_NAME" ColumnName="BU_NAME" />
+                <ScalarProperty Name="comProperty" ColumnName="comProperty" />
+                <ScalarProperty Name="Flow_Type_Bigclass_Id" ColumnName="Flow_Type_Bigclass_Id" />
+                <ScalarProperty Name="sortorder" ColumnName="sortorder" />
+                <ScalarProperty Name="Flow_Attribute" ColumnName="Flow_Attribute" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RecordDept_Id" ColumnName="RecordDept_Id" />
+                <ScalarProperty Name="Flow_Type_Name" ColumnName="Flow_Type_Name" />
+                <ScalarProperty Name="UI_Url" ColumnName="UI_Url" />
+                <ScalarProperty Name="Example_Limit" ColumnName="Example_Limit" />
+                <ScalarProperty Name="Is_Special" ColumnName="Is_Special" />
+                <ScalarProperty Name="SUPERFINE_DESTINE_TIME" ColumnName="SUPERFINE_DESTINE_TIME" />
+                <ScalarProperty Name="URGENCY_DESTINE_TIME" ColumnName="URGENCY_DESTINE_TIME" />
+                <ScalarProperty Name="DISPATCH_DESTINE_TIME" ColumnName="DISPATCH_DESTINE_TIME" />
+                <ScalarProperty Name="NORMAL_DESTINE_TIME" ColumnName="NORMAL_DESTINE_TIME" />
+                <ScalarProperty Name="AUTO_PRESS_TIME" ColumnName="AUTO_PRESS_TIME" />
+                <ScalarProperty Name="WINDOWS_CLASS" ColumnName="WINDOWS_CLASS" />
+                <ScalarProperty Name="WordDot" ColumnName="WordDot" />
+                <ScalarProperty Name="FLOW_NAME" ColumnName="FLOW_NAME" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+                <ScalarProperty Name="FLOW_ID" ColumnName="FLOW_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
