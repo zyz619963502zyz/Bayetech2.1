@@ -4,9 +4,6 @@ import "../jquery-1.10.2.min.js"
 
 var data = {
     url:"/api/Login/AdminLogion",
-    tools:{
-        _comCompnent:comCompnent,
-    },
     Param:{
         User_ID:"admin",
         User_PWD:"111111",

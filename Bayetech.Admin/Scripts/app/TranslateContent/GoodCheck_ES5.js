@@ -171,7 +171,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -215,7 +215,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11675,7 +11675,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11727,7 +11727,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11777,7 +11777,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11907,25 +11907,23 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         immediate: true
     },
     methods: {
-        GetFlows() {
-            //获取所有的流程信息
-            var self = this;
-            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-                if (data) {
-                    self.Flows = data.content;
-                }
-            });
+        GetFlows() {//获取所有的流程信息
+            //var self = this;
+            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+            //    if (data) {
+            //        self.Flows = data.content;
+            //    }
+            //});
         },
-        GetStatus(flowId) {
-            //根据流程获取环节信息
-            var param = {
-                flowId: flowId
-            };
-            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-                if (data) {
-                    self.Status = data.content;
-                }
-            });
+        GetStatus(flowId) {//根据流程获取环节信息
+            //var param = {
+            //    flowId: flowId
+            //};
+            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+            //    if (data) {
+            //        self.Status = data.content;
+            //    }
+            //});
         },
         findList() {
             //获取商品的简要列表
