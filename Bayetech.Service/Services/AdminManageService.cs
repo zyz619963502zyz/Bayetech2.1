@@ -16,7 +16,7 @@ namespace Bayetech.Service
     /// <summary>
     /// 
     /// </summary>
-    public class AdminManageService : BaseService<Admin_Sys_Users>, IAdminManageService
+    public class AdminManageService : BaseService<T_Pub_User>, IAdminManageService
     {
         public JObject AddRoles(JObject json)
         {
@@ -191,37 +191,39 @@ namespace Bayetech.Service
         /// <returns></returns>
         public JObject GetUserList(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
-            json = json ?? new JObject();
-            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("KeyId") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-            Expression<Func<Admin_Sys_Users, bool>> expression = PredicateExtensions.True<Admin_Sys_Users>();
-            PaginationResult<List<Admin_Sys_Users>> ResultPage = new PaginationResult<List<Admin_Sys_Users>>();
-            var userList = repository.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
-            var id = json["ListObj"]["KeyId"].ToString() == "" ? 0 : (int)json["ListObj"]["KeyId"];
-            var roles = repository.IQueryable<Admin_Sys_UserRoles>(a=>a.UserID==id);//角色列表
+            using (var db = new RepositoryBase(DBFactory.oas))
+            {
+                json = json ?? new JObject();
+                Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("USER_ID") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+                Expression<Func<T_Pub_User, bool>> expression = PredicateExtensions.True<T_Pub_User>();
+                PaginationResult<List<T_Pub_User>> ResultPage = new PaginationResult<List<T_Pub_User>>();
+                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("USER_ID"), out page, expression);
+                //var id = json["ListObj"]["USER_ID"].ToString() == "" ? 0 : (int)json["ListObj"]["USER_ID"];
+                //var roles = repository.IQueryable<T_Pub_User>(a=>a.User_ID==id);//角色列表
 
-            JObject result = new JObject();
-            if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
-            {
-                userList = userList.FindAll(a => a.UserName.Contains(json["Param"]["Type"].ToString()) || a.TrueName.Contains(json["Param"]["Type"].ToString()) || a.Mobile.Contains(json["Param"]["Type"].ToString()));
+                JObject result = new JObject();
+                if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
+                {
+                    userList = userList.FindAll(a => a.User_ID.Contains(json["Param"]["Type"].ToString()) || a.User_Name.Contains(json["Param"]["Type"].ToString()));
+                }
+                ResultPage.datas = userList.ToList();
+                if (page != null)
+                {
+                    ResultPage.pagination = page;
+                }
+                if (ResultPage.datas.Count > 0)
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                    //result.Add("RolesList", JProperty.FromObject(roles));
+                    result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
+                }
+                return result;
             }
-            ResultPage.datas = userList.ToList();
-            if (page != null)
-            {
-                ResultPage.pagination = page;
-            }
-            if (ResultPage.datas.Count > 0)
-            {
-                result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                result.Add("RolesList", JProperty.FromObject(roles));
-                result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
-            }
-            else
-            {
-                result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
-            }
-
-            return result;
         }
     }
 }
