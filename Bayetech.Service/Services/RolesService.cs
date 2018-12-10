@@ -14,7 +14,7 @@ using Bayetech.Core.Security.Json;
 
 namespace Bayetech.Service
 {
-    public class RolesService :BaseService<Admin_Sys_Roles>, IRolesService 
+    public class RolesService :BaseService<T_Pub_Role>, IRolesService 
     {
         public JObject AddRoles(JObject json)
         {
@@ -90,48 +90,78 @@ namespace Bayetech.Service
 
         public JObject GetListRoles(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
-            using (var db = new RepositoryBase())
+            using (var db = new RepositoryBase(DBFactory.oas))
             {
+                #region  Old
+                //json = json ?? new JObject();
+                //Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("KeyId") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+                //Expression<Func<Admin_Sys_Roles, bool>> expression = PredicateExtensions.True<Admin_Sys_Roles>();
+                //PaginationResult<List<Admin_Sys_Roles>> ResultPage = new PaginationResult<List<Admin_Sys_Roles>>();
+                //var userList = db.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
+                //JObject result = new JObject();
+                //if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
+                //{
+                //    userList = userList.FindAll(a => a.RoleName.Contains(json["Param"]["Type"].ToString()));
+                //}
+                //ResultPage.datas = userList.ToList();
+
+                ////权限分配菜单
+                //var list = db.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
+                //var menuList = new List<NavigationModel>();
+                //foreach (var item in list.Where(it => it.ParentID == 0))
+                //{
+                //    var menuModel = new NavigationModel();
+                //    menuModel.KeyId = item.KeyId;
+                //    menuModel.NavTitle = item.NavTitle;
+                //    menuModel.Linkurl = item.Linkurl;
+                //    menuModel.Sortnum = (int)item.Sortnum;
+                //    menuModel.ParentID = (int)item.ParentID;
+
+                //    menuModel.ChildNodes =
+                //        list.Where(c => c.ParentID == item.KeyId)
+                //            .Select(
+                //                c =>
+                //                    new ChilNavdNodes
+                //                    {
+                //                        KeyId = c.KeyId,
+                //                        NavTitle = c.NavTitle,
+                //                        Linkurl = c.Linkurl,
+                //                        Sortnum = (int)c.Sortnum,
+                //                        ParentID = (int)c.ParentID
+                //                    })
+                //            .OrderBy(c => c.Sortnum).ToList();
+                //    menuList.Add(menuModel);
+                //}
+                //menuList = menuList.OrderBy(c => c.Sortnum).ToList();
+                //if (page != null)
+                //{
+                //    ResultPage.pagination = page;
+                //}
+                //if (ResultPage.datas.Count > 0)
+                //{
+                //    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                //    result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
+                //    result.Add("RolesMenu", JProperty.FromObject(menuList));
+                //}
+                //else
+                //{
+                //    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                //    result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
+                //}
+                #endregion
+                #region
                 json = json ?? new JObject();
-                Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("KeyId") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-                Expression<Func<Admin_Sys_Roles, bool>> expression = PredicateExtensions.True<Admin_Sys_Roles>();
-                PaginationResult<List<Admin_Sys_Roles>> ResultPage = new PaginationResult<List<Admin_Sys_Roles>>();
-                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("KeyId"), out page, expression);
+                Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("Role_id") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
+                Expression<Func<T_Pub_Role, bool>> expression = PredicateExtensions.True<T_Pub_Role>();
+                PaginationResult<List<T_Pub_Role>> ResultPage = new PaginationResult<List<T_Pub_Role>>();
+                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("Role_id"), out page, expression);
                 JObject result = new JObject();
                 if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
                 {
-                    userList = userList.FindAll(a => a.RoleName.Contains(json["Param"]["Type"].ToString()));
+                    userList = userList.FindAll(a => a.Role_Name.Contains(json["Param"]["Type"].ToString()));
                 }
                 ResultPage.datas = userList.ToList();
 
-                //权限分配菜单
-                var list = db.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
-                var menuList = new List<NavigationModel>();
-                foreach (var item in list.Where(it => it.ParentID == 0))
-                {
-                    var menuModel = new NavigationModel();
-                    menuModel.KeyId = item.KeyId;
-                    menuModel.NavTitle = item.NavTitle;
-                    menuModel.Linkurl = item.Linkurl;
-                    menuModel.Sortnum = (int)item.Sortnum;
-                    menuModel.ParentID = (int)item.ParentID;
-
-                    menuModel.ChildNodes =
-                        list.Where(c => c.ParentID == item.KeyId)
-                            .Select(
-                                c =>
-                                    new ChilNavdNodes
-                                    {
-                                        KeyId = c.KeyId,
-                                        NavTitle = c.NavTitle,
-                                        Linkurl = c.Linkurl,
-                                        Sortnum = (int)c.Sortnum,
-                                        ParentID = (int)c.ParentID
-                                    })
-                            .OrderBy(c => c.Sortnum).ToList();
-                    menuList.Add(menuModel);
-                }
-                menuList = menuList.OrderBy(c => c.Sortnum).ToList();
                 if (page != null)
                 {
                     ResultPage.pagination = page;
@@ -140,13 +170,14 @@ namespace Bayetech.Service
                 {
                     result.Add(ResultInfo.Result, JProperty.FromObject(true));
                     result.Add(ResultInfo.Content, JProperty.FromObject(ResultPage));
-                    result.Add("RolesMenu", JProperty.FromObject(menuList));
+                    //result.Add("RolesMenu", JProperty.FromObject(menuList));
                 }
                 else
                 {
                     result.Add(ResultInfo.Result, JProperty.FromObject(false));
                     result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
                 }
+                #endregion
                 return result;
             }
             
