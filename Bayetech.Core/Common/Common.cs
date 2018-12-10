@@ -176,12 +176,20 @@ namespace Bayetech.Core
         public static string Trim(string str) => str == null ? "" : str.Trim();
 
 
+        /// <summary>
+        /// 打包返回的结果集
+        /// </summary>
+        /// <param name="bol"></param>
+        /// <param name="result"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public static JObject PackageJObect(bool bol,object result= null,Pagination page=null)
         {
             var jObect = new JObject();
             jObect.Add("result", bol);
             jObect.Add("content", JToken.FromObject(result));
-            jObect.Add("outpage", JToken.FromObject(page));//分页
+            var outpage = (page == null ? "": page.ToString());
+            jObect.Add("outpage", JToken.FromObject(outpage));//分页
             return jObect;
         }
 

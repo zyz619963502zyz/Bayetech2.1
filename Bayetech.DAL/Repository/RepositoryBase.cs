@@ -190,36 +190,44 @@ namespace Bayetech.DAL
         /// <returns></returns>
         public List<TEntity> FindList<TEntity>(Pagination pagination, out Pagination NewPage,Expression<Func<TEntity, bool>> predicate = null) where TEntity : class, new()
         {
-            bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
-            string[] _order = pagination.order.Split(',');
-            MethodCallExpression resultExp = null;
-            var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
-            foreach (string item in _order)
+            if (pagination != null)
             {
-                string _orderPart = item;
-                _orderPart = Regex.Replace(_orderPart, @"\s+", " ");
-                string[] _orderArry = _orderPart.Split(' ');
-                string _orderField = _orderArry[0];
-                bool sort = isAsc;
-                if (_orderArry.Length == 2)
+                bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
+                string[] _order = pagination.order.Split(',');
+                MethodCallExpression resultExp = null;
+                var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
+                foreach (string item in _order)
                 {
-                    isAsc = _orderArry[1].ToUpper() == "ASC" ? true : false;
+                    string _orderPart = item;
+                    _orderPart = Regex.Replace(_orderPart, @"\s+", " ");
+                    string[] _orderArry = _orderPart.Split(' ');
+                    string _orderField = _orderArry[0];
+                    bool sort = isAsc;
+                    if (_orderArry.Length == 2)
+                    {
+                        isAsc = _orderArry[1].ToUpper() == "ASC" ? true : false;
+                    }
+                    var parameter = Expression.Parameter(typeof(TEntity), "t");
+                    var property = typeof(TEntity).GetProperty(_orderField);
+                    var propertyAccess = Expression.MakeMemberAccess(parameter, property);
+                    var orderByExp = Expression.Lambda(propertyAccess, parameter);
+                    resultExp = Expression.Call(typeof(Queryable), isAsc ? "OrderBy" : "OrderByDescending", new Type[] { typeof(TEntity), property.PropertyType }, tempData.Expression, Expression.Quote(orderByExp));
                 }
-                var parameter = Expression.Parameter(typeof(TEntity), "t");
-                var property = typeof(TEntity).GetProperty(_orderField);
-                var propertyAccess = Expression.MakeMemberAccess(parameter, property);
-                var orderByExp = Expression.Lambda(propertyAccess, parameter);
-                resultExp = Expression.Call(typeof(Queryable), isAsc ? "OrderBy" : "OrderByDescending", new Type[] { typeof(TEntity), property.PropertyType }, tempData.Expression, Expression.Quote(orderByExp));
+                tempData = tempData.Provider.CreateQuery<TEntity>(resultExp).AsQueryable();
+                pagination.records = tempData.Count();
+                tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
+                NewPage = pagination;
+                return tempData.ToList();
             }
-            tempData = tempData.Provider.CreateQuery<TEntity>(resultExp).AsQueryable();
-            pagination.records = tempData.Count();
-            tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
-            NewPage = pagination;
-            return tempData.ToList();
+            else
+            {
+                NewPage = pagination;
+                return dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable().ToList();
+            }
         }
 
         /// <summary>
-        /// 查询集合带分页对象
+        /// 查询集合带分页对象（最常用，page=null为不分页）
         /// </summary>
         /// <param name="page">分页对象</param>
         /// <param name="predicate">lamad表达式</param>
