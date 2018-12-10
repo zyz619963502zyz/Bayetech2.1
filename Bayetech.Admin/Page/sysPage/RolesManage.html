@@ -33,7 +33,6 @@
                        </div>
                        <div class="toolbar input-group col-md-6">
                            <div class="btn-group">
-                               <!--<button type="button" id="AuthBtn" class="btn btn-primary" @click="OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>-->
                                <button id="AuthBtn" class="btn btn-primary" data-bind="click:OpenAuthModal"><i class="fa fa-plus"></i>分配权限</button>
                                <button type="button" id="AddBtn" class="btn btn-primary" @click="OpenAddModal" ><i class="fa fa-plus"></i>添加</button>
                                <button type="button" class="btn btn-primary" @click="OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
@@ -117,44 +116,6 @@
                </div>
            </div>
        </div>
-       <!--Modal界面-->
-       <!--权限Modal界面-->
-       <!--<div id="AuthModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-           <div class="modal-dialog" style="width: 50%">
-               <div class="modal-content">
-                   <div class="modal-header">
-                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                       <h4 class="modal-title" id="H1" style="text-align: center"><b>分配角色权限</b></h4>
-                   </div>
-                   <div class="modal-body">
-                       <form class="form-horizontal">
-                           <div class="control-group">
-                               <div class="col-sm-12">
-                                   <div id="tree"></div>
-                               </div>
-                           </div>
-                           <br />
-                           <div class="row form-group">
-                               <div class="col-xs-1"></div>
-                               <div class="col-xs-3" style="cursor:pointer">
-                                   <comtatles v-bind:twolayerarray="TwoLayerArray" v-bind:startcheck="StartCheck"></comtatles>
-                                   <nav aria-label="fenye" class="text-center right">
-                                       <ul id="paginator-test" class="pagination"></ul>
-                                   </nav>
-                               </div>
-
-                               <div class="col-xs-offset-1 col-xs-3">
-                                   <button class="btn btn-default form-control" data-bind="click:AuthClose">关闭</button>
-                               </div>
-                               <div class="col-xs-3">
-                                   <button class="btn btn-success form-control" type="submit" data-bind="click:(btnType()==0)?Save:AuthUpdate,enable:btnStatus">保存</button>
-                               </div>
-                           </div>
-                       </form>
-                   </div>
-               </div>
-           </div>
-       </div>-->
        <!--Modal界面-->
        <div id="AuthModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
            <div class="modal-dialog" style="width: 30%">

@@ -13012,19 +13012,17 @@ process.umask = function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__jquery_1_10_2_min_js__);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jquery_1_10_2_min_js__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jquery_1_10_2_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__jquery_1_10_2_min_js__);
 
 
 
 var data = {
     url: "/api/Login/AdminLogion",
     tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"]
+        _comCompnent: comCompnent
     },
     Param: {
         User_ID: "admin",
@@ -13038,7 +13036,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         LoginIn() {
             var self = this;
-            self.tools._comCompnent.postWebJson(self.url, self.Param, function (data) {
+            comCompnent.default.postWebJson(self.url, self.Param, function (data) {
                 if (data) {
                     window.location.href = "/Page/BayMain.html";
                 } else {
@@ -13048,6 +13046,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 
