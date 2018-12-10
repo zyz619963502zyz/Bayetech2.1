@@ -1,4 +1,4 @@
-﻿// The Vue build version to load with the `import` command
+// The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
@@ -23,11 +23,16 @@ Vue.prototype.$SearchModel={
     AcrossName: "跨区"
 }
 import './assets/css/fost-base-min.css';
-import {get,post,patch,put} from './assets/scripts/http.js';
-Vue.prototype.$post = post
-Vue.prototype.$get = get
-Vue.prototype.$patch = patch
-Vue.prototype.$put = put
+import { get, post, patch, put } from './assets/scripts/http.js';
+import { choose, chooseSingle, isChoice } from './assets/scripts/common.js';
+
+Vue.prototype.$post = post;
+Vue.prototype.$get = get;
+Vue.prototype.$patch = patch;
+Vue.prototype.$put = put;
+Vue.prototype.$choose = choose;
+Vue.prototype.$chooseSingle = chooseSingle;
+Vue.prototype.$isChoice = isChoice;
 
 /*已改为使用 vue-meta 来设置meta以及title*/
 //router.beforeEach((to, from, next) => {
