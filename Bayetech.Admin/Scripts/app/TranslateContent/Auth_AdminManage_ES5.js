@@ -487,8 +487,6 @@ var comCompnent = {
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'AdminSetsTable',
@@ -10910,19 +10908,18 @@ let vmData = {
             SelectType: ""
         },
         ListObj: {
-            KeyId: "",
-            UserName: "",
-            TrueName: "",
-            Mobile: "",
-            IsAdmin: "",
-            IsDisabled: "",
+            USER_ID: "",
+            User_Name: "",
+            IsAvailab: "",
+            User_Code: "",
+            User_SEX: "",
             Remark: ""
         },
 
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "KeyId", //排序字段
+            order: "CreateTime", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -11479,21 +11476,15 @@ var render = function() {
       _vm._l(_vm.adminsetsarray, function(item) {
         return _c("tbody", [
           _c("tr", { staticClass: "text-center" }, [
-            _c("td", [
-              _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
-              ])
-            ]),
+            _c("td", [_vm._v(_vm._s(item.User_ID))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.UserName))]),
+            _c("td", [_vm._v(_vm._s(item.User_Name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.TrueName))]),
+            _c("td", [_vm._v(_vm._s(item.IsAvailab == "0" ? "是" : "不是"))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Mobile))]),
+            _c("td", [_vm._v(_vm._s(item.User_Code))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsAdmin))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsDisabled))]),
+            _c("td", [_vm._v(_vm._s(item.User_SEX == "0" ? "男" : "女"))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.Remark))]),
             _vm._v(" "),
@@ -11521,17 +11512,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "success" }, [
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("编号")]),
-        _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("用户账号")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("真实姓名")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("手机")]),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否有效")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("超管")]),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("人员编号")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("状态")]),
+        _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("性别")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-3" }, [_vm._v("描述")]),
         _vm._v(" "),

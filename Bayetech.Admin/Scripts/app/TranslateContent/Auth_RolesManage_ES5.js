@@ -10033,6 +10033,8 @@ var comCompnent = {
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'RolesArray',
@@ -11022,16 +11024,22 @@ let vmData = {
             SelectNo: "" //form里面选择的编号
         },
         ListObj: {
-            KeyId: "",
-            RoleName: "",
-            Sortnum: "",
-            Remark: ""
+            Role_id: "",
+            Role_Value: "",
+            Module_ID: "",
+            Company_ID: "",
+            Role_Display: "",
+            Role_Name: "",
+            Role_Remark: "",
+            Role_Column: "",
+            CreateTime: "",
+            RoleSerial: ""
         },
 
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "KeyId", //排序字段
+            order: "Role_id", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -11617,15 +11625,17 @@ var render = function() {
           _c("tr", { staticClass: "text-center" }, [
             _c("td", { staticClass: "text-center" }, [
               _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
+                _vm._v(_vm._s(item.Role_id))
               ])
             ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.RoleName))]),
+            _c("td", [_vm._v(_vm._s(item.Role_Name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
+            _c("td", [_vm._v(_vm._s(item.Module_ID))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Remark))]),
+            _c("td", [_vm._v(_vm._s(item.Role_Remark))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.RoleSerial))]),
             _vm._v(" "),
             _c("td", [
               _c("input", {
@@ -11660,7 +11670,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("角色名称")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("排序")]),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("模块")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("简写")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("描述")]),
         _vm._v(" "),

@@ -1,5 +1,4 @@
 ﻿import Vue from '../vue.js'
-import comCompnent from '../common.js'
 import "../jquery-1.10.2.min.js"
 
 
@@ -20,7 +19,7 @@ new Vue({
     methods:{
         LoginIn(){
             var self = this;
-            self.tools._comCompnent.postWebJson(self.url,self.Param,function(data){
+            comCompnent.default.postWebJson(self.url,self.Param,function(data){
                 if (data) {
                     window.location.href = "/Page/BayMain.html";
                 }else {

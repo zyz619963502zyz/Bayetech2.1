@@ -23,21 +23,27 @@ let vmData={
         },
         ListObj:
         {
-            KeyId:"",
-            RoleName:"",
-            Sortnum:"",
-            Remark:""
+            Role_id:"",
+            Role_Value:"",
+            Module_ID: "",
+            Company_ID: "",
+            Role_Display: "",
+            Role_Name: "",
+            Role_Remark: "",
+            Role_Column: "",
+            CreateTime: "",
+            RoleSerial:""
         }
     ,
         Pagination: {//分页对象
             rows: 10,//每页行数，
             page: 1,//当前页码
-            order: "KeyId",//排序字段
+            order: "Role_id",//排序字段
             sord: "asc",//排序类型
             records: 10,//总记录数
             total: 10//总页数。
         }
-    },
+    }
 
 };
 
