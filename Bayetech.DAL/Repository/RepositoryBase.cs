@@ -192,7 +192,7 @@ namespace Bayetech.DAL
         {
             if (pagination != null)
             {
-                bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
+                bool isAsc = pagination.sord.ToLower() == "asc" ? true :  false;
                 string[] _order = pagination.order.Split(',');
                 MethodCallExpression resultExp = null;
                 var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
