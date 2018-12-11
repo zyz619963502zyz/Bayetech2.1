@@ -67,7 +67,8 @@ new Vue({
                 }
             })
         },
-        OpenAuthModal(){//分配权限
+        OpenAuthModal() {//分配权限
+            alert(1);
             $("#AuthModal").modal("show");
         },
         OpenAddModal(){//添加
