@@ -33,14 +33,18 @@
           </div>
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
             <ul data-v-484bcaae="" class="clearfix">
-              <li data-v-484bcaae="" class="border fl selected">游戏帐号</li>
-              <li data-v-484bcaae="" class="border fl">游戏币</li>
-              <li data-v-484bcaae="" class="border fl">装备</li>
-              <li data-v-484bcaae="" class="border fl">挑战书</li>
-              <li data-v-484bcaae="" class="border fl">游戏币批发</li>
-              <li data-v-484bcaae="" class="border fl">无色小晶块</li>
-              <li data-v-484bcaae="" class="border fl">魔刹石</li>
-              <li data-v-484bcaae="" class="border fl">矛盾的结晶体</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','account'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','account')">游戏帐号</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','equip'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','equip')">游戏装备</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','tzs'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','tzs')">挑战书</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','coinspf'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','coinspf')">硬币批发</li>
+
+              <!--<li data-v-484bcaae="" :class="{selected:isChoice('coins','0'),fl:true,border:true}">游戏币</li>
+  <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
+  <li data-v-484bcaae="":class="{selected:isChoice('tzs','0'),fl:true,border:true}">挑战书</li>
+  <li data-v-484bcaae="" :class="{selected:isChoice('coinspf','0'),fl:true,border:true}">游戏币批发</li>
+  <li data-v-484bcaae="" :class="{selected:isChoice('wsxjk','0'),fl:true,border:true}">无色小晶块</li>
+  <li data-v-484bcaae="" :class="{selected:isChoice('mss','0'),fl:true,border:true}">魔刹石</li>
+  <li data-v-484bcaae="" :class="{selected:isChoice('jjt','0'),fl:true,border:true}">矛盾的结晶体</li>-->
             </ul>
             <div data-v-484bcaae="" class="open-more-select">
               <i data-v-484bcaae="" class="icon-open active"></i>
@@ -82,11 +86,23 @@
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
 
-  let vmdata = {}
+  let vmdata = {
+
+
+    test: {
+      goodsType: []
+    }
+  }
   export default {
     name: 'goodsPublish',
     data() {
       return vmdata;
+    },
+    mounted: function () {
+      let self = this;
+      //this.$isChoice("test", "sex", "男");
+      //this.$choose("test", "sex", "女");
+      //this.$chooseSingle("test","sex","男")
     }
   }
 </script>

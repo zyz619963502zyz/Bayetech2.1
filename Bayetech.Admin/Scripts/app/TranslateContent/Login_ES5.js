@@ -173,7 +173,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +217,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("admin") == "" ? null : eval('(' + this.GetCookie("admin") + ')'),
+            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -13021,9 +13021,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var data = {
     url: "/api/Login/AdminLogion",
-    tools: {
-        _comCompnent: comCompnent
-    },
     Param: {
         User_ID: "admin",
         User_PWD: "111111"

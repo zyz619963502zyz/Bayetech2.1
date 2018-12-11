@@ -88,22 +88,22 @@ new Vue({
     },
     methods: {
         GetFlows() {//获取所有的流程信息
-            var self = this;
-            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-                if (data) {
-                    self.Flows = data.content;
-                }
-            });
+            //var self = this;
+            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+            //    if (data) {
+            //        self.Flows = data.content;
+            //    }
+            //});
         },
         GetStatus(flowId) {//根据流程获取环节信息
-            var param = {
-                flowId: flowId
-            };
-            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-                if (data) {
-                    self.Status = data.content;
-                }
-            });
+            //var param = {
+            //    flowId: flowId
+            //};
+            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+            //    if (data) {
+            //        self.Status = data.content;
+            //    }
+            //});
         },
         findList() {//获取商品的简要列表
             $("#QueryList").Btns("loading");
