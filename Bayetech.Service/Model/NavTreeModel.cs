@@ -1,4 +1,5 @@
 ﻿using Bayetech.Core.Entity;
+using System;
 using System.Collections.Generic;
 
 namespace Bayetech.Service.Model
@@ -53,36 +54,32 @@ namespace Bayetech.Service.Model
     //导航菜单页面模型
     public class NavigationModel
     {
-        public int KeyId { get; set; }
-        public string NavTitle { get; set; }
-        public string Linkurl { get; set; }
-        public int Sortnum { get; set; }
-        public string iconCls { get; set; }
-        public string iconUrl { get; set; }
-        public bool IsVisible { get; set; }
+        public int MenuID { get; set; }
+        public string MenuName { get; set; }
+        public string PicID { get; set; }
         public int ParentID { get; set; }
-        public string NavTag { get; set; }
-        public string BigImageUrl { get; set; }
-        public bool IsNewWindow { get; set; }
-        public int WinWidth { get; set; }
-        public int WinHeight { get; set; }
+        public string url { get; set; }
+        public int sortid { get; set; }
+        public string Remark { get; set; }
+        public string SysFlag { get; set; }
+        public string ModuleId { get; set; }
+        public int isdelete { get; set; }
+        public DateTime createtime { get; set; }
         public List<ChilNavdNodes> ChildNodes { get; set; }
     }
 
     public class ChilNavdNodes
     {
-        public int KeyId { get; set; }
-        public string NavTitle { get; set; }
-        public string Linkurl { get; set; }
-        public int Sortnum { get; set; }
-        public string iconCls { get; set; }
-        public string iconUrl { get; set; }
-        public bool IsVisible { get; set; }
+        public int MenuID { get; set; }
+        public string MenuName { get; set; }
+        public string PicID { get; set; }
         public int ParentID { get; set; }
-        public string NavTag { get; set; }
-        public string BigImageUrl { get; set; }
-        public bool IsNewWindow { get; set; }
-        public int WinWidth { get; set; }
-        public int WinHeight { get; set; }
+        public string url { get; set; }
+        public int sortid { get; set; }
+        public string Remark { get; set; }
+        public string SysFlag { get; set; }
+        public string ModuleId { get; set; }
+        public int isdelete { get; set; }
+        public DateTime createtime { get; set; }
     }
 }

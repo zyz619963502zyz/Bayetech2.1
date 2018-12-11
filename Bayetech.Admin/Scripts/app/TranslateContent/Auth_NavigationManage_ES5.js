@@ -10928,23 +10928,28 @@ let vmData = {
     NavigationsetsArray: [],
     SearchParam: {
         Param: { //查询条件的参数
-            NavTitle: "",
+            MenuName: "",
             SelectType: "", //form里选择的商品类型
             SelectNo: "" //form里面选择的编号
         },
         ListObj: {
-            KeyId: "",
-            NavTitle: "",
-            Linkurl: "",
-            IsVisible: "",
-            Sortnum: "",
-            ParentID: ""
+            MenuID: "",
+            MenuName: "",
+            PicID: "",
+            ParentID: "",
+            url: "",
+            sortid: "",
+            Remark: "",
+            SysFlag: "",
+            ModuleId: "",
+            isdelete: "",
+            createtime: ""
         },
 
         Pagination: { //分页对象
             rows: 10, //每页行数，
             page: 1, //当前页码
-            order: "KeyId", //排序字段
+            order: "MenuID", //排序字段
             sord: "asc", //排序类型
             records: 10, //总记录数
             total: 10 //总页数。
@@ -10962,15 +10967,14 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         findList() {
             var self = this;
-
-            self.SearchParam.Param.NavTitle = self.SearchParam.Param.SelectNo;
+            self.SearchParam.Param.MenuName = self.SearchParam.Param.SelectNo;
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-
                 if (data.result) {
                     self.NavigationsetsArray = data.content;
-
                     //self.SearchParam.Pagination=data.content.pagination;
                     //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                } else {
+                    self.NavigationsetsArray = [];
                 }
             });
         },
@@ -11463,7 +11467,7 @@ var render = function() {
           _c("tr", [
             _c("td", { staticClass: "text-center" }, [
               _c("label", { staticClass: "table-firsttitle" }, [
-                _vm._v(_vm._s(item.KeyId))
+                _vm._v(_vm._s(item.MenuID))
               ])
             ]),
             _vm._v(" "),
@@ -11472,24 +11476,28 @@ var render = function() {
               {
                 on: {
                   click: function($event) {
-                    _vm.OpterateAline(item.KeyId)
+                    _vm.OpterateAline(item.MenuID)
                   }
                 }
               },
               [
                 _c("input", {
-                  attrs: { type: "button", id: "btn_" + item.KeyId, value: "+" }
+                  attrs: {
+                    type: "button",
+                    id: "btn_" + item.MenuID,
+                    value: "+"
+                  }
                 })
               ]
             ),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.NavTitle))]),
+            _c("td", [_vm._v(_vm._s(item.MenuName))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Linkurl))]),
+            _c("td", [_vm._v(_vm._s(item.url))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsVisible))]),
+            _c("td", [_vm._v(_vm._s(item.isdelete == "0" ? "是" : "不是"))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.Sortnum))]),
+            _c("td", [_vm._v(_vm._s(item.sortid))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.ParentID))]),
             _vm._v(" "),
@@ -11507,7 +11515,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "tr",
-            { staticClass: "hide", attrs: { id: "key_" + item.KeyId } },
+            { staticClass: "hide", attrs: { id: "key_" + item.MenuID } },
             [
               _c("td", { attrs: { colspan: "10" } }, [
                 _c(
@@ -11519,13 +11527,13 @@ var render = function() {
                     _vm._l(item.ChildNodes, function(itemChild) {
                       return _c("tbody", [
                         _c("tr", [
-                          _c("td", [_vm._v(_vm._s(itemChild.NavTitle))]),
+                          _c("td", [_vm._v(_vm._s(itemChild.MenuName))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Linkurl))]),
+                          _c("td", [_vm._v(_vm._s(itemChild.url))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(itemChild.ParentID))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(itemChild.Sortnum))]),
+                          _c("td", [_vm._v(_vm._s(itemChild.sortid))]),
                           _vm._v(" "),
                           _c("td", [
                             _c("input", {
@@ -11563,9 +11571,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("折行操作")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单名称")]),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单标题")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("链接地址")]),
+        _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("菜单地址")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-1" }, [_vm._v("是否显示")]),
         _vm._v(" "),
@@ -11583,9 +11591,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "warning" }, [
-        _c("th", { staticClass: "text-center" }, [_vm._v("导航标题")]),
+        _c("th", { staticClass: "text-center" }, [_vm._v("菜单标题")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center" }, [_vm._v("链接")]),
+        _c("th", { staticClass: "text-center" }, [_vm._v("菜单地址")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("父级ID")]),
         _vm._v(" "),

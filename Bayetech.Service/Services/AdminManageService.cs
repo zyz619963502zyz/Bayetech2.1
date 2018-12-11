@@ -139,49 +139,93 @@ namespace Bayetech.Service
 
         public JObject GetNavgationList(JObject json, DateTime? StartTime, DateTime? EndTime)
         {
-            var list = repository.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
-            if (!string.IsNullOrEmpty(json["Param"]["NavTitle"].ToString()))
+            repository = new RepositoryBase(DBFactory.oas);
+            var list = repository.IQueryable<T_Pro_Menu>(a => a.isdelete==0).ToList();
+            if (!string.IsNullOrEmpty(json["Param"]["MenuName"].ToString()))
             {
-                var title = json["Param"]["NavTitle"].ToString();
-                list = list.FindAll(a => a.NavTitle == title);
-            } 
+                var title = json["Param"]["MenuName"].ToString();
+                list = list.FindAll(a => a.MenuName.Contains(title));
+            }
             var menuList = new List<NavigationModel>();
             JObject result = new JObject();
             foreach (var item in list.Where(it => it.ParentID == 0))
             {
                 var menuModel = new NavigationModel();
-                menuModel.KeyId = item.KeyId;
-                menuModel.NavTitle = item.NavTitle;
-                menuModel.Linkurl = item.Linkurl;
-                menuModel.Sortnum = (int)item.Sortnum;
+                menuModel.MenuID = item.MenuID;
+                menuModel.MenuName = item.MenuName;
+                menuModel.url = item.url;
+                menuModel.sortid = (int)item.sortid;
                 menuModel.ParentID = (int)item.ParentID;
 
                 menuModel.ChildNodes =
-                    list.Where(c => c.ParentID == item.KeyId)
+                    list.Where(c => c.ParentID == item.MenuID)
                         .Select(
                             c =>
                                 new ChilNavdNodes
                                 {
-                                    KeyId = c.KeyId,
-                                    NavTitle = c.NavTitle,
-                                    Linkurl = c.Linkurl,
-                                    Sortnum = (int)c.Sortnum,
-                                    ParentID= (int)c.ParentID
-            })
-                        .OrderBy(c => c.Sortnum).ToList();
+                                    MenuID = c.MenuID,
+                                    MenuName = c.MenuName,
+                                    url = c.url,
+                                    sortid = (int)c.sortid,
+                                    ParentID = (int)c.ParentID
+                                })
+                        .OrderBy(c => c.sortid).ToList();
                 menuList.Add(menuModel);
             }
-            menuList = menuList.OrderBy(c => c.Sortnum).ToList();
-            if(menuList.Count>0)
+            menuList = menuList.OrderBy(c => c.sortid).ToList();
+            if (menuList.Count > 0)
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(true));
                 result.Add(ResultInfo.Content, JProperty.FromObject(menuList));
             }
             else
             {
-                result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                result.Add(ResultInfo.Result, JProperty.FromObject(false));
                 result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
             }
+            //var list = repository.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
+            //if (!string.IsNullOrEmpty(json["Param"]["NavTitle"].ToString()))
+            //{
+            //    var title = json["Param"]["NavTitle"].ToString();
+            //    list = list.FindAll(a => a.NavTitle == title);
+            //} 
+            //var menuList = new List<NavigationModel>();
+            //JObject result = new JObject();
+            //foreach (var item in list.Where(it => it.ParentID == 0))
+            //{
+            //    var menuModel = new NavigationModel();
+            //    menuModel.KeyId = item.KeyId;
+            //    menuModel.NavTitle = item.NavTitle;
+            //    menuModel.Linkurl = item.Linkurl;
+            //    menuModel.Sortnum = (int)item.Sortnum;
+            //    menuModel.ParentID = (int)item.ParentID;
+
+            //    menuModel.ChildNodes =
+            //        list.Where(c => c.ParentID == item.KeyId)
+            //            .Select(
+            //                c =>
+            //                    new ChilNavdNodes
+            //                    {
+            //                        KeyId = c.KeyId,
+            //                        NavTitle = c.NavTitle,
+            //                        Linkurl = c.Linkurl,
+            //                        Sortnum = (int)c.Sortnum,
+            //                        ParentID= (int)c.ParentID
+            //})
+            //            .OrderBy(c => c.Sortnum).ToList();
+            //    menuList.Add(menuModel);
+            //}
+            //menuList = menuList.OrderBy(c => c.Sortnum).ToList();
+            //if(menuList.Count>0)
+            //{
+            //    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+            //    result.Add(ResultInfo.Content, JProperty.FromObject(menuList));
+            //}
+            //else
+            //{
+            //    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+            //    result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
+            //}
             return result;
         }
 
