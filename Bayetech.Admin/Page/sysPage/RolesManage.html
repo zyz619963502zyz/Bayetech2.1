@@ -6,7 +6,7 @@
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../Content/generics.css" rel="stylesheet" />
     <link href="../../Content/Mystyle.css" rel="stylesheet" />
-    <!--<script src="../../Scripts/jquery-1.10.2.min.js"></script>-->
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../lib/jquery/jquery.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../lib/knockout/dist/knockout.js"></script>
@@ -180,12 +180,13 @@
             self.ss = "/api/Roles/GetList";
             self.AuthTree = $('#tree');
             self.OpenAuthModal = function () {
+                debugger;
                 var id = $("input[name='Operates']").val();
-                if (id == "")
-                {
-                    alert("请选择角色")
-                    return;
-                }
+                //if (id == "")
+                //{
+                //    alert("请选择角色")
+                //    return;
+                //}
                 $.ajax({
                     url: "/api/Roles/GetTree",
                     //data:JSON.stringify(dd),
@@ -225,7 +226,7 @@
                                             onNodeExpanded: function (event, node) {
                                                 //var d = JSON.parse(checkedData);
                                                 if (checkedData.result) {
-
+                                                    debugger;
                                                     for (var y = 0; y < checkedData.content.length; y++) {
                                                         for (var z = 0; z < node.nodes.length; z++) {
                                                             if (node.nodes[z].KeyId === checkedData.content[y].KeyId) {
@@ -244,7 +245,7 @@
 
                                         $("#AuthModal").modal("show");
                                         if (ret.result) {
-                                            
+                                            debugger;
                                             //var g = JSON.parse(checkedData);
                                             self.SetNode(checkedData.content);
                                         }
@@ -291,6 +292,7 @@
                 });
             };
             self.SetNode = function (d) {
+                debugger;
                 var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {

@@ -269,5 +269,104 @@ namespace Bayetech.Service
                 return result;
             }
         }
+        #region 分配角色
+        public JObject RolesGetTree()
+        {
+            using (var db = new RepositoryBase(DBFactory.oas))
+            {
+                JObject result = new JObject();
+                var list = db.IQueryable<T_Pub_Role>().ToList();
+                var nav = GetChildMenu(list, 0);
+                if (nav.Count > 0)
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                    result.Add(ResultInfo.Content, JProperty.FromObject(nav));
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    result.Add(ResultInfo.Content, JProperty.FromObject("无数据"));
+                }
+                return result;
+            }
+
+        }
+
+        private static IList<NavTreeModelPub> GetChildMenu(IList<T_Pub_Role> list, int id)
+        {
+            using (var db = new RepositoryBase(DBFactory.oas))
+            {
+                IList<NavTreeModelPub> entitys = new List<NavTreeModelPub>();
+                foreach (var item in list)
+                {
+                    var entity = new NavTreeModelPub();
+                    entity.Role_id = item.Role_id;
+                    entity.Role_Value = item.Role_Value;
+                    entity.Module_ID = item.Module_ID;
+
+                    entity.Role_Name = item.Role_Name;
+                    entity.CreateTime = item.CreateTime;
+                    entity.Role_Display = item.Role_Display;
+                    entity.RoleSerial = item.RoleSerial;
+                    //entity.nodes = GetChildMenu(list, item.Role_id);
+                    entity.id = (int)entity.Role_id;
+                    entity.text = entity.Role_Name;
+                    entitys.Add(entity);
+                }
+                entitys = entitys.OrderByDescending(c => c.Role_id).ToList();
+                return entitys;
+            }
+        }
+
+        public JObject RolesGetTrees(string id)
+        {
+            using (var db = new RepositoryBase(DBFactory.oas))
+            {
+                JObject result = new JObject();
+                var list = db.IQueryable<T_Pub_UserRole>(a => a.User_id == id).ToList();
+                var ret = list.Select(c => new { Userrole_id = c.Userrole_id, state = true });
+                if (list == null)
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                    result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
+                }
+                else
+                {
+                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                    result.Add(ResultInfo.Content, JProperty.FromObject(ret));
+                }
+                return result;
+            }
+        }
+
+        public JObject PutRoles(JObject json)
+        {
+
+            JObject result = new JObject();
+            List<CheckedListModel> checkList = json["json"].ToString() == "" ? new List<CheckedListModel>() : JsonConvert.DeserializeObject<List<CheckedListModel>>(json["json"].ToString());
+            string id = json["id"].ToString() == "" ? "" : JsonConvert.DeserializeObject<string>(json["id"].ToString());
+            int RoleId = Convert.ToInt32(id);
+            var modes = checkList.Where(a => a.status == true).Select(s => new Admin_Sys_RoleNavBtns { RoleId = RoleId, NavId = s.id }).ToList();
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                db.Delete<Admin_Sys_RoleNavBtns>(c => c.RoleId == RoleId);
+                db.Commit();
+            }
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                foreach (var item in modes)
+                {
+                    db.Insert<Admin_Sys_RoleNavBtns>(item);
+
+                }
+                db.Commit();
+            }
+            result.Add(ResultInfo.Result, true);
+            return result;
+        }
+        #endregion
     }
+
+
+
 }

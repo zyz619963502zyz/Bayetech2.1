@@ -73,5 +73,24 @@ namespace Bayetech.Admin.Controllers
             return adminManageService.AddRoles(json);
         }
 
+
+        #region  分配角色
+        public JObject GetTree()
+        {
+            return adminManageService.RolesGetTree();
+        }
+
+        public JObject GetTreeRoles(string id)
+        {
+            return adminManageService.RolesGetTrees(id);
+        }
+        [HttpPost]
+        public JObject Put(JObject json)
+        {
+            return adminManageService.PutRoles(json);
+        }
+
+        #endregion
+
     }
 }

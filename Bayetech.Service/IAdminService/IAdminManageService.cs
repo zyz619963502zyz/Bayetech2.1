@@ -42,6 +42,18 @@ namespace Bayetech.Service
         /// <returns></returns>
         JObject AddRoles(JObject json);
 
+        #region
+        JObject RolesGetTree();
+
+        JObject RolesGetTrees(string id);
+        /// <summary>
+        /// 添加和修改权限配置
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        JObject PutRoles(JObject json);
+        #endregion
+
 
     }
 }
