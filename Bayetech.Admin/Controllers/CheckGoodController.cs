@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
 {
-    [ApiSecurityFilter]
+    //[ApiSecurityFilter]
     public class CheckGoodController : ApiController
     {
 
@@ -41,6 +41,8 @@ namespace Bayetech.Admin.Controllers
             {
                 v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
                 //todo开发待处理视图。
+                
+
                 return processService.GetList(null, page);
 
                 //不能沿用订单的视图，重新开发视图               

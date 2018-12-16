@@ -18,7 +18,7 @@ namespace Bayetech.Admin.Controllers
         [HttpGet]
         public ConcurrentDictionary<string, string> GetClientsDataJson()
         {
-            return service.GetClientsDataJson(0, null);
+            return service.GetClientsDataJson(0, CurrentLogin);
         }
         /// <summary>
         /// 获取导航菜单列表设置

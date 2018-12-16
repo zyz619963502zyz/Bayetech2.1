@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using Bayetech.Core;
 using Newtonsoft.Json;
 using Bayetech.DAL;
+using System.Data.SqlClient;
 
 namespace Bayetech.Service
 {
@@ -135,9 +136,10 @@ namespace Bayetech.Service
         /// <param name="menuId">默认状态0</param>
         /// <param name="currentUser">用户信息</param>
         /// <returns></returns>
-        public ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, Admin_Sys_Users currentUser)
+        public ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, CurrentLogin currentUser)
         {
             repository = new RepositoryBase(DBFactory.oas);
+            
             var list = repository.IQueryable<T_Pro_Menu>(a =>a.isdelete==0).ToList();
 
             var menuList = new List<MenuModel>();

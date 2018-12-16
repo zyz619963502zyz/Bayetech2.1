@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="oasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="oasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SYS_XmlConfig">
           <Key>
             <PropertyRef Name="ID" />
@@ -26,13 +26,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“oas.dbo.T_commissionDate”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_commissionDate">
-          <Property Name="Wfmid" Type="varchar" MaxLength="50" />
-          <Property Name="Parentid" Type="varchar" MaxLength="50" />
-          <Property Name="CommissionDate" Type="datetime" />
-        </EntityType>-->
         <EntityType Name="T_Flow_Admin">
           <Key>
             <PropertyRef Name="USER_ID" />
@@ -960,17 +953,6 @@
           <Property Name="duty_id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="coopfolman" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“oas.dbo.T_WorkFlow_CleanCase”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WorkFlow_CleanCase">
-          <Property Name="ID" Type="varchar" MaxLength="60" />
-          <Property Name="RootId" Type="varchar" MaxLength="100" />
-          <Property Name="CompanyNum" Type="varchar" MaxLength="50" />
-          <Property Name="CaseNum" Type="varchar" MaxLength="50" />
-          <Property Name="IsWaster" Type="int" />
-          <Property Name="CreateTime" Type="datetime" />
-          <Property Name="DrecordTime" Type="nchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="T_WorkFlow_Diffluence">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -1730,13 +1712,13 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="userrole_id" Type="bigint" Nullable="false" />
-          <Property Name="company_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Company_ID" Type="numeric" Precision="10" Scale="0" />
           <Property Name="userrole_name" Type="varchar" MaxLength="200" />
           <Property Name="userrole_remark" Type="varchar" MaxLength="400" />
           <Property Name="userrole_column" Type="varchar" MaxLength="64" />
           <Property Name="userrole_display" Type="varchar" MaxLength="200" />
           <Property Name="isOtherRole" Type="int" Nullable="false" />
-          <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="role_code" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
@@ -2096,7 +2078,6 @@
             <PropertyRef Name="DateTime" />
             <PropertyRef Name="Disp_ID" />
             <PropertyRef Name="DelayLimit" />
-            <PropertyRef Name="OrderNo" />
           </Key>
           <Property Name="WFM_ID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="255" />
@@ -2140,31 +2121,6 @@
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Disp_ID" Type="int" Nullable="false" />
           <Property Name="DelayLimit" Type="int" Nullable="false" />
-          <Property Name="OrderNo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="int" />
-          <Property Name="OrderDiscount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="OrderAmount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscountName" Type="nvarchar" MaxLength="50" />
-          <Property Name="OrderType" Type="varchar" MaxLength="10" />
-          <Property Name="ReceiveRole" Type="nvarchar" MaxLength="50" />
-          <Property Name="OrderUpdateTime" Type="datetime" />
-          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
-          <Property Name="ServiceId" Type="nvarchar" MaxLength="30" />
-          <Property Name="ServiceQQ" Type="bigint" />
-          <Property Name="BuyerId" Type="nvarchar" MaxLength="30" />
-          <Property Name="BuyerPhone" Type="bigint" />
-          <Property Name="InternalTypeId" Type="int" />
-          <Property Name="BuyerQQ" Type="bigint" />
-          <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
-          <Property Name="OrderCreatTime" Type="datetime" />
-          <Property Name="PromoNum" Type="varchar" MaxLength="30" />
-          <Property Name="Editor" Type="nvarchar" MaxLength="30" />
-          <Property Name="RefundReason" Type="nvarchar(max)" />
-          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
-          <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
-          <Property Name="BuyTypeCode" Type="varchar" MaxLength="30" />
-          <Property Name="OrderLineNum" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“oas.dbo.v_framework_zaiban”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3057,6 +3013,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="UP_GetUserAllRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USERID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UP_GetUserMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
+          <Parameter Name="USERID" Type="varchar" Mode="In" />
+          <Parameter Name="SysFlag" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="oasModelStoreContainer">
           <EntitySet Name="SYS_XmlConfig" EntityType="Self.SYS_XmlConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -3330,7 +3294,7 @@
           <EntitySet Name="T_Flow_Role" EntityType="Self.T_Flow_Role" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [T_Flow_Role].[userrole_id] AS [userrole_id], 
-    [T_Flow_Role].[company_id] AS [company_id], 
+    [T_Flow_Role].[Company_ID] AS [Company_ID], 
     [T_Flow_Role].[userrole_name] AS [userrole_name], 
     [T_Flow_Role].[userrole_remark] AS [userrole_remark], 
     [T_Flow_Role].[userrole_column] AS [userrole_column], 
@@ -3632,32 +3596,7 @@
     [v_framework_notify].[Name] AS [Name], 
     [v_framework_notify].[DateTime] AS [DateTime], 
     [v_framework_notify].[Disp_ID] AS [Disp_ID], 
-    [v_framework_notify].[DelayLimit] AS [DelayLimit], 
-    [v_framework_notify].[OrderNo] AS [OrderNo], 
-    [v_framework_notify].[OrderPrice] AS [OrderPrice], 
-    [v_framework_notify].[OrderNumber] AS [OrderNumber], 
-    [v_framework_notify].[OrderDiscount] AS [OrderDiscount], 
-    [v_framework_notify].[OrderAmount] AS [OrderAmount], 
-    [v_framework_notify].[OrderDiscountName] AS [OrderDiscountName], 
-    [v_framework_notify].[OrderType] AS [OrderType], 
-    [v_framework_notify].[ReceiveRole] AS [ReceiveRole], 
-    [v_framework_notify].[OrderUpdateTime] AS [OrderUpdateTime], 
-    [v_framework_notify].[GoodNo] AS [GoodNo], 
-    [v_framework_notify].[ServiceId] AS [ServiceId], 
-    [v_framework_notify].[ServiceQQ] AS [ServiceQQ], 
-    [v_framework_notify].[BuyerId] AS [BuyerId], 
-    [v_framework_notify].[BuyerPhone] AS [BuyerPhone], 
-    [v_framework_notify].[InternalTypeId] AS [InternalTypeId], 
-    [v_framework_notify].[BuyerQQ] AS [BuyerQQ], 
-    [v_framework_notify].[GoodType] AS [GoodType], 
-    [v_framework_notify].[OrderCreatTime] AS [OrderCreatTime], 
-    [v_framework_notify].[PromoNum] AS [PromoNum], 
-    [v_framework_notify].[Editor] AS [Editor], 
-    [v_framework_notify].[RefundReason] AS [RefundReason], 
-    [v_framework_notify].[Remark] AS [Remark], 
-    [v_framework_notify].[OrderStatus] AS [OrderStatus], 
-    [v_framework_notify].[BuyTypeCode] AS [BuyTypeCode], 
-    [v_framework_notify].[OrderLineNum] AS [OrderLineNum]
+    [v_framework_notify].[DelayLimit] AS [DelayLimit]
     FROM [dbo].[v_framework_notify] AS [v_framework_notify]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" store:Type="Views" store:Schema="dbo">
@@ -4264,8 +4203,7 @@
             <End Role="T_WORKFLOW_EXCHCHANGE" EntitySet="T_WORKFLOW_EXCHCHANGE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="oasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -5949,22 +5887,6 @@
           <Property Name="sRecordCreator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="sRecordVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="T_Flow_Role">
-          <Key>
-            <PropertyRef Name="userrole_id" />
-            <PropertyRef Name="isOtherRole" />
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="userrole_id" Type="Int64" Nullable="false" />
-          <Property Name="company_id" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="userrole_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="userrole_remark" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Name="userrole_column" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="userrole_display" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="isOtherRole" Type="Int32" Nullable="false" />
-          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="role_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="T_flow_UserRole">
           <Key>
             <PropertyRef Name="UserRoleColumn1" />
@@ -6272,107 +6194,6 @@
           <Property Name="LDClientGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LDClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LDDealCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="v_framework_notify">
-          <Key>
-            <PropertyRef Name="WFM_ID" />
-            <PropertyRef Name="Flow_ID" />
-            <PropertyRef Name="FlowType" />
-            <PropertyRef Name="Flow_Name" />
-            <PropertyRef Name="CreateTime" />
-            <PropertyRef Name="Creator" />
-            <PropertyRef Name="IsFinish" />
-            <PropertyRef Name="UpdateTime" />
-            <PropertyRef Name="IsSigned" />
-            <PropertyRef Name="IsWaster_" />
-            <PropertyRef Name="TransFlag" />
-            <PropertyRef Name="BizEstate" />
-            <PropertyRef Name="DealFolder" />
-            <PropertyRef Name="BalanceTime" />
-            <PropertyRef Name="BalanceUseTime" />
-            <PropertyRef Name="BalanceValid" />
-            <PropertyRef Name="WNT_ID" />
-            <PropertyRef Name="Executor" />
-            <PropertyRef Name="ExecutorName" />
-            <PropertyRef Name="Receiver" />
-            <PropertyRef Name="ReceiverName" />
-            <PropertyRef Name="Sender" />
-            <PropertyRef Name="SenderName" />
-            <PropertyRef Name="ReceiveTime" />
-            <PropertyRef Name="IsShow" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="DateTime" />
-            <PropertyRef Name="Disp_ID" />
-            <PropertyRef Name="DelayLimit" />
-            <PropertyRef Name="OrderNo" />
-          </Key>
-          <Property Name="WFM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="FlowType" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="Flow_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FinishTime" Type="DateTime" Precision="3" />
-          <Property Name="IsFinish" Type="Int32" Nullable="false" />
-          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SubFinished" Type="Int32" />
-          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
-          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
-          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IS_Pigeonhole" Type="Boolean" />
-          <Property Name="TransFlag" Type="Int32" Nullable="false" />
-          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BizEstate" Type="Int64" Nullable="false" />
-          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DealFolder" Type="Int32" Nullable="false" />
-          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
-          <Property Name="WNT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Executor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ExecutorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ReceiverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsShow" Type="Int32" Nullable="false" />
-          <Property Name="IsTempSave" Type="Int32" />
-          <Property Name="IsNew" Type="Boolean" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
-          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
-          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceQQ" Type="Int64" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerPhone" Type="Int64" />
-          <Property Name="InternalTypeId" Type="Int32" />
-          <Property Name="BuyerQQ" Type="Int64" />
-          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
-          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="OrderLineNum" Type="Int32" />
         </EntityType>
         <EntityType Name="v_framework_zaiban">
           <Key>
@@ -7328,7 +7149,6 @@
           <EntitySet Name="t_WorkFlow_FlowInfo2" EntityType="Self.t_WorkFlow_FlowInfo2" />
           <EntitySet Name="T_WORKFLOW_PARENTID" EntityType="Self.T_WORKFLOW_PARENTID" />
           <EntitySet Name="T_WorkFlow_ROLEIDEA" EntityType="Self.T_WorkFlow_ROLEIDEA" />
-          <EntitySet Name="T_Flow_Role" EntityType="Self.T_Flow_Role" />
           <EntitySet Name="T_flow_UserRole" EntityType="Self.T_flow_UserRole" />
           <EntitySet Name="t_pub_company" EntityType="Self.t_pub_company" />
           <EntitySet Name="t_pub_dept" EntityType="Self.t_pub_dept" />
@@ -7337,7 +7157,6 @@
           <EntitySet Name="V_Flow_StatusUserAll" EntityType="Self.V_Flow_StatusUserAll" />
           <EntitySet Name="v_flow_user" EntityType="Self.v_flow_user" />
           <EntitySet Name="v_framework_main" EntityType="Self.v_framework_main" />
-          <EntitySet Name="v_framework_notify" EntityType="Self.v_framework_notify" />
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" />
           <EntitySet Name="v_pub_member_org" EntityType="Self.v_pub_member_org" />
           <EntitySet Name="V_PUB_MEMBER_USER" EntityType="Self.V_PUB_MEMBER_USER" />
@@ -7361,7 +7180,122 @@
             <End Role="T_WORKFLOW_EXCHCHANGE_TYPE" EntitySet="T_WORKFLOW_EXCHCHANGE_TYPE" />
             <End Role="T_WORKFLOW_EXCHCHANGE" EntitySet="T_WORKFLOW_EXCHCHANGE" />
           </AssociationSet>
+          <FunctionImport Name="UP_GetUserAllRole" ReturnType="Collection(oasModel.UP_GetUserAllRole_Result)">
+          <Parameter Name="USERID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_GetUserMenu" ReturnType="Collection(oasModel.UP_GetUserMenu_Result)">
+            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
+            <Parameter Name="USERID" Mode="In" Type="String" />
+            <Parameter Name="SysFlag" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="T_Flow_Role" EntityType="oasModel.T_Flow_Role" />
+          <EntitySet Name="v_framework_notify" EntityType="oasModel.v_framework_notify" />
         </EntityContainer>
+        <ComplexType Name="UP_GetUserAllRole_Result">
+          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
+          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="UP_GetUserMenu_Result">
+          <Property Type="Int32" Name="MenuID" Nullable="false" />
+          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Int32" Name="SortID" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="USER_ID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="T_Flow_Role">
+          <Key>
+            <PropertyRef Name="userrole_id" />
+            <PropertyRef Name="isOtherRole" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="userrole_id" Type="Int64" Nullable="false" />
+          <Property Name="Company_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="userrole_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="userrole_remark" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="userrole_column" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="userrole_display" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="isOtherRole" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="role_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_framework_notify">
+          <Key>
+            <PropertyRef Name="WFM_ID" />
+            <PropertyRef Name="Flow_ID" />
+            <PropertyRef Name="FlowType" />
+            <PropertyRef Name="Flow_Name" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Creator" />
+            <PropertyRef Name="IsFinish" />
+            <PropertyRef Name="UpdateTime" />
+            <PropertyRef Name="IsSigned" />
+            <PropertyRef Name="IsWaster_" />
+            <PropertyRef Name="TransFlag" />
+            <PropertyRef Name="BizEstate" />
+            <PropertyRef Name="DealFolder" />
+            <PropertyRef Name="BalanceTime" />
+            <PropertyRef Name="BalanceUseTime" />
+            <PropertyRef Name="BalanceValid" />
+            <PropertyRef Name="WNT_ID" />
+            <PropertyRef Name="Executor" />
+            <PropertyRef Name="ExecutorName" />
+            <PropertyRef Name="Receiver" />
+            <PropertyRef Name="ReceiverName" />
+            <PropertyRef Name="Sender" />
+            <PropertyRef Name="SenderName" />
+            <PropertyRef Name="ReceiveTime" />
+            <PropertyRef Name="IsShow" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Disp_ID" />
+            <PropertyRef Name="DelayLimit" />
+          </Key>
+          <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="FlowType" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="Flow_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFinish" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubFinished" Type="Int32" />
+          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
+          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
+          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_Pigeonhole" Type="Boolean" />
+          <Property Name="TransFlag" Type="Int32" Nullable="false" />
+          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BizEstate" Type="Int64" Nullable="false" />
+          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DealFolder" Type="Int32" Nullable="false" />
+          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
+          <Property Name="WNT_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Executor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsShow" Type="Int32" Nullable="false" />
+          <Property Name="IsTempSave" Type="Int32" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
+          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9078,21 +9012,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_Flow_Role">
-            <EntityTypeMapping TypeName="oasModel.T_Flow_Role">
-              <MappingFragment StoreEntitySet="T_Flow_Role">
-                <ScalarProperty Name="userrole_id" ColumnName="userrole_id" />
-                <ScalarProperty Name="company_id" ColumnName="company_id" />
-                <ScalarProperty Name="userrole_name" ColumnName="userrole_name" />
-                <ScalarProperty Name="userrole_remark" ColumnName="userrole_remark" />
-                <ScalarProperty Name="userrole_column" ColumnName="userrole_column" />
-                <ScalarProperty Name="userrole_display" ColumnName="userrole_display" />
-                <ScalarProperty Name="isOtherRole" ColumnName="isOtherRole" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="role_code" ColumnName="role_code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="T_flow_UserRole">
             <EntityTypeMapping TypeName="oasModel.T_flow_UserRole">
               <MappingFragment StoreEntitySet="T_flow_UserRole">
@@ -9355,79 +9274,6 @@
                 <ScalarProperty Name="LDClientGuid" ColumnName="LDClientGuid" />
                 <ScalarProperty Name="LDClientName" ColumnName="LDClientName" />
                 <ScalarProperty Name="LDDealCode" ColumnName="LDDealCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_framework_notify">
-            <EntityTypeMapping TypeName="oasModel.v_framework_notify">
-              <MappingFragment StoreEntitySet="v_framework_notify">
-                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
-                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
-                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
-                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
-                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
-                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
-                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
-                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
-                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
-                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
-                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
-                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
-                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
-                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
-                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
-                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
-                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
-                <ScalarProperty Name="Executor" ColumnName="Executor" />
-                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
-                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
-                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
-                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
-                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
-                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
-                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
-                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10041,6 +9887,91 @@
                 <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
                 <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
                 <ScalarProperty Name="CheckAction" ColumnName="CheckAction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetUserAllRole" FunctionName="oasModel.Store.UP_GetUserAllRole">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="oasModel.UP_GetUserAllRole_Result">
+                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
+                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetUserMenu" FunctionName="oasModel.Store.UP_GetUserMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="oasModel.UP_GetUserMenu_Result">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SortID" ColumnName="SortID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="T_Flow_Role">
+            <EntityTypeMapping TypeName="oasModel.T_Flow_Role">
+              <MappingFragment StoreEntitySet="T_Flow_Role">
+                <ScalarProperty Name="role_code" ColumnName="role_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="isOtherRole" ColumnName="isOtherRole" />
+                <ScalarProperty Name="userrole_display" ColumnName="userrole_display" />
+                <ScalarProperty Name="userrole_column" ColumnName="userrole_column" />
+                <ScalarProperty Name="userrole_remark" ColumnName="userrole_remark" />
+                <ScalarProperty Name="userrole_name" ColumnName="userrole_name" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+                <ScalarProperty Name="userrole_id" ColumnName="userrole_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_framework_notify">
+            <EntityTypeMapping TypeName="oasModel.v_framework_notify">
+              <MappingFragment StoreEntitySet="v_framework_notify">
+                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
+                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
+                <ScalarProperty Name="Executor" ColumnName="Executor" />
+                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
+                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
+                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
+                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
+                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
+                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
+                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
+                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
+                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
+                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
+                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
+                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
+                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
+                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
+                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
+                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
