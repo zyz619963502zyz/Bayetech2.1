@@ -185,10 +185,10 @@ namespace Bayetech.Service
 
         public JObject RolesGetTree()
         {
-            using (var db = new RepositoryBase())
+            using (var db = new RepositoryBase(DBFactory.oas))
             {
                 JObject result = new JObject();
-                var list = repository.IQueryable<Admin_Sys_Navigations>(a => (bool)a.IsVisible).ToList();
+                var list = db.IQueryable<T_Pro_Menu>(a => a.isdelete==0).ToList();
                 var nav = GetChildMenu(list, 0);
                 if (nav.Count > 0)
                 {
@@ -205,7 +205,7 @@ namespace Bayetech.Service
 
         }
 
-        private static IList<NavTreeModel> GetChildMenu(IList<Admin_Sys_Navigations> list, int id)
+        private static IList<NavTreeModel> GetChildMenu(IList<T_Pro_Menu> list, int id)
         {
             using (var db = new RepositoryBase())
             {
@@ -213,33 +213,32 @@ namespace Bayetech.Service
                 foreach (var item in list.Where(it => it.ParentID == id))
                 {
                     var entity = new NavTreeModel();
-                    entity.KeyId = item.KeyId;
-                    entity.Sortnum = item.Sortnum;
-                    entity.NavTitle = item.NavTitle;
-                    entity.NavTag = item.NavTag;
+                    entity.MenuID = item.MenuID;
+                    entity.sortid = item.sortid;
+                    entity.MenuName = item.MenuName;
+                    entity.SysFlag = item.SysFlag;
 
-                    entity.Linkurl = item.Linkurl;
-                    entity.IsVisible = item.IsVisible;
-                    entity.iconCls = item.iconCls;
+                    entity.url = item.url;
+                    entity.isdelete = item.isdelete;
                     entity.ParentID = item.ParentID;
 
-                    entity.id = entity.KeyId;
-                    entity.text = entity.NavTitle;
+                    entity.id = entity.MenuID;
+                    entity.text = entity.MenuName;
 
-                    entity.nodes = GetChildMenu(list, item.KeyId);
+                    entity.nodes = GetChildMenu(list, item.MenuID);
                     entitys.Add(entity);
                 }
-                entitys = entitys.OrderByDescending(c => c.KeyId).ToList();
+                entitys = entitys.OrderByDescending(c => c.MenuID).ToList();
                 return entitys;
             }
         }
 
         public JObject RolesGetTrees(int id)
         {
-            using (var db = new RepositoryBase())
+            using (var db = new RepositoryBase(DBFactory.oas))
             {
                 JObject result = new JObject();
-                var list = repository.IQueryable<Admin_Sys_RoleNavBtns>(a => a.RoleId == id).ToList();
+                var list = db.IQueryable<Admin_Sys_RoleNavBtns>(a => a.RoleId == id).ToList();
                 var ret = list.Select(c => new { KeyId = c.NavId, state = true });
                 if (list == null)
                 {

@@ -10,9 +10,8 @@
 namespace Bayetech.Core.Entity
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class v_framework_notify
+    public partial class UP_GetNotify_Result
     {
         public string WFM_ID { get; set; }
         public string Title { get; set; }

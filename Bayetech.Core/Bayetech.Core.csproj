@@ -523,6 +523,12 @@
     <Compile Include="Entity\T_WorkFlow_ZaiBan.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UP_GetUserAllRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenu_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

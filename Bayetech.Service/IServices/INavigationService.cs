@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 
@@ -12,7 +13,7 @@ namespace Bayetech.Service
         /// <param name="menuId">默认状态0</param>
         /// <param name="currentUser">用户信息</param>
         /// <returns></returns>
-        ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, Admin_Sys_Users currentUser);
+        ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, CurrentLogin currentUser);
         /// <summary>
         /// 获取导航菜单列表
         /// </summary>

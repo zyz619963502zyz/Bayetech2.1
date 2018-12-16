@@ -12,6 +12,8 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class oasEntities : DbContext
     {
@@ -109,7 +111,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<t_WorkFlow_FlowInfo2> t_WorkFlow_FlowInfo2 { get; set; }
         public virtual DbSet<T_WORKFLOW_PARENTID> T_WORKFLOW_PARENTID { get; set; }
         public virtual DbSet<T_WorkFlow_ROLEIDEA> T_WorkFlow_ROLEIDEA { get; set; }
-        public virtual DbSet<T_Flow_Role> T_Flow_Role { get; set; }
         public virtual DbSet<T_flow_UserRole> T_flow_UserRole { get; set; }
         public virtual DbSet<t_pub_company> t_pub_company { get; set; }
         public virtual DbSet<t_pub_dept> t_pub_dept { get; set; }
@@ -118,7 +119,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<V_Flow_StatusUserAll> V_Flow_StatusUserAll { get; set; }
         public virtual DbSet<v_flow_user> v_flow_user { get; set; }
         public virtual DbSet<v_framework_main> v_framework_main { get; set; }
-        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
         public virtual DbSet<v_framework_zaiban> v_framework_zaiban { get; set; }
         public virtual DbSet<v_pub_member_org> v_pub_member_org { get; set; }
         public virtual DbSet<V_PUB_MEMBER_USER> V_PUB_MEMBER_USER { get; set; }
@@ -130,5 +130,33 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<V_WorkFlow_Notify> V_WorkFlow_Notify { get; set; }
         public virtual DbSet<V_WorkFlow_OtherAttDetail> V_WorkFlow_OtherAttDetail { get; set; }
         public virtual DbSet<V_WorkFlow_ZaiBan> V_WorkFlow_ZaiBan { get; set; }
+        public virtual DbSet<T_Flow_Role> T_Flow_Role { get; set; }
+        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
+    
+        public virtual ObjectResult<UP_GetUserAllRole_Result> UP_GetUserAllRole(string uSERID)
+        {
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserAllRole_Result>("UP_GetUserAllRole", uSERIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetUserMenu_Result> UP_GetUserMenu(string mODULE_ID, string uSERID, string sysFlag)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            var sysFlagParameter = sysFlag != null ?
+                new ObjectParameter("SysFlag", sysFlag) :
+                new ObjectParameter("SysFlag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserMenu_Result>("UP_GetUserMenu", mODULE_IDParameter, uSERIDParameter, sysFlagParameter);
+        }
     }
 }

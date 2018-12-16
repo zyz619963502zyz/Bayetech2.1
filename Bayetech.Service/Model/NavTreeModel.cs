@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Bayetech.Service.Model
 {
-    public class NavTreeModel : Admin_Sys_Navigations
+    public class NavTreeModel : T_Pro_Menu
     {
         public int id { get; set; }
         public string text { get; set; }
