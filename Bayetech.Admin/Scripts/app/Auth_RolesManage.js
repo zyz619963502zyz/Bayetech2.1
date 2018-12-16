@@ -60,12 +60,12 @@ new Vue({
             self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
                 //debugger;
                 if (data.result) {
-                    self.RolesArray=data.content.datas;
-                    self.TwoLayerArray=data.RolesMenu;
-                    self.SearchParam.Pagination=data.content.pagination;
+                    self.RolesArray = data.content.datas;
+                    //self.TwoLayerArray = data.RolesMenu;
+                    self.SearchParam.Pagination = data.content.pagination;
                     self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
-            })
+            });
         },
         OpenAuthModal() {//分配权限
             alert(1);
@@ -76,46 +76,47 @@ new Vue({
         },
         OpenEditModal(){//修改
             //debugger;
-            var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择角色")
-                return ;
-            }
-            $("#UserModal").modal("show");
+            //var self = this;
+            //if (self.SearchParam.ListObj.KeyId == 0) {
+            //    alert("请选择角色")
+            //    return ;
+            //}
+            //$("#UserModal").modal("show");
         },
         Delete(){//删除
-            var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
-                alert("请选择角色")
-                return ;
-            }
-            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("删除成功!");
-                } 
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            },function(){
-                //$("#CheckConfirm").Btns("reset");
-            });
+            //var self = this;
+            //if (self.SearchParam.ListObj.KeyId == 0) {
+            //    alert("请选择角色")
+            //    return ;
+            //}
+            //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
+            //self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+            //    if (data.result) {
+            //        $("#UserModal").modal("hide");
+            //        alert("删除成功!");
+            //    } 
+            //    self.findList();
+            //    //$("#CheckConfirm").Btns("reset");
+            //},function(){
+            //    //$("#CheckConfirm").Btns("reset");
+            //});
         },
         SubmitModal(){//提交
-            var self = this;
-            self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("操作成功!");
-                } 
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            },function(){
-                alert(data.content);
-            });
+            //var self = this;
+            //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            //self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+            //    if (data.result) {
+            //        $("#UserModal").modal("hide");
+            //        alert("操作成功!");
+            //    } 
+            //    self.findList();
+            //    //$("#CheckConfirm").Btns("reset");
+            //},function(){
+            //    alert(data.content);
+            //});
         },
         StartCheck(type) {//开始检查
+            alert(1);
             var self = this;
             self.SearchParam.ListObj = type;
             $("#test").attr("value",type.KeyId);

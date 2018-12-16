@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2be83997374c4a17b2356a82a9962d70" Name="Diagram1">
+      <Diagram DiagramId="2be83997374c4a17b2356a82a9962d70" Name="Diagram1" ZoomLevel="39">
         <EntityTypeShape EntityType="oasModel.SYS_XmlConfig" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.T_Flow_Admin" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
@@ -89,7 +89,6 @@
         <EntityTypeShape EntityType="oasModel.t_WorkFlow_FlowInfo2" Width="1.5" PointX="29.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.T_WORKFLOW_PARENTID" Width="1.5" PointX="29.75" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.T_WorkFlow_ROLEIDEA" Width="1.5" PointX="25.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Role" Width="1.5" PointX="29.75" PointY="27.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.T_flow_UserRole" Width="1.5" PointX="14.75" PointY="30.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.t_pub_company" Width="1.5" PointX="21.75" PointY="30.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.t_pub_dept" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
@@ -98,7 +97,6 @@
         <EntityTypeShape EntityType="oasModel.V_Flow_StatusUserAll" Width="1.5" PointX="31.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.v_flow_user" Width="1.5" PointX="31.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.v_framework_main" Width="1.5" PointX="27.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_framework_notify" Width="1.5" PointX="0.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.v_framework_zaiban" Width="1.5" PointX="2.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.v_pub_member_org" Width="1.5" PointX="4.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="oasModel.V_PUB_MEMBER_USER" Width="1.5" PointX="6.75" PointY="32.75" IsExpanded="true" />
@@ -113,6 +111,8 @@
         <AssociationConnector Association="oasModel.FK_T_WorkFlow_Attachments_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
         <AssociationConnector Association="oasModel.FK_T_WORKFLOW_AttPattern_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
         <AssociationConnector Association="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE_T_WORKFLOW_EXCHCHANGE_FK1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Role" Width="1.5" PointX="19.375" PointY="35.75" />
+        <EntityTypeShape EntityType="oasModel.v_framework_notify" Width="1.5" PointX="36.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
