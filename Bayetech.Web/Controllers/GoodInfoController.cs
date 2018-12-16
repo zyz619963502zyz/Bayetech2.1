@@ -16,13 +16,16 @@ namespace Bayetech.Web.Controllers
     public class GoodInfoController : BaseController
     {
         //取出服务层
-        GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
+        //GoodInfoService service = ctx.GetObject("GoodInfoService") as GoodInfoService;
+        GoodInfoService service = new GoodInfoService();
         BaseService<GameProfession> proBase = new BaseService<GameProfession>();
         BaseService<Server> severBase = new BaseService<Server>();
         BaseService<MallGoodInfo> goodInfoService = new BaseService<MallGoodInfo>();
         BaseService<ExtraPropertyValue> goodPropertyValueService = new BaseService<ExtraPropertyValue>();
         SettingService settingService = new SettingService();
         ServerService serverService = new ServerService();
+
+  
 
         /// <summary>
         /// 获取区服名称
@@ -75,20 +78,20 @@ namespace Bayetech.Web.Controllers
         public JObject GetList(JObject json)
         {
             json = json ?? new JObject();
-            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"]??"").ToString());
+            vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"] ?? "").ToString());
 
             var acrossId = json["Param"].Value<int>("AcrossId");
-            if (acrossId>0)
+            if (acrossId > 0)
             {
                 goodInfo.ServerName = "Across:";
                 var serverList = serverService.GetDNFServerByAcross(acrossId).ToList();
-                foreach(var item in serverList)
+                foreach (var item in serverList)
                 {
-                    goodInfo.ServerName += item.Id+",";
+                    goodInfo.ServerName += item.Id + ",";
                 }
             }
 
-            DateTime ? startTime = null;
+            DateTime? startTime = null;
             if (json["startTime"] != null)
             {
                 startTime = Convert.ToDateTime(json["startTime"].ToString());
@@ -100,7 +103,7 @@ namespace Bayetech.Web.Controllers
                 endTime = Convert.ToDateTime(json["endTime"].ToString());
             }
 
-            Pagination page = json["Pagination"] ==null ? Pagination.GetDefaultPagination("GoodNo"):JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString()); 
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("GoodNo") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
             return service.GetGoodList(goodInfo, startTime, endTime, page);
         }
 
