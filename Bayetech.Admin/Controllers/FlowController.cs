@@ -40,7 +40,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="userId">当前用户登录的Id</param>
         /// <returns></returns>
-        public List<dynamic> GetReceivers(string userId) {
+        public List<dynamic> GetReceivers(string userId,string moud) {
             JObject ret = new JObject();
             using (oasEntities entity = new oasEntities())
             {
