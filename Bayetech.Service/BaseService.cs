@@ -16,6 +16,11 @@ namespace Bayetech.Service
 
         protected RepositoryBase repository = null;
 
+        public BaseService()
+        {
+            repository = new RepositoryBase(null);
+        }
+
         public BaseService(DbContext db = null)
         {
             repository = new RepositoryBase(db);
