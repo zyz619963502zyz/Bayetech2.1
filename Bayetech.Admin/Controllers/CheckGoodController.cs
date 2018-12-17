@@ -41,7 +41,9 @@ namespace Bayetech.Admin.Controllers
             {
                 v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
                 //todo开发待处理视图。
-                
+                //1.根据当前账号获取账号所有的权限(角色)。
+                //2.根据当前角色找到对应的虚拟账号。
+                //3.到最后取待处理的视图时候就是 Receiver in （‘虚拟账号1’，‘虚拟账号2  ’）
 
                 return processService.GetList(null, page);
 

@@ -3,6 +3,7 @@ using Bayetech.DAL;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -32,6 +33,43 @@ namespace Bayetech.Admin.Controllers
         public JObject GetStatus(decimal flowId) {
             JObject ret = new JObject();
             return statusService.GetList(c => c.FLOW_ID == flowId);
+        }
+
+        /// <summary>
+        /// 获取Receivers的集合。
+        /// </summary>
+        /// <param name="userId">当前用户登录的Id</param>
+        /// <returns></returns>
+        public List<dynamic> GetReceivers(string userId) {
+            JObject ret = new JObject();
+            using (oasEntities entity = new oasEntities())
+            {
+                //1.根据当前登录人找到所有的权限集合。(送的时候只能送虚拟账号)
+                List<dynamic> roles = entity.UP_GetUserRole(userId, "0001").ToList<dynamic>();
+
+                //2.根据权限找到虚拟账号集合。
+                List<dynamic> users = GetAllUsersByRoles(roles);
+                return users;
+            }
+        }
+
+        /// <summary>
+        /// 根据集合权限获取集合虚拟账号
+        /// </summary>
+        /// <param name="roles"></param>
+        /// <returns></returns>
+        public List<dynamic> GetAllUsersByRoles(List<dynamic> roles) {
+
+            //roles.Select(c => { c.aaa });
+                 
+
+            List<dynamic> dy = new List<dynamic>();
+            string[] names;
+            using (oasEntities entity = new oasEntities())
+            {
+                string inParam = "";
+            }
+            return dy;
         }
     }
 }
