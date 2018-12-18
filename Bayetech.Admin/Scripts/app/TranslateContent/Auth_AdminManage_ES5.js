@@ -10870,22 +10870,20 @@ component.options.__file = "Scripts\\components\\table-AdminSets.vue"
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_AdminSets_vue__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_AdminSets_vue__ = __webpack_require__(33);
 
 
 
-
-let pagetype = __WEBPACK_IMPORTED_MODULE_1__common_js__["default"].GetUrlParam($(".NFine_iframe").context.URL, "type");
+let pagetype = comCompnent.GetUrlParam($(".NFine_iframe").context.URL, "type");
 
 let vmData = {
     tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_AdminSets_vue__["a" /* default */]
+        _comCompnent: comCompnent,
+        _componentTable: __WEBPACK_IMPORTED_MODULE_1__components_table_AdminSets_vue__["a" /* default */]
     },
-    GoodListUrl: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"].MenuUrl[pagetype],
+    GoodListUrl: comCompnent.MenuUrl[pagetype],
     AdminSetsUrl: "/api/AdminManage/GetList", //管理员设置列表表格
     AdminUserAdd: "/api/AdminManage/UserAdd",
     AdminUserDelete: "/api/AdminManage/DeleteUser",
@@ -10938,11 +10936,11 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //查询列表
             var self = this;
             self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.AdminSetsArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             });
         },
@@ -10958,7 +10956,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //提交
             var self = this;
             self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
                     alert("操作成功!");
@@ -10976,7 +10974,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 return;
             }
             self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.AdminUserDelete, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.AdminUserDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     //删除操作
                     alert("删除成功");
@@ -11003,7 +11001,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var ret = confirm("你确定要重置用户：" + self.SearchParam.ListObj.UserName + " 的初始密码吗? ");
             if (!ret) return;
             self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
                     alert("操作成功!");
@@ -11019,13 +11017,13 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             self.RolesSet.RoleUser.KeyId = 0;
             self.RolesSet.RoleUser.UserID = self.SearchParam.ListObj.KeyId;
             self.RolesSet.RoleUser.RoleID = self.SearchParam.Param.SelectType;
-            self.tools._comCompnent.postWebJson(self.RoleUrl, self.RolesSet, function (data) {
+            comCompnent.default.postWebJson(self.RoleUrl, self.RolesSet, function (data) {
                 debugger;
                 if (data.result) {
                     $("#RolesModal").modal("hide");
                     alert("操作成功");
                     self.findList();
-                } else {}
+                }
             });
         },
         RoleSetting() {
@@ -11037,7 +11035,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             }
             $("#RolesModal").modal("show");
             self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.AdminSetsUrl, self.SearchParam, function (data) {
                 debugger;
                 if (data.RolesList.length > 0) {
                     self.SearchParam.Param.SelectType = data.RolesList[0].RoleID;
@@ -11048,6 +11046,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         StartCheck(type) {
             //开始检查
+            debugger;
             var self = this;
             self.SearchParam.ListObj = type;
         },
@@ -11058,11 +11057,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_AdminSets_vue__["a" /* default */]
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_AdminSets_vue__["a" /* default */]
     }
 });
-
-//
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 
