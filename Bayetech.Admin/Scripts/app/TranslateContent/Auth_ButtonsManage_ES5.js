@@ -10868,19 +10868,13 @@ component.options.__file = "Scripts\\components\\table-ButtonsManage.vue"
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_ButtonsManage_vue__ = __webpack_require__(34);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_ButtonsManage_vue__ = __webpack_require__(34);
 
 
 
 let vmData = {
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_ButtonsManage_vue__["a" /* default */]
-    },
     RolesUrl: "/api/Buttons/GetList",
     RolesAdd: "/api/Buttons/AddRoles",
     RolesDelete: "/api/Buttons/DeleteRoles",
@@ -10925,11 +10919,11 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         findList() {
             var self = this;
             self.SearchParam.Param.ButtonName = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.ButtonssetsArray = data.content.datas;
                     self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             });
         },
@@ -10948,7 +10942,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
 
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
                     alert("操作成功!");
@@ -10976,7 +10970,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 return;
             }
             self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
                     alert("删除成功!");
@@ -10994,9 +10988,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         }
     },
     components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_ButtonsManage_vue__["a" /* default */]
+        comtable: __WEBPACK_IMPORTED_MODULE_1__components_table_ButtonsManage_vue__["a" /* default */]
     }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 

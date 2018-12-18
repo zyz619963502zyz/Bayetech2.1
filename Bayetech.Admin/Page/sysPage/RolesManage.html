@@ -85,7 +85,7 @@
                            <div class="control-group">
                                <label class="col-sm-3 control-label" for="input01">角色名称*</label>
                                <div class="col-sm-8">
-                                   <input type="text" class="form-control" v-model="SearchParam.ListObj.RoleName" required>
+                                   <input type="text" class="form-control" v-model="SearchParam.ListObj.Role_Name" required>
                                </div>
                            </div>
                            <div class="control-group">
@@ -182,11 +182,11 @@
             self.OpenAuthModal = function () {
                 debugger;
                 var id = $("input[name='Operates']").val();
-                //if (id == "")
-                //{
-                //    alert("请选择角色")
-                //    return;
-                //}
+                if (id == "")
+                {
+                    alert("请选择角色")
+                    return;
+                }
                 $.ajax({
                     url: "/api/Roles/GetTree",
                     //data:JSON.stringify(dd),

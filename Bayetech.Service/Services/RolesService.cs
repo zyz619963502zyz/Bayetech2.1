@@ -235,21 +235,21 @@ namespace Bayetech.Service
 
         public JObject RolesGetTrees(int id)
         {
-            using (var db = new RepositoryBase(DBFactory.oas))
+            using (oasEntities entity = new oasEntities())
             {
                 JObject result = new JObject();
-                var list = db.IQueryable<Admin_Sys_RoleNavBtns>(a => a.RoleId == id).ToList();
-                var ret = list.Select(c => new { KeyId = c.NavId, state = true });
-                if (list == null)
-                {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
-                }
-                else
-                {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(true));
-                    result.Add(ResultInfo.Content, JProperty.FromObject(ret));
-                }
+                //var list = entity.up;
+                //var ret = list.Select(c => new { KeyId = c.NavId, state = true });
+                //if (list == null)
+                //{
+                //    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                //    result.Add(ResultInfo.Content, JProperty.FromObject("没有数据"));
+                //}
+                //else
+                //{
+                //    result.Add(ResultInfo.Result, JProperty.FromObject(true));
+                //    result.Add(ResultInfo.Content, JProperty.FromObject(ret));
+                //}
                 return result;
             }
         }
