@@ -138,37 +138,42 @@ namespace Bayetech.Service
         /// <returns></returns>
         public ConcurrentDictionary<string, string> GetClientsDataJson(int menuId, CurrentLogin currentUser)
         {
-            repository = new RepositoryBase(DBFactory.oas);
-            
-            var list = repository.IQueryable<T_Pro_Menu>(a =>a.isdelete==0).ToList();
-
-            var menuList = new List<MenuModel>();
-
-            foreach (var item in list.Where(it => it.ParentID == menuId))
+            //SqlParameter[] prams = new SqlParameter[3];
+            //prams[0] = new SqlParameter("@MODULE_ID", 0001);
+            //prams[1] = new SqlParameter("@USERID", currentUser.UserName);
+            //prams[2] = new SqlParameter("@SysFlag", "GLXT");
+            //var ss = DBFactory.oas;
+            using (oasEntities entity = new oasEntities())
             {
-                var menuModel = new MenuModel();
-                menuModel.Id = item.MenuID;
-                menuModel.Name = item.MenuName;
-                menuModel.SortCode = (int)item.sortid;
+                var list = entity.UP_GetUserMenu("0001", currentUser.UserName, "GLXT").ToList();
+                var menuList = new List<MenuModel>();
 
-                menuModel.ChildNodes =
-                    list.Where(c => c.ParentID == item.MenuID)
-                        .Select(
-                            c =>
-                                new ChildNodes
-                                {
-                                    Id = c.MenuID,
-                                    Name = c.MenuName,
-                                    UrlAddress = c.url,
-                                    SortCode = (int)c.sortid
-                                })
-                        .OrderBy(c => c.SortCode).ToList();
-                menuList.Add(menuModel);
-            }
-            menuList = menuList.OrderBy(c => c.SortCode).ToList();
-            var info = new ConcurrentDictionary<string, string>();
-            info.TryAdd("authorizeMenu", menuList.ToJson());
-            return info;
+                foreach (var item in list.Where(it => it.ParentID == menuId))
+                {
+                    var menuModel = new MenuModel();
+                    menuModel.Id = item.MenuID;
+                    menuModel.Name = item.MenuName;
+                    menuModel.SortCode = (int)item.SortID;
+
+                    menuModel.ChildNodes =
+                        list.Where(c => c.ParentID == item.MenuID)
+                            .Select(
+                                c =>
+                                    new ChildNodes
+                                    {
+                                        Id = c.MenuID,
+                                        Name = c.MenuName,
+                                        UrlAddress = c.Url,
+                                        SortCode = (int)c.SortID
+                                    })
+                            .OrderBy(c => c.SortCode).ToList();
+                    menuList.Add(menuModel);
+                }
+                menuList = menuList.OrderBy(c => c.SortCode).ToList();
+                var info = new ConcurrentDictionary<string, string>();
+                info.TryAdd("authorizeMenu", menuList.ToJson());
+                return info;
+            } 
         }
 
 
