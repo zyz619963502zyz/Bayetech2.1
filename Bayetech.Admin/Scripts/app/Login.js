@@ -3,12 +3,14 @@ import "../jquery-1.10.2.min.js"
 
 
 var data = {
-    url:"/api/Login/AdminLogion",
-    Param:{
-        User_ID:"admin",
-        User_PWD:"111111",
+    url: "/api/Login/AdminLogion",
+    Param: {
+        //User_ID:"admin",
+        //User_PWD:"111111",
+        User_ID: "",
+        User_PWD: ""
     }
-}
+};
 
 new Vue({
     el:"#LoginDiv",
