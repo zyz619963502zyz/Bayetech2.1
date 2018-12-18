@@ -10,6 +10,8 @@ namespace Bayetech.Service.Services
 {
     public class ServerService : BaseService<Server>
     {
+
+
         /// <summary>
         /// 获取游戏区服
         /// </summary>

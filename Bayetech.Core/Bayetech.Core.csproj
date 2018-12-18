@@ -529,6 +529,9 @@
     <Compile Include="Entity\UP_GetUserMenu_Result.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UP_GetUserRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>

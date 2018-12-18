@@ -2078,6 +2078,8 @@
             <PropertyRef Name="DateTime" />
             <PropertyRef Name="Disp_ID" />
             <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="WFM_ID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="255" />
@@ -2121,6 +2123,32 @@
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Disp_ID" Type="int" Nullable="false" />
           <Property Name="DelayLimit" Type="int" Nullable="false" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderId" Type="bigint" Nullable="false" />
+          <Property Name="OrderLineNum" Type="int" />
+          <Property Name="OrderPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="int" />
+          <Property Name="BuyTypeCode" Type="varchar" MaxLength="30" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="30" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Editor" Type="nvarchar" MaxLength="30" />
+          <Property Name="PromoNum" Type="varchar" MaxLength="30" />
+          <Property Name="RefundReason" Type="nvarchar(max)" />
+          <Property Name="OrderCreatTime" Type="datetime" />
+          <Property Name="GoodType" Type="nvarchar" MaxLength="50" />
+          <Property Name="InternalTypeId" Type="int" />
+          <Property Name="BuyerQQ" Type="bigint" />
+          <Property Name="BuyerPhone" Type="bigint" />
+          <Property Name="BuyerId" Type="nvarchar" MaxLength="30" />
+          <Property Name="ServiceQQ" Type="bigint" />
+          <Property Name="ServiceId" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReceiveRole" Type="nvarchar" MaxLength="50" />
+          <Property Name="GoodNo" Type="varchar" MaxLength="30" />
+          <Property Name="OrderType" Type="varchar" MaxLength="10" />
+          <Property Name="OrderUpdateTime" Type="datetime" />
+          <Property Name="OrderDiscountName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“oas.dbo.v_framework_zaiban”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3021,6 +3049,10 @@
           <Parameter Name="USERID" Type="varchar" Mode="In" />
           <Parameter Name="SysFlag" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="UP_GetUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USERID" Type="varchar" Mode="In" />
+          <Parameter Name="MODULE_ID" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="oasModelStoreContainer">
           <EntitySet Name="SYS_XmlConfig" EntityType="Self.SYS_XmlConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -3596,7 +3628,33 @@
     [v_framework_notify].[Name] AS [Name], 
     [v_framework_notify].[DateTime] AS [DateTime], 
     [v_framework_notify].[Disp_ID] AS [Disp_ID], 
-    [v_framework_notify].[DelayLimit] AS [DelayLimit]
+    [v_framework_notify].[DelayLimit] AS [DelayLimit], 
+    [v_framework_notify].[OrderNo] AS [OrderNo], 
+    [v_framework_notify].[OrderId] AS [OrderId], 
+    [v_framework_notify].[OrderLineNum] AS [OrderLineNum], 
+    [v_framework_notify].[OrderPrice] AS [OrderPrice], 
+    [v_framework_notify].[OrderAmount] AS [OrderAmount], 
+    [v_framework_notify].[OrderDiscount] AS [OrderDiscount], 
+    [v_framework_notify].[OrderNumber] AS [OrderNumber], 
+    [v_framework_notify].[BuyTypeCode] AS [BuyTypeCode], 
+    [v_framework_notify].[OrderStatus] AS [OrderStatus], 
+    [v_framework_notify].[Remark] AS [Remark], 
+    [v_framework_notify].[Editor] AS [Editor], 
+    [v_framework_notify].[PromoNum] AS [PromoNum], 
+    [v_framework_notify].[RefundReason] AS [RefundReason], 
+    [v_framework_notify].[OrderCreatTime] AS [OrderCreatTime], 
+    [v_framework_notify].[GoodType] AS [GoodType], 
+    [v_framework_notify].[InternalTypeId] AS [InternalTypeId], 
+    [v_framework_notify].[BuyerQQ] AS [BuyerQQ], 
+    [v_framework_notify].[BuyerPhone] AS [BuyerPhone], 
+    [v_framework_notify].[BuyerId] AS [BuyerId], 
+    [v_framework_notify].[ServiceQQ] AS [ServiceQQ], 
+    [v_framework_notify].[ServiceId] AS [ServiceId], 
+    [v_framework_notify].[ReceiveRole] AS [ReceiveRole], 
+    [v_framework_notify].[GoodNo] AS [GoodNo], 
+    [v_framework_notify].[OrderType] AS [OrderType], 
+    [v_framework_notify].[OrderUpdateTime] AS [OrderUpdateTime], 
+    [v_framework_notify].[OrderDiscountName] AS [OrderDiscountName]
     FROM [dbo].[v_framework_notify] AS [v_framework_notify]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_framework_zaiban" EntityType="Self.v_framework_zaiban" store:Type="Views" store:Schema="dbo">
@@ -7190,6 +7248,10 @@
           </FunctionImport>
           <EntitySet Name="T_Flow_Role" EntityType="oasModel.T_Flow_Role" />
           <EntitySet Name="v_framework_notify" EntityType="oasModel.v_framework_notify" />
+          <FunctionImport Name="UP_GetUserRole" ReturnType="Collection(oasModel.UP_GetUserRole_Result)">
+            <Parameter Name="USERID" Mode="In" Type="String" />
+            <Parameter Name="MODULE_ID" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="UP_GetUserAllRole_Result">
           <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
@@ -7252,6 +7314,8 @@
             <PropertyRef Name="DateTime" />
             <PropertyRef Name="Disp_ID" />
             <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -7295,7 +7359,40 @@
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Disp_ID" Type="Int32" Nullable="false" />
           <Property Name="DelayLimit" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderLineNum" Type="Int32" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InternalTypeId" Type="Int32" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="UP_GetUserRole_Result">
+          <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
+          <Property Type="String" Name="ROLE_NAME" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ROLE_COLUMN" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ROLESERIAL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MODULE_ID" Nullable="false" MaxLength="20" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9930,6 +10027,32 @@
           <EntitySetMapping Name="v_framework_notify">
             <EntityTypeMapping TypeName="oasModel.v_framework_notify">
               <MappingFragment StoreEntitySet="v_framework_notify">
+                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
                 <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
@@ -9975,6 +10098,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UP_GetUserRole" FunctionName="oasModel.Store.UP_GetUserRole">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="oasModel.UP_GetUserRole_Result">
+                <ScalarProperty Name="ROLE_VALUE" ColumnName="ROLE_VALUE" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="ROLE_COLUMN" ColumnName="ROLE_COLUMN" />
+                <ScalarProperty Name="ROLESERIAL" ColumnName="ROLESERIAL" />
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

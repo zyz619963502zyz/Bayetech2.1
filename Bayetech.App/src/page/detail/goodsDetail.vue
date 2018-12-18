@@ -452,7 +452,7 @@
         </div>
       </div>
     </div>
-    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp vux-previewer" data-v-932364c8="">
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp vux-previewer">
       <div class="pswp__bg"></div>
       <div class="pswp__scroll-wrap">
         <div class="pswp__container">
@@ -486,21 +486,7 @@
       </div>
       <div class="phone-game-swiper-point mtheight">
         <div class="now-chick" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
-        <div class="" style="margin-left: 0.06175rem; margin-right: 0.06175rem;"></div>
+        
       </div> <!---->
     </div> <!---->
     <div data-v-932364c8="" style="display: none;">
@@ -513,6 +499,13 @@
 
 <script>
   import "@/assets/css/account-detail.css";
+
+  // photoswipe
+  import "@/assets/css/plugin/photoswipe/photoswipe.css";
+  import "@/assets/css/plugin/photoswipe/default-skin/default-skin.css";
+  import "@/assets/scripts/utils/photoswipe/photoswipe.js";
+  import "@/assets/scripts/utils/photoswipe/photoswipe-ui-default.js";
+
   let vmdata = {
 
     GoodNo: '',
