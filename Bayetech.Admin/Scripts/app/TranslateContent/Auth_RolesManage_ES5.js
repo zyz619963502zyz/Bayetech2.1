@@ -11120,10 +11120,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         StartCheck(type) {
             //开始检查
-            alert(1);
+            debugger;
             var self = this;
             self.SearchParam.ListObj = type;
-            $("#test").attr("value", type.KeyId);
+            $("#test").attr("value", type.Role_Value);
         },
         TurnToPage(page) {
             var self = this;

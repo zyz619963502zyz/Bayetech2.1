@@ -59,17 +59,14 @@ namespace Bayetech.Admin.Controllers
         /// <param name="roles"></param>
         /// <returns></returns>
         public List<dynamic> GetAllUsersByRoles(List<dynamic> roles) {
-
-            //roles.Select(c => { c.aaa });
-                 
-
             List<dynamic> dy = new List<dynamic>();
-            string[] names;
             using (oasEntities entity = new oasEntities())
             {
-                string inParam = "";
+                //找出所有的虚拟账号，跟权限对应是一对一关系。
+                List<dynamic> rolserial  = entity.T_Pub_Role.Select(c => new { c.RoleSerial }).Where(c=>roles.Contains(c.RoleSerial)).ToList<dynamic>();
+
+                return rolserial;
             }
-            return dy;
         }
     }
 }

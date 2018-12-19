@@ -13022,8 +13022,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var data = {
     url: "/api/Login/AdminLogion",
     Param: {
-        User_ID: "admin",
-        User_PWD: "111111"
+        //User_ID:"admin",
+        //User_PWD:"111111",
+        User_ID: "",
+        User_PWD: ""
     }
 };
 

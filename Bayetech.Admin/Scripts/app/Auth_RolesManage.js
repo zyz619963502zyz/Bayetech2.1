@@ -116,10 +116,11 @@ new Vue({
             //});
         },
         StartCheck(type) {//开始检查
-            alert(1);
+            debugger;
             var self = this;
-            self.SearchParam.ListObj = type;
-            $("#test").attr("value",type.KeyId);
+
+            var c = $.extend(true, self.SearchParam.ListObj, type);  
+            $("#test").attr("value", type.Role_Value);
         },
         TurnToPage(page){
             var self = this;
