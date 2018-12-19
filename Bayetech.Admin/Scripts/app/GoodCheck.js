@@ -73,6 +73,7 @@ new Vue({
     watch: {
         SelectType(val, oldval) {//类型切换
             var self = this;
+            self.SearchParam.Param.SelectType = val;
             if (val == "good") {
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
