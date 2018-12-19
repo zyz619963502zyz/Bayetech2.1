@@ -13024,8 +13024,8 @@ var data = {
     Param: {
         //User_ID:"admin",
         //User_PWD:"111111",
-        User_ID: "",
-        User_PWD: ""
+        User_ID: "admin",
+        User_PWD: "111111"
     }
 };
 

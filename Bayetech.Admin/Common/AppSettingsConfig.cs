@@ -13,6 +13,14 @@ namespace Bayetech.Admin
             }
         }
 
+        public static string GetBaseApi
+        {
+            get
+            {
+                return AppSettingValue();
+            }
+        }
+
         public static string StaffId
         {
             get

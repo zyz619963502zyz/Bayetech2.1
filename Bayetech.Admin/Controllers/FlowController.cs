@@ -40,6 +40,7 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="userId">当前用户登录的Id</param>
         /// <returns></returns>
+        [HttpGet]
         public List<dynamic> GetReceivers(string userId) {
             JObject ret = new JObject();
             using (oasEntities entity = new oasEntities())
@@ -59,17 +60,21 @@ namespace Bayetech.Admin.Controllers
         /// <param name="roles"></param>
         /// <returns></returns>
         public List<dynamic> GetAllUsersByRoles(List<dynamic> roles) {
-
-            //roles.Select(c => { c.aaa });
-                 
-
             List<dynamic> dy = new List<dynamic>();
-            string[] names;
             using (oasEntities entity = new oasEntities())
             {
-                string inParam = "";
+                //找出所有的虚拟账号，跟权限对应是一对一关系。
+                //List<string> roleparams = new List<string>();
+                string roleparams = string.Empty;
+                foreach (var item in roles)
+                {
+                    roleparams += "," + item.ROLESERIAL;
+                }
+
+                List<dynamic> rolserial  = entity.T_Pub_Role.Select(c => new { c.RoleSerial }).Where(c=> roleparams.Contains(c.RoleSerial)).ToList<dynamic>();
+
+                return rolserial;
             }
-            return dy;
         }
     }
 }

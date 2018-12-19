@@ -6,7 +6,9 @@ using Bayetech.Service.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
 
 namespace Bayetech.Admin.Controllers
@@ -44,6 +46,17 @@ namespace Bayetech.Admin.Controllers
                 //1.根据当前账号获取账号所有的权限(角色)。
                 //2.根据当前角色找到对应的虚拟账号。
                 //3.到最后取待处理的视图时候就是 Receiver in （‘虚拟账号1’，‘虚拟账号2  ’）
+
+                CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
+
+                //后台访问webapi
+                string GetReceiverApi = AppSettingsConfig.GetBaseApi + "/api/Flow/GetReceivers";
+                Dictionary<string, string> parames = new Dictionary<string, string>();
+                parames.Add("userId", loginContent.UserName);
+                Tuple<string, string> parameters = WebApiHelper.GetQueryString(parames);
+
+                WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
+                //WebApiHelper.Get<dynamic>(
 
                 return processService.GetList(null, page);
 
