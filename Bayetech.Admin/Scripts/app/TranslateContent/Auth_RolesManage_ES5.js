@@ -11122,7 +11122,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //开始检查
             debugger;
             var self = this;
-            self.SearchParam.ListObj = type;
+
+            var c = $.extend(true, self.SearchParam.ListObj, type);
             $("#test").attr("value", type.Role_Value);
         },
         TurnToPage(page) {

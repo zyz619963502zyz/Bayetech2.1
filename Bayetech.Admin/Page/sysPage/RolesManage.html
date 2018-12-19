@@ -229,7 +229,7 @@
                                                     debugger;
                                                     for (var y = 0; y < checkedData.content.length; y++) {
                                                         for (var z = 0; z < node.nodes.length; z++) {
-                                                            if (node.nodes[z].KeyId === checkedData.content[y].KeyId) {
+                                                            if (node.nodes[z].MenuID === checkedData.content[y].MenuID) {
                                                                 $('#tree')
                                                                     .treeview('checkNode',
                                                                         [node.nodes[z].nodeId, { silent: true }]);
@@ -263,11 +263,11 @@
                 var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {
-                    var nodeModel = { id: nodes[i].KeyId, status: nodes[i].state.checked };
+                    var nodeModel = { id: nodes[i].MenuID, status: nodes[i].state.checked };
                     checkModel.push(nodeModel);
                     if (nodes[i].nodes.length > 0) {
                         for (var x = 0; x < nodes[i].nodes.length; x++) {
-                            checkModel.push({ id: nodes[i].nodes[x].KeyId, status: nodes[i].nodes[x].state.checked });
+                            checkModel.push({ id: nodes[i].nodes[x].MenuID, status: nodes[i].nodes[x].state.checked });
                         }
                     };
                 }
@@ -297,12 +297,12 @@
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {
 
-                    var nodeModel = { KeyId: nodes[i].KeyId, nodeId: nodes[i].nodeId };
+                    var nodeModel = { MenuID: nodes[i].MenuID, nodeId: nodes[i].nodeId };
                     checkModel.push(nodeModel);
                 }
                 for (var y = 0; y < d.length; y++) {
                     for (var z = 0; z < checkModel.length; z++) {
-                        if (checkModel[z].KeyId === d[y].KeyId) {
+                        if (checkModel[z].MenuID === d[y].MenuID) {
                             $('#tree').treeview('checkNode', [checkModel[z].nodeId, { silent: true }]);
                         }
                     }
