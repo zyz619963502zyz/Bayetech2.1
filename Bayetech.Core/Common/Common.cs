@@ -188,8 +188,10 @@ namespace Bayetech.Core
             var jObect = new JObject();
             jObect.Add("result", bol);
             jObect.Add("content", JToken.FromObject(result));
-            var outpage = (page == null ? "": page.ToString());
-            jObect.Add("outpage", JToken.FromObject(outpage));//分页
+            if (page != null)
+            {
+                jObect.Add("outpage", JToken.FromObject(page));//分页
+            }
             return jObect;
         }
 

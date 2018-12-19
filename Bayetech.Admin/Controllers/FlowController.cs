@@ -1,4 +1,5 @@
-﻿using Bayetech.Core.Entity;
+﻿using Bayetech.Core;
+using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Bayetech.Service;
 using Newtonsoft.Json.Linq;
@@ -41,7 +42,7 @@ namespace Bayetech.Admin.Controllers
         /// <param name="userId">当前用户登录的Id</param>
         /// <returns></returns>
         [HttpGet]
-        public List<dynamic> GetReceivers(string userId) {
+        public JObject GetReceivers(string userId) {
             JObject ret = new JObject();
             using (oasEntities entity = new oasEntities())
             {
@@ -50,7 +51,7 @@ namespace Bayetech.Admin.Controllers
 
                 //2.根据权限找到虚拟账号集合。
                 List<dynamic> users = GetAllUsersByRoles(roles);
-                return users;
+                return Core.Common.PackageJObect(users.Count > 0, users, null);
             }
         }
 
