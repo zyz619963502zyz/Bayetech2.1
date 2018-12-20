@@ -1,12 +1,7 @@
 ﻿import Vue from '../vue.js'
-import comCompnent from '../common.js'
 import componentTable from '../components/table-ButtonsManage.vue'
 
 let vmData={
-    tools:{
-        _comCompnent:comCompnent,
-        _componentTable:componentTable
-    },
     RolesUrl:"/api/Buttons/GetList",
     RolesAdd:"/api/Buttons/AddRoles",
     RolesDelete:"/api/Buttons/DeleteRoles",
@@ -52,11 +47,11 @@ new Vue({
         findList(){
             var self=this;
             self.SearchParam.Param.ButtonName = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
                 if (data.result) {
                     self.ButtonssetsArray=data.content.datas;
                     self.SearchParam.Pagination=data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }
             })
         },
@@ -72,7 +67,7 @@ new Vue({
             var self = this;
             self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
             
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
                     alert("操作成功!");
@@ -98,7 +93,7 @@ new Vue({
                 return ;
             }
             self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+            comCompnent.default.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#ButtonsModal").modal("hide");
                     alert("删除成功!");

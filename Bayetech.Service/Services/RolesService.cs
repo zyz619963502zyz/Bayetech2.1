@@ -238,8 +238,8 @@ namespace Bayetech.Service
             using (var db = new RepositoryBase(DBFactory.oas))
             {
                 JObject result = new JObject();
-                var list = db.IQueryable<Admin_Sys_RoleNavBtns>(a => a.RoleId == id).ToList();
-                var ret = list.Select(c => new { KeyId = c.NavId, state = true });
+                var list = db.IQueryable<T_Pro_MenuRole>(a => a.RoleValue == id).ToList();
+                var ret = list.Select(c => new { MenuID = c.MenuID, state = true });
                 if (list == null)
                 {
                     result.Add(ResultInfo.Result, JProperty.FromObject(false));
@@ -261,21 +261,13 @@ namespace Bayetech.Service
                 List<CheckedListModel> checkList = json["json"].ToString() == "" ? new List<CheckedListModel>() : JsonConvert.DeserializeObject<List<CheckedListModel>>(json["json"].ToString());
                 string id = json["id"].ToString() == "" ? "" : JsonConvert.DeserializeObject<string>(json["id"].ToString());
                 int RoleId = Convert.ToInt32(id);
-                var modes = checkList.Where(a => a.status == true).Select(s => new Admin_Sys_RoleNavBtns { RoleId = RoleId, NavId = s.id }).ToList();
-                using (var db = new RepositoryBase().BeginTrans())
+                var modes = checkList.Where(a => a.status == true).Select(s => new T_Pro_MenuRole { RoleValue = RoleId, MenuID = s.id }).ToList();
+                using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
                 {
-                    db.Delete<Admin_Sys_RoleNavBtns>(c => c.RoleId == RoleId);
-                    db.Commit();
+                    var ss = db.IQueryable<T_Pro_MenuRole>(a => a.RoleValue == RoleId).ToList();
+                   
                 }
-                using (var db = new RepositoryBase().BeginTrans())
-                {
-                    foreach (var item in modes)
-                    {
-                        db.Insert<Admin_Sys_RoleNavBtns>(item);
-                        
-                    }
-                    db.Commit();
-            }
+                
                 result.Add(ResultInfo.Result, true);
                 return result;
         }

@@ -158,5 +158,18 @@ namespace Bayetech.Core.Entity
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserMenu_Result>("UP_GetUserMenu", mODULE_IDParameter, uSERIDParameter, sysFlagParameter);
         }
+    
+        public virtual ObjectResult<UP_GetUserRole_Result> UP_GetUserRole(string uSERID, string mODULE_ID)
+        {
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserRole_Result>("UP_GetUserRole", uSERIDParameter, mODULE_IDParameter);
+        }
     }
 }

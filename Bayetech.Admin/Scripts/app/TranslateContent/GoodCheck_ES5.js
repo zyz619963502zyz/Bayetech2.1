@@ -11675,7 +11675,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11727,7 +11727,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11777,7 +11777,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11892,6 +11892,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         SelectType(val, oldval) {
             //类型切换
             var self = this;
+            self.SearchParam.Param.SelectType = val;
             if (val == "good") {
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
@@ -11934,9 +11935,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.GoodInfoArray = data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType; //根据单据类型选择加载的标题等等内容
-                    self.SearchParam.Pagination = data.content.pagination;
+                    //good和order返回的数据类型不相同
+                    self.GoodInfoArray = self.ItemType == "good" ? data.content.datas : data.content;
+                    self.SearchParam.Pagination = self.ItemType == "good" ? data.content.pagination : data.outpage;
                     comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 } else {
                     self.GoodInfoArray = [];

@@ -10260,7 +10260,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10968,7 +10968,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11120,10 +11120,11 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         StartCheck(type) {
             //开始检查
-            alert(1);
+            debugger;
             var self = this;
-            self.SearchParam.ListObj = type;
-            $("#test").attr("value", type.KeyId);
+
+            var c = $.extend(true, self.SearchParam.ListObj, type);
+            $("#test").attr("value", type.Role_Value);
         },
         TurnToPage(page) {
             var self = this;
