@@ -14,7 +14,8 @@
     </div>
     <div class="dlGoodsDetail mt-97 pb-200">
       <div class="det01">
-        <img :src="vmdata.GoodImg">
+        <img :src="vmdata.GoodImg" preview="1">
+        <img :src="vmdata.GoodImg" preview="1">
       </div>
       <div class="det02 f30  px-30">
         <p class="catagory">地下城与勇士</p>
@@ -63,16 +64,70 @@
         <!--<a id="buy" class="button02" style="">立即购买</a>-->
       </div>
     </div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="img_des"><span>{{vmdata.Title}}</span></div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+            <!--<button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>-->
+            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+          <div class="pswp__caption pswp__caption--empty">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
 </template>
-<style scoped></style>
+
 <script>
+  import Vue from 'vue';
+
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
   import "@/assets/css/dl-detail.css";
   import { dlDetailData } from "@/testdata/Data.js";
+
+  // photoswipe
+  import preview from 'vue-photo-preview';
+  import "@/assets/css/plugin/photoswipe/photoswipe.css";
+  import "@/assets/css/plugin/photoswipe/default-skin/default-skin.css";
+  //import "@/assets/scripts/utils/photoswipe/photoswipe.js";
+  //import "@/assets/scripts/utils/photoswipe/photoswipe-ui-default.js";
+
+  let opt = {
+    fullscreenEl: false,//关闭全屏按钮
+    captionEl: false,//不用默认的标题栏
+    arrowEl: false,//不使用左右箭头
+    tapToClose:true //点击背景关闭
+  }
+
+  Vue.use(preview,opt)
 
   let vmdata = {
     Id: '',
@@ -86,7 +141,8 @@
     PraisePct: '',
     Guaranty: '',
     ContentTxt: '',
-    ContentImg: []
+    ContentImg: [],
+
   };
   vmdata.PageType = "czxv";
   vmdata.goodinfoarray = 2;
@@ -113,4 +169,32 @@
   };
 </script>
 
-
+<style>
+  .pswp__counter {
+    position: absolute;
+    left: 50%;
+    /*margin-left: -.5rem;
+    top: 0;
+    color: #fff;
+    opacity: .75;
+    height: .96rem;
+    line-height: .96rem;
+    font-size: .32rem;
+    width: 2.5rem;*/
+  }
+  .pswp__scroll-wrap .img_des {
+    width: 100%;
+    padding: .3rem;
+    color: #fff;
+    font-size: .3rem;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+  }
+    .pswp__scroll-wrap .img_des span {
+      display: inline-block;
+      line-height: .42rem;
+      max-height: .84rem;
+      overflow: hidden;
+    }
+</style>
