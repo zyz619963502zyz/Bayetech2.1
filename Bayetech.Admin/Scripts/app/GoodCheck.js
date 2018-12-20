@@ -115,9 +115,10 @@ new Vue({
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
-                    self.GoodInfoArray=data.content.datas;
                     self.ItemType = self.SearchParam.Param.SelectType;//根据单据类型选择加载的标题等等内容
-                    self.SearchParam.Pagination=data.content.pagination;
+                    //good和order返回的数据类型不相同
+                    self.GoodInfoArray = self.ItemType == "good" ? data.content.datas : data.content;
+                    self.SearchParam.Pagination = self.ItemType == "good" ? data.content.pagination : data.outpage;
                     comCompnent.default.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
                 }else {
                     self.GoodInfoArray = [];

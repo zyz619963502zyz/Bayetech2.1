@@ -41,28 +41,34 @@ namespace Bayetech.Admin.Controllers
             }
             else if (json["Param"]["SelectType"].ToString() == "order")
             {
-                v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
-                //todo开发待处理视图。
+                //思路：开发待处理视图。
                 //1.根据当前账号获取账号所有的权限(角色)。
                 //2.根据当前角色找到对应的虚拟账号。
                 //3.到最后取待处理的视图时候就是 Receiver in （‘虚拟账号1’，‘虚拟账号2  ’）
-
+                v_framework_notify OrderInfo = JsonConvert.DeserializeObject<v_framework_notify>((json["Param"] ?? "").ToString());
                 CurrentLogin loginContent = (CurrentLogin)HttpContext.Current.Session["CurrentLogin"];
 
-                //后台访问webapi
+                //获取处理人集合
                 string GetReceiverApi = AppSettingsConfig.GetBaseApi + "/api/Flow/GetReceivers";
                 Dictionary<string, string> parames = new Dictionary<string, string>();
                 parames.Add("userId", loginContent.UserName);
                 Tuple<string, string> parameters = WebApiHelper.GetQueryString(parames);
 
-                WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
-                //WebApiHelper.Get<dynamic>(
+                var result =  WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
 
-                return processService.GetList(null, page);
+                
+                //拼接处理人的,in条件。
+                string userStr = string.Empty;
+                if ((bool)result["result"])
+                {
+                    List<dynamic> receives = JsonConvert.DeserializeObject<List<dynamic>>(result["content"].ToString());
+                    foreach (var item in receives)
+                    {
+                        userStr += "," + item.RoleSerial;
+                    }
+                }
 
-                //不能沿用订单的视图，重新开发视图               
-                //return orderService.GetOrderInfo(OrderInfo, null, null, page);//获取商品订单信息
-
+                return processService.GetList(c => userStr.Contains(c.Receiver)&&!c.IsWaster_, page);
             }
             else
             {
