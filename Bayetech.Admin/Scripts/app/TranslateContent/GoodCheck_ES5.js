@@ -11287,7 +11287,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 StatusAllDisposal: { //获取当前环节流程线
                     p_lStatus_ID: "", //环节ID
                     p_lFlow_ID: "", //流程ID
-                    PageConditionRule: "" //页面规则
+                    PageConditionRule: ";KefuOperate;" //页面规则
                 },
                 DispUserInfo: { //获取流程线 所有人员(无数据权限)
                     p_lFlow_ID: "",
@@ -11420,7 +11420,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 //获取流程线
                 self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
                 self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
-                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则,每笔订单给定。
+                self.Param.StatusAllDisposal.PageConditionRule = ";KefuOperate;"; //页面规则,每笔订单给定。
                 self.Get_StatusAllDisposal();
             }
         },
@@ -11897,6 +11897,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
                 self.currentcomponent = self.components.orderprocess;
+                self.GoodInfoArray = [];
             }
         },
         SelectFlow(val, oldval) {
