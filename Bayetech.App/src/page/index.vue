@@ -594,8 +594,8 @@
 </style>
 
 <script>
-  import Swiper from '@/components/swiper.vue';//swiper轮播
-  import BottomNav from '@/components/bottomNav.vue';//底部导航
+  import Swiper from '@/components/swiper';//swiper轮播
+  import BottomNav from '@/components/bottomNav';//底部导航
   import '@/assets/content/css/fost-base-min.css'
   import '@/assets/content/css/style-min.css'
   import '@/assets/css/index.css'

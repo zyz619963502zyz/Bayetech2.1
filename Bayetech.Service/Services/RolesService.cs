@@ -262,14 +262,41 @@ namespace Bayetech.Service
                 string id = json["id"].ToString() == "" ? "" : JsonConvert.DeserializeObject<string>(json["id"].ToString());
                 int RoleId = Convert.ToInt32(id);
                 var modes = checkList.Where(a => a.status == true).Select(s => new T_Pro_MenuRole { RoleValue = RoleId, MenuID = s.id }).ToList();
-                using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
+            {
+                var menuRole = db.IQueryable<T_Pro_MenuRole>(a => a.RoleValue == RoleId).ToList();
+                var skus1 = menuRole.Select(a => a.MenuID).ToArray();
+                var skus2 = modes.Select(a => a.MenuID).ToArray();
+                long[] arrdel = skus1.Except(skus2).ToArray();//减少的
+                long[] arrdel2 =skus2.Except(skus1).ToArray();
+                var menuRoles = menuRole.Where(a => arrdel.Contains(a.MenuID)).ToList();
+                if (arrdel.Length > 0)
                 {
-                    var ss = db.IQueryable<T_Pro_MenuRole>(a => a.RoleValue == RoleId).ToList();
-                   
+                    //删除以去掉的权限数据
+                    foreach (var item in menuRoles)
+                    {
+                        db.Delete<T_Pro_MenuRole>(c => c.ID == item.ID);
+                    }
                 }
-                
+                if(arrdel2.Length> 0)
+                {
+                    for (int i = 0; i < arrdel2.Length; i++)
+                    {
+                        T_Pro_MenuRole meun = new T_Pro_MenuRole();
+                        meun.RoleValue = RoleId;
+                        meun.MenuID = arrdel2[i];
+                        meun.RoleColumn1 = 0;
+                        meun.moduleID = "0001";
+                        meun.createtime = DateTime.Now;
+                        meun.msrepl_tran_version = Guid.NewGuid();
+                        db.Insert<T_Pro_MenuRole>(meun);
+                    }
+                    db.Commit();
+                }
                 result.Add(ResultInfo.Result, true);
                 return result;
+            }
+            
         }
     }
 }
