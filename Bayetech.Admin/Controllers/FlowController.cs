@@ -50,8 +50,8 @@ namespace Bayetech.Admin.Controllers
                 List<dynamic> roles = entity.UP_GetUserRole(userId, "0001").ToList<dynamic>();
 
                 //2.根据权限找到虚拟账号集合。
-                List<dynamic> users = GetAllUsersByRoles(roles);
-                return Core.Common.PackageJObect(users.Count > 0, users, null);
+                //List<dynamic> users = GetAllUsersByRoles(roles);
+                return Core.Common.PackageJObect(roles.Count > 0, roles, null);
             }
         }
 

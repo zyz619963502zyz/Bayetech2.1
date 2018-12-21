@@ -11287,7 +11287,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 StatusAllDisposal: { //获取当前环节流程线
                     p_lStatus_ID: "", //环节ID
                     p_lFlow_ID: "", //流程ID
-                    PageConditionRule: "" //页面规则
+                    PageConditionRule: ";KefuOperate;" //页面规则
                 },
                 DispUserInfo: { //获取流程线 所有人员(无数据权限)
                     p_lFlow_ID: "",
@@ -11420,7 +11420,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 //获取流程线
                 self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
                 self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
-                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则,每笔订单给定。
+                self.Param.StatusAllDisposal.PageConditionRule = ";KefuOperate;"; //页面规则,每笔订单给定。
                 self.Get_StatusAllDisposal();
             }
         },
@@ -11675,7 +11675,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11703,7 +11703,7 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(26);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -11716,8 +11716,8 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11727,7 +11727,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11736,7 +11736,7 @@ if (false) {
     } else {
       api.reload('170ea28f', component.options)
     }
-    module.hot.accept("./table-GoodProcess.vue?vue&type=template&id=170ea28f&lang=html", function () {
+    module.hot.accept("./table-GoodProcess.vue?vue&type=template&id=170ea28f&id=BaseTable&lang=html", function () {
       api.rerender('170ea28f', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11753,7 +11753,7 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -11766,8 +11766,8 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -11777,7 +11777,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11786,7 +11786,7 @@ if (false) {
     } else {
       api.reload('7d7e03f4', component.options)
     }
-    module.hot.accept("./table-OrderProcess.vue?vue&type=template&id=7d7e03f4&lang=html", function () {
+    module.hot.accept("./table-OrderProcess.vue?vue&type=template&id=7d7e03f4&id=BaseTable&lang=html", function () {
       api.rerender('7d7e03f4', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -11897,6 +11897,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
                 self.currentcomponent = self.components.orderprocess;
+                self.GoodInfoArray = [];
             }
         },
         SelectFlow(val, oldval) {
@@ -12016,9 +12017,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__ = __webpack_require__(67);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(67);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
@@ -12027,9 +12028,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__ = __webpack_require__(69);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(69);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),

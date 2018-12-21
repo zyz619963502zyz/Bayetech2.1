@@ -78,6 +78,7 @@ new Vue({
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
                 self.currentcomponent = self.components.orderprocess;
+                self.GoodInfoArray = [];
             }
         },
         SelectFlow(val, oldval) {//根据选中的流程获取环节
