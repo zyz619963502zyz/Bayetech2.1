@@ -493,8 +493,6 @@
       <div class="preloader-indicator-modal" style="display: none;"><span class="preloader preloader-white"></span></div>
     </div>
   </div>
-  </div>
-  </div>
 </template>
 
 <script>
