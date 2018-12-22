@@ -4,115 +4,117 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2be83997374c4a17b2356a82a9962d70" Name="Diagram1" ZoomLevel="39">
-        <EntityTypeShape EntityType="oasModel.SYS_XmlConfig" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Admin" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_BitAndItem" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_FunctionDefault" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_OperatePerm" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_OperateUser" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_OptiomItem" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_OptiomTextItem" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_Role_CUT" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_STATUS" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_StatusRole" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Trust" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_TYPE" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Type_Bigclass" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Type_Info" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_UpdateLog" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_WindowsClass" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FrameWork_Detali" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FrameWork_Summary" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pro_CaseStatus" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pro_Menu" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pro_MenuRole" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Duty" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Module" Width="1.5" PointX="15.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Org" Width="1.5" PointX="15.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Org_Member" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Rights" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_Role" Width="1.5" PointX="17.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_User" Width="1.5" PointX="17.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.t_pub_user_parents" Width="1.5" PointX="6.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_UserRights" Width="1.5" PointX="11.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pub_UserRole" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Status_OperationRole" Width="1.5" PointX="19.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_STATUS_TYPE" Width="1.5" PointX="19.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Assign" Width="1.5" PointX="8.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AssignBiz" Width="1.5" PointX="19.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Attachments" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_AttCatalog" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_AttPattern" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttSelfReMark" Width="1.5" PointX="13.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttTrackChange" Width="1.5" PointX="19.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttType" Width="1.5" PointX="19.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSeting" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSetingHis" Width="1.5" PointX="2.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSetingLog" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BizFollow" Width="1.5" PointX="21.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Diffluence" Width="1.5" PointX="21.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_EXCHCHANGE" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_FLOWEXPAND" Width="1.5" PointX="21.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.t_WorkFlow_FlowInfo" Width="1.5" PointX="15.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_FlowMain" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_GlobalData" Width="1.5" PointX="17.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogFLOWEXPAND" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogFlowMain" Width="1.5" PointX="23.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMainAtt" Width="1.5" PointX="12.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMainField" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMonitor" Width="1.5" PointX="2.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogNotify" Width="1.5" PointX="23.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogPrint" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogZaiBan" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_MainAtt" Width="1.5" PointX="25.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_MainField" Width="1.5" PointX="25.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Notify" Width="1.5" PointX="25.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Number" Width="1.5" PointX="17.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_PageChange" Width="1.5" PointX="25.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_SelfRemark" Width="1.5" PointX="4.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_ZaiBan" Width="1.5" PointX="6.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.TWF_TCB_Estate" Width="1.5" PointX="12.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.TWF_TCB_Exchange" Width="1.5" PointX="27.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.TWF_TCB_Property" Width="1.5" PointX="27.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_DISPOSAL" Width="1.5" PointX="27.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_FormLimit" Width="1.5" PointX="27.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_Type_20180311" Width="1.5" PointX="27.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_FLOW_UI" Width="1.5" PointX="19.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_INSTANCE_FLOW_DISPOSAL" Width="1.5" PointX="29.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_INSTANCE_FLOW_STATUS" Width="1.5" PointX="29.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pro_Menu_new" Width="1.5" PointX="29.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Pro_MenuRole_new" Width="1.5" PointX="12.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_Status_OperationPerm" Width="1.5" PointX="29.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.t_WorkFlow_FlowInfo2" Width="1.5" PointX="29.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_PARENTID" Width="1.5" PointX="29.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_WorkFlow_ROLEIDEA" Width="1.5" PointX="25.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.T_flow_UserRole" Width="1.5" PointX="14.75" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.t_pub_company" Width="1.5" PointX="21.75" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.t_pub_dept" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_FLOW_ROLE" Width="1.5" PointX="31.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_Flow_StatusUser" Width="1.5" PointX="31.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_Flow_StatusUserAll" Width="1.5" PointX="31.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_flow_user" Width="1.5" PointX="31.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_framework_main" Width="1.5" PointX="27.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_framework_zaiban" Width="1.5" PointX="2.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_pub_member_org" Width="1.5" PointX="4.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_PUB_MEMBER_USER" Width="1.5" PointX="6.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_pub_org" Width="1.5" PointX="33.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_pub_user" Width="1.5" PointX="33.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_pub_user_member" Width="1.5" PointX="33.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.v_pub_user_parents" Width="1.5" PointX="23.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_WorkFlow_FlowMain" Width="1.5" PointX="33.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_WorkFlow_Notify" Width="1.5" PointX="12.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_WorkFlow_OtherAttDetail" Width="1.5" PointX="14.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="oasModel.V_WorkFlow_ZaiBan" Width="1.5" PointX="16.75" PointY="34.75" IsExpanded="true" />
-        <AssociationConnector Association="oasModel.FK_T_WorkFlow_Attachments_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
-        <AssociationConnector Association="oasModel.FK_T_WORKFLOW_AttPattern_T_WORKFLOW_AttCatalog" ManuallyRouted="false" />
-        <AssociationConnector Association="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE_T_WORKFLOW_EXCHCHANGE_FK1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="oasModel.T_Flow_Role" Width="1.5" PointX="19.375" PointY="35.75" />
-        <EntityTypeShape EntityType="oasModel.v_framework_notify" Width="1.5" PointX="36.375" PointY="0.75" />
+      <Diagram DiagramId="2be83997374c4a17b2356a82a9962d70" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="oasModel.SYS_XmlConfig" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Admin" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_BitAndItem" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_FunctionDefault" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_OperatePerm" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_OperateUser" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_OptiomItem" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_OptiomTextItem" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_Role_CUT" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_STATUS" Width="1.5" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_StatusRole" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Trust" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_TYPE" Width="1.5" PointX="11.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Type_Bigclass" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Type_Info" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_UpdateLog" Width="1.5" PointX="13.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_WindowsClass" Width="1.5" PointX="13.75" PointY="9.75" />
+        <EntityTypeShape EntityType="oasModel.T_FrameWork_Detali" Width="1.5" PointX="13.75" PointY="12.75" />
+        <EntityTypeShape EntityType="oasModel.T_FrameWork_Summary" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pro_CaseStatus" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pro_Menu" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pro_MenuRole" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Duty" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Module" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Org" Width="1.5" PointX="15.75" PointY="11.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Org_Member" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Rights" Width="1.5" PointX="17.75" PointY="3.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_Role" Width="1.5" PointX="17.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_User" Width="1.5" PointX="17.75" PointY="11.75" />
+        <EntityTypeShape EntityType="oasModel.t_pub_user_parents" Width="1.5" PointX="6.75" PointY="18.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_UserRights" Width="1.5" PointX="11.75" PointY="18.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pub_UserRole" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_Status_OperationRole" Width="1.5" PointX="19.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_STATUS_TYPE" Width="1.5" PointX="19.75" PointY="7.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Assign" Width="1.5" PointX="8.75" PointY="19.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AssignBiz" Width="1.5" PointX="19.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Attachments" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_AttCatalog" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_AttPattern" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttSelfReMark" Width="1.5" PointX="13.75" PointY="19.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttTrackChange" Width="1.5" PointX="19.75" PointY="15.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_AttType" Width="1.5" PointX="19.75" PointY="19.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSeting" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSetingHis" Width="1.5" PointX="2.75" PointY="20.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BalanceSetingLog" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_BizFollow" Width="1.5" PointX="21.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Diffluence" Width="1.5" PointX="21.75" PointY="9.75" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_EXCHCHANGE" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_FLOWEXPAND" Width="1.5" PointX="21.75" PointY="13.75" />
+        <EntityTypeShape EntityType="oasModel.t_WorkFlow_FlowInfo" Width="1.5" PointX="15.75" PointY="21.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_FlowMain" Width="1.5" PointX="10.75" PointY="22.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_GlobalData" Width="1.5" PointX="17.75" PointY="22.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogFLOWEXPAND" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogFlowMain" Width="1.5" PointX="23.75" PointY="12.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMainAtt" Width="1.5" PointX="12.75" PointY="23.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMainField" Width="1.5" PointX="0.75" PointY="24.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogMonitor" Width="1.5" PointX="2.75" PointY="24.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogNotify" Width="1.5" PointX="23.75" PointY="24.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogPrint" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_LogZaiBan" Width="1.5" PointX="25.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_MainAtt" Width="1.5" PointX="25.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_MainField" Width="1.5" PointX="25.75" PointY="13.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Notify" Width="1.5" PointX="25.75" PointY="16.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_Number" Width="1.5" PointX="17.75" PointY="25.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_PageChange" Width="1.5" PointX="25.75" PointY="23.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_SelfRemark" Width="1.5" PointX="4.75" PointY="26.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_ZaiBan" Width="1.5" PointX="6.75" PointY="26.75" />
+        <EntityTypeShape EntityType="oasModel.TWF_TCB_Estate" Width="1.5" PointX="12.75" PointY="26.75" />
+        <EntityTypeShape EntityType="oasModel.TWF_TCB_Exchange" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.TWF_TCB_Property" Width="1.5" PointX="27.75" PointY="5.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_DISPOSAL" Width="1.5" PointX="27.75" PointY="13.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_FormLimit" Width="1.5" PointX="27.75" PointY="18.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_Type_20180311" Width="1.5" PointX="27.75" PointY="22.75" />
+        <EntityTypeShape EntityType="oasModel.T_FLOW_UI" Width="1.5" PointX="19.75" PointY="28.75" />
+        <EntityTypeShape EntityType="oasModel.T_INSTANCE_FLOW_DISPOSAL" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.T_INSTANCE_FLOW_STATUS" Width="1.5" PointX="29.75" PointY="4.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pro_Menu_new" Width="1.5" PointX="29.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.T_Pro_MenuRole_new" Width="1.5" PointX="12.75" PointY="29.75" />
+        <EntityTypeShape EntityType="oasModel.T_Status_OperationPerm" Width="1.5" PointX="29.75" PointY="14.75" />
+        <EntityTypeShape EntityType="oasModel.t_WorkFlow_FlowInfo2" Width="1.5" PointX="29.75" PointY="17.75" />
+        <EntityTypeShape EntityType="oasModel.T_WORKFLOW_PARENTID" Width="1.5" PointX="29.75" PointY="24.75" />
+        <EntityTypeShape EntityType="oasModel.T_WorkFlow_ROLEIDEA" Width="1.5" PointX="25.75" PointY="29.75" />
+        <EntityTypeShape EntityType="oasModel.T_Flow_Role" Width="1.5" PointX="29.75" PointY="27.75" />
+        <EntityTypeShape EntityType="oasModel.T_flow_UserRole" Width="1.5" PointX="14.75" PointY="30.75" />
+        <EntityTypeShape EntityType="oasModel.t_pub_company" Width="1.5" PointX="21.75" PointY="30.75" />
+        <EntityTypeShape EntityType="oasModel.t_pub_dept" Width="1.5" PointX="31.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.V_FLOW_ROLE" Width="1.5" PointX="31.75" PointY="6.75" />
+        <EntityTypeShape EntityType="oasModel.V_Flow_StatusUser" Width="1.5" PointX="31.75" PointY="9.75" />
+        <EntityTypeShape EntityType="oasModel.V_Flow_StatusUserAll" Width="1.5" PointX="31.75" PointY="16.75" />
+        <EntityTypeShape EntityType="oasModel.V_Flow_StatusUserBack" Width="1.5" PointX="31.75" PointY="23.75" />
+        <EntityTypeShape EntityType="oasModel.v_flow_user" Width="1.5" PointX="27.75" PointY="31.75" />
+        <EntityTypeShape EntityType="oasModel.v_framework_main" Width="1.5" PointX="29.75" PointY="31.75" />
+        <EntityTypeShape EntityType="oasModel.v_framework_notify" Width="1.5" PointX="31.75" PointY="30.75" />
+        <EntityTypeShape EntityType="oasModel.v_framework_zaiban" Width="1.5" PointX="0.75" PointY="32.75" />
+        <EntityTypeShape EntityType="oasModel.v_pub_member_org" Width="1.5" PointX="2.75" PointY="32.75" />
+        <EntityTypeShape EntityType="oasModel.V_PUB_MEMBER_USER" Width="1.5" PointX="4.75" PointY="32.75" />
+        <EntityTypeShape EntityType="oasModel.v_pub_org" Width="1.5" PointX="6.75" PointY="32.75" />
+        <EntityTypeShape EntityType="oasModel.v_pub_user" Width="1.5" PointX="33.75" PointY="0.75" />
+        <EntityTypeShape EntityType="oasModel.v_pub_user_member" Width="1.5" PointX="33.75" PointY="10.75" />
+        <EntityTypeShape EntityType="oasModel.v_pub_user_parents" Width="1.5" PointX="33.75" PointY="21.75" />
+        <EntityTypeShape EntityType="oasModel.V_WorkFlow_FlowMain" Width="1.5" PointX="23.75" PointY="33.75" />
+        <EntityTypeShape EntityType="oasModel.V_WorkFlow_Notify" Width="1.5" PointX="33.75" PointY="29.75" />
+        <EntityTypeShape EntityType="oasModel.V_WorkFlow_OtherAttDetail" Width="1.5" PointX="12.75" PointY="34.75" />
+        <EntityTypeShape EntityType="oasModel.V_WorkFlow_ZaiBan" Width="1.5" PointX="14.75" PointY="34.75" />
+        <AssociationConnector Association="oasModel.FK_T_WorkFlow_Attachments_T_WORKFLOW_AttCatalog" />
+        <AssociationConnector Association="oasModel.FK_T_WORKFLOW_AttPattern_T_WORKFLOW_AttCatalog" />
+        <AssociationConnector Association="oasModel.T_WORKFLOW_EXCHCHANGE_TYPE_T_WORKFLOW_EXCHCHANGE_FK1" />
+        <EntityTypeShape EntityType="oasModel.v_pub_UserRoleJiHeCanel" Width="1.5" PointX="17.375" PointY="34.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

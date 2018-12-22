@@ -239,9 +239,9 @@ namespace Bayetech.Service
             {
                 json = json ?? new JObject();
                 Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("USER_ID") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-                Expression<Func<T_Pub_User, bool>> expression = PredicateExtensions.True<T_Pub_User>();
-                PaginationResult<List<T_Pub_User>> ResultPage = new PaginationResult<List<T_Pub_User>>();
-                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("USER_ID"), out page, expression);
+                Expression<Func<v_pub_UserRoleJiHeCanel, bool>> expression = PredicateExtensions.True<v_pub_UserRoleJiHeCanel>();
+                PaginationResult<List<v_pub_UserRoleJiHeCanel>> ResultPage = new PaginationResult<List<v_pub_UserRoleJiHeCanel>>();
+                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("User_ID"), out page, expression);
                 //var id = json["ListObj"]["USER_ID"].ToString() == "" ? 0 : (int)json["ListObj"]["USER_ID"];
                 //var roles = repository.IQueryable<T_Pub_User>(a=>a.User_ID==id);//角色列表
 
@@ -249,7 +249,7 @@ namespace Bayetech.Service
                 if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
                 {
                     userList = userList.FindAll(a => a.User_ID.Contains(json["Param"]["Type"].ToString()) || a.User_Name.Contains(json["Param"]["Type"].ToString()));
-                }
+                }        
                 ResultPage.datas = userList.ToList();
                 if (page != null)
                 {

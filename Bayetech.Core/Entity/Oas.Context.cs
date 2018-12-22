@@ -111,14 +111,17 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<t_WorkFlow_FlowInfo2> t_WorkFlow_FlowInfo2 { get; set; }
         public virtual DbSet<T_WORKFLOW_PARENTID> T_WORKFLOW_PARENTID { get; set; }
         public virtual DbSet<T_WorkFlow_ROLEIDEA> T_WorkFlow_ROLEIDEA { get; set; }
+        public virtual DbSet<T_Flow_Role> T_Flow_Role { get; set; }
         public virtual DbSet<T_flow_UserRole> T_flow_UserRole { get; set; }
         public virtual DbSet<t_pub_company> t_pub_company { get; set; }
         public virtual DbSet<t_pub_dept> t_pub_dept { get; set; }
         public virtual DbSet<V_FLOW_ROLE> V_FLOW_ROLE { get; set; }
         public virtual DbSet<V_Flow_StatusUser> V_Flow_StatusUser { get; set; }
         public virtual DbSet<V_Flow_StatusUserAll> V_Flow_StatusUserAll { get; set; }
+        public virtual DbSet<V_Flow_StatusUserBack> V_Flow_StatusUserBack { get; set; }
         public virtual DbSet<v_flow_user> v_flow_user { get; set; }
         public virtual DbSet<v_framework_main> v_framework_main { get; set; }
+        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
         public virtual DbSet<v_framework_zaiban> v_framework_zaiban { get; set; }
         public virtual DbSet<v_pub_member_org> v_pub_member_org { get; set; }
         public virtual DbSet<V_PUB_MEMBER_USER> V_PUB_MEMBER_USER { get; set; }
@@ -130,8 +133,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<V_WorkFlow_Notify> V_WorkFlow_Notify { get; set; }
         public virtual DbSet<V_WorkFlow_OtherAttDetail> V_WorkFlow_OtherAttDetail { get; set; }
         public virtual DbSet<V_WorkFlow_ZaiBan> V_WorkFlow_ZaiBan { get; set; }
-        public virtual DbSet<T_Flow_Role> T_Flow_Role { get; set; }
-        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
+        public virtual DbSet<v_pub_UserRoleJiHeCanel> v_pub_UserRoleJiHeCanel { get; set; }
     
         public virtual ObjectResult<UP_GetUserAllRole_Result> UP_GetUserAllRole(string uSERID)
         {
@@ -170,6 +172,421 @@ namespace Bayetech.Core.Entity
                 new ObjectParameter("MODULE_ID", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserRole_Result>("UP_GetUserRole", uSERIDParameter, mODULE_IDParameter);
+        }
+    
+        [DbFunction("oasEntities", "fn_Str_Split")]
+        public virtual IQueryable<string> fn_Str_Split(string @string, string separator)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("String", @string) :
+                new ObjectParameter("String", typeof(string));
+    
+            var separatorParameter = separator != null ?
+                new ObjectParameter("Separator", separator) :
+                new ObjectParameter("Separator", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[oasEntities].[fn_Str_Split](@String, @Separator)", stringParameter, separatorParameter);
+        }
+    
+        public virtual ObjectResult<NB_YWUser_Result> NB_YWUser(string username, Nullable<int> istempuser, string orgname, string usercode, string orggb, Nullable<int> pagesize, Nullable<int> pageindex)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var istempuserParameter = istempuser.HasValue ?
+                new ObjectParameter("istempuser", istempuser) :
+                new ObjectParameter("istempuser", typeof(int));
+    
+            var orgnameParameter = orgname != null ?
+                new ObjectParameter("orgname", orgname) :
+                new ObjectParameter("orgname", typeof(string));
+    
+            var usercodeParameter = usercode != null ?
+                new ObjectParameter("usercode", usercode) :
+                new ObjectParameter("usercode", typeof(string));
+    
+            var orggbParameter = orggb != null ?
+                new ObjectParameter("orggb", orggb) :
+                new ObjectParameter("orggb", typeof(string));
+    
+            var pagesizeParameter = pagesize.HasValue ?
+                new ObjectParameter("pagesize", pagesize) :
+                new ObjectParameter("pagesize", typeof(int));
+    
+            var pageindexParameter = pageindex.HasValue ?
+                new ObjectParameter("pageindex", pageindex) :
+                new ObjectParameter("pageindex", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NB_YWUser_Result>("NB_YWUser", usernameParameter, istempuserParameter, orgnameParameter, usercodeParameter, orggbParameter, pagesizeParameter, pageindexParameter);
+        }
+    
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int SP_BX_Import_CleanCase(string 成交编号)
+        {
+            var 成交编号Parameter = 成交编号 != null ?
+                new ObjectParameter("成交编号", 成交编号) :
+                new ObjectParameter("成交编号", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_BX_Import_CleanCase", 成交编号Parameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetRoleMenu_Result> SP_GetRoleMenu(string mODULE_ID, string roleName, string sysFlag)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var roleNameParameter = roleName != null ?
+                new ObjectParameter("RoleName", roleName) :
+                new ObjectParameter("RoleName", typeof(string));
+    
+            var sysFlagParameter = sysFlag != null ?
+                new ObjectParameter("SysFlag", sysFlag) :
+                new ObjectParameter("SysFlag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetRoleMenu_Result>("SP_GetRoleMenu", mODULE_IDParameter, roleNameParameter, sysFlagParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetUserMenu_Result> SP_GetUserMenu(string mODULE_ID, string uSERID)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetUserMenu_Result>("SP_GetUserMenu", mODULE_IDParameter, uSERIDParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetUserMenuDefault_Result> SP_GetUserMenuDefault(string mODULE_ID, string sysFlag)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var sysFlagParameter = sysFlag != null ?
+                new ObjectParameter("SysFlag", sysFlag) :
+                new ObjectParameter("SysFlag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetUserMenuDefault_Result>("SP_GetUserMenuDefault", mODULE_IDParameter, sysFlagParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int UP_DealUserNotify(string receiveId, string receiveName, string oldRecieveId, string wfmId)
+        {
+            var receiveIdParameter = receiveId != null ?
+                new ObjectParameter("receiveId", receiveId) :
+                new ObjectParameter("receiveId", typeof(string));
+    
+            var receiveNameParameter = receiveName != null ?
+                new ObjectParameter("receiveName", receiveName) :
+                new ObjectParameter("receiveName", typeof(string));
+    
+            var oldRecieveIdParameter = oldRecieveId != null ?
+                new ObjectParameter("oldRecieveId", oldRecieveId) :
+                new ObjectParameter("oldRecieveId", typeof(string));
+    
+            var wfmIdParameter = wfmId != null ?
+                new ObjectParameter("wfmId", wfmId) :
+                new ObjectParameter("wfmId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UP_DealUserNotify", receiveIdParameter, receiveNameParameter, oldRecieveIdParameter, wfmIdParameter);
+        }
+    
+        public virtual ObjectResult<UP_Get_DownOrgName_Result> UP_Get_DownOrgName(string mODULE_ID, string uSERID)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_Get_DownOrgName_Result>("UP_Get_DownOrgName", mODULE_IDParameter, uSERIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_Get_DownUsers_Result> UP_Get_DownUsers(string uSERID)
+        {
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_Get_DownUsers_Result>("UP_Get_DownUsers", uSERIDParameter);
+        }
+    
+        public virtual int UP_GetAttUploadList(string att_Name, string projectLimit, Nullable<System.DateTime> starttime, Nullable<System.DateTime> endtime)
+        {
+            var att_NameParameter = att_Name != null ?
+                new ObjectParameter("Att_Name", att_Name) :
+                new ObjectParameter("Att_Name", typeof(string));
+    
+            var projectLimitParameter = projectLimit != null ?
+                new ObjectParameter("ProjectLimit", projectLimit) :
+                new ObjectParameter("ProjectLimit", typeof(string));
+    
+            var starttimeParameter = starttime.HasValue ?
+                new ObjectParameter("starttime", starttime) :
+                new ObjectParameter("starttime", typeof(System.DateTime));
+    
+            var endtimeParameter = endtime.HasValue ?
+                new ObjectParameter("endtime", endtime) :
+                new ObjectParameter("endtime", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UP_GetAttUploadList", att_NameParameter, projectLimitParameter, starttimeParameter, endtimeParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetMenuRole_Result> UP_GetMenuRole(string menuID)
+        {
+            var menuIDParameter = menuID != null ?
+                new ObjectParameter("MenuID", menuID) :
+                new ObjectParameter("MenuID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetMenuRole_Result>("UP_GetMenuRole", menuIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetMenuRole_New_Result> UP_GetMenuRole_New(string menuID)
+        {
+            var menuIDParameter = menuID != null ?
+                new ObjectParameter("MenuID", menuID) :
+                new ObjectParameter("MenuID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetMenuRole_New_Result>("UP_GetMenuRole_New", menuIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetNotify_Result> UP_GetNotify(string wfmID, string userID)
+        {
+            var wfmIDParameter = wfmID != null ?
+                new ObjectParameter("WfmID", wfmID) :
+                new ObjectParameter("WfmID", typeof(string));
+    
+            var userIDParameter = userID != null ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetNotify_Result>("UP_GetNotify", wfmIDParameter, userIDParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetUserMenu_New_Result> UP_GetUserMenu_New(string mODULE_ID, string uSERID, string sysFlag)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            var sysFlagParameter = sysFlag != null ?
+                new ObjectParameter("SysFlag", sysFlag) :
+                new ObjectParameter("SysFlag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserMenu_New_Result>("UP_GetUserMenu_New", mODULE_IDParameter, uSERIDParameter, sysFlagParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetUserMenuDefault_Result> UP_GetUserMenuDefault(string mODULE_ID, string sysFlag)
+        {
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            var sysFlagParameter = sysFlag != null ?
+                new ObjectParameter("SysFlag", sysFlag) :
+                new ObjectParameter("SysFlag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserMenuDefault_Result>("UP_GetUserMenuDefault", mODULE_IDParameter, sysFlagParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetUserOneRole_Result> UP_GetUserOneRole(string uSERID, string rOLENAME)
+        {
+            var uSERIDParameter = uSERID != null ?
+                new ObjectParameter("USERID", uSERID) :
+                new ObjectParameter("USERID", typeof(string));
+    
+            var rOLENAMEParameter = rOLENAME != null ?
+                new ObjectParameter("ROLENAME", rOLENAME) :
+                new ObjectParameter("ROLENAME", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUserOneRole_Result>("UP_GetUserOneRole", uSERIDParameter, rOLENAMEParameter);
+        }
+    
+        public virtual ObjectResult<UP_GetUsersRole_Result> UP_GetUsersRole(string uSERIDS, string rOLENAME, string mODULE_ID)
+        {
+            var uSERIDSParameter = uSERIDS != null ?
+                new ObjectParameter("USERIDS", uSERIDS) :
+                new ObjectParameter("USERIDS", typeof(string));
+    
+            var rOLENAMEParameter = rOLENAME != null ?
+                new ObjectParameter("ROLENAME", rOLENAME) :
+                new ObjectParameter("ROLENAME", typeof(string));
+    
+            var mODULE_IDParameter = mODULE_ID != null ?
+                new ObjectParameter("MODULE_ID", mODULE_ID) :
+                new ObjectParameter("MODULE_ID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UP_GetUsersRole_Result>("UP_GetUsersRole", uSERIDSParameter, rOLENAMEParameter, mODULE_IDParameter);
+        }
+    
+        public virtual int UP_Super_Page(string tableName, string fields, string orderField, string sqlWhere, Nullable<int> pageSize, Nullable<int> pageIndex, ObjectParameter totalPage)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("TableName", tableName) :
+                new ObjectParameter("TableName", typeof(string));
+    
+            var fieldsParameter = fields != null ?
+                new ObjectParameter("Fields", fields) :
+                new ObjectParameter("Fields", typeof(string));
+    
+            var orderFieldParameter = orderField != null ?
+                new ObjectParameter("OrderField", orderField) :
+                new ObjectParameter("OrderField", typeof(string));
+    
+            var sqlWhereParameter = sqlWhere != null ?
+                new ObjectParameter("sqlWhere", sqlWhere) :
+                new ObjectParameter("sqlWhere", typeof(string));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("pageSize", pageSize) :
+                new ObjectParameter("pageSize", typeof(int));
+    
+            var pageIndexParameter = pageIndex.HasValue ?
+                new ObjectParameter("pageIndex", pageIndex) :
+                new ObjectParameter("pageIndex", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UP_Super_Page", tableNameParameter, fieldsParameter, orderFieldParameter, sqlWhereParameter, pageSizeParameter, pageIndexParameter, totalPage);
+        }
+    
+        public virtual int UP_Super_PageThreeMonth(string tableName, string fields, string orderField, string sqlWhere, Nullable<int> pageSize, Nullable<int> pageIndex, ObjectParameter totalPage)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("TableName", tableName) :
+                new ObjectParameter("TableName", typeof(string));
+    
+            var fieldsParameter = fields != null ?
+                new ObjectParameter("Fields", fields) :
+                new ObjectParameter("Fields", typeof(string));
+    
+            var orderFieldParameter = orderField != null ?
+                new ObjectParameter("OrderField", orderField) :
+                new ObjectParameter("OrderField", typeof(string));
+    
+            var sqlWhereParameter = sqlWhere != null ?
+                new ObjectParameter("sqlWhere", sqlWhere) :
+                new ObjectParameter("sqlWhere", typeof(string));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("pageSize", pageSize) :
+                new ObjectParameter("pageSize", typeof(int));
+    
+            var pageIndexParameter = pageIndex.HasValue ?
+                new ObjectParameter("pageIndex", pageIndex) :
+                new ObjectParameter("pageIndex", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UP_Super_PageThreeMonth", tableNameParameter, fieldsParameter, orderFieldParameter, sqlWhereParameter, pageSizeParameter, pageIndexParameter, totalPage);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Bayetech.Core.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class V_Flow_StatusUser
+    public partial class V_Flow_StatusUserBack
     {
         public Nullable<decimal> Company_ID { get; set; }
         public string User_ID { get; set; }
@@ -23,7 +23,7 @@ namespace Bayetech.Core.Entity
         public string Parent_Name { get; set; }
         public string Parent_DisplayName { get; set; }
         public Nullable<decimal> OrderBy { get; set; }
-        public decimal userrole_id { get; set; }
+        public long userrole_id { get; set; }
         public string userrole_name { get; set; }
         public string userrole_display { get; set; }
         public string userrole_column { get; set; }
