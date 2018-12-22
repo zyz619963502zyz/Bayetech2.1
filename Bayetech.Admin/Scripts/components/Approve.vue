@@ -224,7 +224,7 @@
                 comCompnent.default.getWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
                     if (data) {
                         self.ResultList.NewFlowExample = data;
-                        alert("实例创建成功!");
+                        //alert("实例创建成功!");
                     }
                 })
             },
@@ -233,7 +233,7 @@
                 comCompnent.default.getWebJson(self.Url.FlowBeginStatusInfo, self.Param.FlowBeginStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.FlowBeginStatusInfo = data;
-                        alert("获取流程开始信息成功!");
+                        //alert("获取流程开始信息成功!");
                     }
                 })
             },
@@ -245,7 +245,7 @@
                         self.ResultList.CurFlowStatusInfo = data;
                         self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
                         self.flowid = data.Flow_ID;
-                        alert("获取当前流程信息成功!");
+                        //alert("获取当前流程信息成功!");
                     }
                 }, null, sync)//同步获取当前流程信息
             },
@@ -282,7 +282,7 @@
                 comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                     if (data) {
                         self.ResultList.OnNextStep = data;
-                        alert("提交送下一步成功!");
+                        //alert("提交送下一步成功!");
                         $("#checkModal").modal("hide");
                     }
                 });
@@ -294,7 +294,7 @@
                 comCompnent.default.getWebJson(self.Url.FlowStatusInfo, self.Param.FlowStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.FlowStatusInfo = data;
-                        alert("获取当前流程及环节信息成功!");
+                        //alert("获取当前流程及环节信息成功!");
                     }
                 },true)
             },
@@ -303,7 +303,7 @@
                 comCompnent.default.getWebJson(self.Url.PermList, self.Param.PermList, function (data) {
                     if (data) {
                         self.ResultList.PermList = data;
-                        alert("获取权限成功!");
+                        //alert("获取权限成功!");
                     }
                 })
             }

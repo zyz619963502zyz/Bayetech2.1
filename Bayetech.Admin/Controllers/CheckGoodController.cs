@@ -76,10 +76,10 @@ namespace Bayetech.Admin.Controllers
                     foreach (var item in result_notify)
                     {
                         vw_MallGoodMainInfo good = service.FindList(c => c.GoodNo == item.GoodNo).FirstOrDefault();
-                        item.GoodTitle = good.GoodTitle;
-                        item.GameName = good.GameName;
-                        item.GoodTypeName = good.GoodTypeName;
-                        item.GoodKeyWord = good.GoodKeyWord;
+                        item.GoodTitle = (good == null?"":good.GoodTitle);
+                        item.GameName = (good == null ? "" : good.GameName);
+                        item.GoodTypeName = (good == null ? "" : good.GoodTypeName);
+                        item.GoodKeyWord = (good == null ? "" : good.GoodKeyWord);
                     }
 
                     //插入进去。
