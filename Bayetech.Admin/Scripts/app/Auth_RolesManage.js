@@ -83,31 +83,37 @@ new Vue({
             $("#UserModal").modal("show");
         },
         Delete(){//删除
-            //var self = this;
-            //if (self.SearchParam.ListObj.KeyId == 0) {
-            //    alert("请选择角色")
-            //    return ;
-            //}
-            //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId;
-            //self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
-            //    if (data.result) {
-            //        $("#UserModal").modal("hide");
-            //        alert("删除成功!");
-            //    } 
-            //    self.findList();
-            //    //$("#CheckConfirm").Btns("reset");
-            //},function(){
-            //    //$("#CheckConfirm").Btns("reset");
-            //});
+            var self = this;
+            if (self.SearchParam.ListObj.Role_id === 0) {
+                alert("请选择角色");
+                return false;
+            }
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                }
+                else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            },function(){
+                //$("#CheckConfirm").Btns("reset");
+            });
         },
         SubmitModal() {//提交
+
             var self = this;
             //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
                     alert("操作成功!");
-                } 
+                }
+                else {
+                    alert(data.content);
+                }
                 self.findList();
                 //$("#CheckConfirm").Btns("reset");
             },function(){
