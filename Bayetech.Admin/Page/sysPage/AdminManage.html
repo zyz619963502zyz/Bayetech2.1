@@ -244,12 +244,13 @@
             self.AuthTree = $('#tree');
             self.OpenAuthModal = function () {
                 debugger;
-                var id = null;//$("input[name='Operates']").val();
-                //if (id == "")
-                //{
-                //    alert("请选择角色")
-                //    return;
-                //}
+                var id = $("input[name='Operates']").val();
+                
+                if (id == "")
+                {
+                    alert("请选择角色")
+                    return;
+                }
                 $.ajax({
                     url: "/api/AdminManage/GetTree",
                     //data:JSON.stringify(dd),
@@ -291,7 +292,7 @@
                                                     debugger;
                                                     for (var y = 0; y < checkedData.content.length; y++) {
                                                         for (var z = 0; z < node.nodes.length; z++) {
-                                                            if (node.nodes[z].Role_id === checkedData.content[y].Role_id) {
+                                                            if (node.nodes[z].Role_Value === checkedData.content[y].Role_Value) {
                                                                 $('#tree')
                                                                     .treeview('checkNode',
                                                                         [node.nodes[z].nodeId, { silent: true }]);
@@ -325,11 +326,11 @@
                 var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {
-                    var nodeModel = { id: nodes[i].Role_id, status: nodes[i].state.checked };
+                    var nodeModel = { id: nodes[i].Role_Value, status: nodes[i].state.checked };
                     checkModel.push(nodeModel);
                     if (nodes[i].nodes.length > 0) {
                         for (var x = 0; x < nodes[i].nodes.length; x++) {
-                            checkModel.push({ id: nodes[i].nodes[x].Role_id, status: nodes[i].nodes[x].state.checked });
+                            checkModel.push({ id: nodes[i].nodes[x].Role_Value, status: nodes[i].nodes[x].state.checked });
                         }
                     };
                 }
@@ -358,12 +359,12 @@
                 var checkModel = [];
                 for (var i = 0; i < nodes.length; i++) {
 
-                    var nodeModel = { Role_id: nodes[i].Role_id, nodeId: nodes[i].nodeId };
+                    var nodeModel = { Role_Value: nodes[i].Role_Value, nodeId: nodes[i].nodeId };
                     checkModel.push(nodeModel);
                 }
                 for (var y = 0; y < d.length; y++) {
                     for (var z = 0; z < checkModel.length; z++) {
-                        if (checkModel[z].Role_id === d[y].Role_id) {
+                        if (checkModel[z].Role_Value === d[y].Role_Value) {
                             $('#tree').treeview('checkNode', [checkModel[z].nodeId, { silent: true }]);
                         }
                     }

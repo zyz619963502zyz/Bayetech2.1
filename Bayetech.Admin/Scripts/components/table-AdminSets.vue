@@ -23,7 +23,7 @@
                 <td>{{item.User_Code}}</td>
                 <td>{{item.User_SEX=='0'?'男':'女'}}</td>
                 <td>{{item.Remark}}</td>
-                <td><input type="radio" name="Operates" @click="startcheck(item)"/></td>
+                <td><input id="test" type="radio" name="Operates" value="" @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>
