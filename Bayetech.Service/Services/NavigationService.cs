@@ -145,7 +145,7 @@ namespace Bayetech.Service
             //var ss = DBFactory.oas;
             using (oasEntities entity = new oasEntities())
             {
-                var list = entity.UP_GetUserMenu("0001", currentUser.UserName, "GLXT").ToList();
+                var list = entity.UP_GetUserMenu("0001", currentUser.User_Id, "GLXT").ToList();
                 var menuList = new List<MenuModel>();
 
                 foreach (var item in list.Where(it => it.ParentID == menuId))
