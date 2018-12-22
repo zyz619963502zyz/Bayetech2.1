@@ -291,8 +291,8 @@ namespace Bayetech.Service
                         meun.msrepl_tran_version = Guid.NewGuid();
                         db.Insert<T_Pro_MenuRole>(meun);
                     }
-                    db.Commit();
                 }
+                db.Commit();
                 result.Add(ResultInfo.Result, true);
                 return result;
             }
