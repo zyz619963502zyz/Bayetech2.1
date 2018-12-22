@@ -55,20 +55,37 @@ namespace Bayetech.Admin.Controllers
                 Tuple<string, string> parameters = WebApiHelper.GetQueryString(parames);
 
                 var result =  WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
-
                 
-                //拼接处理人的,in条件。
+                //拼接处理人的,in条件。（后续功能扩充，如果除了需要把公共账号相关表单带出来，还需要当前登录人带出来，就从session里面取UserID加到in的条件userStr里面。）
                 string userStr = string.Empty;
                 if ((bool)result["result"])
                 {
                     List<dynamic> receives = JsonConvert.DeserializeObject<List<dynamic>>(result["content"].ToString());
                     foreach (var item in receives)
                     {
-                        userStr += "," + item.RoleSerial;
+                        userStr += "," + item.ROLESERIAL;
                     }
                 }
 
-                return processService.GetList(c => userStr.Contains(c.Receiver)&&!c.IsWaster_, page);
+                JObject ret = new JObject();
+                ret = processService.GetList(c => userStr.Contains(c.Receiver) && !c.IsWaster_, page);
+                if ((bool)ret["result"])
+                {
+                    List<v_framework_notify> result_notify = JsonConvert.DeserializeObject<List<v_framework_notify>>(ret["content"].ToString());
+
+                    foreach (var item in result_notify)
+                    {
+                        vw_MallGoodMainInfo good = service.FindList(c => c.GoodNo == item.GoodNo).FirstOrDefault();
+                        item.GoodTitle = good.GoodTitle;
+                        item.GameName = good.GameName;
+                        item.GoodTypeName = good.GoodTypeName;
+                        item.GoodKeyWord = good.GoodKeyWord;
+                    }
+
+                    //插入进去。
+                    ret["content"] = JToken.FromObject(result_notify);
+                }
+                return ret;
             }
             else
             {

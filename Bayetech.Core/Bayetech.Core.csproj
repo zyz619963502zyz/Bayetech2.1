@@ -629,6 +629,7 @@
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Model\CurrentLogin.cs" />
     <Compile Include="Model\SP_UserRoles.cs" />
+    <Compile Include="Model\v_framework_notify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Core\SysVisitor.cs" />
     <Compile Include="Security\Json\Json.cs" />
