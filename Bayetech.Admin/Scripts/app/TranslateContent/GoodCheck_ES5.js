@@ -11287,7 +11287,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 StatusAllDisposal: { //获取当前环节流程线
                     p_lStatus_ID: "", //环节ID
                     p_lFlow_ID: "", //流程ID
-                    PageConditionRule: "" //页面规则
+                    PageConditionRule: ";KefuOperate;" //页面规则
                 },
                 DispUserInfo: { //获取流程线 所有人员(无数据权限)
                     p_lFlow_ID: "",
@@ -11420,7 +11420,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 //获取流程线
                 self.Param.StatusAllDisposal.p_lFlow_ID = self.flowid;
                 self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
-                self.Param.StatusAllDisposal.PageConditionRule = ""; //页面规则,每笔订单给定。
+                self.Param.StatusAllDisposal.PageConditionRule = ";KefuOperate;"; //页面规则,每笔订单给定。
                 self.Get_StatusAllDisposal();
             }
         },
@@ -11430,7 +11430,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
                 if (data) {
                     self.ResultList.NewFlowExample = data;
-                    alert("实例创建成功!");
+                    //alert("实例创建成功!");
                 }
             });
         },
@@ -11440,7 +11440,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.FlowBeginStatusInfo, self.Param.FlowBeginStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.FlowBeginStatusInfo = data;
-                    alert("获取流程开始信息成功!");
+                    //alert("获取流程开始信息成功!");
                 }
             });
         },
@@ -11453,7 +11453,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                     self.ResultList.CurFlowStatusInfo = data;
                     self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
                     self.flowid = data.Flow_ID;
-                    alert("获取当前流程信息成功!");
+                    //alert("获取当前流程信息成功!");
                 }
             }, null, sync); //同步获取当前流程信息
         },
@@ -11493,7 +11493,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
-                    alert("提交送下一步成功!");
+                    //alert("提交送下一步成功!");
                     $("#checkModal").modal("hide");
                 }
             });
@@ -11506,7 +11506,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.FlowStatusInfo, self.Param.FlowStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.FlowStatusInfo = data;
-                    alert("获取当前流程及环节信息成功!");
+                    //alert("获取当前流程及环节信息成功!");
                 }
             }, true);
         },
@@ -11516,7 +11516,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.PermList, self.Param.PermList, function (data) {
                 if (data) {
                     self.ResultList.PermList = data;
-                    alert("获取权限成功!");
+                    //alert("获取权限成功!");
                 }
             });
         }
@@ -11897,6 +11897,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 self.currentcomponent = self.components.goodprocess;
             } else if (val == "order") {
                 self.currentcomponent = self.components.orderprocess;
+                self.GoodInfoArray = [];
             }
         },
         SelectFlow(val, oldval) {

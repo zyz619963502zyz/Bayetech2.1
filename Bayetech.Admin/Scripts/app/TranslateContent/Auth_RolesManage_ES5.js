@@ -11024,10 +11024,10 @@ let vmData = {
             SelectNo: "" //form里面选择的编号
         },
         ListObj: {
-            Role_id: "",
-            Role_Value: "",
+            Role_id: 0,
+            Role_Value: 0,
             Module_ID: "",
-            Company_ID: "",
+            Company_ID: 0,
             Role_Display: "",
             Role_Name: "",
             Role_Remark: "",
@@ -11077,14 +11077,14 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //添加
             $("#UserModal").modal("show");
         },
-        OpenEditModal() {//修改
-            //debugger;
-            //var self = this;
-            //if (self.SearchParam.ListObj.KeyId == 0) {
-            //    alert("请选择角色")
-            //    return ;
-            //}
-            //$("#UserModal").modal("show");
+        OpenEditModal() {
+            //修改
+            var self = this;
+            if (self.SearchParam.ListObj.Role_id === 0) {
+                alert("请选择角色");
+                return false;
+            }
+            $("#UserModal").modal("show");
         },
         Delete() {//删除
             //var self = this;
@@ -11104,25 +11104,24 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //    //$("#CheckConfirm").Btns("reset");
             //});
         },
-        SubmitModal() {//提交
-            //var self = this;
+        SubmitModal() {
+            //提交
+            var self = this;
             //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
-            //self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
-            //    if (data.result) {
-            //        $("#UserModal").modal("hide");
-            //        alert("操作成功!");
-            //    } 
-            //    self.findList();
-            //    //$("#CheckConfirm").Btns("reset");
-            //},function(){
-            //    alert(data.content);
-            //});
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                alert(data.content);
+            });
         },
         StartCheck(type) {
             //开始检查
-            debugger;
             var self = this;
-
             var c = $.extend(true, self.SearchParam.ListObj, type);
             $("#test").attr("value", type.Role_Value);
         },
@@ -11674,7 +11673,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("简写")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("描述")]),
+        _c("th", { staticClass: "text-center col-md-4" }, [_vm._v("角色Code")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center col-md-2" }, [_vm._v("操作")])
       ])

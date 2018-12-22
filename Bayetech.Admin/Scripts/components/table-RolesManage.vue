@@ -10,7 +10,7 @@
                 <th class="text-center col-md-2">角色名称</th>
                 <th class="text-center col-md-2">模块</th>
                 <th class="text-center col-md-2">简写</th>
-                <th class="text-center col-md-4">描述</th>
+                <th class="text-center col-md-4">角色Code</th>
                 <th class="text-center col-md-2">操作</th>
             </tr>
         </thead>
