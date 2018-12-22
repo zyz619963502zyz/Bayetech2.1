@@ -49,7 +49,7 @@ namespace Bayetech.Admin.Controllers
                 //1.根据当前登录人找到所有的权限集合。(送的时候只能送虚拟账号)
                 List<dynamic> roles = entity.UP_GetUserRole(userId, "0001").ToList<dynamic>();
 
-                //2.根据权限找到虚拟账号集合。
+                //2.根据权限找到虚拟账号集合。（虚拟账号就在权限表里面，所以直接取。）
                 //List<dynamic> users = GetAllUsersByRoles(roles);
                 return Core.Common.PackageJObect(roles.Count > 0, roles, null);
             }

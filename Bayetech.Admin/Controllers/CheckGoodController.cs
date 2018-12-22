@@ -56,7 +56,7 @@ namespace Bayetech.Admin.Controllers
 
                 var result =  WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
                 
-                //拼接处理人的,in条件。
+                //拼接处理人的,in条件。（后续功能扩充，如果除了需要把公共账号相关表单带出来，还需要当前登录人带出来，就从session里面取UserID加到in的条件userStr里面。）
                 string userStr = string.Empty;
                 if ((bool)result["result"])
                 {
