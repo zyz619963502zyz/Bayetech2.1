@@ -44,7 +44,8 @@ let vmData = {
     SearchParam: {
         Param: {//查询条件的参数
             GoodNo:"",
-            OrderNo:"",
+            OrderNo: "",
+            Account:"",
             Status:pagetype,
             SelectType:"good",//form里选择的商品类型
             SelectNo: "",//form里面选择的编号

@@ -35,14 +35,14 @@
                 EngineInfo:{//引擎对象
                     Flow_Id: "",
                     Wfm_Id: "",
-                    Sender_Id: "",
-                    Sender_Code: "",
-                    Reciever_Id: "",
-                    Reciever_Code: "",
-                    Cur_Status_Id: "",
-                    New_Status_Id: "",
-                    Disposal_Id: "",
-                    Send_Time:""
+                    Sender_Id: "",//T_Pub_User表的UserId
+                    Sender_Code: "",//T_Pub_User表的UserCode;
+                    Reciever_Id: "",//T_Pub_User表的UserId
+                    Reciever_Code: "",//T_Pub_User表的UserCode
+                    Cur_Status_Id: "",//当前环节Id
+                    New_Status_Id: "",//处理线获得的下一环节Id
+                    Disposal_Id: "",//处理线Id
+                    Send_Time:""//发送时间
                 },
                 PageInfo:{//页面对象
                     txtPageConditionRule99:""
@@ -186,22 +186,10 @@
                     }
                 }
             },
-            NextRoleSelected:function(val,oldval){//角色选中
+            NextRoleSelected: function (val, oldval) {//角色选中
                 var self = this;
-                self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
-                for (var i = 0; i <self.ResultList.DispUserInfo.length; i++) {
-                    if (self.ResultList.DispUserInfo[i].User_ID == val) {
-                        self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人ID
-                        break;
-                    }
-                }
-            },
-            //wfmid: function (val) {//wfmid发生变化不为空以后执行Init，这样父组件不需要再次ref调用。
-            //    if (val) {
-            //        var self = this;
-            //        self.Init(val);
-            //    }
-            //}
+                self.SetNextRoleSelected();
+            }
         },
         methods: {
             Init(wfmid) {
@@ -217,6 +205,18 @@
                     self.Param.StatusAllDisposal.p_lStatus_ID = self.ResultList.CurFlowStatusInfo.Status_ID;
                     self.Param.StatusAllDisposal.PageConditionRule = ";KefuOperate;";//页面规则,每笔订单给定。
                     self.Get_StatusAllDisposal();
+                }
+            },
+            SetNextRoleSelected() {//下一处理人选中。
+                var self = this;
+                self.EngineInfo.Reciever_Id = self.NextRoleSelected; //通用流程信息赋值
+                for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
+                    if (self.ResultList.DispUserInfo[i].User_ID == val) {
+                        self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人Code
+                        self.EngineInfo.Sender_Id = localStorage.getItem("User_ID");
+                        self.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
+                        break;
+                    }
                 }
             },
             Create_NewFlowExample() {//创建流程实例
@@ -255,7 +255,7 @@
                     if (data) {
                         self.ResultList.StatusAllDisposal = data;//data[0]
                         self.EngineInfo.New_Status_Id = data.Pre_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
-                        alert("获取当前环节流程线成功!");
+                        //alert("获取当前环节流程线成功!");
                     }
                 })
             },
@@ -266,6 +266,7 @@
                 comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
                     if (data) {
                         self.ResultList.DispUserInfo = data;
+                        self.SetNextRoleSelected();//设置pageInfo信息
                         alert("获取下一处理人成功!");
                     }
                 })

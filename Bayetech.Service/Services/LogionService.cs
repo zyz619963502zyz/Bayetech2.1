@@ -39,7 +39,9 @@ namespace Bayetech.Service
                         CurrentLogin _currentLogin = new CurrentLogin();
                         _currentLogin.LoginIp = Common.GetHostAddress();
                         _currentLogin.LoginIpInt = Common.IpToInt(_currentLogin.LoginIp);
-                        _currentLogin.UserName = user.User_ID;
+                        _currentLogin.UserName = user.User_Name;
+                        _currentLogin.User_Id = user.User_ID;
+                        _currentLogin.User_Code = user.User_Code;
                         _currentLogin.PassWord = user.User_PWD;
                         _currentLogin.LoginTime = DateTime.Now;
                         _currentLogin.Message = "登录成功";
