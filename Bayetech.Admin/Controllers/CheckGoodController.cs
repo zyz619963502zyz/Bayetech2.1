@@ -63,7 +63,7 @@ namespace Bayetech.Admin.Controllers
                     List<dynamic> receives = JsonConvert.DeserializeObject<List<dynamic>>(result["content"].ToString());
                     foreach (var item in receives)
                     {
-                        userStr += "," + item.RoleSerial;
+                        userStr += "," + item.ROLESERIAL;
                     }
                 }
 
