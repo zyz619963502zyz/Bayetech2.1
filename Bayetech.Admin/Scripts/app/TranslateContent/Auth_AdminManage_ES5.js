@@ -10910,7 +10910,7 @@ let vmData = {
         ListObj: {
             User_ID: "",
             User_Name: "",
-            IsAvailab: "",
+            IsAvailab: 1,
             User_Code: "",
             User_SEX: "",
             Remark: ""
@@ -10948,7 +10948,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         },
         IsDisabl(type) {
             var self = this;
-            self.SearchParam.ListObj.IsDisabled = type;
+            self.SearchParam.ListObj.IsAvailab = type;
         },
         OpenModal() {
             //打开模态框
@@ -10957,7 +10957,6 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         UserAddandEdit() {
             //提交
             var self = this;
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
@@ -10971,11 +10970,10 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         UserDelete() {
             //方法体还没写
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.User_ID === "") {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.AdminUserDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     //删除操作
@@ -10987,22 +10985,21 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         OpenEditModal() {
             //修改
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.User_ID === "") {
                 alert("请选择按钮");
-                return;
+                return false;
             }
             $("#UserModal").modal("show");
         },
         ResetPassWord() {
             //重置密码
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.User_ID === "") {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            var ret = confirm("你确定要重置用户：" + self.SearchParam.ListObj.UserName + " 的初始密码吗? ");
+            var ret = confirm("你确定要重置用户：" + self.SearchParam.ListObj.User_ID + " 的初始密码吗? ");
             if (!ret) return;
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.AdminUserAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
@@ -11052,6 +11049,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             var c = $.extend(true, self.SearchParam.ListObj, type);
             $("#test").attr("value", type.User_ID);
+            $("#add_userid").attr("disabled", "true");
         },
         TurnToPage(page) {
             var self = this;
@@ -11480,7 +11478,7 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.User_Name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.IsAvailab == "0" ? "是" : "不是"))]),
+            _c("td", [_vm._v(_vm._s(item.IsAvailab == "0" ? "不是" : "是"))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.User_Code))]),
             _vm._v(" "),
