@@ -10922,6 +10922,7 @@ let vmData = {
     },
     RolesUrl: "/api/AdminManage/GetNavgationList",
     RolesAdd: "/api/Navigation/GetAddNavigation",
+    RolesEdit: "/api/Navigation/GetEditNavigation",
     RolesDelete: "/api/Navigation/deleteNavigation",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
@@ -10933,16 +10934,16 @@ let vmData = {
             SelectNo: "" //form里面选择的编号
         },
         ListObj: {
-            MenuID: "",
+            MenuID: 0,
             MenuName: "",
             PicID: "",
-            ParentID: "",
+            ParentID: 0,
             url: "",
-            sortid: "",
+            sortid: 0,
             Remark: "",
             SysFlag: "",
             ModuleId: "",
-            isdelete: "",
+            isdelete: 0,
             createtime: ""
         },
 
@@ -10981,11 +10982,28 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         SaveModal() {
             //提交
             var self = this;
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
                     alert("操作成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        EditModalSave() {
+            //修改提交
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.RolesEdit, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#EditModal").modal("hide");
+                    alert("操作成功!");
+                } else {
+                    alert(data.content);
                 }
                 self.findList();
                 //$("#CheckConfirm").Btns("reset");
@@ -11010,20 +11028,19 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         OpenEditModal() {
             //修改
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.MenuID == 0) {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            $("#UserModal").modal("show");
+            $("#EditModal").modal("show");
         },
         Delete() {
             //删除
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.MenuID == 0) {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
@@ -11038,8 +11055,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         StartCheck(type) {
             //开始检查
             var self = this;
-            debugger;
-            self.SearchParam.ListObj = type;
+            var c = $.extend(true, self.SearchParam.ListObj, type);
             //$("#checkModal").modal("show");
         },
         TurnToPage(page) {
