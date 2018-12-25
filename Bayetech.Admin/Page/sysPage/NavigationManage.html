@@ -27,9 +27,9 @@
                         </div>
                         <div class="toolbar input-group col-md-6">
                             <div class="btn-group">
-                                <button type="button" id="AddBtn" class="btn btn-primary"  @click="OpenAddModal"><i class="fa fa-plus"></i>添加</button>
-                                <button type="button"  class="btn btn-primary"  @click="OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
-                                <button type="button"  class="btn btn-primary"  @click="Delete"><i class="fa fa-trash-o"></i>删除</button>
+                                <button type="button" id="AddBtn" class="btn btn-primary" @click="OpenAddModal"><i class="fa fa-plus"></i>添加</button>
+                                <button type="button" class="btn btn-primary" @click="OpenEditModal"><i class="fa fa-pencil-square-o"></i>修改</button>
+                                <button type="button" class="btn btn-primary" @click="Delete"><i class="fa fa-trash-o"></i>删除</button>
                             </div>
                         </div>
                     </div>
@@ -78,48 +78,85 @@
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">菜单名称*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.NavTitle" required>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="col-sm-3 control-label">菜单标识*</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.NavTag" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.MenuName" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">链接地址*</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.Linkurl" required>
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.url" required>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label class="col-sm-3 control-label">排序</label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" v-model="SearchParam.ListObj.Sortnum" required max="1000">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="col-sm-3 control-label">图标CSS</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.iconCls" required>
+                                    <input type="number" class="form-control" v-model="SearchParam.ListObj.sortid" required max="1000">
                                 </div>
                             </div>
                             <!--<div class="control-group">
-                                <label class="col-sm-3 control-label">是否显示</label>
-                                <div class="col-sm-8">
-                                    <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
-                                    <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
-                                </div>
-                            </div>-->
+                            <label class="col-sm-3 control-label">是否显示</label>
+                            <div class="col-sm-8">
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
+                            </div>
+                        </div>-->
                             <br />
                             <div class="row form-group">
                                 <div class="col-xs-2"></div>
                                 <div class="col-xs-4">
-                                    <button type="button" class="btn btn-default form-control" data-bind="click:Close">关闭</button>
+                                    <input class="btn btn-default form-control" type="button" value="关闭" data-dismiss="modal">
                                 </div>
                                 <div class="col-xs-4">
-                                    <button type="button"  class="btn btn-success form-control" @click="SaveModal">保存</button>
+                                    <button type="button" class="btn btn-success form-control" @click="SaveModal">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="EditModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
+            <div class="modal-dialog" style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1" style="text-align: center"><b>角色设置</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">菜单名称*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.MenuName" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">链接地址*</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" v-model="SearchParam.ListObj.url" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="col-sm-3 control-label">排序</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" v-model="SearchParam.ListObj.sortid" required max="1000">
+                                </div>
+                            </div>
+                            <!--<div class="control-group">
+                            <label class="col-sm-3 control-label">是否显示</label>
+                            <div class="col-sm-8">
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:true" /><label>是</label>
+                                <input type="radio" name="IsVisible" data-bind="checked: model.IsVisible,value:false" /><label>否</label>
+                            </div>
+                        </div>-->
+                            <br />
+                            <div class="row form-group">
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                    <input class="btn btn-default form-control" type="button" value="关闭" data-dismiss="modal">
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="btn btn-success form-control" @click="EditModalSave">保存</button>
                                 </div>
                             </div>
                         </form>
@@ -130,49 +167,49 @@
         <!--Modal界面-->
         <!--Modal界面-->
         <!--<div id="ButtonsModal" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true" data-toggle="validator">
-            <div class="modal-dialog" style="width: 50%">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="H1" style="text-align: center"><b>分配按钮</b></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal">
-                            <div class="control-group">
-                                <div class="row">
-                                    <div class="col-md-6" style="width:49%">
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading">所有按钮</div>
-                                            <table class="table table-hover" id="buttonsTable" style="cursor:pointer;"></table>
-                                        </div>
+        <div class="modal-dialog" style="width: 50%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="text-align: center"><b>分配按钮</b></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <div class="row">
+                                <div class="col-md-6" style="width:49%">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">所有按钮</div>
+                                        <table class="table table-hover" id="buttonsTable" style="cursor:pointer;"></table>
                                     </div>
-                                    <div class="col-md-1 nav">
-                                        <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
-                                    </div>
-                                    <div class="col-md-6" style="width:49%">
-                                        <div class="panel panel-info">
-                                            <div class="panel-heading">已有按钮</div>
-                                            <ul class="list-group" data-bind="foreach:ButtonArray">
-                                                <li class="list-group-item" data-bind="text:ButtonText,click:$root.ButtonsRemove" style="cursor:pointer;"></li>
-                                            </ul>
-                                        </div>
+                                </div>
+                                <div class="col-md-1 nav">
+                                    <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
+                                </div>
+                                <div class="col-md-6" style="width:49%">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">已有按钮</div>
+                                        <ul class="list-group" data-bind="foreach:ButtonArray">
+                                            <li class="list-group-item" data-bind="text:ButtonText,click:$root.ButtonsRemove" style="cursor:pointer;"></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row form-group">
-                                <div class="col-xs-2"></div>
-                                <div class="col-xs-4">
-                                    <button class="btn btn-default form-control" data-bind="click:ButtonsClose">关闭</button>
-                                </div>
-                                <div class="col-xs-4">
-                                    <button class="btn btn-success form-control" type="submit" data-bind="click:ButtonsUpdate,enable:btnStatus">保存</button>
-                                </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-default form-control" data-bind="click:ButtonsClose">关闭</button>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-xs-4">
+                                <button class="btn btn-success form-control" type="submit" data-bind="click:ButtonsUpdate,enable:btnStatus">保存</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>-->
+        </div>
+    </div>-->
         <!--Modal界面-->
     </div>
 </body>

@@ -65,54 +65,54 @@ namespace Bayetech.Service
         /// <returns></returns>
         public JObject AddUser(JObject json, int UserId)
         {
-            Admin_Sys_Users _admin_Sys_User = json["ListObj"].ToString() == "" ? new Admin_Sys_Users() : JsonConvert.DeserializeObject<Admin_Sys_Users>(json["ListObj"].ToString());
-            _admin_Sys_User.Password = "111111";
-            _admin_Sys_User.Password = Md5.EncryptString(_admin_Sys_User.Password);
+            Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("User_ID") : JsonConvert.DeserializeObject<Pagination>(json["ListObj"].ToString());
+            T_Pub_User _admin_Sys_User = json["ListObj"].ToString() == "" ? new T_Pub_User() : JsonConvert.DeserializeObject<T_Pub_User>(json["ListObj"].ToString());
+            
             JObject result = new JObject();
-            if (string.IsNullOrEmpty(_admin_Sys_User.UserName))
+            if (string.IsNullOrEmpty(_admin_Sys_User.User_Name))
             {
                 result.Add(ResultInfo.Result, JProperty.FromObject(false));
                 result.Add(ResultInfo.Content, JProperty.FromObject("用户名或真实姓名不能为空"));
             }
-            //=0 添加
-            if (_admin_Sys_User.KeyId <= 0)
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
-                Admin_Sys_Users user = repository.FindEntity<Admin_Sys_Users>(a => a.UserName == _admin_Sys_User.UserName);
-                if (user != null)
+                T_Pub_User user = db.FindEntity<T_Pub_User>(a => a.User_ID == _admin_Sys_User.User_ID);
+                var getCode= db.IQueryable<T_Pub_User>().Select(a=>a.User_Code).Max();
+                
+                //if (user!=null)
+                //{
+                //    result.Add(ResultInfo.Result, JProperty.FromObject(false));
+                //    result.Add(ResultInfo.Content, JProperty.FromObject("用户已存在"));
+                //}
+                try
                 {
-                    result.Add(ResultInfo.Result, JProperty.FromObject(false));
-                    result.Add(ResultInfo.Content, JProperty.FromObject("用户名已存在，请更换用户名！"));
-                }
-                else
-                {
-                    using (var db = new RepositoryBase().BeginTrans())
+                    if (user == null)
                     {
-                        db.Insert(_admin_Sys_User);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                //修改
-                using (var db = new RepositoryBase().BeginTrans())
-                {
-                    db.Update(_admin_Sys_User);
-                    if (db.Commit() == 1)
-                    {
-                        result.Add(ResultInfo.Result, true);
+                        user = new T_Pub_User();
+                        user.User_Guid = Guid.NewGuid().ToString();
+                        user.User_SEX = 1;
+                        user.User_ID = _admin_Sys_User.User_ID;
+                        user.User_Name = _admin_Sys_User.User_Name;
+                        user.Remark = _admin_Sys_User.Remark;
+                        user.IsAvailab = _admin_Sys_User.IsAvailab;
+                        user.User_Code = CommonHelper.ConvertToLength((Convert.ToInt32(getCode) + 1).ToString(),7,'0');
+                        db.Insert(user);
+
                     }
                     else
                     {
-                        result.Add(ResultInfo.Result, false);
+                        user.Remark= _admin_Sys_User.Remark; 
+                        user.User_Name= _admin_Sys_User.User_Name;
+                        user.IsAvailab = _admin_Sys_User.IsAvailab;
+                        db.Update(user);
                     }
+                    db.Commit();
+                    result.Add(ResultInfo.Result, true);
+
+                }
+                catch (Exception ex)
+                {
+                    result.Add(ResultInfo.Result, false);
                 }
             }
             return result;
@@ -121,8 +121,8 @@ namespace Bayetech.Service
         public JObject DeleteUser(JObject json)
         {
             JObject result = new JObject();
-            Admin_Sys_Users admin_Sys_Users = json["ListObj"].ToString() == "" ? new Admin_Sys_Users() : JsonConvert.DeserializeObject<Admin_Sys_Users>(json["ListObj"].ToString());
-            using (var db = new RepositoryBase().BeginTrans())
+            T_Pub_User admin_Sys_Users = json["ListObj"].ToString() == "" ? new T_Pub_User() : JsonConvert.DeserializeObject<T_Pub_User>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
                 db.Delete(admin_Sys_Users);
                 if (db.Commit() == 1)
@@ -239,9 +239,9 @@ namespace Bayetech.Service
             {
                 json = json ?? new JObject();
                 Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("USER_ID") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-                Expression<Func<T_Pub_User, bool>> expression = PredicateExtensions.True<T_Pub_User>();
-                PaginationResult<List<T_Pub_User>> ResultPage = new PaginationResult<List<T_Pub_User>>();
-                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("USER_ID"), out page, expression);
+                Expression<Func<v_pub_UserRoleJiHeCanel, bool>> expression = PredicateExtensions.True<v_pub_UserRoleJiHeCanel>();
+                PaginationResult<List<v_pub_UserRoleJiHeCanel>> ResultPage = new PaginationResult<List<v_pub_UserRoleJiHeCanel>>();
+                var userList = db.FindList(page ?? Pagination.GetDefaultPagination("User_ID"), out page, expression);
                 //var id = json["ListObj"]["USER_ID"].ToString() == "" ? 0 : (int)json["ListObj"]["USER_ID"];
                 //var roles = repository.IQueryable<T_Pub_User>(a=>a.User_ID==id);//角色列表
 
@@ -249,7 +249,7 @@ namespace Bayetech.Service
                 if (!string.IsNullOrEmpty(json["Param"]["Type"].ToString()))
                 {
                     userList = userList.FindAll(a => a.User_ID.Contains(json["Param"]["Type"].ToString()) || a.User_Name.Contains(json["Param"]["Type"].ToString()));
-                }
+                }        
                 ResultPage.datas = userList.ToList();
                 if (page != null)
                 {
@@ -386,6 +386,31 @@ namespace Bayetech.Service
             return result;
         }
         #endregion
+    }
+    public class CommonHelper
+    {
+        public static string ConvertToLength(string oldID, int length, char replaceStr)
+        {
+
+            if (string.IsNullOrEmpty(oldID))
+            {
+                return GetReplaceStr(length, replaceStr);
+            }
+
+            return GetReplaceStr((length - oldID.Length), replaceStr) + oldID;
+        }
+
+        protected static string GetReplaceStr(int length, char replaceStr)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                sb.Append(replaceStr);
+            }
+
+            return sb.ToString();
+        }
     }
 
 

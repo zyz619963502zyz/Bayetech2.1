@@ -21,10 +21,11 @@ namespace Bayetech.Service
 
             T_Pub_Role tRole = json["ListObj"].ToString() == "" ? new T_Pub_Role() : JsonConvert.DeserializeObject<T_Pub_Role>(json["ListObj"].ToString());
             JObject result = new JObject();
-            if (string.IsNullOrEmpty(tRole.Role_Name))
+            if (string.IsNullOrEmpty(tRole.Role_Name) || string.IsNullOrEmpty(tRole.Module_ID) || string.IsNullOrEmpty(tRole.RoleSerial))
             {
                 result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空"));
+                result.Add(ResultInfo.Content, JToken.FromObject("必填项不能为空"));
+                return result;
             }
             using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
@@ -72,8 +73,8 @@ namespace Bayetech.Service
         public JObject DeleteRoles(JObject json)
         {
             JObject result = new JObject();
-            Admin_Sys_Roles _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new Admin_Sys_Roles() : JsonConvert.DeserializeObject<Admin_Sys_Roles>(json["ListObj"].ToString());
-            using (var db = new RepositoryBase().BeginTrans())
+            T_Pub_Role _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new T_Pub_Role() : JsonConvert.DeserializeObject<T_Pub_Role>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
                 db.Delete(_admin_Sys_Roles);
                 if (db.Commit() == 1)

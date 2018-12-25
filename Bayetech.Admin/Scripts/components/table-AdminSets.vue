@@ -19,7 +19,7 @@
             <tr class="text-center">
                 <td>{{item.User_ID}}</td>
                 <td>{{item.User_Name}}</td>
-                <td>{{item.IsAvailab=='0'?'是':'不是'}}</td>
+                <td>{{item.IsAvailab=='0'?'不是':'是'}}</td>
                 <td>{{item.User_Code}}</td>
                 <td>{{item.User_SEX=='0'?'男':'女'}}</td>
                 <td>{{item.Remark}}</td>

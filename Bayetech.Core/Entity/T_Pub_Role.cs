@@ -22,7 +22,8 @@ namespace Bayetech.Core.Entity
         public string Role_Name { get; set; }
         public string Role_Remark { get; set; }
         public string Role_Column { get; set; }
-        public System.DateTime? CreateTime { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
         public string RoleSerial { get; set; }
+        public string Role_Account { get; set; }
     }
 }
