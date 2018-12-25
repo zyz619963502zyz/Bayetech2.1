@@ -51,10 +51,10 @@ namespace Bayetech.Admin.Controllers
                 //获取处理人集合
                 string GetReceiverApi = AppSettingsConfig.GetBaseApi + "/api/Flow/GetReceivers";
                 Dictionary<string, string> parames = new Dictionary<string, string>();
-                parames.Add("userId", loginContent.UserName);
+                parames.Add("userId", loginContent.User_Id);
                 Tuple<string, string> parameters = WebApiHelper.GetQueryString(parames);
 
-                var result =  WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.UserName);
+                var result =  WebApiHelper.Get<dynamic>(GetReceiverApi, parameters.Item1, parameters.Item2, loginContent.User_Id);
                 
                 //拼接处理人的,in条件。（后续功能扩充，如果除了需要把公共账号相关表单带出来，还需要当前登录人带出来，就从session里面取UserID加到in的条件userStr里面。）
                 string userStr = string.Empty;

@@ -171,7 +171,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -215,7 +215,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11251,7 +11251,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 Send_Time: "" //发送时间
             },
             PageInfo: { //页面对象
-                txtPageConditionRule99: ""
+                txtPageConditionRule99: ";KefuOperate;"
             },
             Url: { //接口连接字符串
                 NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
@@ -11417,9 +11417,9 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             var self = this;
             self.EngineInfo.Reciever_Id = self.NextRoleSelected; //通用流程信息赋值
             for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
-                if (self.ResultList.DispUserInfo[i].User_ID == val) {
+                if (self.ResultList.DispUserInfo[i].User_ID == self.EngineInfo.Reciever_Id) {
                     self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code; //发送人Code
-                    self.EngineInfo.Sender_Id = localStorage.getItem("User_ID");
+                    self.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
                     self.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
                     break;
                 }
@@ -11677,7 +11677,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11729,7 +11729,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -11779,7 +11779,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
