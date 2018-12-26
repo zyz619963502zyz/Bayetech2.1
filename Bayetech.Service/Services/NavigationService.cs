@@ -73,9 +73,9 @@ namespace Bayetech.Service
 
         public JObject DeleteNavigation(JObject json)
         {
-            Admin_Sys_Navigations _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new Admin_Sys_Navigations() : JsonConvert.DeserializeObject<Admin_Sys_Navigations>(json["ListObj"].ToString());
+            T_Pro_Menu _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new T_Pro_Menu() : JsonConvert.DeserializeObject<T_Pro_Menu>(json["ListObj"].ToString());
             JObject result = new JObject();
-            using (var db = new RepositoryBase().BeginTrans())
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
                 db.Delete(_admin_Sys_Navigations);
                 if (db.Commit() == 1)
