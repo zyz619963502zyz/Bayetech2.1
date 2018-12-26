@@ -96,6 +96,9 @@ namespace Bayetech.Service
                         user.Remark = _admin_Sys_User.Remark;
                         user.IsAvailab = _admin_Sys_User.IsAvailab;
                         user.User_Code = CommonHelper.ConvertToLength((Convert.ToInt32(getCode) + 1).ToString(),7,'0');
+                        user.Company_ID = 1;
+                        user.User_Type = "user";
+                        user.Org_ID = 2;
                         user.User_PWD= Md5.EncryptString("111111");
                         db.Insert(user);
 
