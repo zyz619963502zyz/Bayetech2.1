@@ -96,6 +96,7 @@ namespace Bayetech.Service
                         user.Remark = _admin_Sys_User.Remark;
                         user.IsAvailab = _admin_Sys_User.IsAvailab;
                         user.User_Code = CommonHelper.ConvertToLength((Convert.ToInt32(getCode) + 1).ToString(),7,'0');
+                        user.User_PWD= Md5.EncryptString("111111");
                         db.Insert(user);
 
                     }
@@ -356,16 +357,16 @@ namespace Bayetech.Service
                     
                     if (menuRole == null)
                     {
-                        //T_Pub_UserRole userRole = new T_Pub_UserRole();
-                        menuRole.Role_value = sum;
-                        menuRole.User_id = id;
-                        menuRole.Module_ID = "0001";
-                        menuRole.CreateTime = DateTime.Now;
-                        menuRole.RoleColumn1 = 0;
-                        menuRole.RoleColumn2 = 0;
-                        menuRole.RoleColumn3 = 0;
-                        menuRole.msrepl_tran_version = Guid.NewGuid();
-                        db.Insert<T_Pub_UserRole>(menuRole);
+                        T_Pub_UserRole userRole = new T_Pub_UserRole();
+                        userRole.Role_value = sum;
+                        userRole.User_id = id;
+                        userRole.Module_ID = "0001";
+                        userRole.CreateTime = DateTime.Now;
+                        userRole.RoleColumn1 = 0;
+                        userRole.RoleColumn2 = 0;
+                        userRole.RoleColumn3 = 0;
+                        userRole.msrepl_tran_version = Guid.NewGuid();
+                        db.Insert<T_Pub_UserRole>(userRole);
                     }
                     else
                     {
