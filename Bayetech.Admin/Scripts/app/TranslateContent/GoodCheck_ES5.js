@@ -171,7 +171,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -215,7 +215,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11491,11 +11491,14 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             } else {
                 self.Param.OnNextStep.EngineInfo = self.EngineInfo; //收集到的页面信息
                 self.Param.OnNextStep.PageInfo = self.PageInfo; //txtPageConditionRule99.
+                //发送人信息
+                self.Param.OnNextStep.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                self.Param.OnNextStep.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
             }
-            comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+            comCompnent.default.postWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
-                    //alert("提交送下一步成功!");
+                    alert("提交送下一步成功!");
                     $("#checkModal").modal("hide");
                 }
             });
@@ -11934,8 +11937,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             //获取商品的简要列表
             $("#QueryList").Btns("loading");
             var self = this;
-            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
-            //后台传值：
+            //改直接绑定
+            //self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
+            //(self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {

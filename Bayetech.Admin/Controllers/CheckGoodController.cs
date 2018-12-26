@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Http;
 
@@ -68,7 +69,22 @@ namespace Bayetech.Admin.Controllers
                 }
 
                 JObject ret = new JObject();
-                ret = processService.GetList(c => userStr.Contains(c.Receiver) && !c.IsWaster_, page);
+                
+                Expression<Func<v_framework_notify,bool>> expression = PredicateExtensions.True<v_framework_notify>();
+                if (OrderInfo != null)
+                {
+                    if (!string.IsNullOrEmpty(OrderInfo.OrderNo))
+                    {
+                        expression = expression.And(c => c.OrderNo.Contains(OrderInfo.OrderNo));
+                    }
+                    if (!string.IsNullOrEmpty(OrderInfo.CURSTATUS_NAME))
+                    {
+                        expression = expression.And(c => c.OrderNo.Contains(OrderInfo.CURSTATUS_NAME));
+                    }
+                    expression = expression.And(c => userStr.Contains(c.Receiver) && !c.IsWaster_);
+                }
+                //查询列表数据
+                ret = processService.GetList(expression, page);
                 if ((bool)ret["result"])
                 {
                     List<v_framework_notify> result_notify = JsonConvert.DeserializeObject<List<v_framework_notify>>(ret["content"].ToString());

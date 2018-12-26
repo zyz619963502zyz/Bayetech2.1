@@ -110,10 +110,10 @@ new Vue({
         },
         findList() {//获取商品的简要列表
             $("#QueryList").Btns("loading");
-            var self=this;
-            self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
-            (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
-            //后台传值：
+            var self = this;
+            //改直接绑定
+            //self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
+            //(self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {

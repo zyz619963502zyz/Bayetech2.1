@@ -102,16 +102,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='order'}">
                             <label class="control-label col-md-3">商品编号</label>
                             <div class="col-md-9">
-                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                                <input type="text" v-model="SearchParam.Param.GoodNo" class="form-control" />
                             </div>
                         </div>
-                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='order'}">
+                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
                             <label class="control-label col-md-3">订单编号</label>
                             <div class="col-md-9">
-                                <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
+                                <input type="text" v-model="SearchParam.Param.OrderNo" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-2"></div>

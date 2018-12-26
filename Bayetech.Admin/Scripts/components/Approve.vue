@@ -279,11 +279,14 @@
                 }else {
                     self.Param.OnNextStep.EngineInfo = self.EngineInfo;//收集到的页面信息
                     self.Param.OnNextStep.PageInfo = self.PageInfo;//txtPageConditionRule99.
+                    //发送人信息
+                    self.Param.OnNextStep.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                    self.Param.OnNextStep.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
                 }
-                comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+                comCompnent.default.postWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                     if (data) {
                         self.ResultList.OnNextStep = data;
-                        //alert("提交送下一步成功!");
+                        alert("提交送下一步成功!");   
                         $("#checkModal").modal("hide");
                     }
                 });
