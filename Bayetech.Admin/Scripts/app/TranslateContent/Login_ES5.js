@@ -173,7 +173,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +217,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -13037,8 +13037,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             var self = this;
             comCompnent.default.postWebJson(self.url, self.Param, function (data) {
                 if (data.result) {
-                    localStorage.setItem("User_ID", data.User_ID);
-                    localStorage.setItem("User_Code", data.User_Code);
+                    localStorage.setItem("User_Id", data.User.User_Id);
+                    localStorage.setItem("User_Code", data.User.User_Code);
                     window.location.href = "/Page/BayMain.html";
                 } else {
                     alert(data.Content);

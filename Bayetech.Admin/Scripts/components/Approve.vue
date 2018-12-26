@@ -211,9 +211,9 @@
                 var self = this;
                 self.EngineInfo.Reciever_Id = self.NextRoleSelected; //通用流程信息赋值
                 for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
-                    if (self.ResultList.DispUserInfo[i].User_ID == val) {
+                    if (self.ResultList.DispUserInfo[i].User_ID == self.EngineInfo.Reciever_Id) {
                         self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人Code
-                        self.EngineInfo.Sender_Id = localStorage.getItem("User_ID");
+                        self.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
                         self.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
                         break;
                     }

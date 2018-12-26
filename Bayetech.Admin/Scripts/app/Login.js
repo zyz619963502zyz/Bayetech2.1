@@ -20,8 +20,8 @@ new Vue({
             var self = this;
             comCompnent.default.postWebJson(self.url,self.Param,function(data){
                 if (data.result) {
-                    localStorage.setItem("User_ID", data.User_ID);
-                    localStorage.setItem("User_Code", data.User_Code);
+                    localStorage.setItem("User_Id", data.User.User_Id);
+                    localStorage.setItem("User_Code", data.User.User_Code);
                     window.location.href = "/Page/BayMain.html";
                 }else {
                     alert(data.Content);
