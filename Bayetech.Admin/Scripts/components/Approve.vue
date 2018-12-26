@@ -45,7 +45,7 @@
                     Send_Time:""//发送时间
                 },
                 PageInfo:{//页面对象
-                    txtPageConditionRule99:""
+                    txtPageConditionRule99:";KefuOperate;"
                 },
                 Url: {//接口连接字符串
                     NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",

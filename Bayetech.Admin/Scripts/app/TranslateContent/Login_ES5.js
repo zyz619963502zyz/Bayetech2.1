@@ -173,7 +173,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
+            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +217,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
+            headers: localStorage.getItem("User_ID") == "" ? null : localStorage.getItem("User_ID"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -13035,6 +13035,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     methods: {
         LoginIn() {
             var self = this;
+            localStorage.setItem("User_Id", self.Param.User_ID);
+            localStorage.setItem("User_Code", "");
             comCompnent.default.postWebJson(self.url, self.Param, function (data) {
                 if (data.result) {
                     localStorage.setItem("User_Id", data.User.User_Id);
@@ -13043,6 +13045,9 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
                 } else {
                     alert(data.Content);
                 }
+            }, function (error) {
+                //错误信息。
+                alert(error);
             });
         }
     }
