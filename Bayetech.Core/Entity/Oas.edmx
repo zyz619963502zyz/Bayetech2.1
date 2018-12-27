@@ -4709,7 +4709,6 @@
           <EntitySet Name="V_Flow_StatusUserBack" EntityType="oasModel.V_Flow_StatusUserBack" />
           <EntitySet Name="v_flow_user" EntityType="oasModel.v_flow_user" />
           <EntitySet Name="v_framework_main" EntityType="oasModel.v_framework_main" />
-          <EntitySet Name="v_framework_notify" EntityType="oasModel.v_framework_notify" />
           <EntitySet Name="v_framework_zaiban" EntityType="oasModel.v_framework_zaiban" />
           <EntitySet Name="v_pub_member_org" EntityType="oasModel.v_pub_member_org" />
           <EntitySet Name="V_PUB_MEMBER_USER" EntityType="oasModel.V_PUB_MEMBER_USER" />
@@ -4858,6 +4857,7 @@
             <Parameter Name="TotalPage" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="v_pub_UserRoleJiHeCanel" EntityType="oasModel.v_pub_UserRoleJiHeCanel" />
+          <EntitySet Name="v_framework_notify" EntityType="oasModel.v_framework_notify" />
         </EntityContainer>
         <ComplexType Name="UP_GetUserAllRole_Result">
           <Property Type="Int64" Name="ROLE_VALUE" Nullable="false" />
@@ -6920,109 +6920,6 @@
           <Property Name="LDClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LDDealCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="v_framework_notify">
-          <Key>
-            <PropertyRef Name="WFM_ID" />
-            <PropertyRef Name="Flow_ID" />
-            <PropertyRef Name="FlowType" />
-            <PropertyRef Name="Flow_Name" />
-            <PropertyRef Name="CreateTime" />
-            <PropertyRef Name="Creator" />
-            <PropertyRef Name="IsFinish" />
-            <PropertyRef Name="UpdateTime" />
-            <PropertyRef Name="IsSigned" />
-            <PropertyRef Name="IsWaster_" />
-            <PropertyRef Name="TransFlag" />
-            <PropertyRef Name="BizEstate" />
-            <PropertyRef Name="DealFolder" />
-            <PropertyRef Name="BalanceTime" />
-            <PropertyRef Name="BalanceUseTime" />
-            <PropertyRef Name="BalanceValid" />
-            <PropertyRef Name="WNT_ID" />
-            <PropertyRef Name="Executor" />
-            <PropertyRef Name="ExecutorName" />
-            <PropertyRef Name="Receiver" />
-            <PropertyRef Name="ReceiverName" />
-            <PropertyRef Name="Sender" />
-            <PropertyRef Name="SenderName" />
-            <PropertyRef Name="ReceiveTime" />
-            <PropertyRef Name="IsShow" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="DateTime" />
-            <PropertyRef Name="Disp_ID" />
-            <PropertyRef Name="DelayLimit" />
-            <PropertyRef Name="OrderNo" />
-            <PropertyRef Name="OrderId" />
-          </Key>
-          <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Flow_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
-          <Property Name="FlowType" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
-          <Property Name="Flow_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FinishTime" Type="DateTime" Precision="3" />
-          <Property Name="IsFinish" Type="Int32" Nullable="false" />
-          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SubFinished" Type="Int32" />
-          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
-          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
-          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IS_Pigeonhole" Type="Boolean" />
-          <Property Name="TransFlag" Type="Int32" Nullable="false" />
-          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BizEstate" Type="Int64" Nullable="false" />
-          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DealFolder" Type="Int32" Nullable="false" />
-          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
-          <Property Name="WNT_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Executor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ExecutorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsShow" Type="Int32" Nullable="false" />
-          <Property Name="IsTempSave" Type="Int32" />
-          <Property Name="IsNew" Type="Boolean" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
-          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
-          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OrderId" Type="Int64" Nullable="false" />
-          <Property Name="OrderLineNum" Type="Int32" />
-          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="OrderNumber" Type="Int32" />
-          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
-          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InternalTypeId" Type="Int32" />
-          <Property Name="BuyerQQ" Type="Int64" />
-          <Property Name="BuyerPhone" Type="Int64" />
-          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ServiceQQ" Type="Int64" />
-          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
-          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="v_framework_zaiban">
           <Key>
             <PropertyRef Name="WFM_ID" />
@@ -8125,6 +8022,109 @@
           <Property Name="duty_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="addition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="mailFlag" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="v_framework_notify">
+          <Key>
+            <PropertyRef Name="WFM_ID" />
+            <PropertyRef Name="Flow_ID" />
+            <PropertyRef Name="FlowType" />
+            <PropertyRef Name="Flow_Name" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="Creator" />
+            <PropertyRef Name="IsFinish" />
+            <PropertyRef Name="UpdateTime" />
+            <PropertyRef Name="IsSigned" />
+            <PropertyRef Name="IsWaster_" />
+            <PropertyRef Name="TransFlag" />
+            <PropertyRef Name="BizEstate" />
+            <PropertyRef Name="DealFolder" />
+            <PropertyRef Name="BalanceTime" />
+            <PropertyRef Name="BalanceUseTime" />
+            <PropertyRef Name="BalanceValid" />
+            <PropertyRef Name="WNT_ID" />
+            <PropertyRef Name="Executor" />
+            <PropertyRef Name="ExecutorName" />
+            <PropertyRef Name="Receiver" />
+            <PropertyRef Name="ReceiverName" />
+            <PropertyRef Name="Sender" />
+            <PropertyRef Name="SenderName" />
+            <PropertyRef Name="ReceiveTime" />
+            <PropertyRef Name="IsShow" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateTime" />
+            <PropertyRef Name="Disp_ID" />
+            <PropertyRef Name="DelayLimit" />
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="WFM_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Flow_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="FlowType" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="Flow_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFinish" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyFlag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubFinished" Type="Int32" />
+          <Property Name="SpeciID" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSigned" Type="Boolean" Nullable="false" />
+          <Property Name="IsWaster_" Type="Boolean" Nullable="false" />
+          <Property Name="LockUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_Pigeonhole" Type="Boolean" />
+          <Property Name="TransFlag" Type="Int32" Nullable="false" />
+          <Property Name="HuanJi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BizEstate" Type="Int64" Nullable="false" />
+          <Property Name="CURSTATUS_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="CURSTATUS_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DealFolder" Type="Int32" Nullable="false" />
+          <Property Name="BalanceTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceUseTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BalanceValid" Type="Int32" Nullable="false" />
+          <Property Name="WNT_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Executor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsShow" Type="Int32" Nullable="false" />
+          <Property Name="IsTempSave" Type="Int32" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Disp_ID" Type="Int32" Nullable="false" />
+          <Property Name="DelayLimit" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int64" Nullable="false" />
+          <Property Name="OrderLineNum" Type="Int32" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="BuyTypeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PromoNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RefundReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreatTime" Type="DateTime" Precision="3" />
+          <Property Name="GoodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InternalTypeId" Type="Int32" />
+          <Property Name="BuyerQQ" Type="Int64" />
+          <Property Name="BuyerPhone" Type="Int64" />
+          <Property Name="BuyerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceQQ" Type="Int64" />
+          <Property Name="ServiceId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderDiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10187,80 +10187,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_framework_notify">
-            <EntityTypeMapping TypeName="oasModel.v_framework_notify">
-              <MappingFragment StoreEntitySet="v_framework_notify">
-                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
-                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
-                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
-                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
-                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
-                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
-                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
-                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
-                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
-                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
-                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
-                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
-                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
-                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
-                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
-                <ScalarProperty Name="Executor" ColumnName="Executor" />
-                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
-                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
-                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
-                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
-                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
-                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
-                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
-                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
-                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
-                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
-                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
-                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
-                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
-                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
-                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
-                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
-                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
-                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="v_framework_zaiban">
             <EntityTypeMapping TypeName="oasModel.v_framework_zaiban">
               <MappingFragment StoreEntitySet="v_framework_zaiban">
@@ -11175,6 +11101,80 @@
                 <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
                 <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_framework_notify">
+            <EntityTypeMapping TypeName="oasModel.v_framework_notify">
+              <MappingFragment StoreEntitySet="v_framework_notify">
+                <ScalarProperty Name="OrderDiscountName" ColumnName="OrderDiscountName" />
+                <ScalarProperty Name="OrderUpdateTime" ColumnName="OrderUpdateTime" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="GoodNo" ColumnName="GoodNo" />
+                <ScalarProperty Name="ReceiveRole" ColumnName="ReceiveRole" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="ServiceQQ" ColumnName="ServiceQQ" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="BuyerPhone" ColumnName="BuyerPhone" />
+                <ScalarProperty Name="BuyerQQ" ColumnName="BuyerQQ" />
+                <ScalarProperty Name="InternalTypeId" ColumnName="InternalTypeId" />
+                <ScalarProperty Name="GoodType" ColumnName="GoodType" />
+                <ScalarProperty Name="OrderCreatTime" ColumnName="OrderCreatTime" />
+                <ScalarProperty Name="RefundReason" ColumnName="RefundReason" />
+                <ScalarProperty Name="PromoNum" ColumnName="PromoNum" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="BuyTypeCode" ColumnName="BuyTypeCode" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderLineNum" ColumnName="OrderLineNum" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="DelayLimit" ColumnName="DelayLimit" />
+                <ScalarProperty Name="Disp_ID" ColumnName="Disp_ID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="IsTempSave" ColumnName="IsTempSave" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="ExecutorName" ColumnName="ExecutorName" />
+                <ScalarProperty Name="Executor" ColumnName="Executor" />
+                <ScalarProperty Name="WNT_ID" ColumnName="WNT_ID" />
+                <ScalarProperty Name="BalanceValid" ColumnName="BalanceValid" />
+                <ScalarProperty Name="BalanceUseTime" ColumnName="BalanceUseTime" />
+                <ScalarProperty Name="BalanceTime" ColumnName="BalanceTime" />
+                <ScalarProperty Name="DealFolder" ColumnName="DealFolder" />
+                <ScalarProperty Name="CURSTATUS_NAME" ColumnName="CURSTATUS_NAME" />
+                <ScalarProperty Name="CURSTATUS_ID" ColumnName="CURSTATUS_ID" />
+                <ScalarProperty Name="BizEstate" ColumnName="BizEstate" />
+                <ScalarProperty Name="HuanJi" ColumnName="HuanJi" />
+                <ScalarProperty Name="TransFlag" ColumnName="TransFlag" />
+                <ScalarProperty Name="IS_Pigeonhole" ColumnName="IS_Pigeonhole" />
+                <ScalarProperty Name="LockUserID" ColumnName="LockUserID" />
+                <ScalarProperty Name="IsWaster_" ColumnName="IsWaster " />
+                <ScalarProperty Name="IsSigned" ColumnName="IsSigned" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SpeciID" ColumnName="SpeciID" />
+                <ScalarProperty Name="SubFinished" ColumnName="SubFinished" />
+                <ScalarProperty Name="ModifyFlag" ColumnName="ModifyFlag" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+                <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Flow_Name" ColumnName="Flow_Name" />
+                <ScalarProperty Name="FlowType" ColumnName="FlowType" />
+                <ScalarProperty Name="Flow_ID" ColumnName="Flow_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WFM_ID" ColumnName="WFM_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

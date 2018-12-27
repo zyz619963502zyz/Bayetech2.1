@@ -105,6 +105,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
+    LocalWeb: "http://localhost:15786/api/",
+    WebUrl: "http://47.98.176.184:80/api/",
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {

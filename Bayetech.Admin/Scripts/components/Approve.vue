@@ -48,7 +48,7 @@
                     txtPageConditionRule99:";KefuOperate;"
                 },
                 Url: {//接口连接字符串
-                    NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
+                    NewFlowExample: comCompnent.default.EngineUrl + "Create_NewFlowExample",
                     FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
                     FlowStatusInfo: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
                     CurFlowStatusInfo: comCompnent.default.EngineUrl + "Get_CurFlowStatusInfo",
@@ -59,7 +59,8 @@
                 },
                 Param: {//参数
                     NewFlowExample: {//新建流程实例
-                        EngineInfo: {}
+                        EngineInfo: {},
+                        PageInfo:  {}
                     },
                     OnNextStep: {//提交送下一步
                         EngineInfo: {},
@@ -219,14 +220,22 @@
                     }
                 }
             },
-            Create_NewFlowExample() {//创建流程实例
+            Create_NewFlowExample(param,sync) {//创建流程实例
                 var self = this;
-                comCompnent.default.getWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
+                var result;
+                if (param) {
+                    self.Param.NewFlowExample = param;
+                };
+                comCompnent.default.postWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
                     if (data) {
                         self.ResultList.NewFlowExample = data;
-                        //alert("实例创建成功!");
+                        alert("实例创建成功!");
+                        result = data;
                     }
-                })
+                },function error(){},sync);
+                if (sync) {
+                    return result;
+                }
             },
             Get_FlowBeginStatusInfo() {//获取流程开始环节信息
                 var self = this;

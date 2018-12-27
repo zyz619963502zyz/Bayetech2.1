@@ -43,6 +43,7 @@ let vmData = {
     ],
     SearchParam: {
         Param: {//查询条件的参数
+            WFM_ID:"",
             GoodNo:"",
             OrderNo: "",
             Account:"",
@@ -90,6 +91,49 @@ new Vue({
         immediate: true
     },
     methods: {
+        CreatNewOrder(){//模拟创建一笔订单测试时候使用，正式注释掉。
+            var self = this;
+            var param = {//新建流程实例
+                    EngineInfo: {
+                        Flow_Id : "1",
+                        Sender_Id : localStorage.getItem("User_Id"),
+                        Sender_Code: localStorage.getItem("User_Code")
+                    },
+                    PageInfo:  {
+                        txtPageConditionRule99:";KefuOperate;"
+                    }
+                }
+            var dataEngine = self.$refs.approve.Create_NewFlowExample(param,1); //获得返回参数
+
+            //新建订单并且关联
+            //var url = comCompnent.default.WebUrl+"Order/CreatOrder"
+            var url = comCompnent.default.LocalWeb+"Order/CreatOrder";
+            var orderparam = {
+                GoodNo: "201801111655565777",//默认的商品编号
+                OrderPrice:"",
+                GoodPrice:0,
+                GoodTypeId: 3,
+                GoodTypeName: "账号",
+                BuyNum: "1",
+                InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
+                GameName: "",
+                GameAccount: "",
+                GameAccountAgain: "",
+                GroupName: "",
+                InternalTypeId:"",
+                ServerName: "",
+                BuyerPhone: "18717708731",
+                BuyerQQ: "619963501",
+                Signal:"",
+                PromoNum: "1111",
+                WFM_ID:dataEngine.result
+            };
+            comCompnent.default.postWebJson(url,JSON.stringify(orderparam),function (data) {
+                if (data) {
+                    alert("模拟新建一笔订单成功,流程ID为:"+ dataEngine.result+"请在查询框重新查询!");
+                }
+            });
+        },
         GetFlows() {//获取所有的流程信息
             //var self = this;
             //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
@@ -98,6 +142,7 @@ new Vue({
             //    }
             //});
         },
+
         GetStatus(flowId) {//根据流程获取环节信息
             //var param = {
             //    flowId: flowId

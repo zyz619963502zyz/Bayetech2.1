@@ -121,7 +121,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<V_Flow_StatusUserBack> V_Flow_StatusUserBack { get; set; }
         public virtual DbSet<v_flow_user> v_flow_user { get; set; }
         public virtual DbSet<v_framework_main> v_framework_main { get; set; }
-        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
         public virtual DbSet<v_framework_zaiban> v_framework_zaiban { get; set; }
         public virtual DbSet<v_pub_member_org> v_pub_member_org { get; set; }
         public virtual DbSet<V_PUB_MEMBER_USER> V_PUB_MEMBER_USER { get; set; }
@@ -134,6 +133,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<V_WorkFlow_OtherAttDetail> V_WorkFlow_OtherAttDetail { get; set; }
         public virtual DbSet<V_WorkFlow_ZaiBan> V_WorkFlow_ZaiBan { get; set; }
         public virtual DbSet<v_pub_UserRoleJiHeCanel> v_pub_UserRoleJiHeCanel { get; set; }
+        public virtual DbSet<v_framework_notify> v_framework_notify { get; set; }
     
         public virtual ObjectResult<UP_GetUserAllRole_Result> UP_GetUserAllRole(string uSERID)
         {
