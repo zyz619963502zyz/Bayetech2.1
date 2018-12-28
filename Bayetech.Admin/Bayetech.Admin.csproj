@@ -1234,8 +1234,6 @@
     <Content Include="lib\jquery.md5.js" />
     <Content Include="lib\jquery.twbsPagination.js" />
     <Content Include="lib\jquery\AUTHORS.txt" />
-    <Content Include="lib\jquery\build\release-notes.js" />
-    <Content Include="lib\jquery\build\release.js" />
     <Content Include="lib\jquery\Gruntfile.js" />
     <Content Include="lib\jquery\jquery-migrate.js" />
     <Content Include="lib\jquery\jquery-migrate.min.js" />
@@ -1351,12 +1349,6 @@
     <Content Include="lib\jquery\test\unit\support.js" />
     <Content Include="lib\jquery\test\unit\traversing.js" />
     <Content Include="lib\jquery\test\unit\wrap.js" />
-    <Content Include="lib\knockout\build\fragments\amd-post.js" />
-    <Content Include="lib\knockout\build\fragments\amd-pre.js" />
-    <Content Include="lib\knockout\build\fragments\extern-post.js" />
-    <Content Include="lib\knockout\build\fragments\extern-pre.js" />
-    <Content Include="lib\knockout\build\fragments\source-references.js" />
-    <Content Include="lib\knockout\build\knockout-raw.js" />
     <Content Include="lib\knockout\dist\knockout.debug.js" />
     <Content Include="lib\knockout\dist\knockout.js" />
     <Content Include="lib\knockout\dist\knockout.mapping.js" />
@@ -1983,14 +1975,6 @@
     <Content Include="lib\userToken.js" />
     <Content Include="lib\version.js" />
     <Content Include="lib\webfontloader.js" />
-    <Content Include="lib\webuploader-master\build\docTpl\css\doc.css" />
-    <Content Include="lib\webuploader-master\build\fis\intro.js" />
-    <Content Include="lib\webuploader-master\build\fis\outro.js" />
-    <Content Include="lib\webuploader-master\build\intro.js" />
-    <Content Include="lib\webuploader-master\build\outro.js" />
-    <Content Include="lib\webuploader-master\build\tasks\build.js" />
-    <Content Include="lib\webuploader-master\build\tasks\concat.js" />
-    <Content Include="lib\webuploader-master\build\tasks\doc.js" />
     <Content Include="lib\webuploader-master\css\webuploader.css" />
     <Content Include="lib\webuploader-master\dist\Uploader.swf" />
     <Content Include="lib\webuploader-master\dist\webuploader.css" />
@@ -2624,15 +2608,6 @@
     <Content Include="lib\webuploader-master\.jshintrc" />
     <Content Include="lib\webuploader-master\.travis.yml" />
     <Content Include="lib\webuploader-master\bower.json" />
-    <Content Include="lib\webuploader-master\build\docTpl\class.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\content.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\events.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\items.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\layout.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\module.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\options.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\plugins.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\sidebar.ejs" />
     <Content Include="lib\webuploader-master\dist\README.md" />
     <Content Include="lib\webuploader-master\examples\image-upload\icons.psd" />
     <Content Include="lib\webuploader-master\examples\image-upload\progress.psd" />
@@ -2781,9 +2756,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\components\toolBar.vue" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -2792,6 +2764,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="lib\jquery\build\" />
+    <Folder Include="lib\knockout\build\fragments\" />
+    <Folder Include="lib\webuploader-master\build\docTpl\css\" />
+    <Folder Include="lib\webuploader-master\build\fis\" />
+    <Folder Include="lib\webuploader-master\build\tasks\" />
     <Folder Include="Module\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\router\" />
@@ -2801,6 +2778,7 @@
     <Folder Include="Views\NavButtons\" />
     <Folder Include="Views\RoleNavBtns\" />
     <Folder Include="Views\Roles\" />
+    <Folder Include="Views\Shared\" />
     <Folder Include="Views\UserRoles\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
