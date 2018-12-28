@@ -11904,6 +11904,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     created() {
         this.currentcomponent = __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__["a" /* default */];
         this.GetFlows(); //获取流程绑定列表
+        this.GetStatus(1); //默认金币流程环节
         this.findList();
     },
     watch: {
@@ -11967,28 +11968,30 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
             };
             comCompnent.default.postWebJson(url, JSON.stringify(orderparam), function (data) {
                 if (data) {
-                    alert("模拟新建一笔订单成功,流程ID为:" + dataEngine.result);
+                    alert("模拟新建一笔订单成功,流程ID为:" + dataEngine.result + "请在查询框重新查询!");
                 }
             });
         },
-        GetFlows() {//获取所有的流程信息
-            //var self = this;
-            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-            //    if (data) {
-            //        self.Flows = data.content;
-            //    }
-            //});
+        GetFlows() {
+            //获取所有的流程信息
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+                if (data) {
+                    self.Flows = data.content;
+                }
+            });
         },
-
-        GetStatus(flowId) {//根据流程获取环节信息
-            //var param = {
-            //    flowId: flowId
-            //};
-            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-            //    if (data) {
-            //        self.Status = data.content;
-            //    }
-            //});
+        GetStatus(flowId) {
+            //根据流程获取环节信息
+            var self = this;
+            var param = {
+                flowId: flowId
+            };
+            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+                if (data) {
+                    self.Status = data.content;
+                }
+            });
         },
         findList() {
             //获取商品的简要列表

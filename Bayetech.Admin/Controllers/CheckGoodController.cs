@@ -85,6 +85,14 @@ namespace Bayetech.Admin.Controllers
                     {
                         expression = expression.And(c => c.WFM_ID.Contains(OrderInfo.WFM_ID));
                     }
+                    if (OrderInfo.Flow_ID>0)
+                    {
+                        expression = expression.And(c => c.Flow_ID == OrderInfo.Flow_ID);
+                    }
+                    if (OrderInfo.CURSTATUS_ID>0)
+                    {
+                        expression = expression.And(c => c.CURSTATUS_ID == OrderInfo.CURSTATUS_ID);
+                    }
                     expression = expression.And(c => userStr.Contains(c.Receiver)&&!c.IsWaster_ && c.IsFinish != 1);
                 }
                 //查询列表数据  

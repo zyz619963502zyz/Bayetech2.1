@@ -13,8 +13,8 @@ let vmData = {
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good",//单据类型
     SelectType: "good",//选择类型直接放到参数里面无法监听。
-    SelectFlowId: "1",//选中的流程ID
-    SelectStatusId:"0",//选中的环节ID
+    //SelectFlowId: "1",//选中的流程ID
+    //SelectStatusId:"0",//选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent:"",//当前组件
@@ -50,8 +50,10 @@ let vmData = {
             Status:pagetype,
             SelectType:"good",//form里选择的商品类型
             SelectNo: "",//form里面选择的编号
-            CURSTATUS_ID:"",//当前环节ID.
-            CURSTATUS_NAME:""//当前环节名称
+            CURSTATUS_ID:"-1",//当前环节ID.
+            CURSTATUS_NAME:"",//当前环节名称
+            Flow_ID:"-1",
+            Flow_Name:""
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -68,9 +70,9 @@ new Vue({
     el: '#CommForm',
     data: vmData,
     created() {
-        
         this.currentcomponent = goodprocess;
         this.GetFlows();//获取流程绑定列表
+        this.GetStatus(1);//默认金币流程环节
         this.findList();
     },
     watch: {
@@ -136,23 +138,23 @@ new Vue({
             });
         },
         GetFlows() {//获取所有的流程信息
-            //var self = this;
-            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-            //    if (data) {
-            //        self.Flows = data.content;
-            //    }
-            //});
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+                if (data) {
+                    self.Flows = data.content;
+                }
+            });
         },
-
         GetStatus(flowId) {//根据流程获取环节信息
-            //var param = {
-            //    flowId: flowId
-            //};
-            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-            //    if (data) {
-            //        self.Status = data.content;
-            //    }
-            //});
+            var self = this;
+            var param = {
+                flowId: flowId
+            };
+            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+                if (data) {
+                    self.Status = data.content;
+                }
+            });
         },
         findList() {//获取商品的简要列表
             $("#QueryList").Btns("loading");
