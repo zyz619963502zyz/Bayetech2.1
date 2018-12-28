@@ -68,6 +68,7 @@ new Vue({
     el: '#CommForm',
     data: vmData,
     created() {
+        
         this.currentcomponent = goodprocess;
         this.GetFlows();//获取流程绑定列表
         this.findList();
