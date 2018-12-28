@@ -142,7 +142,7 @@
                     </div>
                     <br />
                     <div class="col-ms-10 row">
-                        <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
+                        <!--<div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
                             <label class="control-label col-md-3">卖家网站账号</label>
                             <div class="col-md-9">
                                 <input type="text" v-model="SearchParam.Param.Account" class="form-control" />
@@ -153,8 +153,8 @@
                             <div class="col-md-9">
                                 <input type="text" v-model="SearchParam.Param.SelectNo" class="form-control" />
                             </div>
-                        </div>
-                        <div class="input-group col-md-4 hide" v-bind:class="{ hide: SelectType=='order'}">
+                        </div>-->
+                        <!--<div class="input-group col-md-4 hide" v-bind:class="{ hide: SelectType=='order'}">
                             <label class="control-label col-md-3">上架时间</label>
                             <div class="col-md-9">
                                 <select class="form-control" v-model="SelectType">
@@ -169,14 +169,14 @@
                                     <option v-for="item in ">商品审核</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="input-group col-md-4" v-bind:class="{ hide: SelectType=='good'}">
                             <label class="control-label col-md-3">流程ID</label>
                             <div class="col-md-9">
                                 <input class="form-control" v-model="SearchParam.Param.WFM_ID"/>
                             </div>
                         </div>
-                        <div v-bind:class="[SelectType=='good'?'col-md-offset-5':'col-md-offset-1','col-md-2']">
+                        <div v-bind:class="[SelectType=='good'?'col-md-offset-9':'col-md-offset-5','col-md-2']">
                             <input type="button" id="QueryList" class="btn btn-primary form-control" data-loading-text="查询" value="查询" @click="findList" />
                         </div>
                     </div>
