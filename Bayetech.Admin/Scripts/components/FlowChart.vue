@@ -1,4 +1,5 @@
 ﻿import "../../Content/MyStyle.css";
+import "../../Scripts/go-1.8.35.js"
 
 <style>
     .diagram {
@@ -40,7 +41,36 @@ export default{
                 wfmid:"",
             },
             Result:{
-                List:[]//绑定图表的数据
+                List:[
+                    WFM_ID:""
+                    ,CURSTATUS_ID:""
+                    ,CURSTATUS_Name:""
+                    ,PRESTATUS_ID:""
+                    ,PRESTATUS_Name:""
+                    ,DISPOSAL_ID:""
+                    ,DISPOSAL_Name:""
+                    ,DISPOSAL_HINT:""
+                    ,DealRemark:""
+                    ,Sender:""
+                    ,SenderName:""
+                    ,Receiver:""
+                    ,ReceiverName:""
+                    ,SenderTrust:""
+                    ,ReceiverTrust:""
+                    ,SenderTrustName:""
+                    ,ReceiverTrustName:""
+                    ,ArriveTime:""
+                    ,FinishTime:""
+                    ,DealState:""
+                    ,DealStateName:""
+                    ,dRecordCreationDate:""
+                    ,sRecordCreator:""
+                    ,sRecordVersion:""
+                    ,CURRole_Name:""
+                    ,CURRole_ID:""
+                    ,PRERole_Name:""
+                    ,PRERole_ID:""
+                ]//绑定图表的数据
             }
         }
     },
@@ -53,7 +83,34 @@ export default{
                         self.Result.List = data;
                     }
                 })//同步获取当前流程信息
-            }
+        },
+        SetDiagram(arry){//设置流程图
+            var $=go.GraphObject.make;
+            var myDiagram = $(go.Diagram,"myDiagramDiv",{
+                 "undoManager.isEnabled": true
+            });
+            //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
+            var myModel=$(go.Model);//创建图表数据对象
+            myModel.nodeDataArray = [ 
+              { key: "Alpha" ,value:"123"},
+              { key: "Beta",value:"456" },
+              { key: "Gamma" ,value:"789"}
+            ];
+            myDiagram.model=myModel;
+            myDiagram.nodeTemplate =$(go.Node, "Horizontal", 
+                {
+                  background:"#44CCFF",
+                  locationSpot: go.Spot.Center
+                },
+                new go.Binding("location", "loc"),
+                $(go.Shape,
+                  "RoundedRectangle",
+                  new go.Binding("figure", "fig")),
+                $(go.TextBlock,
+                  "default text",  
+                  new go.Binding("text", "value"))
+               );
+        }
     }
 }
 </script>
