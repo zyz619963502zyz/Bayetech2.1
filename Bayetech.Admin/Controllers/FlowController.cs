@@ -16,6 +16,7 @@ namespace Bayetech.Admin.Controllers
     {
         BaseService<T_FLOW_TYPE> flowService = new BaseService<T_FLOW_TYPE>(DBFactory.oas);
         BaseService<T_FLOW_STATUS> statusService = new BaseService<T_FLOW_STATUS>(DBFactory.oas);
+        BaseService<T_WorkFlow_LogMonitor> logMonitorService = new BaseService<T_WorkFlow_LogMonitor>();
 
         /// <summary>
         /// 获取所有的流程信息
@@ -76,6 +77,15 @@ namespace Bayetech.Admin.Controllers
 
                 return rolserial;
             }
+        }
+
+        /// <summary>
+        /// 获取业务监控数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject GetLogmonitor(string wfmid) {
+            return logMonitorService.GetList(c => c.WFM_ID == wfmid);
         }
     }
 }
