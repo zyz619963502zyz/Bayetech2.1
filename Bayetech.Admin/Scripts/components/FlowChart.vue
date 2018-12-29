@@ -91,11 +91,7 @@ export default{
             });
             //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
             var myModel=$(go.Model);//创建图表数据对象
-            myModel.nodeDataArray = [ 
-              { key: "Alpha" ,value:"123"},
-              { key: "Beta",value:"456" },
-              { key: "Gamma" ,value:"789"}
-            ];
+            myModel.nodeDataArray = arry;//赋值
             myDiagram.model=myModel;
             myDiagram.nodeTemplate =$(go.Node, "Horizontal", 
                 {
@@ -108,7 +104,7 @@ export default{
                   new go.Binding("figure", "fig")),
                 $(go.TextBlock,
                   "default text",  
-                  new go.Binding("text", "value"))
+                  new go.Binding("text", "CURSTATUS_Name"))
                );
         }
     }
