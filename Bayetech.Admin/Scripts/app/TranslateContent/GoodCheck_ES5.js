@@ -11575,8 +11575,6 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
@@ -11642,18 +11640,27 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
         },
         SetDiagram(arry) {
             //设置流程图
-            var $ = go.GraphObject.make;
-            var myDiagram = $(go.Diagram, "myDiagramDiv", {
+            var $$ = go.GraphObject.make;
+            var myDiagram = $$(go.Diagram, "myDiagramDiv", {
                 "undoManager.isEnabled": true
             });
             //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
-            var myModel = $(go.Model); //创建图表数据对象
+            var myModel = $$(go.Model); //创建图表数据对象
             myModel.nodeDataArray = arry; //赋值
             myDiagram.model = myModel;
-            myDiagram.nodeTemplate = $(go.Node, "Horizontal", {
-                background: "#44CCFF",
-                locationSpot: go.Spot.Center
-            }, new go.Binding("location", "loc"), $(go.Shape, "RoundedRectangle", new go.Binding("figure", "fig")), $(go.TextBlock, "default text", new go.Binding("text", "CURSTATUS_Name")));
+            myDiagram.nodeTemplate = $$(go.Node, "Auto",
+            //{
+            //  background:"#44CCFF",
+            //  locationSpot: go.Spot.Center
+            //},
+            //new go.Binding("location", "loc"),
+            //$$(go.Shape,
+            //  "RoundedRectangle",
+            //  new go.Binding("figure", "fig")),
+            //$$(go.TextBlock,
+            //  "default text",  
+            //  new go.Binding("text", "CURSTATUS_Name"))
+            $$(go.Shape, "RoundedRectangle", { strokeWidth: 0, fill: "orange" }, new go.Binding("fill", "color")), $$(go.TextBlock, { margin: 8 }, new go.Binding("text", "CURSTATUS_Name")));
         }
     }
 });
@@ -12485,12 +12492,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", {
-              staticClass: "modal-body",
-              attrs: { id: "modal_body" }
-            }),
-            _vm._v(" "),
-            _c("div", { attrs: { id: "myDiagramDiv" } })
+            _vm._m(1)
           ])
         ]
       )
@@ -12518,6 +12520,26 @@ var staticRenderFns = [
           [_vm._v("×")]
         ),
         _c("span", { staticClass: "sr-only" }, [_vm._v("Close")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-body", attrs: { id: "modal_body" } },
+      [
+        _c("div", {
+          staticStyle: {
+            width: "800px",
+            height: "300px",
+            "background-color": "#DAE4E4",
+            "text-align": "center"
+          },
+          attrs: { id: "myDiagramDiv" }
+        })
       ]
     )
   }

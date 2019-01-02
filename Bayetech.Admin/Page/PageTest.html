@@ -14,36 +14,36 @@
 </body>
 </html>
 <script>
-  //  //go.GraphObject.make来构建GoJS对象.防止和jquery冲突以后使用$$来表示。
-    //var $=go.GraphObject.make;//创建构建gojs对象的工具
-    //var myDiagram=$(go.Diagram, "myDiagramDiv", {//创建图表
-    //    "undoManager.isEnabled": true 
-    //});
+    //go.GraphObject.make来构建GoJS对象.防止和jquery冲突以后使用$$来表示。
+    var $=go.GraphObject.make;//创建构建gojs对象的工具
+    var myDiagram=$(go.Diagram, "myDiagramDiv", {//创建图表
+        "undoManager.isEnabled": true 
+    });
     //基础节点图：
-      //  //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
-      //  var myModel=$(go.Model);//创建图表数据对象
-      //  myModel.nodeDataArray = [ 
-      //    { key: "Alpha" ,value:"123"},
-      //    { key: "Beta",value:"456" },
-      //    { key: "Gamma" ,value:"789"}
-      //  ];
-      //  myDiagram.model=myModel;
+        //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
+        var myModel=$(go.Model);//创建图表数据对象
+        myModel.nodeDataArray = [ 
+          { key: "Alpha" ,value:"123"},
+          { key: "Beta",value:"456" },
+          { key: "Gamma" ,value:"789"}
+        ];
+        myDiagram.model=myModel;
 
 
-      //  myDiagram.nodeTemplate =
-      //$(go.Node, "Horizontal", // second argument of a Node/Panel can be a Panel type
-      //  {
-      //    background:"#44CCFF",
-      //    locationSpot: go.Spot.Center
-      //  },
-      //  new go.Binding("location", "loc"),
-      //  $(go.Shape,
-      //    "RoundedRectangle",
-      //    new go.Binding("figure", "fig")),
-      //  $(go.TextBlock,
-      //    "default text",  
-      //    new go.Binding("text", "value"))
-      //);
+        myDiagram.nodeTemplate =
+      $(go.Node, "Horizontal", // second argument of a Node/Panel can be a Panel type
+        {
+          background:"#44CCFF",
+          locationSpot: go.Spot.Center
+        },
+        new go.Binding("location", "loc"),
+        $(go.Shape,
+          "RoundedRectangle",
+          new go.Binding("figure", "fig")),
+        $(go.TextBlock,
+          "default text",  
+          new go.Binding("text", "value"))
+      );
 
     //带连线的图
     //var model=$(go.GraphLinksModel);
