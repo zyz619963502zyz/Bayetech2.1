@@ -3,6 +3,7 @@ import goodprocess from '../components/table-GoodProcess.vue'
 import orderprocess from '../components/table-OrderProcess.vue'
 import approve from '../components/Approve.vue'
 
+
 //import comCompnent from '../common.js'(已在配置文件全局引用)
 //Vue.prototype.com = comCompnent;单页面引用公共js的另外一种方式，先import后赋值到Vue全局对象上。
 
@@ -13,8 +14,6 @@ let vmData = {
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good",//单据类型
     SelectType: "good",//选择类型直接放到参数里面无法监听。
-    //SelectFlowId: "1",//选中的流程ID
-    //SelectStatusId:"0",//选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent:"",//当前组件
@@ -25,6 +24,7 @@ let vmData = {
     GoodInfoArray: [],
     Flows: [],//流程名称
     Status:[],//环节名称
+    Logmonitors:[],//业务监控
     components: {
         goodprocess: 'goodprocess',
         orderprocess:'orderprocess',
@@ -209,16 +209,12 @@ new Vue({
             } else {//订单审核
                 self.$refs.approve.Execute_OnNextStep();//提交送下一步
             }
-        },
-        GetLogmonitor(){//获取业务监控
-            
         }
     },
     components:{
         goodprocess,
         orderprocess,
-        approve,
-        diagram
+        approve
     }
 });
 

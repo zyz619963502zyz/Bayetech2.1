@@ -2778,6 +2778,7 @@
     <Folder Include="Module\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\router\" />
+    <Folder Include="Scripts\typings\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Home\" />
@@ -2835,9 +2836,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\typings\go\go-1.8.35.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

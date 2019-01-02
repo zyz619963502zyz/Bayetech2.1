@@ -16,7 +16,7 @@ namespace Bayetech.Admin.Controllers
     {
         BaseService<T_FLOW_TYPE> flowService = new BaseService<T_FLOW_TYPE>(DBFactory.oas);
         BaseService<T_FLOW_STATUS> statusService = new BaseService<T_FLOW_STATUS>(DBFactory.oas);
-        BaseService<T_WorkFlow_LogMonitor> logMonitorService = new BaseService<T_WorkFlow_LogMonitor>();
+        BaseService<T_WorkFlow_LogMonitor> logMonitorService = new BaseService<T_WorkFlow_LogMonitor>(DBFactory.oas);
 
         /// <summary>
         /// 获取所有的流程信息

@@ -1,15 +1,14 @@
-﻿import "../../Content/MyStyle.css";
-import "../../Scripts/go-1.8.35.js"
+﻿import "../../Content/MyStyle.css"
 
-<style>
+
+<!--<style>
     .diagram {
-        background-color:#ffffff;
-        text-align:center;
-        width:100%;
-        height:100%
+        background-color: #ffffff;
+        text-align: center;
+        width: 100%;
+        height: 100%;
     }
-</style>
-
+</style>-->
 <template id="FlowChart" lang="html">
     <div class="modal form-horizontal" id="FlowChartModal" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
         <div class="modal-dialog" style="width:1200px">
@@ -18,12 +17,12 @@ import "../../Scripts/go-1.8.35.js"
                     <a class="close" data-dismiss="modal" name="btnModalClose">
                         <span aria-hidden="true" style="font-size:26px">&times;</span><span class="sr-only">Close</span>
                     </a>
-                    <h3 class="modal-title text-center" id="modal_title"><strong>订单号为：{{OrderNo}}</strong></h3>
+                    <h3 class="modal-title text-center" id="modal_title"><strong>单号为：{{OrderNo}}</strong></h3>
                 </div>
                 <div class="modal-body" id="modal_body">
                 </div>
                     <!--流程图-->
-                    <div id="myDiagramDiv" class="diagram">
+                    <div id="myDiagramDiv">
 
                 </div>
                 </div>
@@ -42,45 +41,56 @@ export default{
             },
             Result:{
                 List:[
-                    WFM_ID:""
-                    ,CURSTATUS_ID:""
-                    ,CURSTATUS_Name:""
-                    ,PRESTATUS_ID:""
-                    ,PRESTATUS_Name:""
-                    ,DISPOSAL_ID:""
-                    ,DISPOSAL_Name:""
-                    ,DISPOSAL_HINT:""
-                    ,DealRemark:""
-                    ,Sender:""
-                    ,SenderName:""
-                    ,Receiver:""
-                    ,ReceiverName:""
-                    ,SenderTrust:""
-                    ,ReceiverTrust:""
-                    ,SenderTrustName:""
-                    ,ReceiverTrustName:""
-                    ,ArriveTime:""
-                    ,FinishTime:""
-                    ,DealState:""
-                    ,DealStateName:""
-                    ,dRecordCreationDate:""
-                    ,sRecordCreator:""
-                    ,sRecordVersion:""
-                    ,CURRole_Name:""
-                    ,CURRole_ID:""
-                    ,PRERole_Name:""
-                    ,PRERole_ID:""
+                    {
+                        WFM_ID:"",
+                        CURSTATUS_ID:""
+                        ,CURSTATUS_Name:""
+                        ,PRESTATUS_ID:""
+                        ,PRESTATUS_Name:""
+                        ,DISPOSAL_ID:""
+                        ,DISPOSAL_Name:""
+                        ,DISPOSAL_HINT:""
+                        ,DealRemark:""
+                        ,Sender:""
+                        ,SenderName:""
+                        ,Receiver:""
+                        ,ReceiverName:""
+                        ,SenderTrust:""
+                        ,ReceiverTrust:""
+                        ,SenderTrustName:""
+                        ,ReceiverTrustName:""
+                        ,ArriveTime:""
+                        ,FinishTime:""
+                        ,DealState:""
+                        ,DealStateName:""
+                        ,dRecordCreationDate:""
+                        ,sRecordCreator:""
+                        ,sRecordVersion:""
+                        ,CURRole_Name:""
+                        ,CURRole_ID:""
+                        ,PRERole_Name:""
+                        ,PRERole_ID:""
+                    }
                 ]//绑定图表的数据
             }
         }
     },
-    props:['wfmid'],
+    props:['currentwfmid','currentitem'],
+    watch:{
+        currentwfmid(val,oldval){
+            var self = this;
+            self.Param.wfmid = val;
+            self.OrderNo = self.currentitem.OrderNo;
+            self.GetDiagramData();
+        }
+    },
     methods:{
         GetDiagramData(){//获取图表数据
             var self = this;
             comCompnent.default.getWebJson("/api/Flow/GetLogmonitor", self.Param, function (data) {
                     if (data) {
-                        self.Result.List = data;
+                        self.Result.List = data.content;
+                        self.SetDiagram(self.Result.List);
                     }
                 })//同步获取当前流程信息
         },

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11541,10 +11541,129 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 14 */,
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(comCompnent) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    name: 'BaseTable',
+    data() {
+        return {
+            OrderNo: "", //订单号
+            Param: {
+                wfmid: ""
+            },
+            Result: {
+                List: [{
+                    WFM_ID: "",
+                    CURSTATUS_ID: "",
+                    CURSTATUS_Name: "",
+                    PRESTATUS_ID: "",
+                    PRESTATUS_Name: "",
+                    DISPOSAL_ID: "",
+                    DISPOSAL_Name: "",
+                    DISPOSAL_HINT: "",
+                    DealRemark: "",
+                    Sender: "",
+                    SenderName: "",
+                    Receiver: "",
+                    ReceiverName: "",
+                    SenderTrust: "",
+                    ReceiverTrust: "",
+                    SenderTrustName: "",
+                    ReceiverTrustName: "",
+                    ArriveTime: "",
+                    FinishTime: "",
+                    DealState: "",
+                    DealStateName: "",
+                    dRecordCreationDate: "",
+                    sRecordCreator: "",
+                    sRecordVersion: "",
+                    CURRole_Name: "",
+                    CURRole_ID: "",
+                    PRERole_Name: "",
+                    PRERole_ID: ""
+                }] //绑定图表的数据
+            }
+        };
+    },
+    props: ['currentwfmid', 'currentitem'],
+    watch: {
+        currentwfmid(val, oldval) {
+            var self = this;
+            self.Param.wfmid = val;
+            self.OrderNo = self.currentitem.OrderNo;
+            self.GetDiagramData();
+        }
+    },
+    methods: {
+        GetDiagramData() {
+            //获取图表数据
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetLogmonitor", self.Param, function (data) {
+                if (data) {
+                    self.Result.List = data.content;
+                    self.SetDiagram(self.Result.List);
+                }
+            }); //同步获取当前流程信息
+        },
+        SetDiagram(arry) {
+            //设置流程图
+            var $ = go.GraphObject.make;
+            var myDiagram = $(go.Diagram, "myDiagramDiv", {
+                "undoManager.isEnabled": true
+            });
+            //Models包含描述节点和链接的数据（JavaScript对象的数组）,Diagrams充当视图，使用实际的Node和Link对象可视化这些数据。
+            var myModel = $(go.Model); //创建图表数据对象
+            myModel.nodeDataArray = arry; //赋值
+            myDiagram.model = myModel;
+            myDiagram.nodeTemplate = $(go.Node, "Horizontal", {
+                background: "#44CCFF",
+                locationSpot: go.Spot.Center
+            }, new go.Binding("location", "loc"), $(go.Shape, "RoundedRectangle", new go.Binding("figure", "fig")), $(go.TextBlock, "default text", new go.Binding("text", "CURSTATUS_Name")));
+        }
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+
+/***/ }),
 /* 15 */,
 /* 16 */,
-/* 17 */
+/* 17 */,
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11584,11 +11703,12 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 });
 
 /***/ }),
-/* 18 */,
-/* 19 */
+/* 19 */,
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__ = __webpack_require__(56);
 //
 //
 //
@@ -11620,16 +11740,51 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
-    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype']
+    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype', 'wfmid'],
+    data() {
+        return {
+            currentwfmid: "",
+            currentitem: {}
+        };
+    },
+    methods: {
+        GetLogmonitor() {
+            //获取业务监控
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetLogmonitor", null, function (data) {
+                if (data) {
+                    self.Logmonitors = data.content;
+                }
+            });
+        },
+        OpenFlowChar(item) {
+            //打开流程图
+            var self = this;
+            self.currentitem = item;
+            self.currentwfmid = item.WFM_ID;
+            $("#FlowChartModal").modal("show");
+        }
+    },
+    components: {
+        flowchart: __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__["a" /* default */]
+    }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11638,37 +11793,46 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_script_lang_js__ = __webpack_require__(14);
 /* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
+/* 25 */,
+/* 26 */,
 /* 27 */,
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(18);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
+
+/***/ }),
+/* 29 */,
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
-/* 29 */,
-/* 30 */,
 /* 31 */,
-/* 32 */
+/* 32 */,
+/* 33 */,
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(23);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11712,15 +11876,15 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 33 */,
-/* 34 */,
 /* 35 */,
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11764,13 +11928,13 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 37 */,
-/* 38 */
+/* 39 */,
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(30);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11814,8 +11978,6 @@ component.options.__file = "Scripts\\components\\table-OrderProcess.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 39 */,
-/* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
@@ -11824,16 +11986,18 @@ component.options.__file = "Scripts\\components\\table-OrderProcess.vue"
 /* 46 */,
 /* 47 */,
 /* 48 */,
-/* 49 */
+/* 49 */,
+/* 50 */,
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_OrderProcess_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_OrderProcess_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(34);
 
 
 
@@ -11849,8 +12013,6 @@ let vmData = {
     PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good", //单据类型
     SelectType: "good", //选择类型直接放到参数里面无法监听。
-    SelectFlowId: "1", //选中的流程ID
-    SelectStatusId: "0", //选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent: "", //当前组件
@@ -11861,6 +12023,7 @@ let vmData = {
     GoodInfoArray: [],
     Flows: [], //流程名称
     Status: [], //环节名称
+    Logmonitors: [], //业务监控
     components: {
         goodprocess: 'goodprocess',
         orderprocess: 'orderprocess',
@@ -11884,8 +12047,10 @@ let vmData = {
             Status: pagetype,
             SelectType: "good", //form里选择的商品类型
             SelectNo: "", //form里面选择的编号
-            CURSTATUS_ID: "", //当前环节ID.
-            CURSTATUS_NAME: "" //当前环节名称
+            CURSTATUS_ID: "-1", //当前环节ID.
+            CURSTATUS_NAME: "", //当前环节名称
+            Flow_ID: "-1",
+            Flow_Name: ""
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -12063,47 +12228,106 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 50 */,
-/* 51 */,
 /* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */,
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__ = __webpack_require__(24);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('727e5bec', component.options)
+    } else {
+      api.reload('727e5bec', component.options)
+    }
+    module.hot.accept("./FlowChart.vue?vue&type=template&id=727e5bec&id=FlowChart&lang=html", function () {
+      api.rerender('727e5bec', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\FlowChart.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(67);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["b"]; });
 
 
 /***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
 /* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(68);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b"]; });
+
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(72);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
-/* 59 */,
-/* 60 */
+/* 63 */,
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(74);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
-/* 61 */,
-/* 62 */,
-/* 63 */
+/* 65 */,
+/* 66 */,
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12216,10 +12440,97 @@ render._withStripped = true
 
 
 /***/ }),
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "modal form-horizontal",
+      attrs: {
+        id: "FlowChartModal",
+        "data-backdrop": "static",
+        "data-keyboard": "false",
+        role: "dialog",
+        "aria-hidden": "true"
+      }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog", staticStyle: { width: "1200px" } },
+        [
+          _c("div", { staticClass: "modal-content animated bounceInRight" }, [
+            _c(
+              "div",
+              { staticClass: "modal-header", attrs: { id: "modal_head" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "h3",
+                  {
+                    staticClass: "modal-title text-center",
+                    attrs: { id: "modal_title" }
+                  },
+                  [_c("strong", [_vm._v("单号为：" + _vm._s(_vm.OrderNo))])]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "modal-body",
+              attrs: { id: "modal_body" }
+            }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "myDiagramDiv" } })
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "close",
+        attrs: { "data-dismiss": "modal", name: "btnModalClose" }
+      },
+      [
+        _c(
+          "span",
+          {
+            staticStyle: { "font-size": "26px" },
+            attrs: { "aria-hidden": "true" }
+          },
+          [_vm._v("×")]
+        ),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Close")])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12316,8 +12627,8 @@ render._withStripped = true
 
 
 /***/ }),
-/* 68 */,
-/* 69 */
+/* 73 */,
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12328,51 +12639,72 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "table",
-    { staticClass: "table table-bordered" },
+    "div",
     [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.goodinfoarray, function(item) {
-        return _c("tbody", [
-          _c("tr", [
-            _vm._m(1, true),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.CURSTATUS_NAME))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.OrderNo))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GameName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
-            _vm._v(" "),
-            _c("td", { staticClass: "text-center" }, [
-              _c("input", {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "button",
-                  flag: item.Status,
-                  value:
-                    item.Status == "PutOnsale" || item.Status == "PutDownsale"
-                      ? "查看"
-                      : "审核"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item)
-                  }
-                }
-              })
+      _c(
+        "table",
+        { staticClass: "table table-bordered" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.goodinfoarray, function(item) {
+            return _c("tbody", [
+              _c("tr", [
+                _vm._m(1, true),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.OpenFlowChar(item)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(item.CURSTATUS_NAME))]
+                ),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.OrderNo))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GameName))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _c("input", {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      type: "button",
+                      flag: item.Status,
+                      value:
+                        item.Status == "PutOnsale" ||
+                        item.Status == "PutDownsale"
+                          ? "查看"
+                          : "审核"
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.startcheck(item)
+                      }
+                    }
+                  })
+                ])
+              ])
             ])
-          ])
-        ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("flowchart", {
+        attrs: { currentwfmid: _vm.currentwfmid, currentitem: _vm.currentitem }
       })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = [
