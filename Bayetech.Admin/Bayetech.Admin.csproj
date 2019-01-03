@@ -2179,6 +2179,7 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\sysPage\Setting.html" />
+    <Content Include="Page\test.xml" />
     <Content Include="Page\workflow\workflow.html" />
     <Content Include="Resource\Spring\SpringObjects.xml">
       <SubType>Designer</SubType>

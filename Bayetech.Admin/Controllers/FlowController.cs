@@ -2,6 +2,7 @@
 using Bayetech.Core.Entity;
 using Bayetech.DAL;
 using Bayetech.Service;
+using Bayetech.Service.IServices;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,11 @@ namespace Bayetech.Admin.Controllers
     /// </summary>
     public class FlowController : ApiController
     {
+        IFlowService service = new FlowService();
         BaseService<T_FLOW_TYPE> flowService = new BaseService<T_FLOW_TYPE>(DBFactory.oas);
         BaseService<T_FLOW_STATUS> statusService = new BaseService<T_FLOW_STATUS>(DBFactory.oas);
         BaseService<T_WorkFlow_LogMonitor> logMonitorService = new BaseService<T_WorkFlow_LogMonitor>(DBFactory.oas);
+        BaseService<T_FLOW_DISPOSAL> disposalService = new BaseService<T_FLOW_DISPOSAL>(DBFactory.oas);
 
         /// <summary>
         /// 获取所有的流程信息
@@ -34,7 +37,27 @@ namespace Bayetech.Admin.Controllers
         /// <returns></returns>
         public JObject GetStatus(decimal flowId) {
             JObject ret = new JObject();
-            return statusService.GetList(c => c.FLOW_ID == flowId);
+            return statusService.GetList(c => c.FLOW_ID == flowId&&c.IsDelete!=1);
+        }
+
+        /// <summary>
+        /// 获取流程线相关信息
+        /// </summary>
+        /// <param name="flowId"></param>
+        /// <returns></returns>
+        public JObject GetDisposal(decimal flowId) {
+            JObject ret = new JObject();
+            return disposalService.GetList(c => c.FLOW_ID == flowId && c.IsDelete != 1);
+        }
+
+        /// <summary>
+        /// 获取流程的相关信息，用于组合成可视化流程图
+        /// </summary>
+        /// <param name="flowId"></param>
+        /// <returns></returns>
+        public JObject GetFlowAllInfo(string wfmId,decimal flowId) {
+            JObject ret = new JObject();
+            return service.GetDiagramFLowInfos(wfmId,flowId);
         }
 
         /// <summary>
@@ -87,5 +110,6 @@ namespace Bayetech.Admin.Controllers
         public JObject GetLogmonitor(string wfmid) {
             return logMonitorService.GetList(c => c.WFM_ID == wfmid);
         }
+
     }
 }

@@ -103,7 +103,7 @@
                         OperationRole_Name:"",//业务角色名
                         OperationPerm_Value:"",//状态权限值
                         IsNextStatus:"",//是否后续节点还有本节点
-                        Status_Attribute:"",//属性字段
+                        Status_Attribute:"",//属性字段 
                         Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
                     },
                     CurFlowStatusInfo: {//同上，当前环节信息CStatus
