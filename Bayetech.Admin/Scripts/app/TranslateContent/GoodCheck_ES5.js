@@ -11584,40 +11584,6 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
@@ -11763,7 +11729,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             // four named ports, one on each side:
             makePort("T", go.Spot.Top, go.Spot.TopSide, false, true), makePort("L", go.Spot.Left, go.Spot.LeftSide, true, true), makePort("R", go.Spot.Right, go.Spot.RightSide, true, true), makePort("B", go.Spot.Bottom, go.Spot.BottomSide, true, false)));
 
-            self.myDiagram.nodeTemplateMap.add("Conditional", $(go.Node, "Table", nodeStyle(),
+            self.myDiagram.nodeTemplateMap.add("条件", $(go.Node, "Table", nodeStyle(),
             // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
             $(go.Panel, "Auto", $(go.Shape, "Diamond", { fill: "#00A9C9", strokeWidth: 0 }, new go.Binding("figure", "figure")), $(go.TextBlock, textStyle(), {
                 margin: 8,
@@ -11840,7 +11806,9 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 scrollsPageOnFocus: false,
                 nodeTemplateMap: self.myDiagram.nodeTemplateMap, // share the templates used by myDiagram
                 model: new go.GraphLinksModel([// specify the contents of the Palette
-                { category: "开始", text: "开始" }, { text: "步骤" }, { category: "条件", text: "???" }, { category: "结束", text: "结束" }, { category: "普通", text: "普通" }])
+                { category: "开始", text: "开始" },
+                //{ text: "步骤" },
+                { category: "普通", text: "普通" }, { category: "条件", text: "处理" }, { category: "结束", text: "结束" }])
             });
         },
         save() {
@@ -12771,32 +12739,7 @@ var staticRenderFns = [
                 attrs: { id: "myDiagramDiv" }
               })
             ]
-          ),
-          _vm._v(" "),
-          _c("button", { attrs: { id: "SaveButton", onclick: "save()" } }, [
-            _vm._v("Save")
-          ]),
-          _vm._v(" "),
-          _c("button", { attrs: { onclick: "load()" } }, [_vm._v("Load")]),
-          _vm._v(
-            "\n                    Diagram Model saved in JSON format:\n                    "
-          ),
-          _c(
-            "textarea",
-            {
-              staticStyle: { width: "100%", height: "300px" },
-              attrs: { id: "mySavedModel" }
-            },
-            [
-              _vm._v(
-                '                        { "class": "go.GraphLinksModel",\n                        "linkFromPortIdProperty": "fromPort",\n                        "linkToPortIdProperty": "toPort",\n                        "nodeDataArray": [\n                        {"category":"Comment", "loc":"360 -10", "text":"Kookie Brittle", "key":-13},\n                        {"key":-1, "category":"Start", "loc":"175 0", "text":"Start"},\n                        {"key":0, "loc":"-5 75", "text":"Preheat oven to 375 F"},\n                        {"key":1, "loc":"175 100", "text":"In a bowl, blend: 1 cup margarine, 1.5 teaspoon vanilla, 1 teaspoon salt"},\n                        {"key":2, "loc":"175 200", "text":"Gradually beat in 1 cup sugar and 2 cups sifted flour"},\n                        {"key":3, "loc":"175 290", "text":"Mix in 6 oz (1 cup) Nestle\'s Semi-Sweet Chocolate Morsels"},\n                        {"key":4, "loc":"175 380", "text":"Press evenly into ungreased 15x10x1 pan"},\n                        {"key":5, "loc":"355 85", "text":"Finely chop 1/2 cup of your choice of nuts"},\n                        {"key":6, "loc":"175 450", "text":"Sprinkle nuts on top"},\n                        {"key":7, "loc":"175 515", "text":"Bake for 25 minutes and let cool"},\n                        {"key":8, "loc":"175 585", "text":"Cut into rectangular grid"},\n                        {"key":-2, "category":"End", "loc":"175 660", "text":"Enjoy!"}\n                        ],\n                        "linkDataArray": [\n                        {"from":1, "to":2, "fromPort":"B", "toPort":"T"},\n                        {"from":2, "to":3, "fromPort":"B", "toPort":"T"},\n                        {"from":3, "to":4, "fromPort":"B", "toPort":"T"},\n                        {"from":4, "to":6, "fromPort":"B", "toPort":"T"},\n                        {"from":6, "to":7, "fromPort":"B", "toPort":"T"},\n                        {"from":7, "to":8, "fromPort":"B", "toPort":"T"},\n                        {"from":8, "to":-2, "fromPort":"B", "toPort":"T"},\n                        {"from":-1, "to":0, "fromPort":"B", "toPort":"T"},\n                        {"from":-1, "to":1, "fromPort":"B", "toPort":"T"},\n                        {"from":-1, "to":5, "fromPort":"B", "toPort":"T"},\n                        {"from":5, "to":4, "fromPort":"B", "toPort":"T"},\n                        {"from":0, "to":4, "fromPort":"B", "toPort":"T"}\n                        ]}\n                    '
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("button", { attrs: { onclick: "printDiagram()" } }, [
-            _vm._v("Print Diagram Using SVG")
-          ])
+          )
         ])
       ]
     )
@@ -12941,7 +12884,11 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(_vm._s(item.CURSTATUS_NAME))]
+                  [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(item.CURSTATUS_NAME))
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(item.OrderNo))]),

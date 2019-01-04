@@ -19,7 +19,7 @@
             <tbody v-for="item in goodinfoarray">
                 <tr>
                     <td class="text-center"><label class="table-firsttitle">订单</label></td>
-                    <td @click="OpenFlowChar(item)">{{item.CURSTATUS_NAME}}</td>
+                    <td @click="OpenFlowChar(item)"><a href="#">{{item.CURSTATUS_NAME}}</a></td>
                     <td>{{item.OrderNo}}</td>
                     <td>{{item.GameName}}</td>
                     <td>{{item.GoodTypeName}}</td>
