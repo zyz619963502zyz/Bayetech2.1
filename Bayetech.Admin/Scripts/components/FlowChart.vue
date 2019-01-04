@@ -22,7 +22,49 @@
                 </div>
                 <div class="modal-body" id="modal_body">
                     <!--流程图-->
-                    <div id="myDiagramDiv" style="width:800px; height:300px; background-color: #DAE4E4;text-align:center"></div>
+                    <div id="sample">
+                        <div style="width: 100%; display: flex; justify-content: space-between">
+                            <div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black"></div>
+                            <div id="myDiagramDiv" style="flex-grow: 1; height: 750px; border: solid 1px black"></div>
+                        </div>
+                        <button id="SaveButton" onclick="save()">Save</button>
+                        <button onclick="load()">Load</button>
+                        Diagram Model saved in JSON format:
+                        <textarea id="mySavedModel" style="width:100%;height:300px">
+                            { "class": "go.GraphLinksModel",
+                            "linkFromPortIdProperty": "fromPort",
+                            "linkToPortIdProperty": "toPort",
+                            "nodeDataArray": [
+                            {"category":"Comment", "loc":"360 -10", "text":"Kookie Brittle", "key":-13},
+                            {"key":-1, "category":"Start", "loc":"175 0", "text":"Start"},
+                            {"key":0, "loc":"-5 75", "text":"Preheat oven to 375 F"},
+                            {"key":1, "loc":"175 100", "text":"In a bowl, blend: 1 cup margarine, 1.5 teaspoon vanilla, 1 teaspoon salt"},
+                            {"key":2, "loc":"175 200", "text":"Gradually beat in 1 cup sugar and 2 cups sifted flour"},
+                            {"key":3, "loc":"175 290", "text":"Mix in 6 oz (1 cup) Nestle's Semi-Sweet Chocolate Morsels"},
+                            {"key":4, "loc":"175 380", "text":"Press evenly into ungreased 15x10x1 pan"},
+                            {"key":5, "loc":"355 85", "text":"Finely chop 1/2 cup of your choice of nuts"},
+                            {"key":6, "loc":"175 450", "text":"Sprinkle nuts on top"},
+                            {"key":7, "loc":"175 515", "text":"Bake for 25 minutes and let cool"},
+                            {"key":8, "loc":"175 585", "text":"Cut into rectangular grid"},
+                            {"key":-2, "category":"End", "loc":"175 660", "text":"Enjoy!"}
+                            ],
+                            "linkDataArray": [
+                            {"from":1, "to":2, "fromPort":"B", "toPort":"T"},
+                            {"from":2, "to":3, "fromPort":"B", "toPort":"T"},
+                            {"from":3, "to":4, "fromPort":"B", "toPort":"T"},
+                            {"from":4, "to":6, "fromPort":"B", "toPort":"T"},
+                            {"from":6, "to":7, "fromPort":"B", "toPort":"T"},
+                            {"from":7, "to":8, "fromPort":"B", "toPort":"T"},
+                            {"from":8, "to":-2, "fromPort":"B", "toPort":"T"},
+                            {"from":-1, "to":0, "fromPort":"B", "toPort":"T"},
+                            {"from":-1, "to":1, "fromPort":"B", "toPort":"T"},
+                            {"from":-1, "to":5, "fromPort":"B", "toPort":"T"},
+                            {"from":5, "to":4, "fromPort":"B", "toPort":"T"},
+                            {"from":0, "to":4, "fromPort":"B", "toPort":"T"}
+                            ]}
+                        </textarea>
+                        <button onclick="printDiagram()">Print Diagram Using SVG</button>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -35,11 +77,13 @@ export default{
     data(){
         return {
             OrderNo:"",//订单号
+            myDiagram:{},
             Param:{
                 wfmId:"",
                 flowId:""
             },
             Result:{
+                DiagramData:{},
                 List:[
                     {
                         WFM_ID:"",
@@ -79,27 +123,30 @@ export default{
     watch:{
         currentwfmid(val,oldval){
             var self = this;
-            self.Param.wfmid = val;
-            self.Param.Flow_ID = self.currentitem.Flow_ID;
+            self.Param.wfmId = val;
+            self.Param.flowId = self.currentitem.Flow_ID;
             self.OrderNo = self.currentitem.OrderNo;
-            self.GetDiagramData();
+            self.GetDiagramData();//获取图标数据。
+            self.init();
         }
     },
     methods:{
         GetDiagramData(){//获取图表数据
             var self = this;
-            comCompnent.default.getWebJson("/api/Flow/GetLogmonitor", self.Param, function (data) {
-                    if (data) {
-                        self.Result.List = data.content;
-                        self.SetDiagram(self.Result.List);
-                    }
-                })//同步获取当前流程信息
+            comCompnent.default.getWebJson("/api/Flow/GetFlowAllInfo", self.Param, function (data) {
+                if (data) {
+                    self.Result.List = data.current;
+                    self.Result.DiagramData = data.diagram;
+                }
+            },function(data){
+                alert(data);
+            },1)
         },
         init(){
+                var self = this;
                 if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
                 var $ = go.GraphObject.make;  // for conciseness in defining templates
-
-                myDiagram =
+                self.myDiagram =
                     $(go.Diagram, "myDiagramDiv",  // must name or refer to the DIV HTML element
                     {
                         initialContentAlignment: go.Spot.Center,
@@ -109,27 +156,20 @@ export default{
                         scrollsPageOnFocus: false,
                         "undoManager.isEnabled": true  // enable undo & redo
                     });
-
                 // when the document is modified, add a "*" to the title and enable the "Save" button
-                myDiagram.addDiagramListener("Modified", function(e) {
+                self.myDiagram.addDiagramListener("Modified", function(e) {
                     var button = document.getElementById("SaveButton");
-                    if (button) button.disabled = !myDiagram.isModified;
+                    if (button) button.disabled = !self.myDiagram.isModified;
                     var idx = document.title.indexOf("*");
-                    if (myDiagram.isModified) {
+                    if (self.myDiagram.isModified) {
                     if (idx < 0) document.title += "*";
                     } else {
                     if (idx >= 0) document.title = document.title.substr(0, idx);
                     }
                 });
 
-                // helper definitions for node templates
-
                 function nodeStyle() {
                     return [
-                    // The Node.location comes from the "loc" property of the node data,
-                    // converted by the Point.parse static method.
-                    // If the Node.location is changed, it updates the "loc" property of the node data,
-                    // converting back using the Point.stringify static method.
                     new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
                     {
                         // the Node.location is at the center of each node
@@ -169,7 +209,7 @@ export default{
                     }
                 }
 
-                myDiagram.nodeTemplateMap.add("",  // the default category
+                self.myDiagram.nodeTemplateMap.add("",  // the default category
                     $(go.Node, "Table", nodeStyle(),
                     // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
                     $(go.Panel, "Auto",
@@ -192,7 +232,7 @@ export default{
                     makePort("B", go.Spot.Bottom, go.Spot.BottomSide, true, false)
                     ));
 
-                myDiagram.nodeTemplateMap.add("Conditional",
+                self.myDiagram.nodeTemplateMap.add("Conditional",
                     $(go.Node, "Table", nodeStyle(),
                     // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
                     $(go.Panel, "Auto",
@@ -215,12 +255,12 @@ export default{
                     makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)
                     ));
 
-                myDiagram.nodeTemplateMap.add("Start",
+                self.myDiagram.nodeTemplateMap.add("开始",
                     $(go.Node, "Table", nodeStyle(),
                     $(go.Panel, "Auto",
                         $(go.Shape, "Circle",
                         { minSize: new go.Size(40, 40), fill: "#79C900", strokeWidth: 0 }),
-                        $(go.TextBlock, "Start", textStyle(),
+                        $(go.TextBlock, "开始", textStyle(),
                         new go.Binding("text"))
                     ),
                     // three named ports, one on each side except the top, all output only:
@@ -229,12 +269,12 @@ export default{
                     makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)
                     ));
 
-                myDiagram.nodeTemplateMap.add("End",
+                self.myDiagram.nodeTemplateMap.add("结束",
                     $(go.Node, "Table", nodeStyle(),
                     $(go.Panel, "Auto",
                         $(go.Shape, "Circle",
                         { minSize: new go.Size(40, 40), fill: "#DC3C00", strokeWidth: 0 }),
-                        $(go.TextBlock, "End", textStyle(),
+                        $(go.TextBlock, "结束", textStyle(),
                         new go.Binding("text"))
                     ),
                     // three named ports, one on each side except the bottom, all input only:
@@ -243,7 +283,7 @@ export default{
                     makePort("R", go.Spot.Right, go.Spot.Right, false, true)
                     ));
 
-                myDiagram.nodeTemplateMap.add("Comment",
+                self.myDiagram.nodeTemplateMap.add("描述",
                     $(go.Node, "Auto", nodeStyle(),
                     $(go.Shape, "File",
                         { fill: "#EFFAB4", strokeWidth: 0 }),
@@ -260,7 +300,7 @@ export default{
                         new go.Binding("text").makeTwoWay())
                     ));
 
-                myDiagram.linkTemplate =
+                self.myDiagram.linkTemplate =
                     $(go.Link,  // the whole link panel
                     {
                         routing: go.Link.AvoidsNodes,
@@ -305,42 +345,44 @@ export default{
                 }
 
                 // temporary links used by LinkingTool and RelinkingTool are also orthogonal:
-                myDiagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
-                myDiagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
+                self.myDiagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
+                self.myDiagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
 
-                load();  // load an initial diagram from some JSON text
+                self.load();  // load an initial diagram from some JSON text
 
                 myPalette =
                     $(go.Palette, "myPaletteDiv",  // must name or refer to the DIV HTML element
                     {
                         scrollsPageOnFocus: false,
-                        nodeTemplateMap: myDiagram.nodeTemplateMap,  // share the templates used by myDiagram
+                        nodeTemplateMap: self.myDiagram.nodeTemplateMap,  // share the templates used by myDiagram
                         model: new go.GraphLinksModel([  // specify the contents of the Palette
-                        { category: "Start", text: "Start" },
-                        { text: "Step" },
-                        { category: "Conditional", text: "???" },
-                        { category: "End", text: "End" },
-                        { category: "Comment", text: "Comment" }
+                        { category: "开始", text: "开始" },
+                        { text: "步骤" },
+                        { category: "条件", text: "???" },
+                        { category: "结束", text: "结束" },
+                        { category: "普通", text: "普通" }
                         ])
                     });
         },
         save(){
-             document.getElementById("mySavedModel").value = myDiagram.model.toJson();
-             myDiagram.isModified = false;
+             document.getElementById("mySavedModel").value = self.myDiagram.model.toJson();
+             self.myDiagram.isModified = false;
         },
         load(){
-             myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+             var self = this;
+            //self.myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+            self.myDiagram.model = go.Model.fromJson(self.Result.DiagramData);
         },
         printDiagram(){
             var svgWindow = window.open();
             if (!svgWindow) return;  // failure to open a new Window
             var printSize = new go.Size(700, 960);
-            var bnds = myDiagram.documentBounds;
+            var bnds = self.myDiagram.documentBounds;
             var x = bnds.x;
             var y = bnds.y;
             while (y < bnds.bottom) {
                 while (x < bnds.right) {
-                var svg = myDiagram.makeSVG({ scale: 1.0, position: new go.Point(x, y), size: printSize });
+                var svg = self.myDiagram.makeSVG({ scale: 1.0, position: new go.Point(x, y), size: printSize });
                 svgWindow.document.body.appendChild(svg);
                 x += printSize.width;
                 }

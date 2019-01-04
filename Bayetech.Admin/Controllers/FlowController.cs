@@ -55,8 +55,8 @@ namespace Bayetech.Admin.Controllers
         /// </summary>
         /// <param name="flowId"></param>
         /// <returns></returns>
+        [HttpGet]
         public JObject GetFlowAllInfo(string wfmId,decimal flowId) {
-            JObject ret = new JObject();
             return service.GetDiagramFLowInfos(wfmId,flowId);
         }
 

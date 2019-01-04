@@ -121,7 +121,7 @@ namespace Bayetech.DAL
             tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
             return tempData.ToList();
         }
-        public List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate, Pagination pagination)
+        public List<TEntity> FindList(Pagination pagination,Expression<Func<TEntity, bool>> predicate)
         {
             bool isAsc = pagination.sord.ToLower() == "asc" ? true : false;
             string[] _order = pagination.order.Split(',');

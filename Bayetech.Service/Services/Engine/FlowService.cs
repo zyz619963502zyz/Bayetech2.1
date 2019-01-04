@@ -31,7 +31,7 @@ namespace Bayetech.Service
                     for (int i = 0; i < status.Count; i++)
                     {
                         Node node = new Node();//定义环节节点
-                        node.category = Enum.GetName(typeof(STATUSNAME), status[i].STATUS_TYPE_ID);
+                        node.category = ((STATUSNAME)status[i].STATUS_TYPE_ID).ToString();
                         node.key = status[i].STATUS_ID;
                         node.loc = status[i].CUR_X.ToString() + " " + status[i].CUR_Y.ToString();//坐标
                         node.text = status[i].STATUS_NAME;
