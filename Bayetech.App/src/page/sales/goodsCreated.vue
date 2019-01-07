@@ -83,16 +83,11 @@
             </section>
           </div>
           <div data-v-6027fbac="" data-v-08a3bc62="">
-
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32"></section>
-
-
             <div data-v-6027fbac="" class="order-container bg-fff f30 color-000 border-bottom">
               <span data-v-6027fbac="" class="span-icon-xinhao">角色等级</span>
               <input data-v-6027fbac="" type="text" maxlength="90" placeholder="请输入角色等级" />
             </div>
-
-
           </div>
           <div data-v-6027fbac="" data-v-08a3bc62="">
 

@@ -33,10 +33,10 @@
           </div>
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
             <ul data-v-484bcaae="" class="clearfix">
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','account'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','account')">游戏帐号</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','equip'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','equip')">游戏装备</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','tzs'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','tzs')">挑战书</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','coinspf'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','coinspf')">硬币批发</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('property','goodsType','account'),fl:true,border:true}" @click="$chooseSingle('property','goodsType','account')">游戏帐号</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('property','goodsType','equip'),fl:true,border:true}" @click="$chooseSingle('property','goodsType','equip')">游戏装备</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('property','goodsType','tzs'),fl:true,border:true}" @click="$chooseSingle('property','goodsType','tzs')">挑战书</li>
+              <li data-v-484bcaae="" :class="{selected:$isChoice('property','goodsType','coinspf'),fl:true,border:true}" @click="$chooseSingle('property','goodsType','coinspf')">硬币批发</li>
 
               <!--<li data-v-484bcaae="" :class="{selected:isChoice('coins','0'),fl:true,border:true}">游戏币</li>
   <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
@@ -64,8 +64,8 @@
           <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-333">交易类型</span></div>
           <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
             <ul data-v-f82175a2="" class="clearfix">
-              <li data-v-f82175a2="" class="border fl">寄售</li>
-              <li data-v-f82175a2="" class="border fl">担保</li>
+              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','js'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','js')">寄售</li>
+              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','db'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','db')">担保</li>
             </ul>
           </div>
           <div data-v-484bcaae="" class="release fw mt-20">
@@ -88,9 +88,11 @@
 
   let vmdata = {
 
+    
 
-    test: {
-      goodsType: []
+    property: {
+      goodsType: [],
+      tradeType:['db']
     }
   }
   export default {
