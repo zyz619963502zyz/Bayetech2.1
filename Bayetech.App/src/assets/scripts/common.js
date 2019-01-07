@@ -1,5 +1,4 @@
 export function choose(model,name,value) {
-
   let t = 1;
   let list = this[model][name]
 
