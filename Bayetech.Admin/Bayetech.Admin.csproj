@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -202,6 +204,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
+    <Compile Include="Common\CommonHelper.cs" />
     <Compile Include="Common\HttpResponseExtension.cs" />
     <Compile Include="Common\WebApiHelper.cs" />
     <Compile Include="Controllers\AdminManageController.cs" />
@@ -1233,8 +1236,6 @@
     <Content Include="lib\jquery.md5.js" />
     <Content Include="lib\jquery.twbsPagination.js" />
     <Content Include="lib\jquery\AUTHORS.txt" />
-    <Content Include="lib\jquery\build\release-notes.js" />
-    <Content Include="lib\jquery\build\release.js" />
     <Content Include="lib\jquery\Gruntfile.js" />
     <Content Include="lib\jquery\jquery-migrate.js" />
     <Content Include="lib\jquery\jquery-migrate.min.js" />
@@ -1350,12 +1351,6 @@
     <Content Include="lib\jquery\test\unit\support.js" />
     <Content Include="lib\jquery\test\unit\traversing.js" />
     <Content Include="lib\jquery\test\unit\wrap.js" />
-    <Content Include="lib\knockout\build\fragments\amd-post.js" />
-    <Content Include="lib\knockout\build\fragments\amd-pre.js" />
-    <Content Include="lib\knockout\build\fragments\extern-post.js" />
-    <Content Include="lib\knockout\build\fragments\extern-pre.js" />
-    <Content Include="lib\knockout\build\fragments\source-references.js" />
-    <Content Include="lib\knockout\build\knockout-raw.js" />
     <Content Include="lib\knockout\dist\knockout.debug.js" />
     <Content Include="lib\knockout\dist\knockout.js" />
     <Content Include="lib\knockout\dist\knockout.mapping.js" />
@@ -1982,14 +1977,6 @@
     <Content Include="lib\userToken.js" />
     <Content Include="lib\version.js" />
     <Content Include="lib\webfontloader.js" />
-    <Content Include="lib\webuploader-master\build\docTpl\css\doc.css" />
-    <Content Include="lib\webuploader-master\build\fis\intro.js" />
-    <Content Include="lib\webuploader-master\build\fis\outro.js" />
-    <Content Include="lib\webuploader-master\build\intro.js" />
-    <Content Include="lib\webuploader-master\build\outro.js" />
-    <Content Include="lib\webuploader-master\build\tasks\build.js" />
-    <Content Include="lib\webuploader-master\build\tasks\concat.js" />
-    <Content Include="lib\webuploader-master\build\tasks\doc.js" />
     <Content Include="lib\webuploader-master\css\webuploader.css" />
     <Content Include="lib\webuploader-master\dist\Uploader.swf" />
     <Content Include="lib\webuploader-master\dist\webuploader.css" />
@@ -2184,6 +2171,7 @@
     <Content Include="Page\GameManage\GameProperty.html" />
     <Content Include="Page\GameManage\GameMenu.html" />
     <Content Include="Page\Login.html" />
+    <Content Include="Page\PageTest.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
@@ -2191,6 +2179,7 @@
     <Content Include="Page\sysPage\NavigationManage.html" />
     <Content Include="Page\sysPage\RolesManage.html" />
     <Content Include="Page\sysPage\Setting.html" />
+    <Content Include="Page\test.xml" />
     <Content Include="Page\workflow\workflow.html" />
     <Content Include="Resource\Spring\SpringObjects.xml">
       <SubType>Designer</SubType>
@@ -2233,25 +2222,6 @@
     <Content Include="Scripts\app\WFManage.js" />
     <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="lib\aierp\fonts\et-line.eot" />
     <Content Include="lib\aierp\fonts\et-line.ttf" />
     <Content Include="lib\aierp\fonts\et-line.woff" />
@@ -2642,15 +2612,6 @@
     <Content Include="lib\webuploader-master\.jshintrc" />
     <Content Include="lib\webuploader-master\.travis.yml" />
     <Content Include="lib\webuploader-master\bower.json" />
-    <Content Include="lib\webuploader-master\build\docTpl\class.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\content.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\events.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\items.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\layout.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\module.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\options.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\plugins.ejs" />
-    <Content Include="lib\webuploader-master\build\docTpl\sidebar.ejs" />
     <Content Include="lib\webuploader-master\dist\README.md" />
     <Content Include="lib\webuploader-master\examples\image-upload\icons.psd" />
     <Content Include="lib\webuploader-master\examples\image-upload\progress.psd" />
@@ -2776,8 +2737,11 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\components\table-OrderProcess.vue" />
     <Content Include="Scripts\components\table-GoodProcess.vue" />
+    <Content Include="Scripts\components\FlowChart.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\components\Test.js" />
+    <Content Include="Scripts\go-1.8.35-debug.js" />
+    <Content Include="Scripts\go-1.8.35.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\router\router.js" />
@@ -2799,9 +2763,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\components\toolBar.vue" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -2810,15 +2771,22 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Main\" />
+    <Folder Include="lib\jquery\build\" />
+    <Folder Include="lib\knockout\build\fragments\" />
+    <Folder Include="lib\webuploader-master\build\docTpl\css\" />
+    <Folder Include="lib\webuploader-master\build\fis\" />
+    <Folder Include="lib\webuploader-master\build\tasks\" />
     <Folder Include="Module\" />
     <Folder Include="node_modules\" />
     <Folder Include="Page\router\" />
+    <Folder Include="Scripts\typings\" />
     <Folder Include="Views\ButtonsManage\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\NavButtons\" />
     <Folder Include="Views\RoleNavBtns\" />
     <Folder Include="Views\Roles\" />
+    <Folder Include="Views\Shared\" />
     <Folder Include="Views\UserRoles\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
@@ -2870,11 +2838,15 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

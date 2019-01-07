@@ -1,34 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<script type="text/javascript">
-    function A(arg) {
-        this.showA = function () {
-            alert(arg + "调用了A的函数。");
-        }
-    }
-
-    function B() {
-        A.apply(this, ["B"]);
-    }
-
-    function C() {
-        A.call(this, "C");
-    }
-
-    //var b = new B();
-    //b.showA();
-
-    var c = new C();
-
-    HttpCookie aaa =  new  HttpCookie("name");
-    c.showA();
-</script>
-<body>
-        
-</body>
+﻿<html>
+     <head>
+         <script src="http://localhost:5133/Scripts/go-1.8.35-debug.js"></script>
+     </head>
 </html>
+
+<script type="text/javascript">
+  
+</script>

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 52);
+/******/ 	return __webpack_require__(__webpack_require__.s = 54);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -105,6 +105,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
+    LocalWeb: "http://localhost:15786/api/",
+    WebUrl: "http://47.98.176.184:80/api/",
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {
@@ -173,7 +175,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +219,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11113,7 +11115,7 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 52:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

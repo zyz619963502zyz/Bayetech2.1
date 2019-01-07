@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -105,6 +105,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
+    LocalWeb: "http://localhost:15786/api/",
+    WebUrl: "http://47.98.176.184:80/api/",
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {
@@ -173,7 +175,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +219,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -452,7 +454,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 18:
+/***/ 19:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10082,11 +10084,11 @@ let data = {
 
 /***/ }),
 
-/***/ 27:
+/***/ 29:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(19);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
 
@@ -10194,12 +10196,12 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 37:
+/***/ 39:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(29);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -10902,7 +10904,7 @@ component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
 
 /***/ }),
 
-/***/ 45:
+/***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10910,7 +10912,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(39);
 
 
 
@@ -10922,6 +10924,7 @@ let vmData = {
     },
     RolesUrl: "/api/AdminManage/GetNavgationList",
     RolesAdd: "/api/Navigation/GetAddNavigation",
+    RolesEdit: "/api/Navigation/GetEditNavigation",
     RolesDelete: "/api/Navigation/deleteNavigation",
     CheckGoodNo: "", //模态框打开的GoodNo
     keyword: "",
@@ -10933,16 +10936,16 @@ let vmData = {
             SelectNo: "" //form里面选择的编号
         },
         ListObj: {
-            MenuID: "",
+            MenuID: 0,
             MenuName: "",
             PicID: "",
-            ParentID: "",
+            ParentID: 0,
             url: "",
-            sortid: "",
+            sortid: 0,
             Remark: "",
             SysFlag: "",
             ModuleId: "",
-            isdelete: "",
+            isdelete: 0,
             createtime: ""
         },
 
@@ -10981,11 +10984,28 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         SaveModal() {
             //提交
             var self = this;
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId == "" ? 0 : self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
                     alert("操作成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        EditModalSave() {
+            //修改提交
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.RolesEdit, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#EditModal").modal("hide");
+                    alert("操作成功!");
+                } else {
+                    alert(data.content);
                 }
                 self.findList();
                 //$("#CheckConfirm").Btns("reset");
@@ -11010,20 +11030,19 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         OpenEditModal() {
             //修改
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.MenuID == 0) {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            $("#UserModal").modal("show");
+            $("#EditModal").modal("show");
         },
         Delete() {
             //删除
             var self = this;
-            if (self.SearchParam.ListObj.KeyId == 0) {
+            if (self.SearchParam.ListObj.MenuID == 0) {
                 alert("请选择按钮");
-                return;
+                return false;
             }
-            self.SearchParam.ListObj.KeyId = self.SearchParam.ListObj.KeyId;
             self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
                 if (data.result) {
                     $("#UserModal").modal("hide");
@@ -11038,8 +11057,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         StartCheck(type) {
             //开始检查
             var self = this;
-            debugger;
-            self.SearchParam.ListObj = type;
+            var c = $.extend(true, self.SearchParam.ListObj, type);
             //$("#checkModal").modal("show");
         },
         TurnToPage(page) {
@@ -11246,17 +11264,6 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 59:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(68);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b"]; });
-
-
-/***/ }),
-
 /***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11446,7 +11453,80 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 68:
+/***/ 63:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__ = __webpack_require__(73);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_id_BaseTable_lang_html__["b"]; });
+
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function () {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function () {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout = exports.clearInterval = function (timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function () {};
+Timeout.prototype.close = function () {
+  this._clearFn.call(scope, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function (item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function (item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function (item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout) item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(6);
+// On some exotic environments, it's not clear which object `setimmediate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
+exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11607,68 +11687,6 @@ var staticRenderFns = [
 render._withStripped = true
 
 
-
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function () {
-  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
-};
-exports.setInterval = function () {
-  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
-};
-exports.clearTimeout = exports.clearInterval = function (timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function () {};
-Timeout.prototype.close = function () {
-  this._clearFn.call(scope, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function (item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function (item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function (item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout) item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(6);
-// On some exotic environments, it's not clear which object `setimmediate` was
-// able to install onto.  Search each possibility in the same order as the
-// `setimmediate` library.
-exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
-exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -105,6 +105,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
+    LocalWeb: "http://localhost:15786/api/",
+    WebUrl: "http://47.98.176.184:80/api/",
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {
@@ -173,7 +175,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -217,7 +219,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -10922,94 +10924,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 48:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(10);
-
-
-
-
-let vmData = {
-    GameListUrl: "/api/Game/",
-    GetByLetterUrl: "/api/Game/GetGameListByLetter",
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
-    },
-    Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
-    GameArray: [],
-    ListObj: [{
-        Name: "",
-        Alias: "",
-        Letter: "",
-        IsHot: "",
-        Parentid: "",
-        Order: "", //排序
-        Platform: "",
-        Img: "",
-        IsDelete: "" //是否被删除
-    }],
-    SearchParam: {
-        Param: { //查询条件的参数
-            SelectLetter: "", //选择的游戏首字母
-            SelectGame: "" //选择的游戏
-        },
-        Pagination: { //分页对象
-            rows: 10, //每页行数，
-            page: 1, //当前页码
-            order: "IsHot", //排序字段
-            sord: "asc", //排序类型
-            records: 10, //总记录数
-            total: 10 //总页数。
-        }
-    }
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#app',
-    data: vmData,
-    created() {
-        //this.findList();
-    },
-    methods: {
-        findList() {
-            //获取商品的简要列表
-            self.tools._comCompnent.postWebJson(self.GameListUrl, self.SearchParam, function (data) {
-                $("#QueryList").Btns("reset");
-                if (data.result) {
-                    self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                }
-            }, function () {
-                $("#QueryList").Btns("reset");
-            });
-        },
-        GetByLetter(letter) {
-            //根据首字母去查询下拉游戏
-            var self = this;
-            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, { "type": 0, "letter": letter }, function (data) {
-                self.GameArray = data.content;
-            });
-        },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        }
-    },
-    components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
-    }
-});
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, exports) {
 
@@ -11198,6 +11112,94 @@ process.chdir = function (dir) {
 process.umask = function () {
     return 0;
 };
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__ = __webpack_require__(10);
+
+
+
+
+let vmData = {
+    GameListUrl: "/api/Game/",
+    GetByLetterUrl: "/api/Game/GetGameListByLetter",
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+    },
+    Letters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], //首字母集合
+    GameArray: [],
+    ListObj: [{
+        Name: "",
+        Alias: "",
+        Letter: "",
+        IsHot: "",
+        Parentid: "",
+        Order: "", //排序
+        Platform: "",
+        Img: "",
+        IsDelete: "" //是否被删除
+    }],
+    SearchParam: {
+        Param: { //查询条件的参数
+            SelectLetter: "", //选择的游戏首字母
+            SelectGame: "" //选择的游戏
+        },
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "IsHot", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#app',
+    data: vmData,
+    created() {
+        //this.findList();
+    },
+    methods: {
+        findList() {
+            //获取商品的简要列表
+            self.tools._comCompnent.postWebJson(self.GameListUrl, self.SearchParam, function (data) {
+                $("#QueryList").Btns("reset");
+                if (data.result) {
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            }, function () {
+                $("#QueryList").Btns("reset");
+            });
+        },
+        GetByLetter(letter) {
+            //根据首字母去查询下拉游戏
+            var self = this;
+            self.tools._comCompnent.getWebJson(self.GetByLetterUrl, { "type": 0, "letter": letter }, function (data) {
+                self.GameArray = data.content;
+            });
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_Process_vue__["a" /* default */]
+    }
+});
 
 /***/ }),
 

@@ -19,61 +19,62 @@ namespace Bayetech.Service
         public JObject AddRoles(JObject json)
         {
 
-            Admin_Sys_Roles _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new Admin_Sys_Roles() : JsonConvert.DeserializeObject<Admin_Sys_Roles>(json["ListObj"].ToString());
+            T_Pub_Role tRole = json["ListObj"].ToString() == "" ? new T_Pub_Role() : JsonConvert.DeserializeObject<T_Pub_Role>(json["ListObj"].ToString());
             JObject result = new JObject();
-            if (string.IsNullOrEmpty(_admin_Sys_Roles.RoleName))
+            if (string.IsNullOrEmpty(tRole.Role_Name) || string.IsNullOrEmpty(tRole.Module_ID) || string.IsNullOrEmpty(tRole.RoleSerial))
             {
                 result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空"));
+                result.Add(ResultInfo.Content, JToken.FromObject("必填项不能为空"));
+                return result;
             }
-            var _adminNavigation = repository.FindEntity<Admin_Sys_Roles>(a => a.RoleName == _admin_Sys_Roles.RoleName);
-            if (_adminNavigation != null)
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
-                result.Add(ResultInfo.Result, JToken.FromObject(false));
-                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
-            }
-            else
-            {
-                if (_admin_Sys_Roles.KeyId == 0)
+                var role = db.FindEntity<T_Pub_Role>(a => a.Role_Name == tRole.Role_Name);
+                var getMax = db.IQueryable<T_Pub_Role>().Select(a => a.Role_Value).Max();
+                var getMax1 = db.IQueryable<T_Pub_Role>().Select(a => a.Role_id).Max();
+                if (role != null)
                 {
-                    using (var db = new RepositoryBase().BeginTrans())
-                    {
-                        db.Insert(_admin_Sys_Roles);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
+                    result.Add(ResultInfo.Result, JToken.FromObject(false));
+                    result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
                 }
                 else
                 {
-                    using (var db = new RepositoryBase().BeginTrans())
+                    try
                     {
-                        db.Update(_admin_Sys_Roles);
-                        if (db.Commit() == 1)
+                        if (tRole.Role_id == 0)
                         {
-                            result.Add(ResultInfo.Result, true);
+                            tRole.Role_Remark = tRole.Role_Name;
+                            tRole.Role_Display = tRole.Role_Name;
+                            tRole.Role_Column = "0";
+                            tRole.CreateTime = DateTime.Now;
+                            tRole.Company_ID = 1;
+                            tRole.Role_Value = getMax * 2;
+                            tRole.Role_id = getMax1 + 1;
+                            db.Insert(tRole);
+
                         }
                         else
                         {
-                            result.Add(ResultInfo.Result, false);
+                            db.Update(tRole);
                         }
+                        db.Commit();
+                        result.Add(ResultInfo.Result, true);
+                       
                     }
-
+                    catch(Exception ex)
+                    {
+                        result.Add(ResultInfo.Result, false);
+                    }
                 }
+                return result;
             }
-            return result;
         }
 
         public JObject DeleteRoles(JObject json)
         {
             JObject result = new JObject();
-            Admin_Sys_Roles _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new Admin_Sys_Roles() : JsonConvert.DeserializeObject<Admin_Sys_Roles>(json["ListObj"].ToString());
-            using (var db = new RepositoryBase().BeginTrans())
+            T_Pub_Role _admin_Sys_Roles = json["ListObj"].ToString() == "" ? new T_Pub_Role() : JsonConvert.DeserializeObject<T_Pub_Role>(json["ListObj"].ToString());
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
                 db.Delete(_admin_Sys_Roles);
                 if (db.Commit() == 1)
@@ -161,7 +162,6 @@ namespace Bayetech.Service
                     userList = userList.FindAll(a => a.Role_Name.Contains(json["Param"]["Type"].ToString()));
                 }
                 ResultPage.datas = userList.ToList();
-
                 if (page != null)
                 {
                     ResultPage.pagination = page;
@@ -291,8 +291,8 @@ namespace Bayetech.Service
                         meun.msrepl_tran_version = Guid.NewGuid();
                         db.Insert<T_Pro_MenuRole>(meun);
                     }
-                    db.Commit();
                 }
+                db.Commit();
                 result.Add(ResultInfo.Result, true);
                 return result;
             }

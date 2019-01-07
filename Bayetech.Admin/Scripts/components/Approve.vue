@@ -35,20 +35,20 @@
                 EngineInfo:{//引擎对象
                     Flow_Id: "",
                     Wfm_Id: "",
-                    Sender_Id: "",
-                    Sender_Code: "",
-                    Reciever_Id: "",
-                    Reciever_Code: "",
-                    Cur_Status_Id: "",
-                    New_Status_Id: "",
-                    Disposal_Id: "",
-                    Send_Time:""
+                    Sender_Id: "",//T_Pub_User表的UserId
+                    Sender_Code: "",//T_Pub_User表的UserCode;
+                    Reciever_Id: "",//T_Pub_User表的UserId
+                    Reciever_Code: "",//T_Pub_User表的UserCode
+                    Cur_Status_Id: "",//当前环节Id
+                    New_Status_Id: "",//处理线获得的下一环节Id
+                    Disposal_Id: "",//处理线Id
+                    Send_Time:""//发送时间
                 },
                 PageInfo:{//页面对象
-                    txtPageConditionRule99:""
+                    txtPageConditionRule99:";KefuOperate;"
                 },
                 Url: {//接口连接字符串
-                    NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
+                    NewFlowExample: comCompnent.default.EngineUrl + "Create_NewFlowExample",
                     FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
                     FlowStatusInfo: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
                     CurFlowStatusInfo: comCompnent.default.EngineUrl + "Get_CurFlowStatusInfo",
@@ -59,7 +59,8 @@
                 },
                 Param: {//参数
                     NewFlowExample: {//新建流程实例
-                        EngineInfo: {}
+                        EngineInfo: {},
+                        PageInfo:  {}
                     },
                     OnNextStep: {//提交送下一步
                         EngineInfo: {},
@@ -102,7 +103,7 @@
                         OperationRole_Name:"",//业务角色名
                         OperationPerm_Value:"",//状态权限值
                         IsNextStatus:"",//是否后续节点还有本节点
-                        Status_Attribute:"",//属性字段
+                        Status_Attribute:"",//属性字段 
                         Userrole_ID:"",//用户角色ID,后面权限字段省略...引擎看
                     },
                     CurFlowStatusInfo: {//同上，当前环节信息CStatus
@@ -186,22 +187,10 @@
                     }
                 }
             },
-            NextRoleSelected:function(val,oldval){//角色选中
+            NextRoleSelected: function (val, oldval) {//角色选中
                 var self = this;
-                self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
-                for (var i = 0; i <self.ResultList.DispUserInfo.length; i++) {
-                    if (self.ResultList.DispUserInfo[i].User_ID == val) {
-                        self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人ID
-                        break;
-                    }
-                }
-            },
-            //wfmid: function (val) {//wfmid发生变化不为空以后执行Init，这样父组件不需要再次ref调用。
-            //    if (val) {
-            //        var self = this;
-            //        self.Init(val);
-            //    }
-            //}
+                self.SetNextRoleSelected();
+            }
         },
         methods: {
             Init(wfmid) {
@@ -219,21 +208,41 @@
                     self.Get_StatusAllDisposal();
                 }
             },
-            Create_NewFlowExample() {//创建流程实例
+            SetNextRoleSelected() {//下一处理人选中。
                 var self = this;
-                comCompnent.default.getWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
+                self.EngineInfo.Reciever_Id = self.NextRoleSelected; //通用流程信息赋值
+                for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
+                    if (self.ResultList.DispUserInfo[i].User_ID == self.EngineInfo.Reciever_Id) {
+                        self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code;//发送人Code
+                        self.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                        self.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
+                        break;
+                    }
+                }
+            },
+            Create_NewFlowExample(param,sync) {//创建流程实例
+                var self = this;
+                var result;
+                if (param) {
+                    self.Param.NewFlowExample = param;
+                };
+                comCompnent.default.postWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
                     if (data) {
                         self.ResultList.NewFlowExample = data;
                         alert("实例创建成功!");
+                        result = data;
                     }
-                })
+                },function error(){},sync);
+                if (sync) {
+                    return result;
+                }
             },
             Get_FlowBeginStatusInfo() {//获取流程开始环节信息
                 var self = this;
                 comCompnent.default.getWebJson(self.Url.FlowBeginStatusInfo, self.Param.FlowBeginStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.FlowBeginStatusInfo = data;
-                        alert("获取流程开始信息成功!");
+                        //alert("获取流程开始信息成功!");
                     }
                 })
             },
@@ -245,7 +254,7 @@
                         self.ResultList.CurFlowStatusInfo = data;
                         self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
                         self.flowid = data.Flow_ID;
-                        alert("获取当前流程信息成功!");
+                        //alert("获取当前流程信息成功!");
                     }
                 }, null, sync)//同步获取当前流程信息
             },
@@ -255,7 +264,7 @@
                     if (data) {
                         self.ResultList.StatusAllDisposal = data;//data[0]
                         self.EngineInfo.New_Status_Id = data.Pre_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
-                        alert("获取当前环节流程线成功!");
+                        //alert("获取当前环节流程线成功!");
                     }
                 })
             },
@@ -266,6 +275,7 @@
                 comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
                     if (data) {
                         self.ResultList.DispUserInfo = data;
+                        self.SetNextRoleSelected();//设置pageInfo信息
                         alert("获取下一处理人成功!");
                     }
                 })
@@ -278,11 +288,14 @@
                 }else {
                     self.Param.OnNextStep.EngineInfo = self.EngineInfo;//收集到的页面信息
                     self.Param.OnNextStep.PageInfo = self.PageInfo;//txtPageConditionRule99.
+                    //发送人信息
+                    self.Param.OnNextStep.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                    self.Param.OnNextStep.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
                 }
-                comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+                comCompnent.default.postWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                     if (data) {
                         self.ResultList.OnNextStep = data;
-                        alert("提交送下一步成功!");
+                        alert("提交送下一步成功!");   
                         $("#checkModal").modal("hide");
                     }
                 });
@@ -294,7 +307,7 @@
                 comCompnent.default.getWebJson(self.Url.FlowStatusInfo, self.Param.FlowStatusInfo, function (data) {
                     if (data) {
                         self.ResultList.FlowStatusInfo = data;
-                        alert("获取当前流程及环节信息成功!");
+                        //alert("获取当前流程及环节信息成功!");
                     }
                 },true)
             },
@@ -303,7 +316,7 @@
                 comCompnent.default.getWebJson(self.Url.PermList, self.Param.PermList, function (data) {
                     if (data) {
                         self.ResultList.PermList = data;
-                        alert("获取权限成功!");
+                        //alert("获取权限成功!");
                     }
                 })
             }

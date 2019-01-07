@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -103,6 +103,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var comCompnent = {
+    LocalWeb: "http://localhost:15786/api/",
+    WebUrl: "http://47.98.176.184:80/api/",
     EngineUrl: "http://47.98.176.184:8080/api/Engine/", //服务器
     //EngineUrl: "http://localhost:8082/api/Engine/",//本地
     init: function () {
@@ -171,7 +173,7 @@ var comCompnent = {
             type: "get",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: asyncC == undefined ? true : false,
@@ -215,7 +217,7 @@ var comCompnent = {
             type: "post",
             data: data,
             url: url + "?time=" + new Date().getTime(),
-            headers: this.GetCookie("Admin") == "" ? null : eval('(' + this.GetCookie("Admin") + ')'),
+            headers: localStorage.getItem("User_Id") == "" ? null : localStorage.getItem("User_Id"),
             dataType: "json",
             global: false,
             async: typeof asyncC == "undefined" || null == asyncC ? true : false,
@@ -11241,20 +11243,20 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             EngineInfo: { //引擎对象
                 Flow_Id: "",
                 Wfm_Id: "",
-                Sender_Id: "",
-                Sender_Code: "",
-                Reciever_Id: "",
-                Reciever_Code: "",
-                Cur_Status_Id: "",
-                New_Status_Id: "",
-                Disposal_Id: "",
-                Send_Time: ""
+                Sender_Id: "", //T_Pub_User表的UserId
+                Sender_Code: "", //T_Pub_User表的UserCode;
+                Reciever_Id: "", //T_Pub_User表的UserId
+                Reciever_Code: "", //T_Pub_User表的UserCode
+                Cur_Status_Id: "", //当前环节Id
+                New_Status_Id: "", //处理线获得的下一环节Id
+                Disposal_Id: "", //处理线Id
+                Send_Time: "" //发送时间
             },
             PageInfo: { //页面对象
-                txtPageConditionRule99: ""
+                txtPageConditionRule99: ";KefuOperate;"
             },
             Url: { //接口连接字符串
-                NewFlowExample: comCompnent.default.EngineUrl + "/api/Create_NewFlowExample",
+                NewFlowExample: comCompnent.default.EngineUrl + "Create_NewFlowExample",
                 FlowBeginStatusInfo: comCompnent.default.EngineUrl + "Get_FlowBeginStatusInfo",
                 FlowStatusInfo: comCompnent.default.EngineUrl + "Get_FlowStatusInfo",
                 CurFlowStatusInfo: comCompnent.default.EngineUrl + "Get_CurFlowStatusInfo",
@@ -11265,7 +11267,8 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             },
             Param: { //参数
                 NewFlowExample: { //新建流程实例
-                    EngineInfo: {}
+                    EngineInfo: {},
+                    PageInfo: {}
                 },
                 OnNextStep: { //提交送下一步
                     EngineInfo: {},
@@ -11308,7 +11311,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                     OperationRole_Name: "", //业务角色名
                     OperationPerm_Value: "", //状态权限值
                     IsNextStatus: "", //是否后续节点还有本节点
-                    Status_Attribute: "", //属性字段
+                    Status_Attribute: "", //属性字段 
                     Userrole_ID: "" //用户角色ID,后面权限字段省略...引擎看
                 },
                 CurFlowStatusInfo: { //同上，当前环节信息CStatus
@@ -11393,20 +11396,8 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
         NextRoleSelected: function (val, oldval) {
             //角色选中
             var self = this;
-            self.EngineInfo.Reciever_Id = val; //通用流程信息赋值
-            for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
-                if (self.ResultList.DispUserInfo[i].User_ID == val) {
-                    self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code; //发送人ID
-                    break;
-                }
-            }
+            self.SetNextRoleSelected();
         }
-        //wfmid: function (val) {//wfmid发生变化不为空以后执行Init，这样父组件不需要再次ref调用。
-        //    if (val) {
-        //        var self = this;
-        //        self.Init(val);
-        //    }
-        //}
     },
     methods: {
         Init(wfmid) {
@@ -11424,15 +11415,36 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 self.Get_StatusAllDisposal();
             }
         },
-        Create_NewFlowExample() {
+        SetNextRoleSelected() {
+            //下一处理人选中。
+            var self = this;
+            self.EngineInfo.Reciever_Id = self.NextRoleSelected; //通用流程信息赋值
+            for (var i = 0; i < self.ResultList.DispUserInfo.length; i++) {
+                if (self.ResultList.DispUserInfo[i].User_ID == self.EngineInfo.Reciever_Id) {
+                    self.EngineInfo.Reciever_Code = self.ResultList.DispUserInfo[i].User_Code; //发送人Code
+                    self.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                    self.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
+                    break;
+                }
+            }
+        },
+        Create_NewFlowExample(param, sync) {
             //创建流程实例
             var self = this;
-            comCompnent.default.getWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
+            var result;
+            if (param) {
+                self.Param.NewFlowExample = param;
+            };
+            comCompnent.default.postWebJson(self.Url.NewFlowExample, self.Param.NewFlowExample, function (data) {
                 if (data) {
                     self.ResultList.NewFlowExample = data;
                     alert("实例创建成功!");
+                    result = data;
                 }
-            });
+            }, function error() {}, sync);
+            if (sync) {
+                return result;
+            }
         },
         Get_FlowBeginStatusInfo() {
             //获取流程开始环节信息
@@ -11440,7 +11452,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.FlowBeginStatusInfo, self.Param.FlowBeginStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.FlowBeginStatusInfo = data;
-                    alert("获取流程开始信息成功!");
+                    //alert("获取流程开始信息成功!");
                 }
             });
         },
@@ -11453,7 +11465,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                     self.ResultList.CurFlowStatusInfo = data;
                     self.EngineInfo.Cur_Status_Id = data.Status_ID; //通用流程信息赋值
                     self.flowid = data.Flow_ID;
-                    alert("获取当前流程信息成功!");
+                    //alert("获取当前流程信息成功!");
                 }
             }, null, sync); //同步获取当前流程信息
         },
@@ -11464,7 +11476,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
                 if (data) {
                     self.ResultList.StatusAllDisposal = data; //data[0]
                     self.EngineInfo.New_Status_Id = data.Pre_Status_ID; //通用流程信息赋值 待定?流程线指向的当前环节ID。就是下一环节ID。
-                    alert("获取当前环节流程线成功!");
+                    //alert("获取当前环节流程线成功!");
                 }
             });
         },
@@ -11476,6 +11488,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.DispUserInfo, self.Param.DispUserInfo, function (data) {
                 if (data) {
                     self.ResultList.DispUserInfo = data;
+                    self.SetNextRoleSelected(); //设置pageInfo信息
                     alert("获取下一处理人成功!");
                 }
             });
@@ -11489,8 +11502,11 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             } else {
                 self.Param.OnNextStep.EngineInfo = self.EngineInfo; //收集到的页面信息
                 self.Param.OnNextStep.PageInfo = self.PageInfo; //txtPageConditionRule99.
+                //发送人信息
+                self.Param.OnNextStep.EngineInfo.Sender_Id = localStorage.getItem("User_Id");
+                self.Param.OnNextStep.EngineInfo.Sender_Code = localStorage.getItem("User_Code");
             }
-            comCompnent.default.getWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
+            comCompnent.default.postWebJson(self.Url.OnNextStep, self.Param.OnNextStep, function (data) {
                 if (data) {
                     self.ResultList.OnNextStep = data;
                     alert("提交送下一步成功!");
@@ -11506,7 +11522,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.FlowStatusInfo, self.Param.FlowStatusInfo, function (data) {
                 if (data) {
                     self.ResultList.FlowStatusInfo = data;
-                    alert("获取当前流程及环节信息成功!");
+                    //alert("获取当前流程及环节信息成功!");
                 }
             }, true);
         },
@@ -11516,7 +11532,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             comCompnent.default.getWebJson(self.Url.PermList, self.Param.PermList, function (data) {
                 if (data) {
                     self.ResultList.PermList = data;
-                    alert("获取权限成功!");
+                    //alert("获取权限成功!");
                 }
             });
         }
@@ -11525,10 +11541,314 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 14 */,
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(comCompnent) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    name: 'BaseTable',
+    data() {
+        return {
+            OrderNo: "", //订单号
+            myDiagram: {},
+            Param: {
+                wfmId: "",
+                flowId: ""
+            },
+            Result: {
+                DiagramData: {},
+                List: [{
+                    WFM_ID: "",
+                    CURSTATUS_ID: "",
+                    CURSTATUS_Name: "",
+                    PRESTATUS_ID: "",
+                    PRESTATUS_Name: "",
+                    DISPOSAL_ID: "",
+                    DISPOSAL_Name: "",
+                    DISPOSAL_HINT: "",
+                    DealRemark: "",
+                    Sender: "",
+                    SenderName: "",
+                    Receiver: "",
+                    ReceiverName: "",
+                    SenderTrust: "",
+                    ReceiverTrust: "",
+                    SenderTrustName: "",
+                    ReceiverTrustName: "",
+                    ArriveTime: "",
+                    FinishTime: "",
+                    DealState: "",
+                    DealStateName: "",
+                    dRecordCreationDate: "",
+                    sRecordCreator: "",
+                    sRecordVersion: "",
+                    CURRole_Name: "",
+                    CURRole_ID: "",
+                    PRERole_Name: "",
+                    PRERole_ID: ""
+                }] //绑定图表的数据
+            }
+        };
+    },
+    props: ['currentwfmid', 'currentitem'],
+    watch: {
+        currentwfmid(val, oldval) {
+            var self = this;
+            self.Param.wfmId = val;
+            self.Param.flowId = self.currentitem.Flow_ID;
+            self.OrderNo = self.currentitem.OrderNo;
+            self.GetDiagramData(); //获取图标数据。
+            self.init();
+        }
+    },
+    methods: {
+        GetDiagramData() {
+            //获取图表数据
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlowAllInfo", self.Param, function (data) {
+                if (data) {
+                    self.Result.List = data.current;
+                    self.Result.DiagramData = data.diagram;
+                }
+            }, function (data) {
+                alert(data);
+            }, 1);
+        },
+        init() {
+            var self = this;
+            if (window.goSamples) goSamples(); // init for these samples -- you don't need to call this
+            var $ = go.GraphObject.make; // for conciseness in defining templates
+            self.myDiagram = $(go.Diagram, "myDiagramDiv", // must name or refer to the DIV HTML element
+            {
+                initialContentAlignment: go.Spot.Center,
+                allowDrop: true, // must be true to accept drops from the Palette
+                "LinkDrawn": showLinkLabel, // this DiagramEvent listener is defined below
+                "LinkRelinked": showLinkLabel,
+                scrollsPageOnFocus: false,
+                "undoManager.isEnabled": true // enable undo & redo
+            });
+            // when the document is modified, add a "*" to the title and enable the "Save" button
+            self.myDiagram.addDiagramListener("Modified", function (e) {
+                var button = document.getElementById("SaveButton");
+                if (button) button.disabled = !self.myDiagram.isModified;
+                var idx = document.title.indexOf("*");
+                if (self.myDiagram.isModified) {
+                    if (idx < 0) document.title += "*";
+                } else {
+                    if (idx >= 0) document.title = document.title.substr(0, idx);
+                }
+            });
+
+            function nodeStyle() {
+                return [new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify), {
+                    // the Node.location is at the center of each node
+                    locationSpot: go.Spot.Center
+                }];
+            }
+            function makePort(name, align, spot, output, input) {
+                var horizontal = align.equals(go.Spot.Top) || align.equals(go.Spot.Bottom);
+                return $(go.Shape, {
+                    fill: "transparent", // changed to a color in the mouseEnter event handler
+                    strokeWidth: 0, // no stroke
+                    width: horizontal ? NaN : 8, // if not stretching horizontally, just 8 wide
+                    height: !horizontal ? NaN : 8, // if not stretching vertically, just 8 tall
+                    alignment: align, // align the port on the main Shape
+                    stretch: horizontal ? go.GraphObject.Horizontal : go.GraphObject.Vertical,
+                    portId: name, // declare this object to be a "port"
+                    fromSpot: spot, // declare where links may connect at this port
+                    fromLinkable: output, // declare whether the user may draw links from here
+                    toSpot: spot, // declare where links may connect at this port
+                    toLinkable: input, // declare whether the user may draw links to here
+                    cursor: "pointer", // show a different cursor to indicate potential link point
+                    mouseEnter: function (e, port) {
+                        // the PORT argument will be this Shape
+                        if (!e.diagram.isReadOnly) port.fill = "rgba(255,0,255,0.5)";
+                    },
+                    mouseLeave: function (e, port) {
+                        port.fill = "transparent";
+                    }
+                });
+            }
+
+            function textStyle() {
+                return {
+                    font: "bold 11pt Helvetica, Arial, sans-serif",
+                    stroke: "whitesmoke"
+                };
+            }
+
+            self.myDiagram.nodeTemplateMap.add("", // the default category
+            $(go.Node, "Table", nodeStyle(),
+            // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
+            $(go.Panel, "Auto", $(go.Shape, "Rectangle", { fill: "#00A9C9", strokeWidth: 0 }, new go.Binding("figure", "figure")), $(go.TextBlock, textStyle(), {
+                margin: 8,
+                maxSize: new go.Size(160, NaN),
+                wrap: go.TextBlock.WrapFit,
+                editable: true
+            }, new go.Binding("text").makeTwoWay())),
+            // four named ports, one on each side:
+            makePort("T", go.Spot.Top, go.Spot.TopSide, false, true), makePort("L", go.Spot.Left, go.Spot.LeftSide, true, true), makePort("R", go.Spot.Right, go.Spot.RightSide, true, true), makePort("B", go.Spot.Bottom, go.Spot.BottomSide, true, false)));
+
+            self.myDiagram.nodeTemplateMap.add("条件", $(go.Node, "Table", nodeStyle(),
+            // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
+            $(go.Panel, "Auto", $(go.Shape, "Diamond", { fill: "#00A9C9", strokeWidth: 0 }, new go.Binding("figure", "figure")), $(go.TextBlock, textStyle(), {
+                margin: 8,
+                maxSize: new go.Size(160, NaN),
+                wrap: go.TextBlock.WrapFit,
+                editable: true
+            }, new go.Binding("text").makeTwoWay())),
+            // four named ports, one on each side:
+            makePort("T", go.Spot.Top, go.Spot.Top, false, true), makePort("L", go.Spot.Left, go.Spot.Left, true, true), makePort("R", go.Spot.Right, go.Spot.Right, true, true), makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)));
+
+            self.myDiagram.nodeTemplateMap.add("开始", $(go.Node, "Table", nodeStyle(), $(go.Panel, "Auto", $(go.Shape, "Circle", { minSize: new go.Size(40, 40), fill: "#79C900", strokeWidth: 0 }), $(go.TextBlock, "开始", textStyle(), new go.Binding("text"))),
+            // three named ports, one on each side except the top, all output only:
+            makePort("L", go.Spot.Left, go.Spot.Left, true, false), makePort("R", go.Spot.Right, go.Spot.Right, true, false), makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)));
+
+            self.myDiagram.nodeTemplateMap.add("结束", $(go.Node, "Table", nodeStyle(), $(go.Panel, "Auto", $(go.Shape, "Circle", { minSize: new go.Size(40, 40), fill: "#DC3C00", strokeWidth: 0 }), $(go.TextBlock, "结束", textStyle(), new go.Binding("text"))),
+            // three named ports, one on each side except the bottom, all input only:
+            makePort("T", go.Spot.Top, go.Spot.Top, false, true), makePort("L", go.Spot.Left, go.Spot.Left, false, true), makePort("R", go.Spot.Right, go.Spot.Right, false, true)));
+
+            self.myDiagram.nodeTemplateMap.add("描述", $(go.Node, "Auto", nodeStyle(), $(go.Shape, "File", { fill: "#EFFAB4", strokeWidth: 0 }), $(go.TextBlock, textStyle(), {
+                margin: 5,
+                maxSize: new go.Size(200, NaN),
+                wrap: go.TextBlock.WrapFit,
+                textAlign: "center",
+                editable: true,
+                font: "bold 12pt Helvetica, Arial, sans-serif",
+                stroke: '#454545'
+            }, new go.Binding("text").makeTwoWay())));
+
+            self.myDiagram.linkTemplate = $(go.Link, // the whole link panel
+            {
+                routing: go.Link.AvoidsNodes,
+                curve: go.Link.JumpOver,
+                corner: 5, toShortLength: 4,
+                relinkableFrom: true,
+                relinkableTo: true,
+                reshapable: true,
+                resegmentable: true,
+                // mouse-overs subtly highlight links:
+                mouseEnter: function (e, link) {
+                    link.findObject("HIGHLIGHT").stroke = "rgba(30,144,255,0.2)";
+                },
+                mouseLeave: function (e, link) {
+                    link.findObject("HIGHLIGHT").stroke = "transparent";
+                },
+                selectionAdorned: false
+            }, new go.Binding("points").makeTwoWay(), $(go.Shape, // the highlight shape, normally transparent
+            { isPanelMain: true, strokeWidth: 8, stroke: "transparent", name: "HIGHLIGHT" }), $(go.Shape, // the link path shape
+            { isPanelMain: true, stroke: "gray", strokeWidth: 2 }, new go.Binding("stroke", "isSelected", function (sel) {
+                return sel ? "dodgerblue" : "gray";
+            }).ofObject()), $(go.Shape, // the arrowhead
+            { toArrow: "standard", strokeWidth: 0, fill: "gray" }), $(go.Panel, "Auto", // the link label, normally not visible
+            { visible: false, name: "LABEL", segmentIndex: 2, segmentFraction: 0.5 }, new go.Binding("visible", "visible").makeTwoWay(), $(go.Shape, "RoundedRectangle", // the label shape
+            { fill: "#F8F8F8", strokeWidth: 0 }), $(go.TextBlock, "Yes", // the label
+            {
+                textAlign: "center",
+                font: "10pt helvetica, arial, sans-serif",
+                stroke: "#333333",
+                editable: true
+            }, new go.Binding("text").makeTwoWay())));
+
+            function showLinkLabel(e) {
+                var label = e.subject.findObject("LABEL");
+                if (label !== null) label.visible = e.subject.fromNode.data.category === "Conditional";
+            }
+
+            // temporary links used by LinkingTool and RelinkingTool are also orthogonal:
+            self.myDiagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
+            self.myDiagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
+
+            self.load(); // load an initial diagram from some JSON text
+
+            myPalette = $(go.Palette, "myPaletteDiv", // must name or refer to the DIV HTML element
+            {
+                scrollsPageOnFocus: false,
+                nodeTemplateMap: self.myDiagram.nodeTemplateMap, // share the templates used by myDiagram
+                model: new go.GraphLinksModel([// specify the contents of the Palette
+                { category: "开始", text: "开始" },
+                //{ text: "步骤" },
+                { category: "普通", text: "普通" }, { category: "条件", text: "处理" }, { category: "结束", text: "结束" }])
+            });
+        },
+        save() {
+            document.getElementById("mySavedModel").value = self.myDiagram.model.toJson();
+            self.myDiagram.isModified = false;
+        },
+        load() {
+            var self = this;
+            //self.myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+            self.myDiagram.model = go.Model.fromJson(self.Result.DiagramData);
+        },
+        printDiagram() {
+            var svgWindow = window.open();
+            if (!svgWindow) return; // failure to open a new Window
+            var printSize = new go.Size(700, 960);
+            var bnds = self.myDiagram.documentBounds;
+            var x = bnds.x;
+            var y = bnds.y;
+            while (y < bnds.bottom) {
+                while (x < bnds.right) {
+                    var svg = self.myDiagram.makeSVG({ scale: 1.0, position: new go.Point(x, y), size: printSize });
+                    svgWindow.document.body.appendChild(svg);
+                    x += printSize.width;
+                }
+                x = bnds.x;
+                y += printSize.height;
+            }
+            setTimeout(function () {
+                svgWindow.print();
+            }, 1);
+        }
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+
+/***/ }),
 /* 15 */,
 /* 16 */,
-/* 17 */
+/* 17 */,
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11568,11 +11888,12 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 });
 
 /***/ }),
-/* 18 */,
-/* 19 */
+/* 19 */,
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__ = __webpack_require__(56);
 //
 //
 //
@@ -11604,16 +11925,51 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'BaseTable',
-    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype']
+    props: ['pagetype', 'goodinfoarray', 'startcheck', 'itemtype', 'wfmid'],
+    data() {
+        return {
+            currentwfmid: "",
+            currentitem: {}
+        };
+    },
+    methods: {
+        GetLogmonitor() {
+            //获取业务监控
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetLogmonitor", null, function (data) {
+                if (data) {
+                    self.Logmonitors = data.content;
+                }
+            });
+        },
+        OpenFlowChar(item) {
+            //打开流程图
+            var self = this;
+            self.currentitem = item;
+            self.currentwfmid = item.WFM_ID;
+            $("#FlowChartModal").modal("show");
+        }
+    },
+    components: {
+        flowchart: __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__["a" /* default */]
+    }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11622,37 +11978,46 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_script_lang_js__ = __webpack_require__(14);
 /* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
+/* 25 */,
+/* 26 */,
 /* 27 */,
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(18);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
+
+/***/ }),
+/* 29 */,
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
-/* 29 */,
-/* 30 */,
 /* 31 */,
-/* 32 */
+/* 32 */,
+/* 33 */,
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(23);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11696,15 +12061,15 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 33 */,
-/* 34 */,
 /* 35 */,
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11748,13 +12113,13 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 37 */,
-/* 38 */
+/* 39 */,
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(30);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -11798,8 +12163,6 @@ component.options.__file = "Scripts\\components\\table-OrderProcess.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 39 */,
-/* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
@@ -11808,16 +12171,18 @@ component.options.__file = "Scripts\\components\\table-OrderProcess.vue"
 /* 46 */,
 /* 47 */,
 /* 48 */,
-/* 49 */
+/* 49 */,
+/* 50 */,
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_OrderProcess_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_OrderProcess_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Approve_vue__ = __webpack_require__(34);
 
 
 
@@ -11833,8 +12198,6 @@ let vmData = {
     PageType: pagetype, //待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good", //单据类型
     SelectType: "good", //选择类型直接放到参数里面无法监听。
-    SelectFlowId: "1", //选中的流程ID
-    SelectStatusId: "0", //选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent: "", //当前组件
@@ -11845,6 +12208,7 @@ let vmData = {
     GoodInfoArray: [],
     Flows: [], //流程名称
     Status: [], //环节名称
+    Logmonitors: [], //业务监控
     components: {
         goodprocess: 'goodprocess',
         orderprocess: 'orderprocess',
@@ -11861,13 +12225,17 @@ let vmData = {
     }],
     SearchParam: {
         Param: { //查询条件的参数
+            WFM_ID: "",
             GoodNo: "",
             OrderNo: "",
+            Account: "",
             Status: pagetype,
             SelectType: "good", //form里选择的商品类型
             SelectNo: "", //form里面选择的编号
-            CURSTATUS_ID: "", //当前环节ID.
-            CURSTATUS_NAME: "" //当前环节名称
+            CURSTATUS_ID: "-1", //当前环节ID.
+            CURSTATUS_NAME: "", //当前环节名称
+            Flow_ID: "-1",
+            Flow_Name: ""
         },
         Pagination: { //分页对象
             rows: 10, //每页行数，
@@ -11886,6 +12254,7 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
     created() {
         this.currentcomponent = __WEBPACK_IMPORTED_MODULE_1__components_table_GoodProcess_vue__["a" /* default */];
         this.GetFlows(); //获取流程绑定列表
+        this.GetStatus(1); //默认金币流程环节
         this.findList();
     },
     watch: {
@@ -11909,30 +12278,78 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
         immediate: true
     },
     methods: {
-        GetFlows() {//获取所有的流程信息
-            //var self = this;
-            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-            //    if (data) {
-            //        self.Flows = data.content;
-            //    }
-            //});
+        CreatNewOrder() {
+            //模拟创建一笔订单测试时候使用，正式注释掉。
+            var self = this;
+            var param = { //新建流程实例
+                EngineInfo: {
+                    Flow_Id: "1",
+                    Sender_Id: localStorage.getItem("User_Id"),
+                    Sender_Code: localStorage.getItem("User_Code")
+                },
+                PageInfo: {
+                    txtPageConditionRule99: ";KefuOperate;"
+                }
+            };
+            var dataEngine = self.$refs.approve.Create_NewFlowExample(param, 1); //获得返回参数
+
+            //新建订单并且关联
+            //var url = comCompnent.default.WebUrl+"Order/CreatOrder"
+            var url = comCompnent.default.LocalWeb + "Order/CreatOrder";
+            var orderparam = {
+                GoodNo: "201801111655565777", //默认的商品编号
+                OrderPrice: "",
+                GoodPrice: 0,
+                GoodTypeId: 3,
+                GoodTypeName: "账号",
+                BuyNum: "1",
+                InternalTypeId: "1", //内部交易类型：（拍卖交易，邮寄交易等等）
+                GameName: "",
+                GameAccount: "",
+                GameAccountAgain: "",
+                GroupName: "",
+                InternalTypeId: "",
+                ServerName: "",
+                BuyerPhone: "18717708731",
+                BuyerQQ: "619963501",
+                Signal: "",
+                PromoNum: "1111",
+                WFM_ID: dataEngine.result
+            };
+            comCompnent.default.postWebJson(url, JSON.stringify(orderparam), function (data) {
+                if (data) {
+                    alert("模拟新建一笔订单成功,流程ID为:" + dataEngine.result + "请在查询框重新查询!");
+                }
+            });
         },
-        GetStatus(flowId) {//根据流程获取环节信息
-            //var param = {
-            //    flowId: flowId
-            //};
-            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-            //    if (data) {
-            //        self.Status = data.content;
-            //    }
-            //});
+        GetFlows() {
+            //获取所有的流程信息
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+                if (data) {
+                    self.Flows = data.content;
+                }
+            });
+        },
+        GetStatus(flowId) {
+            //根据流程获取环节信息
+            var self = this;
+            var param = {
+                flowId: flowId
+            };
+            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+                if (data) {
+                    self.Status = data.content;
+                }
+            });
         },
         findList() {
             //获取商品的简要列表
             $("#QueryList").Btns("loading");
             var self = this;
-            self.SearchParam.Param.SelectType == "good" ? self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo : (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo, self.SearchParam.Param.GoodNo = ""); //如果是订单把商品编号置空。
-            //后台传值：
+            //改直接绑定
+            //self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
+            //(self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {
@@ -11996,47 +12413,106 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 50 */,
-/* 51 */,
 /* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */,
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__ = __webpack_require__(24);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('727e5bec', component.options)
+    } else {
+      api.reload('727e5bec', component.options)
+    }
+    module.hot.accept("./FlowChart.vue?vue&type=template&id=727e5bec&id=FlowChart&lang=html", function () {
+      api.rerender('727e5bec', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\FlowChart.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(67);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["b"]; });
 
 
 /***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
 /* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(68);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b"]; });
+
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(72);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
-/* 59 */,
-/* 60 */
+/* 63 */,
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(74);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b"]; });
 
 
 /***/ }),
-/* 61 */,
-/* 62 */,
-/* 63 */
+/* 65 */,
+/* 66 */,
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12149,10 +12625,135 @@ render._withStripped = true
 
 
 /***/ }),
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "modal form-horizontal",
+      attrs: {
+        id: "FlowChartModal",
+        "data-backdrop": "static",
+        "data-keyboard": "false",
+        role: "dialog",
+        "aria-hidden": "true"
+      }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog", staticStyle: { width: "1200px" } },
+        [
+          _c("div", { staticClass: "modal-content animated bounceInRight" }, [
+            _c(
+              "div",
+              { staticClass: "modal-header", attrs: { id: "modal_head" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "h3",
+                  {
+                    staticClass: "modal-title text-center",
+                    attrs: { id: "modal_title" }
+                  },
+                  [_c("strong", [_vm._v("单号为：" + _vm._s(_vm.OrderNo))])]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "close",
+        attrs: { "data-dismiss": "modal", name: "btnModalClose" }
+      },
+      [
+        _c(
+          "span",
+          {
+            staticStyle: { "font-size": "26px" },
+            attrs: { "aria-hidden": "true" }
+          },
+          [_vm._v("×")]
+        ),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Close")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-body", attrs: { id: "modal_body" } },
+      [
+        _c("div", { attrs: { id: "sample" } }, [
+          _c(
+            "div",
+            {
+              staticStyle: {
+                width: "100%",
+                display: "flex",
+                "justify-content": "space-between"
+              }
+            },
+            [
+              _c("div", {
+                staticStyle: {
+                  width: "100px",
+                  "margin-right": "2px",
+                  "background-color": "whitesmoke",
+                  border: "solid 1px black"
+                },
+                attrs: { id: "myPaletteDiv" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticStyle: {
+                  "flex-grow": "1",
+                  height: "750px",
+                  border: "solid 1px black"
+                },
+                attrs: { id: "myDiagramDiv" }
+              })
+            ]
+          )
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12249,8 +12850,8 @@ render._withStripped = true
 
 
 /***/ }),
-/* 68 */,
-/* 69 */
+/* 73 */,
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12261,51 +12862,76 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "table",
-    { staticClass: "table table-bordered" },
+    "div",
     [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.goodinfoarray, function(item) {
-        return _c("tbody", [
-          _c("tr", [
-            _vm._m(1, true),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.CURSTATUS_NAME))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.OrderNo))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GameName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
-            _vm._v(" "),
-            _c("td", { staticClass: "text-center" }, [
-              _c("input", {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "button",
-                  flag: item.Status,
-                  value:
-                    item.Status == "PutOnsale" || item.Status == "PutDownsale"
-                      ? "查看"
-                      : "审核"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.startcheck(item)
-                  }
-                }
-              })
+      _c(
+        "table",
+        { staticClass: "table table-bordered" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.goodinfoarray, function(item) {
+            return _c("tbody", [
+              _c("tr", [
+                _vm._m(1, true),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.OpenFlowChar(item)
+                      }
+                    }
+                  },
+                  [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(item.CURSTATUS_NAME))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.OrderNo))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GameName))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodTypeName))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodKeyWord))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.GoodTitle))]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _c("input", {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      type: "button",
+                      flag: item.Status,
+                      value:
+                        item.Status == "PutOnsale" ||
+                        item.Status == "PutDownsale"
+                          ? "查看"
+                          : "审核"
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.startcheck(item)
+                      }
+                    }
+                  })
+                ])
+              ])
             ])
-          ])
-        ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("flowchart", {
+        attrs: { currentwfmid: _vm.currentwfmid, currentitem: _vm.currentitem }
       })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = [

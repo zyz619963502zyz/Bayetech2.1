@@ -30,7 +30,7 @@ namespace Bayetech.Admin.Controllers
         }
 
         /// <summary>
-        /// 添加和修改导航菜单
+        /// 添加导航菜单
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
@@ -38,6 +38,16 @@ namespace Bayetech.Admin.Controllers
         public JObject GetAddNavigation(JObject json)
         {
             return service.AddNavigation(json);
+        }
+        /// <summary>
+        /// 修改导航菜单
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JObject GetEditNavigation(JObject json)
+        {
+            return service.EditNavigation(json);
         }
         /// <summary>
         /// 删除

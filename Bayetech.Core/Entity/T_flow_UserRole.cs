@@ -14,7 +14,7 @@ namespace Bayetech.Core.Entity
     
     public partial class T_flow_UserRole
     {
-        public string User_Id { get; set; }
+        public string User_id { get; set; }
         public long UserRoleColumn1 { get; set; }
         public Nullable<long> UserRoleColumn2 { get; set; }
         public Nullable<long> UserRoleColumn3 { get; set; }

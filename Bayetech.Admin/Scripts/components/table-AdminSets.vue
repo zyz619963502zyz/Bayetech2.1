@@ -19,11 +19,11 @@
             <tr class="text-center">
                 <td>{{item.User_ID}}</td>
                 <td>{{item.User_Name}}</td>
-                <td>{{item.IsAvailab=='0'?'是':'不是'}}</td>
+                <td>{{item.IsAvailab=='0'?'不是':'是'}}</td>
                 <td>{{item.User_Code}}</td>
                 <td>{{item.User_SEX=='0'?'男':'女'}}</td>
                 <td>{{item.Remark}}</td>
-                <td><input type="radio" name="Operates" @click="startcheck(item)"/></td>
+                <td><input id="test" type="radio" name="Operates" value="" @click="startcheck(item)"/></td>
             </tr>
         </tbody>
     </table>

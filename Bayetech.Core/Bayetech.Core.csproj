@@ -196,6 +196,9 @@
     <Compile Include="Entity\Module.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\NB_YWUser_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Oas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,14 +235,23 @@
     <Compile Include="Entity\SP_GameServers_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SP_GetRoleMenu_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_GetUserMenuDefault_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SP_GetUserMenu_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\SP_GoodTypes_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
+      <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Bayetech.tt</DependentUpon>
+      <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SP_LoginInfo_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -523,13 +535,40 @@
     <Compile Include="Entity\T_WorkFlow_ZaiBan.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UP_GetMenuRole_New_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetMenuRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetNotify_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\UP_GetUserAllRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenuDefault_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUserMenu_New_Result.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\UP_GetUserMenu_Result.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UP_GetUserOneRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\UP_GetUserRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_GetUsersRole_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_Get_DownOrgName_Result.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UP_Get_DownUsers_Result.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
@@ -580,6 +619,9 @@
     <Compile Include="Entity\V_Flow_StatusUserAll.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\V_Flow_StatusUserBack.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\v_flow_user.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
@@ -602,6 +644,9 @@
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\v_pub_user.cs">
+      <DependentUpon>Oas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_pub_UserRoleJiHeCanel.cs">
       <DependentUpon>Oas.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\v_pub_user_member.cs">

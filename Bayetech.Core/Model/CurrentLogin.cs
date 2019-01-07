@@ -10,6 +10,8 @@ namespace Bayetech.Core
     {
         public string LoginId { get; set; }
         public string UserName { get; set; }
+        public string User_Id { get; set; }//T_Pub_User表字段
+        public string User_Code { get; set; }//T_Pub_User表字段
         public string PassWord { get; set; }
         public Nullable<byte> Admin { get; set; }
         public string LoginIp { get; set; }

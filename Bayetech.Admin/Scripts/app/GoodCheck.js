@@ -3,6 +3,7 @@ import goodprocess from '../components/table-GoodProcess.vue'
 import orderprocess from '../components/table-OrderProcess.vue'
 import approve from '../components/Approve.vue'
 
+
 //import comCompnent from '../common.js'(已在配置文件全局引用)
 //Vue.prototype.com = comCompnent;单页面引用公共js的另外一种方式，先import后赋值到Vue全局对象上。
 
@@ -13,8 +14,6 @@ let vmData = {
     PageType:pagetype,//待处理，已处理，24小时未处理等等单据类型。
     ItemType: "good",//单据类型
     SelectType: "good",//选择类型直接放到参数里面无法监听。
-    SelectFlowId: "1",//选中的流程ID
-    SelectStatusId:"0",//选中的环节ID
     flowId: "1",
     wfmid: "",
     currentcomponent:"",//当前组件
@@ -25,6 +24,7 @@ let vmData = {
     GoodInfoArray: [],
     Flows: [],//流程名称
     Status:[],//环节名称
+    Logmonitors:[],//业务监控
     components: {
         goodprocess: 'goodprocess',
         orderprocess:'orderprocess',
@@ -43,13 +43,17 @@ let vmData = {
     ],
     SearchParam: {
         Param: {//查询条件的参数
+            WFM_ID:"",
             GoodNo:"",
-            OrderNo:"",
+            OrderNo: "",
+            Account:"",
             Status:pagetype,
             SelectType:"good",//form里选择的商品类型
             SelectNo: "",//form里面选择的编号
-            CURSTATUS_ID:"",//当前环节ID.
-            CURSTATUS_NAME:""//当前环节名称
+            CURSTATUS_ID:"-1",//当前环节ID.
+            CURSTATUS_NAME:"",//当前环节名称
+            Flow_ID:"-1",
+            Flow_Name:""
         },
         Pagination: {//分页对象
             rows: 10,//每页行数，
@@ -68,6 +72,7 @@ new Vue({
     created() {
         this.currentcomponent = goodprocess;
         this.GetFlows();//获取流程绑定列表
+        this.GetStatus(1);//默认金币流程环节
         this.findList();
     },
     watch: {
@@ -89,30 +94,74 @@ new Vue({
         immediate: true
     },
     methods: {
+        CreatNewOrder(){//模拟创建一笔订单测试时候使用，正式注释掉。
+            var self = this;
+            var param = {//新建流程实例
+                    EngineInfo: {
+                        Flow_Id : "1",
+                        Sender_Id : localStorage.getItem("User_Id"),
+                        Sender_Code: localStorage.getItem("User_Code")
+                    },
+                    PageInfo:  {
+                        txtPageConditionRule99:";KefuOperate;"
+                    }
+                }
+            var dataEngine = self.$refs.approve.Create_NewFlowExample(param,1); //获得返回参数
+
+            //新建订单并且关联
+            //var url = comCompnent.default.WebUrl+"Order/CreatOrder"
+            var url = comCompnent.default.LocalWeb+"Order/CreatOrder";
+            var orderparam = {
+                GoodNo: "201801111655565777",//默认的商品编号
+                OrderPrice:"",
+                GoodPrice:0,
+                GoodTypeId: 3,
+                GoodTypeName: "账号",
+                BuyNum: "1",
+                InternalTypeId:"1",//内部交易类型：（拍卖交易，邮寄交易等等）
+                GameName: "",
+                GameAccount: "",
+                GameAccountAgain: "",
+                GroupName: "",
+                InternalTypeId:"",
+                ServerName: "",
+                BuyerPhone: "18717708731",
+                BuyerQQ: "619963501",
+                Signal:"",
+                PromoNum: "1111",
+                WFM_ID:dataEngine.result
+            };
+            comCompnent.default.postWebJson(url,JSON.stringify(orderparam),function (data) {
+                if (data) {
+                    alert("模拟新建一笔订单成功,流程ID为:"+ dataEngine.result+"请在查询框重新查询!");
+                }
+            });
+        },
         GetFlows() {//获取所有的流程信息
-            //var self = this;
-            //comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
-            //    if (data) {
-            //        self.Flows = data.content;
-            //    }
-            //});
+            var self = this;
+            comCompnent.default.getWebJson("/api/Flow/GetFlows", null, function (data) {
+                if (data) {
+                    self.Flows = data.content;
+                }
+            });
         },
         GetStatus(flowId) {//根据流程获取环节信息
-            //var param = {
-            //    flowId: flowId
-            //};
-            //comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
-            //    if (data) {
-            //        self.Status = data.content;
-            //    }
-            //});
+            var self = this;
+            var param = {
+                flowId: flowId
+            };
+            comCompnent.default.getWebJson("/api/Flow/GetStatus", param, function (data) {
+                if (data) {
+                    self.Status = data.content;
+                }
+            });
         },
         findList() {//获取商品的简要列表
             $("#QueryList").Btns("loading");
-            var self=this;
-            self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
-            (self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
-            //后台传值：
+            var self = this;
+            //改直接绑定
+            //self.SearchParam.Param.SelectType =="good"? (self.SearchParam.Param.GoodNo = self.SearchParam.Param.SelectNo):
+            //(self.SearchParam.Param.OrderNo = self.SearchParam.Param.SelectNo,self.SearchParam.Param.GoodNo ="");//如果是订单把商品编号置空。
             comCompnent.default.postWebJson(self.GoodListUrl, self.SearchParam, function (data) {
                 $("#QueryList").Btns("reset");
                 if (data.result) {

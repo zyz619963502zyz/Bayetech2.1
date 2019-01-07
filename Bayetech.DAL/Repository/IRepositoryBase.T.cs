@@ -31,6 +31,6 @@ namespace Bayetech.DAL
         List<TEntity> FindList(string strSql);
         List<TEntity> FindList(string strSql, DbParameter[] dbParameter);
         List<TEntity> FindList(Pagination pagination);
-        List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate, Pagination pagination);
+        List<TEntity> FindList(Pagination pagination,Expression<Func<TEntity, bool>> predicate);
     }
 }

@@ -20,102 +20,62 @@ namespace Bayetech.Service
     {
         public JObject AddNavigation(JObject json)
         {
-            Admin_Sys_Navigations _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new Admin_Sys_Navigations() : JsonConvert.DeserializeObject<Admin_Sys_Navigations>(json["ListObj"].ToString());
+            T_Pro_Menu menu = json["ListObj"].ToString() == "" ? new T_Pro_Menu() : JsonConvert.DeserializeObject<T_Pro_Menu>(json["ListObj"].ToString());
             JObject result = new JObject();
-            if (string.IsNullOrEmpty(_admin_Sys_Navigations.NavTitle))
+            if (string.IsNullOrEmpty(menu.MenuName))
             {
                 result.Add(ResultInfo.Result, JToken.FromObject(false));
                 result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空")); 
             }
-            var _adminNavigation = repository.FindEntity<Admin_Sys_Navigations>(a=>a.KeyId== _admin_Sys_Navigations.KeyId);
-            //if (_adminNavigation != null)
-            //{
-            //    result.Add(ResultInfo.Result, JToken.FromObject(false));
-            //    result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能重复"));
-            //}
-            if (_admin_Sys_Navigations.ParentID == 0)
-            {
-                if(_adminNavigation==null)
-                {
-                    _admin_Sys_Navigations.KeyId = 0;
-                    _admin_Sys_Navigations.IsVisible = true;
-                    using (var db = new RepositoryBase().BeginTrans())
-                    {
-                        db.Insert(_admin_Sys_Navigations);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
-                }
-                else
-                {
-                    _admin_Sys_Navigations.IsVisible = true;
-                    using (var db = new RepositoryBase().BeginTrans())
-                    {
-                        db.Update(_admin_Sys_Navigations);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
-                }
-                
-            }
-            else
-            {
-                if (_adminNavigation == null)
-                {
-                    _admin_Sys_Navigations.KeyId = 0;
-                    _admin_Sys_Navigations.ParentID = 0;
-                    _admin_Sys_Navigations.IsVisible = true;
-                    using (var db = new RepositoryBase().BeginTrans())
-                    {
-                        db.Insert(_admin_Sys_Navigations);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
-                }
-                else
-                {
-                    _admin_Sys_Navigations.IsVisible = true;
-                    using (var db = new RepositoryBase().BeginTrans())
-                    {
-                        db.Update(_admin_Sys_Navigations);
-                        if (db.Commit() == 1)
-                        {
-                            result.Add(ResultInfo.Result, true);
-                        }
-                        else
-                        {
-                            result.Add(ResultInfo.Result, false);
-                        }
-                    }
-                }
-            }
             
+
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
+            {
+                try
+                {
+                    var getMenu = db.FindEntity<T_Pro_Menu>(a => a.MenuID == menu.MenuID);
+                    if(getMenu==null)
+                    {
+                        getMenu = new T_Pro_Menu();
+                        getMenu.MenuName = menu.MenuName;
+                        getMenu.ModuleId = "0001";
+                        getMenu.SysFlag = "GLXT";
+                        getMenu.sortid = menu.sortid;
+                        getMenu.ParentID = 0;
+                        getMenu.url = menu.url;
+                        getMenu.isdelete = 0;
+                        db.Insert(getMenu);
+                        
+                    }
+                    if(getMenu !=null && getMenu.ParentID==0)
+                    {
+                        var getMenuName = db.FindEntity<T_Pro_Menu>(a => a.MenuName == menu.MenuName);
+                        if(getMenuName!=null)
+                        {
+                            result.Add(ResultInfo.Result, JToken.FromObject(false));
+                            result.Add(ResultInfo.Content, JToken.FromObject("菜单名称已存在"));
+                            return result;
+                        }
+                        getMenu.ParentID = getMenu.MenuID;
+                        getMenu.MenuName = menu.MenuName;
+                        db.Insert(getMenu);
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+                db.Commit();
+                result.Add(ResultInfo.Result, true);
+            }
             return result;
         }
 
         public JObject DeleteNavigation(JObject json)
         {
-            Admin_Sys_Navigations _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new Admin_Sys_Navigations() : JsonConvert.DeserializeObject<Admin_Sys_Navigations>(json["ListObj"].ToString());
+            T_Pro_Menu _admin_Sys_Navigations = json["ListObj"].ToString() == "" ? new T_Pro_Menu() : JsonConvert.DeserializeObject<T_Pro_Menu>(json["ListObj"].ToString());
             JObject result = new JObject();
-            using (var db = new RepositoryBase().BeginTrans())
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
             {
                 db.Delete(_admin_Sys_Navigations);
                 if (db.Commit() == 1)
@@ -126,6 +86,47 @@ namespace Bayetech.Service
                 {
                     result.Add(ResultInfo.Result, false);
                 }
+            }
+            return result;
+        }
+
+        public JObject EditNavigation(JObject json)
+        {
+            T_Pro_Menu menu = json["ListObj"].ToString() == "" ? new T_Pro_Menu() : JsonConvert.DeserializeObject<T_Pro_Menu>(json["ListObj"].ToString());
+            JObject result = new JObject();
+            if (string.IsNullOrEmpty(menu.MenuName))
+            {
+                result.Add(ResultInfo.Result, JToken.FromObject(false));
+                result.Add(ResultInfo.Content, JToken.FromObject("菜单名称不能为空"));
+            }
+
+
+            using (var db = new RepositoryBase(DBFactory.oas).BeginTrans())
+            {
+                try
+                {
+                    var getMenu = db.FindEntity<T_Pro_Menu>(a => a.MenuID == menu.MenuID);
+                    if (getMenu == null)
+                    {
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("菜单不存在"));
+                        return result;
+
+                    }
+                    if (getMenu != null)
+                    {
+                        getMenu.MenuName = menu.MenuName;
+                        getMenu.url = menu.url;
+                        getMenu.sortid = menu.sortid;
+                        db.Update(getMenu);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                db.Commit();
+                result.Add(ResultInfo.Result, true);
             }
             return result;
         }
@@ -145,7 +146,7 @@ namespace Bayetech.Service
             //var ss = DBFactory.oas;
             using (oasEntities entity = new oasEntities())
             {
-                var list = entity.UP_GetUserMenu("0001", currentUser.UserName, "GLXT").ToList();
+                var list = entity.UP_GetUserMenu("0001", currentUser.User_Id, "GLXT").ToList();
                 var menuList = new List<MenuModel>();
 
                 foreach (var item in list.Where(it => it.ParentID == menuId))

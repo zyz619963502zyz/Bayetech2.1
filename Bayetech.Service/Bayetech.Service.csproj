@@ -61,6 +61,7 @@
     <Compile Include="IServices\IArticleService.cs" />
     <Compile Include="IServices\ICheckService.cs" />
     <Compile Include="IServices\IEngineService.cs" />
+    <Compile Include="IServices\IFlowService.cs" />
     <Compile Include="IServices\IGoodInfoService.cs" />
     <Compile Include="IServices\IDlService.cs" />
     <Compile Include="IServices\INavigationService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="IServices\IUploadFileService.cs" />
     <Compile Include="IServices\IUserService.cs" />
     <Compile Include="Model\CheckedListModel.cs" />
+    <Compile Include="Model\Diagram.cs" />
     <Compile Include="Model\EngineInfo.cs" />
     <Compile Include="Model\NavTreeModel.cs" />
     <Compile Include="Model\NavTreeModelPub.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Services\ButtonsManageService.cs" />
     <Compile Include="Services\CheckService.cs" />
     <Compile Include="Services\DlService.cs" />
+    <Compile Include="Services\Engine\FlowService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\GoodInfoService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
@@ -118,9 +121,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Engine\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
