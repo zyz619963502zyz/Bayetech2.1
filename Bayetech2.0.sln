@@ -17,7 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "页面完成度", "页面�
 	ProjectSection(SolutionItems) = preProject
 		app开发进度.xlsx = app开发进度.xlsx
 		代码规范.txt = 代码规范.txt
-		C:\Users\zhaoyz5\Desktop\可重画的页面.docx = C:\Users\zhaoyz5\Desktop\可重画的页面.docx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayetech.Admin", "Bayetech.Admin\Bayetech.Admin.csproj", "{D8F4EF4A-C361-480E-A3B7-C63304E82D6D}"
