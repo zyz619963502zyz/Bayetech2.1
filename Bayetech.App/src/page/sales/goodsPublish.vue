@@ -66,8 +66,10 @@
             </ul>
           </div>
           <div data-v-484bcaae="" class="release fw mt-20">
-              <!--<router-link :to="{path:'/goodsPublish_'+}"></router-link>-->
-            <a data-v-484bcaae="" class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>
+            <router-link :to="{path:'/goodsPublish_account'}">
+              <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
+            </router-link>
+            <!--<a class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>-->
           </div>
           <div data-v-484bcaae="" class="opacity-bomb" style="display: none;">
             <i data-v-484bcaae="" class="icon-alert fl"></i>
@@ -234,12 +236,7 @@
   .new-pubilsh01.order-container .danwei {
     right: .6rem;
   }
-  .toRight {
-    height: .32rem;
-    top: .38rem;
-    background: url(../../assets/images/right2.png) 50% no-repeat;
-    background-size: .12rem;
-  }
+.toRight { height: .32rem; top: .38rem; background: url('../../assets/images/right2.png') 50% no-repeat; background-size: .12rem; }
   .new-pubilsh01.order-container .toRight {
     top: .35rem;
   }
