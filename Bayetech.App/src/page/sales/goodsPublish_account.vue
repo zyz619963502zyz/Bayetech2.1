@@ -38,29 +38,32 @@
             <span data-v-08a3bc62="" class="span-icon-xinhao">出售价格</span>
             <input data-v-08a3bc62="" type="tel" maxlength="7" placeholder="请输入出售价格" />
           </div>
-          <p data-v-08a3bc62="" class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;"><span data-v-08a3bc62="" class="coll lh-46">了解收费标准</span></p>
+          <p data-v-08a3bc62="" class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;">
+            <span data-v-08a3bc62="" class="coll lh-46" @click="showContent('fees')">了解收费标准</span>
+          </p>
           <div data-v-08a3bc62="" class="mt-20"></div>
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              <div data-v-5af57c0b="" class="dialog_cover" v-if="property.ulShow"></div>
+              
               <a data-v-6027fbac="" href="javascript:;" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
                   <span data-v-6027fbac="" class="span-icon-xinhao">
                     角色职业
 
                   </span>
-                  <span data-v-6027fbac="" @click="showList()" class="danwei">{{property.selectVal}} </span>
+                  <span data-v-6027fbac="" @click="showContent('prof')" class="danwei">{{property.profVal}} </span>
                   <i data-v-6027fbac="" class="toRight fr"></i>
                 </div>
               </a>
-              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-if="property.ulShow">
+              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-if="property.prof">
                 <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1> <i data-v-5af57c0b="" @click="close()" class="bomb-close"></i>
+                <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
+                  <i data-v-5af57c0b="" @click="close('prof')" class="bomb-close"></i>
                 </div>
                 <div data-v-5af57c0b="" class="bomb-content">
                   <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
-                    <li v-for="jobs in ProfessionList" @click="selectLi(jobs)" class="border-bottom">{{jobs}}</li>
+                    <li v-for="jobs in professionList" @click="selectLi('prof',jobs)" class="border-bottom">{{jobs}}</li>
                   </ul>
                 </div>
               </div>
@@ -98,26 +101,41 @@
                     QQ等级
 
                   </span>
-                  <span data-v-6027fbac="" class="danwei">请选择 </span>
+                  <span data-v-6027fbac="" class="danwei" @click="showContent('qqlevel')">{{property.qqlevelVal}} </span>
                   <i data-v-6027fbac="" class="toRight fr"></i>
                 </div>
               </a>
-
+              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-show="property.qqlevel">
+                <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
+                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">QQ等级</h1>
+                  <i data-v-5af57c0b="" class="bomb-close" @click="close('qqlevel')"></i>
+                </div>
+                <div data-v-5af57c0b="" class="bomb-content">
+                  <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
+                    <li v-for="levels in qqlevelList" @click="selectLi('qqlevel',levels)" class="border-bottom">{{levels}}</li>
+                    
+                  </ul>
+                </div>
+              </div>
             </section>
           </div>
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              <a data-v-6027fbac="" href="javascript:;" class="aRight">
+              
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
                   <span data-v-6027fbac="" class="span-icon-xinhao">
                     QQ好友
 
                   </span>
-                  <span data-v-6027fbac="" class="danwei">请选择 </span>
-                  <i data-v-6027fbac="" class="toRight fr"></i>
+                  <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
+                    <ul data-v-f82175a2="" class="clearfix">
+                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
+                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
+                    </ul>
+                  </div>
                 </div>
-              </a>
+             
 
             </section>
           </div>
@@ -126,15 +144,23 @@
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
               <a data-v-6027fbac="" href="javascript:;" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">
-                    历史处罚记录
-
-                  </span>
-                  <span data-v-6027fbac="" class="danwei">请选择 </span>
+                  <span data-v-6027fbac="" class="span-icon-xinhao" >历史处罚记录</span>
+                  <span data-v-6027fbac="" class="danwei" @click="showContent('punish')">{{property.punishVal}} </span>
                   <i data-v-6027fbac="" class="toRight fr"></i>
                 </div>
               </a>
+              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-show="property.punish">
+                <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
+                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">历史处罚记录</h1>
+                  <i data-v-5af57c0b="" class="bomb-close" @click="close('punish')"></i>
+                </div>
+                <div data-v-5af57c0b="" class="bomb-content">
+                  <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
+                    <li v-for="punish in punishList" @click="selectLi('punish',punish)" class="border-bottom">{{punish}}</li>
 
+                  </ul>
+                </div>
+              </div>
             </section>
           </div>
           <div data-v-08a3bc62="" class="mt-20"></div>
@@ -316,8 +342,9 @@
         </div>
         <!--<div data-v-08a3bc62="" class="dialog_cover hide"></div>-->
       </div>
-      
-      <div data-v-08a3bc62="" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%; display: none;">
+      <div data-v-5af57c0b="" class="dialog_cover" v-if="property.masked" @click="close()"></div>
+      <!-- 了解收费标准-->
+      <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%; display: block;">
         <div data-v-08a3bc62="" class="ts-rate">
           <h3 data-v-08a3bc62="" class="f30 color-000">移动端帐号收费标准：</h3>
           <table data-v-08a3bc62="">
@@ -371,14 +398,23 @@
 
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
-  import {ProfessionData} from "@/testdata/Data.js";
+  import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
   let vmdata = {
-    ProfessionList:[], //角色职业列表
+    professionList: [], //角色职业列表
+    qqlevelList: [],//qq等级列表
+    punishList:[],//是否有惩罚列表
     property:{
-      sex:[],
-      ulShow:false,
-      selectVal:'请选择'
+      sex: [],//职业性别
+      friend: [],//有无QQ好友
+      masked: false,//通用遮罩层
+      prof: false,//职业下拉选择列表
+      profVal: '请选择',//被选中的职业选项，默认'请选择'
+      qqlevel: false,//qq等级下拉选择列表
+      qqlevelVal: '请选择',//选中的qq等级范围
+      fees: false,//收费标准
+      punish: false,//处罚记录
+      punishVal:'请选择'//选中的处罚记录
     }
   }
   export default {
@@ -387,29 +423,66 @@
       return vmdata;
     },
   mounted:function(){
-    //this.getProfessionList();
+    this.getProfessionList();
+    this.getqqlevelList();
+    this.getPunishList();
   },
     methods:{
       //展示遮罩层以及ul
-      showList:function(){
-        this.property.ulShow = true;
-        this.getProfessionList();
+      showContent: function (options) {
+        this.property[options] = true;
+        //switch (options) {
+        //  case 'fees': this.property.fees = true
+        //    break;
+        //  case 'prof': this.property.prof = true
+        //               //this.getProfessionList()
+        //    break;
+        //  case 'qqlevel': this.property.qqlevel = true
+        //    break;
+        //}
+        //this.property.ulShow = true;
+        this.property.masked = true;
+        
       },
-      close:function(){
-        this.property.ulShow = false;
+      //关闭已打开的遮罩层和内容
+      close:function(key){
+        //this.property.ulShow = false;
+        //this.property.qqLevel = false;
+        this.property.fees = false;
+        this.property.masked = false;
+
+        this.property[key] = false;
       },
       //获取职业列表
       getProfessionList: function (){
         let that = this;
         for(let datasList of ProfessionData){
-          that.$set(that.ProfessionList,that.ProfessionList.length,datasList)
+          that.$set(that.professionList, that.professionList.length,datasList)
         }
       },
-      //所选择的职业
-      selectLi:function(value){
+      //获取qq等级列表
+      getqqlevelList: function () {
         let that = this;
-        that.property.selectVal = value;
-        this.close();
+        for (let datasList of qqlevelData) {
+          that.$set(that.qqlevelList, that.qqlevelList.length, datasList)
+        }
+      },
+      //获取是否有惩罚列表
+      getPunishList: function () {
+        let that = this;
+        for (let datasList of punishData) {
+          that.$set(that.punishList, that.punishList.length, datasList)
+        }
+      },
+      //所选择的li
+      selectLi: function (key,value) {
+        let that = this;
+        //let tag = tag;
+        //let el = e.target.innerText;
+        //console.log(tag);     
+        //that.property.profVal = el;
+        that.property[key+'Val'] = value;
+        this.close(key);
       }
     }
   }
@@ -521,6 +594,11 @@
         text-align: center;
         color: #666;
       }
+  .buyat-ease .secbuy-info, .buyat-ease .secbuy-info .sectems {
+    height: auto;
+    display: block;
+    overflow: hidden;
+  }
       .buyat-ease, .buyat-ease .secbuy-ease {
         height: auto;
         display: block;
@@ -747,4 +825,65 @@
         font-size: .3rem;
         color: #000;
     }
+      /*收费标准说明*/
+  .phlog {
+    width: 85%;
+    min-width: 6.9rem;
+    height: auto;
+    border-radius: .2rem;
+    margin: .35rem auto .25rem;
+    position: relative;
+    background-color: #fff;
+    opacity: 1;
+  }
+  .ts-rate {
+    width: 100%;
+    border-radius: .144rem;
+    background: #fff;
+    padding: .24rem .24rem .35rem;
+    box-sizing: border-box;
+  }
+    .ts-rate h3 {
+      line-height: .5rem;
+      height: .8rem;
+      font-size: .3rem;
+      color: #000;
+      padding-bottom: .072rem;
+    }
+    .ts-rate table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      line-height: .4rem;
+    }
+      .ts-rate table tr th {
+        display: inline-block;
+        width: 30%;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: .24rem;
+        padding: .048rem;
+        border-top: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        vertical-align: middle;
+        display: table-cell;
+      }
+      .ts-rate table tr .t1 {
+        width: 40%;
+      }
+      .ts-rate table tr td:first-child, .ts-rate table tr th:first-child {
+        border-left: 1px solid #e8e8e8;
+      }
+      .ts-rate table tr td {
+        display: inline-block;
+        width: 30%;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: .24rem;
+        padding: .048rem;
+        border-top: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        vertical-align: middle;
+        display: table-cell;
+      }
 </style>

@@ -112,7 +112,6 @@ var dlListData = [
   },
 ];
 
-
 /** 代练详情页*/
 var dlDetailData = [
   {
@@ -822,6 +821,7 @@ var dlDetailData = [
     ]
   },
 ];
+
 /** 角色职业 临时用*/
 var ProfessionData = ['狱血魔神',
   '剑圣',
@@ -844,10 +844,19 @@ var ProfessionData = ['狱血魔神',
   '弹药专家',
   '机械战神'
 ]
+
+/** qq等级*/
+var qqlevelData = ['QQ等级0级', 'QQ等级1-5级', 'QQ等级6-10级', 'QQ等级11-20级', 'QQ等级21-30级', 'QQ等级31-40级','QQ等级40级以上']
+
+/** 是否有处罚记录*/
+var punishData = ['存在5天封号记录', '不存在5天封号记录', '存在1小时封号记录', '存在24小时封号记录', '存在3年封号记录']
+
 export {
   dlDetailData,
   dlListData,
-  ProfessionData
+  ProfessionData,
+  qqlevelData,
+  punishData
 }
 
 
