@@ -57,14 +57,7 @@
             <span data-v-484bcaae="" class="danwei">请选择</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
           </div>
-          <!-- 交易类型-->
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-333">交易类型</span></div>
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-            <ul data-v-f82175a2="" class="clearfix">
-              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','js'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','js')">寄售</li>
-              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','db'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','db')">担保</li>
-            </ul>
-          </div>
+          
           <div data-v-484bcaae="" class="release fw mt-20">
             <router-link :to="{path:'/goodsPublish_account'}">
               <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
@@ -87,12 +80,8 @@
   import "@/assets/content/css/style-min.css";
 
   let vmdata = {
-
-    
-
     property: {
-      goodsType: [],
-      tradeType:['db']
+      goodsType: []      
     }
   }
   export default {
@@ -105,6 +94,11 @@
       //this.$isChoice("test", "sex", "男");
       //this.$choose("test", "sex", "女");
       //this.$chooseSingle("test","sex","男")
+    },
+    methods: {
+      nextStep: function () {
+
+      }
     }
   }
 </script>

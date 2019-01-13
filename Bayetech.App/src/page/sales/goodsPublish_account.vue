@@ -207,17 +207,17 @@
                 </div>
                 <div data-v-08a3bc62="" class="secbuy-info">
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
-                    <i data-v-08a3bc62="" class="chrd-xms fl"></i>
+                    <i data-v-08a3bc62="" class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','sixty')}" @click="$chooseSingle('property','serviceDate','sixty')"></i>
                     <span data-v-08a3bc62="" class="chterm fl">60天服务期限</span>
                     <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">0.00</i>元</em>
                   </div>
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
-                    <i data-v-08a3bc62="" class="chrd-xms fl"></i>
+                    <i data-v-08a3bc62="" class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','eighteen')}" @click="$chooseSingle('property','serviceDate','eighteen')"></i>
                     <span data-v-08a3bc62="" class="chterm fl">180天服务期限</span>
                     <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">0.00</i>元</em>
                   </div>
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
-                    <i data-v-08a3bc62="" class="chrd-xms fl "></i>
+                    <i data-v-08a3bc62="" class="chrd-xms fl " :class="{'chrd-xms-hov':$isChoice('property','serviceDate','not')}" @click="$chooseSingle('property','serviceDate','not')"></i>
                     <span data-v-08a3bc62="" class="chterm fl">不开通</span>
                     <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">0.00</i>元</em>
                   </div>
@@ -233,12 +233,12 @@
           <div data-v-08a3bc62="" class="mt-20 order-container color-000 bg-fff">
             <span data-v-08a3bc62="" class="f32 sec-buy-server">快捷发布</span>
             <div data-v-08a3bc62="" class=" f30">
-              <span data-v-08a3bc62="" class="sec-price f36 color-999"> ￥0</span>
+              <span data-v-08a3bc62="" class="sec-price f36 color-999" :class="{'color-m1':property.checked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
               <span data-v-08a3bc62="" class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
               <div data-v-08a3bc62="" class="button-switch fr">
-                <label data-v-08a3bc62="" class="label-switch">
-                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" />
-                  <div data-v-08a3bc62="" class="checkbox"></div>
+                <label data-v-08a3bc62="" class="label-switch" >
+                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" @click="shortcut($event)"/><!--v-model="checkNames"-->
+                  <div data-v-08a3bc62="" class="checkbox" ></div>
                 </label>
               </div>
             </div>
@@ -342,7 +342,7 @@
         </div>
         <!--<div data-v-08a3bc62="" class="dialog_cover hide"></div>-->
       </div>
-      <div data-v-5af57c0b="" class="dialog_cover" v-if="property.masked" @click="close()"></div>
+      <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked"  @click="close()"></div>
       <!-- 了解收费标准-->
       <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%; display: block;">
         <div data-v-08a3bc62="" class="ts-rate">
@@ -407,6 +407,7 @@
     property:{
       sex: [],//职业性别
       friend: [],//有无QQ好友
+      serviceDate: [],//服务期限
       masked: false,//通用遮罩层
       prof: false,//职业下拉选择列表
       profVal: '请选择',//被选中的职业选项，默认'请选择'
@@ -414,7 +415,9 @@
       qqlevelVal: '请选择',//选中的qq等级范围
       fees: false,//收费标准
       punish: false,//处罚记录
-      punishVal:'请选择'//选中的处罚记录
+      punishVal: '请选择',//选中的处罚记录
+      rapidPrice: '0',
+      checked: false
     }
   }
   export default {
@@ -446,11 +449,12 @@
       },
       //关闭已打开的遮罩层和内容
       close:function(key){
-        //this.property.ulShow = false;
-        //this.property.qqLevel = false;
+        this.property.prof = false;
+        this.property.qqlevel = false;
+        this.property.punish = false;
         this.property.fees = false;
         this.property.masked = false;
-
+        //下面这个是想方便点，但是遮罩层关闭的时候 ul没有关闭，两个先就都留着了
         this.property[key] = false;
       },
       //获取职业列表
@@ -483,6 +487,17 @@
         //that.property.profVal = el;
         that.property[key+'Val'] = value;
         this.close(key);
+      },
+      shortcut: function (e) {
+        let that = this;
+        if (e.target.checked) {
+          that.property.checked = true;
+          that.property.rapidPrice = '10';
+        } else {
+          that.property.checked = false;
+          that.property.rapidPrice = '0';
+        }
+        //console.log(e.target.checked)
       }
     }
   }
@@ -627,6 +642,13 @@
             background: url(../../assets/images/dlpub-list-hov.png) no-repeat 0;
             background-size: .38rem;
           }
+          .buyat-ease .secbuy-info .sectems .chrd-xms-hov {
+            width: 9%;
+            height: 1rem;
+            display: block;
+            background: url(../../assets/images/dlpub-list.png) no-repeat 0;
+            background-size: .44rem;
+          }
           .buyat-ease .secbuy-info .sectems .chterm {
             width: 32%;
             display: block;
@@ -661,13 +683,11 @@
         margin-top: -.36rem;
         right: .3rem;
       }
-      .label-switch, .label-switch .checkbox {
-        width: 100%;
-        box-sizing: border-box;
-        height: 100%;
-        position: relative;
-        cursor: pointer;
-      }
+  .button-switch {
+    display: block;
+    width: 1.18rem;
+    height: .6rem;
+  }
       .label-switch {
         display: inline-block;
         vertical-align: middle;
@@ -675,6 +695,13 @@
         -webkit-align-self: center;
         align-self: center;
       }
+        .label-switch, .label-switch .checkbox {
+          width: 100%;
+          box-sizing: border-box;
+          height: 100%;
+          position: relative;
+          cursor: pointer;
+        }
         .label-switch input[type=checkbox] {
           display: none;
         }
@@ -694,6 +721,11 @@
           border: none;
           margin-top: .06rem;
         }
+          .label-switch input[type=checkbox] + .checkbox,
+          .label-switch input[type=checkbox] + .checkbox:after,
+          html.android .label-switch input[type=checkbox] + .checkbox:before {
+            transition-duration: 0;
+          }
         .label-switch, .label-switch .checkbox {
           width: 100%;
           box-sizing: border-box;
@@ -701,8 +733,10 @@
           position: relative;
           cursor: pointer;
         }
-          .label-switch input[type=checkbox] + .checkbox, .label-switch input[type=checkbox] + .checkbox:after, html.android .label-switch input[type=checkbox] + .checkbox:before {
-            transition-duration: 0;
+          
+          .label-switch input[type=checkbox]:checked + .checkbox:after {
+            -webkit-transform: translateX(92%);
+            transform: translateX(92%);
           }
           .label-switch .checkbox:after, .label-switch .checkbox:before {
             content: " ";
@@ -722,6 +756,15 @@
             -webkit-transform: scale(1);
             transform: scale(1);
           }
+          .label-switch .checkbox:after, .label-switch .checkbox:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 2%;
+            border-radius: .4rem;
+            transition-duration: .3s;
+          }
           .label-switch .checkbox:after {
             height: 92%;
             width: 50%;
@@ -730,6 +773,9 @@
             box-shadow: 0 0.05rem 0.12rem rgba(0,0,0,.4);
             -webkit-transform: translateX(0);
             transform: translateX(0);
+          }
+          .label-switch input[type=checkbox]:checked + .checkbox {
+            background: #4cd964;
           }
       .release {
         padding: .3rem;

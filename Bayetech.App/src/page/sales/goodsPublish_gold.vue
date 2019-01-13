@@ -110,6 +110,15 @@
             </div>
             <i class="fr icon-more"></i>
           </div>
+          <!-- 交易类型-->
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-333">交易类型</span></div>
+          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
+            <ul data-v-f82175a2="" class="clearfix">
+              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','js'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','js')">寄售</li>
+              <li data-v-f82175a2="" :class="{selected:$isChoice('property','tradeType','db'),fl:true,border:true}" @click="$chooseSingle('property','tradeType','db')">担保</li>
+            </ul>
+          </div>
+
           <div class="new-pubilsh01 order-container bg-fff f30 color-000 border-bottom mt-20">
             <span class="span-icon-xinhao">单件数量</span>
             <input maxlength="10" type="tel" placeholder="请输入单件数量" style="width: 52%;">
@@ -184,5 +193,54 @@
 </template>
 
 <script>
- 
+  import "@/assets/content/css/fost-base-min.css";
+  import "@/assets/content/css/style-min.css";
+
+  let vmdata = {
+    property: {
+      tradeType: ['db']
+    }
+  };
+
+  export default {
+    name: "goodsPublish_gold",
+    data() {
+      return vmdata;
+    },
+    mounted: function () {
+
+    }
+  }
+
 </script>
+
+<style>
+  .new-pubilsh01.publish-type {
+    padding: .3rem .4rem 0;
+    text-align: center;
+  }
+
+    .new-pubilsh01.publish-type ul li {
+      width: 31%;
+      height: .76rem;
+      line-height: .76rem;
+      border-color: #b5b5b5;
+      color: #000;
+      margin-bottom: .3rem;
+      margin-right: .24rem;
+      border-radius: .06rem;
+    }
+      /*.publish-type ul li.selected {
+        border-color: #f60;
+        background: url(/dist/src/assets/images/check.png) no-repeat 100% 100%;
+        background-size: 22%;
+      }*/
+      .new-pubilsh01.publish-type ul li.selected {
+        border-color: #f60;
+        background-image: url(../../assets/images/common/icon-new-check.png);
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        background-color: #fff7f5;
+        background-size: 22%;
+      }
+</style>
