@@ -211,6 +211,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ButtonsController.cs" />
     <Compile Include="Controllers\CheckGoodController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DicsManageController.cs" />
     <Compile Include="Controllers\FlowController.cs" />
     <Compile Include="Controllers\GameController.cs" />
@@ -2174,6 +2175,7 @@
     <Content Include="Page\PageTest.html" />
     <Content Include="Page\sysPage\AdminManage.html" />
     <Content Include="Page\sysPage\ButtonsManage.html" />
+    <Content Include="Page\sysPage\DepartmentManage.html" />
     <Content Include="Page\sysPage\DicsManage.html" />
     <Content Include="Page\sysPage\MyInformation.html" />
     <Content Include="Page\sysPage\NavigationManage.html" />
@@ -2186,6 +2188,7 @@
     </Content>
     <Content Include="Scripts\app\Auth_ButtonsManage.js" />
     <Content Include="Scripts\app\Auth_AdminManage.js" />
+    <Content Include="Scripts\app\Auth_DepartmentManage.js" />
     <Content Include="Scripts\app\Auth_DicsManage.js" />
     <Content Include="Scripts\app\Auth_RolesManage.js" />
     <Content Include="Scripts\app\Auth_NavigationManage.js" />
@@ -2210,6 +2213,7 @@
     <Content Include="Scripts\app\TranslateContent\Auth_AdminManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_ButtonsManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_CustomerManage_ES5.js" />
+    <Content Include="Scripts\app\TranslateContent\Auth_DepartmentManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_DicsManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_NavigationManage_ES5.js" />
     <Content Include="Scripts\app\TranslateContent\Auth_RolesManage_ES5.js" />
@@ -2738,6 +2742,7 @@
     <Content Include="Scripts\components\table-OrderProcess.vue" />
     <Content Include="Scripts\components\table-GoodProcess.vue" />
     <Content Include="Scripts\components\FlowChart.vue" />
+    <Content Include="Scripts\components\table-Department.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\components\Test.js" />
     <Content Include="Scripts\go-1.8.35-debug.js" />
@@ -2781,6 +2786,7 @@
     <Folder Include="Page\router\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Views\ButtonsManage\" />
+    <Folder Include="Views\Department\" />
     <Folder Include="Views\DicsManage\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\NavButtons\" />
