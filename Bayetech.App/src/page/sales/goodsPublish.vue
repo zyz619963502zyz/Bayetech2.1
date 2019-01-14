@@ -33,10 +33,10 @@
           </div>
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
             <ul data-v-484bcaae="" class="clearfix">
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','account'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','account')">游戏帐号</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','equip'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','equip')">游戏装备</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','tzs'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','tzs')">挑战书</li>
-              <li data-v-484bcaae="" :class="{selected:$isChoice('test','goodsType','coinspf'),fl:true,border:true}" @click="$chooseSingle('test','goodsType','coinspf')">硬币批发</li>
+              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','account')}" @click="$chooseSingle('property','goodsType','account')">游戏帐号</li>
+              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','equip')}" @click="$chooseSingle('property','goodsType','equip')">游戏装备</li>
+              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','material')}" @click="$chooseSingle('property','goodsType','material')">材料</li>
+              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','coinspf')}" @click="$chooseSingle('property','goodsType','coinspf')">硬币批发</li>
 
               <!--<li data-v-484bcaae="" :class="{selected:isChoice('coins','0'),fl:true,border:true}">游戏币</li>
   <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
@@ -51,25 +51,18 @@
               <span data-v-484bcaae="" class="f30 color-999">收起</span>
             </div>
           </div>
-          <!-- 商品小类 -->
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-000">商品小类</span></div>
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw"><ul data-v-f82175a2="" class="clearfix"><li data-v-f82175a2="" class="border fl">武器</li><li data-v-f82175a2="" class="border fl">防具</li><li data-v-f82175a2="" class="border fl">首饰</li><li data-v-f82175a2="" class="border fl">特殊装备</li><li data-v-f82175a2="" class="border fl">套装</li></ul> <div data-v-f82175a2="" class="open-more-select"><i data-v-f82175a2="" class="icon-open"></i> <span data-v-f82175a2="" class="f30 color-999">展开</span></div></div>
           <!-- 游戏区服 -->
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
             <span data-v-484bcaae="" class="danwei">请选择</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
           </div>
-          <!-- 交易类型-->
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff mt-20 f30 border-bottom fw"><span data-v-f82175a2="" class="f32 span-icon-xinhao color-333">交易类型</span></div>
-          <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-            <ul data-v-f82175a2="" class="clearfix">
-              <li data-v-f82175a2="" class="border fl">寄售</li>
-              <li data-v-f82175a2="" class="border fl">担保</li>
-            </ul>
-          </div>
+          
           <div data-v-484bcaae="" class="release fw mt-20">
-            <a data-v-484bcaae="" class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>
+            <router-link :to="{path:'/goodsPublish_account'}">
+              <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
+            </router-link>
+            <!--<a class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>-->
           </div>
           <div data-v-484bcaae="" class="opacity-bomb" style="display: none;">
             <i data-v-484bcaae="" class="icon-alert fl"></i>
@@ -87,10 +80,8 @@
   import "@/assets/content/css/style-min.css";
 
   let vmdata = {
-
-
-    test: {
-      goodsType: []
+    property: {
+      goodsType: []      
     }
   }
   export default {
@@ -103,6 +94,11 @@
       //this.$isChoice("test", "sex", "男");
       //this.$choose("test", "sex", "女");
       //this.$chooseSingle("test","sex","男")
+    },
+    methods: {
+      nextStep: function () {
+
+      }
     }
   }
 </script>
@@ -234,12 +230,7 @@
   .new-pubilsh01.order-container .danwei {
     right: .6rem;
   }
-  .toRight {
-    height: .32rem;
-    top: .38rem;
-    background: url(../../assets/images/right2.png) 50% no-repeat;
-    background-size: .12rem;
-  }
+.toRight { height: .32rem; top: .38rem; background: url('../../assets/images/right2.png') 50% no-repeat; background-size: .12rem; }
   .new-pubilsh01.order-container .toRight {
     top: .35rem;
   }

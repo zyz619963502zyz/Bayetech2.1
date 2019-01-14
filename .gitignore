@@ -211,3 +211,5 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /Bayetech.AdminTests
+/Bayetech.App/node_modules.zip
+*.exclude
