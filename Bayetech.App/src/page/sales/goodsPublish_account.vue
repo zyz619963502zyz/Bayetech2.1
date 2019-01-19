@@ -157,7 +157,6 @@
                 <div data-v-5af57c0b="" class="bomb-content">
                   <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
                     <li v-for="punish in punishList" @click="selectLi('punish',punish)" class="border-bottom">{{punish}}</li>
-
                   </ul>
                 </div>
               </div>
@@ -344,7 +343,7 @@
       </div>
       <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked"  @click="close()"></div>
       <!-- 了解收费标准-->
-      <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%; display: block;">
+      <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%;">
         <div data-v-08a3bc62="" class="ts-rate">
           <h3 data-v-08a3bc62="" class="f30 color-000">移动端帐号收费标准：</h3>
           <table data-v-08a3bc62="">
@@ -405,9 +404,9 @@
     qqlevelList: [],//qq等级列表
     punishList:[],//是否有惩罚列表
     property:{
-      sex: [],//职业性别
-      friend: [],//有无QQ好友
-      serviceDate: [],//服务期限
+      sex: '',//职业性别
+      friend: '',//有无QQ好友
+      serviceDate: '',//服务期限
       masked: false,//通用遮罩层
       prof: false,//职业下拉选择列表
       profVal: '请选择',//被选中的职业选项，默认'请选择'
@@ -416,8 +415,12 @@
       fees: false,//收费标准
       punish: false,//处罚记录
       punishVal: '请选择',//选中的处罚记录
-      rapidPrice: '0',
-      checked: false
+      rapidPrice: '0',//快捷发布费用
+      checked: false, //是否选择快捷发布
+      showSel: '' //选择要弹出的ul框
+
+      //各个输入框
+
     }
   }
   export default {
@@ -433,29 +436,25 @@
     methods:{
       //展示遮罩层以及ul
       showContent: function (options) {
+        //debugger;
         this.property[options] = true;
-        //switch (options) {
-        //  case 'fees': this.property.fees = true
-        //    break;
-        //  case 'prof': this.property.prof = true
-        //               //this.getProfessionList()
-        //    break;
-        //  case 'qqlevel': this.property.qqlevel = true
-        //    break;
-        //}
-        //this.property.ulShow = true;
         this.property.masked = true;
-        
+        this.property.showSel = options;
       },
       //关闭已打开的遮罩层和内容
-      close:function(key){
-        this.property.prof = false;
-        this.property.qqlevel = false;
-        this.property.punish = false;
-        this.property.fees = false;
-        this.property.masked = false;
+      close: function (option) {
+        let that = this;
+        that.property.fees = false;
+        that.property.masked = false;
         //下面这个是想方便点，但是遮罩层关闭的时候 ul没有关闭，两个先就都留着了
-        this.property[key] = false;
+        //this.property[that.property.showSel] = false;
+        if (option == undefined) {
+          that.property[that.property.showSel] = false;
+        } else {
+          that.property[option] = false;
+        }
+        //清空要弹出的ul框
+        that.property.showSel = '';
       },
       //获取职业列表
       getProfessionList: function (){
@@ -479,15 +478,12 @@
         }
       },
       //所选择的li
-      selectLi: function (key,value) {
+      selectLi: function (option,value) {
         let that = this;
-        //let tag = tag;
-        //let el = e.target.innerText;
-        //console.log(tag);     
-        //that.property.profVal = el;
-        that.property[key+'Val'] = value;
-        this.close(key);
+        that.property[option+'Val'] = value;
+        this.close(option);
       },
+      //快捷发布选项
       shortcut: function (e) {
         let that = this;
         if (e.target.checked) {
