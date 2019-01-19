@@ -101,6 +101,16 @@ export default new Router({
       path: '/goodsPublish_equip',
       name: 'goodsPublish_equip',
       component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_equip.vue')), 'sales')
+    },
+    {
+      path: '/goodsPublish_material',
+      name: 'goodsPublish_material',
+      component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_material.vue')), 'sales')
+    },
+    {
+      path: '/goodsPublish_gold',
+      name: 'goodsPublish_gold',
+      component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_gold.vue')), 'sales')
     }
   ]
 })
