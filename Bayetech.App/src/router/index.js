@@ -91,10 +91,16 @@ export default new Router({
       path: '/goodsPublish',
       name: 'goodsPublish',
       component: r => require.ensure([], () => r(require('../page/sales/goodsPublish.vue')), 'sales')
-    },{
+    },
+    {
       path: '/goodsPublish_account',
       name: 'goodsPublish_account',
       component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_account.vue')), 'sales')
     },
+    {
+      path: '/goodsPublish_equip',
+      name: 'goodsPublish_equip',
+      component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_equip.vue')), 'sales')
+    }
   ]
 })
