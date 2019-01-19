@@ -15,6 +15,7 @@ module.exports = {
         Auth_DicsManage:"./Scripts/app/Auth_DicsManage.js",//数据字典
         Auth_AdminManage: "./Scripts/app/Auth_AdminManage.js",//管理员设置
         Auth_ButtonsManage:"./Scripts/app/Auth_ButtonsManage.js",//按钮管理
+        Auth_DepartmentManage: "./Scripts/app/Auth_DepartmentManage.js",//部门管理
 
         //业务
         GoodCheck: "./Scripts/app/GoodCheck.js",
@@ -23,6 +24,7 @@ module.exports = {
         GameMenu:"./Scripts/app/GameMenu.js",
         GameProperty: "./Scripts/app/GameProperty.js",
         Setting: "./Scripts/app/Setting.js",
+        
 
         //流程
         WFManage:"./Scripts/app/WFManage.js"
