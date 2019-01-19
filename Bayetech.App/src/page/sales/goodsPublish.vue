@@ -81,7 +81,7 @@
 
   let vmdata = {
     property: {
-      goodsType: ''      
+      goodsType: 'account'
     }
   }
   export default {
