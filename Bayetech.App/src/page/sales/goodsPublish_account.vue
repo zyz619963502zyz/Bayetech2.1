@@ -398,6 +398,7 @@
 
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
+  import router from "vue-router";
   import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
   let vmdata = {
