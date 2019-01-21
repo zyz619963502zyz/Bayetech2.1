@@ -36,7 +36,7 @@
               <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','account')}" @click="$chooseSingle('property','goodsType','account')">游戏帐号</li>
               <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','equip')}" @click="$chooseSingle('property','goodsType','equip')">游戏装备</li>
               <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','material')}" @click="$chooseSingle('property','goodsType','material')">材料</li>
-              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','coinspf')}" @click="$chooseSingle('property','goodsType','coinspf')">硬币批发</li>
+              <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','gold')}" @click="$chooseSingle('property','goodsType','gold')">硬币批发</li>
 
               <!--<li data-v-484bcaae="" :class="{selected:isChoice('coins','0'),fl:true,border:true}">游戏币</li>
   <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
@@ -59,7 +59,7 @@
           </div>
           
           <div data-v-484bcaae="" class="release fw mt-20">
-            <router-link :to="{path:'/goodsPublish_account'}">
+            <router-link :to="{path:'/goodsPublish_'+property.goodsType}">
               <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
             </router-link>
             <!--<a class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>-->
@@ -81,7 +81,7 @@
 
   let vmdata = {
     property: {
-      goodsType: []      
+      goodsType: 'account'
     }
   }
   export default {

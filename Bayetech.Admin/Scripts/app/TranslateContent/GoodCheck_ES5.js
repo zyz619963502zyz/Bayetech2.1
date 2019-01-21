@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 52);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11597,6 +11597,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
             },
             Result: {
                 DiagramData: {},
+                myPalette: {},
                 List: [{
                     WFM_ID: "",
                     CURSTATUS_ID: "",
@@ -11801,7 +11802,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 
             self.load(); // load an initial diagram from some JSON text
 
-            myPalette = $(go.Palette, "myPaletteDiv", // must name or refer to the DIV HTML element
+            self.myPalette = $(go.Palette, "myPaletteDiv", // must name or refer to the DIV HTML element
             {
                 scrollsPageOnFocus: false,
                 nodeTemplateMap: self.myDiagram.nodeTemplateMap, // share the templates used by myDiagram
@@ -11893,7 +11894,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__ = __webpack_require__(56);
+/* WEBPACK VAR INJECTION */(function(comCompnent) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue__ = __webpack_require__(57);
 //
 //
 //
@@ -12016,7 +12017,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Approve_vue_vue_type_script_lang_js__ = __webpack_require__(23);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -12040,7 +12041,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -12068,7 +12069,7 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__ = __webpack_require__(28);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -12081,8 +12082,8 @@ component.options.__file = "Scripts\\components\\Approve.vue"
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_GoodProcess_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -12092,7 +12093,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -12101,7 +12102,7 @@ if (false) {
     } else {
       api.reload('170ea28f', component.options)
     }
-    module.hot.accept("./table-GoodProcess.vue?vue&type=template&id=170ea28f&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-GoodProcess.vue?vue&type=template&id=170ea28f&lang=html", function () {
       api.rerender('170ea28f', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -12118,7 +12119,7 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__ = __webpack_require__(30);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -12131,8 +12132,8 @@ component.options.__file = "Scripts\\components\\table-GoodProcess.vue"
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__table_OrderProcess_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -12142,7 +12143,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -12151,7 +12152,7 @@ if (false) {
     } else {
       api.reload('7d7e03f4', component.options)
     }
-    module.hot.accept("./table-OrderProcess.vue?vue&type=template&id=7d7e03f4&id=BaseTable&lang=html", function () {
+    module.hot.accept("./table-OrderProcess.vue?vue&type=template&id=7d7e03f4&lang=html", function () {
       api.rerender('7d7e03f4', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -12173,7 +12174,8 @@ component.options.__file = "Scripts\\components\\table-OrderProcess.vue"
 /* 48 */,
 /* 49 */,
 /* 50 */,
-/* 51 */
+/* 51 */,
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12413,15 +12415,15 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 52 */,
 /* 53 */,
 /* 54 */,
 /* 55 */,
-/* 56 */
+/* 56 */,
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_lang_html__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__ = __webpack_require__(24);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
@@ -12434,8 +12436,8 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 
 var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_1__FlowChart_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__FlowChart_vue_vue_type_template_id_727e5bec_lang_html__["b" /* staticRenderFns */],
   false,
   null,
   null,
@@ -12445,7 +12447,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("E:\\Bayetech2.1\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -12454,7 +12456,7 @@ if (false) {
     } else {
       api.reload('727e5bec', component.options)
     }
-    module.hot.accept("./FlowChart.vue?vue&type=template&id=727e5bec&id=FlowChart&lang=html", function () {
+    module.hot.accept("./FlowChart.vue?vue&type=template&id=727e5bec&lang=html", function () {
       api.rerender('727e5bec', {
         render: render,
         staticRenderFns: staticRenderFns
@@ -12466,53 +12468,53 @@ component.options.__file = "Scripts\\components\\FlowChart.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__ = __webpack_require__(68);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Approve_vue_vue_type_template_id_8b73532e__["b"]; });
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__ = __webpack_require__(68);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_id_FlowChart_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_lang_html__ = __webpack_require__(69);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FlowChart_vue_vue_type_template_id_727e5bec_lang_html__["b"]; });
 
 
 /***/ }),
-/* 59 */,
 /* 60 */,
 /* 61 */,
-/* 62 */
+/* 62 */,
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__ = __webpack_require__(72);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__ = __webpack_require__(73);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GoodProcess_vue_vue_type_template_id_170ea28f_lang_html__["b"]; });
 
 
 /***/ }),
-/* 63 */,
-/* 64 */
+/* 64 */,
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__ = __webpack_require__(74);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_id_BaseTable_lang_html__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__ = __webpack_require__(75);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_OrderProcess_vue_vue_type_template_id_7d7e03f4_lang_html__["b"]; });
 
 
 /***/ }),
-/* 65 */,
 /* 66 */,
-/* 67 */
+/* 67 */,
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12625,7 +12627,7 @@ render._withStripped = true
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12750,10 +12752,10 @@ render._withStripped = true
 
 
 /***/ }),
-/* 69 */,
 /* 70 */,
 /* 71 */,
-/* 72 */
+/* 72 */,
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12850,8 +12852,8 @@ render._withStripped = true
 
 
 /***/ }),
-/* 73 */,
-/* 74 */
+/* 74 */,
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

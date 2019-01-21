@@ -161,11 +161,7 @@
 
 <script src="../../Scripts/app/TranslateContent/Auth_RolesManage_ES5.js"></script>
 <script type="text/javascript">
-
     $(function () {
-
-
-
         //用户模型
         var model = function () {
             var _model = this;
@@ -190,7 +186,6 @@
                 }
                 $.ajax({
                     url: "/api/Roles/GetTree",
-                    //data:JSON.stringify(dd),
                     type: "get",
                     dataType: "json",
                     async: false,
@@ -214,7 +209,6 @@
                                             showTags: true,
                                             showIcon: false,
                                             showCheckbox: true,
-
                                             onNodeChecked: function (event, node) {
                                                 //$('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
                                             },
@@ -241,9 +235,6 @@
                                             }
                                         })
                                      .treeview('collapseAll', { silent: true });
-
-                                        //console.info(checkedData);
-
                                         $("#AuthModal").modal("show");
                                         if (ret.result) {
                                             debugger;
@@ -258,8 +249,6 @@
                 }); 
             };
             self.AuthUpdate = function () {
-                debugger;
-
                 var id = $("input[name='Operates']").val();
                 var nodes = self.AuthTree.treeview('getSiblings', { silent: true });
                 var checkModel = [];
@@ -313,7 +302,6 @@
             self.AuthSelectAll = function () {
                 debugger;
                 self.AuthTree.treeview('checkAll', { silent: true });//选中所有
-
             };
             //全不选
             self.AuthUnSelectAll = function () {
