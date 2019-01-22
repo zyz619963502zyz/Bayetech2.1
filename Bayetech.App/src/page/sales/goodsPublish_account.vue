@@ -20,6 +20,8 @@
           <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80" data-v-08a3bc62="">
             <div data-v-509ef1b0="" class="fl notice_public">
               <p data-v-509ef1b0="" class="f24  fl">出售商品无需缴纳保证金，无需扫码，切勿私下交易！</p>
+              <p>{{property.goodTitle}}</p>
+              <p>{{property.goodPrice}}</p>
             </div>
           </div>
           <div data-v-08a3bc62="" class="order-container bg-fff mt-174 color-000 f30 border-bottom Mmt-177">
@@ -32,11 +34,11 @@
           </div>
           <div data-v-08a3bc62="" class="order-container bg-fff f30 border-bottom color-000 mt-20">
             <span data-v-08a3bc62="" class="span-icon-xinhao">商品标题</span>
-            <input data-v-08a3bc62="" maxlength="20" type="text" placeholder="请勿留下联系方式" />
+            <input data-v-08a3bc62="" v-model="property.goodTitle" maxlength="20" type="text" placeholder="请勿留下联系方式" />
           </div>
           <div data-v-08a3bc62="" class="order-container bg-fff border-bottom f30 color-000">
             <span data-v-08a3bc62="" class="span-icon-xinhao">出售价格</span>
-            <input data-v-08a3bc62="" type="tel" maxlength="7" placeholder="请输入出售价格" />
+            <input data-v-08a3bc62="" v-model="property.goodPrice" type="number" maxlength="7" placeholder="请输入出售价格" />
           </div>
           <p data-v-08a3bc62="" class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;">
             <span data-v-08a3bc62="" class="coll lh-46" @click="showContent('fees')">了解收费标准</span>
@@ -397,7 +399,7 @@
 
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
-  import router from "vue-router";
+  //import router from "vue-router";
   import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
   let vmdata = {
@@ -418,10 +420,16 @@
       punishVal: '请选择',//选中的处罚记录
       rapidPrice: '0',//快捷发布费用
       checked: false, //是否选择快捷发布
-      showSel: '' //选择要弹出的ul框
+      showSel: '', //选择要弹出的ul框
 
       //各个输入框
-
+      goodTitle:'',//商品标题（账号）
+      goodPrice: '',//出售价格（账号）
+      profLevel: '',//游戏角色等级
+      gameAccount: '',//游戏账号
+      gamePwd: '',//游戏密码
+      gameProfName: '',//游戏角色名
+      gameStoragePwd:''//游戏仓库密码（dnf）
     }
   }
   export default {

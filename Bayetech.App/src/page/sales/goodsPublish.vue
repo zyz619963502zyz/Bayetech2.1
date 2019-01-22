@@ -59,7 +59,7 @@
           </div>
           
           <div data-v-484bcaae="" class="release fw mt-20">
-            <router-link :to="{path:'/goodsPublish_'+property.goodsType}">
+            <router-link :to="{path:'/goodsPublish_' + property.goodsType}">
               <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
             </router-link>
             <!--<a class="next"><input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" /></a>-->
