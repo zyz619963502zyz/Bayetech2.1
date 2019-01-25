@@ -20,8 +20,6 @@
           <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80" data-v-08a3bc62="">
             <div data-v-509ef1b0="" class="fl notice_public">
               <p data-v-509ef1b0="" class="f24  fl">出售商品无需缴纳保证金，无需扫码，切勿私下交易！</p>
-              <p>{{property.goodTitle}}</p>
-              <p>{{property.goodPrice}}</p>
             </div>
           </div>
           <div data-v-08a3bc62="" class="order-container bg-fff mt-174 color-000 f30 border-bottom Mmt-177">
@@ -38,7 +36,7 @@
           </div>
           <div data-v-08a3bc62="" class="order-container bg-fff border-bottom f30 color-000">
             <span data-v-08a3bc62="" class="span-icon-xinhao">出售价格</span>
-            <input data-v-08a3bc62="" v-model="property.goodPrice" type="number" maxlength="7" placeholder="请输入出售价格" />
+            <input data-v-08a3bc62="" v-model="property.goodPrice" type="number" oninput="if(value.length>7)value=value.slice(0,7)" placeholder="请输入出售价格" />
           </div>
           <p data-v-08a3bc62="" class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;">
             <span data-v-08a3bc62="" class="coll lh-46" @click="showContent('fees')">了解收费标准</span>
@@ -48,7 +46,7 @@
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
               
-              <a data-v-6027fbac="" href="javascript:;" class="aRight">
+              <a data-v-6027fbac="" href="javascript:vodi(0);" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
                   <span data-v-6027fbac="" class="span-icon-xinhao">
                     角色职业
@@ -91,7 +89,7 @@
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32"></section>
             <div data-v-6027fbac="" class="order-container bg-fff f30 color-000 border-bottom">
               <span data-v-6027fbac="" class="span-icon-xinhao">角色等级</span>
-              <input data-v-6027fbac="" type="text" maxlength="90" placeholder="请输入角色等级" />
+              <input data-v-6027fbac="" v-model="property.profLevel" type="text" maxlength="90" placeholder="请输入角色等级" />
             </div>
           </div>
           <div data-v-6027fbac="" data-v-08a3bc62="">
@@ -170,14 +168,14 @@
             <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
             <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
               <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏帐号</span>
-              <input data-v-7a08d46c="" maxlength="10" type="text" placeholder="请输入游戏帐号" />
+              <input data-v-7a08d46c="" v-model="property.gameAccount" maxlength="10" type="text" placeholder="请输入游戏帐号" />
             </div>
           </div>
           <div data-v-7a08d46c="" data-v-08a3bc62="">
             <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
             <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
               <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏密码</span>
-              <input data-v-7a08d46c="" maxlength="16" type="text" placeholder="请输入游戏密码" />
+              <input data-v-7a08d46c="" v-model="property.gamePwd" maxlength="16" type="password" placeholder="请输入游戏密码" />
             </div>
           </div>
           <div data-v-7a08d46c="" data-v-08a3bc62="">
@@ -185,7 +183,7 @@
             <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
             <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
               <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏角色名</span>
-              <input data-v-7a08d46c="" maxlength="50" type="text" placeholder="请输入游戏角色名" />
+              <input data-v-7a08d46c="" v-model="property.gameProfName" maxlength="50" type="text" placeholder="请输入游戏角色名" />
             </div>
           </div>
           <div data-v-7a08d46c="" data-v-08a3bc62="">
@@ -193,7 +191,7 @@
             <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
             <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
               <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">仓库密码</span>
-              <input data-v-7a08d46c="" maxlength="50" type="text" placeholder="请输入仓库密码" />
+              <input data-v-7a08d46c="" v-model="property.gameStrPwd" maxlength="50" type="password" placeholder="请输入仓库密码" />
             </div>
           </div>
           <p data-v-08a3bc62="" class="sec-tip">本站所有信息经过安全加密，请安心填写</p>
@@ -210,12 +208,12 @@
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
                     <i data-v-08a3bc62="" class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','sixty')}" @click="$chooseSingle('property','serviceDate','sixty')"></i>
                     <span data-v-08a3bc62="" class="chterm fl">60天服务期限</span>
-                    <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">0.00</i>元</em>
+                    <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">{{property.servicePrice.shortTime}}</i>元</em>
                   </div>
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
                     <i data-v-08a3bc62="" class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','eighteen')}" @click="$chooseSingle('property','serviceDate','eighteen')"></i>
                     <span data-v-08a3bc62="" class="chterm fl">180天服务期限</span>
-                    <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">0.00</i>元</em>
+                    <em data-v-08a3bc62="" class="chcover fl">服务费：<i data-v-08a3bc62="" class="color-m1">{{property.servicePrice.longTime}}</i>元</em>
                   </div>
                   <div data-v-08a3bc62="" class="sectems f30 color-000 border-bottom">
                     <i data-v-08a3bc62="" class="chrd-xms fl " :class="{'chrd-xms-hov':$isChoice('property','serviceDate','not')}" @click="$chooseSingle('property','serviceDate','not')"></i>
@@ -234,7 +232,7 @@
           <div data-v-08a3bc62="" class="mt-20 order-container color-000 bg-fff">
             <span data-v-08a3bc62="" class="f32 sec-buy-server">快捷发布</span>
             <div data-v-08a3bc62="" class=" f30">
-              <span data-v-08a3bc62="" class="sec-price f36 color-999" :class="{'color-m1':property.checked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
+              <span data-v-08a3bc62="" class="sec-price f36 color-999" :class="{'color-m1':property.rapidChecked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
               <span data-v-08a3bc62="" class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
               <div data-v-08a3bc62="" class="button-switch fr">
                 <label data-v-08a3bc62="" class="label-switch" >
@@ -251,7 +249,7 @@
             <p data-v-08a3bc62="" class="f22 color-m1"> 为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟4天打款，此期间请勿修改帐号资料，否则将会号财两空。 </p>
           </div>
           <div data-v-08a3bc62="" class="release mt-30  trlect-btn">
-            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" type="button" name="" value="下一步" class="bg-f54 " /></a>
+            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" @click="nextStep()" type="button" name="" value="下一步" class="bg-f54 " /></a>
           </div>
         </div>
         <div data-v-08a3bc62="" class="pb-200" style="display: none;">
@@ -285,7 +283,7 @@
             </div>
           </div>
           <div data-v-08a3bc62="" class="release  trlect-btn mt-20">
-            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" type="button" value="下一步" class="bg-f54" /></a>
+            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62=""  type="button" value="下一步" class="bg-f54" /></a>
           </div>
         </div>
         <div data-v-08a3bc62="" class="pb-200" style="display: none;">
@@ -419,8 +417,12 @@
       punish: false,//处罚记录
       punishVal: '请选择',//选中的处罚记录
       rapidPrice: '0',//快捷发布费用
-      checked: false, //是否选择快捷发布
+      rapidChecked: false, //是否选择快捷发布
       showSel: '', //选择要弹出的ul框
+      servicePrice:{
+          shortTime:'0.00',
+          longTime:'0.00'
+      },
 
       //各个输入框
       goodTitle:'',//商品标题（账号）
@@ -429,13 +431,25 @@
       gameAccount: '',//游戏账号
       gamePwd: '',//游戏密码
       gameProfName: '',//游戏角色名
-      gameStoragePwd:''//游戏仓库密码（dnf）
+      gameStrPwd:''//游戏仓库密码（dnf）
     }
   }
   export default {
     name: 'goodsPublish_account',
     data() {
       return vmdata;
+    },
+    watch:{
+        'property.goodPrice': function(){
+            let that = this;
+            let goodPrice = that.property.goodPrice;
+
+            if(goodPrice > 20000){
+                goodPrice = 20000;
+            }
+            that.property.servicePrice.shortTime = (goodPrice * 0.22).toFixed(2); //安心买60天服务
+            that.property.servicePrice.longTime = (goodPrice * 0.3).toFixed(2); //安心买180天服务
+        }
     },
   mounted:function(){
     this.getProfessionList();
@@ -455,10 +469,11 @@
         let that = this;
         that.property.fees = false;
         that.property.masked = false;
-        //下面这个是想方便点，但是遮罩层关闭的时候 ul没有关闭，两个先就都留着了
-        //this.property[that.property.showSel] = false;
+
+        //点击遮罩层的时候分情况关闭
         if (option == undefined) {
-          that.property[that.property.showSel] = false;
+            that.property[that.property.showSel] = false;
+            that.property.showSel = '';
         } else {
           that.property[option] = false;
         }
@@ -496,14 +511,29 @@
       shortcut: function (e) {
         let that = this;
         if (e.target.checked) {
-          that.property.checked = true;
+          that.property.rapidChecked = true;
           that.property.rapidPrice = '10';
         } else {
-          that.property.checked = false;
+          that.property.rapidChecked = false;
           that.property.rapidPrice = '0';
         }
-        //console.log(e.target.checked)
-      }
+          //console.log(e.target.checked)
+
+      },
+        nextStep:function(){
+            let that = this;
+            let tempVal = {};
+
+            tempVal.goodTitle = that.property.goodTitle,
+            tempVal.goodPrice = that.property.goodPrice,
+            tempVal.profLevel = that.property.profLevel,
+            tempVal.gameAccount = that.property.gameAccount,
+            tempVal.gamePwd = that.property.gamePwd,
+            tempVal.gameProfName = that.property.gameProfName,
+            tempVal.gameStrPwd = that.property.gameStrPwd
+
+            console.log(tempVal);
+        }
     }
   }
 
