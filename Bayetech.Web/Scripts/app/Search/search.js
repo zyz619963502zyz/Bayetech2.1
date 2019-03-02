@@ -203,9 +203,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             setData: function (type,pid,self) {
                 common.getWebJson("/api/Search/GetData", { type: type, id: pid, serviceType: (self.DL ? 4 : 1) }, function (data) {
                     if (data && data.List) {
-                        data.List.unshift({ Id: "", Name:"全部"})
+                        data.List.unshift({ Id: "", Name: "全部" });
                     }
-                    
                     self.DropdownData = data;
                 });
             },
