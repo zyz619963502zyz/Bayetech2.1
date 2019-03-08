@@ -5,7 +5,6 @@ define([], function () {
                 <li><a href="../Game/List.html" target="_blank">金币交易</a></li>
                 <li><a href="../Game/List.html" target="_blank">装备交易</a></li>
                 <li><a href="#">游戏攻略</a></li>
-                <li><a href="#">关于我们</a></li>
                 <li><a href="#">充值</a></li>
             </ul></div>`;
     //  <li><a href="../Game/List.html" target="_blank">账号交易</a></li>

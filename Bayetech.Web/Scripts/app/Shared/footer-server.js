@@ -19,13 +19,13 @@
                     <div class="app">
                         <h4>游戏联盟微信订阅号</h4>
                         <div class="qrimg">
-                            <img src="http://img1.gtimg.com/sports/pics/hv1/130/5/1892/123028705.jpg" alt="游戏联盟微信订阅号">
+                            <img src="../../Content/Images/erwm.jpg"  alt="游戏联盟微信订阅号">
                         </div>
                     </div>
                     <div class="app">
                         <h4>下载APP</h4>
                         <div class="qrimg">
-                            <img src="//img1.gtimg.com/sports/pics/hv1/251/92/2217/144184136.png" alt="APP">
+                            <img src="../../Content/Images/erwm.jpg" alt="APP">
                         </div>
                     </div>
                     <ul class="yx-links">
@@ -99,18 +99,18 @@
         partnerimg: [
             {
                 title: '王者荣耀',
-                imgurl: '../../../../Content/Images/关羽.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/dnf.png',
+                url: 'http://www.52yxb.com'
             },
             {
                 title: '兔玩网',
-                imgurl: '../../../../Content/Images/兰陵王.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/dnf.png',
+                url: 'http://www.52yxb.com'
             },
             {
                 title: 'UU898',
-                imgurl: '../../../../Content/Images/关羽.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/dnf.png',
+                url: 'http://www.52yxb.com'
             }
         ],
 

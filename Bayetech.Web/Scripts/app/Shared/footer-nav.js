@@ -48,12 +48,12 @@
                     </dl>
                 </div>
                 <div class="wx-item">
-                    <img src="sthttp://pic.7881.com/7881-2016/images/wx-shouyou7881.png" width="120" height="120" alt="7881官方微信" />
+                    <img src="../../Content/Images/erwm.jpg" width="120" height="120" alt="7881官方微信" />
                     <h2>7881官方微信</h2>
                     <p>微信号：game7881</p>
                 </div>
                 <div class="wx-item wx-item-first">
-                    <img src="sthttp://pic.7881.com/7881-2016/images/wx-m7881.png" width="120" height="120" alt="手游充值APP" />
+                    <img src="../../Content/Images/erwm.jpg" width="120" height="120" alt="手游充值APP" />
                     <h2>手游充值APP</h2>
                     <p>m.7881.com</p>
                 </div>
