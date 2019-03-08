@@ -4,8 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
-    <link href="../Content/LoginStyle.css" rel="stylesheet" />   
+    <link href="../Content/LoginStyle.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="http://connect.qq.com/qc_jssdk.js"
+            data-appid="101551432"
+            data-redirecturi="http://www.52yxb.com:8011/Page/Login.html" data-callback="true"></script>
 </head>
 <body>
     <div id="LoginDiv" class="main">
@@ -13,10 +17,11 @@
             <h1><strong>Baytech后台登录</strong></h1>
             <div class="head"><img src="../Content/img/icon/user.png" alt="" /></div>
             <form>
-                <input type="text" class="text" v-model="Param.User_ID" placeholder="用户名"/>
+                <input type="text" class="text" v-model="Param.User_ID" placeholder="用户名" />
                 <input type="password" v-model="Param.User_PWD" placeholder="密码" />
-                <div class="submit"><input type="button"@click="LoginIn" value="登录" /></div>
+                <div class="submit"><input type="button" @click="LoginIn" value="登录" /></div>
                 <p><a href="#">忘记密码?</a></p>
+                <span id="qqLoginBtn"></span>
             </form>
         </div>
         <div class="copy-right"><p>版权是2018。Bayetech公司保留所有权利。</p> </div>
@@ -25,3 +30,46 @@
 </html>
 <script src="../Scripts/jquery-1.10.2.min.js"></script>
 <script src="../Scripts/app/TranslateContent/Login_ES5.js"></script>
+<script type="text/javascript">
+     QC.Login({
+        //插入按钮的节点id
+        btnId: "qqLoginBtn",
+        scope: "all",
+        size: "B_M"
+    },
+     function (reqData, opts) {//登录成功
+         //根据返回数据，更换按钮显示状态方法
+         alert(1);
+         debugger;
+         var paras = {};
+         QC.api("get_user_info", paras)
+             //指定接口访问成功的接收函数，s为成功返回Response对象
+             .success(function (s) {
+                 //成功回调，通过s.data获取OpenAPI的返回数据
+                 alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+             })
+             //指定接口访问失败的接收函数，f为失败返回Response对象
+             .error(function (f) {
+                 //失败回调
+                 alert("获取用户信息失败！");
+             })
+             //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+             .complete(function (c) {
+                 //完成请求回调
+                 alert("获取用户信息完成！");
+             });
+
+        //调用自己的接口，保存信息
+        //......
+        }, function (opts) {//注销成功
+            alert('QQ登录 注销成功');
+
+        }
+    );
+    if (QC.Login.check()) {//如果已登录
+        //这里可以调用自己的保存接口
+
+        //用JS SDK调用OpenAPI获取用户信息
+        
+    }
+</script>
