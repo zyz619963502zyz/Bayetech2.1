@@ -19,13 +19,13 @@
                     <div class="app">
                         <h4>游戏联盟微信订阅号</h4>
                         <div class="qrimg">
-                            <img src="http://img1.gtimg.com/sports/pics/hv1/130/5/1892/123028705.jpg" alt="游戏联盟微信订阅号">
+                            <img src="../../Content/Images/shixiao.png"  alt="游戏联盟微信订阅号">
                         </div>
                     </div>
                     <div class="app">
                         <h4>下载APP</h4>
                         <div class="qrimg">
-                            <img src="//img1.gtimg.com/sports/pics/hv1/251/92/2217/144184136.png" alt="APP">
+                            <img src="../../Content/Images/shixiao.png" alt="APP">
                         </div>
                     </div>
                     <ul class="yx-links">
@@ -34,7 +34,7 @@
                             <h4>关于</h4>
                             <ul>
                                 <li><a href="/a/20150521/056103.htm">关于游戏联盟</a></li>
-                                <li><a href="mailto:1820184934@qq.com">联系我们</a></li>
+                                <li><a href="javascript:void(0)">联系我们</a></li>
                                 <li><a href="/a/20150305/047006.htm">招聘启事</a></li>
                                 <li><a href="/a/20150728/023527.htm">实习机会</a></li>
                                 <li><a href="/017602.htm">微信订阅</a></li>
@@ -99,18 +99,18 @@
         partnerimg: [
             {
                 title: '王者荣耀',
-                imgurl: '../../../../Content/Images/关羽.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/icon/1.png',
+                url: 'http://www.52yxb.com'
             },
             {
                 title: '兔玩网',
-                imgurl: '../../../../Content/Images/兰陵王.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/icon/2.png',
+                url: 'http://www.52yxb.com'
             },
             {
                 title: 'UU898',
-                imgurl: '../../../../Content/Images/关羽.jpg',
-                url: 'http://qq.com'
+                imgurl: '../../Content/Images/icon/3.png',
+                url: 'http://www.52yxb.com'
             }
         ],
 

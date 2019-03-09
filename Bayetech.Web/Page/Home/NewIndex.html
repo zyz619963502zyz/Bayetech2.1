@@ -87,7 +87,7 @@
                         <div class="r-panel-tab m-b-md">
                             <!--公告-->
                             <v-tab :data="notice">
-                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                <a slot-scope="props" :href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                             </v-tab>
                         </div>
 
@@ -95,7 +95,7 @@
                             <!--咨询、建议、投诉-->
                             <!-- 没造数据，跟数据现在公告一样 -->
                             <v-tab :data="consult">
-                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                <a slot-scope="props" :href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                             </v-tab>
                         </div>
 

@@ -2743,6 +2743,8 @@
     <Content Include="Scripts\components\table-GoodProcess.vue" />
     <Content Include="Scripts\components\FlowChart.vue" />
     <Content Include="Scripts\components\table-Department.vue" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
     <Content Include="Scripts\go-1.8.35-debug.js" />
     <Content Include="Scripts\go-1.8.35.js" />
