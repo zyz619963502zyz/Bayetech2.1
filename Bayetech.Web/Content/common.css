@@ -50,11 +50,11 @@ img{display:inline-block;}
 .e15{font-size:1.5em;}
 .e16{font-size:1.6em;}
 .e20{font-size:2em;}
-/*font-weight*/
+.w100{width:100%;}
 .fb600{font-weight:600;}
 .fb700{font-weight:700;}
 .fb800{font-weight:800;}
-/*cursor:pointer*/
+
 .pointer{cursor:pointer;}
 /*border 
  *base-color:#ccc

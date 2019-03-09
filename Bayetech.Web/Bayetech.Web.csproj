@@ -529,6 +529,7 @@
     <Content Include="Content\Images\zt2.png" />
     <Content Include="Content\Images\zt2s-li2.png" />
     <Content Include="Content\Images\logo1.png" />
+    <Content Include="Content\jhcommon.css" />
     <Content Include="Content\log-sin.css" />
     <Content Include="Content\article.css" />
     <Content Include="Content\NewImages\10.jpg" />
@@ -549,6 +550,7 @@
     <Content Include="Content\NewImages\homeImg7.jpg" />
     <Content Include="Content\NewImages\homeImg8.jpg" />
     <Content Include="Content\NewImages\homeImg9.jpg" />
+    <Content Include="Content\NewImages\jzjh.jpg" />
     <Content Include="Content\NewImages\lc1.png" />
     <Content Include="Content\NewImages\lc2.png" />
     <Content Include="Content\NewImages\logo.ico" />
@@ -590,6 +592,7 @@
     <Content Include="Page\Good\GoodInfo.html" />
     <Content Include="Page\Good\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
+    <Content Include="Page\Jzjh\guard.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
@@ -782,6 +785,7 @@
     <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\jquery-2.2.2.min.js" />
     <Content Include="Scripts\jsconfig.js" />
+    <Content Include="Scripts\jzjh.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\require.min.js" />
     <Content Include="Scripts\resource.js" />

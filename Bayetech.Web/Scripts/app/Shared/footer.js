@@ -6,7 +6,7 @@
                 <a href="" target="_blank" rel="nofollow">关于星转</a> | <a href="" target="_blank" rel="nofollow">服务协议</a> | <a href="" target="_blank" rel="nofollow">隐私政策</a> | <a href="" target="_blank" rel="nofollow">开放平台</a> | <a href="#" target="_blank" rel="nofollow">客服中心</a> | <a href="#" target="_blank" rel="nofollow">网站导航</a>
             </div>
             <div>地址：上海市奉贤区岚丰路1150号1幢6130室&nbsp;&nbsp;&nbsp;&nbsp;电话：021-66273585 </div>
-            <div class="notice-warn">抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</div> 
+            <div class="notice-warn">抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。<br /> 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</div> 
             <div class="age-warning">温馨提示：适合18岁以上玩家</div>
 <div class="en">Copyright &copy;  2019  All Rights Reserved</div>            
 <div>
