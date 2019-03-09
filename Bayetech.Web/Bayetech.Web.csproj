@@ -18,7 +18,7 @@
     <AssemblyName>Bayetech.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -774,6 +774,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\downloadfile\jksq.doc" />
     <None Include="Properties\PublishProfiles\bayetechweb.pubxml" />
     <None Include="Properties\PublishProfiles\发布到服务器.pubxml" />
     <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />

@@ -302,7 +302,7 @@
         return {
             GameId: 0,
             GameName: "游戏名称",
-            GameGroupId: 0,//上海区 
+            GameGroupId: 0,//上海区3 
             GameGroupName: "游戏区",
             GameServerId: 0,//上海一区
             GameServerName: "服务器",
