@@ -280,11 +280,16 @@ img{display:inline-block;}
         font-weight: bold;
         font-size: 16px;
     }
+    .yx-copyright .notice-warn {
+        font-weight: bold;
+        font-size: 14px;
+    }
 /*=====end footer======*/
-
-
 /*----部分bootstrap重写和添加专区----*/
-.form-group .form-control:focus{box-shadow:none;border-color:#3d86ea;}
+.form-group .form-control:focus {
+    box-shadow: none;
+    border-color: #3d86ea;
+}
 .form-group-xs .form-control {height: 26px;padding: 3px 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;}
 .form-group-xs select.form-control, .form-group-xs input.form-control{height: 26px;line-height: 26px;}
 .form-group-xs .btn-xs{padding:3px 8px;}
