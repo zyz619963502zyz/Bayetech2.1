@@ -311,10 +311,13 @@
             DlTypeName: "代练类型",//等级 冲杯 段位
             GoodKeyWord: "",//关键字
             AcrossId: 0,//跨区Id
-            AcrossName: "跨区"
-        };
-    };
+            AcrossName: "跨区",
+            isset: "",//身份证设置情况
+            ProfessionId: "",//职业id
+            QQLevel:''//QQ等级
+        };};
 
+    
     return common;
 })
 

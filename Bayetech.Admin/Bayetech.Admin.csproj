@@ -2744,7 +2744,6 @@
     <Content Include="Scripts\components\FlowChart.vue" />
     <Content Include="Scripts\components\table-Department.vue" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
-    <Content Include="Scripts\components\Test.js" />
     <Content Include="Scripts\go-1.8.35-debug.js" />
     <Content Include="Scripts\go-1.8.35.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
