@@ -108,7 +108,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 aurl: "",
                 GoodTitle: "",
                 GroupName: "",
-                ServerName: "",
+                ServerName: "", 
                 GoodPrice: ""
             }
         ],
@@ -122,7 +122,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 records: 10,//总记录数
                 total: 10//总页数。
             }
-        },
+        }
     }
 
     //中间模板

@@ -2746,7 +2746,6 @@
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\components\table-TwoLayer.vue" />
-    <Content Include="Scripts\components\Test.js" />
     <Content Include="Scripts\go-1.8.35-debug.js" />
     <Content Include="Scripts\go-1.8.35.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
