@@ -30,7 +30,7 @@ module.exports = {
         WFManage:"./Scripts/app/WFManage.js"
     },
     output: {
-        //path: path.join(__dirname, 'Scripts'),
+        //path: path.join(__dirname, 'Scripts'),    
         filename: "./Scripts/app/TranslateContent/[name]_ES5.js"
 
     },

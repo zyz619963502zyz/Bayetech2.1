@@ -16,24 +16,24 @@ define(['jquery', 'swiper'], function ($, Swiper) {
     var data = {
         object: [{
             title: "地下城与勇士全类目免手续费",
-            url: "http://www.7881.com/b2b/buy-G10.html",
-            img: "../../Content/images2018/5比2焦点海报dnf-1.jpg"
+            url: "http://www.52yxb.com",
+            img: "../../Content/images2018/5比2焦点海报dnf2-7.jpg"
         }, {
             title: "八折代充王者荣耀",
-            url: "http://search.7881.com/201612376074038.html",
+            url: "http://www.52yxb.com",
             img: "../../Content/images2018/5比2焦点海报lol-1.jpg"
         }, {
             title: "假期已完 福利不断",
-            url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
+            url: "http://www.52yxb.com",
             img: "../../Content/images2018/5比2焦点海报魔兽-1.jpg"
         }, {
             title: "假期已完 福利不断",
-            url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
+            url: "http://www.52yxb.com",
             img: "../../Content/images2018/5比2焦点海报王者荣耀1.jpg"
         },
         {
             title: "假期已完 福利不断",
-            url: "http://search.7881.com/list.html?gameId=A2807&gtid=100131&groupId=&serverId=",
+            url: "http://www.52yxb.com",
             img: "../../Content/images2018/5比2焦点海报dnf-2.jpg"
         },
         ],

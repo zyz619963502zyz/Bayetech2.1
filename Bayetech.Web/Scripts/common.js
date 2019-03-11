@@ -302,7 +302,7 @@
         return {
             GameId: 0,
             GameName: "游戏名称",
-            GameGroupId: 0,//上海区 
+            GameGroupId: 0,//上海区3 
             GameGroupName: "游戏区",
             GameServerId: 0,//上海一区
             GameServerName: "服务器",
@@ -311,10 +311,13 @@
             DlTypeName: "代练类型",//等级 冲杯 段位
             GoodKeyWord: "",//关键字
             AcrossId: 0,//跨区Id
-            AcrossName: "跨区"
-        };
-    };
+            AcrossName: "跨区",
+            isset: "",//身份证设置情况
+            ProfessionId: "",//职业id
+            QQLevel:''//QQ等级
+        };};
 
+    
     return common;
 })
 
