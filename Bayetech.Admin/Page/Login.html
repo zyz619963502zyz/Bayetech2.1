@@ -4,8 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
-    <link href="../Content/LoginStyle.css" rel="stylesheet" />   
+    <link href="../Content/LoginStyle.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript"  src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101551432" data-redirecturi="http://www.52yxb.com/Page/Home/NewIndex.html" charset="utf-8" data-callback="true"></script>
 </head>
 <body>
     <div id="LoginDiv" class="main">
@@ -13,15 +14,106 @@
             <h1><strong>Baytech后台登录</strong></h1>
             <div class="head"><img src="../Content/img/icon/user.png" alt="" /></div>
             <form>
-                <input type="text" class="text" v-model="Param.User_ID" placeholder="用户名"/>
+                <input type="text" class="text" v-model="Param.User_ID" placeholder="用户名" />
                 <input type="password" v-model="Param.User_PWD" placeholder="密码" />
-                <div class="submit"><input type="button"@click="LoginIn" value="登录" /></div>
+                <div class="submit"><input type="button" @click="LoginIn" value="登录" /></div>
                 <p><a href="#">忘记密码?</a></p>
+                <span id="qqLoginBtn"></span>
+
             </form>
         </div>
         <div class="copy-right"><p>版权是2018。Bayetech公司保留所有权利。</p> </div>
     </div>
 </body>
 </html>
+<!--<script type="text/javascript">
+    QC.Login({
+        //插入按钮的节点id
+        btnId: "qqLoginBtn",
+        scope: "all",
+        size: "B_M"
+    },
+     function (reqData, opts) {//登录成功
+         //根据返回数据，更换按钮显示状态方法
+         debugger;
+            var dom = document.getElementById(opts['btnId']),
+                _logoutTemplate = [
+                    //头像
+                    '<span><img src="{figureurl}" class="{size_key}"/></span>',
+                    //昵称
+                    '<span>{nickname}</span>',
+                    //退出
+                    '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'
+                ].join("");
+            dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
+                nickname: QC.String.escHTML(reqData.nickname),
+                figureurl: reqData.figureurl
+            }));
+        }, function (opts) {//注销成功
+            alert('QQ登录 注销成功');
+
+        }
+    );
+    if (QC.Login.check()) {//如果已登录
+        //这里可以调用自己的保存接口
+
+        //用JS SDK调用OpenAPI获取用户信息
+        var paras = {};
+        QC.api("get_user_info", paras)
+            //指定接口访问成功的接收函数，s为成功返回Response对象
+            .success(function (s) {
+                //成功回调，通过s.data获取OpenAPI的返回数据
+                alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+            })
+            //指定接口访问失败的接收函数，f为失败返回Response对象
+            .error(function (f) {
+                //失败回调
+                alert("获取用户信息失败！");
+            })
+            //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+            .complete(function (c) {
+                //完成请求回调
+                alert("获取用户信息完成！");
+            });
+
+        //调用自己的接口，保存信息
+        //......
+    }
+</script>-->
+<script>
+    debugger;
+    function callback(user) {
+        var userName = document.getElementById('userName');
+        var greetingText = document.createTextNode('Greetings, ' + user.openid + '.');
+        userName.appendChild(greetingText);
+    }
+
+    //应用的APPID，请改为你自己的
+    var appID = "101551432";
+    //成功授权后的回调地址，请改为你自己的
+    var redirectURI = "http://www.52yxb.com/Page/Game/List.html";
+
+    //构造请求
+    if (window.location.hash.length == 0) {
+        var path = 'https://graph.qq.com/oauth2.0/authorize?';
+        var queryParams = ['client_id=' + appID, 'redirect_uri=' + redirectURI, 'scope = ' + 'get_user_info, list_album, upload_pic, add_feeds, do_like','response_type = token'];
+
+        var query = queryParams.join('&');
+        var url = path + query;
+        window.open(url);
+    }
+    else {
+        //获取access token
+        var accessToken = window.location.hash.substring(1);
+        //使用Access Token来获取用户的OpenID
+        var path = "https://graph.qq.com/oauth2.0/me?";
+        var queryParams = [accessToken, 'callback=callback'];
+        var query = queryParams.join('&');
+        var url = path + query;
+        var script = document.createElement('script');
+        script.src = url;
+        document.body.appendChild(script);
+    }
+</script>
 <script src="../Scripts/jquery-1.10.2.min.js"></script>
 <script src="../Scripts/app/TranslateContent/Login_ES5.js"></script>

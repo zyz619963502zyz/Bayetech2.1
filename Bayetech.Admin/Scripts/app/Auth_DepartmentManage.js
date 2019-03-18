@@ -7,6 +7,7 @@ let vmData = {
         _comCompnent: comCompnent,
         _componentTable: componentTable
     },
+    DepartmentUrl: "",
     DepartmentArray: [],
     SearchParam: {
         Param: {//查询条件的参数
