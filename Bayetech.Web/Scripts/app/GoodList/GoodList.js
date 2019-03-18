@@ -141,7 +141,14 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 if (_type=="NewIndex"||type == "GoodList") {
                     self.findList();
                 }
-            }); 
+            });
+
+            //点击
+            self.$root.$on("GetListData", function (data) {
+                if (data) {
+                    self.ListObj = data.content.datas;
+                }
+            });
         },
         methods: {
             findList() {
