@@ -29,6 +29,7 @@
 
 <script>
   import Swiper from 'swiper';
+  //import Swiper from '@/assets/scripts/utils/swiper/swiper.js';
   import '@/assets/css/plugin/swiper/swiper.css';
 
   export default {

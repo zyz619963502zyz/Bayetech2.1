@@ -1,0 +1,255 @@
+﻿@charset "gb2312";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    color: #575757;
+    font: 14px Tahoma;
+}
+
+ul {
+    list-style: none;
+}
+
+ol {
+    margin-left: 23px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+
+a img, img {
+    border: 0;
+}
+
+
+.submit,
+.submit input {
+    cursor: pointer;
+}
+
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #0896d4;
+        text-decoration: underline;
+    }
+
+
+.clear {
+    clear: both;
+}
+
+
+.wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+
+#header {
+}
+
+    #header .wrap {
+        height: 114px;
+        background: url(../Content/Images/logo/52yxb.png) no-repeat 0 17px;
+    }
+
+    #header h1 {
+        float: left;
+        width: 310px;
+    }
+
+        #header h1 a {
+            display: block;
+            width: 310px;
+            height: 79px;
+            text-indent: -999px;
+            overflow: hidden;
+        }
+
+#toplink {
+    _display: inline;
+    float: left;
+    margin: 3px 0 0 445px;
+    color: #797979;
+    font-size: 12px;
+}
+
+    #toplink a {
+        color: #21659a;
+    }
+
+#navigator {
+    clear: both;
+    height: 35px;
+    background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/navigator_bg.gif) no-repeat 0 0;
+}
+
+    #navigator a {
+        display: block;
+        width: 89px;
+        height: 31px;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        line-height: 25px;
+    }
+
+        #navigator a:hover,
+        #navigator a.hover {
+            background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/navigator_abg.gif) no-repeat;
+            color: #004e8a;
+        }
+
+    #navigator ul {
+        padding: 4px 5px 0;
+    }
+
+    #navigator li {
+        float: left;
+        padding: 0 10px;
+        background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/navigator_libg.gif) no-repeat 100% 40%;
+    }
+
+#container {
+}
+
+.main {
+    padding-top: 10px;
+}
+
+    .main .tbg {
+        background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/box_tbg.gif) no-repeat 0 0;
+    }
+
+    .main .bg {
+        background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/box_bg.gif) repeat-y 0 0;
+    }
+
+    .main .fbg {
+        background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/box_fbg.gif) no-repeat 0 100%;
+    }
+
+    .main h2 {
+        padding-left: 35px;
+        height: 31px;
+        font-weight: bold;
+        color: #004e8a;
+        line-height: 35px;
+    }
+
+    .main h3 {
+        padding-top: 5px;
+        height: 30px;
+        font-weight: bold;
+        color: #0062ae;
+        line-height: 35px;
+    }
+
+        .main h3 a {
+            color: #0062ae;
+            text-decoration: underline;
+        }
+
+        .main h3 span {
+            color: #AEAEAE;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+    .main h4 {
+        padding-top: 10px;
+        height: 30px;
+        font-weight: bold;
+        line-height: 35px;
+    }
+
+    .main .txt {
+        padding: 15px;
+        color: #424242;
+    }
+
+    .main p {
+        margin-bottom: 10px;
+        line-height: 24px;
+        text-indent: 28px;
+    }
+
+        .main p a {
+            color: #0062ae;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+            .main p a:hover {
+                color: #0062ae;
+                text-decoration: none;
+            }
+
+    .main li {
+        padding-left: 12px;
+        background: url(http://ossweb-img.qq.com/images/game/jhtx/201003/arrow_01.gif) no-repeat 0 10px;
+        line-height: 24px;
+    }
+
+#footer {
+    padding: 15px;
+    color: #aeaeae;
+    font-size: 12px;
+}
+
+    #footer h2,
+    #footer span {
+        display: none;
+    }
+
+    #footer a {
+        color: #aeaeae;
+    }
+
+    #footer .wrap {
+        width: 461px;
+        text-align:center;
+    }
+
+    #footer p {
+        line-height: 16px;
+    }
+
+        
+
+        * html #footer p.c {
+            display: inline;
+            margin-right: 12px;
+        }
+
+        * + html #footer p.c {
+            margin-right: 0;
+        }
+
+#navigator a.nav-jz {
+    width: 119px;
+}
+
+    #navigator a.nav-jz:hover {
+        background: #fff;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+

@@ -13,6 +13,8 @@ namespace Bayetech.Admin
 
             if (string.IsNullOrEmpty(oldID))
             {
+
+
                 return GetReplaceStr(length, replaceStr);
             }
 

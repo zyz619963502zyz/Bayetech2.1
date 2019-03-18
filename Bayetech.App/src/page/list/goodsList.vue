@@ -654,7 +654,7 @@
     //排序规则mapping
     
     serverKeyWords: '',
-    groupList: ["上海区", "广东区"],
+    groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name:"广东区"}],
     accrossList: [{ accrossId: 1, accrossName: '跨5华东1区' }, { accrossId: 2, accrossName: '跨6华北1区' }],
     jobList: [{ jobId: 1, jobName: '剑圣' }, { jobId: 2, jobName: '噬魂' }, { jobId: 3, jobName: '武神' }],
     filterGroupList: [],

@@ -1,9 +1,9 @@
 <!--
-   *金币发布页    
+   *金币发布页
 -->
 
 <template>
-  <div id="wrapper" style="height: 100%;">
+  <div id="" style="height: 100%;">
     <div data-v-dfc73fe2="">
       <div data-v-dfc73fe2="" class="top-header border-bottom fixed-top">
         <div data-v-dfc73fe2="" class="top-back">
@@ -193,24 +193,24 @@
 </template>
 
 <script>
-  import "@/assets/content/css/fost-base-min.css";
-  import "@/assets/content/css/style-min.css";
+import '@/assets/content/css/fost-base-min.css'
+import '@/assets/content/css/style-min.css'
 
-  let vmdata = {
-    property: {
-      tradeType: ['db']
-    }
-  };
-
-  export default {
-    name: "goodsPublish_gold",
-    data() {
-      return vmdata;
-    },
-    mounted: function () {
-
-    }
+let vmdata = {
+  property: {
+    tradeType: ['db']
   }
+}
+
+export default {
+  name: 'goodsPublish_gold',
+  data () {
+    return vmdata
+  },
+  mounted: function () {
+
+  }
+}
 
 </script>
 

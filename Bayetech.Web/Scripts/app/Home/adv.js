@@ -18,28 +18,28 @@ define([], function () {
         object: [{
             title: "《地下城与勇士》收货网",
             centent: "一键出货，轻松收钱，无需等待，方便快捷！",
-            url: "http://www.7881.com/b2b/buy-G10.html",
-            img: "../../Content/images2018/5比2焦点海报dnf-1.jpg",
+            url: "#",
+            img: "../../Content/images2018/5比2焦点海报dnf2-7.jpg",
             fnname: "现在出货",
         },
         {
             title: "手游充值",
             centent: "玩转IOS和安卓，秒冲实惠有保障！",
-            url: "http://www.7881.com/b2b/buy-G10.html",
+            url: "#",
             img: "../../Content/images2018/5比2焦点海报dnf-2.jpg",
             fnname: "立即充值",
         }, {
             title: "《剑侠情缘三》游戏币比例优惠",
             centent: "比例优惠，安全，发货快！",
-            url: "http://www.7881.com/b2b/buy-G10.html",
+            url: "#",
             img: "../../Content/images2018/5比2焦点海报魔兽-3.jpg",
             fnname: "现在出货",
         }, {
             title: "《LOL英雄联盟》代练",
             centent: "平台担保 账号加密 王者操刀 打坏必赔",
-            url: "http://www.7881.com/b2b/buy-G10.html",
+            url: "#",
             img: "../../Content/images2018/5比2焦点海报lol-3.jpg",
-            fnname: "我要代练",
+            fnname: "金币交易",
         },],
     }
 
