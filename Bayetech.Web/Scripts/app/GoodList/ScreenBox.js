@@ -158,7 +158,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             Param: eval('(' + localStorage.SearchParam + ')'),
 
         },
-                Severs: [],
+        Gourps: [{}],
+        Severs: [],
         Professions: [],
         Levels:[]
     };
@@ -198,12 +199,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             },
             GetSearchAgain(key,val) {//条件增加重新搜索
                 var self = this;
-                self.param[key] = val;
+                self.SearchParam.Param[key] = val;
                 //var param=common.GetUrlParam();
-                common.postWebJson(GoodListUrl, self.param, function (data) {
+                common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
                     if (data.result) {
-                        data.content=data.content.slice(0, 8);
-                        self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
+                        //data.content=data.content.slice(0, 8);
+                        //self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
+                        _self.$root.$emit('GetListData', data);//触发事件并传播
                     }
                 });
             },
