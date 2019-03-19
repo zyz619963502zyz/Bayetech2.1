@@ -94,16 +94,8 @@ namespace Bayetech.Service
                     ResultPage.pagination = page;
                 }
 
-                if (ResultPage.datas.Count>0)
-                {
-                    ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
-                }
-                else
-                {
-                    ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, JToken.FromObject(Properties.Resources.Reminder_NoInfo));
-                }
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                 return ret;
             }
         }
