@@ -13,7 +13,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <a class ="navbar-brand" href="#">游戏联盟</a>
                     </div>
                     <div class ="collapse navbar-collapse">
-                        <ul class ="nav navbar-nav" @click="QQLogin">
+                        <ul class ="nav navbar-nav">
                             <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
                             <li><span id="qqLoginBtn"></span></li>
                             <li></li>
@@ -80,12 +80,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         },
         mounted() {
             var self = this;
-            // self.RegistQQLogin();
+            self.RegistQQLogin();
         },
         methods: {
-            QQLogin() {
-                var self = this;
-                self.RegistQQLogin();
+            Instock() {
+                if (localStorage.isTrue !="Instock") {
+                    alert("我入库了!");
+                }
             },
             RegistQQLogin() {
                 var that = this;
@@ -110,18 +111,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             nickname: QC.String.escHTML(reqData.nickname),
                             figureurl: reqData.figureurl
                         }));
-
                         if (QC.Login.check()) {//如果已登录
-                            //这里可以调用自己的保存接口
-                            if (localStorage.isTrue) {
-                                that.isTrue = true;
-                                localStorage.isTrue = that.isTrue;
-                                alert(1);
-                            }
-                            //用JS SDK调用OpenAPI获取用户信息
-                            console.log(that.isTrue);
-                        }
-
+                            that.Instock();
+                            localStorage.isTrue = "Instock";
+                         }
                     }, function (opts) {//注销成功
                         //alert('QQ登录 注销成功');
 
