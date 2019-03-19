@@ -4,28 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页</title>
     <meta name="keywords" content="游戏交易平台，游戏币交易平台，游戏帐号交易，游戏装备交易，游戏交易网，游戏点卡充值，游戏充值平台，游戏代练" />
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <script>
         //设置字体大小,为计算做准备
         var deviceWidth = document.documentElement.clientWidth;
         if (deviceWidth > 750) deviceWidth = 750;
         document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
     </script>
-    <link rel="icon" href="../../Content/NewImages/logo.ico"/>
+    <link rel="icon" href="../../Content/NewImages/logo.ico" />
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/Home/index.js"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101551432" data-redirecturi="http://www.52yxb.com/Page/Home/NewIndex.html" charset="utf-8" data-callback="true"></script>
     <style>
-        [v-cloak]{
-            display:none;
+        [v-cloak] {
+            display: none;
         }
     </style>
 </head>
 <body>
-    
+
     <div id="app" v-cloak>
+        
         <nav-top></nav-top>
         <!--search & logo-->
         <v-header></v-header>
@@ -80,14 +82,14 @@
                                 </span>
                             </div>
                             <!--<div class="qq-check">
-                                <input type="text" class="qq-input onlynum" id="qq_number" placeholder="输入客服QQ，验证真假" />
-                                <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
-                            </div>-->
+                            <input type="text" class="qq-input onlynum" id="qq_number" placeholder="输入客服QQ，验证真假" />
+                            <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                        </div>-->
                         </div>
                         <div class="r-panel-tab m-b-md">
                             <!--公告-->
                             <v-tab :data="notice">
-                                <a slot-scope="props" :href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                             </v-tab>
                         </div>
 
@@ -95,7 +97,7 @@
                             <!--咨询、建议、投诉-->
                             <!-- 没造数据，跟数据现在公告一样 -->
                             <v-tab :data="consult">
-                                <a slot-scope="props" :href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
                             </v-tab>
                         </div>
 
@@ -115,20 +117,21 @@
                 </div>
                 <!--友情链接-->
                 <!--<div class="index-footer">
-                    <div class="foot-content">
-                        <v-partner></v-partner>
-                    </div>
-                </div>-->
-                
+                <div class="foot-content">
+                    <v-partner></v-partner>
+                </div>
+            </div>-->
+
             </div>
         </div>
-        
+
         <!--公共页脚 开始-->
 
         <footer-server></footer-server>
-        
+
         <v-footer></v-footer>
         <!--通用页脚 结束-->
     </div>
 </body>
 </html>
+

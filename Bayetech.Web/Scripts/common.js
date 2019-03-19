@@ -171,7 +171,10 @@
      *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)
      */
     common.GetSearchType=function () {
-        var _url=document.location.href;
+        var _url = document.location.href;
+        if (document.location.href == "http://www.52yxb.com/") {
+
+        }
         var _urlArray = document.location.href.split("/");
         var type = document.location.href.split("/")[_urlArray.length-1].split('.')[0];
         return type;
