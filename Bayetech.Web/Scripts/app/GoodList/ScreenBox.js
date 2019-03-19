@@ -205,7 +205,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     if (data.result) {
                         //data.content=data.content.slice(0, 8);
                         //self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
-                        _self.$root.$emit('GetListData', data);//触发事件并传播
+                        self.$root.$emit('GetListData', data);//触发事件并传播
                     }
                 });
             },
