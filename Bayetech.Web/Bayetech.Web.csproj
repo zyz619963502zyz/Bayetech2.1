@@ -409,7 +409,6 @@
     <Content Include="Content\Images\dnf-li2.png" />
     <Content Include="Content\Images\dnf.png" />
     <Content Include="Content\Images\dw.png" />
-    <Content Include="Content\Images\erwm.jpg" />
     <Content Include="Content\Images\G10.jpg" />
     <Content Include="Content\Images\G21.jpg" />
     <Content Include="Content\Images\G33.jpg" />
@@ -434,14 +433,6 @@
     <Content Include="Content\Images\icon-dj-06.png" />
     <Content Include="Content\Images\icon-dj-07.png" />
     <Content Include="Content\Images\icon-dj-08.png" />
-    <Content Include="Content\Images\icon\1.png" />
-    <Content Include="Content\Images\icon\2.png" />
-    <Content Include="Content\Images\icon\3.png" />
-    <Content Include="Content\Images\icon\4.png" />
-    <Content Include="Content\Images\icon\5.png" />
-    <Content Include="Content\Images\icon\6.png" />
-    <Content Include="Content\Images\icon\7.png" />
-    <Content Include="Content\Images\icon\8.png" />
     <Content Include="Content\Images\img-buy-flow.jpg" />
     <Content Include="Content\Images\img-dl-area.jpg" />
     <Content Include="Content\Images\img-re-260bg.png" />
@@ -496,7 +487,6 @@
     <Content Include="Content\Images\sellicon.jpg" />
     <Content Include="Content\Images\service-btn-hover.png" />
     <Content Include="Content\Images\service-btn.png" />
-    <Content Include="Content\Images\shixiao.png" />
     <Content Include="Content\Images\sina_wb.png" />
     <Content Include="Content\Images\slideone.jpg" />
     <Content Include="Content\Images\slider_1.jpg" />
@@ -529,7 +519,6 @@
     <Content Include="Content\Images\zt2.png" />
     <Content Include="Content\Images\zt2s-li2.png" />
     <Content Include="Content\Images\logo1.png" />
-    <Content Include="Content\jhcommon.css" />
     <Content Include="Content\log-sin.css" />
     <Content Include="Content\article.css" />
     <Content Include="Content\NewImages\10.jpg" />
@@ -550,7 +539,6 @@
     <Content Include="Content\NewImages\homeImg7.jpg" />
     <Content Include="Content\NewImages\homeImg8.jpg" />
     <Content Include="Content\NewImages\homeImg9.jpg" />
-    <Content Include="Content\NewImages\jzjh.jpg" />
     <Content Include="Content\NewImages\lc1.png" />
     <Content Include="Content\NewImages\lc2.png" />
     <Content Include="Content\NewImages\logo.ico" />
@@ -592,7 +580,6 @@
     <Content Include="Page\Good\GoodInfo.html" />
     <Content Include="Page\Good\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
-    <Content Include="Page\Jzjh\guard.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
@@ -774,7 +761,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\downloadfile\jksq.doc" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\bayetechweb.pubxml" />
     <None Include="Properties\PublishProfiles\发布到服务器.pubxml" />
     <None Include="Properties\PublishProfiles\打包成本地发布包.pubxml" />
@@ -786,7 +773,6 @@
     <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\jquery-2.2.2.min.js" />
     <Content Include="Scripts\jsconfig.js" />
-    <Content Include="Scripts\jzjh.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\require.min.js" />
     <Content Include="Scripts\resource.js" />
