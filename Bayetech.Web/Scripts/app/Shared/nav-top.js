@@ -13,7 +13,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <a class ="navbar-brand" href="#">游戏联盟</a>
                     </div>
                     <div class ="collapse navbar-collapse">
-                        <ul class ="nav navbar-nav">
+                        <ul class ="nav navbar-nav" @click="QQLogin">
                             <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
                             <li><span id="qqLoginBtn"></span></li>
                             <li></li>
@@ -66,23 +66,36 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                 </div>
             </nav>`;
+    //Api
+    //var GoodListUrl = ""; //保存信息
+    //var isTrue = false;
 
     var components = {
         name: "nav-top",
         template: tophtml,
+        data() {
+            return {
+                isTrue: false
+            };
+        },
         mounted() {
             var self = this;
-            self.RegistQQLogin();
+            // self.RegistQQLogin();
         },
         methods: {
+            QQLogin() {
+                var self = this;
+                self.RegistQQLogin();
+            },
             RegistQQLogin() {
+                var that = this;
                 QC.Login({
                     //插入按钮的节点id
                     btnId: "qqLoginBtn",
                     scope: "all",
                     size: "B_M"
-                },
-                    function (reqData, opts) {//登录成功
+                },function (reqData, opts) {//登录成功
+                        
                         //根据返回数据，更换按钮显示状态方法
                         var dom = document.getElementById(opts['btnId']),
                             _logoutTemplate = [
@@ -97,7 +110,17 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             nickname: QC.String.escHTML(reqData.nickname),
                             figureurl: reqData.figureurl
                         }));
-                        alert(1);
+
+                        if (QC.Login.check()) {//如果已登录
+                            //这里可以调用自己的保存接口
+                            if (localStorage.isTrue) {
+                                that.isTrue = true;
+                                localStorage.isTrue = that.isTrue;
+                                alert(1);
+                            }
+                            //用JS SDK调用OpenAPI获取用户信息
+                            console.log(that.isTrue);
+                        }
 
                     }, function (opts) {//注销成功
                         //alert('QQ登录 注销成功');
