@@ -16,6 +16,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <ul class ="nav navbar-nav">
                             <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
                             <li><span id="qqLoginBtn"></span></li>
+                            <li><a href="#" @click="InsertIn">新增</a></li>
                             <li></li>
                         </ul>
                         <ul class ="nav navbar-nav navbar-right">
@@ -67,16 +68,41 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </nav>`;
     //Api
-    //var GoodListUrl = ""; //保存信息
-    //var isTrue = false;
+    var UserUrl = "/api/User/InsertIsValiteUser"; //保存信息
+    //筛选和列表整合数据
+    var data = {
+        BaseUrl: common.GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
+        BaseTarget: "_blank",
+        keyword: "",
+        ListObj: [
+            {
+                GoodNo: "",
+                GoodFirstPicture: "",
+                aurl: "",
+                GoodTitle: "",
+                GroupName: "",
+                ServerName: "",
+                GoodPrice: ""
+            }
+        ],
+        SearchParam: {
+            Param: eval('(' + localStorage.SearchParam + ')'),
+            Pagination: {//分页对象
+                rows: 10,//每页行数，
+                page: 1,//当前页码
+                order: "GoodNo",//排序字段
+                sord: "asc",//排序类型
+                records: 10,//总记录数
+                total: 10//总页数。
+            }
+        }
+    }
 
     var components = {
         name: "nav-top",
         template: tophtml,
         data() {
-            return {
-                isTrue: false
-            };
+            return data;
         },
         mounted() {
             var self = this;
@@ -85,8 +111,43 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         methods: {
             Instock() {
                 if (localStorage.isTrue !="Instock") {
-                    alert("我入库了!");
+                    //alert("我入库了!");
+                   
                 }
+            },
+            InsertIn() {
+                var self = this;
+                var test = {
+                    "ret": 0,
+                    "msg": "",
+                    "is_lost": 0,
+                    "nickname": "伟大的小源源",
+                    "gender": "男",
+                    "province": "上海",
+                    "city": "普陀",
+                    "year": "1991",
+                    "constellation": "",
+                    "figureurl": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/30",
+                    "figureurl_1": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/50",
+                    "figureurl_2": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/100",
+                    "figureurl_qq_1": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=40",
+                    "figureurl_qq_2": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=100",
+                    "figureurl_qq": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=140",
+                    "figureurl_type": "1",
+                    "is_yellow_vip": "0",
+                    "vip": "0",
+                    "yellow_vip_level": "0",
+                    "level": "0",
+                    "is_yellow_year_vip": "0"
+                }
+
+                common.postWebJson(UserUrl, test, function (data) {
+                    if (data.result) {
+                        self.ListObj = data.content.datas;
+                        self.SearchParam.Pagination = data.content.pagination;
+                        common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                    }
+                });
             },
             RegistQQLogin() {
                 var that = this;
@@ -96,7 +157,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     scope: "all",
                     size: "B_M"
                 },function (reqData, opts) {//登录成功
-                        
+                    alert(9);
                         //根据返回数据，更换按钮显示状态方法
                         var dom = document.getElementById(opts['btnId']),
                             _logoutTemplate = [
