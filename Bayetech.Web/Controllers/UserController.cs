@@ -141,6 +141,17 @@ namespace Bayetech.Web.Controllers
             return result > 0;
         }
 
+        [HttpPost]
+        public bool InsertIsValiteUser(JObject json)
+        {
+            var id = json.Property("id").Value.ToString();
+            var isValiteLogin = bool.Parse(json.Property("isValiteLogin").Value.ToString());
+            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
+            entity.IsValiteLogin = isValiteLogin;
+            var result = service.Update(entity);
+            return result > 0;
+        }
+
         #endregion
     }
 }
