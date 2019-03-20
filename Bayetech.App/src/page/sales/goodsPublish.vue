@@ -4,8 +4,6 @@
     *-->
 <template>
   <div id="wrapper" style="height: 100%;">
-
-
     <div data-v-dfc73fe2="" v-show="!open_dialog">
       <div data-v-dfc73fe2="" class="top-header border-bottom fixed-top">
         <div data-v-dfc73fe2="" class="top-back" @click="$router.go(-1)">
@@ -18,6 +16,7 @@
         <div data-v-dfc73fe2="" class="dl_seek f30">发布流程</div>
       </div>
     </div>
+
     <div data-v-484bcaae="" v-show="!open_dialog">
       <div data-v-484bcaae="">
         <div data-v-509ef1b0="" class="fw px-30 notice_risk Mnotice_top mt-97" data-v-484bcaae="">
@@ -56,7 +55,7 @@
           <!-- 游戏区服 -->
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
-            <span data-v-484bcaae="" class="danwei" @click="open_dialog=!open_dialog">请选择</span>
+            <span data-v-484bcaae="" class="danwei" @click="open_dialog=!open_dialog">{{server.Name}}</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
           </div>
 
@@ -73,6 +72,7 @@
         </div>
       </div>
     </div>
+
     <div v-show="open_dialog">
       <choose_server @cancel="cancel_choose_server" @submit="submit_choose_server"></choose_server>
     </div>
@@ -90,6 +90,7 @@
   let vmdata = {
     open_dialog: false,
     show_choose_server: false,
+    server: {Name:'请选择'},
     property: {
       goodsType: 'account'
     }
@@ -113,8 +114,9 @@
       cancel_choose_server: function () {
         this.open_dialog = false;
       },
-      submit_choose_server: function () {
+      submit_choose_server: function (server) {
         this.open_dialog = false;
+        this.server = server;
       }
     },
     components: {

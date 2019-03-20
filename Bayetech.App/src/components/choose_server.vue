@@ -21,142 +21,23 @@
       <div data-v-4d8e3562="" class="qufu-container f30 clearfix border-top">
         <div data-v-4d8e3562="" class="qu fl" style="height: 100%;">
           <ul data-v-4d8e3562="">
-            <li data-v-4d8e3562="" class="selected">
-              <span data-v-4d8e3562="">广东区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">北京区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">四川区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">江苏区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">湖北区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">广西区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">东北区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">浙江区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">山东区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">上海区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">西南区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">安徽区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">河北区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">辽宁区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">福建区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">华北区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">重庆区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">黑龙江区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">江西区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">西北区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">陕西区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">吉林区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">山西区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">天津区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">河南区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">湖南区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">新疆区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">内蒙古区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">云贵区</span>
-            </li>
-            <li data-v-4d8e3562="" class="">
-              <span data-v-4d8e3562="">体验区</span>
+            
+            <li v-for="group of cs_server.groupList"   :class="{selected:$isChoice('cs_server','groupId',group.Id)}"
+                 @click="ChooseGroup(group)"
+                >
+                <span data-v-4d8e3562="">{{group.Name}} </span>
             </li>
           </ul>
         </div>
         <div data-v-4d8e3562="" class="fu bg-fff fl" style="height: 100%;">
           <ul data-v-4d8e3562="">
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东1区</span>
+            <li data-v-4d8e3562=""
+                v-for="server of cs_server.serverList"
+                @click="ChooseServer(server)"
+                style="text-align: left; padding-left: 0.3rem;">
+              <span data-v-4d8e3562="" class="border-bottom">{{server.Name}}</span>
             </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东2区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东3区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东4区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东5区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东6区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东7区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东8区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东9区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东10区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东11区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东12区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广东13区</span>
-            </li>
-            <li data-v-4d8e3562="" style="text-align: left; padding-left: 0.3rem;">
-              <span data-v-4d8e3562="" class="border-bottom">广州1/2区</span>
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -199,45 +80,57 @@
         serverName: '',
         serverId:'',
         cs_server: {
+          groupId:[],
+          serverId:[],
+
           filterGroupList: [''],
           filterServerList: [''],
           groupNameList:[''],
-          groupIdList: [''],
+          
           serverNameList: [''],
-          serverIdList: ['']
+          serverList: [{ Id: 0, Name: "上海1区" }, { Id: 1, Name: "上海2区" }],
+          groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name: "广东区" }]
         },
 
-        serverList: [{ Id: 0, Name: "上海1区" }, { Id: 1, Name: "上海2区" }],
-        groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name: "广东区" }]
+      
       }
     },
     watch: {},
+    mounted: function() {
+      this.Init();
+    },
     methods: {
       Init: function (groupId, serverId) {
         let self = this;
         this.serverId = serverId;
         this.groupId = groupId;
-        GetGroup();
+        self.GetGroup();
         if (self.groupId)
         {
-          GetServer(self.groupId);
+          self.GetServer(self.groupId);
         }
       },
       CloseDialog: function () {
         this.$emit('cancel');
       },
-      Choose_server: function () {
-
-        this.$emit('submit', data)
+      ChooseGroup: function (group) {
+        this.$chooseSingle('cs_server', 'groupId', group.Id);
+        this.GetServer(group.Id);
+      },
+      ChooseServer: function (server) {
+        this.$chooseSingle('cs_server', 'serverId', server.Id);
+        this.$emit('submit', server)
       },
       GetGroup: function () {
         let self = this;
         try {
           this.$get("/web/api/GameServer/GetGroup", {
-            gameid: self.searchModel.GameId
+            gameid: 1
           }).then(function (result) {
-            self.groupList = result.content;
-            self.filterGroupList = self.groupList;
+            self.cs_server.groupList = result.content;
+            self.cs_server.filterGroupList = self.groupList;
+            self.cs_server.groupId.push(self.cs_server.groupList[0].Id);
+            self.GetServer(self.cs_server.groupId);
           });
         } catch (err) {
           console.log(err);
@@ -249,9 +142,12 @@
           this.$get("/web/api/GameServer/GetServer", {
             parenId: groupId
           }).then(function (result) {
-            self.serverList = result.content;
-            self.filterServerList = self.serverList;
-          });
+            self.cs_server.serverList = result.content;
+            self.cs_server.filterServerList = self.serverList;
+            if (self.cs_server.serverList.length>0)
+            self.cs_server.serverId.push(self.cs_server.serverList[0].Id);
+
+            });
         } catch (err) {
           console.log(err);
         }
