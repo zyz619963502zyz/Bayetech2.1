@@ -114,13 +114,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         .success(function (s) {
                             //成功回调，通过s.data获取OpenAPI的返回数据
                             alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
-                            common.postWebJson(UserUrl, JSON.stringify(s.data), function (data) {
-                                if (data.result) {
-                                    self.ListObj = data.content.datas;
-                                    self.SearchParam.Pagination = data.content.pagination;
-                                    common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                                }
-                            });
                         })
                         //指定接口访问失败的接收函数，f为失败返回Response对象
                         .error(function (f) {
@@ -132,13 +125,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             //完成请求回调
                             alert("获取用户信息完成！");
                         });
-
-                    //调用自己的接口，保存信息
-                    //......
-                }, function (opts) {//注销成功
-                    alert('QQ登录 注销成功');
-
-                }
+                   
                    
                 }
             },
