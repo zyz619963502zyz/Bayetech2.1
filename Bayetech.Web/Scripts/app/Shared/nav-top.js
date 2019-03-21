@@ -112,8 +112,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     QC.api("get_user_info", paras)
                         //指定接口访问成功的接收函数，s为成功返回Response对象
                         .success(function (s) {
-                            //成功回调，通过s.data获取OpenAPI的返回数据
-                            alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+                            common.postWebJson(UserUrl, JSON.stringify(s.data), function (data) {
+                                if (data.result) {
+                                    self.ListObj = data.content.datas;
+                                    self.SearchParam.Pagination = data.content.pagination;
+                                    common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                                }
+                            });
                         })
                         //指定接口访问失败的接收函数，f为失败返回Response对象
                         .error(function (f) {
