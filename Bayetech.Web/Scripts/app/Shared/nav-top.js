@@ -71,32 +71,28 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var UserUrl = "/api/User/InsertIsValiteUser"; //保存信息
     //筛选和列表整合数据
     var data = {
-        BaseUrl: common.GetBaseUrl() + "Good/GoodInfo.html?GoodNo=",
-        BaseTarget: "_blank",
-        keyword: "",
-        ListObj: [
-            {
-                GoodNo: "",
-                GoodFirstPicture: "",
-                aurl: "",
-                GoodTitle: "",
-                GroupName: "",
-                ServerName: "",
-                GoodPrice: ""
-            }
-        ],
-        SearchParam: {
-            Param: eval('(' + localStorage.SearchParam + ')'),
-            Pagination: {//分页对象
-                rows: 10,//每页行数，
-                page: 1,//当前页码
-                order: "GoodNo",//排序字段
-                sord: "asc",//排序类型
-                records: 10,//总记录数
-                total: 10//总页数。
-            }
-        }
-    }
+            ret: 0,
+            msg: "",
+            is_lost: 0,
+            nickname: "伟大的小源源",
+            gender: "男",
+            province: "上海",
+            city: "普陀",
+            year: "1991",
+            constellation: "",
+            figureurl: "",
+            figureurl_1: "",
+            figureurl_2: "",
+            figureurl_qq_1: "",
+            figureurl_qq_2: "",
+            figureurl_qq: "",
+            figureurl_type: "1",
+            is_yellow_vip: "0",
+            vip: "0",
+            yellow_vip_level: "0",
+            level: "0",
+            is_yellow_year_vip: "0"
+    };
 
     var components = {
         name: "nav-top",
@@ -112,36 +108,43 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             Instock() {
                 if (localStorage.isTrue !="Instock") {
                     //alert("我入库了!");
+                    var paras = {};
+                    QC.api("get_user_info", paras)
+                        //指定接口访问成功的接收函数，s为成功返回Response对象
+                        .success(function (s) {
+                            //成功回调，通过s.data获取OpenAPI的返回数据
+                            alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+                            common.postWebJson(UserUrl, JSON.stringify(s.data), function (data) {
+                                if (data.result) {
+                                    self.ListObj = data.content.datas;
+                                    self.SearchParam.Pagination = data.content.pagination;
+                                    common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                                }
+                            });
+                        })
+                        //指定接口访问失败的接收函数，f为失败返回Response对象
+                        .error(function (f) {
+                            //失败回调
+                            alert("获取用户信息失败！");
+                        })
+                        //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+                        .complete(function (c) {
+                            //完成请求回调
+                            alert("获取用户信息完成！");
+                        });
+
+                    //调用自己的接口，保存信息
+                    //......
+                }, function (opts) {//注销成功
+                    alert('QQ登录 注销成功');
+
+                }
                    
                 }
             },
             InsertIn() {
-                var self = this;
-                var test = {
-                    "ret": 0,
-                    "msg": "",
-                    "is_lost": 0,
-                    "nickname": "伟大的小源源",
-                    "gender": "男",
-                    "province": "上海",
-                    "city": "普陀",
-                    "year": "1991",
-                    "constellation": "",
-                    "figureurl": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/30",
-                    "figureurl_1": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/50",
-                    "figureurl_2": "http:\/\/qzapp.qlogo.cn\/qzapp\/101551432\/2947D505A72A7D372A92FAB4EE1F2031\/100",
-                    "figureurl_qq_1": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=40",
-                    "figureurl_qq_2": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=100",
-                    "figureurl_qq": "http://thirdqq.qlogo.cn/g?b=oidb&k=gS72fu5YYkKrgH98fWj70w&s=140",
-                    "figureurl_type": "1",
-                    "is_yellow_vip": "0",
-                    "vip": "0",
-                    "yellow_vip_level": "0",
-                    "level": "0",
-                    "is_yellow_year_vip": "0"
-                }
-
-                common.postWebJson(UserUrl, test, function (data) {
+                var param = this.$data;
+                common.postWebJson(UserUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         self.ListObj = data.content.datas;
                         self.SearchParam.Pagination = data.content.pagination;

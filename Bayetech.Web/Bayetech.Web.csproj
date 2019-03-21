@@ -292,6 +292,7 @@
     <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MallGoodInfoModels.cs" />
+    <Compile Include="Models\QQUserModel.cs" />
     <Compile Include="Models\ResultMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

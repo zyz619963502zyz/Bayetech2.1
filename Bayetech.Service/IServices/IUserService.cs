@@ -10,5 +10,7 @@ namespace Bayetech.Service
         bool CheckAccount(string account);
 
         JObject CheckLogin(JObject json);
+
+        int QQUserLogion(JObject json);
     }
 }

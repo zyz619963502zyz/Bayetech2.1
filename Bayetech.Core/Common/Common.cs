@@ -148,6 +148,30 @@ namespace Bayetech.Core
             }   
         }
 
+
+
+        /// <summary>
+        /// 生成user（10位）
+        /// </summary>
+        /// <returns></returns>
+        public static string CreatUser(string head)
+        {
+            try
+            {
+                string year = DateTime.Now.Year.ToString();
+                string month = DateTime.Now.Month.ToString().PadLeft(2, '0');
+                string second = DateTime.Now.Second.ToString().PadLeft(2, '0');
+                Random ran = new Random();
+                string wan = ran.Next(1, 9999).ToString().PadLeft(4, '0');
+                string result = head + year + month + second + wan;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "发生错误!");
+            }
+        }
+
         /// <summary>
         /// 根据商品编号生成订单编号（22位）
         /// </summary>

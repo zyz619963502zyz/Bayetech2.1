@@ -73,6 +73,7 @@
     <Compile Include="Model\EngineInfo.cs" />
     <Compile Include="Model\NavTreeModel.cs" />
     <Compile Include="Model\NavTreeModelPub.cs" />
+    <Compile Include="Model\QQUserModel.cs" />
     <Compile Include="Model\UserRoleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseService.cs" />

@@ -7,6 +7,7 @@ using Bayetech.Core;
 using System.Web;
 using System.Linq;
 using System.Text;
+using Bayetech.Service.Model;
 
 namespace Bayetech.Service
 {
@@ -140,6 +141,39 @@ namespace Bayetech.Service
             Random rd = new Random(DateTime.Now.Millisecond);
             int i = rd.Next(0, int.MaxValue);
             return i.ToString();
+        }
+
+
+
+        public int  QQUserLogion(JObject json)
+        {
+            var result = 0;
+            using (var db = new RepositoryBase(DBFactory.Bayetech).BeginTrans())
+            {
+                QQUserModel order = JsonConvert.DeserializeObject<QQUserModel>(json.First.Path);
+                User entity = db.FindEntity<User>(t => t.Name == order.nickname);
+                if (entity == null)
+                {
+                    User user = new User();
+                    user.Id= Core.Common.CreatUser("P");
+                    user.Name = order.nickname;
+                    user.NameAlias = order.nickname;
+                    user.AddTime = DateTime.Now;
+                    db.Insert(user);
+                    result = db.Commit();
+                }
+                else
+                {
+                    User user = new User();
+                    user.UpdateTime = DateTime.Now;
+                    db.Update(user);
+                    result = db.Commit();
+                }
+            }
+               
+            //MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
+            
+            return result;
         }
     }
 }
