@@ -17,13 +17,13 @@ namespace Bayetech.Service.Model
         public string city { get; set; }
         public string year { get; set; }
         public string constellation { get; set; }
-        public string figureurl { get; set; }
-        public string figureurl_1 { get; set; }
-        public string figureurl_2 { get; set; }
-        public string figureurl_qq_1 { get; set; }
-        public string figureurl_qq_2 { get; set; }
-        public string figureurl_qq { get; set; }
-        public string figureurl_type { get; set; }
+        //public string figureurl { get; set; }
+        //public string figureurl_1 { get; set; }
+        //public string figureurl_2 { get; set; }
+        //public string figureurl_qq_1 { get; set; }
+        //public string figureurl_qq_2 { get; set; }
+        //public string figureurl_qq { get; set; }
+        //public string figureurl_type { get; set; }
         public string is_yellow_vip { get; set; }
         public string vip { get; set; }
         public string yellow_vip_level { get; set; }
