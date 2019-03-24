@@ -71,7 +71,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var UserUrl = "/api/User/InsertIsValiteUser"; //保存信息
     //筛选和列表整合数据
     var data = {
-        qUser: {
             ret: 0,
             msg: "",
             is_lost: 0,
@@ -87,13 +86,14 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             yellow_vip_level: "0",
             level: "0",
             is_yellow_year_vip: "0"
-        }
     };
 
     var components = {
         name: "nav-top",
         template: tophtml,
-        data:data,
+        data() {
+            return data;
+        },
         mounted() {
             var self = this;
             self.RegistQQLogin();
@@ -106,7 +106,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     QC.api("get_user_info", paras)
                         //指定接口访问成功的接收函数，s为成功返回Response对象
                         .success(function (s) {
-                            var data = {
+                            var data1 = {
                                 ret: 0,
                                 msg: "",
                                 is_lost: 0,
@@ -123,8 +123,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 level: "",
                                 is_yellow_year_vip: ""
                             };
-                            data.nickname = s.data.nickname;
-                            common.postWebJson(UserUrl, JSON.stringify(data), function (data) {
+                            data1.nickname = s.data.nickname;
+                            common.postWebJson(UserUrl, JSON.stringify(data1), function (data) {
                                 if (data) {
                                     //self.ListObj = data.content.datas;
                                     //self.SearchParam.Pagination = data.content.pagination;
@@ -148,11 +148,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             },
             InsertIn() {
                 var param = this.$data;
+                debugger;
                 common.postWebJson(UserUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
-                        self.ListObj = data.content.datas;
-                        self.SearchParam.Pagination = data.content.pagination;
-                        common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                        if (!data.data) {
+                            window.location.href = "../Login/Login.html";
+                        }
                     }
                 });
             },

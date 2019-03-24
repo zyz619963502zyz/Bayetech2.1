@@ -145,8 +145,9 @@ namespace Bayetech.Service
 
 
 
-        public int  QQUserLogion(JObject json)
+        public JObject  QQUserLogion(JObject json)
         {
+            JObject job = new JObject();
             var result = 0;
             using (var db = new RepositoryBase(DBFactory.Bayetech).BeginTrans())
             {
@@ -161,19 +162,47 @@ namespace Bayetech.Service
                     user.AddTime = DateTime.Now;
                     db.Insert(user);
                     result = db.Commit();
+                    if(result==1)
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(true));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
+                    else
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(false));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
                 }
                 else
                 {
-                    User user = new User();
-                    user.UpdateTime = DateTime.Now;
-                    db.Update(user);
+                    entity.UpdateTime = DateTime.Now;
+                    db.Update(entity);
                     result = db.Commit();
+                    if (result == 1)
+                    {
+                        if (entity.Phone == "" || entity.Phone==null)
+                        {
+                            job.Add(ResultInfo.Result, JToken.FromObject(true));
+                            job.Add(ResultInfo.Data, JToken.FromObject(false));
+                        }
+                        else
+                        {
+                            job.Add(ResultInfo.Result, JToken.FromObject(true));
+                            job.Add(ResultInfo.Data, JToken.FromObject(true));
+                        }
+                    }
+                    else
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(false));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
+                    
                 }
             }
-               
+
             //MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
-            
-            return result;
+
+            return job;
         }
     }
 }

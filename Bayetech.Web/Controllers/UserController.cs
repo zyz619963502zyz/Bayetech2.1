@@ -143,13 +143,12 @@ namespace Bayetech.Web.Controllers
         }
 
         [HttpPost]
-        public bool InsertIsValiteUser(JObject json)
+        public JObject InsertIsValiteUser(JObject json)
         {
-            var result=0;
             //MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
-            result = service.QQUserLogion(json);
+            return service.QQUserLogion(json);
 
-            return result>0;
+             
         }
 
         #endregion

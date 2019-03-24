@@ -11,6 +11,6 @@ namespace Bayetech.Service
 
         JObject CheckLogin(JObject json);
 
-        int QQUserLogion(JObject json);
+        JObject QQUserLogion(JObject json);
     }
 }
