@@ -125,10 +125,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             };
                             data1.nickname = s.data.nickname;
                             common.postWebJson(UserUrl, JSON.stringify(data1), function (data) {
-                                if (data) {
-                                    //self.ListObj = data.content.datas;
-                                    //self.SearchParam.Pagination = data.content.pagination;
-                                    //common.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                                if (data.result) {
+                                    if (!data.data) {
+                                        window.location.href = "../Login/Login.html";
+                                    }
                                 }
                             });
                             
