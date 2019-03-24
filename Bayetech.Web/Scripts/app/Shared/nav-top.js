@@ -14,7 +14,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     </div>
                     <div class ="collapse navbar-collapse">
                         <ul class ="nav navbar-nav">
-                            <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
+                            <li class ="login-a"><a href="../Login/Login.html">请登录</a></li>
                             <li><span id="qqLoginBtn"></span></li>
                             <li><a href="#" @click="InsertIn">新增</a></li>
                             <li></li>
@@ -74,18 +74,18 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             ret: 0,
             msg: "",
             is_lost: 0,
-            nickname: "伟大的小媛媛",
-            gender: "男",
-            province: "上海",
-            city: "普陀",
-            year: "1991",
+        nickname: "Keny",
+            gender: "",
+            province: "",
+            city: "",
+            year: "",
             constellation: "",
-            figureurl_type: "1",
-            is_yellow_vip: "0",
-            vip: "0",
-            yellow_vip_level: "0",
-            level: "0",
-            is_yellow_year_vip: "0"
+            figureurl_type: "",
+            is_yellow_vip: "",
+            vip: "",
+            yellow_vip_level: "",
+            level: "",
+            is_yellow_year_vip: ""
     };
 
     var components = {
@@ -100,34 +100,20 @@ define(jsconfig.baseArr, function (Vue, $, common) {
         },
         methods: {
             Instock() {
+                 var self = this;
                 if (localStorage.isTrue !="Instock") {
                     //alert("我入库了!");
                     var paras = {};
                     QC.api("get_user_info", paras)
                         //指定接口访问成功的接收函数，s为成功返回Response对象
                         .success(function (s) {
-                            var data1 = {
-                                ret: 0,
-                                msg: "",
-                                is_lost: 0,
-                                nickname: "",
-                                gender: "",
-                                province: "",
-                                city: "",
-                                year: "",
-                                constellation: "",
-                                figureurl_type: "",
-                                is_yellow_vip: "",
-                                vip: "",
-                                yellow_vip_level: "",
-                                level: "",
-                                is_yellow_year_vip: ""
-                            };
-                            data1.nickname = s.data.nickname;
-                            common.postWebJson(UserUrl, JSON.stringify(data1), function (data) {
+                            self.$data.nickname = s.data.nickname;
+                            common.postWebJson(UserUrl, JSON.stringify(self.$data), function (data) {
                                 if (data.result) {
                                     if (!data.data) {
-                                        window.location.href = "../Login/Login.html";
+                                        window.location.href = "../Sign/Signin.html";
+                                        localStorage.nickname = self.$data.nickname;
+                                        
                                     }
                                 }
                             });
@@ -152,7 +138,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 common.postWebJson(UserUrl, JSON.stringify(param), function (data) {
                     if (data.result) {
                         if (!data.data) {
-                            window.location.href = "../Login/Login.html";
+                            window.location.href = "../Sign/Signin.html";
+                            localStorage.nickname = param.nickname;
                         }
                     }
                 });
