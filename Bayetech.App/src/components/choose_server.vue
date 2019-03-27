@@ -1,106 +1,136 @@
 <!--底部导航-->
 <template>
-  
-  <div data-v-7b64404c="" data-v-6b09e788="" v-show="conditionTab.server">
-    <div data-v-7b64404c="" class="seach-list">
-      <div data-v-7b64404c="" class="gmvst-profile ">
-        <div data-v-7b64404c="" class="gmvst-server fl">
-          <ul data-v-7b64404c="">
-            <!---->
-            <li data-v-7b64404c="" class="border-bottom curren">
-              <a data-v-7b64404c="" @click='setValue({GameGroupName:""})'>
-                <span data-v-7b64404c="" class="f30 color-000" v-show="!searchModel.GameGroupName">
-                  选择区
-                  <i data-v-7b64404c="" class="close"></i>
-                </span>
-                <span data-v-7b64404c="" class="f30 color-000" v-show="!!searchModel.GameGroupName">
-                  {{searchModel.GameGroupName}}
-                  <i data-v-7b64404c="" class="close"></i>
-                </span>
-              </a>
-            </li>
-            <li data-v-7b64404c="" class="border-bottom">
-              <a data-v-7b64404c="">
-                <span data-v-7b64404c="" class="f30 color-000">
-                  选择服
-                  <i data-v-7b64404c="" class="close"></i>
-                </span>
-              </a>
+
+  <div data-v-4d8e3562="" data-v-484bcaae="">
+    <div data-v-4d8e3562="" class="one-screen">
+      <div data-v-4d8e3562="" style="z-index: 100;">
+        <div data-v-4d8e3562="" class="top-header border-bottom">
+          <div data-v-4d8e3562="" class="top-back">
+            <a data-v-4d8e3562="" @click="CloseDialog"></a>
+          </div>
+          <h2 data-v-4d8e3562="" class="f36">选择服务器</h2>
+          <div data-v-4d8e3562="" class="top-right"></div>
+        </div>
+      </div>
+      <div data-v-4d8e3562="" class="search-container">
+        <div data-v-4d8e3562="" class="search-box bg-fff">
+          <input data-v-4d8e3562="" type="text" placeholder="请输入服务器名称" maxlength="20" class="f30">
+          <span data-v-4d8e3562="" class="clear1" style="display: none;"></span>
+        </div>
+      </div>
+      <div data-v-4d8e3562="" class="qufu-container f30 clearfix border-top">
+        <div data-v-4d8e3562="" class="qu fl" style="height: 100%;">
+          <ul data-v-4d8e3562="">
+            
+            <li v-for="group of cs_server.groupList"   :class="{selected:$isChoice('cs_server','groupId',group.Id)}"
+                 @click="ChooseGroup(group)"
+                >
+                <span data-v-4d8e3562="">{{group.Name}} </span>
             </li>
           </ul>
         </div>
-        <div data-v-7b64404c="" class="gmvst-area bg-fff">
-          <div data-v-7b64404c="" class="gmvst-server">
-            <div data-v-7b64404c="" class="gvst-seach mx-30 my-20 border py-15 px-20">
-              <input data-v-7b64404c="" name="" type="text" placeholder="请输入服务器名称" class="server-input" v-model="serverKeyWords">
-            </div>
-          </div>
-          <ul data-v-7b64404c="" class="pl-30" v-show="groupId">
-            <a @click='setValue({GameGroupName:group.Name,GameGroupId:group.Id})' v-for='group in filterGroupList' v-bind:key="group.Id">
-              <li data-v-7b64404c="" class="border-bottom">
-                <span data-v-7b64404c="" class="f30 color-000">{{group.Name}}</span>
-              </li>
-            </a>
-
-            <li data-v-7b64404c="" class="border-bottom">
-              <span data-v-7b64404c="" class="f30 color-000">体验区</span>
+        <div data-v-4d8e3562="" class="fu bg-fff fl" style="height: 100%;">
+          <ul data-v-4d8e3562="">
+            <li data-v-4d8e3562=""
+                v-for="server of cs_server.serverList"
+                @click="ChooseServer(server)"
+                style="text-align: left; padding-left: 0.3rem;">
+              <span data-v-4d8e3562="" class="border-bottom">{{server.Name}}</span>
             </li>
-          </ul>
-          <ul data-v-7b64404d="" class="pl-30" v-show="!!searchModel.GameGroupName">
-            <a @click="setValue({GameServerName:server.Name,GameServerId:server.Id});ToggleConditionTab('server');SearchList();" v-for='server in filterServerList' v-bind:key="server.Id">
-              <li data-v-7b64404c="" class="border-bottom">
-                <span data-v-7b64404c="" class="f30 color-000">{{server.Name}}</span>
-              </li>
-            </a>
-
-            <li data-v-7b64404c="" class="border-bottom">
-              <span data-v-7b64404c="" class="f30 color-000">体验区</span>
-            </li>
+           
           </ul>
         </div>
       </div>
+      <div data-v-4d8e3562="" class="search-result f28" style="display: none;">
+        <ul data-v-4d8e3562=""></ul>
+      </div>
+      <div data-v-4d8e3562="" class="search-empty" style="display: none;">
+        <img data-v-4d8e3562="" src="" alt="">
+        <p data-v-4d8e3562="">
+          抱歉，没有找到“
+          <span data-v-4d8e3562="" class="search-content"></span>”的相关结果
+        </p>
+      </div>
+      <div data-v-4d8e3562="" class="mask" style="display: none;"></div>
+      <div data-v-4d8e3562="" class="search-history" style="display: none;">
+        <div data-v-4d8e3562="" class="container-ms bg-fff">
+          <div data-v-4d8e3562="" class="game-list ">
+            <ul data-v-4d8e3562="" class="clearfix ">
+              <li data-v-4d8e3562="">
+                <a data-v-4d8e3562="">暂无搜索历史</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <!---->
-    <div data-v-7b64404c="" class="shade" style="display:none"></div>
   </div>
 
 </template>
 
 <script>
-
+  import "@/assets/css/goods-publish-new.css";
   export default{
     data() {
       return {
-        groupId:'',
-        serverId: '',
-        serverList: [{ Id: 0, Name: "上海1区" }, { Id: 1, Name: "上海2区" }],
-        groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name: "广东区" }],
+        chooseServer: true,
+        serverKeyWords:'',
+        groupName: '',
+        groupId: '',
+        serverName: '',
+        serverId:'',
+        cs_server: {
+          groupId:[],
+          serverId:[],
+
+          filterGroupList: [''],
+          filterServerList: [''],
+          groupNameList:[''],
+          
+          serverNameList: [''],
+          serverList: [{ Id: 0, Name: "上海1区" }, { Id: 1, Name: "上海2区" }],
+          groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name: "广东区" }]
+        },
+
+      
       }
     },
     watch: {},
-    method: {
+    mounted: function() {
+      this.Init();
+    },
+    methods: {
       Init: function (groupId, serverId) {
         let self = this;
         this.serverId = serverId;
         this.groupId = groupId;
-        GetGroup();
+        self.GetGroup();
         if (self.groupId)
         {
-          GetServer(self.groupId);
+          self.GetServer(self.groupId);
         }
       },
-      Choose_server: function () {
-
-        $.emit('update_server', data)
+      CloseDialog: function () {
+        this.$emit('cancel');
+      },
+      ChooseGroup: function (group) {
+        this.$chooseSingle('cs_server', 'groupId', group.Id);
+        this.GetServer(group.Id);
+      },
+      ChooseServer: function (server) {
+        this.$chooseSingle('cs_server', 'serverId', server.Id);
+        this.$emit('submit', server)
       },
       GetGroup: function () {
         let self = this;
         try {
           this.$get("/web/api/GameServer/GetGroup", {
-            gameid: self.searchModel.GameId
+            gameid: 1
           }).then(function (result) {
-            self.groupList = result.content;
-            self.filterGroupList = self.groupList;
+            self.cs_server.groupList = result.content;
+            self.cs_server.filterGroupList = self.groupList;
+            self.cs_server.groupId.push(self.cs_server.groupList[0].Id);
+            self.GetServer(self.cs_server.groupId);
           });
         } catch (err) {
           console.log(err);
@@ -112,9 +142,12 @@
           this.$get("/web/api/GameServer/GetServer", {
             parenId: groupId
           }).then(function (result) {
-            self.serverList = result.content;
-            self.filterServerList = self.serverList;
-          });
+            self.cs_server.serverList = result.content;
+            self.cs_server.filterServerList = self.serverList;
+            if (self.cs_server.serverList.length>0)
+            self.cs_server.serverId.push(self.cs_server.serverList[0].Id);
+
+            });
         } catch (err) {
           console.log(err);
         }
@@ -125,7 +158,7 @@
     props:['pagetype','goodinfoarray','startcheck','itemtype']
 }
 </script>
-
 <style>
 
 </style>
+

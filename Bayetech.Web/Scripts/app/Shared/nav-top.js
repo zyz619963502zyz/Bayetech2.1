@@ -13,9 +13,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <a class ="navbar-brand" href="#">游戏联盟</a>
                     </div>
                     <div class ="collapse navbar-collapse">
-                        <ul class ="nav navbar-nav" @click="QQLogin">
-                            <li class ="login-a"><a href="../../Login/Loging.html">请登录</a></li>
+                        <ul class ="nav navbar-nav">
+                            <li class ="login-a"><a href="../Login/Login.html">请登录</a></li>
                             <li><span id="qqLoginBtn"></span></li>
+                            <li><a href="#" @click="InsertIn">新增</a></li>
                             <li></li>
                         </ul>
                         <ul class ="nav navbar-nav navbar-right">
@@ -67,25 +68,81 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 </div>
             </nav>`;
     //Api
-    //var GoodListUrl = ""; //保存信息
-    //var isTrue = false;
+    var UserUrl = "/api/User/InsertIsValiteUser"; //保存信息
+    //筛选和列表整合数据
+    var data = {
+            ret: 0,
+            msg: "",
+            is_lost: 0,
+        nickname: "Keny",
+            gender: "",
+            province: "",
+            city: "",
+            year: "",
+            constellation: "",
+            figureurl_type: "",
+            is_yellow_vip: "",
+            vip: "",
+            yellow_vip_level: "",
+            level: "",
+            is_yellow_year_vip: ""
+    };
 
     var components = {
         name: "nav-top",
         template: tophtml,
         data() {
-            return {
-                isTrue: false
-            };
+            return data;
         },
         mounted() {
             var self = this;
-            // self.RegistQQLogin();
+            self.RegistQQLogin();
         },
         methods: {
-            QQLogin() {
-                var self = this;
-                self.RegistQQLogin();
+            Instock() {
+                 var self = this;
+                if (localStorage.isTrue !="Instock") {
+                    //alert("我入库了!");
+                    var paras = {};
+                    QC.api("get_user_info", paras)
+                        //指定接口访问成功的接收函数，s为成功返回Response对象
+                        .success(function (s) {
+                            self.$data.nickname = s.data.nickname;
+                            common.postWebJson(UserUrl, JSON.stringify(self.$data), function (data) {
+                                if (data.result) {
+                                    if (!data.data) {
+                                        window.location.href = "../Sign/Signin.html";
+                                        localStorage.nickname = self.$data.nickname;
+                                        
+                                    }
+                                }
+                            });
+                            
+                        })
+                        //指定接口访问失败的接收函数，f为失败返回Response对象
+                        .error(function (f) {
+                            //失败回调
+                            alert("获取用户信息失败！");
+                        })
+                        //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+                        .complete(function (c) {
+                           
+                        });
+                   
+                   
+                }
+            },
+            InsertIn() {
+                var param = this.$data;
+                debugger;
+                common.postWebJson(UserUrl, JSON.stringify(param), function (data) {
+                    if (data.result) {
+                        if (!data.data) {
+                            window.location.href = "../Sign/Signin.html";
+                            localStorage.nickname = param.nickname;
+                        }
+                    }
+                });
             },
             RegistQQLogin() {
                 var that = this;
@@ -95,7 +152,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     scope: "all",
                     size: "B_M"
                 },function (reqData, opts) {//登录成功
-                        
                         //根据返回数据，更换按钮显示状态方法
                         var dom = document.getElementById(opts['btnId']),
                             _logoutTemplate = [
@@ -110,18 +166,10 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             nickname: QC.String.escHTML(reqData.nickname),
                             figureurl: reqData.figureurl
                         }));
-
                         if (QC.Login.check()) {//如果已登录
-                            //这里可以调用自己的保存接口
-                            if (localStorage.isTrue) {
-                                that.isTrue = true;
-                                localStorage.isTrue = that.isTrue;
-                                alert(1);
-                            }
-                            //用JS SDK调用OpenAPI获取用户信息
-                            console.log(that.isTrue);
-                        }
-
+                            that.Instock();
+                            localStorage.isTrue = "Instock";
+                         }
                     }, function (opts) {//注销成功
                         //alert('QQ登录 注销成功');
 

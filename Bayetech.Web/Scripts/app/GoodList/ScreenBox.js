@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Gourps">
                                     <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain('Group',item.Id)">{{item.Name}}</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain('GameGroupId',item.Id)">{{item.Name}}</span>
                                     </a>
                                 </li> 
 

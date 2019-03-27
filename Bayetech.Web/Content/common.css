@@ -135,7 +135,7 @@ img{display:inline-block;}
 .gs_list li:before{content:"";position: absolute;border-left: 4px solid #3b83e8;border-top: 4px solid transparent;border-bottom: 4px solid transparent;top: 35%;left: 0;}
 .gs_list a {overflow:hidden;padding:0 5px;color:#333;display:inline-block;background-color:#fff;}
 .gs_list a.hot {color:#ff4e00;}
-.gs_list a:hover {text-decoration:underline;color: #1ea5ff;}
+.gs_list a:hover {text-decoration:none;color: #1ea5ff;}
 
 .gs_list .f_f60 {color:#f60;}
 .gs_search_item {position:relative;z-index:999;}

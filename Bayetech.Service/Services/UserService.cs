@@ -7,6 +7,7 @@ using Bayetech.Core;
 using System.Web;
 using System.Linq;
 using System.Text;
+using Bayetech.Service.Model;
 
 namespace Bayetech.Service
 {
@@ -17,9 +18,50 @@ namespace Bayetech.Service
             throw new NotImplementedException();
         }
 
-        public bool CreatAccount(JObject json)
+        public JObject CreatAccount(JObject json)
         {
-            throw new NotImplementedException();
+            using (var db = new RepositoryBase().BeginTrans())
+            {
+                User _account = (User)JsonConvert.DeserializeObject(json.First.Path, typeof(User));//转换对象
+                User _userEntity = db.FindEntity<User>(t => t.Phone == _account.Phone);
+                JObject result = new JObject();
+                if (_userEntity==null && _account.Name==null)
+                {
+                            string dbPassword = Md5.EncryptString(_account.Password);
+                            User _currentLogin = new User();
+                            _currentLogin.Id = Core.Common.CreatUser("P");
+                            _currentLogin.Name= _account.Phone;
+                            _currentLogin.Password = dbPassword;
+                            _currentLogin.Phone = _account.Phone;
+                            _currentLogin.AddTime = DateTime.Now;
+                             _currentLogin.IsValiteLogin = true;
+                            db.Insert(_currentLogin);
+                            db.Commit();
+                            result.Add(ResultInfo.Result, JToken.FromObject(true));
+                }
+                else
+                {
+                    if(_account.Name!=null)
+                    {
+                        string dbPassword = Md5.EncryptString(_account.Password);
+                        User _user = db.FindEntity<User>(t => t.Name == _account.Name);
+                        _user.Phone = _account.Phone;
+                        _user.Password = dbPassword;
+                        _user.UpdateTime = DateTime.Now;
+                        _user.IsValiteLogin = true;
+                        db.Update(_user);
+                        db.Commit();
+                        result.Add(ResultInfo.Result, JToken.FromObject(true));
+                    }
+                    else
+                    {
+                        result.Add(ResultInfo.Result, JToken.FromObject(false));
+                        result.Add(ResultInfo.Content, JToken.FromObject("账户已存在，请重新输入!"));
+                    }
+                    
+                }
+                return result;
+            }
         }
 
         /// <summary>
@@ -69,7 +111,7 @@ namespace Bayetech.Service
                                 cookie.ExpireTime = DateTime.Now.AddHours(12);//设置12小时过期
                                 HttpRuntime.Cache.Insert(cookie.StaffId.ToString(), cookie, null, cookie.ExpireTime, TimeSpan.Zero);
                             }
-                             HttpContext.Current.Session["token-" + _account.Name] = token;
+                             //HttpContext.Current.Session["token-" + _account.Name] = token;
                             //HttpContext.Current.Response.Cookies["token"].Value = token;
                             //HttpContext.Current.Response.Cookies["token"].Expires.AddDays(1);
                         }
@@ -140,6 +182,68 @@ namespace Bayetech.Service
             Random rd = new Random(DateTime.Now.Millisecond);
             int i = rd.Next(0, int.MaxValue);
             return i.ToString();
+        }
+
+
+
+        public JObject  QQUserLogion(JObject json)
+        {
+            JObject job = new JObject();
+            var result = 0;
+            using (var db = new RepositoryBase(DBFactory.Bayetech).BeginTrans())
+            {
+                QQUserModel order = JsonConvert.DeserializeObject<QQUserModel>(json.First.Path);
+                User entity = db.FindEntity<User>(t => t.Name == order.nickname);
+                if (entity == null)
+                {
+                    User user = new User();
+                    user.Id= Core.Common.CreatUser("P");
+                    user.Name = order.nickname;
+                    user.NameAlias = order.nickname;
+                    user.AddTime = DateTime.Now;
+                    db.Insert(user);
+                    result = db.Commit();
+                    if(result==1)
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(true));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
+                    else
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(false));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
+                }
+                else
+                {
+                    entity.UpdateTime = DateTime.Now;
+                    db.Update(entity);
+                    result = db.Commit();
+                    if (result == 1)
+                    {
+                        if (entity.Phone == "" || entity.Phone==null)
+                        {
+                            job.Add(ResultInfo.Result, JToken.FromObject(true));
+                            job.Add(ResultInfo.Data, JToken.FromObject(false));
+                        }
+                        else
+                        {
+                            job.Add(ResultInfo.Result, JToken.FromObject(true));
+                            job.Add(ResultInfo.Data, JToken.FromObject(true));
+                        }
+                    }
+                    else
+                    {
+                        job.Add(ResultInfo.Result, JToken.FromObject(false));
+                        job.Add(ResultInfo.Data, JToken.FromObject(false));
+                    }
+                    
+                }
+            }
+
+            //MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
+
+            return job;
         }
     }
 }
