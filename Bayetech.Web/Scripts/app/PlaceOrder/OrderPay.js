@@ -86,7 +86,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
         //数据
         var data={//填写的数据
-            GoodNo: "",
+            GoodNo: "111111111",
             OrderPrice:"",
             GoodPrice:0,
             GoodTypeId: 3,
