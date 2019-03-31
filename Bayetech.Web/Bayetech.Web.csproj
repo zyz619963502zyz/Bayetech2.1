@@ -48,6 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AopSdk, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\zf\AopSdk.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
@@ -269,6 +273,7 @@
     <Compile Include="Attributes\SupportCrossDomainAttribute.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
     <Compile Include="Common\HttpResponseExtension.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -817,6 +822,7 @@
     <Folder Include="Test\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
+    <Folder Include="Views\Pay\" />
     <Folder Include="Views\PointTrading\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>

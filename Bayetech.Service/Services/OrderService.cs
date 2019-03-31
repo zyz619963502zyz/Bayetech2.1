@@ -7,6 +7,16 @@ using Bayetech.Service.IServices;
 using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Aop.Api;
+using Aop.Api.Domain;
+using Aop.Api.Request;
+using Aop.Api.Response;
+using Aop.Api.Util;
+using System.Web;
+using Bayetech.Service.Model;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net;
 
 namespace Bayetech.Service
 {
@@ -29,7 +39,7 @@ namespace Bayetech.Service
                     db.Insert(order);
                     int count = db.Commit();
                     ret.Add(ResultInfo.Result, (count > 0 ? true : false));
-                    ret.Add(ResultInfo.Content, JToken.FromObject((count > 0 ? "" : Properties.Resources.Error_NoOrderNo)));
+                    ret.Add(ResultInfo.Content, JToken.FromObject((count > 0 ? order.OrderNo : Properties.Resources.Error_NoOrderNo)));
                 }
                 else
                 {
@@ -118,5 +128,52 @@ namespace Bayetech.Service
                 return ret;
             }
         }
+        public JObject PayOrder(JObject json)
+        {
+            JObject ret = new JObject();
+            var commdy = new vw_MallOrderInfo();
+            using (var db = new RepositoryBase(DBFactory.Bayetech))
+            {
+                vw_MallOrderInfo order = JsonConvert.DeserializeObject<vw_MallOrderInfo>(json.First.Path);
+                commdy = db.FindEntity<vw_MallOrderInfo>(a=>a.OrderNo== order.OrderNo);
+            }
+            AlipayTradePagePayModel model = new AlipayTradePagePayModel
+            {
+                Body = "eshi",
+                Subject = commdy.GameName,
+                TotalAmount = commdy.OrderPrice.ToString(),
+                OutTradeNo = commdy.OrderNo,
+                ProductCode = "FAST_INSTANT_TRADE_PAY"
+            };
+            AliPayConfig alipay = new AliPayConfig();
+            DefaultAopClient clent = new DefaultAopClient(alipay.Gatewayurl, alipay.AppId, alipay.PrivateKey, "json", "1.0", alipay.SignType, alipay.AlipayPublicKey, alipay.CharSet, false);
+            AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
+            // 设置同步回调地址
+            request.SetReturnUrl($"http://{Common.GetCurrentFullHost()}/Home/Callback");
+            // 设置异步通知接收地址
+            request.SetNotifyUrl("");
+            // 将业务model载入到request
+            request.SetBizModel(model);
+            var response = clent.SdkExecute(request);
+            //Console.WriteLine($"订单支付发起成功，订单号：{tradeno}");
+            //跳转支付宝支付
+            //HttpContext.Current.Response.Redirect(alipay.Gatewayurl + "?" + response.Body);
+            //HttpResponseMessage resp = new HttpResponseMessage(HttpStatusCode.Moved);
+            //resp.Headers.Location = new Uri(alipay.Gatewayurl + "?" + response.Body);
+            string resp = alipay.Gatewayurl + "?" + response.Body;
+            ret.Add(ResultInfo.Result, true);
+            ret.Add(ResultInfo.Content, JToken.FromObject(resp));
+            return ret;
+        }
     }
+
+    //public HttpResponseMessage Post()
+    //{
+    //    // ... do the job
+    //    // now redirect
+
+    //    HttpResponseMessage resp = new HttpResponseMessage(HttpStatusCode.Moved);
+    //    resp.Headers.Location = new Uri("http://www.***c.com");
+    //    return resp;
+    //}
 }

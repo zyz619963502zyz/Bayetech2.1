@@ -249,5 +249,18 @@ namespace Bayetech.Core
             sb.Append(ipInt & 0xFF);
             return sb.ToString();
         }
+
+        /// <summary>
+        /// 得到当前完整主机头
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentFullHost()
+        {
+            HttpRequest request = System.Web.HttpContext.Current.Request;
+            if (!request.Url.IsDefaultPort)
+                return string.Format("{0}:{1}", request.Url.Host, request.Url.Port.ToString());
+
+            return request.Url.Host;
+        }
     }
 }

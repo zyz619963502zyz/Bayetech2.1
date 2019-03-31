@@ -83,9 +83,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
         //Api
         var _CreatOrderUrl="/api/Order/CreatOrder"; //创建账号
-
+        var _GetPayRequestUrl = "/api/Order/PayRequest";
         //数据
-        var data={//填写的数据
+    var data = {//填写的数据
             GoodNo: "111111111",
             OrderPrice:"",
             GoodPrice:0,
@@ -180,6 +180,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             alert(data.content);
                         } else {
                             alert("订单生成功!");
+                            var test = { OrderNo: data.content };
+                            common.postWebJson(_GetPayRequestUrl, JSON.stringify(test), function (data) {
+                                if (data.result) {
+                                    window.open(data.content);
+                                }
+                            });
                         }
                     });
                 }
