@@ -17,6 +17,8 @@ namespace Bayetech.Web.Controllers
         // GET: Pay
         public ActionResult Index()
         {
+
+            //验证订单编号
             return View();
         }
         [HttpPost]

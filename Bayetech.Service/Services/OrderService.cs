@@ -139,7 +139,7 @@ namespace Bayetech.Service
             }
             AlipayTradePagePayModel model = new AlipayTradePagePayModel
             {
-                Body = "eshi",
+                Body = commdy.GoodTitle,
                 Subject = commdy.GameName,
                 TotalAmount = commdy.OrderPrice.ToString(),
                 OutTradeNo = commdy.OrderNo,

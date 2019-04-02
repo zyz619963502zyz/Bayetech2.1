@@ -813,6 +813,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Pay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -822,7 +823,6 @@
     <Folder Include="Test\" />
     <Folder Include="Views\Article\" />
     <Folder Include="Views\Mall\" />
-    <Folder Include="Views\Pay\" />
     <Folder Include="Views\PointTrading\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>

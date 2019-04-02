@@ -83,7 +83,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
         //Api
         var _CreatOrderUrl="/api/Order/CreatOrder"; //创建账号
-        var _GetPayRequestUrl = "/api/Order/PayRequest";
+    var _GetPayRequestUrl = "/api/Order/PayRequest";
         //数据
     var data = {//填写的数据
             GoodNo: "111111111",
