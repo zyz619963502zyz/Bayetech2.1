@@ -48,6 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AopSdk, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\zf\AopSdk.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
@@ -269,6 +273,7 @@
     <Compile Include="Attributes\SupportCrossDomainAttribute.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
     <Compile Include="Common\HttpResponseExtension.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -292,6 +297,7 @@
     <Compile Include="Models\DropDownModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MallGoodInfoModels.cs" />
+    <Compile Include="Models\QQUserModel.cs" />
     <Compile Include="Models\ResultMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -522,6 +528,7 @@
     <Content Include="Content\log-sin.css" />
     <Content Include="Content\article.css" />
     <Content Include="Content\NewImages\10.jpg" />
+    <Content Include="Content\NewImages\ckboxbg.png" />
     <Content Include="Content\NewImages\cs.png" />
     <Content Include="Content\NewImages\gm.png" />
     <Content Include="Content\NewImages\gold-coin.png" />
@@ -544,6 +551,7 @@
     <Content Include="Content\NewImages\logo.ico" />
     <Content Include="Content\NewImages\menu_title.jpg" />
     <Content Include="Content\NewImages\re-img-01.jpg" />
+    <Content Include="Content\NewImages\uarrow.png" />
     <Content Include="Content\NewImages\xzyx_logo.jpg" />
     <Content Include="Content\NewImages\yxlm.ico" />
     <Content Include="Content\NewImages\zhima.png" />
@@ -556,6 +564,7 @@
     <Content Include="Content\OlderCss\Personal.css" />
     <Content Include="Content\OlderCss\popLayer.css" />
     <Content Include="Content\OlderCss\Public.css" />
+    <Content Include="Content\payment.css" />
     <Content Include="Content\personal.css" />
     <Content Include="Content\place_order.css" />
     <Content Include="Content\publish.css" />
@@ -581,6 +590,7 @@
     <Content Include="Page\Good\GoodToBuy.html" />
     <Content Include="Page\Good\Publish.html" />
     <Content Include="Page\MyBayetech\MyBayetech.html" />
+    <Content Include="Page\Payment\toPay.html" />
     <Content Include="Page\PlaceOrder\OnLinePay.html" />
     <Content Include="Page\PlaceOrder\PlaceOrder.html" />
     <Content Include="Page\Home\NewIndex.html" />
@@ -803,6 +813,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Pay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

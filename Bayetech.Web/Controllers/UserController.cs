@@ -8,6 +8,7 @@ using System.Web;
 using Bayetech.Core.Entity;
 using Newtonsoft.Json;
 using System.Web.SessionState;
+using Bayetech.Web.Models;
 
 namespace Bayetech.Web.Controllers
 {
@@ -35,7 +36,7 @@ namespace Bayetech.Web.Controllers
         }
 
         [HttpPost]
-        public bool CreatAccount(JObject json)
+        public JObject CreatAccount(JObject json)
         {
             try
             {
@@ -142,14 +143,12 @@ namespace Bayetech.Web.Controllers
         }
 
         [HttpPost]
-        public bool InsertIsValiteUser(JObject json)
+        public JObject InsertIsValiteUser(JObject json)
         {
-            var id = json.Property("id").Value.ToString();
-            var isValiteLogin = bool.Parse(json.Property("isValiteLogin").Value.ToString());
-            var entity = service.FindList(a => a.Id == id).ToList().FirstOrDefault();
-            entity.IsValiteLogin = isValiteLogin;
-            var result = service.Update(entity);
-            return result > 0;
+            //MallOrder goodInfo = JsonConvert.DeserializeObject<MallOrder>(json.First.Path);
+            return service.QQUserLogion(json);
+
+             
         }
 
         #endregion
