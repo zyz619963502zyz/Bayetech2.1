@@ -156,7 +156,7 @@ img{display:inline-block;}
 .gs_sort .drop_search_input > input {padding:0 10px;font-size:12px;font-family:\5b8b\4f53;width:200px;height:26px;}
 .gs_sort .drop_search_input > input::-webkit-input-placeholder {color:#777;}
 .gs_sort li a {color:#fff;padding:0 30px;display:block;line-height:32px;}
-.gs_sort li a:hover {text-decoration:underline;}
+.gs_sort li a:hover {text-decoration:none;}
 .gs_sort li.active a {background-color:#FFF;color:#1ea5ff;font-weight:bolder;}
 /*serach end*/
 

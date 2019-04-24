@@ -8,9 +8,21 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
         el: '#app',
         data() {
             return {
+                checkUrl:"/api/Home/CheckCustomServiceQQ",
+                customerserviceQQ:"",
                 notice: notice,
                 consult:consult,
                 gameranking: gameranking,
+            }   
+        },
+        methods: {
+            CheckCustomService() {//验证客服真假
+                var self = this;
+                common.getWebJson(self.checkUrl, { "qq": self.customerserviceQQ }, function (data) {
+                    if (data) {
+                        alert(data.result);
+                    }
+                });
             }
         },
         components: {
@@ -28,7 +40,6 @@ require(['vue', 'jquery', 'common', 'bootstrap', 'v-header', 'v-nav', 'v-search'
             "index-slidebox": slidebox,
             "nav-top": navt,
             "v-footer": footer
-        }
+        },
     });
-
 });
