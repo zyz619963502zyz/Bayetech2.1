@@ -4,7 +4,7 @@
     *-->
 <template>
   <div id="wrapper" style="height: 100%;">
-    <div data-v-dfc73fe2="" v-show="!open_dialog">
+    <div data-v-dfc73fe2="" v-show="!open_dialog&&!open_fileUpload">
       <div data-v-dfc73fe2="" class="top-header border-bottom fixed-top">
         <div data-v-dfc73fe2="" class="top-back" @click="$router.go(-1)">
           <a data-v-dfc73fe2="" class=""></a>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div data-v-484bcaae="" v-show="!open_dialog">
+    <div data-v-484bcaae="" v-show="!open_dialog&&!open_fileUpload">
       <div data-v-484bcaae="">
         <div data-v-509ef1b0="" class="fw px-30 notice_risk Mnotice_top mt-97" data-v-484bcaae="">
           <div data-v-509ef1b0="" class="fl notice_public">
@@ -40,12 +40,12 @@
               <li data-v-484bcaae="" class="fl border" :class="{selected:$isChoice('property','goodsType','gold')}" @click="$chooseSingle('property','goodsType','gold')">硬币批发</li>
 
               <!--<li data-v-484bcaae="" :class="{selected:isChoice('coins','0'),fl:true,border:true}">游戏币</li>
-            <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
-            <li data-v-484bcaae="":class="{selected:isChoice('tzs','0'),fl:true,border:true}">挑战书</li>
-            <li data-v-484bcaae="" :class="{selected:isChoice('coinspf','0'),fl:true,border:true}">游戏币批发</li>
-            <li data-v-484bcaae="" :class="{selected:isChoice('wsxjk','0'),fl:true,border:true}">无色小晶块</li>
-            <li data-v-484bcaae="" :class="{selected:isChoice('mss','0'),fl:true,border:true}">魔刹石</li>
-            <li data-v-484bcaae="" :class="{selected:isChoice('jjt','0'),fl:true,border:true}">矛盾的结晶体</li>-->
+      <li data-v-484bcaae="" :class="{selected:isChoice('equip','0'),fl:true,border:true}">装备</li>
+      <li data-v-484bcaae="":class="{selected:isChoice('tzs','0'),fl:true,border:true}">挑战书</li>
+      <li data-v-484bcaae="" :class="{selected:isChoice('coinspf','0'),fl:true,border:true}">游戏币批发</li>
+      <li data-v-484bcaae="" :class="{selected:isChoice('wsxjk','0'),fl:true,border:true}">无色小晶块</li>
+      <li data-v-484bcaae="" :class="{selected:isChoice('mss','0'),fl:true,border:true}">魔刹石</li>
+      <li data-v-484bcaae="" :class="{selected:isChoice('jjt','0'),fl:true,border:true}">矛盾的结晶体</li>-->
             </ul>
             <div data-v-484bcaae="" class="open-more-select">
               <i data-v-484bcaae="" class="icon-open active"></i>
@@ -56,6 +56,11 @@
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
             <span data-v-484bcaae="" class="danwei" @click="open_dialog=!open_dialog">{{server.Name}}</span>
+            <i data-v-484bcaae="" class="toRight fr"></i>
+          </div>
+          <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
+            <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
+            <span data-v-484bcaae="" class="danwei" @click="open_fileUpload=!open_fileUpload">{{server.Name}}</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
           </div>
 
@@ -76,8 +81,10 @@
     <div v-show="open_dialog">
       <choose_server @cancel="cancel_choose_server" @submit="submit_choose_server"></choose_server>
     </div>
-    
-  </div>
+    <div v-show="open_fileUpload">
+      <uploader url="http://cn.ynhdkc.com/admin/uploadapiv2/uploadpics"></uploader>
+    </div>
+</div>
   
  
 </template>
@@ -86,11 +93,14 @@
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
   import choose_server from '@/components/choose_server.vue'
+  import uploader from 'vue-easy-uploader'
 
   let vmdata = {
     open_dialog: false,
+    open_fileUpload: false,
     show_choose_server: false,
-    server: {Name:'请选择'},
+    server: { Name: '请选择' },
+    uploadServerPath:'123',
     property: {
       goodsType: 'account'
     }
@@ -120,7 +130,8 @@
       }
     },
     components: {
-      choose_server: choose_server
+      choose_server: choose_server 
+     
     }
     
   }
