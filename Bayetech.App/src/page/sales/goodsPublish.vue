@@ -82,7 +82,7 @@
       <choose_server @cancel="cancel_choose_server" @submit="submit_choose_server"></choose_server>
     </div>
     <div v-show="open_fileUpload">
-      <uploader url="http://cn.ynhdkc.com/admin/uploadapiv2/uploadpics"></uploader>
+      <fileUpload></fileUpload>
     </div>
 </div>
   
@@ -93,8 +93,7 @@
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
   import choose_server from '@/components/choose_server.vue'
-  import uploader from 'vue-easy-uploader'
-
+  import fileUpload from '@/components/FileUpload.vue'
   let vmdata = {
     open_dialog: false,
     open_fileUpload: false,
@@ -130,8 +129,8 @@
       }
     },
     components: {
-      choose_server: choose_server 
-     
+      choose_server: choose_server ,
+      fileUpload: fileUpload
     }
     
   }

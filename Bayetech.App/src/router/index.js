@@ -14,9 +14,9 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../components/HelloWorld.vue')), 'HelloWorld')
     },
     {
-      path: '/home',
-      name: 'home',
-      component: r => require.ensure([], () => r(require('../components/home.vue')), 'home')
+      path: '/FileUpload',
+      name: 'FileUpload',
+      component: r => require.ensure([], () => r(require('../components/FileUpload.vue')), 'FileUpload')
     },
     {
       path: '/',
