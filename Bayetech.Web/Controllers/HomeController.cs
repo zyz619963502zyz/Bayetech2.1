@@ -1,15 +1,24 @@
-﻿using System.Web.Mvc;
+﻿using Bayetech.Service;
+using Newtonsoft.Json.Linq;
+using System.Web.Http;
 
 namespace Bayetech.Web.Controllers
 {
-    public class HomeController : Controller
-    { 
-        public ActionResult Index() 
-        {
-            ViewBag.Title = "Home Page  abc";
+   
+    public class HomeController : BaseController
+    {
+        ICheckService service = new CheckService();
 
-            //Bayetech.Core.Common.CreatOrderNo();
-            return View();
+
+        /// <summary>
+        /// 验证客服QQ是否为真
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JObject CheckCustomServiceQQ(string qq) {
+            JObject ret = new JObject();
+            ret = service.CheckCustomServiceQQ(qq);
+            return ret;
         }
     }
 }

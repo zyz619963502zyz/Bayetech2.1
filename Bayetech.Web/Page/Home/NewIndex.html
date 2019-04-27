@@ -76,9 +76,9 @@
                         <div class="r-panel-tab m-b-md">
                             <!--验证-->
                             <div class="input-group">
-                                <input type="text" placeholder="输入客服QQ，验证真假" value="" class="form-control" />
+                                <input type="text" placeholder="输入客服QQ，验证真假" v-model="customerserviceQQ" class="form-control" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary">验证</button>
+                                    <button type="button" class="btn btn-primary" @click="CheckCustomService">验证</button>
                                 </span>
                             </div>
                             <!--<div class="qq-check">

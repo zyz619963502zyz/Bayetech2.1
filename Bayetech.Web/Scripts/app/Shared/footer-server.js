@@ -56,17 +56,12 @@
                         <li>
                             <h4>充值方式</h4>
                             <ul>
-                                <li><a href="/053545.htm">游戏联盟</a></li>
-                                <li><a href="/053740.htm">游戏联盟</a></li>
-                                <li><a href="/054568.htm">游戏联盟</a></li>
-                                <li><a href="/053913.htm">游戏联盟</a></li>
-                                <li><a href="/054551.htm">游戏联盟</a></li>
-
-                                <li><a href="/053926.htm">游戏联盟</a></li>
+                                <li><a href="/053545.htm">微信充值</a></li>
+                                <li><a href="/053740.htm">支付宝充值</a></li>
                             </ul>
                         </li>
                         <!-- 第四列 -->
-                        <li>
+                            <li>
                             <h4>常见问题</h4>
                             <ul>
                                 <li><a href="/a/20150819/057018.htm">游戏联盟</a></li>
