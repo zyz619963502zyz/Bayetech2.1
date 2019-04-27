@@ -146,12 +146,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             },
             RegistQQLogin() {
                 var that = this;
-                QC.Login({
-                    //插入按钮的节点id
-                    btnId: "qqLoginBtn",
-                    scope: "all",
-                    size: "B_M"
-                },function (reqData, opts) {//登录成功
+                if (QC) {
+                    QC.Login({
+                        //插入按钮的节点id
+                        btnId: "qqLoginBtn",
+                        scope: "all",
+                        size: "B_M"
+                    }, function (reqData, opts) {//登录成功
                         //根据返回数据，更换按钮显示状态方法
                         var dom = document.getElementById(opts['btnId']),
                             _logoutTemplate = [
@@ -169,12 +170,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         if (QC.Login.check()) {//如果已登录
                             that.Instock();
                             localStorage.isTrue = "Instock";
-                         }
+                        }
                     }, function (opts) {//注销成功
                         //alert('QQ登录 注销成功');
 
                     }
-                ); 
+                    ); 
+                }
             }
         }
     };

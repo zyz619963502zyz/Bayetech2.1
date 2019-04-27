@@ -248,10 +248,10 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SP_LoginInfo_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -272,7 +272,7 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SYS_XmlConfig.cs">
       <DependentUpon>Oas.tt</DependentUpon>
