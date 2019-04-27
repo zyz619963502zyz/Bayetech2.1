@@ -20,4 +20,3 @@ export function isChoice(model, name, value)
   return this[model][name].indexOf(value) >= 0;
 }
 
-

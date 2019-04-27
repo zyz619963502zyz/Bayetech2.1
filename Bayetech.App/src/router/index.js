@@ -111,6 +111,11 @@ export default new Router({
       path: '/goodsPublish_gold',
       name: 'goodsPublish_gold',
       component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_gold.vue')), 'sales')
+    },
+    {
+      path: '/priceFilter',
+      name: 'priceFilter',
+      component: r => require.ensure([], () => r(require('../components/filter/priceFilter.vue')), 'sales')
     }
   ]
 })

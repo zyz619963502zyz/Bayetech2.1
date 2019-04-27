@@ -4,7 +4,7 @@
     *-->
 <template>
   <div id="wrapper" style="height: 100%;">
-    <div data-v-dfc73fe2="" v-show="!open_dialog&&!open_fileUpload">
+    <div data-v-dfc73fe2="" v-show="tab=='main'">
       <div data-v-dfc73fe2="" class="top-header border-bottom fixed-top">
         <div data-v-dfc73fe2="" class="top-back" @click="$router.go(-1)">
           <a data-v-dfc73fe2="" class=""></a>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div data-v-484bcaae="" v-show="!open_dialog&&!open_fileUpload">
+    <div data-v-484bcaae="" v-show="tab=='main'">
       <div data-v-484bcaae="">
         <div data-v-509ef1b0="" class="fw px-30 notice_risk Mnotice_top mt-97" data-v-484bcaae="">
           <div data-v-509ef1b0="" class="fl notice_public">
@@ -29,6 +29,7 @@
             <span data-v-484bcaae="" class="fl f32">所属游戏</span>
             <span data-v-484bcaae="" class="fr color-000">地下城与勇士</span>
           </div>
+          
           <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff mt-20 f30 fw border-bottom">
             <span data-v-484bcaae="" class="f32 span-icon-xinhao color-333">商品种类</span>
           </div>
@@ -53,17 +54,20 @@
             </div>
           </div>
           <!-- 游戏区服 -->
-          <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
+
+          <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
-            <span data-v-484bcaae="" class="danwei" @click="open_dialog=!open_dialog">{{server.Name}}</span>
-            <i data-v-484bcaae="" class="toRight fr"></i>
-          </div>
-          <div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
-            <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏区服</span>
-            <span data-v-484bcaae="" class="danwei" @click="open_fileUpload=!open_fileUpload">{{server.Name}}</span>
+            <span data-v-484bcaae="" class="danwei" @click="tab='server'">{{server.Name}}</span>
             <i data-v-484bcaae="" class="toRight fr"></i>
           </div>
 
+
+          <!--<div data-v-484bcaae="" class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
+            <span data-v-484bcaae="" class="span-icon-xinhao color-333">职业</span>
+            <span data-v-484bcaae="" class="danwei" @click="tab='job'">{{job.ProfessionName}}</span>
+            <i data-v-484bcaae="" class="toRight fr"></i>
+          </div>-->
+         
           <div data-v-484bcaae="" class="release fw mt-20">
             <router-link :to="{path:'/goodsPublish_' + property.goodsType}">
               <input data-v-484bcaae="" type="button" name="" value="下一步" class="bg-f54" />
@@ -78,12 +82,11 @@
       </div>
     </div>
 
-    <div v-show="open_dialog">
-      <choose_server @cancel="cancel_choose_server" @submit="submit_choose_server"></choose_server>
+    <div v-show="tab=='server'">
+      <choose_server @cancel="closeDialog" @submit="submit_server"></choose_server>
     </div>
-    <div v-show="open_fileUpload">
-      <fileUpload></fileUpload>
-    </div>
+ 
+    
 </div>
   
  
@@ -93,12 +96,13 @@
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
   import choose_server from '@/components/choose_server.vue'
+  import choose_job from '@/components/choose_job.vue'
   import fileUpload from '@/components/FileUpload.vue'
   let vmdata = {
-    open_dialog: false,
-    open_fileUpload: false,
-    show_choose_server: false,
+    tab: 'main', // main ,server,job 控制弹出框
+   
     server: { Name: '请选择' },
+    job: { ProfessionName:'请选择'},
     uploadServerPath:'123',
     property: {
       goodsType: 'account'
@@ -120,16 +124,22 @@
       nextStep: function () {
 
       },
-      cancel_choose_server: function () {
-        this.open_dialog = false;
+      closeDialog: function () {
+        this.tab = 'main';
       },
-      submit_choose_server: function (server) {
-        this.open_dialog = false;
+      submit_server: function (server) {
+        this.tab = 'main';
         this.server = server;
+      },
+      submit_job: function (job) {
+        console.log(job)
+        this.tab = 'main';
+        this.job = job;
       }
     },
     components: {
-      choose_server: choose_server ,
+      choose_server: choose_server,
+      choose_job: choose_job,
       fileUpload: fileUpload
     }
     
