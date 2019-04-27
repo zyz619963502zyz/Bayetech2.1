@@ -57,7 +57,6 @@
         <EntityTypeShape EntityType="BayetechModel.Relationship" Width="1.5" PointX="7.375" PointY="23.75" />
         <EntityTypeShape EntityType="BayetechModel.RelationshipType" Width="1.5" PointX="15.375" PointY="8.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_GoodTypes" Width="1.5" PointX="19.375" PointY="6.75" />
-        <EntityTypeShape EntityType="BayetechModel.Game" Width="1.5" PointX="7.375" PointY="19.75" />
         <EntityTypeShape EntityType="BayetechModel.Server" Width="1.5" PointX="17.375" PointY="10.75" />
         <EntityTypeShape EntityType="BayetechModel.MallOrder" Width="1.5" PointX="23.375" PointY="22.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallOrderInfo" Width="1.5" PointX="19.375" PointY="24.75" />
@@ -65,6 +64,7 @@
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodMainInfo" Width="1.5" PointX="12.125" PointY="22.75" />
         <EntityTypeShape EntityType="BayetechModel.Attachment" Width="1.5" PointX="25.375" PointY="0.75" />
         <EntityTypeShape EntityType="BayetechModel.vw_MallGoodSearch" Width="1.5" PointX="23.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BayetechModel.Game" Width="1.5" PointX="25.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
