@@ -1,9 +1,6 @@
 <template>
   <div>
-    <el-button @click="visible = true">Button</el-button>
-    <el-dialog :visible.sync="visible" title="Hello world">
-      <p>Try Element</p>
-    </el-dialog>
+    <!--http://localhost:15786-->
     <el-upload action="/web/api/Upload/AddUploadFile"
                list-type="picture-card"
                :on-preview="handlePictureCardPreview"

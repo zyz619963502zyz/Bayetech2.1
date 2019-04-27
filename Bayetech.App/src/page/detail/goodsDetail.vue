@@ -6,7 +6,7 @@
 
       <div data-v-4fef8ba0="">
         <div data-v-4fef8ba0="" class="top-header border-bottom fixed-top">
-          <div data-v-4fef8ba0="" class="top-back"><a data-v-4fef8ba0=""></a></div>
+          <div data-v-4fef8ba0="" class="top-back"><router-link :to="{ path: '/goodsList' }" class="dis-b clearfix ps-r"></router-link></div>
           <h2 data-v-4fef8ba0="" class="f36">地下城与勇士</h2>
           <div data-v-4fef8ba0="" class="top-right"><a data-v-4fef8ba0="" href="https://m.5173.com/" class="back-home" style="display: none;"></a></div> <!---->
           <div data-v-4fef8ba0="" class="show-right"><a data-v-4fef8ba0="" class="sharelist"></a></div> <!----> <!----> <!----> <!---->

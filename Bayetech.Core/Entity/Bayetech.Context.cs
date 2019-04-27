@@ -48,7 +48,6 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Admin_Sys_Users_Departments> Admin_Sys_Users_Departments { get; set; }
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleContent> ArticleContent { get; set; }
-        public virtual DbSet<Attachment> Attachment { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<DLRequire> DLRequire { get; set; }
         public virtual DbSet<ExtraProperty> ExtraProperty { get; set; }
@@ -85,6 +84,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<vw_MallOrderInfo> vw_MallOrderInfo { get; set; }
         public virtual DbSet<MallGoodInfo> MallGoodInfo { get; set; }
         public virtual DbSet<vw_MallGoodMainInfo> vw_MallGoodMainInfo { get; set; }
+        public virtual DbSet<Attachment> Attachment { get; set; }
         public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
         public virtual DbSet<Game> Game { get; set; }
     

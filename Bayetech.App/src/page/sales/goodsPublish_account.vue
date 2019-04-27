@@ -14,7 +14,7 @@
         <h2 data-v-4fef8ba0="" class="f36">地下城与勇士</h2>
       </div>
     </div>
-    <div data-v-08a3bc62="">
+    <div data-v-08a3bc62="" >
       <div data-v-08a3bc62="">
         <div data-v-08a3bc62="" id="wrapper" class="pb-30">
           <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80" data-v-08a3bc62="">
@@ -45,8 +45,8 @@
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              
-              <a data-v-6027fbac="" href="javascript:vodi(0);" class="aRight">
+
+              <a data-v-6027fbac="" href="javascript:void(0);" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
                   <span data-v-6027fbac="" class="span-icon-xinhao">
                     角色职业
@@ -58,7 +58,7 @@
               </a>
               <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-if="property.prof">
                 <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
+                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
                   <i data-v-5af57c0b="" @click="close('prof')" class="bomb-close"></i>
                 </div>
                 <div data-v-5af57c0b="" class="bomb-content">
@@ -113,7 +113,7 @@
                 <div data-v-5af57c0b="" class="bomb-content">
                   <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
                     <li v-for="levels in qqlevelList" @click="selectLi('qqlevel',levels)" class="border-bottom">{{levels}}</li>
-                    
+
                   </ul>
                 </div>
               </div>
@@ -122,20 +122,20 @@
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              
-                <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">
-                    QQ好友
 
-                  </span>
-                  <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-                    <ul data-v-f82175a2="" class="clearfix">
-                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
-                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
-                    </ul>
-                  </div>
+              <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
+                <span data-v-6027fbac="" class="span-icon-xinhao">
+                  QQ好友
+
+                </span>
+                <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
+                  <ul data-v-f82175a2="" class="clearfix">
+                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
+                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
+                  </ul>
                 </div>
-             
+              </div>
+
 
             </section>
           </div>
@@ -144,7 +144,7 @@
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
               <a data-v-6027fbac="" href="javascript:;" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao" >历史处罚记录</span>
+                  <span data-v-6027fbac="" class="span-icon-xinhao">历史处罚记录</span>
                   <span data-v-6027fbac="" class="danwei" @click="showContent('punish')">{{property.punishVal}} </span>
                   <i data-v-6027fbac="" class="toRight fr"></i>
                 </div>
@@ -235,15 +235,19 @@
               <span data-v-08a3bc62="" class="sec-price f36 color-999" :class="{'color-m1':property.rapidChecked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
               <span data-v-08a3bc62="" class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
               <div data-v-08a3bc62="" class="button-switch fr">
-                <label data-v-08a3bc62="" class="label-switch" >
-                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" @click="shortcut($event)"/><!--v-model="checkNames"-->
-                  <div data-v-08a3bc62="" class="checkbox" ></div>
+                <label data-v-08a3bc62="" class="label-switch">
+                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" @click="shortcut($event)" /><!--v-model="checkNames"-->
+                  <div data-v-08a3bc62="" class="checkbox"></div>
                 </label>
               </div>
             </div>
             <div data-v-08a3bc62="" class="sec-text mt-10 color-999">
               <p data-v-08a3bc62="" class="f22"><i data-v-08a3bc62="" class="p-icon-red-tip fl"></i> 不用传图，轻松出售（卖出后收费） </p>
             </div>
+          </div>
+          <div class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
+            <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏截图</span>
+            <fileUpload></fileUpload>
           </div>
           <div data-v-08a3bc62="" class="release mt-20  trlect-btn" style="text-align: left;">
             <p data-v-08a3bc62="" class="f22 color-m1"> 为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟4天打款，此期间请勿修改帐号资料，否则将会号财两空。 </p>
@@ -283,7 +287,7 @@
             </div>
           </div>
           <div data-v-08a3bc62="" class="release  trlect-btn mt-20">
-            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62=""  type="button" value="下一步" class="bg-f54" /></a>
+            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" type="button" value="下一步" class="bg-f54" /></a>
           </div>
         </div>
         <div data-v-08a3bc62="" class="pb-200" style="display: none;">
@@ -341,7 +345,7 @@
         </div>
         <!--<div data-v-08a3bc62="" class="dialog_cover hide"></div>-->
       </div>
-      <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked"  @click="close()"></div>
+      <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked" @click="close()"></div>
       <!-- 了解收费标准-->
       <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%;">
         <div data-v-08a3bc62="" class="ts-rate">
@@ -390,6 +394,8 @@
         </div>
       </div>
     </div>
+    
+
   </div>
 </template>
 
@@ -398,7 +404,7 @@
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
   import "@/assets/css/goodsPublish_account.css";
-  
+  import fileUpload from '@/components/FileUpload.vue'
   //import router from "vue-router";
   import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
@@ -458,6 +464,10 @@
     this.getqqlevelList();
     this.getPunishList();
   },
+  components: {
+      
+      fileUpload: fileUpload
+    },
     methods:{
       //展示遮罩层以及ul
       showContent: function (options) {
