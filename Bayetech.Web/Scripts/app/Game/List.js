@@ -26,7 +26,7 @@ define(["common"], function (common) {
                 <ul class ="gs_list gs_name">
                     <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" ><a :class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a></li>
                 </ul>
-                   <ul class="gs_list gs_name"></ul>
+                 <ul class="gs_list gs_name"></ul>
             </div>
             
     </div>`
@@ -50,44 +50,15 @@ define(["common"], function (common) {
 				</div>
 				<div class ="webGame">
 					<ul class="hot-game-img">
-                            <!--li for="item in gamelist">
-                                <a href="item.url"><img src="'http://pic.7881.com/7881/market/images/game170130/' + item.url"><p>{{item.title}}</p></a>  
-                            </li-->    
 
-                           <li class ="">
-                                <a href="/buy-G10.html"><img src="http://pic.7881.com/7881/market/images/game170130/G10.jpg"><p>地下城与勇士</p></a>
-						    </li>
-							<li class="">
-								<a href="/buy-G3415.html"><img src="http://pic.7881.com/7881/market/images/game170130/G3415.jpg"><p>冒险岛2</p></a>
-							</li>
-							<li class="">
-								<a hrcef="/buy-G975.html"><img src="http://pic.7881.com/7881/market/images/game170130/G975.jpg"><p>天涯明月刀</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G21.html"><img src="http://pic.7881.com/7881/market/images/game170130/G21.jpg"><p>魔兽世界</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G33.html"><img src="http://pic.7881.com/7881/market/images/game170130/G33.jpg"><p>蜀门</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G479.html"><img src="http://pic.7881.com/7881/market/images/game170130/G479.jpg"><p>征途2S</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G603.html"><img src="http://pic.7881.com/7881/market/images/game170130/G603.jpg"><p>英雄联盟</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G611.html"><img src="http://pic.7881.com/7881/market/images/game170130/G611.jpg"><p>刀剑2</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G521.html"><img src="http://pic.7881.com/7881/market/images/game170130/G521.jpg"><p>醉逍遥</p></a>
-							</li>
-							<li class="">
-								<a href="/buy-G769.html"><img src="http://pic.7881.com/7881/market/images/game170130/G769.jpg"><p>剑灵BNS</p></a>
-					        </li>
+                        <li v-for="item in HotGames">
+                            <a href="javascript: void (0);" @click=ClickPic(item.Id)><img :src="item.Img"><p>{{item.Name}}</p></a>  
+                        </li> 
+
 					</ul>
 					<ul class ="game-filter hide">
-                        <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" >
-                            <a :class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);">{{item.Name}}</a>
+                        <li lang="netgame" v-for="item in List">
+                            <a :class ="{hot:item.IsHot}" :title="item.Name" href="javascript: void (0);" @click=ClickPic(item.Id)>{{item.Name}}</a>
                         </li>
                     </ul>
 				</div>
@@ -97,7 +68,10 @@ define(["common"], function (common) {
 
     var data={
         Alphabet: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+        ListUrl:"",
         List: [],
+        HotGames: [],
+        SearchParam: "",
         SearchName: "",
         Type: 0,
     }
@@ -109,6 +83,7 @@ define(["common"], function (common) {
         template: nhtml,
         created:function(){
             this.GetList(this.Type);
+            this.GetHotPicGameList(10);
             $(document).on("click", "[name=hotGame]", function () {
 				$('.hot-game-img').removeClass("hide");
 				$(".game-filter").addClass("hide");
@@ -131,13 +106,15 @@ define(["common"], function (common) {
         	toggleTab: function () {
 				
             },
-            //GetPicList(data) {  //获取图片列表
-            //    var self = this;
-            //    var param = 
-            //        common.getWebJson("api/Game/GetGameListByHotAndLetter", param, function (data) {
-            //        self.Professions = data.content;
-            //    });
-            //},
+            GetHotPicGameList(count) {  //获取图片列表
+                var self = this;
+                common.getWebJson("/api/Game/GetHotGameList", { count: count }, function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].Img = "http://pic.7881.com/7881/market/images/game170130/" + data[i].Img;
+                    }
+                    self.HotGames = data;
+                });
+            },
             //更改游戏类型
             ChangeType: function (type) {
                 this.Type=type;
@@ -153,10 +130,12 @@ define(["common"], function (common) {
                 });
             },
             ClickPic: function (gameId) {//点击图片的动作
-                //encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`) 跳转到到list页面
-                var searchParam = common.GetSearchParam();
-                searchParam.GameId = gameId;
-                localStorage.SearchParam = JSON.stringify(searchParam);
+                var self = this;
+                self.SearchParam = common.GetSearchParam();
+                self.SearchParam.GameId = gameId;
+                localStorage.SearchParam = JSON.stringify(self.SearchParam);
+                var TargetUrl = encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`);
+                window.open(TargetUrl);
             },
             //按名称检索
             SearchByName: function () {
