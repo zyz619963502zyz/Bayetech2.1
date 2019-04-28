@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -451,86 +451,6 @@ var comCompnent = {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (comCompnent);
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-let data = {
-	isActive: false
-};
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-	data() {
-		return data;
-	},
-	name: 'NavigtionTable',
-	props: ['navigationsetsarray', 'startcheck'],
-	methods: {
-		OpterateAline(id) {
-			let self = this;
-			$("#key_" + id).hasClass("hide") ? ($("#key_" + id).removeClass("hide"), $("#btn_" + id).val("-")) : ($("#key_" + id).addClass("hide"), $("#btn_" + id).val("+"));
-		}
-	}
-});
 
 /***/ }),
 
@@ -10084,13 +10004,83 @@ let data = {
 
 /***/ }),
 
-/***/ 29:
+/***/ 20:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(19);
-/* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+let data = {
+	isActive: false
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+	data() {
+		return data;
+	},
+	name: 'NavigtionTable',
+	props: ['navigationsetsarray', 'startcheck'],
+	methods: {
+		OpterateAline(id) {
+			let self = this;
+			$("#key_" + id).hasClass("hide") ? ($("#key_" + id).removeClass("hide"), $("#btn_" + id).val("-")) : ($("#key_" + id).addClass("hide"), $("#btn_" + id).val("+"));
+		}
+	}
+});
 
 /***/ }),
 
@@ -10196,53 +10186,13 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 39:
+/***/ 31:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(20);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
-
-
-
-
-
-/* normalize component */
-
-var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["b" /* staticRenderFns */],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) {
-  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
-  api.install(require('vue'))
-  if (api.compatible) {
-    module.hot.accept()
-    if (!module.hot.data) {
-      api.createRecord('30638bcc', component.options)
-    } else {
-      api.reload('30638bcc', component.options)
-    }
-    module.hot.accept("./table-NavigationManage.vue?vue&type=template&id=30638bcc&lang=html", function () {
-      api.rerender('30638bcc', {
-        render: render,
-        staticRenderFns: staticRenderFns
-      })
-    })
-  }
-}
-component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
 
@@ -10904,172 +10854,53 @@ component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
 
 /***/ }),
 
-/***/ 48:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__ = __webpack_require__(31);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
 
 
 
-let vmData = {
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
-    },
-    RolesUrl: "/api/AdminManage/GetNavgationList",
-    RolesAdd: "/api/Navigation/GetAddNavigation",
-    RolesEdit: "/api/Navigation/GetEditNavigation",
-    RolesDelete: "/api/Navigation/deleteNavigation",
-    CheckGoodNo: "", //模态框打开的GoodNo
-    keyword: "",
-    NavigationsetsArray: [],
-    SearchParam: {
-        Param: { //查询条件的参数
-            MenuName: "",
-            SelectType: "", //form里选择的商品类型
-            SelectNo: "" //form里面选择的编号
-        },
-        ListObj: {
-            MenuID: 0,
-            MenuName: "",
-            PicID: "",
-            ParentID: 0,
-            url: "",
-            sortid: 0,
-            Remark: "",
-            SysFlag: "",
-            ModuleId: "",
-            isdelete: 0,
-            createtime: ""
-        },
 
-        Pagination: { //分页对象
-            rows: 10, //每页行数，
-            page: 1, //当前页码
-            order: "MenuID", //排序字段
-            sord: "asc", //排序类型
-            records: 10, //总记录数
-            total: 10 //总页数。
-        }
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__table_NavigationManage_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('30638bcc', component.options)
+    } else {
+      api.reload('30638bcc', component.options)
     }
-
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommNavigation',
-    data: vmData,
-    created() {
-        this.findList();
-    },
-    methods: {
-        findList() {
-            var self = this;
-            self.SearchParam.Param.MenuName = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-                if (data.result) {
-                    self.NavigationsetsArray = data.content;
-                    //self.SearchParam.Pagination=data.content.pagination;
-                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                } else {
-                    self.NavigationsetsArray = [];
-                }
-            });
-        },
-        SaveModal() {
-            //提交
-            var self = this;
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("操作成功!");
-                } else {
-                    alert(data.content);
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        EditModalSave() {
-            //修改提交
-            var self = this;
-            self.tools._comCompnent.postWebJson(self.RolesEdit, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#EditModal").modal("hide");
-                    alert("操作成功!");
-                } else {
-                    alert(data.content);
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        OpenAddModal() {
-            //添加
-            var self = this;
-            //if (self.SearchParam.ListObj.KeyId == 0) {
-            //    alert("请选择按钮")
-            //    return ;
-            //}
-            self.SearchParam.ListObj.NavTitle = "";
-            self.SearchParam.ListObj.NavTag = "";
-            self.SearchParam.ListObj.Linkurl = "";
-            self.SearchParam.ListObj.Sortnum = "";
-            self.SearchParam.ListObj.iconCls = "";
-            $("#UserModal").modal("show");
-        },
-        OpenEditModal() {
-            //修改
-            var self = this;
-            if (self.SearchParam.ListObj.MenuID == 0) {
-                alert("请选择按钮");
-                return false;
-            }
-            $("#EditModal").modal("show");
-        },
-        Delete() {
-            //删除
-            var self = this;
-            if (self.SearchParam.ListObj.MenuID == 0) {
-                alert("请选择按钮");
-                return false;
-            }
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("删除成功!");
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        StartCheck(type) {
-            //开始检查
-            var self = this;
-            var c = $.extend(true, self.SearchParam.ListObj, type);
-            //$("#checkModal").modal("show");
-        },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        }
-    },
-    components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
-    }
-});
+    module.hot.accept("./table-NavigationManage.vue?vue&type=template&id=30638bcc&lang=html", function () {
+      api.rerender('30638bcc', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\table-NavigationManage.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 
@@ -11264,6 +11095,175 @@ process.umask = function () {
 
 /***/ }),
 
+/***/ 51:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__ = __webpack_require__(42);
+
+
+
+
+let vmData = {
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
+    },
+    RolesUrl: "/api/AdminManage/GetNavgationList",
+    RolesAdd: "/api/Navigation/GetAddNavigation",
+    RolesEdit: "/api/Navigation/GetEditNavigation",
+    RolesDelete: "/api/Navigation/deleteNavigation",
+    CheckGoodNo: "", //模态框打开的GoodNo
+    keyword: "",
+    NavigationsetsArray: [],
+    SearchParam: {
+        Param: { //查询条件的参数
+            MenuName: "",
+            SelectType: "", //form里选择的商品类型
+            SelectNo: "" //form里面选择的编号
+        },
+        ListObj: {
+            MenuID: 0,
+            MenuName: "",
+            PicID: "",
+            ParentID: 0,
+            url: "",
+            sortid: 0,
+            Remark: "",
+            SysFlag: "",
+            ModuleId: "",
+            isdelete: 0,
+            createtime: ""
+        },
+
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "MenuID", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#CommNavigation',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            var self = this;
+            self.SearchParam.Param.MenuName = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
+                if (data.result) {
+                    self.NavigationsetsArray = data.content;
+                    //self.SearchParam.Pagination=data.content.pagination;
+                    //self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                } else {
+                    self.NavigationsetsArray = [];
+                }
+            });
+        },
+        SaveModal() {
+            //提交
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        EditModalSave() {
+            //修改提交
+            var self = this;
+            self.tools._comCompnent.postWebJson(self.RolesEdit, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#EditModal").modal("hide");
+                    alert("操作成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        OpenAddModal() {
+            //添加
+            var self = this;
+            //if (self.SearchParam.ListObj.KeyId == 0) {
+            //    alert("请选择按钮")
+            //    return ;
+            //}
+            self.SearchParam.ListObj.NavTitle = "";
+            self.SearchParam.ListObj.NavTag = "";
+            self.SearchParam.ListObj.Linkurl = "";
+            self.SearchParam.ListObj.Sortnum = "";
+            self.SearchParam.ListObj.iconCls = "";
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal() {
+            //修改
+            var self = this;
+            if (self.SearchParam.ListObj.MenuID == 0) {
+                alert("请选择按钮");
+                return false;
+            }
+            $("#EditModal").modal("show");
+        },
+        Delete() {
+            //删除
+            var self = this;
+            if (self.SearchParam.ListObj.MenuID == 0) {
+                alert("请选择按钮");
+                return false;
+            }
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        StartCheck(type) {
+            //开始检查
+            var self = this;
+            var c = $.extend(true, self.SearchParam.ListObj, type);
+            //$("#checkModal").modal("show");
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_NavigationManage_vue__["a" /* default */]
+    }
+});
+
+/***/ }),
+
 /***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11453,11 +11453,11 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 64:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__ = __webpack_require__(79);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_NavigationManage_vue_vue_type_template_id_30638bcc_lang_html__["b"]; });
 
@@ -11526,7 +11526,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 
 /***/ }),
 
-/***/ 74:
+/***/ 79:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

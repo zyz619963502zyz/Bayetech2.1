@@ -84,7 +84,8 @@ var jsconfig = {
         "nav-top": "Scripts/app/Shared/nav-top",
         'footer-server': 'Scripts/app/Shared/footer-server',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
-        'FileUpload': 'Scripts/app/Shared/FileUpload',
+        'FileUpload': 'Scripts/app/Shared/FileUpload', 
+
         //Shared模块
 
     },
