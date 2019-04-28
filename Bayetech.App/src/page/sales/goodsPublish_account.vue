@@ -14,7 +14,7 @@
         <h2 data-v-4fef8ba0="" class="f36">地下城与勇士</h2>
       </div>
     </div>
-    <div data-v-08a3bc62="">
+    <div data-v-08a3bc62="" >
       <div data-v-08a3bc62="">
         <div data-v-08a3bc62="" id="wrapper" class="pb-30">
           <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80" data-v-08a3bc62="">
@@ -45,8 +45,8 @@
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              
-              <a data-v-6027fbac="" href="javascript:vodi(0);" class="aRight">
+
+              <a data-v-6027fbac="" href="javascript:void(0);" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
                   <span data-v-6027fbac="" class="span-icon-xinhao">
                     角色职业
@@ -58,7 +58,7 @@
               </a>
               <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-if="property.prof">
                 <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
+                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
                   <i data-v-5af57c0b="" @click="close('prof')" class="bomb-close"></i>
                 </div>
                 <div data-v-5af57c0b="" class="bomb-content">
@@ -113,7 +113,7 @@
                 <div data-v-5af57c0b="" class="bomb-content">
                   <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
                     <li v-for="levels in qqlevelList" @click="selectLi('qqlevel',levels)" class="border-bottom">{{levels}}</li>
-                    
+
                   </ul>
                 </div>
               </div>
@@ -122,20 +122,20 @@
           <div data-v-6027fbac="" data-v-08a3bc62="">
 
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              
-                <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">
-                    QQ好友
 
-                  </span>
-                  <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-                    <ul data-v-f82175a2="" class="clearfix">
-                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
-                      <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
-                    </ul>
-                  </div>
+              <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
+                <span data-v-6027fbac="" class="span-icon-xinhao">
+                  QQ好友
+
+                </span>
+                <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
+                  <ul data-v-f82175a2="" class="clearfix">
+                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
+                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
+                  </ul>
                 </div>
-             
+              </div>
+
 
             </section>
           </div>
@@ -144,7 +144,7 @@
             <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
               <a data-v-6027fbac="" href="javascript:;" class="aRight">
                 <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao" >历史处罚记录</span>
+                  <span data-v-6027fbac="" class="span-icon-xinhao">历史处罚记录</span>
                   <span data-v-6027fbac="" class="danwei" @click="showContent('punish')">{{property.punishVal}} </span>
                   <i data-v-6027fbac="" class="toRight fr"></i>
                 </div>
@@ -235,15 +235,19 @@
               <span data-v-08a3bc62="" class="sec-price f36 color-999" :class="{'color-m1':property.rapidChecked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
               <span data-v-08a3bc62="" class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
               <div data-v-08a3bc62="" class="button-switch fr">
-                <label data-v-08a3bc62="" class="label-switch" >
-                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" @click="shortcut($event)"/><!--v-model="checkNames"-->
-                  <div data-v-08a3bc62="" class="checkbox" ></div>
+                <label data-v-08a3bc62="" class="label-switch">
+                  <input data-v-08a3bc62="" type="checkbox" id="label-switch" @click="shortcut($event)" /><!--v-model="checkNames"-->
+                  <div data-v-08a3bc62="" class="checkbox"></div>
                 </label>
               </div>
             </div>
             <div data-v-08a3bc62="" class="sec-text mt-10 color-999">
               <p data-v-08a3bc62="" class="f22"><i data-v-08a3bc62="" class="p-icon-red-tip fl"></i> 不用传图，轻松出售（卖出后收费） </p>
             </div>
+          </div>
+          <div class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
+            <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏截图</span>
+            <fileUpload></fileUpload>
           </div>
           <div data-v-08a3bc62="" class="release mt-20  trlect-btn" style="text-align: left;">
             <p data-v-08a3bc62="" class="f22 color-m1"> 为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟4天打款，此期间请勿修改帐号资料，否则将会号财两空。 </p>
@@ -283,7 +287,7 @@
             </div>
           </div>
           <div data-v-08a3bc62="" class="release  trlect-btn mt-20">
-            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62=""  type="button" value="下一步" class="bg-f54" /></a>
+            <a data-v-08a3bc62="" class="next"><input data-v-08a3bc62="" type="button" value="下一步" class="bg-f54" /></a>
           </div>
         </div>
         <div data-v-08a3bc62="" class="pb-200" style="display: none;">
@@ -341,7 +345,7 @@
         </div>
         <!--<div data-v-08a3bc62="" class="dialog_cover hide"></div>-->
       </div>
-      <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked"  @click="close()"></div>
+      <div data-v-5af57c0b="" class="dialog_cover" v-show="property.masked" @click="close()"></div>
       <!-- 了解收费标准-->
       <div data-v-08a3bc62="" v-show="property.fees" class="phlog" style="opacity: 1; position: fixed; z-index: 1001; left: 0px; right: 0px; top: 25%;">
         <div data-v-08a3bc62="" class="ts-rate">
@@ -390,6 +394,8 @@
         </div>
       </div>
     </div>
+    
+
   </div>
 </template>
 
@@ -397,6 +403,8 @@
 
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
+  import "@/assets/css/goodsPublish_account.css";
+  import fileUpload from '@/components/FileUpload.vue'
   //import router from "vue-router";
   import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
@@ -456,6 +464,10 @@
     this.getqqlevelList();
     this.getPunishList();
   },
+  components: {
+      
+      fileUpload: fileUpload
+    },
     methods:{
       //展示遮罩层以及ul
       showContent: function (options) {
@@ -539,432 +551,4 @@
 
 </script>
 
-<style>
-      .new-pubilsh01.publish-type {
-        padding: .3rem .4rem 0;
-        text-align: center;
-      }
-        .new-pubilsh01.publish-type ul li {
-          width: 31%;
-          height: .76rem;
-          line-height: .76rem;
-          border-color: #b5b5b5;
-          color: #000;
-          margin-bottom: .3rem;
-          margin-right: .24rem;
-          border-radius: .06rem;
-        }
-      /*.publish-type ul li.selected {
-        border-color: #f60;
-        background: url(/dist/src/assets/images/check.png) no-repeat 100% 100%;
-        background-size: 22%;
-      }*/
-      .new-pubilsh01.publish-type ul li.selected {
-        border-color: #f60;
-        background-image: url(../../assets/images/common/icon-new-check.png);
-        background-repeat: no-repeat;
-        background-position:100% 100%;
-        background-color: #fff7f5;
-        background-size: 22%;
-      }
-      .notice_risk[data-v-509ef1b0] {
-        height: auto;
-        display: block;
-        overflow: hidden;
-        background-color: #fffdf4;
-        z-index: 9;
-      }
-      .notice_risk .notice_public[data-v-509ef1b0] {
-        padding: .2rem 0;
-        width: 95%;
-      }
-      .notice_risk .notice_public p[data-v-509ef1b0] {
-        height: .35rem;
-        line-height: .35rem;
-        color: #be8600;
-        overflow: hidden;
-      }
-      .mt-174[data-v-08a3bc62] {
-        margin-top: 1.74rem;
-      }
-      .order-container {
-        padding: .24rem .4rem;
-        position: relative;
-        height: auto;
-        display: block;
-        overflow: hidden;
-      }
-        .order-container span {
-          display: inline-block;
-          line-height: .6rem;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-        .order-container input, .order-container textarea {
-          border: none;
-          position: absolute;
-          font-size: .3rem;
-          top: .24rem;
-        }
-        .order-container input {
-          height: .6rem;
-          width: 55%;
-          left: 2.9rem;
-          line-height: .6rem;
-        }
-          .order-container input[type=tel] {
-            font-size: .32rem;
-          }
-      .p-tip .coll {
-        color: #0000d3;
-        font-size: .25rem;
-      }
-      .toRight {
-        height: .32rem;
-        top: .38rem;
-        background: url('../../assets/images/right2.png') 50% no-repeat;
-        background-size: .12rem;
-      }
-      .danwei {
-        float: right;
-        width: 63%;
-        line-height: .6rem;
-        text-align: right;
-        padding-right: .2rem;
-      }
-      .span-icon-xinhao {
-        display: inline-block;
-        line-height: .48rem;
-        padding-left: .2rem;
-        background: url(../../assets/images/common/icon-red.png) no-repeat 0;
-        background-size: .14rem .14rem;
-      }
-      .sec-tip {
-        margin: .3rem auto;
-        text-align: center;
-        color: #666;
-      }
-  .buyat-ease .secbuy-info, .buyat-ease .secbuy-info .sectems {
-    height: auto;
-    display: block;
-    overflow: hidden;
-  }
-      .buyat-ease, .buyat-ease .secbuy-ease {
-        height: auto;
-        display: block;
-        overflow: hidden;
-      }
-        .buyat-ease .secbuy-ease .sec-text {
-          padding-left: .4rem;
-          height: 1rem;
-          line-height: 1rem;
-        }
-        .buyat-ease .secbuy-ease .sease-wenh {
-          width: .4rem;
-          height: 1rem;
-          display: inline-block;
-          background: url(../../assets/images/anfw-ico.png)no-repeat 50%;
-          background-size: .35rem;
-        }
-        .buyat-ease .secbuy-info .sectems {
-          padding-left: .4rem;
-          line-height: 1rem;
-        }
-          .buyat-ease .secbuy-info .sectems .chrd-xms {
-            width: 9%;
-            height: 1rem;
-            display: block;
-            background: url(../../assets/images/dlpub-list-hov.png) no-repeat 0;
-            background-size: .38rem;
-          }
-          .buyat-ease .secbuy-info .sectems .chrd-xms-hov {
-            width: 9%;
-            height: 1rem;
-            display: block;
-            background: url(../../assets/images/dlpub-list.png) no-repeat 0;
-            background-size: .44rem;
-          }
-          .buyat-ease .secbuy-info .sectems .chterm {
-            width: 32%;
-            display: block;
-            line-height: 1rem;
-          }
-          .buyat-ease .secbuy-info .sectems .chcover {
-            width: 49%;
-            display: block;
-          }
-      .buyat-tips {
-        height: auto;
-        display: block;
-        overflow: hidden;
-        padding-left: .4rem;
-      }
-      .sec-text {
-        line-height: .4rem;
-      }
-      .p-icon-red-tip {
-        width: .28rem;
-        height: .36rem;
-        display: inline-block;
-        background: url(../../assets/images/common/icon-red-tip.png) 0 no-repeat;
-        background-size: .22rem;
-      }
-      .order-container span.sec-buy-server {
-        padding-right: .5rem;
-      }
-      .order-container .button-switch {
-        position: absolute;
-        top: 50%;
-        margin-top: -.36rem;
-        right: .3rem;
-      }
-  .button-switch {
-    display: block;
-    width: 1.18rem;
-    height: .6rem;
-  }
-      .label-switch {
-        display: inline-block;
-        vertical-align: middle;
-        border-radius: .4rem;
-        -webkit-align-self: center;
-        align-self: center;
-      }
-        .label-switch, .label-switch .checkbox {
-          width: 100%;
-          box-sizing: border-box;
-          height: 100%;
-          position: relative;
-          cursor: pointer;
-        }
-        .label-switch input[type=checkbox] {
-          display: none;
-        }
-        .label-switch .checkbox, .label-switch .checkbox:before {
-          background: #dcdcdc;
-        }
-        .label-switch .checkbox {
-          border-radius: .4rem;
-          background: #9f9d9d;
-          z-index: 0;
-          margin: 0;
-          padding: 0;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          -ms-appearance: none;
-          appearance: none;
-          border: none;
-          margin-top: .06rem;
-        }
-          .label-switch input[type=checkbox] + .checkbox,
-          .label-switch input[type=checkbox] + .checkbox:after,
-          html.android .label-switch input[type=checkbox] + .checkbox:before {
-            transition-duration: 0;
-          }
-        .label-switch, .label-switch .checkbox {
-          width: 100%;
-          box-sizing: border-box;
-          height: 100%;
-          position: relative;
-          cursor: pointer;
-        }
-          
-          .label-switch input[type=checkbox]:checked + .checkbox:after {
-            -webkit-transform: translateX(92%);
-            transform: translateX(92%);
-          }
-          .label-switch .checkbox:after, .label-switch .checkbox:before {
-            content: " ";
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: 2%;
-            border-radius: .4rem;
-            transition-duration: .3s;
-          }
-          .label-switch .checkbox:before {
-            width: 96%;
-            box-sizing: border-box;
-            height: 98%;
-            background: #9f9d9d;
-            z-index: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-          }
-          .label-switch .checkbox:after, .label-switch .checkbox:before {
-            content: " ";
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: 2%;
-            border-radius: .4rem;
-            transition-duration: .3s;
-          }
-          .label-switch .checkbox:after {
-            height: 92%;
-            width: 50%;
-            background: #fff;
-            z-index: 2;
-            box-shadow: 0 0.05rem 0.12rem rgba(0,0,0,.4);
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
-          }
-          .label-switch input[type=checkbox]:checked + .checkbox {
-            background: #4cd964;
-          }
-      .release {
-        padding: .3rem;
-        text-align: center;
-        background: #fff;
-      }
-        .release a {
-          width: 100%;
-          height: .86rem;
-          display: inline-block;
-        }
-        .release a {
-          width: 100%;
-          height: .86rem;
-          display: inline-block;
-        }
-          .release a input {
-            width: 100%;
-            height: .86rem;
-            border: none;
-            color: #fff;
-            font-size: .36rem;
-          }
-      .show[data-v-08a3bc62] {
-        display: block !important;
-      }
-      .label-switch input[type=checkbox]:checked + .checkbox:before {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-      }
-      .label-switch input[type=checkbox]:checked + .checkbox:after {
-        -webkit-transform: translateX(92%);
-        transform: translateX(92%);
-      }
-      /*安心买服务规定*/
-      .phlog {
-        width: 85%;
-        min-width: 6.9rem;
-        height: auto;
-        border-radius: .2rem;
-        margin: .35rem auto .25rem;
-        position: relative;
-        background-color: #fff;
-        opacity: 1;
-      }
 
-      /*bottom-bomb*/
-  .dialog_cover{
-    z-index:19;
-  }
-      .bottom-bomb {
-        width: 100%;
-        max-width: 768px;
-        max-height: 8.7rem;
-        position: fixed;
-        bottom: 0;
-        overflow: hidden;
-      }
-      .bomb-danxuan {
-        min-height: 2.96rem;
-      }
-      .bottom-bomb {
-        z-index: 20;
-      }
-    .bomb-danxuan {
-      min-height: 2.96rem;
-  }
-      .bomb-title {
-        width: 100%;
-        height: 1.06rem;
-        line-height: 1.06rem;
-        position: relative;
-      }
-        .bomb-title .bomb-close {
-          width: 1.06rem;
-          height: 1.06rem;
-          display: inline-block;
-          position: absolute;
-          right: 0;
-          top: 0;
-          background: url(../../assets/images/close.png) 50% no-repeat;
-          background-size: .24rem;
-        }
-      .bomb-danxuan .bomb-content {
-        width: 100%;
-        max-height: 7.64rem;
-        overflow-y: auto;
-      }
-      .bomb-danxuan .bomb-content .bomb-li-item li {
-        line-height: .96rem;
-        height: .96rem;
-        padding-left: .48rem;
-        font-size: .3rem;
-        color: #000;
-    }
-      /*收费标准说明*/
-  .phlog {
-    width: 85%;
-    min-width: 6.9rem;
-    height: auto;
-    border-radius: .2rem;
-    margin: .35rem auto .25rem;
-    position: relative;
-    background-color: #fff;
-    opacity: 1;
-  }
-  .ts-rate {
-    width: 100%;
-    border-radius: .144rem;
-    background: #fff;
-    padding: .24rem .24rem .35rem;
-    box-sizing: border-box;
-  }
-    .ts-rate h3 {
-      line-height: .5rem;
-      height: .8rem;
-      font-size: .3rem;
-      color: #000;
-      padding-bottom: .072rem;
-    }
-    .ts-rate table {
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-      line-height: .4rem;
-    }
-      .ts-rate table tr th {
-        display: inline-block;
-        width: 30%;
-        box-sizing: border-box;
-        text-align: center;
-        font-size: .24rem;
-        padding: .048rem;
-        border-top: 1px solid #e8e8e8;
-        border-right: 1px solid #e8e8e8;
-        vertical-align: middle;
-        display: table-cell;
-      }
-      .ts-rate table tr .t1 {
-        width: 40%;
-      }
-      .ts-rate table tr td:first-child, .ts-rate table tr th:first-child {
-        border-left: 1px solid #e8e8e8;
-      }
-      .ts-rate table tr td {
-        display: inline-block;
-        width: 30%;
-        box-sizing: border-box;
-        text-align: center;
-        font-size: .24rem;
-        padding: .048rem;
-        border-top: 1px solid #e8e8e8;
-        border-right: 1px solid #e8e8e8;
-        vertical-align: middle;
-        display: table-cell;
-      }
-</style>

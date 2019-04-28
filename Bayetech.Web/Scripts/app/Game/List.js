@@ -50,14 +50,18 @@ define(["common"], function (common) {
 				</div>
 				<div class ="webGame">
 					<ul class="hot-game-img">
-                        <li class ="">
-                            <a href="/buy-G10.html"><img src="http://pic.7881.com/7881/market/images/game170130/G10.jpg"><p>地下城与勇士</p></a>
-							</li>
+                            <!--li for="item in gamelist">
+                                <a href="item.url"><img src="'http://pic.7881.com/7881/market/images/game170130/' + item.url"><p>{{item.title}}</p></a>  
+                            </li-->    
+
+                           <li class ="">
+                                <a href="/buy-G10.html"><img src="http://pic.7881.com/7881/market/images/game170130/G10.jpg"><p>地下城与勇士</p></a>
+						    </li>
 							<li class="">
 								<a href="/buy-G3415.html"><img src="http://pic.7881.com/7881/market/images/game170130/G3415.jpg"><p>冒险岛2</p></a>
 							</li>
 							<li class="">
-								<a href="/buy-G975.html"><img src="http://pic.7881.com/7881/market/images/game170130/G975.jpg"><p>天涯明月刀</p></a>
+								<a hrcef="/buy-G975.html"><img src="http://pic.7881.com/7881/market/images/game170130/G975.jpg"><p>天涯明月刀</p></a>
 							</li>
 							<li class="">
 								<a href="/buy-G21.html"><img src="http://pic.7881.com/7881/market/images/game170130/G21.jpg"><p>魔兽世界</p></a>
@@ -79,7 +83,7 @@ define(["common"], function (common) {
 							</li>
 							<li class="">
 								<a href="/buy-G769.html"><img src="http://pic.7881.com/7881/market/images/game170130/G769.jpg"><p>剑灵BNS</p></a>
-					    </li>
+					        </li>
 					</ul>
 					<ul class ="game-filter hide">
                         <li lang="netgame" v-for="item in List" @click="action(item.Id,item.Name)" >
@@ -101,6 +105,7 @@ define(["common"], function (common) {
     var components={
         name: "GameList",
         props: ['action'],
+        list:[],
         template: nhtml,
         created:function(){
             this.GetList(this.Type);
@@ -125,8 +130,14 @@ define(["common"], function (common) {
 			//切换选项
         	toggleTab: function () {
 				
-        	},
-
+            },
+            //GetPicList(data) {  //获取图片列表
+            //    var self = this;
+            //    var param = 
+            //        common.getWebJson("api/Game/GetGameListByHotAndLetter", param, function (data) {
+            //        self.Professions = data.content;
+            //    });
+            //},
             //更改游戏类型
             ChangeType: function (type) {
                 this.Type=type;
@@ -140,6 +151,12 @@ define(["common"], function (common) {
                 $.get("/api/Game/GetGameListByHotAndLetter", { type: type, str: letter}, function (data) {
                     _self.List=data.content;
                 });
+            },
+            ClickPic: function (gameId) {//点击图片的动作
+                //encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`) 跳转到到list页面
+                var searchParam = common.GetSearchParam();
+                searchParam.GameId = gameId;
+                localStorage.SearchParam = JSON.stringify(searchParam);
             },
             //按名称检索
             SearchByName: function () {

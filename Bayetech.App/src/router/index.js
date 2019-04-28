@@ -14,9 +14,9 @@ export default new Router({
       component: r => require.ensure([], () => r(require('../components/HelloWorld.vue')), 'HelloWorld')
     },
     {
-      path: '/home',
-      name: 'home',
-      component: r => require.ensure([], () => r(require('../components/home.vue')), 'home')
+      path: '/FileUpload',
+      name: 'FileUpload',
+      component: r => require.ensure([], () => r(require('../components/FileUpload.vue')), 'FileUpload')
     },
     {
       path: '/',
@@ -111,6 +111,11 @@ export default new Router({
       path: '/goodsPublish_gold',
       name: 'goodsPublish_gold',
       component: r => require.ensure([], () => r(require('../page/sales/goodsPublish_gold.vue')), 'sales')
+    },
+    {
+      path: '/priceFilter',
+      name: 'priceFilter',
+      component: r => require.ensure([], () => r(require('../components/filter/priceFilter.vue')), 'sales')
     }
   ]
 })
