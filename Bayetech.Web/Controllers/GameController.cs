@@ -57,7 +57,8 @@ namespace Bayetech.Web.Controllers
         /// <param name="type">类型</param>
         /// <param name="count">条数</param>
         /// <returns></returns>
-        public IHttpActionResult GetHotGameList(int type, int count)
+        [HttpGet]
+        public IHttpActionResult GetHotGameList(int count)
         {
             var data = gameService.FindList(g => g.IsHot && !g.IsDelete).Take(count).ToList();
             return Json(data);
