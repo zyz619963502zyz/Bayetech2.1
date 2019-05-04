@@ -95,9 +95,10 @@
 <script>
   import "@/assets/content/css/fost-base-min.css";
   import "@/assets/content/css/style-min.css";
-  import choose_server from '@/components/choose_server.vue'
-  import choose_job from '@/components/choose_job.vue'
+  import commonFilter from '@/components/filter/commonFilter.vue'
+  import cardFilter from '@/components/filter/cardFilter.vue'
   import fileUpload from '@/components/FileUpload.vue'
+  import choose_server from '@/components/choose_server.vue'
   let vmdata = {
     tab: 'main', // main ,server,job 控制弹出框
    
@@ -139,7 +140,7 @@
     },
     components: {
       choose_server: choose_server,
-      choose_job: choose_job,
+      
       fileUpload: fileUpload
     }
     

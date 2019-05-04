@@ -1,13 +1,24 @@
-export function choose(model,name,value) {
+export function choose(model, name, value) {
   let t = 1;
-  let list = this[model][name]
+ 
+  let list = [];
+  if (model) {
+    list = this[model][name];
+  } else {
+    list = this[name];
+  }
+
 
   if (list.indexOf(value) >= 0) {
     list.splice(list.indexOf(value), 1)
   } else {
     list.push(value);
   }
-  this.$set(this[model], name, list)
+  if (model) {
+    this.$set(this[model], name, list)
+  } else {
+    this.$set(this, name, list)
+  }
 }
 
 export function chooseSingle(model, name, value) {
@@ -15,8 +26,7 @@ export function chooseSingle(model, name, value) {
   this.$choose(model, name, value);
 }
 
-export function isChoice(model, name, value)
-{
+export function isChoice(model, name, value) {
   return this[model][name].indexOf(value) >= 0;
 }
 
