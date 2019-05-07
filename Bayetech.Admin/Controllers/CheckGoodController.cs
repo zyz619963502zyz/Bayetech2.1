@@ -38,7 +38,7 @@ namespace Bayetech.Admin.Controllers
             if (json["Param"]["SelectType"].ToString() == "good")
             {
                 vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"] ?? "").ToString());
-                return service.GetGoodList(goodInfo, null, null, page);//获取商品信息
+                return service.GetGoodList(goodInfo, null, page);//获取商品信息
             }
             else if (json["Param"]["SelectType"].ToString() == "order")
             {
@@ -133,7 +133,7 @@ namespace Bayetech.Admin.Controllers
             if (json["Param"]["SelectType"].ToString() == "good")
             {
                 vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"] ?? "").ToString());
-                return service.GetGoodList(goodInfo, null, null, page);//获取商品信息
+                return service.GetGoodList(goodInfo,  null, page);//获取商品信息
             }
             else if (json["Param"]["SelectType"].ToString() == "order")
             {

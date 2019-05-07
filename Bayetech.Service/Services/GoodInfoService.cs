@@ -6,6 +6,7 @@ using System.Linq;
 using Bayetech.Core; 
 using System.Linq.Expressions;
 using System;
+using Bayetech.Core.Model;
 
 namespace Bayetech.Service
 {
@@ -16,7 +17,7 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="goodInfo"></param>
         /// <returns></returns>
-        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo, DateTime? StartTime, DateTime? EndTime, Pagination page)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo, MallGoodInfoSearchModel searchModel, Pagination page)
         {
             using (var db = new RepositoryBase())
             {
@@ -48,6 +49,18 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
                     }
+                    if (goodInfo.Gender != null ) //性别 
+                    {
+                        expression = expression.And(t => t.Gender == goodInfo.Gender);
+                    }
+                    if (goodInfo.HasQQFriend != null) //是否有QQ好友 
+                    {
+                        expression = expression.And(t => t.HasQQFriend == goodInfo.HasQQFriend);
+                    }
+                    if (goodInfo.HasIdSealedRecord != null) //是否有封禁记录 
+                    {
+                        expression = expression.And(t => t.HasIdSealedRecord == goodInfo.HasIdSealedRecord);
+                    }
                     if (goodInfo.Stock != null && goodInfo.Stock>0) //库存
                     {
                         expression = expression.And(t => t.Stock == goodInfo.Stock);
@@ -75,14 +88,43 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.Status == "PutOnsale");//默认不传的情况下查询所有的上架商品
                     }
-                    if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
+                    if (searchModel != null)
                     {
-                        expression = expression.And(t => t.AddTime >= StartTime);
-                    }
-                    if (EndTime != null && !string.IsNullOrEmpty(EndTime.ToString()))//结束时间
-                    {
-                        expression = expression.And(t => t.AddTime <= EndTime);
-                    }
+                        if (searchModel.startTime != null )//开始时间
+                        {
+                            expression = expression.And(t => t.AddTime >= searchModel.startTime);
+                        }
+                        if (searchModel.endTime != null )//结束时间
+                        {
+                            expression = expression.And(t => t.AddTime <= searchModel.endTime);
+                        }
+                        if (searchModel.MaxQQLevel != null)//最高QQ等级
+                        {
+                            expression = expression.And(t => t.QQLv <= searchModel.MaxQQLevel);
+
+                        }
+                        if (searchModel.MinQQLevel != null)//最低QQ等级
+                        {
+                            expression = expression.And(t => t.QQLv >= searchModel.MinQQLevel);
+                        }
+                        if (searchModel.MinPrice != null)//最低价格
+                        {
+                            expression = expression.And(t => t.GoodPrice >= searchModel.MinPrice);
+                        }
+                        if (searchModel.MaxPrice != null)//最高价格
+                        {
+                            expression = expression.And(t => t.GoodPrice >= searchModel.MaxPrice);
+                        }
+                        if (searchModel.ProfessionCode != null)
+                        {
+                            Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.True<vw_MallGoodMainInfo>();
+
+                            expression2 = expression2.Or(t => t.ProfessionCode1 == searchModel.ProfessionCode)
+                                .Or(t => t.ProfessionCode2 == searchModel.ProfessionCode)
+                                .Or(t => t.ProfessionCode3 == searchModel.ProfessionCode);
+                            expression = expression.And(expression2);
+                        }
+                    }                   
                 }
                 var query = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page, expression);
 
