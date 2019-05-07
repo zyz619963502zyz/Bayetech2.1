@@ -82,7 +82,7 @@ namespace Bayetech.Web.Controllers
         {
             json = json ?? new JObject();
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"] ?? "").ToString());
-            Bayetech.Web.Models.MallGoodInfoSearchModel searchInfo = JsonConvert.DeserializeObject<Bayetech.Web.Models.MallGoodInfoSearchModel>((json["Param"] ?? "").ToString());
+            Core.Model.MallGoodInfoSearchModel searchInfo = JsonConvert.DeserializeObject<Core.Model.MallGoodInfoSearchModel>((json["Param"] ?? "").ToString());
 
             var acrossId = json["Param"].Value<int>("AcrossId");
             if (acrossId > 0)
