@@ -14,7 +14,6 @@ namespace Bayetech.Core.Entity
     
     public partial class vw_MallGoodMainInfo
     {
-        public int Expr1 { get; set; }
         public string GoodTitle { get; set; }
         public Nullable<decimal> GoodPrice { get; set; }
         public Nullable<decimal> GoodSinglePrice { get; set; }

@@ -87,6 +87,7 @@ namespace Bayetech.Core.Entity
         public virtual DbSet<Attachment> Attachment { get; set; }
         public virtual DbSet<vw_MallGoodSearch> vw_MallGoodSearch { get; set; }
         public virtual DbSet<Game> Game { get; set; }
+        public virtual DbSet<GoodDetail> GoodDetail { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
