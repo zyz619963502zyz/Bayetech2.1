@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Bayetech.Core.Model
+namespace Bayetech.Core.Entity
 {
-    public class MallGoodInfoSearchModel
+    public partial class vw_MallGoodMainInfo
     {
         public DateTime? startTime { get; set; }
 

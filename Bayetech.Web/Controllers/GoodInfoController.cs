@@ -82,7 +82,6 @@ namespace Bayetech.Web.Controllers
         {
             json = json ?? new JObject();
             vw_MallGoodMainInfo goodInfo = JsonConvert.DeserializeObject<vw_MallGoodMainInfo>((json["Param"] ?? "").ToString());
-            Core.Model.MallGoodInfoSearchModel searchInfo = JsonConvert.DeserializeObject<Core.Model.MallGoodInfoSearchModel>((json["Param"] ?? "").ToString());
 
             var acrossId = json["Param"].Value<int>("AcrossId");
             if (acrossId > 0)
@@ -108,7 +107,7 @@ namespace Bayetech.Web.Controllers
             }
 
             Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("GoodNo") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-            return service.GetGoodList(goodInfo,searchInfo, page);
+            return service.GetGoodList(goodInfo, page);
         }
 
 

@@ -6,7 +6,7 @@ using System.Linq;
 using Bayetech.Core; 
 using System.Linq.Expressions;
 using System;
-using Bayetech.Core.Model;
+
 
 namespace Bayetech.Service
 {
@@ -17,7 +17,7 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="goodInfo"></param>
         /// <returns></returns>
-        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo, MallGoodInfoSearchModel searchModel, Pagination page)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo,  Pagination page)
         {
             using (var db = new RepositoryBase())
             {
@@ -88,40 +88,40 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.Status == "PutOnsale");//默认不传的情况下查询所有的上架商品
                     }
-                    if (searchModel != null)
+                    if (goodInfo != null)
                     {
-                        if (searchModel.startTime != null )//开始时间
+                        if (goodInfo.startTime != null )//开始时间
                         {
-                            expression = expression.And(t => t.AddTime >= searchModel.startTime);
+                            expression = expression.And(t => t.AddTime >= goodInfo.startTime);
                         }
-                        if (searchModel.endTime != null )//结束时间
+                        if (goodInfo.endTime != null )//结束时间
                         {
-                            expression = expression.And(t => t.AddTime <= searchModel.endTime);
+                            expression = expression.And(t => t.AddTime <= goodInfo.endTime);
                         }
-                        if (searchModel.MaxQQLevel != null)//最高QQ等级
+                        if (goodInfo.MaxQQLevel != null)//最高QQ等级
                         {
-                            expression = expression.And(t => t.QQLv <= searchModel.MaxQQLevel);
+                            expression = expression.And(t => t.QQLv <= goodInfo.MaxQQLevel);
 
                         }
-                        if (searchModel.MinQQLevel != null)//最低QQ等级
+                        if (goodInfo.MinQQLevel != null)//最低QQ等级
                         {
-                            expression = expression.And(t => t.QQLv >= searchModel.MinQQLevel);
+                            expression = expression.And(t => t.QQLv >= goodInfo.MinQQLevel);
                         }
-                        if (searchModel.MinPrice != null)//最低价格
+                        if (goodInfo.MinPrice != null)//最低价格
                         {
-                            expression = expression.And(t => t.GoodPrice >= searchModel.MinPrice);
+                            expression = expression.And(t => t.GoodPrice >= goodInfo.MinPrice);
                         }
-                        if (searchModel.MaxPrice != null)//最高价格
+                        if (goodInfo.MaxPrice != null)//最高价格
                         {
-                            expression = expression.And(t => t.GoodPrice >= searchModel.MaxPrice);
+                            expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
                         }
-                        if (searchModel.ProfessionCode != null)
+                        if (goodInfo.ProfessionCode != null)
                         {
                             Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.True<vw_MallGoodMainInfo>();
 
-                            expression2 = expression2.Or(t => t.ProfessionCode1 == searchModel.ProfessionCode)
-                                .Or(t => t.ProfessionCode2 == searchModel.ProfessionCode)
-                                .Or(t => t.ProfessionCode3 == searchModel.ProfessionCode);
+                            expression2 = expression2.Or(t => t.ProfessionCode1 == goodInfo.ProfessionCode)
+                                .Or(t => t.ProfessionCode2 == goodInfo.ProfessionCode)
+                                .Or(t => t.ProfessionCode3 == goodInfo.ProfessionCode);
                             expression = expression.And(expression2);
                         }
                     }                   
