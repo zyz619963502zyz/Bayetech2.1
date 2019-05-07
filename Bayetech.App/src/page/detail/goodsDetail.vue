@@ -17,13 +17,12 @@
         <!---->
         <div data-v-932364c8="" class="detail-main bg-f1 fw">
           <div data-v-932364c8="" class="detail-content  fw bg-fff">
-            <div data-v-932364c8="" class="swiper-container border-bottom piccont bg-000">
-              <div data-v-932364c8="" class="swiper-wrapper text-center middle" style="width: 1280px;">
-                <img data-v-932364c8="" class="previewer-demo-img"
-                     src="" style=""> <img data-v-932364c8="" src="" class="previewer-demo-img" style="width: 100%; display: none;">
-              </div>
-              <div data-v-932364c8="" class="swiper-tip text-center color-fff f28" style=""><span data-v-932364c8="" style="">点击查看（共16张图片）</span></div>
-            </div>
+            <swiper :options="swiperOption">
+              <swiper-slide>I'm Slide 1</swiper-slide>
+              <swiper-slide>I'm Slide 2</swiper-slide>
+              <swiper-slide>I'm Slide 3</swiper-slide>
+              <div class="swiper-pagination" slot="pagination"></div>
+            </swiper>
             <div data-v-932364c8="" class="detail-bt fw text-left">
               <span data-v-932364c8=""
                     class="detail-left fl f32 color-000">{{GoodInfo.GoodTitle}}</span> <span data-v-932364c8="" class="detail-right shareopen fr f24 text-center mr-30 mt-30">分享</span>
@@ -498,13 +497,19 @@
 <script>
   import "@/assets/css/account-detail.css";
 
-  // photoswipe
-  import "@/assets/css/plugin/photoswipe/photoswipe.css";
-  import "@/assets/css/plugin/photoswipe/default-skin/default-skin.css";
-  import "@/assets/scripts/utils/photoswipe/photoswipe.js";
-  import "@/assets/scripts/utils/photoswipe/photoswipe-ui-default.js";
+  import 'swiper/dist/css/swiper.css'    //在全局没引入，这里记得要！
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
+
+
 
   let vmdata = {
+    swiperOption: {
+      pagination: { el: '.swiper-pagination' },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop:true
+    },
 
     GoodNo: '',
     GoodInfo: {},
@@ -524,6 +529,10 @@
       this.GoodNo = this.$route.query.GoodNo;
       this.GameName = this.$route.query.Name;
       this.GetGoodInfo();
+    },
+    components: {
+      swiper,
+      swiperSlide
     },
     methods: {
       ToggleConditionTab: function (type) {

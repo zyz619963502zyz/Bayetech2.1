@@ -673,6 +673,7 @@
     <Compile Include="Enum\ResultInfo.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Model\CurrentLogin.cs" />
+    <Compile Include="Model\MallGoodInfoSearchModel.cs" />
     <Compile Include="Model\SP_UserRoles.cs" />
     <Compile Include="Model\v_framework_notify.cs" />
     <Compile Include="Pay\zfb\AliPayConfig.cs" />

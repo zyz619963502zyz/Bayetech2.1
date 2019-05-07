@@ -27,6 +27,6 @@ namespace Bayetech.Service
         /// <param name="endTime"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        JObject GetGoodList(vw_MallGoodMainInfo goodInfo, DateTime? startTime, DateTime? endTime, Pagination page);
+        JObject GetGoodList(vw_MallGoodMainInfo goodInfo, Core.Model.MallGoodInfoSearchModel  searchModel, Pagination page);
     }
 }
