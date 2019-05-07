@@ -22,7 +22,7 @@ namespace Bayetech.Service
             {
                 JObject ret = new JObject();
                 PaginationResult<List<vw_MallGoodMainInfo>> ResultPage = new PaginationResult<List<vw_MallGoodMainInfo>>();
-                Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
+                var expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
                 if (goodInfo != null)
                 {
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))

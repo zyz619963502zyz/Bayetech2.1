@@ -213,3 +213,4 @@ ModelManifest.xml
 /Bayetech.AdminTests
 /Bayetech.App/node_modules.zip
 *.exclude
+/Bayetech.Core/Extend

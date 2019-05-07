@@ -501,6 +501,20 @@
           <Property Name="DescriptionValue" Type="nvarchar" MaxLength="50" />
           <Property Name="GameId" Type="bigint" />
         </EntityType>
+        <EntityType Name="GoodDetail">
+          <Key>
+            <PropertyRef Name="GoodInfoId" />
+          </Key>
+          <Property Name="GoodInfoId" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Lv" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="30" />
+          <Property Name="QQLv" Type="int" />
+          <Property Name="HasQQFriend" Type="int" />
+          <Property Name="HasIdSealedRecord" Type="int" />
+          <Property Name="ProfessionCode1" Type="varchar" MaxLength="30" />
+          <Property Name="ProfessionCode2" Type="varchar" MaxLength="30" />
+          <Property Name="ProfessionCode3" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="GoodStatus">
           <Key>
             <PropertyRef Name="Id" />
@@ -958,10 +972,8 @@
 警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodMainInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="vw_MallGoodMainInfo">
           <Key>
-            <PropertyRef Name="Expr1" />
             <PropertyRef Name="GoodNo" />
           </Key>
-          <Property Name="Expr1" Type="int" Nullable="false" />
           <Property Name="GoodTitle" Type="nvarchar" MaxLength="100" />
           <Property Name="GoodPrice" Type="numeric" Precision="18" Scale="2" />
           <Property Name="GoodSinglePrice" Type="numeric" Precision="18" Scale="6" />
@@ -994,7 +1006,15 @@
           <Property Name="FrontParentId" Type="int" />
           <Property Name="BackParentId" Type="int" />
           <Property Name="Remark" Type="nvarchar" MaxLength="200" />
-          <Property Name="SalerId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalerId" Type="nvarchar" MaxLength="30" />
+          <Property Name="ProfessionCode1" Type="varchar" MaxLength="30" />
+          <Property Name="ProfessionCode2" Type="varchar" MaxLength="30" />
+          <Property Name="ProfessionCode3" Type="varchar" MaxLength="30" />
+          <Property Name="Lv" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="30" />
+          <Property Name="QQLv" Type="int" />
+          <Property Name="HasQQFriend" Type="int" />
+          <Property Name="HasIdSealedRecord" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Bayetech.dbo.vw_MallGoodSearch”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1188,6 +1208,7 @@
           <EntitySet Name="GameAccount" EntityType="Self.GameAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameInfoDescription" EntityType="Self.GameInfoDescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GameProfession" EntityType="Self.GameProfession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodDetail" EntityType="Self.GoodDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoodStatus" EntityType="Self.GoodStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MallDLInfo" EntityType="Self.MallDLInfo" Schema="dbo" store:Type="Tables" />
@@ -1407,7 +1428,6 @@
           </EntitySet>
           <EntitySet Name="vw_MallGoodMainInfo" EntityType="Self.vw_MallGoodMainInfo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_MallGoodMainInfo].[Expr1] AS [Expr1], 
     [vw_MallGoodMainInfo].[GoodTitle] AS [GoodTitle], 
     [vw_MallGoodMainInfo].[GoodPrice] AS [GoodPrice], 
     [vw_MallGoodMainInfo].[GoodSinglePrice] AS [GoodSinglePrice], 
@@ -1440,7 +1460,15 @@
     [vw_MallGoodMainInfo].[FrontParentId] AS [FrontParentId], 
     [vw_MallGoodMainInfo].[BackParentId] AS [BackParentId], 
     [vw_MallGoodMainInfo].[Remark] AS [Remark], 
-    [vw_MallGoodMainInfo].[SalerId] AS [SalerId]
+    [vw_MallGoodMainInfo].[SalerId] AS [SalerId], 
+    [vw_MallGoodMainInfo].[ProfessionCode1] AS [ProfessionCode1], 
+    [vw_MallGoodMainInfo].[ProfessionCode2] AS [ProfessionCode2], 
+    [vw_MallGoodMainInfo].[ProfessionCode3] AS [ProfessionCode3], 
+    [vw_MallGoodMainInfo].[Lv] AS [Lv], 
+    [vw_MallGoodMainInfo].[Gender] AS [Gender], 
+    [vw_MallGoodMainInfo].[QQLv] AS [QQLv], 
+    [vw_MallGoodMainInfo].[HasQQFriend] AS [HasQQFriend], 
+    [vw_MallGoodMainInfo].[HasIdSealedRecord] AS [HasIdSealedRecord]
     FROM [dbo].[vw_MallGoodMainInfo] AS [vw_MallGoodMainInfo]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_MallGoodSearch" EntityType="Self.vw_MallGoodSearch" store:Type="Views" store:Schema="dbo">
@@ -2381,6 +2409,7 @@
           <EntitySet Name="Attachment" EntityType="BayetechModel.Attachment" />
           <EntitySet Name="vw_MallGoodSearch" EntityType="BayetechModel.vw_MallGoodSearch" />
           <EntitySet Name="Game" EntityType="BayetechModel.Game" />
+          <EntitySet Name="GoodDetail" EntityType="BayetechModel.GoodDetail" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2627,10 +2656,8 @@
         </EntityType>
         <EntityType Name="vw_MallGoodMainInfo">
           <Key>
-            <PropertyRef Name="Expr1" />
             <PropertyRef Name="GoodNo" />
           </Key>
-          <Property Name="Expr1" Type="Int32" Nullable="false" />
           <Property Name="GoodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GoodPrice" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="GoodSinglePrice" Type="Decimal" Precision="18" Scale="6" />
@@ -2663,7 +2690,15 @@
           <Property Name="FrontParentId" Type="Int32" />
           <Property Name="BackParentId" Type="Int32" />
           <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="SalerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalerId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProfessionCode1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionCode2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionCode3" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Lv" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="QQLv" Type="Int32" />
+          <Property Name="HasQQFriend" Type="Int32" />
+          <Property Name="HasIdSealedRecord" Type="Int32" />
         </EntityType>
         <ComplexType Name="SP_ArticleModule_Result">
           <Property Type="Int32" Name="ModuleId" Nullable="false" />
@@ -2871,6 +2906,20 @@
           <Property Name="Img" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
           <Property Name="FirstLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GoodDetail">
+          <Key>
+            <PropertyRef Name="GoodInfoId" />
+          </Key>
+          <Property Name="GoodInfoId" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Lv" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="QQLv" Type="Int32" />
+          <Property Name="HasQQFriend" Type="Int32" />
+          <Property Name="HasIdSealedRecord" Type="Int32" />
+          <Property Name="ProfessionCode1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionCode2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionCode3" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3905,6 +3954,14 @@
           <EntitySetMapping Name="vw_MallGoodMainInfo">
             <EntityTypeMapping TypeName="BayetechModel.vw_MallGoodMainInfo">
               <MappingFragment StoreEntitySet="vw_MallGoodMainInfo">
+                <ScalarProperty Name="HasIdSealedRecord" ColumnName="HasIdSealedRecord" />
+                <ScalarProperty Name="HasQQFriend" ColumnName="HasQQFriend" />
+                <ScalarProperty Name="QQLv" ColumnName="QQLv" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Lv" ColumnName="Lv" />
+                <ScalarProperty Name="ProfessionCode3" ColumnName="ProfessionCode3" />
+                <ScalarProperty Name="ProfessionCode2" ColumnName="ProfessionCode2" />
+                <ScalarProperty Name="ProfessionCode1" ColumnName="ProfessionCode1" />
                 <ScalarProperty Name="SalerId" ColumnName="SalerId" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="BackParentId" ColumnName="BackParentId" />
@@ -3938,7 +3995,6 @@
                 <ScalarProperty Name="GoodSinglePrice" ColumnName="GoodSinglePrice" />
                 <ScalarProperty Name="GoodPrice" ColumnName="GoodPrice" />
                 <ScalarProperty Name="GoodTitle" ColumnName="GoodTitle" />
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4188,6 +4244,21 @@
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodDetail">
+            <EntityTypeMapping TypeName="BayetechModel.GoodDetail">
+              <MappingFragment StoreEntitySet="GoodDetail">
+                <ScalarProperty Name="ProfessionCode3" ColumnName="ProfessionCode3" />
+                <ScalarProperty Name="ProfessionCode2" ColumnName="ProfessionCode2" />
+                <ScalarProperty Name="ProfessionCode1" ColumnName="ProfessionCode1" />
+                <ScalarProperty Name="HasIdSealedRecord" ColumnName="HasIdSealedRecord" />
+                <ScalarProperty Name="HasQQFriend" ColumnName="HasQQFriend" />
+                <ScalarProperty Name="QQLv" ColumnName="QQLv" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Lv" ColumnName="Lv" />
+                <ScalarProperty Name="GoodInfoId" ColumnName="GoodInfoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
