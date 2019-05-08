@@ -73,7 +73,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionId',item.ProfessionId)" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',[item.ProfessionId])" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
                             </ul>

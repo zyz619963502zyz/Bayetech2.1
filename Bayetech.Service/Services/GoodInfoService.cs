@@ -103,10 +103,6 @@ namespace Bayetech.Service
                             expression = expression.And(t => t.QQLv == goodInfo.QQLv);
  
                         }
-                        if (goodInfo.MinQQLevel != null)//最低QQ等级
-                        {
-                            expression = expression.And(t => t.QQLv >= goodInfo.MinQQLevel);
-                        }
                         if (goodInfo.MinPrice != null)//最低价格
                         {
                             expression = expression.And(t => t.GoodPrice >= goodInfo.MinPrice);
