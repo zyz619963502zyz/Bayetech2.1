@@ -88,43 +88,41 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.Status == "PutOnsale");//默认不传的情况下查询所有的上架商品
                     }
-                    if (goodInfo != null)
+                    if (goodInfo.startTime != null )//开始时间
                     {
-                        if (goodInfo.startTime != null )//开始时间
-                        {
-                            expression = expression.And(t => t.AddTime >= goodInfo.startTime);
-                        }
-                        if (goodInfo.endTime != null )//结束时间
-                        {
-                            expression = expression.And(t => t.AddTime <= goodInfo.endTime);
-                        }
-                        if (goodInfo.MaxQQLevel != null)//最高QQ等级
-                        {
-                            expression = expression.And(t => t.QQLv <= goodInfo.MaxQQLevel);
+                        expression = expression.And(t => t.AddTime >= goodInfo.startTime);
+                    }
+                    if (goodInfo.endTime != null )//结束时间
+                    {
+                        expression = expression.And(t => t.AddTime <= goodInfo.endTime);
+                    }
+                    if (goodInfo.MaxQQLevel != null)//最高QQ等级
+                    {
+                        expression = expression.And(t => t.QQLv <= goodInfo.MaxQQLevel);
 
-                        }
-                        if (goodInfo.MinQQLevel != null)//最低QQ等级
-                        {
-                            expression = expression.And(t => t.QQLv >= goodInfo.MinQQLevel);
-                        }
-                        if (goodInfo.MinPrice != null)//最低价格
-                        {
-                            expression = expression.And(t => t.GoodPrice >= goodInfo.MinPrice);
-                        }
-                        if (goodInfo.MaxPrice != null)//最高价格
-                        {
-                            expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
-                        }
-                        if (goodInfo.ProfessionCode != null)
-                        {
-                            Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.True<vw_MallGoodMainInfo>();
+                    }
+                    if (goodInfo.MinQQLevel != null)//最低QQ等级
+                    {
+                        expression = expression.And(t => t.QQLv >= goodInfo.MinQQLevel);
+                    }
+                    if (goodInfo.MinPrice != null)//最低价格
+                    {
+                        expression = expression.And(t => t.GoodPrice >= goodInfo.MinPrice);
+                    }
+                    if (goodInfo.MaxPrice != null)//最高价格
+                    {
+                        expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
+                    }
+                    if (goodInfo.ProfessionCode != null)
+                    {
+                        Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.True<vw_MallGoodMainInfo>();
 
-                            expression2 = expression2.Or(t => t.ProfessionCode1 == goodInfo.ProfessionCode)
-                                .Or(t => t.ProfessionCode2 == goodInfo.ProfessionCode)
-                                .Or(t => t.ProfessionCode3 == goodInfo.ProfessionCode);
-                            expression = expression.And(expression2);
-                        }
-                    }                   
+                        expression2 = expression2.Or(t => t.ProfessionCode1 == goodInfo.ProfessionCode)
+                            .Or(t => t.ProfessionCode2 == goodInfo.ProfessionCode)
+                            .Or(t => t.ProfessionCode3 == goodInfo.ProfessionCode);
+                        expression = expression.And(expression2);
+                    }
+                                    
                 }
                 var query = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page, expression);
 

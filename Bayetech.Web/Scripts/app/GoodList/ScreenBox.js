@@ -42,13 +42,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)" title="男"  @click="GetSearchAgain('isset','hasset')">
+                                    <a href="javascript:void(0)" title="男"  @click="GetSearchAgain('isset','male')">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="男" unFixKey="50233">男</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" title="女" @click="GetSearchAgain('isset','hasnoset')">
+                                    <a href="javascript:void(0)" title="女" @click="GetSearchAgain('isset','female')">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="女" unFixKey="50233">女</span>
                                     </a>
@@ -93,13 +93,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)"   @click="GetSearchAgain('isset','hasset')">
+                                    <a href="javascript:void(0)"   @click="GetSearchAgain('isset',0)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证未设置</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"  @click="GetSearchAgain('isset',hasnoset)">
+                                    <a href="javascript:void(0)"  @click="GetSearchAgain('isset',1)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证已设置</span>
                                     </a>
@@ -129,13 +129,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',hasf)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',1)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">有QQ好友</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',hasnof)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',0)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">无QQ好友</span>
                                     </a>
@@ -200,6 +200,9 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetSearchAgain(key,val) {//条件增加重新搜索
                 var self = this;
                 self.SearchParam.Param[key] = val;
+                if (true) {
+                    MaxQQLevel 
+                }
                 //var param=common.GetUrlParam();
                 common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
                     if (data.result) {
