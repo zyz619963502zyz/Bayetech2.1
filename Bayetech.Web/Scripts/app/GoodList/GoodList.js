@@ -29,7 +29,6 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <div class ="slobar-02 clearfix">
