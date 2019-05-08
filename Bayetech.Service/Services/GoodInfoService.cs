@@ -98,10 +98,10 @@ namespace Bayetech.Service
                         {
                             expression = expression.And(t => t.AddTime <= goodInfo.endTime);
                         }
-                        if (goodInfo.QQLv != null)//QQ等级 6to10
+                        if (!string.IsNullOrEmpty(goodInfo.QQLv))//QQ等级 6to10
                         {
                             expression = expression.And(t => t.QQLv == goodInfo.QQLv);
-
+ 
                         }
                         if (goodInfo.HasQQFriend != null)//是否有qq好友， 1有0没有
                         {

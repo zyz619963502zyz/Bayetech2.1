@@ -52,7 +52,7 @@ namespace Bayetech.Core.Entity
         public string ProfessionCode3 { get; set; }
         public Nullable<int> Lv { get; set; }
         public string Gender { get; set; }
-        public Nullable<int> QQLv { get; set; }
+        public string QQLv { get; set; }
         public Nullable<int> HasQQFriend { get; set; }
         public Nullable<int> HasIdSealedRecord { get; set; }
     }

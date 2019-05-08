@@ -1012,7 +1012,7 @@
           <Property Name="ProfessionCode3" Type="varchar" MaxLength="30" />
           <Property Name="Lv" Type="int" />
           <Property Name="Gender" Type="varchar" MaxLength="30" />
-          <Property Name="QQLv" Type="int" />
+          <Property Name="QQLv" Type="varchar" MaxLength="30" />
           <Property Name="HasQQFriend" Type="int" />
           <Property Name="HasIdSealedRecord" Type="int" />
         </EntityType>
@@ -2917,7 +2917,7 @@
           <Property Name="ProfessionCode3" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Lv" Type="Int32" />
           <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="QQLv" Type="Int32" />
+          <Property Name="QQLv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="HasQQFriend" Type="Int32" />
           <Property Name="HasIdSealedRecord" Type="Int32" />
         </EntityType>

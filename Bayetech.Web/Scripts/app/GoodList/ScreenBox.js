@@ -116,7 +116,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Levels">
                                     <a href="javascript:void(0)" title="QQ等级">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.key"  @click="GetSearchAgain('QQLevel',item.key)" :key="item.key">{{item.Value}}</span>
+                                        <span class ="text" :value="item.key"  @click="GetSearchAgain('QQLv',item.key)" :key="item.key">{{item.Value}}</span>
                                     </a>
                                 </li>
 
@@ -200,9 +200,6 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             GetSearchAgain(key,val) {//条件增加重新搜索
                 var self = this;
                 self.SearchParam.Param[key] = val;
-                if (true) {
-                    MaxQQLevel 
-                }
                 //var param=common.GetUrlParam();
                 common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
                     if (data.result) {
