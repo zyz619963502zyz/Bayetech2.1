@@ -98,20 +98,14 @@ namespace Bayetech.Service
                         {
                             expression = expression.And(t => t.AddTime <= goodInfo.endTime);
                         }
-                        if (goodInfo.QQLv != null)//QQ等级 6to10
+                        if (goodInfo.MaxQQLevel != null)//最高QQ等级
                         {
-                            expression = expression.And(t => t.QQLv == goodInfo.QQLv);
+                            expression = expression.And(t => t.QQLv <= goodInfo.MaxQQLevel);
 
                         }
-                        if (goodInfo.HasQQFriend != null)//是否有qq好友， 1有0没有
+                        if (goodInfo.MinQQLevel != null)//最低QQ等级
                         {
-                            expression = expression.And(t => t.HasQQFriend == goodInfo.HasQQFriend);
-
-                        }
-                        if (goodInfo.HasIdSealedRecord != null)//是否有封禁记录， 1有0没有
-                        {
-                            expression = expression.And(t => t.HasIdSealedRecord == goodInfo.HasIdSealedRecord);
-
+                            expression = expression.And(t => t.QQLv >= goodInfo.MinQQLevel);
                         }
                         if (goodInfo.MinPrice != null)//最低价格
                         {
@@ -119,7 +113,7 @@ namespace Bayetech.Service
                         }
                         if (goodInfo.MaxPrice != null)//最高价格
                         {
-                            expression = expression.And(t => t.GoodPrice <= goodInfo.MaxPrice);
+                            expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
                         }
                         if (goodInfo.ProfessionCodes != null && goodInfo.ProfessionCodes.Count()>0)
                         {
@@ -127,7 +121,7 @@ namespace Bayetech.Service
 
                             expression2 = expression2.Or(t =>  goodInfo.ProfessionCodes.Contains(t.ProfessionCode1))
                                 .Or(t => goodInfo.ProfessionCodes.Contains(t.ProfessionCode2))
-                                .Or(t =>  goodInfo.ProfessionCodes.Contains(t.ProfessionCode3));
+                                .Or(t => goodInfo.ProfessionCodes.Contains(t.ProfessionCode3));
                             expression = expression.And(expression2);
                         }
                     }                   
