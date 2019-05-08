@@ -280,20 +280,20 @@
 
       <!--@minPrice 组件变更了最低价格，则触发此函数-->
       <!--@maxPrice 组件变更了最高价格，则触发此函数-->
-      <priceFilter @minPrice="(result)=>{this.searchModelSub.minPrice=result}" @maxPrice="(result)=>{this.searchModelSub.maxPrice=result}"></priceFilter>
+      <priceFilter   @minPrice="(result)=>{this.searchModel.MinPrice=result}" @maxPrice="(result)=>{this.searchModel.MaxPrice=result}"></priceFilter>
 
-      <commonFilter title="战区" :search="searchGroup" value="Id" text="Name"></commonFilter>
+      <commonFilter title="战区" :multiSelected="true"  :search="searchGroup" value="Id" text="Name" @result="(result)=>{this.searchModel.AccrossName=result}" ></commonFilter>
 
-      <commonFilter title="角色职业" :search="searchJob" value="ProfessionId" text="ProfessionName"></commonFilter>
+      <commonFilter title="角色职业" :multiSelected="true"  :search="searchJob" value="ProfessionId" text="ProfessionName" @result="(result)=>{this.searchModel.ProfessionCodes=result}" ></commonFilter>
 
 
-      <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false"></cardFilter>
+      <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false" @result="(result)=>{this.searchModel.Gender=result}" ></cardFilter>
 
-      <cardFilter title="QQ等级" :options="{'0,200':'QQ等级0级','1,5':'QQ等级1-5级','6,10':'QQ等级6-10级','1,5':'QQ等级11-20级','11,20':'QQ等级1-5级','21,30':'QQ等级21-30级','31,40':'QQ等级31-40级','41,200':'QQ等级40级以上'}" :multiSelected="false"></cardFilter>
+      <cardFilter title="QQ等级" :options="{'1to5':'QQ等级1-5级','6to10':'QQ等级6-10级','11to20':'QQ等级11-20级','21to30':'QQ等级21-30级','31to40':'QQ等级31-40级','40up':'QQ等级40级以上'}" @result="(result)=>{this.searchModel.QQLv=result  }" :multiSelected="false"></cardFilter>
 
-      <cardFilter title="QQ好友" :options="{1:'有QQ好友',0:'无QQ好友'}" :multiSelected="false"></cardFilter>
+      <cardFilter title="QQ好友" :options="{1:'有QQ好友',0:'无QQ好友'}" :multiSelected="false" @result="(result)=>{this.searchModel.HasQQFriend=result}"></cardFilter>
 
-      <cardFilter title="历史处罚记录" :options="{1:'存在5天封号记录',0:'不存在5天封号记录'}" :multiSelected="false"></cardFilter>
+      <cardFilter title="历史处罚记录" :options="{1:'存在5天封号记录',0:'不存在5天封号记录'}" :multiSelected="false" @result="(result)=>{this.searchModel.HasIdSealedRecord=result}"></cardFilter>
 
       <!---->
 
@@ -301,7 +301,7 @@
       <div data-v-6b09e788="" class="fixed-bottom border-top">
         <div data-v-6b09e788="" class="goodslist-btn px-30 py-30 bg-fff">
           <a data-v-6b09e788="" class="options f32 color-666 fl text-center">清除选项</a>
-          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center" @click="ToggleConditionTab('filter')">确定</a>
+          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center" @click="ToggleConditionTab('filter');SearchList()">确定</a>
         </div>
       </div>
     </div>
@@ -366,26 +366,10 @@
       DlTypeName: "代练类型", //等级 冲杯 段位
       GoodKeyWord: "", //关键字
       AcrossId: 0, //跨区Id
-      AcrossName: "跨区"
-    },
-    searchModelSub: {
-      minPrice: "",
-      maxPrice: "",
-      priceRangeLock: false,
-      chooseZQ: false,
-      chooseZY: false,
-      gender:[],
-      gender_male: false,
-      gender_female: false,
-      qqLevel: [],
-      qqFriend: [],
-      punishHistory: [],
-      priceRange: [],
-      accrossList: [],
-      accrossListName:[],
-      jobList: [],
-      jobListName:[]
+      AcrossName: "跨区",
+      ProfessionCodes:[]
     }
+    
   };
 
   export default {
@@ -573,36 +557,7 @@
       ,
       //筛选明细
 
-      //key : 容器对象，类型为数组 ，如jobList
-      //value:选中的值,如剑圣，容器里没有就添加，有就删除
-      //reset :每次选择前清空容器，实现单选，传true
-      choose: function (key, value,reset)
-      {
-        
-       // value = ',' + value;
-        if (reset && value != this.searchModelSub[key])
-        {
-          this.$set(this.searchModelSub, key, new Array())
-        }
-      
-        let t = 1;
-        let list = this.searchModelSub[key]
-
-        if (list.indexOf(value) >= 0) {
-          list.splice(list.indexOf(value), 1)
-        } else {
-          list .push (value);
-        }
-        this.$set(this.searchModelSub, key, list)
-      },
-     //检查是否选择
-      //key ：检查的容器，如jobList
-      //value :值，如剑圣 容器里有剑圣，则为true ,没有为false ,方便切换class
-      isChoice: function (key, value) {
-        
-        return this.searchModelSub[key].indexOf(value) >= 0;
-         
-      }
+    
     },
     watch: {
       "searchModel.GameGroupId": function (newVal, oldVal) {
@@ -629,28 +584,7 @@
 
       ,
 
-       "searchModelSub.priceRange": function (newVal,oldVal)
-       {
-        
-
-         let self = this;
-
-         if (self.searchModelSub.priceRangeLock)
-         {
-           return;
-         }
-
-         if (newVal.length==0)
-         {
-           self.searchModelSub.minPrice = undefined;
-           self.searchModelSub.maxPrice = undefined;
-           return;
-         }
-         let s = newVal[0].split('-');
-         self.searchModelSub.minPrice = s[0];
-         
-         self.searchModelSub.maxPrice = s[1];
-      }
+     
     },
     components: {
       priceFilter: priceFilter,

@@ -74,9 +74,12 @@
     } ,
 
     watch: {
-      selectedValues: function (newval) {
-       
-        
+      selectedValues: function (newVal) {
+        if (!this.multiSelected) {
+          this.$emit("result", newVal[0])
+        } else {
+          this.$emit("result", newVal)
+        }
       }
 
       

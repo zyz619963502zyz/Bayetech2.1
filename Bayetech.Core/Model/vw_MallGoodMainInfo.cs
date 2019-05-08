@@ -19,7 +19,7 @@ namespace Bayetech.Core.Entity
 
         public int? MinQQLevel { get; set; }
 
-        public string ProfessionCode { get; set; }
+        public List<string> ProfessionCodes { get; set; }
 
     }
 }
