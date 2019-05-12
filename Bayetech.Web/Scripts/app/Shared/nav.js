@@ -2,7 +2,7 @@
 define([], function () {
     var html = `<div class="nav-box"><ul class="nav nav-pills nav-justified" role="tablist">
                 <li class="active"><a href="#home0">首页</a></li>
-                <li><a href="../../Page/Game/List.html" target="_blank">金币交易</a></li>
+                <li><a href="../../Page/Game/List.html" target="_blank">账号交易</a></li>
                 <li><a href="../../Page/Game/List.html" target="_blank">装备交易</a></li>
                 <li><a href="#">游戏攻略</a></li>
                 <li><a href="../../Page/Jzjh/guard.html" target="_blank">家长监护</a></li>
