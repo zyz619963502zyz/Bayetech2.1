@@ -273,6 +273,7 @@
     <Compile Include="Attributes\SupportCrossDomainAttribute.cs" />
     <Compile Include="Common\AppSettingsConfig.cs" />
     <Compile Include="Common\HttpResponseExtension.cs" />
+    <Compile Include="Controllers\NoFollowController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -814,6 +815,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Views\NoFollow\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
