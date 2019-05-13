@@ -116,6 +116,12 @@ export default new Router({
       path: '/priceFilter',
       name: 'priceFilter',
       component: r => require.ensure([], () => r(require('../components/filter/priceFilter.vue')), 'sales')
+    },
+    {
+      path: '/gallery',
+      name: 'gallery',
+      component: r => require.ensure([], () => r(require('../components/gallery.vue')), 'gallery')
     }
+
   ]
 })
