@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+    <meta name="keywords" content="游戏交易平台，游戏币交易平台，游戏帐号交易，游戏装备交易，游戏交易网，游戏点卡充值，游戏充值平台，游戏代练" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <script>
+        //设置字体大小,为计算做准备
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <link rel="icon" href="../../Content/NewImages/logo.ico" />
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101551432" data-redirecturi="http://www.52yxb.com/Page/Home/NewIndex.html" charset="utf-8" data-callback="true"></script>
+    <script src="../../Scripts/require.js"></script>
+    <script src="../../Scripts/jsconfig.js"></script>
+    <script src="../../Scripts/app/Home/index.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" v-cloak>
+
+        <nav-top></nav-top>
+        <!--search & logo-->
+        <v-header></v-header>
+        <!--home content-->
+        <div class="com-module">
+            <!-- navigation -->
+            <v-nav></v-nav>
+            <!-- all content -->
+            <div class="tab-content">
+                <!--index content-->
+                <div class="index-content">
+                    <!--left box-->
+                    <div class="left-panel">
+                        <div class="left-panel-one m-b-sm">
+                            <!--carousel-->
+                            <index-slidebox></index-slidebox>
+                        </div>
+                        <div class="left-panel-one m-b-sm">
+                            <!--手风琴轮循-->
+                            <index-tabsList></index-tabsList>
+                        </div>
+                        <div class="left-panel-one">
+                            <!--广告图-->
+                            <index-adv></index-adv>
+                        </div>
+                    </div>
+                    <!--right box-->
+                    <div class="right-panel">
+                        <div class="r-panel-tab m-b-md">
+                            <!--我要买我要卖-->
+                            <div class="buy-sale-area">
+                                <a href="../../Page/Game/List.html" target="_blank" class="btn btn-warning btn-sm">
+                                    <i class="fa fa-cart-arrow-down fa-2x"></i>
+                                    <span>我要买</span>
+                                </a>
+                                <a href="../../Page/Good/Publish.html" class="btn btn-success btn-sm" target="_blank">
+                                    <i class="fa fa-rmb fa-2x"></i>
+                                    <span>我要卖</span>
+                                </a>
+                                <a href="../../Page/UserCenter/Index.html" class="btn btn-primary btn-sm" target="_blank">
+                                    <i class="fa fa-user-circle-o fa-2x"></i>
+                                    <span>个人中心</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="r-panel-tab m-b-md">
+                            <!--验证-->
+                            <div class="input-group">
+                                <input type="text" placeholder="输入客服QQ，验证真假" v-model="customerserviceQQ" class="form-control" />
+                                <span class="input-group-btn">
+                                    @*<button type="button" class="btn btn-primary" @click="CheckCustomService">验证</button>*@
+                                    <button type="button" class="btn btn-primary">验证</button>
+                                </span>
+                            </div>
+                            <!--<div class="qq-check">
+                                <input type="text" class="qq-input onlynum" id="qq_number" placeholder="输入客服QQ，验证真假" />
+                                <a id="validateBut" href="javscript:void(0)" onclick="javascript:searchQQ();">验证</a>
+                            </div>-->
+                        </div>
+                        <div class="r-panel-tab m-b-md">
+                            <!--公告-->
+                            <v-tab :data="notice">
+                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                            </v-tab>
+                        </div>
+
+                        <div class="r-panel-tab m-b-md">
+                            <!--咨询、建议、投诉-->
+                            <!-- 没造数据，跟数据现在公告一样 -->
+                            <v-tab :data="consult">
+                                <a slot-scope="props" href="props.obj.url" target="_blank">{{ props.obj.title}}</a>
+                            </v-tab>
+                        </div>
+
+                        <div class="r-panel-tab m-b-md">
+                            <!--交易榜单-->
+                            <v-tab :data="gameranking">
+                                <template slot-scope="props">
+                                    <div class="c1 top3">{{ props.obj.no}}.</div>
+                                    <div class="c2">{{ props.obj.title}}</div>
+                                    <div class="c3">成交{{ props.obj.quantity}}笔</div>
+                                    <div class="c4">昨日单笔最高成交额：<em class="text-primary">{{ props.obj.maxMoney}}</em>元</div>
+                                </template>
+                            </v-tab>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--友情链接-->
+                <!--<div class="index-footer">
+                    <div class="foot-content">
+                        <v-partner></v-partner>
+                    </div>
+                </div>-->
+
+            </div>
+        </div>
+
+        <!--公共页脚 开始-->
+
+        <footer-server></footer-server>
+
+        <v-footer></v-footer>
+        <!--通用页脚 结束-->
+    </div>
+</body>
+</html>
+
