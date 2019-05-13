@@ -438,6 +438,14 @@
     <Content Include="Content\Images\icon-dj-06.png" />
     <Content Include="Content\Images\icon-dj-07.png" />
     <Content Include="Content\Images\icon-dj-08.png" />
+    <Content Include="Content\Images\icon\1.png" />
+    <Content Include="Content\Images\icon\2.png" />
+    <Content Include="Content\Images\icon\3.png" />
+    <Content Include="Content\Images\icon\4.png" />
+    <Content Include="Content\Images\icon\5.png" />
+    <Content Include="Content\Images\icon\6.png" />
+    <Content Include="Content\Images\icon\7.png" />
+    <Content Include="Content\Images\icon\8.png" />
     <Content Include="Content\Images\img-buy-flow.jpg" />
     <Content Include="Content\Images\img-dl-area.jpg" />
     <Content Include="Content\Images\img-re-260bg.png" />
