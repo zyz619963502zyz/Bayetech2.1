@@ -18,12 +18,12 @@
         <div data-v-932364c8="" class="detail-main bg-f1 fw">
           <div data-v-932364c8="" class="detail-content  fw bg-fff">
             <swiper :options="swiperOption">
-              <swiper-slide>I'm Slide 1</swiper-slide>
-              <swiper-slide>I'm Slide 2</swiper-slide>
-              <swiper-slide>I'm Slide 3</swiper-slide>
+              <swiper-slide ><img src="https://imgsa.baidu.com/forum/w%3D580/sign=e422408f5c0fd9f9a0175561152fd42b/c18c5325ab18972bdbdd6f39ebcd7b899c510afc.jpg" width="100%" height="100%" /></swiper-slide>
+              <swiper-slide><img src="https://imgsa.baidu.com/forum/pic/item/e3490d2d11dfa9eccafc10f46ed0f703938fc19a.jpg" width="100%" height="100%"></swiper-slide>
+              <swiper-slide><img src="https://imgsa.baidu.com/forum/pic/item/e3490d2d11dfa9eccafc10f46ed0f703938fc19a.jpg" width="100%" height="100%"></swiper-slide>
               <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
-            <div data-v-932364c8="" class="detail-bt fw text-left">
+            <div data-v-932364c8="" class="detail-bt fw text-left" style="margin-top:40px">
               <span data-v-932364c8=""
                     class="detail-left fl f32 color-000">{{GoodInfo.GoodTitle}}</span> <span data-v-932364c8="" class="detail-right shareopen fr f24 text-center mr-30 mt-30">分享</span>
             </div> <!---->

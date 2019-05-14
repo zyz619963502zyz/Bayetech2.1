@@ -40,6 +40,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                     <li><a href="#">出售中的宝贝</a></li>
                                     <li><a href="#">仓库中的宝贝</a></li>
                                     <li><a href="#">卖家助手</a></li>
+                                    <li><a href="../../Page/Good/Publish.html#">商品发布</a></li>
                                 </ul>
 							</li>
 							<li class="label-cash"><a href="#" class="pay">充值</a> <a href="#" class="take-out">提现</a></li>
