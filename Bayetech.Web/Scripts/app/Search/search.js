@@ -171,6 +171,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         TargetUrl = "";
                         break;
                     default:
+                        TargetUrl = encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`);
                         break;
                 }
                 return TargetUrl;
