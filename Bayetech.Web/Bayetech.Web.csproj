@@ -755,6 +755,7 @@
     <Content Include="Scripts\app\UserCenter\Seller\ToSeller.js" />
     <Content Include="Scripts\app\UserCenter\router.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrapValidator.js" />
