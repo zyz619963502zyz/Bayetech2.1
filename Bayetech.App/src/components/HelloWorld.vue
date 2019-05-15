@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import vGallery from 'v-gallery';
+ 
 export default {
   name: 'gallery',
   data () {

@@ -36,10 +36,9 @@ Vue.prototype.$chooseSingle = chooseSingle;
 Vue.prototype.$isChoice = isChoice;
 
 
-import uploader from 'vue-easy-uploader'
 Vue.use(Vuex) 
 let store = new Vuex.Store({})
-Vue.use(uploader, store)
+Vue.use( store)
 
 /*已改为使用 vue-meta 来设置meta以及title*/
 //router.beforeEach((to, from, next) => {
