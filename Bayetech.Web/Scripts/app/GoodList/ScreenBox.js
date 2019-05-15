@@ -197,17 +197,25 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     self.Levels = data.content;
                 });
             },
-            GetSearchAgain(key,val) {//条件增加重新搜索
+            GetSearchAgain(key, val) {//条件增加重新搜索
                 var self = this;
-                self.SearchParam.Param[key] = val;
+                var data = {};
+                data.key = key;
+                data.value = val;
+                self.$root.$emit('GetListData', data)
+
+                //var self = this;
                 //var param=common.GetUrlParam();
-                common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
-                    if (data.result) {
-                        //data.content=data.content.slice(0, 8);
-                        //self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
-                        self.$root.$emit('GetListData', data);//触发事件并传播
-                    }
-                });
+                //common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
+                //    if (data.result) {
+                //        //data.content=data.content.slice(0, 8);
+                //        //self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
+
+                //        data.key = key;
+                //        date.value = val;
+                //        self.$root.$emit('GetListData', data);//触发事件并传播
+                //    }
+                //});
             },
             SetQQLevel() {//设置等级
 
