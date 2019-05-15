@@ -3,15 +3,14 @@
    
     <div>
       <h1>{{text}}</h1>
-      <v-gallery :images="list">
-      </v-gallery>
+      
     </div>
  
 
   
 </template>
 <script>
-  import vGallery from 'v-gallery';
+ 
 export default {
   name: 'Gallery',
   data () {
@@ -21,10 +20,6 @@ export default {
       
 
     }
-    },
-    components: {
-      
-      "v-gallery": vGallery
     },
   mounted: function () {
     
