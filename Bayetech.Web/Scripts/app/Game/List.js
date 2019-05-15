@@ -85,11 +85,11 @@ define(["common"], function (common) {
             this.GetList(this.Type);
             this.GetHotPicGameList(10);
             $(document).on("click", "[name=hotGame]", function () {
-				$('.hot-game-img').removeClass("hide");
-				$(".game-filter").addClass("hide");
-				$("[name=hotGame]").addClass("on");
-				$("[name=Letter]").removeClass("on");
-            })
+                $('.hot-game-img').removeClass("hide");
+                $(".game-filter").addClass("hide");
+                $("[name=hotGame]").addClass("on");
+                $("[name=Letter]").removeClass("on");
+            });
             $(document).on("click", "[name=Letter]", function () {
 				$("[name=hotGame]").removeClass("on");
             	$('.hot-game-img').addClass("hide");
