@@ -111,7 +111,7 @@ namespace Bayetech.Service
                         {
                             expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
                         }
-                        if (goodInfo.ProfessionCodes != null && goodInfo.ProfessionCodes.Count()>0)
+                        if (goodInfo.ProfessionCodes != null && goodInfo.ProfessionCodes.Where(c=>c!="1").Count()>0)//1代表的是全职业的情况
                         {
                             Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.False<vw_MallGoodMainInfo>();
 

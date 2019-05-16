@@ -73,7 +73,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',[item.ProfessionId])" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',item.ProfessionId)" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -152,15 +152,15 @@ define(jsconfig.baseArr, function (Vue, $, common) {
     var _GetServersUrl="/api/Order/GetServers";//获取区服名称列表
     var ProfessionUrl = "/api/GoodInfo/GetProfessions";
     var LevelsUrl = "/api/Setting/GetListByParentId";
-
     var data = {
         SearchParam: {
             Param: eval('(' + localStorage.SearchParam + ')'),
-
         },
+        ProfessionCodes: [],//参数职业多选
+
         Gourps: [{}],
         Severs: [],
-        Professions: [],
+        Professions: [],//取值结果集
         Levels:[]
     };
 
@@ -184,8 +184,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 });
             },
             GetProfessions(gameId) {//获取职业
-                var self=this;
-                var param={ GameId: gameId };
+                var self = this;
+                var param = { GameId: gameId };
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
                 });
@@ -201,21 +201,21 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var self = this;
                 var data = {};
                 data.key = key;
-                data.value = val;
-                self.$root.$emit('GetListData', data)
-
-                //var self = this;
-                //var param=common.GetUrlParam();
-                //common.postWebJson(GoodListUrl, self.SearchParam, function (data) {
-                //    if (data.result) {
-                //        //data.content=data.content.slice(0, 8);
-                //        //self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
-
-                //        data.key = key;
-                //        date.value = val;
-                //        self.$root.$emit('GetListData', data);//触发事件并传播
-                //    }
-                //});
+                if (key == "ProfessionCodes") {
+                    if (self.ProfessionCodes.filter(c => c == val) > 0) {
+                        self.ProfessionCodes = self.ProfessionCodes.filter(c => c != val);
+                        //该行样式变成active的选中状态 todo 振宇
+                    } else {
+                        self.ProfessionCodes.push(val);
+                        //改行样式去掉选中状态 todo 振宇
+                    }
+                    data.value = self.ProfessionCodes;
+                } else {
+                    data.value = val;
+                }
+              
+                data.ProfessionCodes = self.ProfessionCodes;
+                self.$root.$emit('GetListData', data);
             },
             SetQQLevel() {//设置等级
 
