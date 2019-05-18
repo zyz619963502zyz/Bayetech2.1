@@ -141,11 +141,11 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                     self.findList();
                 }
             });
-
             //点击
             self.$root.$on("GetListData", function (data) {
                 if (data) {
-                    self.ListObj = data.content.datas;
+                    self.SearchParam.Param[data.key] = data.value;
+                    self.findList();
                 }
             });
         },
