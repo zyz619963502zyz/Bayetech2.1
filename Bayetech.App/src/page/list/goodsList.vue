@@ -282,18 +282,18 @@
       <!--@maxPrice 组件变更了最高价格，则触发此函数-->
       <priceFilter   @minPrice="(result)=>{this.searchModel.MinPrice=result}" @maxPrice="(result)=>{this.searchModel.MaxPrice=result}"></priceFilter>
 
-      <commonFilter title="战区" :multiSelected="true"  :search="searchGroup" value="Id" text="Name" @result="(result)=>{this.searchModel.AccrossName=result}" ></commonFilter>
+      <commonFilter title="战区" :multiSelected="true"  :search="searchGroup" val="Id" text="Name" v-model="searchModel.AccrossName"  ></commonFilter>
 
-      <commonFilter title="角色职业" :multiSelected="true"  :search="searchJob" value="ProfessionId" text="ProfessionName" @result="(result)=>{this.searchModel.ProfessionCodes=result}" ></commonFilter>
+      <commonFilter title="角色职业" :multiSelected="true"  :search="searchJob" val="ProfessionId" text="ProfessionName" v-model="searchModel.ProfessionCodes" ></commonFilter>
 
 
-      <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false" @result="(result)=>{this.searchModel.Gender=result}" ></cardFilter>
+      <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false" v-model="searchModel.Gender"  ></cardFilter>
 
-      <cardFilter title="QQ等级" :options="{'1to5':'QQ等级1-5级','6to10':'QQ等级6-10级','11to20':'QQ等级11-20级','21to30':'QQ等级21-30级','31to40':'QQ等级31-40级','40up':'QQ等级40级以上'}" @result="(result)=>{this.searchModel.QQLv=result  }" :multiSelected="false"></cardFilter>
+      <cardFilter title="QQ等级" :options="{'1to5':'QQ等级1-5级','6to10':'QQ等级6-10级','11to20':'QQ等级11-20级','21to30':'QQ等级21-30级','31to40':'QQ等级31-40级','40up':'QQ等级40级以上'}" v-model="searchModel.QQLv" :multiSelected="false"></cardFilter>
 
-      <cardFilter title="QQ好友" :options="{1:'有QQ好友',0:'无QQ好友'}" :multiSelected="false" @result="(result)=>{this.searchModel.HasQQFriend=result}"></cardFilter>
+      <cardFilter title="QQ好友" :options="{1:'有QQ好友',0:'无QQ好友'}" :multiSelected="false" v-model="searchModel.HasQQFriend" ></cardFilter>
 
-      <cardFilter title="历史处罚记录" :options="{1:'存在5天封号记录',0:'不存在5天封号记录'}" :multiSelected="false" @result="(result)=>{this.searchModel.HasIdSealedRecord=result}"></cardFilter>
+      <cardFilter title="历史处罚记录" :options="{1:'存在5天封号记录',0:'不存在5天封号记录'}" :multiSelected="false"  v-model="searchModel.HasIdSealedRecord" ></cardFilter>
 
       <!---->
 

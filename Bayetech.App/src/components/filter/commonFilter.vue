@@ -4,7 +4,7 @@
     <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
       <i data-v-6b09e788="" class="fr src-ico manycheck" @click="openDialog()">
 
-        <span v-show="selectedValues.length==0">不限</span>
+        <span v-show="!value||value.length==0"></span>
         {{selectedTexts.join(',')}}
       </i>
       {{title}}
@@ -57,28 +57,30 @@
       return {
         isBlock:false
         , 
-        selectedValues: [],
+        selectedValues: this.value,
         selectedTexts:[],
-        list:[]
-
+        list: this.dataList
        
 
       }
     },
-    props: ['title','value','text','search'],
+    props: ['title', 'value', 'text', 'search','multiSelected'],
     props: { //可以指定属性具体的数据类型哦！
       'title': String,
-      'value': String,
-      'text':String,
-      'search': Function
+      'value': [String,Array,Number],
+      'text': String,
+      'val':String,
+      'search': Function,
+      'multiSelected': Boolean,
+      'dataList':Array
     } ,
 
     watch: {
       selectedValues: function (newVal) {
         if (!this.multiSelected) {
-          this.$emit("result", newVal[0])
+          this.$emit("input", newVal[0])
         } else {
-          this.$emit("result", newVal)
+          this.$emit("input", newVal)
         }
       }
 
@@ -89,30 +91,44 @@
      
     },
     methods: {
+      
       openDialog: function () {
-        console.log(1)
+        
         let self = this;
-        if (self.list.length == 0) {
+        if (!self.dataList || self.dataList.length == 0) {
+          self.list = new Array();
           let func = self.search();
           func.then(function (result) {
-            console.log(self.value)
-            console.log(self.text)
             if (result.result) {
               self.list = [];
               for (let item of result.content) {
-
-                self.list.push({ value: item[self.value], text: item[self.text] })
+                self.list.push({ value: item[self.val], text: item[self.text] })
               }
-
             }
-
           })
-          
+
+        }
+        else {
+          for (let item of self.dataList) {
+            self.list.push({ value: item[self.val], text: item[self.text] })
+          }
         }
         self.isBlock = true;
       },
       choose: function (obj) {
         let self = this;
+        if (self.multiSelected) {
+          self.chooseMulti(obj);
+        } else {
+          self.chooseSingle(obj);
+        }
+      },
+
+      chooseMulti: function (obj) {
+        let self = this;
+        if (!self.selectedValues) {
+          self.selectedValues = new Array();
+        }
         if (self.selectedValues.indexOf(obj.value) >= 0) {
           self.selectedValues.splice(self.selectedValues.indexOf(obj.value), 1)
           self.selectedTexts.splice(self.selectedTexts.indexOf(obj.text), 1)
@@ -122,14 +138,37 @@
           self.selectedTexts.push(obj.text);
         }
       },
+      chooseSingle: function (obj) {
+        let self = this;
+        if (!self.selectedValues) {
+          self.selectedValues = '';
+        }
+        if (self.selectedValues== obj.value) {
+          self.selectedValues = '';
+          self.selectedTexts = [];
+
+        } else {
+          self.selectedValues=obj.value;
+          self.selectedTexts=[obj.text];
+        }
+        self.isBlock = false;
+      },
+
       isChoice: function (obj) {
         let self = this;
-        return self.selectedValues.indexOf(obj.value) >= 0;
-       
+        if (!self.selectedValues) {
+          return;
+        }
+        if (self.multiSelected) {
+          return self.selectedValues.indexOf(obj.value) >= 0;
+        } else
+        {
+          return self.selectedValues == obj.value;
+        }
        
       }
     },
-    name: 'top',
+    name: 'commonFilter',
 
 
   }

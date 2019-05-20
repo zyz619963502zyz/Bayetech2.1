@@ -16,244 +16,111 @@
     </div>
     <div  >
       <div >
-        <div  id="wrapper" class="pb-30">
-          <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80" >
+        <div id="wrapper" class="pb-30">
+          <div data-v-509ef1b0="" class="fw px-30  notice_risk Mnotice_top mt-80">
             <div data-v-509ef1b0="" class="fl notice_public">
               <p data-v-509ef1b0="" class="f24  fl">出售商品无需缴纳保证金，无需扫码，切勿私下交易！</p>
             </div>
           </div>
-          <div  class="order-container bg-fff mt-174 color-000 f30 border-bottom Mmt-177">
-            <span >商品类型</span>
-            <span  style="position: absolute; top: 0.24rem; left: 2.4rem;">游戏帐号</span>
+          <div class="order-container bg-fff mt-174 color-000 f30 border-bottom Mmt-177">
+            <span>商品类型</span>
+            <span style="position: absolute; top: 0.24rem; left: 2.4rem;">游戏帐号</span>
           </div>
-          <div  class="order-container bg-fff color-000 f30 ">
-            <span >游戏区服</span>
-            <span  style="position: absolute; top: 0.24rem; left: 2.4rem;">广东区/广东1区</span>
+          <div class="order-container bg-fff color-000 f30 ">
+            <span>游戏区服</span>
+            <span style="position: absolute; top: 0.24rem; left: 2.4rem;">广东区/广东1区</span>
           </div>
-          <div  class="order-container bg-fff f30 border-bottom color-000 mt-20">
-            <span  class="span-icon-xinhao">商品标题</span>
-            <input  v-model="property.goodTitle" maxlength="20" type="text" placeholder="请勿留下联系方式" />
-          </div>
-          <div  class="order-container bg-fff border-bottom f30 color-000">
-            <span  class="span-icon-xinhao">出售价格</span>
-            <input  v-model="property.goodPrice" type="number" oninput="if(value.length>7)value=value.slice(0,7)" placeholder="请输入出售价格" />
-          </div>
-          <p  class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;">
-            <span  class="coll lh-46" @click="showContent('fees')">了解收费标准</span>
+          <div class="mt20">&nbsp;</div>
+          <textBox label="商品标题"></textBox>
+          <textBox label="出售价格"></textBox>
+
+
+          <p class="f22 mt-30 mb-30 color-999 pl-20 pr-20 p-tip" style="text-align: right;">
+            <span class="coll lh-46" @click="showContent('fees')">了解收费标准</span>
           </p>
-          <div  class="mt-20"></div>
-          <div data-v-6027fbac="" >
+          <div class="mt-20"></div>
 
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
+          <commonFilter title="角色职业" :multiSelected="false" :search="searchJob" val="ProfessionId" text="ProfessionName" v-model="property.profVal"></commonFilter>
 
-              <a data-v-6027fbac="" href="javascript:void(0);" class="aRight">
-                <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">
-                    角色职业
+          <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false" v-model="property.sex"></cardFilter>
 
-                  </span>
-                  <span data-v-6027fbac="" @click="showContent('prof')" class="danwei">{{property.profVal}} </span>
-                  <i data-v-6027fbac="" class="toRight fr"></i>
+
+          <textBox label="角色等级"></textBox>
+          <cardFilter title="QQ等级" :options="{'1to5':'QQ等级1-5级','6to10':'QQ等级6-10级','11to20':'QQ等级11-20级','21to30':'QQ等级21-30级','31to40':'QQ等级31-40级','40up':'QQ等级40级以上'}" v-model="property.qqlevelVal" :multiSelected="false"></cardFilter>
+
+          
+          <cardFilter title="QQ好友" :options="{1:'有',female:'没有'}" :multiSelected="false" v-model="property.friend"></cardFilter>
+
+
+          <cardFilter title="历史记录" :options="{1:'不存在5天封号记录',2:'存在5天封号记录',3:'存在1小时封号记录',4:'存在3小时封号记录',5:'存在3天封号记录'}" :multiSelected="false" v-model="property.friend"></cardFilter>
+
+          <div class="mt-20"></div>
+
+          <textBox label="游戏账号" v-model="property.gameAccount"></textBox>
+          <textBox label="游戏密码"></textBox>
+          <textBox label="游戏角色名"></textBox>
+          <textBox label="仓库密码"></textBox>
+
+          <p class="sec-tip">本站所有信息经过安全加密，请安心填写</p>
+
+          <div class="color-000 mt-20">
+
+            <div>
+              <div class="buyat-ease color-000 bg-fff ">
+                <div class="f32 secbuy-ease border-bottom">
+                  <em class="fl sec-text">开通安心买服务</em>
+                  <i class="sease-wenh fl ml-20"></i>
                 </div>
-              </a>
-              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-if="property.prof">
-                <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">角色职业</h1>
-                  <i data-v-5af57c0b="" @click="close('prof')" class="bomb-close"></i>
-                </div>
-                <div data-v-5af57c0b="" class="bomb-content">
-                  <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
-                    <li v-for="jobs in professionList" @click="selectLi('prof',jobs)" class="border-bottom">{{jobs}}</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div data-v-6027fbac="" >
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-
-              <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                <span data-v-6027fbac="" class="span-icon-xinhao">角色性别</span>
-              </div>
-
-              <!--性别选择-->
-              <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-                <ul data-v-f82175a2="" class="clearfix">
-                  <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','sex','man')}" @click="$chooseSingle('property','sex','man')">男</li>
-                  <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','sex','women')}" @click="$chooseSingle('property','sex','women')">女</li>
-                </ul>
-              </div>
-            </section>
-          </div>
-          <div data-v-6027fbac="" >
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32"></section>
-            <div data-v-6027fbac="" class="order-container bg-fff f30 color-000 border-bottom">
-              <span data-v-6027fbac="" class="span-icon-xinhao">角色等级</span>
-              <input data-v-6027fbac="" v-model="property.profLevel" type="text" maxlength="90" placeholder="请输入角色等级" />
-            </div>
-          </div>
-          <div data-v-6027fbac="" >
-
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              <a data-v-6027fbac="" href="javascript:;" class="aRight">
-                <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">
-                    QQ等级
-
-                  </span>
-                  <span data-v-6027fbac="" class="danwei" @click="showContent('qqlevel')">{{property.qqlevelVal}} </span>
-                  <i data-v-6027fbac="" class="toRight fr"></i>
-                </div>
-              </a>
-              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-show="property.qqlevel">
-                <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">QQ等级</h1>
-                  <i data-v-5af57c0b="" class="bomb-close" @click="close('qqlevel')"></i>
-                </div>
-                <div data-v-5af57c0b="" class="bomb-content">
-                  <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
-                    <li v-for="levels in qqlevelList" @click="selectLi('qqlevel',levels)" class="border-bottom">{{levels}}</li>
-
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div data-v-6027fbac="" >
-
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-
-              <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                <span data-v-6027fbac="" class="span-icon-xinhao">
-                  QQ好友
-
-                </span>
-                <div data-v-f82175a2="" class="new-pubilsh01 order-container bg-fff publish-type f30 fw">
-                  <ul data-v-f82175a2="" class="clearfix">
-                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','have')}" @click="$chooseSingle('property','friend','have')">有</li>
-                    <li data-v-f82175a2="" class="border fl" :class="{selected:$isChoice('property','friend','any')}" @click="$chooseSingle('property','friend','any')">没有</li>
-                  </ul>
-                </div>
-              </div>
-
-
-            </section>
-          </div>
-          <div data-v-6027fbac="" >
-
-            <section data-v-6027fbac="" data-i="选择职业" propertyid="32">
-              <a data-v-6027fbac="" href="javascript:;" class="aRight">
-                <div data-v-6027fbac="" class="order-container bg-fff f30  border-bottom ">
-                  <span data-v-6027fbac="" class="span-icon-xinhao">历史处罚记录</span>
-                  <span data-v-6027fbac="" class="danwei" @click="showContent('punish')">{{property.punishVal}} </span>
-                  <i data-v-6027fbac="" class="toRight fr"></i>
-                </div>
-              </a>
-              <div data-v-5af57c0b="" class="bottom-bomb bomb-danxuan bg-f1" v-show="property.punish">
-                <div data-v-5af57c0b="" class="bomb-title border-bottom border-top bg-fff">
-                  <h1 data-v-5af57c0b="" class="f32 color-666 text-center">历史处罚记录</h1>
-                  <i data-v-5af57c0b="" class="bomb-close" @click="close('punish')"></i>
-                </div>
-                <div data-v-5af57c0b="" class="bomb-content">
-                  <ul data-v-5af57c0b="" class="bomb-li-item bg-fff">
-                    <li v-for="punish in punishList" @click="selectLi('punish',punish)" class="border-bottom">{{punish}}</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div  class="mt-20"></div>
-          <div data-v-7a08d46c="" >
-
-            <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
-            <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
-              <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏帐号</span>
-              <input data-v-7a08d46c="" v-model="property.gameAccount" maxlength="10" type="text" placeholder="请输入游戏帐号" />
-            </div>
-          </div>
-          <div data-v-7a08d46c="" >
-            <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
-            <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
-              <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏密码</span>
-              <input data-v-7a08d46c="" v-model="property.gamePwd" maxlength="16" type="password" placeholder="请输入游戏密码" />
-            </div>
-          </div>
-          <div data-v-7a08d46c="" >
-
-            <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
-            <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
-              <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">游戏角色名</span>
-              <input data-v-7a08d46c="" v-model="property.gameProfName" maxlength="50" type="text" placeholder="请输入游戏角色名" />
-            </div>
-          </div>
-          <div data-v-7a08d46c="" >
-
-            <section data-v-7a08d46c="" data-i="选择职业" propertyid="32"></section>
-            <div data-v-7a08d46c="" class="order-container bg-fff f30  color-000 border-bottom">
-              <span data-v-7a08d46c="" class="span-icon-xinhao" style="width: 2rem; word-break: normal; white-space: pre-wrap; overflow-wrap: break-word;">仓库密码</span>
-              <input data-v-7a08d46c="" v-model="property.gameStrPwd" maxlength="50" type="password" placeholder="请输入仓库密码" />
-            </div>
-          </div>
-          <p  class="sec-tip">本站所有信息经过安全加密，请安心填写</p>
-
-          <div  class="color-000 mt-20">
-
-            <div >
-              <div  class="buyat-ease color-000 bg-fff ">
-                <div  class="f32 secbuy-ease border-bottom">
-                  <em  class="fl sec-text">开通安心买服务</em>
-                  <i  class="sease-wenh fl ml-20"></i>
-                </div>
-                <div  class="secbuy-info">
-                  <div  class="sectems f30 color-000 border-bottom">
-                    <i  class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','sixty')}" @click="$chooseSingle('property','serviceDate','sixty')"></i>
-                    <span  class="chterm fl">60天服务期限</span>
-                    <em  class="chcover fl">服务费：<i  class="color-m1">{{property.servicePrice.shortTime}}</i>元</em>
+                <div class="secbuy-info">
+                  <div class="sectems f30 color-000 border-bottom">
+                    <i class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','sixty')}" @click="$chooseSingle('property','serviceDate','sixty')"></i>
+                    <span class="chterm fl">60天服务期限</span>
+                    <em class="chcover fl">服务费：<i class="color-m1">{{property.servicePrice.shortTime}}</i>元</em>
                   </div>
-                  <div  class="sectems f30 color-000 border-bottom">
-                    <i  class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','eighteen')}" @click="$chooseSingle('property','serviceDate','eighteen')"></i>
-                    <span  class="chterm fl">180天服务期限</span>
-                    <em  class="chcover fl">服务费：<i  class="color-m1">{{property.servicePrice.longTime}}</i>元</em>
+                  <div class="sectems f30 color-000 border-bottom">
+                    <i class="chrd-xms fl" :class="{'chrd-xms-hov':$isChoice('property','serviceDate','eighteen')}" @click="$chooseSingle('property','serviceDate','eighteen')"></i>
+                    <span class="chterm fl">180天服务期限</span>
+                    <em class="chcover fl">服务费：<i class="color-m1">{{property.servicePrice.longTime}}</i>元</em>
                   </div>
-                  <div  class="sectems f30 color-000 border-bottom">
-                    <i  class="chrd-xms fl " :class="{'chrd-xms-hov':$isChoice('property','serviceDate','not')}" @click="$chooseSingle('property','serviceDate','not')"></i>
-                    <span  class="chterm fl">不开通</span>
-                    <em  class="chcover fl">服务费：<i  class="color-m1">0.00</i>元</em>
+                  <div class="sectems f30 color-000 border-bottom">
+                    <i class="chrd-xms fl " :class="{'chrd-xms-hov':$isChoice('property','serviceDate','not')}" @click="$chooseSingle('property','serviceDate','not')"></i>
+                    <span class="chterm fl">不开通</span>
+                    <em class="chcover fl">服务费：<i class="color-m1">0.00</i>元</em>
                   </div>
                 </div>
               </div>
-              <div  class="buyat-tips pt-15">
-                <div  class="sec-text pr-20 color-999">
-                  <p  class="f22"><i  class="p-icon-red-tip fl"></i>90%以上的用户更愿意购买开通安心买服务的商品！(卖出后收费)</p>
+              <div class="buyat-tips pt-15">
+                <div class="sec-text pr-20 color-999">
+                  <p class="f22"><i class="p-icon-red-tip fl"></i>90%以上的用户更愿意购买开通安心买服务的商品！(卖出后收费)</p>
                 </div>
               </div>
             </div>
           </div>
-          <div  class="mt-20 order-container color-000 bg-fff">
-            <span  class="f32 sec-buy-server">快捷发布</span>
-            <div  class=" f30">
-              <span  class="sec-price f36 color-999" :class="{'color-m1':property.rapidChecked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
-              <span  class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
-              <div  class="button-switch fr">
-                <label  class="label-switch">
-                  <input  type="checkbox" id="label-switch" @click="shortcut($event)" /><!--v-model="checkNames"-->
-                  <div  class="checkbox"></div>
+          <div class="mt-20 order-container color-000 bg-fff">
+            <span class="f32 sec-buy-server">快捷发布</span>
+            <div class=" f30">
+              <span class="sec-price f36 color-999" :class="{'color-m1':property.rapidChecked}"> ￥{{property.rapidPrice}}</span><!--:class="{color-m1:!checkNames}"-->
+              <span class="f28 pl-30 color-333">专业客服帮您截图，商品更易出售</span>
+              <div class="button-switch fr">
+                <label class="label-switch">
+                  <input type="checkbox" id="label-switch" @click="shortcut($event)" /><!--v-model="checkNames"-->
+                  <div class="checkbox"></div>
                 </label>
               </div>
             </div>
-            <div  class="sec-text mt-10 color-999">
-              <p  class="f22"><i  class="p-icon-red-tip fl"></i> 不用传图，轻松出售（卖出后收费） </p>
+            <div class="sec-text mt-10 color-999">
+              <p class="f22"><i class="p-icon-red-tip fl"></i> 不用传图，轻松出售（卖出后收费） </p>
             </div>
           </div>
           <div class="new-pubilsh01 order-container bg-fff f30 fw color-000 mt-20 ">
             <span data-v-484bcaae="" class="span-icon-xinhao color-333">游戏截图</span>
             <fileUpload></fileUpload>
           </div>
-          <div  class="release mt-20  trlect-btn" style="text-align: left;">
-            <p  class="f22 color-m1"> 为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟4天打款，此期间请勿修改帐号资料，否则将会号财两空。 </p>
+          <div class="release mt-20  trlect-btn" style="text-align: left;">
+            <p class="f22 color-m1"> 为保障地下城与勇士帐号交易安全，您出售的帐号将进行延迟4天打款，此期间请勿修改帐号资料，否则将会号财两空。 </p>
           </div>
-          <div  class="release mt-30  trlect-btn">
-            <a  class="next"><input  @click="nextStep()" type="button" name="" value="下一步" class="bg-f54 " /></a>
+          <div class="release mt-30  trlect-btn">
+            <a class="next"><input @click="nextStep()" type="button" name="" value="下一步" class="bg-f54 " /></a>
           </div>
         </div>
         <div  class="pb-200" style="display: none;">
@@ -405,6 +272,9 @@
   import "@/assets/content/css/style-min.css";
   import "@/assets/css/goodsPublish_account.css";
   import fileUpload from '@/components/FileUpload.vue'
+  import textBox from '@/components/filter/textBox.vue'
+  import cardFilter from '@/components/filter/cardFilter.vue'
+  import commonFilter from '@/components/filter/commonFilter.vue'
   //import router from "vue-router";
   import { ProfessionData, qqlevelData, punishData} from "@/testdata/Data.js";
 
@@ -465,10 +335,18 @@
     this.getPunishList();
   },
   components: {
-      
-      fileUpload: fileUpload
+      textBox:textBox,
+    fileUpload: fileUpload,
+    cardFilter: cardFilter,
+    commonFilter: commonFilter
     },
-    methods:{
+    methods: {
+      //搜索职业列表
+      searchJob: function () {
+        return this.$get("/web/api/GoodInfo/GetProfessions", {
+          gameid: 1
+        })
+      },
       //展示遮罩层以及ul
       showContent: function (options) {
         //debugger;
