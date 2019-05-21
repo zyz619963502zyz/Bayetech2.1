@@ -47,7 +47,11 @@
     } ,
 
     watch: {
-    
+      selectedValues: function (newVal) {
+       
+          this.$emit("input", newVal)
+        
+      }
 
       
     },
@@ -77,7 +81,7 @@
       
 
         } else {
-          self.selectedValues.push(obj);
+          self.selectedValues.push(value);
         
         }
       },

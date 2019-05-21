@@ -49,7 +49,7 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
                     }
-                    if (goodInfo.Gender != null ) //性别 
+                    if (!string.IsNullOrEmpty(goodInfo.Gender)  ) //性别 
                     {
                         expression = expression.And(t => t.Gender == goodInfo.Gender);
                     }
@@ -109,7 +109,7 @@ namespace Bayetech.Service
                         }
                         if (goodInfo.MaxPrice != null)//最高价格
                         {
-                            expression = expression.And(t => t.GoodPrice >= goodInfo.MaxPrice);
+                            expression = expression.And(t => t.GoodPrice <= goodInfo.MaxPrice);
                         }
                         if (goodInfo.ProfessionCodes != null && goodInfo.ProfessionCodes.Where(c=>c!="1").Count()>0)//1代表的是全职业的情况
                         {
