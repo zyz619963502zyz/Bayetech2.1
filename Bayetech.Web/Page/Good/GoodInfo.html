@@ -10,7 +10,7 @@
     <!--需要被替换的部分-->
     <link href="../../Content/CommonCss/common-2016.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/xqgd.css" rel="stylesheet" />
-    <link href="../../Content/CommonCss/photoswipe.css" rel="stylesheet" />
+    <link href="../../Content/swiper/swiper.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/default-skin.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/details.css" rel="stylesheet" />
     <link href="../../Content/CommonCss/layer.css" rel="stylesheet" />
@@ -22,6 +22,7 @@
     <link href="../../Content/common.css" rel="stylesheet" />
     <link href="../../Content/good_info.css" rel="stylesheet" />
     <!--改写js-->
+    <script src="../../Scripts/swiper.js"></script>
     <script src="../../Scripts/require.js"></script>
     <script src="../../Scripts/jsconfig.js"></script>
     <script src="../../Scripts/app/GoodInfo/index.js"></script>
@@ -44,109 +45,15 @@
                     <ordergoodinfo></ordergoodinfo>
                     <!--物品信息模板-->
                 </div>
+                <!--购买流程图片-->
                 <div class="buy-step">
                     <div class="buy-step-con">
                         <img src="../../Content/Images/stepsell.jpg" />
                     </div>
                 </div>
 
-                <div class="account-info w1190">
-                    <div class="tab-account">
-                        <ul>
-                            <li class="on">商品详情</li>
-                        </ul>
-                    </div>
-                    <div class="account-detail">
-                        <div class="account-outline">
-                            <h2><span>商品描述</span></h2>
-                        </div>
-                        <div class="account-desc">
-                            <p>
-                                《蛋总专卖》多年账号销售！量大请搜索《蛋总专卖》。最平价的账号，最好的质量！所有账号均有找回包赔服务！已向平台缴付押金，请亲们放心购买。交易时间8:00-凌晨1:00，看到就会处理
-
-                            </p>
-                        </div>
-                        <div class="account-outline">账号截图</div>
-                        <div class="account-pic">
-                            <div class="cut-type">
-                                <div class="hd"><a class="prev prevStop"></a><a class="next nextStop"></a></div>
-                                <div class="bd">
-                                    <ul id="typecho"><li class="on" data-id="0">角色选择</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mod18">
-                            <div class="preloading" style="display: none;"><img src="../../Content/Images/loading-2.gif" /></div>
-                            <span id="prev" class="btn prev"></span> <span id="next" class="btn next"></span>
-                            <span id="prevTop" class="btn prev"></span> <span id="nextTop" class="btn next"></span>
-                            <div id="picBox" class="picBox">
-                                <div id="picgd" class="cf demo-gallery" data-pswp-uid="1" style="left: 0px; width: 2040px;">
-                                    <a href="./账号查看_files/b123f30809434931a6e623fad7b166cf(1).png" data-size="800x600">
-                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" />
-                                    </a><a href="./账号查看_files/b50c668b1a0549cc84dbeaeac6003826.png" data-size="800x600">
-                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div id="listBox" class="listBox">
-                                <ul class="cf" style="left: 0px; width: 230px;">
-                                    <li class="on">
-                                        <i class="arr2"></i>
-                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" />
-                                    </li>
-                                    <li>
-                                        <i class="arr2"></i>
-                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png" />
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="pswp__bg"></div>
-                            <div class="pswp__scroll-wrap">
-                                <div class="pswp__container">
-                                    <div class="pswp__item"></div>
-                                    <div class="pswp__item"></div>
-                                    <div class="pswp__item"></div>
-                                </div>
-                                <div class="pswp__ui pswp__ui--hidden">
-                                    <div class="pswp__top-bar">
-                                        <div class="pswp__counter"></div>
-                                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                                        <div class="pswp__preloader">
-                                            <div class="pswp__preloader__icn">
-                                                <div class="pswp__preloader__cut">
-                                                    <div class="pswp__preloader__donut"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                                    <div class="pswp__caption">
-                                        <div class="pswp__caption__center"> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="open-price-win">
-                    <div class="tk-pr-clo">
-                        <a href="javascript:void(0)">
-                            <img src="../../Content/Images/tk-pr-close.png" />
-                        </a>
-                    </div>
-                    <div class="pr-win-zhu">
-                        <p>联系客服<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2850662312&amp;site=qq&amp;menu=yes" target="_blank">QQ（2850662312）</a><br>让客服妹子来帮你砍价吧！</p>
-                        <h3><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2850662312&amp;site=qq&amp;menu=yes" target="_blank">联系妹子</a></h3>
-                    </div>
-                </div>
-            </div>
-
-        <div id="gamePrintScreenDTOList" style="display: none">[{"typeName":"角色选择","urlList":["http://userimg.7881.com/goods/111675301/2017-10-30/b123f30809434931a6e623fad7b166cf.png","http://userimg.7881.com/goods/111675301/2017-10-30/b50c668b1a0549cc84dbeaeac6003826.png"],"sort":1}]</div>
+                <!--图片轮播页面(详情页)-->
+                <ordergoodpic></ordergoodpic>
 
         <!-- 通用底部 Start -->
         <v-foot></v-foot>

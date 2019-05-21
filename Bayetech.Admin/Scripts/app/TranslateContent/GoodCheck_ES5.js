@@ -384,7 +384,7 @@ var comCompnent = {
                         return page;
                 }
             },
-            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
+            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total == 0 ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
             pageUrl: function (type, page) {
                 return null;
             },
