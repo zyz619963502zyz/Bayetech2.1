@@ -124,7 +124,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 <div class ="selldata">
                     <p>成交订单：<span>{{TotalNum}}笔</span></p>
                     <p>取消订单：<span>{{CancelNum}}笔</span></p>
-                    <p>成交概率：<span>{{(parseFloat((TotalNum-CancelNum) /TotalNum*100)).toFixed(2) }}%  </span></p>
+                    <p>成交概率：<span>{{(parseFloat((TotalNum-CancelNum) /TotalNum*100)).toFixed(2)}}%  </span></p>
                 </div>
                 </div>
             </div>

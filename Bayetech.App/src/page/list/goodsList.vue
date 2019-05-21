@@ -367,7 +367,8 @@
       GoodKeyWord: "", //关键字
       AcrossId: 0, //跨区Id
       AcrossName: "跨区",
-      ProfessionCodes:[]
+      ProfessionCodes: [],
+      Gender: ""
     }
     
   };
