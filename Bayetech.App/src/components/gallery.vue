@@ -9,13 +9,12 @@
       </div>
       <div class="swiper-wrapper">
         <!--<div class="swiper-slide" v-for="item in imgList">
-        <img :src="item"/>
-    </div>-->
+            <img :src="item"/>
+        </div>-->
         <div class="swiper-slide" v-for="img in imgList">
           <span>{{img}}</span>
           <img :src="img" alt="Alternate Text" />
         </div>
-    
       </div>
       <div class="swiper-pagination"></div>
     </div>
