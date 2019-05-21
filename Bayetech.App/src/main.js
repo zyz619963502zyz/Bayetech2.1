@@ -5,9 +5,12 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import mui from './assets/scripts/mui.min.js'
 import "@/assets/css/accountlist.css";
+import "@/assets/css/mui.min.css";
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.mui = mui
 
 Vue.prototype.$SearchModel={
     GameId: 0,
