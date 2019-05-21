@@ -144,7 +144,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
             //点击
             self.$root.$on("GetListData", function (data) {
                 if (data) {
-                    self.SearchParam.Param[data.key] = data.value;
+                    self.SearchParam.Param = data
                     self.findList();
                 }
             });

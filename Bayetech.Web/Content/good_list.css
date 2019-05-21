@@ -42,18 +42,25 @@
     position: relative;
     width: 94px;
     padding: 3px 0;
-    padding-left: 20px;
+    padding-left: 15px;
     height: auto;
     margin-right: 15px;
 }
-.slobar-02 {
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-    border: #e8e8e8 1px solid;
-    border-top: 1px solid transparent;
-    background: #fbfbfb;
-}
+    .screen-item .sl-body ul li.active a span.text {
+        background-color: #0b7bea;
+        color: #fff;
+    }
+    .screen-item .sl-body ul li a span.text {
+        padding: 3px 10px;
+    }
+    .slobar-02 {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        border: #e8e8e8 1px solid;
+        border-top: 1px solid transparent;
+        background: #fbfbfb;
+    }
 .slobar-02 .sch .common-input{
     width:155px;
 }

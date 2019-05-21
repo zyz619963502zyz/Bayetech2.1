@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Gourps">
                                     <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain('GameGroupId',item.Id)">{{item.Name}}</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain('GameGroupId',item.Id,$event)">{{item.Name}}</span>
                                     </a>
                                 </li> 
 
@@ -42,13 +42,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)" title="男"  @click="GetSearchAgain('isset','male')">
+                                    <a href="javascript:void(0)" title="男"  @click="GetSearchAgain('isset','male',$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="男" unFixKey="50233">男</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" title="女" @click="GetSearchAgain('isset','female')">
+                                    <a href="javascript:void(0)" title="女" @click="GetSearchAgain('isset','female',$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="女" unFixKey="50233">女</span>
                                     </a>
@@ -73,7 +73,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',item.ProfessionId)" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',item.ProfessionId,$event)" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -93,13 +93,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)"   @click="GetSearchAgain('isset',0)">
+                                    <a href="javascript:void(0)"   @click="GetSearchAgain('isset',0,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证未设置</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"  @click="GetSearchAgain('isset',1)">
+                                    <a href="javascript:void(0)"  @click="GetSearchAgain('isset',1,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证已设置</span>
                                     </a>
@@ -116,7 +116,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Levels">
                                     <a href="javascript:void(0)" title="QQ等级">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.key"  @click="GetSearchAgain('QQLv',item.key)" :key="item.key">{{item.Value}}</span>
+                                        <span class ="text" :value="item.key"  @click="GetSearchAgain('QQLv',item.key,$event)" :key="item.key">{{item.Value}}</span>
                                     </a>
                                 </li>
 
@@ -129,13 +129,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',1)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',1,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">有QQ好友</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',0)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',0,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">无QQ好友</span>
                                     </a>
@@ -157,11 +157,11 @@ define(jsconfig.baseArr, function (Vue, $, common) {
             Param: eval('(' + localStorage.SearchParam + ')'),
         },
         ProfessionCodes: [],//参数职业多选
-
         Gourps: [{}],
         Severs: [],
         Professions: [],//取值结果集
-        Levels:[]
+        Levels: [],
+        CheckData: {},//选中的对象集合
     };
 
     var ScreenCompnent={
@@ -197,25 +197,31 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                     self.Levels = data.content;
                 });
             },
-            GetSearchAgain(key, val) {//条件增加重新搜索
+            GetSearchAgain(key, val,event) {//条件增加重新搜索
                 var self = this;
-                var data = {};
-                data.key = key;
                 if (key == "ProfessionCodes") {
                     if (self.ProfessionCodes.filter(c => c == val) > 0) {
                         self.ProfessionCodes = self.ProfessionCodes.filter(c => c != val);
-                        //该行样式变成active的选中状态 todo 振宇
+                        $(event.target).parents("li").removeClass("active");
                     } else {
+                        $(event.target).parents("li").addClass("active");
                         self.ProfessionCodes.push(val);
-                        //改行样式去掉选中状态 todo 振宇
                     }
-                    data.value = self.ProfessionCodes;
+                    self.CheckData[key] = self.ProfessionCodes;
                 } else {
-                    data.value = val;
+                    //if (self.CheckData[key] == "" || self.CheckData[key] == undefined) {
+                    //    $(event.target).parents("li").addClass("active");
+                    //    self.CheckData[key] = val;//置空
+                    //} else {    
+                    //    $(event.target).parents("li").removeClass("active");
+                    //    self.CheckData[key] = "";
+                    //}
+
+                    self.CheckData[key] = val;
+                    $(event.target).parents("li").addClass("active");
+                    $(event.target).parents("li").siblings().removeClass("active");
                 }
-              
-                data.ProfessionCodes = self.ProfessionCodes;
-                self.$root.$emit('GetListData', data);
+                self.$root.$emit('GetListData', self.CheckData);
             },
             SetQQLevel() {//设置等级
 
