@@ -13,8 +13,8 @@ module.exports = {
     proxyTable: {
       '/web': {
       
-          target: 'http://47.98.176.184/',
-            // target: 'http://localhost/Bayetech.Web/',
+         //   target: 'http://47.98.176.184/',
+        target: 'http://localhost:15786/',
             changeOrigin: true,
             pathRewrite: {
                 '^/web':'/'

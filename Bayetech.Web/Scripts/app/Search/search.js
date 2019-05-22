@@ -171,6 +171,7 @@ define(["common", "search-dropdown"], function (common, dropdown) {
                         TargetUrl = "";
                         break;
                     default:
+                        TargetUrl = encodeURI(`${common.GetBaseUrl()}Good/GoodList.html`);
                         break;
                 }
                 return TargetUrl;
@@ -179,10 +180,10 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             search: function () {
                 var self=this;
                 var _type=common.GetSearchType();//获取页面的类型。
-                var TargetUrl = self.GetTurnPageType();
-                localStorage.SearchParam=JSON.stringify(this.Param);
+                var TargetUrl = self.GetTurnPageType();//获取URL
+                localStorage.SearchParam=JSON.stringify(this.Param);//保存参数
                 if (TargetUrl!=="") {
-                    window.open(TargetUrl);
+                    window.open(TargetUrl);//跳转
                 } else {
                    self.$root.$emit("SearchAgain",_type);//兄弟组件通信方式。
                 }
@@ -203,9 +204,8 @@ define(["common", "search-dropdown"], function (common, dropdown) {
             setData: function (type,pid,self) {
                 common.getWebJson("/api/Search/GetData", { type: type, id: pid, serviceType: (self.DL ? 4 : 1) }, function (data) {
                     if (data && data.List) {
-                        data.List.unshift({ Id: "", Name:"全部"})
+                        data.List.unshift({ Id: "", Name: "全部" });
                     }
-                    
                     self.DropdownData = data;
                 });
             },

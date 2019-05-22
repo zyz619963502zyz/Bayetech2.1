@@ -50,11 +50,11 @@ img{display:inline-block;}
 .e15{font-size:1.5em;}
 .e16{font-size:1.6em;}
 .e20{font-size:2em;}
-/*font-weight*/
+.w100{width:100%;}
 .fb600{font-weight:600;}
 .fb700{font-weight:700;}
 .fb800{font-weight:800;}
-/*cursor:pointer*/
+
 .pointer{cursor:pointer;}
 /*border 
  *base-color:#ccc
@@ -135,7 +135,7 @@ img{display:inline-block;}
 .gs_list li:before{content:"";position: absolute;border-left: 4px solid #3b83e8;border-top: 4px solid transparent;border-bottom: 4px solid transparent;top: 35%;left: 0;}
 .gs_list a {overflow:hidden;padding:0 5px;color:#333;display:inline-block;background-color:#fff;}
 .gs_list a.hot {color:#ff4e00;}
-.gs_list a:hover {text-decoration:underline;color: #1ea5ff;}
+.gs_list a:hover {text-decoration:none;color: #1ea5ff;}
 
 .gs_list .f_f60 {color:#f60;}
 .gs_search_item {position:relative;z-index:999;}
@@ -156,7 +156,7 @@ img{display:inline-block;}
 .gs_sort .drop_search_input > input {padding:0 10px;font-size:12px;font-family:\5b8b\4f53;width:200px;height:26px;}
 .gs_sort .drop_search_input > input::-webkit-input-placeholder {color:#777;}
 .gs_sort li a {color:#fff;padding:0 30px;display:block;line-height:32px;}
-.gs_sort li a:hover {text-decoration:underline;}
+.gs_sort li a:hover {text-decoration:none;}
 .gs_sort li.active a {background-color:#FFF;color:#1ea5ff;font-weight:bolder;}
 /*serach end*/
 
@@ -222,7 +222,12 @@ img{display:inline-block;}
 .yx-footer a,.yx-footer div,.yx-footer h1,.yx-footer h2,.yx-footer h3,.yx-footer h4,.yx-footer h5,.yx-footer li,.yx-footer ol,.yx-footer p,.yx-footer ul {margin:0;padding:0;}
 .yx-footer ol,.yx-footer ul {list-style:none;}
 .yx-footer .yx-footer-layout {margin:0 auto;}
-.yx-footer .yx-footer-links {height:64px;line-height:64px;border-bottom:1px solid #b3d1e6;}
+    .yx-footer .yx-footer-layout .app img{width:100px;}
+    .yx-footer .yx-footer-links {
+        height: 64px;
+        line-height: 64px;
+        border-bottom: 1px solid #b3d1e6;
+    }
 .yx-footer .yx-footer-links .yx-footer-gotop {display:block;float:right;width:40px;height:40px;margin-top:12px;text-align:center;line-height:40px;}
 .yx-footer .yx-footer-links .yx-footer-gotop > i {font-size:40px;color:#fff;}
 .yx-footer .yx-footer-links ul li,.yx-footer .yx-footer-main ul.yx-links li {float:left;display:block;}
@@ -270,12 +275,21 @@ img{display:inline-block;}
 .yx-copyright .en {font-family:Arial;}
 .yx-copyright a {color:#333;text-decoration:none;}
 .yx-copyright a:hover {color:#3b83e8;text-decoration:underline;}
-
+.yx-copyright .age-warning {
+        color: #f75311;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .yx-copyright .notice-warn {
+        font-weight: bold;
+        font-size: 14px;
+    }
 /*=====end footer======*/
-
-
 /*----部分bootstrap重写和添加专区----*/
-.form-group .form-control:focus{box-shadow:none;border-color:#3d86ea;}
+.form-group .form-control:focus {
+    box-shadow: none;
+    border-color: #3d86ea;
+}
 .form-group-xs .form-control {height: 26px;padding: 3px 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;}
 .form-group-xs select.form-control, .form-group-xs input.form-control{height: 26px;line-height: 26px;}
 .form-group-xs .btn-xs{padding:3px 8px;}

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 53);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -386,7 +386,7 @@ var comCompnent = {
                         return page;
                 }
             },
-            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
+            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total == 0 ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
             pageUrl: function (type, page) {
                 return null;
             },
@@ -454,7 +454,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10046,11 +10046,11 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 27:
+/***/ 29:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_script_lang_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_script_lang_js__ = __webpack_require__(18);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_script_lang_js__["a" /* default */]); 
 
@@ -10155,56 +10155,6 @@ function normalizeComponent (
   }
 }
 
-
-/***/ }),
-
-/***/ 37:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__ = __webpack_require__(27);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
-
-
-
-
-
-/* normalize component */
-
-var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
-  __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["b" /* staticRenderFns */],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
-  api.install(require('vue'))
-  if (api.compatible) {
-    module.hot.accept()
-    if (!module.hot.data) {
-      api.createRecord('186af22d', component.options)
-    } else {
-      api.reload('186af22d', component.options)
-    }
-    module.hot.accept("./table-GameSet.vue?vue&type=template&id=186af22d&lang=html", function () {
-      api.rerender('186af22d', {
-        render: render,
-        staticRenderFns: staticRenderFns
-      })
-    })
-  }
-}
-component.options.__file = "Scripts\\components\\table-GameSet.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 
@@ -10866,6 +10816,56 @@ component.options.__file = "Scripts\\components\\table-GameSet.vue"
 
 /***/ }),
 
+/***/ 40:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__ = __webpack_require__(29);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
+
+
+
+
+
+/* normalize component */
+
+var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__table_GameSet_vue_vue_type_script_lang_js__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('186af22d', component.options)
+    } else {
+      api.reload('186af22d', component.options)
+    }
+    module.hot.accept("./table-GameSet.vue?vue&type=template&id=186af22d&lang=html", function () {
+      api.rerender('186af22d', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "Scripts\\components\\table-GameSet.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+
 /***/ 5:
 /***/ (function(module, exports) {
 
@@ -11057,7 +11057,7 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11065,7 +11065,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_GameSet_vue__ = __webpack_require__(40);
 
 
 
@@ -11503,11 +11503,11 @@ new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
 
 /***/ }),
 
-/***/ 62:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__ = __webpack_require__(77);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_GameSet_vue_vue_type_template_id_186af22d_lang_html__["b"]; });
 
@@ -11576,7 +11576,7 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 
 /***/ }),
 
-/***/ 72:
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -29,7 +29,6 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <div class ="slobar-02 clearfix">
@@ -108,7 +107,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 aurl: "",
                 GoodTitle: "",
                 GroupName: "",
-                ServerName: "",
+                ServerName: "", 
                 GoodPrice: ""
             }
         ],
@@ -122,7 +121,7 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 records: 10,//总记录数
                 total: 10//总页数。
             }
-        },
+        }
     }
 
     //中间模板
@@ -141,7 +140,14 @@ define(jsconfig.baseArr, function (Vue, $, common, paginator) {
                 if (_type=="NewIndex"||type == "GoodList") {
                     self.findList();
                 }
-            }); 
+            });
+            //点击
+            self.$root.$on("GetListData", function (data) {
+                if (data) {
+                    self.SearchParam.Param = data
+                    self.findList();
+                }
+            });
         },
         methods: {
             findList() {

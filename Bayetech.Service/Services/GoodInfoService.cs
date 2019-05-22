@@ -7,6 +7,7 @@ using Bayetech.Core;
 using System.Linq.Expressions;
 using System;
 
+
 namespace Bayetech.Service
 {
     public class GoodInfoService : BaseService<vw_MallGoodMainInfo>, IGoodInfoService
@@ -16,13 +17,13 @@ namespace Bayetech.Service
         /// </summary>
         /// <param name="goodInfo"></param>
         /// <returns></returns>
-        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo, DateTime? StartTime, DateTime? EndTime, Pagination page)
+        public JObject GetGoodList(vw_MallGoodMainInfo goodInfo,  Pagination page)
         {
             using (var db = new RepositoryBase())
             {
                 JObject ret = new JObject();
                 PaginationResult<List<vw_MallGoodMainInfo>> ResultPage = new PaginationResult<List<vw_MallGoodMainInfo>>();
-                Expression<Func<vw_MallGoodMainInfo, bool>> expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
+                var expression = PredicateExtensions.True<vw_MallGoodMainInfo>();
                 if (goodInfo != null)
                 {
                     if (!string.IsNullOrEmpty(goodInfo.GoodNo))
@@ -47,6 +48,18 @@ namespace Bayetech.Service
                     if (goodInfo.GoodTypeId != null && goodInfo.GoodTypeId > 0) //类型Id 
                     {
                         expression = expression.And(t => t.GoodTypeId == goodInfo.GoodTypeId);
+                    }
+                    if (!string.IsNullOrEmpty(goodInfo.Gender)  ) //性别 
+                    {
+                        expression = expression.And(t => t.Gender == goodInfo.Gender);
+                    }
+                    if (goodInfo.HasQQFriend != null) //是否有QQ好友 
+                    {
+                        expression = expression.And(t => t.HasQQFriend == goodInfo.HasQQFriend);
+                    }
+                    if (goodInfo.HasIdSealedRecord != null) //是否有封禁记录 
+                    {
+                        expression = expression.And(t => t.HasIdSealedRecord == goodInfo.HasIdSealedRecord);
                     }
                     if (goodInfo.Stock != null && goodInfo.Stock>0) //库存
                     {
@@ -75,14 +88,39 @@ namespace Bayetech.Service
                     {
                         expression = expression.And(t => t.Status == "PutOnsale");//默认不传的情况下查询所有的上架商品
                     }
-                    if (StartTime != null && !string.IsNullOrEmpty(StartTime.ToString()))//开始时间
+                    if (goodInfo != null)
                     {
-                        expression = expression.And(t => t.AddTime >= StartTime);
-                    }
-                    if (EndTime != null && !string.IsNullOrEmpty(EndTime.ToString()))//结束时间
-                    {
-                        expression = expression.And(t => t.AddTime <= EndTime);
-                    }
+                        if (goodInfo.startTime != null )//开始时间
+                        {
+                            expression = expression.And(t => t.AddTime >= goodInfo.startTime);
+                        }
+                        if (goodInfo.endTime != null )//结束时间
+                        {
+                            expression = expression.And(t => t.AddTime <= goodInfo.endTime);
+                        }
+                        if (!string.IsNullOrEmpty(goodInfo.QQLv))//QQ等级 6to10
+                        {
+                            expression = expression.And(t => t.QQLv == goodInfo.QQLv);
+ 
+                        }
+                        if (goodInfo.MinPrice != null)//最低价格
+                        {
+                            expression = expression.And(t => t.GoodPrice >= goodInfo.MinPrice);
+                        }
+                        if (goodInfo.MaxPrice != null)//最高价格
+                        {
+                            expression = expression.And(t => t.GoodPrice <= goodInfo.MaxPrice);
+                        }
+                        if (goodInfo.ProfessionCodes != null && goodInfo.ProfessionCodes.Where(c=>c!="1").Count()>0)//1代表的是全职业的情况
+                        {
+                            Expression<Func<vw_MallGoodMainInfo, bool>> expression2 = PredicateExtensions.False<vw_MallGoodMainInfo>();
+
+                            expression2 = expression2.Or(t =>  goodInfo.ProfessionCodes.Contains(t.ProfessionCode1))
+                                .Or(t => goodInfo.ProfessionCodes.Contains(t.ProfessionCode2))
+                                .Or(t => goodInfo.ProfessionCodes.Contains(t.ProfessionCode3));
+                            expression = expression.And(expression2);
+                        }
+                    }                   
                 }
                 var query = db.FindList(page ?? Pagination.GetDefaultPagination("GoodNo"), out page, expression);
 
@@ -94,16 +132,8 @@ namespace Bayetech.Service
                     ResultPage.pagination = page;
                 }
 
-                if (ResultPage.datas.Count>0)
-                {
-                    ret.Add(ResultInfo.Result, true);
-                    ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
-                }
-                else
-                {
-                    ret.Add(ResultInfo.Result, false);
-                    ret.Add(ResultInfo.Content, JToken.FromObject(Properties.Resources.Reminder_NoInfo));
-                }
+                ret.Add(ResultInfo.Result, true);
+                ret.Add(ResultInfo.Content, JToken.FromObject(ResultPage));
                 return ret;
             }
         }

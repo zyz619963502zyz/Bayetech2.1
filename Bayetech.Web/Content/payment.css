@@ -1,0 +1,1037 @@
+﻿@charset"UTF-8";
+body {
+    background: #f5f5f5;
+}
+
+.header-02-box.boxshadow {
+    box-shadow: 0px 1px 10px rgba(0,0,0,.1);
+}
+
+    .header-02-box.boxshadow h3 {
+        float: right;
+        height: 54px;
+        line-height: 54px;
+        margin-top: 25px;
+        font-family: "microsoft yahei";
+    }
+
+        .header-02-box.boxshadow h3 a {
+            font-size: 16px;
+            font-weight: lighter;
+            color: #333;
+        }
+
+            .header-02-box.boxshadow h3 a:hover {
+                color: #3399ff;
+            }
+
+        .header-02-box.boxshadow h3 em {
+            color: #e9e9e9;
+            padding: 0 15px;
+        }
+
+.panel-body {
+    width: 100%;
+    min-width: 1190px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.main-con {
+    width: 1190px;
+    margin: 0 auto;
+    font-family: "microsoft yahei";
+}
+
+.waitpay-info {
+    background: #fff;
+    padding: 36px 67px;
+    overflow: hidden;
+}
+
+    .waitpay-info .waitpay-top {
+        overflow: hidden;
+    }
+
+        .waitpay-info .waitpay-top .waitleft {
+            float: left;
+        }
+
+            .waitpay-info .waitpay-top .waitleft h3 {
+                font-size: 28px;
+                color: #333;
+                font-weight: lighter;
+                line-height: 53px;
+            }
+
+            .waitpay-info .waitpay-top .waitleft p {
+                font-size: 16px;
+                color: #aaa;
+            }
+
+                .waitpay-info .waitpay-top .waitleft p span {
+                    color: #ff6700;
+                    padding: 0 5px;
+                }
+
+        .waitpay-info .waitpay-top .waitright {
+            float: right;
+        }
+
+            .waitpay-info .waitpay-top .waitright h3 {
+                font-size: 14px;
+                color: #333;
+            }
+
+                .waitpay-info .waitpay-top .waitright h3 span {
+                    color: #ff6700;
+                    padding: 0 5px;
+                    font-size: 30px;
+                    line-height: 53px;
+                }
+
+                .waitpay-info .waitpay-top .waitright h3 em {
+                    color: #ff6700;
+                }
+
+            .waitpay-info .waitpay-top .waitright p {
+                text-align: right;
+                font-size: 14px;
+            }
+
+                .waitpay-info .waitpay-top .waitright p a {
+                    background: url(../../images/cashier/darrow.png) no-repeat right center;
+                    padding-right: 14px;
+                    color: #333;
+                }
+
+                    .waitpay-info .waitpay-top .waitright p a.up {
+                        background: url(NewImages/uarrow.png) no-repeat right center;
+                    }
+
+    .waitpay-info .waitpay-bot {
+        border-top: 1px solid #efefef;
+        margin-top: 36px;
+        padding-top: 30px;
+        display: none;
+    }
+
+        .waitpay-info .waitpay-bot p {
+            line-height: 30px;
+            color: #666666;
+            font-size: 14px;
+            font-weight: lighter;
+        }
+
+            .waitpay-info .waitpay-bot p em.price {
+                color: #ff6700;
+            }
+
+            .waitpay-info .waitpay-bot p em.ordid {
+                font-weight: normal;
+                font-family: arial;
+            }
+
+.type-pay {
+    padding: 0 67px;
+    background: #fff;
+    margin-top: 10px;
+}
+
+.paytit {
+    overflow: hidden;
+    padding: 25px 0 8px 0;
+}
+
+    .paytit h3 {
+        float: left;
+        line-height: 54px;
+        color: #333;
+        font-size: 20px;
+        font-weight: lighter;
+        font-family: "microsoft yahei";
+    }
+
+    .paytit p {
+        float: right;
+        line-height: 54px;
+        color: #ff6600;
+        font-size: 14px;
+        font-weight: lighter;
+        font-family: "microsoft yahei";
+    }
+/*å¤é€‰æ¡†*/
+.checkbox {
+    background: url(NewImages/ckboxbg.png) no-repeat;
+    
+    margin-top: 9px;
+    margin-left: 30px;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    float: left;
+    background-position: 0 -22px;
+    cursor: pointer;
+}
+
+.checkbox_active {
+    background-position: 0 0;
+}
+
+.allpayway {
+    padding-bottom: 47px;
+}
+
+    .allpayway .balance {
+        overflow: hidden;
+        padding: 25px 0;
+        position: relative;
+        border-radius: 3px;
+    }
+
+.boxshadow {
+    box-shadow: -2px 0 6px rgba(0,0,0,0.02), 2px 0 6px rgba(0,0,0,0.02),0 -2px 6px rgba(0,0,0,0.02),0 2px 6px rgba(0,0,0,0.02);
+    -moz-box-shadow: -2px 0 6px rgba(0,0,0,0.02), 2px 0 6px rgba(0,0,0,0.02),0 -2px 6px rgba(0,0,0,0.02),0 2px 6px rgba(0,0,0,0.02);
+    -webkit-box-shadow: -2px 0 6px rgba(0,0,0,0.02), 2px 0 6px rgba(0,0,0,0.02),0 -2px 6px rgba(0,0,0,0.02),0 2px 6px rgba(0,0,0,0.02);
+    *border: 1px solid #efefef;
+    border: 1px solid #efefef\0;
+}
+
+.allpayway .boxshadow .maypay {
+    display: block;
+}
+
+.allpayway .boxshadow .thirdpart {
+    display: block;
+    padding-bottom: 30px;
+}
+
+.allpayway .boxshadow .btline {
+    display: block;
+}
+
+.allpayway dl {
+    overflow: hidden;
+    float: left;
+    padding-left: 25px;
+}
+
+    .allpayway dl dt {
+        float: left;
+        width: 40px;
+        height: 40px;
+    }
+
+    .allpayway dl dd {
+        width: 700px;
+        float: left;
+        line-height: 40px;
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+        padding-left: 18px;
+    }
+
+        .allpayway dl dd span {
+            padding-left: 55px;
+            font-size: 14px;
+            color: #666;
+            font-weight: lighter;
+        }
+
+            .allpayway dl dd span em {
+                padding: 0 4px;
+                font-weight: normal;
+                font-family: arial;
+            }
+
+        .allpayway dl dd img {
+            vertical-align: middle;
+        }
+
+        .allpayway dl dd em.serfee {
+            color: #ff6700;
+            font-size: 12px;
+            font-family: simsun;
+            margin-left: 20px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            vertical-align: middle;
+        }
+
+            .allpayway dl dd em.serfee i.bord {
+                border: 1px solid #ff6700;
+                padding: 2px 5px;
+                margin-right: 5px;
+                border-radius: 3px;
+            }
+
+        .allpayway dl dd.nopt {
+            display: block;
+        }
+
+        .allpayway dl dd.haspt {
+            display: none;
+        }
+
+.allpayway .maypay {
+    float: right;
+    line-height: 40px;
+    text-align: right;
+    display: none;
+    margin-right: 32px;
+    display: none;
+}
+
+    .allpayway .maypay p {
+        font-size: 14px;
+        color: #666;
+    }
+
+        .allpayway .maypay p span {
+            color: #ff6700;
+            padding-right: 5px;
+            font-size: 24px;
+            font-family: arial;
+        }
+
+        .allpayway .maypay p em {
+            color: #ff6700;
+        }
+
+.allpayway .onlinepay {
+    overflow: hidden;
+    padding: 25px 0;
+    border-bottom: 1px solid #efefef;
+    position: relative;
+}
+
+    .allpayway .onlinepay.noborder {
+        border-bottom: none;
+    }
+
+.allpayway .boxshadow .onlinepay {
+    border-bottom: none;
+}
+
+.allpayway .trdpaycon {
+    overflow: hidden;
+    padding: 25px 0;
+    border-bottom: 1px solid #efefef;
+    position: relative;
+}
+
+    .allpayway .trdpaycon.noborder {
+        border-bottom: none;
+    }
+
+.allpayway .boxshadow .trdpaycon {
+    border-bottom: none;
+}
+
+.allpayway .redpack {
+    overflow: hidden;
+    padding: 25px 0;
+    position: relative;
+}
+
+    .allpayway .redpack .packcon {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: top;
+        padding-left: 55px;
+    }
+
+        .allpayway .redpack .packcon h3 {
+            font-size: 12px;
+            color: #ff6700;
+            font-family: simsun;
+        }
+
+            .allpayway .redpack .packcon h3 span {
+                font-family: "microsoft yahei";
+                font-size: 14px;
+                color: #666;
+                font-weight: lighter;
+                padding-left: 0;
+                padding-right: 10px;
+                border-right: 1px solid #efefef;
+                margin-right: 9px;
+            }
+
+            .allpayway .redpack .packcon h3 em {
+                color: #fff;
+                background: #ff6700;
+                font-size: 14px;
+                padding: 3px 5px;
+                border-radius: 3px;
+                margin-right: 7px;
+            }
+
+        .allpayway .redpack .packcon ul {
+            overflow: hidden;
+            margin-top: 3px;
+        }
+
+            .allpayway .redpack .packcon ul li {
+                float: left;
+                text-align: center;
+                border: 1px solid #c9dfff;
+                width: 115px;
+                margin-right: 10px;
+                padding: 6px 0px;
+                cursor: pointer;
+            }
+
+                .allpayway .redpack .packcon ul li p {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                .allpayway .redpack .packcon ul li em {
+                    font-size: 12px;
+                    color: #999;
+                    font-family: simsun;
+                    line-height: 16px;
+                    display: block;
+                }
+
+                .allpayway .redpack .packcon ul li.on {
+                    border: 1px solid #ff6700;
+                    background: url(../../images/cashier/redjiao.png) no-repeat right top;
+                }
+
+                    .allpayway .redpack .packcon ul li.on p {
+                        color: #ff6700;
+                    }
+
+                    .allpayway .redpack .packcon ul li.on em {
+                        color: #FF6700;
+                    }
+
+    .allpayway .redpack .nored {
+        display: none;
+    }
+
+    .allpayway .redpack .havered {
+        display: block;
+    }
+
+    .allpayway .redpack.nochose .nored {
+        display: block;
+    }
+
+    .allpayway .redpack.nochose .havered {
+        display: none;
+    }
+
+.allpayway .balance .nored {
+    display: none;
+}
+
+.allpayway .balance .havered {
+    display: block;
+}
+
+.allpayway .balance.nochose .nored {
+    display: block;
+}
+
+.allpayway .balance.nochose .havered {
+    display: none;
+}
+
+.allpayway .btline {
+    height: 1px;
+    background: #efefef;
+    position: absolute;
+    bottom: 0;
+    left: 47px;
+    right: 32px;
+    display: none;
+}
+
+.allpayway .nochose dd {
+    color: #c9c9c9;
+}
+
+    .allpayway .nochose dd span {
+        color: #c9c9c9;
+    }
+
+.allpayway .nochose .checkbox {
+    background-position: 0 -44px;
+}
+
+.allpayway .thirdpart {
+    display: none;
+}
+
+.webbank {
+    padding: 30px 47px 0 47px;
+}
+
+    .webbank h3 {
+        font-size: 18px;
+        font-family: "microsoft yahei";
+        padding-bottom: 20px;
+        color: #333;
+        font-weight: lighter;
+    }
+
+        .webbank h3 em {
+            color: #ff6700;
+            font-size: 12px;
+            border: 1px solid #ffb787;
+            border-radius: 2px;
+            font-family: \5b8b\4f53;
+            padding: 0px 6px;
+            background: #fff8f3;
+            margin-left: 10px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            vertical-align: middle;
+        }
+
+    .webbank .allbank {
+    }
+
+        .webbank .allbank ul {
+            overflow: hidden;
+        }
+
+            .webbank .allbank ul li {
+                float: left;
+                width: 162px;
+                height: 68px;
+                border: 1px solid #e0e0e0;
+                margin-right: 14px;
+                margin-bottom: 14px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .webbank .allbank ul li img {
+                    padding-top: 16px;
+                }
+
+                .webbank .allbank ul li.on, .webbank .allbank ul li:hover {
+                    border: 1px solid #ff6700;
+                }
+
+.allpayway .platform {
+    padding: 40px 47px 10px 47px;
+}
+
+    .allpayway .platform h3 {
+        font-size: 18px;
+        font-family: "microsoft yahei";
+        padding-bottom: 20px;
+        color: #333;
+        font-weight: lighter;
+    }
+
+        .allpayway .platform h3 em {
+            color: #ff0000;
+            font-size: 12px;
+            font-family: \5b8b\4f53;
+            padding: 0px 6px;
+            font-weight: bold;
+            margin-left: 10px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            vertical-align: middle;
+        }
+
+            .allpayway .platform h3 em a {
+                color: #3399FF;
+                padding: 0 5px;
+            }
+
+    .allpayway .platform .allplat {
+        overflow: hidden;
+    }
+
+        .allpayway .platform .allplat li {
+            float: left;
+            width: 162px;
+            height: 68px;
+            margin-right: 14px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid #e0e0e0;
+        }
+
+            .allpayway .platform .allplat li h3 {
+                border-bottom: none;
+                height: 52px;
+            }
+
+                .allpayway .platform .allplat li h3 img {
+                    padding-top: 16px;
+                }
+
+            .allpayway .platform .allplat li p {
+                background: #e53935;
+                height: 16px;
+                line-height: 16px;
+                color: #fff;
+                position: absolute;
+                width: 164px;
+                left: -1px;
+                bottom: -1px;
+                display: none;
+            }
+
+                .allpayway .platform .allplat li p span {
+                    padding: 0 4px;
+                }
+
+            .allpayway .platform .allplat li.on, .allpayway .platform .allplat li:hover {
+                border: 1px solid #ff6700;
+            }
+                /*.allpayway .platform .allplat li.on h3 img{padding-top: 8px;}*/
+                .allpayway .platform .allplat li.on p {
+                    display: block;
+                }
+
+.allpayway .paysubmit {
+    padding: 40px 0 40px 47px;
+}
+
+    .allpayway .paysubmit a {
+        display: block;
+        width: 170px;
+        font-size: 18px;
+        font-weight: bold;
+        height: 48px;
+        text-align: center;
+        background: #ff6700;
+        line-height: 48px;
+        color: #fff;
+    }
+
+        .allpayway .paysubmit a.on {
+            background: #999;
+        }
+
+.layui-layer.pay-blan {
+    overflow: hidden;
+}
+
+.yuepay {
+    width: 300px;
+    height: 380px;
+    background: url(../../images/cashier/balancebg.png) no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+    .yuepay .closebtn {
+        width: 20px;
+        height: 20px;
+        right: 18px;
+        top: 18px;
+        position: absolute;
+    }
+
+    .yuepay h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+        font-family: "microsoft yahei";
+        padding: 50px 42px 0 42px;
+    }
+
+    .yuepay .paypass {
+        padding: 5px 42px;
+        text-align: center;
+    }
+
+        .yuepay .paypass p {
+            color: #fff;
+            font-size: 12px;
+            text-align: left;
+        }
+
+            .yuepay .paypass p span {
+                color: #3399ff;
+                padding: 0 5px;
+            }
+
+        .yuepay .paypass .iptpwd {
+            margin-top: 85px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+            .yuepay .paypass .iptpwd input {
+                width: 100%;
+                text-align: center;
+                height: 40px;
+                border: 1px solid #2d3240;
+                ;
+                background: #2d3240;
+                border-radius: 3px;
+                color: #fff;
+                font-size: 20px;
+                font-family: arial;
+            }
+
+                .yuepay .paypass .iptpwd input.error {
+                    border: 1px solid #ff6700;
+                    background: #3a3740;
+                }
+
+            .yuepay .paypass .iptpwd a {
+                display: block;
+                text-align: center;
+                height: 42px;
+                line-height: 42px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+                background: #888;
+                border-radius: 3px;
+                margin-top: 25px;
+                font-family: "microsoft yahei";
+            }
+
+                .yuepay .paypass .iptpwd a.on {
+                    background: #ff6700;
+                }
+
+            .yuepay .paypass .iptpwd span {
+                position: absolute;
+                width: 100%;
+                height: 42px;
+                line-height: 42px;
+                text-align: center;
+                left: 0;
+                top: 0;
+                color: #888;
+                font-size: 12px;
+            }
+
+            .yuepay .paypass .iptpwd em {
+                color: #ff6700;
+                position: absolute;
+                top: -9px;
+                left: 50%;
+                margin-left: -35px;
+                width: 70px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                background: url(../../images/cashier/errtipbg.png) no-repeat;
+                display: none;
+            }
+
+        .yuepay .paypass a.fgetpwd {
+            color: #39f;
+            text-decoration: underline;
+        }
+
+        .yuepay .paypass h4 a {
+            color: #39f;
+            text-decoration: underline;
+        }
+
+        .yuepay .paypass h4 span {
+            display: none;
+            color: #fff;
+        }
+
+            .yuepay .paypass h4 span em {
+                padding-right: 5px;
+                color: #3399ff;
+            }
+
+        .yuepay .paypass.yzphone {
+            display: none;
+        }
+
+.layui-layer.pay-alipay {
+    background: transparent;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.layui-layer.pay-wchat {
+    background: transparent;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+    .layui-layer.pay-wchat .ewmpay {
+        width: 933px;
+        height: 380px;
+        background: url(../../images/cashier/pay-wchat.png) no-repeat;
+        position: relative;
+        overflow: hidden;
+    }
+
+.layui-layer.pay-alipay .ewmpay {
+    width: 933px;
+    height: 380px;
+    background: url(../../images/cashier/pay-alipay.png) no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.ewmpay .closebtn {
+    width: 20px;
+    height: 20px;
+    right: 270px;
+    top: 16px;
+    position: absolute;
+}
+
+.ewmpay .ewmleft {
+    width: 240px;
+    float: left;
+    padding: 0 30px;
+}
+
+    .ewmpay .ewmleft h3 {
+        color: #fff;
+        font-size: 16px;
+        font-family: "microsoft yahei";
+        padding: 110px 0 10px 0;
+    }
+
+    .ewmpay .ewmleft h4 {
+        font-weight: bold;
+        color: #3399ff;
+        font-size: 18px;
+        font-family: "microsoft yahei";
+        padding-bottom: 55px;
+        border-bottom: 1px solid #53596c;
+        margin-bottom: 22px;
+    }
+
+        .ewmpay .ewmleft h4 span {
+            font-size: 30px;
+            padding-right: 8px;
+        }
+
+    .ewmpay .ewmleft p {
+        background: url(../../images/cashier/juicon.png) no-repeat 0 9px;
+        padding-left: 10px;
+        line-height: 20px;
+        color: #fff;
+        padding-bottom: 10px;
+    }
+
+        .ewmpay .ewmleft p span {
+            color: #39f;
+            padding: 0 5px;
+        }
+
+.ewmpay .ewmright {
+    width: 380px;
+    float: left;
+    text-align: center;
+}
+
+    .ewmpay .ewmright .scanpic {
+        height: 380px;
+        overflow: hidden;
+    }
+
+        .ewmpay .ewmright .scanpic img {
+            padding: 45px 0 20px 0;
+            width: 234px;
+            height: 234px;
+        }
+
+        .ewmpay .ewmright .scanpic p {
+            line-height: 18px;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+        }
+
+            .ewmpay .ewmright .scanpic p span {
+                color: #ff6700;
+                padding: 0 5px;
+            }
+
+        .ewmpay .ewmright .scanpic iframe {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: none;
+            padding-top: 10px;
+        }
+
+    .ewmpay .ewmright .succpic {
+        display: none;
+    }
+
+        .ewmpay .ewmright .succpic img {
+            padding: 95px 0 0px 0;
+        }
+
+        .ewmpay .ewmright .succpic h3 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            font-family: "microsoft yahei";
+            padding: 14px 0 6px 0;
+        }
+
+        .ewmpay .ewmright .succpic p {
+            line-height: 24px;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+        }
+
+            .ewmpay .ewmright .succpic p span {
+                color: #ff6700;
+                padding: 0 5px;
+            }
+
+            .ewmpay .ewmright .succpic p a {
+                color: #3399ff;
+                padding-left: 5px;
+            }
+
+    .ewmpay .ewmright .scanpic h3 {
+        font-size: 18px;
+        font-family: "microsoft yahei";
+        color: #333;
+        padding: 140px 50px 0 50px;
+    }
+
+        .ewmpay .ewmright .scanpic h3 a {
+            color: #333;
+        }
+
+.ewmpic {
+    width: 300px;
+}
+
+    .ewmpic img {
+        width: 300px;
+    }
+
+    .ewmpic p {
+        line-height: 22px;
+        font-size: 14px;
+        font-family: "microsoft yahei";
+        text-align: center;
+    }
+
+        .ewmpic p span {
+            color: #ff6700;
+            padding: 0 5px;
+        }
+
+.succpic {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+    .succpic img {
+        padding: 95px 0 0px 0;
+    }
+
+    .succpic h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+        font-family: "microsoft yahei";
+        padding: 6px 0 0 0;
+    }
+
+    .succpic p {
+        line-height: 24px;
+        font-size: 14px;
+        font-family: "microsoft yahei";
+    }
+
+        .succpic p span {
+            color: #ff6700;
+            padding: 0 5px;
+        }
+
+        .succpic p a {
+            color: #3399ff;
+            padding-left: 5px;
+        }
+
+.guoqipic {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+    .guoqipic img {
+        padding: 45px 0 0px 0;
+    }
+
+    .guoqipic h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+        font-family: "microsoft yahei";
+        padding: 6px 0 0 0;
+    }
+
+    .guoqipic p {
+        line-height: 24px;
+        font-size: 14px;
+        font-family: "microsoft yahei";
+    }
+
+        .guoqipic p a {
+            color: #ff6700;
+            padding: 0 5px;
+        }
+/*å•†å“æ²¡æœ‰åº“å­˜*/
+.nogoods.layui-layer {
+    width: 540px;
+    height: 377px;
+    background: url(../../images/cashier/nomoregood.png) no-repeat;
+    background-color: none;
+    text-align: center;
+    box-shadow: none;
+}
+
+.nogoods .closebtn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 13px;
+    top: 13px;
+}
+
+.nogoods img {
+    padding-top: 60px;
+}
+
+.nogoods p {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #333;
+    font-family: "microsoft yahei";
+}
+
+.nogoods a.gotolook {
+    font-family: "microsoft yahei";
+    color: #333;
+    font-size: 16px;
+    background: #fbfbfb;
+    padding: 8px 53px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+}

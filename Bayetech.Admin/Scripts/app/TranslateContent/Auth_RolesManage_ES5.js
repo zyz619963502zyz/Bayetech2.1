@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 52);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -386,7 +386,7 @@ var comCompnent = {
                         return page;
                 }
             },
-            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
+            totalPages: self.Pagination == undefined ? 1 : self.Pagination.total == 0 ? 1 : self.Pagination.total, //根据实际查询数据算出总页码
             pageUrl: function (type, page) {
                 return null;
             },
@@ -10004,7 +10004,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10045,7 +10045,7 @@ var comCompnent = {
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10214,21 +10214,21 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 31:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_script_lang_js__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_script_lang_js__ = __webpack_require__(22);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_script_lang_js__["a" /* default */]); 
 
 /***/ }),
 
-/***/ 32:
+/***/ 34:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_script_lang_js__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_script_lang_js__ = __webpack_require__(23);
 /* unused harmony namespace reexport */
  /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_script_lang_js__["a" /* default */]); 
 
@@ -10892,12 +10892,12 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 41:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_RolesManage_vue_vue_type_script_lang_js__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_RolesManage_vue_vue_type_script_lang_js__ = __webpack_require__(33);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -10920,7 +10920,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10942,12 +10942,12 @@ component.options.__file = "Scripts\\components\\table-RolesManage.vue"
 
 /***/ }),
 
-/***/ 42:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_TwoLayer_vue_vue_type_script_lang_js__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_TwoLayer_vue_vue_type_script_lang_js__ = __webpack_require__(34);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -10970,7 +10970,7 @@ var component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /* hot reload */
 if (false) {
-  var api = require("F:\\Bayetech2\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  var api = require("E:\\Bayetech2.2\\Bayetech.Admin\\node_modules\\vue-hot-reload-api\\dist\\index.js")
   api.install(require('vue'))
   if (api.compatible) {
     module.hot.accept()
@@ -10989,160 +10989,6 @@ if (false) {
 }
 component.options.__file = "Scripts\\components\\table-TwoLayer.vue"
 /* harmony default export */ __webpack_exports__["a"] = (component.exports);
-
-/***/ }),
-
-/***/ 49:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__ = __webpack_require__(42);
-
-
-
-
-
-let vmData = {
-    tools: {
-        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
-        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */],
-        _componentTables: __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__["a" /* default */]
-    },
-    RolesUrl: "/api/Roles/GetList",
-    RolesAdd: "/api/Roles/AddRoles",
-    RolesDelete: "/api/Roles/DeleteRoles",
-    CheckGoodNo: "", //模态框打开的GoodNo
-    keyword: "",
-    RolesArray: [],
-    TwoLayerArray: [],
-    SearchParam: {
-        Param: { //查询条件的参数
-            Type: "",
-            SelectNo: "" //form里面选择的编号
-        },
-        ListObj: {
-            Role_id: 0,
-            Role_Value: 0,
-            Module_ID: "",
-            Company_ID: 0,
-            Role_Display: "",
-            Role_Name: "",
-            Role_Remark: "",
-            Role_Column: "",
-            CreateTime: "",
-            RoleSerial: ""
-        },
-
-        Pagination: { //分页对象
-            rows: 10, //每页行数，
-            page: 1, //当前页码
-            order: "Role_id", //排序字段
-            sord: "asc", //排序类型
-            records: 10, //总记录数
-            total: 10 //总页数。
-        }
-    }
-
-};
-
-new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
-    el: '#CommRoles',
-    data: vmData,
-    created() {
-        this.findList();
-    },
-    methods: {
-        findList() {
-            var self = this;
-            self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
-            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
-                //debugger;
-                if (data.result) {
-                    self.RolesArray = data.content.datas;
-                    //self.TwoLayerArray = data.RolesMenu;
-                    self.SearchParam.Pagination = data.content.pagination;
-                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
-                }
-            });
-        },
-        OpenAuthModal() {
-            //分配权限
-            alert(1);
-            $("#AuthModal").modal("show");
-        },
-        OpenAddModal() {
-            //添加
-            $("#UserModal").modal("show");
-        },
-        OpenEditModal() {
-            //修改
-            var self = this;
-            if (self.SearchParam.ListObj.Role_id === 0) {
-                alert("请选择角色");
-                return false;
-            }
-            $("#UserModal").modal("show");
-        },
-        Delete() {
-            //删除
-            var self = this;
-            if (self.SearchParam.ListObj.Role_id === 0) {
-                alert("请选择角色");
-                return false;
-            }
-            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("删除成功!");
-                } else {
-                    alert(data.content);
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                //$("#CheckConfirm").Btns("reset");
-            });
-        },
-        SubmitModal() {
-            //提交
-
-            var self = this;
-            //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
-            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
-                if (data.result) {
-                    $("#UserModal").modal("hide");
-                    alert("操作成功!");
-                } else {
-                    alert(data.content);
-                }
-                self.findList();
-                //$("#CheckConfirm").Btns("reset");
-            }, function () {
-                alert(data.content);
-            });
-        },
-        StartCheck(type) {
-            //开始检查
-            var self = this;
-            var c = $.extend(true, self.SearchParam.ListObj, type);
-            $("#test").attr("value", type.Role_Value);
-        },
-        TurnToPage(page) {
-            var self = this;
-            self.SearchParam.Pagination.rows = page;
-            self.findList();
-        }
-    },
-    components: {
-        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */],
-        comtatles: __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__["a" /* default */]
-    }
-});
 
 /***/ }),
 
@@ -11337,6 +11183,160 @@ process.umask = function () {
 
 /***/ }),
 
+/***/ 52:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__ = __webpack_require__(45);
+
+
+
+
+
+let vmData = {
+    tools: {
+        _comCompnent: __WEBPACK_IMPORTED_MODULE_1__common_js__["default"],
+        _componentTable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */],
+        _componentTables: __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__["a" /* default */]
+    },
+    RolesUrl: "/api/Roles/GetList",
+    RolesAdd: "/api/Roles/AddRoles",
+    RolesDelete: "/api/Roles/DeleteRoles",
+    CheckGoodNo: "", //模态框打开的GoodNo
+    keyword: "",
+    RolesArray: [],
+    TwoLayerArray: [],
+    SearchParam: {
+        Param: { //查询条件的参数
+            Type: "",
+            SelectNo: "" //form里面选择的编号
+        },
+        ListObj: {
+            Role_id: 0,
+            Role_Value: 0,
+            Module_ID: "",
+            Company_ID: 0,
+            Role_Display: "",
+            Role_Name: "",
+            Role_Remark: "",
+            Role_Column: "",
+            CreateTime: "",
+            RoleSerial: ""
+        },
+
+        Pagination: { //分页对象
+            rows: 10, //每页行数，
+            page: 1, //当前页码
+            order: "Role_id", //排序字段
+            sord: "asc", //排序类型
+            records: 10, //总记录数
+            total: 10 //总页数。
+        }
+    }
+
+};
+
+new __WEBPACK_IMPORTED_MODULE_0__vue_js___default.a({
+    el: '#CommRoles',
+    data: vmData,
+    created() {
+        this.findList();
+    },
+    methods: {
+        findList() {
+            var self = this;
+            self.SearchParam.Param.Type = self.SearchParam.Param.SelectNo;
+            self.tools._comCompnent.postWebJson(self.RolesUrl, self.SearchParam, function (data) {
+                //debugger;
+                if (data.result) {
+                    self.RolesArray = data.content.datas;
+                    //self.TwoLayerArray = data.RolesMenu;
+                    self.SearchParam.Pagination = data.content.pagination;
+                    self.tools._comCompnent.SetPagination($('#paginator-test'), self.SearchParam, self.findList);
+                }
+            });
+        },
+        OpenAuthModal() {
+            //分配权限
+            alert(1);
+            $("#AuthModal").modal("show");
+        },
+        OpenAddModal() {
+            //添加
+            $("#UserModal").modal("show");
+        },
+        OpenEditModal() {
+            //修改
+            var self = this;
+            if (self.SearchParam.ListObj.Role_id === 0) {
+                alert("请选择角色");
+                return false;
+            }
+            $("#UserModal").modal("show");
+        },
+        Delete() {
+            //删除
+            var self = this;
+            if (self.SearchParam.ListObj.Role_id === 0) {
+                alert("请选择角色");
+                return false;
+            }
+            self.tools._comCompnent.postWebJson(self.RolesDelete, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("删除成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                //$("#CheckConfirm").Btns("reset");
+            });
+        },
+        SubmitModal() {
+            //提交
+
+            var self = this;
+            //self.SearchParam.ListObj.KeyId=self.SearchParam.ListObj.KeyId=="" ? 0:self.SearchParam.ListObj.KeyId;
+            self.tools._comCompnent.postWebJson(self.RolesAdd, self.SearchParam, function (data) {
+                if (data.result) {
+                    $("#UserModal").modal("hide");
+                    alert("操作成功!");
+                } else {
+                    alert(data.content);
+                }
+                self.findList();
+                //$("#CheckConfirm").Btns("reset");
+            }, function () {
+                alert(data.content);
+            });
+        },
+        StartCheck(type) {
+            //开始检查
+            var self = this;
+            var c = $.extend(true, self.SearchParam.ListObj, type);
+            $("#test").attr("value", type.Role_Value);
+        },
+        TurnToPage(page) {
+            var self = this;
+            self.SearchParam.Pagination.rows = page;
+            self.findList();
+        }
+    },
+    components: {
+        comtable: __WEBPACK_IMPORTED_MODULE_2__components_table_RolesManage_vue__["a" /* default */],
+        comtatles: __WEBPACK_IMPORTED_MODULE_3__components_table_TwoLayer_vue__["a" /* default */]
+    }
+});
+
+/***/ }),
+
 /***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11526,28 +11526,6 @@ process.umask = function () {
 
 /***/ }),
 
-/***/ 66:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(76);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["b"]; });
-
-
-/***/ }),
-
-/***/ 67:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__ = __webpack_require__(77);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__["b"]; });
-
-
-/***/ }),
-
 /***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11610,7 +11588,29 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 
 /***/ }),
 
-/***/ 76:
+/***/ 70:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__ = __webpack_require__(81);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_RolesManage_vue_vue_type_template_id_a33b4bc2_lang_html__["b"]; });
+
+
+/***/ }),
+
+/***/ 71:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__ = __webpack_require__(82);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_table_TwoLayer_vue_vue_type_template_id_4cd60e98_lang_html__["b"]; });
+
+
+/***/ }),
+
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11693,7 +11693,7 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ 77:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

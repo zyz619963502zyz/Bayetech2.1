@@ -171,7 +171,10 @@
      *  eg: localhost:/aabc/cde/aaa.html(输出页面名称“aaa”)
      */
     common.GetSearchType=function () {
-        var _url=document.location.href;
+        var _url = document.location.href;
+        if (document.location.href == "http://www.52yxb.com/") {
+
+        }
         var _urlArray = document.location.href.split("/");
         var type = document.location.href.split("/")[_urlArray.length-1].split('.')[0];
         return type;
@@ -250,7 +253,7 @@
                             return page;  
                     }  
                 },
-                totalPages:self.Pagination == undefined?1:self.Pagination.total,//根据实际查询数据算出总页码
+                totalPages: self.Pagination == undefined ? 1 : (self.Pagination.total == 0 ? 1 : self.Pagination.total),//根据实际查询数据算出总页码
                 pageUrl:function(type,page){
                     return null;
                 },
@@ -302,7 +305,7 @@
         return {
             GameId: 0,
             GameName: "游戏名称",
-            GameGroupId: 0,//上海区 
+            GameGroupId: 0,//上海区3 
             GameGroupName: "游戏区",
             GameServerId: 0,//上海一区
             GameServerName: "服务器",
@@ -311,10 +314,13 @@
             DlTypeName: "代练类型",//等级 冲杯 段位
             GoodKeyWord: "",//关键字
             AcrossId: 0,//跨区Id
-            AcrossName: "跨区"
-        };
-    };
+            AcrossName: "跨区",
+            isset: "",//身份证设置情况
+            ProfessionId: "",//职业id
+            QQLevel:''//QQ等级
+        };};
 
+    
     return common;
 })
 

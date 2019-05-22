@@ -1,12 +1,16 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-
+import mui from './assets/scripts/mui.min.js'
+import "@/assets/css/accountlist.css";
+import "@/assets/css/mui.min.css";
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.mui = mui
 
 Vue.prototype.$SearchModel={
     GameId: 0,
@@ -34,6 +38,11 @@ Vue.prototype.$choose = choose;
 Vue.prototype.$chooseSingle = chooseSingle;
 Vue.prototype.$isChoice = isChoice;
 
+
+Vue.use(Vuex) 
+let store = new Vuex.Store({})
+Vue.use( store)
+
 /*已改为使用 vue-meta 来设置meta以及title*/
 //router.beforeEach((to, from, next) => {
 //  /* 路由发生变化修改页面title */
@@ -47,6 +56,7 @@ Vue.prototype.$isChoice = isChoice;
 let $vm=new Vue({
     el: '#app',
     router,
-        components: { App },
-        template: '<App/>'
+    store,
+    components: { App },
+    template: '<App/>'
     })

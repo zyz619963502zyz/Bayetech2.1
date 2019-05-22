@@ -41,6 +41,7 @@ var jsconfig = {
         'ScreenModel': 'Scripts/app/PointTrading/screen',
         "nav-dropdown": "Scripts/app/Home/nav-dropdown",
         'GoodInfo': 'Scripts/app/GoodInfo/GoodInfo',
+        'GoodPics': 'Scripts/app/GoodInfo/GoodPics',
         'Nav': 'Scripts/app/GoodInfo/Nav',
         'OrderPay': 'Scripts/app/PlaceOrder/OrderPay',
         'SureBuy': 'Scripts/app/PlaceOrder/SureBuy',
@@ -84,7 +85,8 @@ var jsconfig = {
         "nav-top": "Scripts/app/Shared/nav-top",
         'footer-server': 'Scripts/app/Shared/footer-server',
         'DynamicInput': 'Scripts/app/Shared/dynamicInput',
-        'FileUpload': 'Scripts/app/Shared/FileUpload',
+        'FileUpload': 'Scripts/app/Shared/FileUpload', 
+
         //Shared模块
 
     },

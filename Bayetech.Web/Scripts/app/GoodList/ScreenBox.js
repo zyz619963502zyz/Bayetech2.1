@@ -1,7 +1,7 @@
 ﻿//筛选栏位
 define(jsconfig.baseArr, function (Vue, $, common) {
 
-    var html=`
+    var html = `
             <div class ="screen-box">
                 <div class ="screen-tit">
                     <div class ="pull-left"><b>商品筛选</b><span>共找到<em>579</em>个商品</span></div>
@@ -20,7 +20,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Gourps">
                                     <a href="javascript:void(0)" :title="item.Name">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain">{{item.Name}}</span>
+                                        <span class ="text" :value="item.Name" :Id="item.Id" @click="GetSearchAgain('GameGroupId',item.Id,$event)">{{item.Name}}</span>
                                     </a>
                                 </li> 
 
@@ -42,13 +42,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)" title="男">
+                                    <a href="javascript:void(0)" title="男"  @click="GetSearchAgain('isset','male',$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="男" unFixKey="50233">男</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" title="女">
+                                    <a href="javascript:void(0)" title="女" @click="GetSearchAgain('isset','female',$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text" value="女" unFixKey="50233">女</span>
                                     </a>
@@ -73,7 +73,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Professions">
                                     <a href="javascript:void(0)" :title="item.ProfessionName">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain" :key="item.ProfessionId">{{item.ProfessionName}}</span>
+                                        <span class ="text" :value="item.ProfessionName"  @click="GetSearchAgain('ProfessionCodes',item.ProfessionId,$event)" :key="item.ProfessionId">{{item.ProfessionName}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -93,13 +93,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a href="javascript:void(0)"   @click="GetSearchAgain('isset',0,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证未设置</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a href="javascript:void(0)"  @click="GetSearchAgain('isset',1,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">身份证已设置</span>
                                     </a>
@@ -116,7 +116,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                                 <li v-for="item in Levels">
                                     <a href="javascript:void(0)" title="QQ等级">
                                         <span class ="check-icon"></span>
-                                        <span class ="text" :value="item.key"  @click="SetQQLevel" :key="item.key">{{item.Value}}</span>
+                                        <span class ="text" :value="item.key"  @click="GetSearchAgain('QQLv',item.key,$event)" :key="item.key">{{item.Value}}</span>
                                     </a>
                                 </li>
 
@@ -129,13 +129,13 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                         <div class ="sl-body clearfix">
                             <ul class ="clearfix">
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',1,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">有QQ好友</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a href="javascript:void(0)" @click="GetSearchAgain('hasQQFriend',0,$event)">
                                         <span class ="check-icon"></span>
                                         <span class ="text">无QQ好友</span>
                                     </a>
@@ -146,18 +146,22 @@ define(jsconfig.baseArr, function (Vue, $, common) {
 
                 </div>
              </div>
-           `
+           `;
     //Api
     var GoodListUrl="/api/GoodInfo/GetList"; //查询列表
     var _GetServersUrl="/api/Order/GetServers";//获取区服名称列表
-    var ProfessionUrl="/api/GoodInfo/GetProfessions"
+    var ProfessionUrl = "/api/GoodInfo/GetProfessions";
     var LevelsUrl = "/api/Setting/GetListByParentId";
-
-    var data={
-        Gourps: [],
+    var data = {
+        SearchParam: {
+            Param: eval('(' + localStorage.SearchParam + ')'),
+        },
+        ProfessionCodes: [],//参数职业多选
+        Gourps: [{}],
         Severs: [],
-        Professions: [],
-        Levels:[]
+        Professions: [],//取值结果集
+        Levels: [],
+        CheckData: {},//选中的对象集合
     };
 
     var ScreenCompnent={
@@ -180,8 +184,8 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 });
             },
             GetProfessions(gameId) {//获取职业
-                var self=this;
-                var param={ GameId: gameId };
+                var self = this;
+                var param = { GameId: gameId };
                 common.getWebJson(ProfessionUrl, param, function (data) {
                     self.Professions=data.content;
                 });
@@ -191,17 +195,33 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                 var param={ parentId:72 };
                 common.getWebJson(LevelsUrl, param, function (data) {
                     self.Levels = data.content;
-                })
-            },
-            GetSearchAgain() {//条件增加重新搜索
-                var self=this;
-                var param=common.GetUrlParam();
-                common.postWebJson(GoodListUrl, param, function (data) {
-                    if (data.result) {
-                        data.content=data.content.slice(0, 8);
-                        self.$root.$children[2].$options._componentTag=="goodlist"?self.$root.$children[2].$data.ListObj=data.content:"";//判断列表
-                    }
                 });
+            },
+            GetSearchAgain(key, val,event) {//条件增加重新搜索
+                var self = this;
+                if (key == "ProfessionCodes") {
+                    if (self.ProfessionCodes.filter(c => c == val) > 0) {
+                        self.ProfessionCodes = self.ProfessionCodes.filter(c => c != val);
+                        $(event.target).parents("li").removeClass("active");
+                    } else {
+                        $(event.target).parents("li").addClass("active");
+                        self.ProfessionCodes.push(val);
+                    }
+                    self.CheckData[key] = self.ProfessionCodes;
+                } else {
+                    //if (self.CheckData[key] == "" || self.CheckData[key] == undefined) {
+                    //    $(event.target).parents("li").addClass("active");
+                    //    self.CheckData[key] = val;//置空
+                    //} else {    
+                    //    $(event.target).parents("li").removeClass("active");
+                    //    self.CheckData[key] = "";
+                    //}
+
+                    self.CheckData[key] = val;
+                    $(event.target).parents("li").addClass("active");
+                    $(event.target).parents("li").siblings().removeClass("active");
+                }
+                self.$root.$emit('GetListData', self.CheckData);
             },
             SetQQLevel() {//设置等级
 

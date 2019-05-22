@@ -273,362 +273,35 @@
         <div data-v-6b09e788="" class="top-back">
           <a data-v-6b09e788=""></a>
         </div>
-        <h2 data-v-6b09e788="" class="f36 ">精准筛选</h2>
+        <h2 data-v-6b09e788="" class="f36 ">精准筛选 </h2>
         <div data-v-6b09e788="" class="top-right"></div>
       </div>
       <div data-v-6b09e788="" class="mt-97"></div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <div data-v-6b09e788="" class="screen-titl border-bottom color-000 f32 px-30 bg-fff screen-ico">
-          价格区间
-        </div>
-        <div data-v-6b09e788="" class="price-list px-30 py-30">
-          <input data-v-6b09e788="" type="tel" placeholder="最低价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.minPrice" @keydown="searchModelSub.priceRangeLock=true;searchModelSub.priceRange=new Array()" @blur="searchModelSub.priceRangeLock=false" />
-          <span data-v-6b09e788="" class="hern fl"></span>
-          <input data-v-6b09e788="" type="tel" placeholder="最高价" maxlength="7" class="price-input fl f30" v-model="searchModelSub.maxPrice"  @keydown="searchModelSub.priceRangeLock=true;searchModelSub.priceRange=new Array()" @blur="searchModelSub.priceRangeLock=false" />
-        </div>
-        <div data-v-324f8118="" class="price-type pl-30">
-          <ul data-v-324f8118="">
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','1-50',true),fl:true,'mb-30':true}"@click="choose('priceRange','1-50',true)" >
-              <a data-v-324f8118="" >
-                <span data-v-324f8118="" class="border f30">50元以下</span>
-              </a>
-            </li>
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','50-100'),fl:true,'mb-30':true}"@click="choose('priceRange','50-100',true)" >
-              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">50-100元</span></a>
-            </li>
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','100-500'),fl:true,'mb-30':true}"@click="choose('priceRange','100-500',true)" >
-              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">100-500元</span></a>
-            </li>
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','500-1000'),fl:true,'mb-30':true}"@click="choose('priceRange','500-1000',true)" >
-              <a data-v-324f8118=""><span data-v-324f8118="" class="border f30">500-1000元</span></a>
-            </li>
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','1000-2000'),fl:true,'mb-30':true}"@click="choose('priceRange','1000-2000',true)" >
-              <a data-v-324f8118="" ><span data-v-324f8118="" class="border f30">1000-2000元</span></a>
-            </li>
-            <li data-v-324f8118="" :class="{active:isChoice('priceRange','2000-'),fl:true,'mb-30':true}"@click="choose('priceRange','2000-',true)" >
-              <a data-v-324f8118=""><span data-v-324f8118="" class="border f30">2000元以上</span></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <i data-v-6b09e788="" class="fr src-ico manycheck" @click="searchModelSub.chooseZQ=true">
 
-          <span v-show="searchModelSub.accrossList.length==0">不限</span>
-          {{searchModelSub.accrossListName.join(',')}}
-        </i>
-        战区
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <!---->
-        <!---->
-        <div data-v-6b09e788="" v-show="searchModelSub.chooseZQ">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="" @click="searchModelSub.chooseZQ=false">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">战区</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;" >
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;">
-                <li v-for="accross in  accrossList" @click="choose('accrossList', accross.accrossId);choose('accrossListName', accross.accrossName)">{{accross.accrossName}} <a :class="{'chore-ico':true,fr:true,'chore-ico-hov':isChoice('accrossList',accross.accrossId)}"  /></li>
-              <!--  <a :class="{chore-ico:true,fr:true,chore-ico-hov:isChoice('accrossList',accorssId)}" @click="choose('accrossList', accross.Id)"></a>-->
-              </ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff" @click="searchModelSub.chooseZQ=false">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico" @click="searchModelSub.chooseZY=true">
-        <i data-v-6b09e788="" class="fr src-ico manycheck">
-          <span v-show="searchModelSub.jobList.length==0">不限</span>
-          {{searchModelSub.jobListName.join(',')}}
+      <!--@minPrice 组件变更了最低价格，则触发此函数-->
+      <!--@maxPrice 组件变更了最高价格，则触发此函数-->
+      <priceFilter   @minPrice="(result)=>{this.searchModel.MinPrice=result}" @maxPrice="(result)=>{this.searchModel.MaxPrice=result}"></priceFilter>
 
-        </i>
-        角色职业
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <!---->
-        <!---->
-        <div data-v-6b09e788="" v-show="searchModelSub.chooseZY">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="" @click="searchModelSub.chooseZY=false">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">角色职业</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;">
-                <li v-for="job in  jobList" @click="choose('jobList', job.jobId);choose('jobListName', job.jobName)">{{job.jobName}} <a :class="{'chore-ico':true,fr:true,'chore-ico-hov':isChoice('jobList',job.jobId)}"  /></li>
+      <commonFilter title="战区" :multiSelected="true"  :search="searchGroup" val="Id" text="Name" v-model="searchModel.AccrossName"  ></commonFilter>
 
-              </ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff" @click="searchModelSub.chooseZY=false">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <!---->
-        角色性别
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <div data-v-6b09e788="" class="price-type pl-30 pt-30">
-          <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" :class="{active:isChoice('gender','男'),fl:true,'mb-30':true}" @click="choose('gender','男')">
-                <span data-v-6b09e788="" class="border f30">男</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('gender','女'),fl:true,'mb-30':true}"@click="choose('gender','女')">
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">女</span>
-              </a>
-            </li>
-          </ul>
-          <!---->
-        </div>
-        <!---->
-        <div data-v-6b09e788="" style="display: none;">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">角色性别</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <commonFilter title="角色职业" :multiSelected="true"  :search="searchJob" val="ProfessionId" text="ProfessionName" v-model="searchModel.ProfessionCodes" ></commonFilter>
+
+
+      <cardFilter title="性别" :options="{male:'男',female:'女'}" :multiSelected="false" v-model="searchModel.Gender"  ></cardFilter>
+
+      <cardFilter title="QQ等级" :options="{'1to5':'QQ等级1-5级','6to10':'QQ等级6-10级','11to20':'QQ等级11-20级','21to30':'QQ等级21-30级','31to40':'QQ等级31-40级','40up':'QQ等级40级以上'}" v-model="searchModel.QQLv" :multiSelected="false"></cardFilter>
+
+      <cardFilter title="QQ好友" :options="{1:'有QQ好友',0:'无QQ好友'}" :multiSelected="false" v-model="searchModel.HasQQFriend" ></cardFilter>
+
+      <cardFilter title="历史处罚记录" :options="{1:'存在5天封号记录',0:'不存在5天封号记录'}" :multiSelected="false"  v-model="searchModel.HasIdSealedRecord" ></cardFilter>
+
       <!---->
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <!---->
-        <!---->
-        <div data-v-6b09e788="" style="display: none;">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">角色等级</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <!---->
-        QQ等级
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <div data-v-6b09e788="" class="price-type pl-30 pt-30">
-          <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','0'),fl:true,'mb-30':true}"@click="choose('qqLevel','0')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级0级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788=""  :class="{active:isChoice('qqLevel','1-5'),fl:true,'mb-30':true}"@click="choose('qqLevel','1-5')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级1-5级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','6-10'),fl:true,'mb-30':true}"@click="choose('qqLevel','6-10')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级6-10级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','11-20'),fl:true,'mb-30':true}"@click="choose('qqLevel','11-20')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级11-20级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','21-30'),fl:true,'mb-30':true}"@click="choose('qqLevel','21-30')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级21-30级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','31-40'),fl:true,'mb-30':true}"@click="choose('qqLevel','31-40')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级31-40级</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqLevel','40'),fl:true,'mb-30':true}"@click="choose('qqLevel','40')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">QQ等级40级以上</span>
-              </a>
-            </li>
-          </ul>
-          <!---->
-        </div>
-        <!---->
-        <div data-v-6b09e788="" style="display: none;">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="" @click="ToggleConditionTab('filter')">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">QQ等级</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <!---->
-        QQ好友
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <div data-v-6b09e788="" class="price-type pl-30 pt-30">
-          <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" :class="{active:isChoice('qqFriend','1'),fl:true,'mb-30':true}"@click="choose('qqFriend','1')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">有QQ好友</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('qqFriend','0'),fl:true,'mb-30':true}"@click="choose('qqFriend','0')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">无QQ好友</span>
-              </a>
-            </li>
-          </ul>
-          <!---->
-        </div>
-        <!---->
-        <div data-v-6b09e788="" style="display: none;">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">QQ好友</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-6b09e788="" class="screen-titl border-bottom mt-30 px-30 color-000 f32 bg-fff screen-ico">
-        <!---->
-        历史处罚记录
-        <!---->
-      </div>
-      <div data-v-6b09e788="" class="screen-price bg-fff">
-        <!---->
-        <div data-v-6b09e788="" class="price-type pl-30 pt-30">
-          <ul data-v-6b09e788="">
-            <li data-v-6b09e788="" :class="{active:isChoice('punishHistory','1'),fl:true,'mb-30':true}"@click="choose('punishHistory','1')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">存在5天封号记录</span>
-              </a>
-            </li>
-            <li data-v-6b09e788="" :class="{active:isChoice('punishHistory','0'),fl:true,'mb-30':true}"@click="choose('punishHistory','0')" >
-              <a data-v-6b09e788="">
-                <span data-v-6b09e788="" class="border f30">不存在5天封号记录</span>
-              </a>
-            </li>
-          </ul>
-          <!---->
-        </div>
-        <!---->
-        <div data-v-6b09e788="" style="display: none;">
-          <div data-v-6b09e788="" class="filter-mask" style="height: 100%; bottom: 0px;"></div>
-          <div data-v-6b09e788="" class="filter-content bg-fff" style="height: 100%; overflow-y: scroll;">
-            <div data-v-6b09e788="" class="top-header border-bottom fixed-top">
-              <div data-v-6b09e788="" class="top-back">
-                <a data-v-6b09e788="">返回</a>
-              </div>
-              <h2 data-v-6b09e788="" class="f36">历史处罚记录</h2>
-            </div>
-            <div data-v-6b09e788="" class="chore-seach mt-97 border-bottom">
-              <div data-v-6b09e788="" class="gvst-seach mx-30 my-20 py-10 ">
-                <input data-v-6b09e788="" name="" type="text" placeholder="请输入汉字/拼音/首字母" class="server-input f30" />
-              </div>
-            </div>
-            <div data-v-6b09e788="" class="filter-list" style="height: auto; overflow-y: scroll;">
-              <ul data-v-6b09e788="" class="manyul" style="overflow-y: scroll;"></ul>
-            </div>
-            <div data-v-6b09e788="" class="filter-confirm  bg-fff">
-              <a data-v-6b09e788="" class="sure text-center f32 fl bg-f54 color-fff">确定</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
       <div data-v-6b09e788="" class="fixed-bottom border-top">
         <div data-v-6b09e788="" class="goodslist-btn px-30 py-30 bg-fff">
           <a data-v-6b09e788="" class="options f32 color-666 fl text-center">清除选项</a>
-          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center" @click="ToggleConditionTab('filter')">确定</a>
+          <a data-v-6b09e788="" class="purchase f32 bg-f54 color-fff fr text-center" @click="ToggleConditionTab('filter');SearchList()">确定</a>
         </div>
       </div>
     </div>
@@ -641,6 +314,9 @@
   import "@/assets/content/css/style-min.css";
   import "@/assets/css/index.css";
   import "@/assets/css/accountlist.css";
+  import priceFilter from '@/components/filter/priceFilter.vue'
+  import commonFilter from '@/components/filter/commonFilter.vue'
+  import cardFilter from '@/components/filter/cardFilter.vue'
 
   let vmdata = {
     test:true,
@@ -654,7 +330,7 @@
     //排序规则mapping
     
     serverKeyWords: '',
-    groupList: ["上海区", "广东区"],
+    groupList: [{ Id: 0, Name: "上海区" }, { Id: 1, Name:"广东区"}],
     accrossList: [{ accrossId: 1, accrossName: '跨5华东1区' }, { accrossId: 2, accrossName: '跨6华北1区' }],
     jobList: [{ jobId: 1, jobName: '剑圣' }, { jobId: 2, jobName: '噬魂' }, { jobId: 3, jobName: '武神' }],
     filterGroupList: [],
@@ -690,26 +366,11 @@
       DlTypeName: "代练类型", //等级 冲杯 段位
       GoodKeyWord: "", //关键字
       AcrossId: 0, //跨区Id
-      AcrossName: "跨区"
-    },
-    searchModelSub: {
-      minPrice: "",
-      maxPrice: "",
-      priceRangeLock: false,
-      chooseZQ: false,
-      chooseZY: false,
-      gender:[],
-      gender_male: false,
-      gender_female: false,
-      qqLevel: [],
-      qqFriend: [],
-      punishHistory: [],
-      priceRange: [],
-      accrossList: [],
-      accrossListName:[],
-      jobList: [],
-      jobListName:[]
+      AcrossName: "跨区",
+      ProfessionCodes: [],
+      Gender: ""
     }
+    
   };
 
   export default {
@@ -731,24 +392,24 @@
       window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
+      searchGroup: function () {
+           return this.$get("/web/api/GameServer/GetGroup", {
+             gameid: 1
+           })           
+      },
+      searchJob: function () {
+        return this.$get("/web/api/GoodInfo/GetProfessions", {
+          gameid: 1
+        })
+      },
       handleScroll: function () {
         let self = this;
-        //  console.log(window.scrollY+document.documentElement.clientHeight)
-
-        // console.log(document.body.clientHeight)  // 网页可见区域高
+    
         //console.log(
-        //  'clientHeight:' + (document.body.clientHeight) + ',',
-        //  'window.scrollY:' + (window.scrollY) + ',',
-        //  'Element.clientHeight:' + (document.documentElement.clientHeight) + ',',
-        //  'result:' + (document.body.clientHeight -
-        //    window.scrollY -
-        //    document.documentElement.clientHeight)
+        //  document.body.clientHeight -
+        //  window.scrollY -
+        //  document.documentElement.clientHeight
         //);
-        console.log(
-          document.body.clientHeight -
-          window.scrollY -
-          document.documentElement.clientHeight
-        );
         if (
           document.body.clientHeight -
           window.scrollY -
@@ -897,36 +558,7 @@
       ,
       //筛选明细
 
-      //key : 容器对象，类型为数组 ，如jobList
-      //value:选中的值,如剑圣，容器里没有就添加，有就删除
-      //reset :每次选择前清空容器，实现单选，传true
-      choose: function (key, value,reset)
-      {
-        
-       // value = ',' + value;
-        if (reset && value != this.searchModelSub[key])
-        {
-          this.$set(this.searchModelSub, key, new Array())
-        }
-      
-        let t = 1;
-        let list = this.searchModelSub[key]
-
-        if (list.indexOf(value) >= 0) {
-          list.splice(list.indexOf(value), 1)
-        } else {
-          list .push (value);
-        }
-        this.$set(this.searchModelSub, key, list)
-      },
-     //检查是否选择
-      //key ：检查的容器，如jobList
-      //value :值，如剑圣 容器里有剑圣，则为true ,没有为false ,方便切换class
-      isChoice: function (key, value) {
-        
-        return this.searchModelSub[key].indexOf(value) >= 0;
-         
-      }
+    
     },
     watch: {
       "searchModel.GameGroupId": function (newVal, oldVal) {
@@ -953,28 +585,13 @@
 
       ,
 
-       "searchModelSub.priceRange": function (newVal,oldVal)
-       {
-        
+     
+    },
+    components: {
+      priceFilter: priceFilter,
 
-         let self = this;
-
-         if (self.searchModelSub.priceRangeLock)
-         {
-           return;
-         }
-
-         if (newVal.length==0)
-         {
-           self.searchModelSub.minPrice = undefined;
-           self.searchModelSub.maxPrice = undefined;
-           return;
-         }
-         let s = newVal[0].split('-');
-         self.searchModelSub.minPrice = s[0];
-         
-         self.searchModelSub.maxPrice = s[1];
-      }
+      commonFilter: commonFilter,
+      cardFilter: cardFilter
     }
   };
 </script>

@@ -148,6 +148,30 @@ namespace Bayetech.Core
             }   
         }
 
+
+
+        /// <summary>
+        /// 生成user（10位）
+        /// </summary>
+        /// <returns></returns>
+        public static string CreatUser(string head)
+        {
+            try
+            {
+                string year = DateTime.Now.Year.ToString();
+                string month = DateTime.Now.Month.ToString().PadLeft(2, '0');
+                string second = DateTime.Now.Second.ToString().PadLeft(2, '0');
+                Random ran = new Random();
+                string wan = ran.Next(1, 9999).ToString().PadLeft(4, '0');
+                string result = head + year + month + second + wan;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "发生错误!");
+            }
+        }
+
         /// <summary>
         /// 根据商品编号生成订单编号（22位）
         /// </summary>
@@ -225,5 +249,20 @@ namespace Bayetech.Core
             sb.Append(ipInt & 0xFF);
             return sb.ToString();
         }
+
+        /// <summary>
+        /// 得到当前完整主机头
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentFullHost()
+        {
+            HttpRequest request = System.Web.HttpContext.Current.Request;
+            if (!request.Url.IsDefaultPort)
+                return string.Format("{0}:{1}", request.Url.Host, request.Url.Port.ToString());
+
+            return request.Url.Host;
+        }
+
+       
     }
 }

@@ -39,14 +39,14 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -172,6 +172,9 @@
     <Compile Include="Entity\GoodAndDescription.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\GoodDetail.cs">
+      <DependentUpon>Bayetech.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\GoodStatus.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
@@ -248,10 +251,10 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SP_LoginInfo_Result.cs">
       <DependentUpon>Bayetech.tt</DependentUpon>
@@ -272,7 +275,7 @@
       <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
-      <DependentUpon>Oas.tt</DependentUpon>
+      <DependentUpon>Bayetech.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SYS_XmlConfig.cs">
       <DependentUpon>Oas.tt</DependentUpon>
@@ -673,8 +676,10 @@
     <Compile Include="Enum\ResultInfo.cs" />
     <Compile Include="Enum\SearchType.cs" />
     <Compile Include="Model\CurrentLogin.cs" />
+    <Compile Include="Model\vw_MallGoodMainInfo.cs" />
     <Compile Include="Model\SP_UserRoles.cs" />
     <Compile Include="Model\v_framework_notify.cs" />
+    <Compile Include="Pay\zfb\AliPayConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Core\SysVisitor.cs" />
     <Compile Include="Security\Json\Json.cs" />

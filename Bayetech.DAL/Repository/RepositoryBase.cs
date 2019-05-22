@@ -203,6 +203,7 @@ namespace Bayetech.DAL
                 string[] _order = pagination.order.Split(',');
                 MethodCallExpression resultExp = null;
                 var tempData = dbcontext.Set<TEntity>().Where(predicate.Compile()).AsQueryable();
+                //var tempData = dbcontext.Set<TEntity>().AsQueryable();
                 foreach (string item in _order)
                 {
                     string _orderPart = item;
@@ -220,7 +221,7 @@ namespace Bayetech.DAL
                     var orderByExp = Expression.Lambda(propertyAccess, parameter);
                     resultExp = Expression.Call(typeof(Queryable), isAsc ? "OrderBy" : "OrderByDescending", new Type[] { typeof(TEntity), property.PropertyType }, tempData.Expression, Expression.Quote(orderByExp));
                 }
-                tempData = tempData.Provider.CreateQuery<TEntity>(resultExp).AsQueryable();
+                tempData = tempData.Provider.CreateQuery<TEntity>(resultExp);
                 pagination.records = tempData.Count();
                 tempData = tempData.Skip<TEntity>(pagination.rows * (pagination.page - 1)).Take<TEntity>(pagination.rows).AsQueryable();
                 NewPage = pagination;

@@ -27,6 +27,9 @@ namespace Bayetech.Web.Controllers
 
   
 
+
+
+
         /// <summary>
         /// 获取区服名称
         /// </summary>
@@ -104,7 +107,7 @@ namespace Bayetech.Web.Controllers
             }
 
             Pagination page = json["Pagination"] == null ? Pagination.GetDefaultPagination("GoodNo") : JsonConvert.DeserializeObject<Pagination>(json["Pagination"].ToString());
-            return service.GetGoodList(goodInfo, startTime, endTime, page);
+            return service.GetGoodList(goodInfo, page);
         }
 
 

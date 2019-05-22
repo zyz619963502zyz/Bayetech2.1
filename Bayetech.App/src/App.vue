@@ -1,6 +1,7 @@
 <template>
+  
   <div id="app" class="app app-touch">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
