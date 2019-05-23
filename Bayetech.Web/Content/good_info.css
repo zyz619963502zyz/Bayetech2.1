@@ -80,13 +80,18 @@ li.gline {
     margin-bottom: 10px;
 }
 
-
-.mod18 .gallery-top {
-    height:80%;
+.swiper-picbox {
+    width: 1020px;
+    margin: 20px 0;
+    background: #fff;
 }
-.mod18 .gallery-thumbs {
-    margin-top:10px;
-    height: 17%;
+.swiper-picbox .gallery-top {
+    height: auto;
+    max-height: 600px;
+}
+.swiper-picbox .gallery-thumbs {
+    margin-top: 20px;
+    height: auto;
 }
 .swiper-thumbs-next, .swiper-thumbs-prev {
     position: absolute;
@@ -111,3 +116,14 @@ li.gline {
     right: 10px;
     left: auto;
 }
+.gallery-thumbs .swiper-slide > img{
+    width:100%
+}
+#certify .swiper-slide {
+    width: 800px;
+    background: #fff;
+    box-shadow: 0 8px 30px #ddd;
+}
+/*#certify .swiper-slide > img{
+    width:500px;
+}*/

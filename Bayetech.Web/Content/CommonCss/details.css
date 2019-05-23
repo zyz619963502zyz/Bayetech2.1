@@ -153,27 +153,7 @@ body{background: #fff;}
 .account-outline h2 span{font-size: 20px; text-align: center; border-bottom:1px solid #ff6700; padding: 14px 20px; *padding: 14px 20px 13px 20px;}
 .account-desc p{color: #333; font-size: 14px; line-height: 30px;}
 
-.mod18{width: 1020px; height: 710px; margin: 20px 0; background: #333;}
-.mod18 .picBox{height: 610px;}
-.mod18 .picBox .demo-gallery a{width: 1020px;  height: 610px;}
-.mod18 .picBox .demo-gallery img{display: inline-block;  max-width: 1020px;  max-height: 610px;}
-.mod18 #prevTop,.mod18 #nextTop{top:245px; width:46px;height:120px;}
-.mod18 #prevTop{background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; background-position:13px -209px; background-color:#000; filter:alpha(opacity=30); background-color:rgba(0,0,0,0.3);}
-.mod18 #prevTop:hover{background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; background-position:13px -209px;  background-color:#000; filter:alpha(opacity=70);  background-color:rgba(0,0,0,0.7);}
-.mod18 #nextTop{background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; background-position:17px -348px;  background-color:#000; filter:alpha(opacity=30);  background-color:rgba(0,0,0,0.3);}
-.mod18 #nextTop:hover{background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat;  background-position:17px -348px;  background-color:#000; filter:alpha(opacity=70);  background-color:rgba(0,0,0,0.7);}
-.mod18 .listBox{height: 100px; width: 905px; padding: 0; background: #333;}
-.mod18 .listBox li{width: 115px; height: 80px; margin-top: 10px;}
-.mod18 .listBox li img{width: 96px; height: 76px; padding: 0px; border: 2px solid #fff;}
-.mod18 .listBox .on img{width: 96px; height: 76px; border: 2px solid #ff6700;}
-.mod18 .listBox ul{height: 100px;}
-.mod18 #prev{width: 20px; height: 24px; left:15px; bottom:38px; background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; background-position:3px -818px; }
-.mod18 #prev:hover{ background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; no-repeat; background-position:3px -728px;}
-.mod18 #next{width: 20px; height: 24px; right:15px; bottom:38px;  background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; background-position:6px -533px;}
-.mod18 #next:hover{ background:url("http://pic.7881.com/7881-2016/images/goods-details/arrow.png") no-repeat; no-repeat; background-position:6px -623px;}
-
 .preloading {position: absolute; width: 1020px; height: 766px; line-height: 766px; z-index: 100; text-align: center; top:-60px; left: 0px; opacity: 0.5; background: #000;}
-
 
 .detail-pic{width: 1020px; margin: 0 auto; text-align: center;}
 .detail-pic img{max-width: 1020px; display: inline-block; *display: inline; *zoom: 1;}
