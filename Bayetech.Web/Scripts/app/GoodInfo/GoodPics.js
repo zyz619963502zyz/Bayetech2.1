@@ -159,6 +159,7 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
                 slidesPerView: 4,              
                 watchSlidesVisibility: true,
                 watchSlidesProgress: true,
+                loop: true,
                 navigation: {
                     nextEl: '.swiper-thumbs-next',
                     prevEl: '.swiper-thumbs-prev',
@@ -167,6 +168,7 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
             var galleryTop = new Swiper('.gallery-top', {
                 centeredSlides: true,
                 spaceBetween: 10,
+                loop: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
