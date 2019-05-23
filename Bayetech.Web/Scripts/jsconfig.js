@@ -14,7 +14,8 @@ var jsconfig = {
         'bootstrapValidator': 'Scripts/bootstrapValidator',
         'bootstrap-paginator': 'Scripts/bootstrap-paginator',
         'datepicker': 'Scripts/bootstrap-datepicker',
-        'swiper': 'Scripts/swiper',
+        //'swiper': 'Scripts/swiper',
+        'swiper': 'Scripts/swiper4.4.1',
         'text': "Scripts/text",
         //'v-partner': "Scripts/app/Home/partner",
         "v-search": "Scripts/app/Search/Search",
@@ -112,8 +113,12 @@ var jsconfig = {
         	deps: [ 'bootstrap'],
         	exports: 'datepicker'
         },
+        //'swiper': {
+        //    deps: ['bootstrap', 'css!../Content/swiper/swiper.min'],
+        //    exports: 'Swiper',
+        //},
         'swiper': {
-            deps: ['bootstrap', 'css!../Content/swiper/swiper.min'],
+            deps: ['bootstrap', 'css!../Content/swiper/swiper4.4.1.min'],
             exports: 'Swiper',
         },
         'uploadPackage': {
