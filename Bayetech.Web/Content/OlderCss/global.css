@@ -1,10 +1,10 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 /* ---重置常用标签的边界与填充---*/
 body,h1,h2,h3,h4,h5,h6,p,hr,dl,dt,dd,ul,ol,li,form,input,button,textarea,img{margin:0;padding:0}
 
 /* ---设置默认字体---*/
-body{font:12px Microsoft YaHei;text-align:center;margin:0; padding:0;color:#333}
+
 
 /* ---重置列表元素---*/
 ul,ol,li{list-style:none;}
@@ -98,4 +98,8 @@ background-image: url(http://pic.ofcard.com/7881/images/main/load_pic2.png);
 width: 0px;
 height: 0px;
 display: inline;
+}
+
+.sure-buy .goods-info .list-group li{
+    margin-bottom:10px;
 }
