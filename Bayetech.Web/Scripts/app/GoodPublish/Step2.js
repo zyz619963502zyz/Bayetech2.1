@@ -17,6 +17,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
         <input type="hidden" name="GoodTypeId" :value="GameInfo.GoodTypeId">
         <input type="hidden" name="GoodTypeName" :value="GameInfo.GoodTypeName">
             <!--商品信息-->
+
             <div class ="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center">商品信息</h4>
@@ -27,7 +28,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                             <div class="form-group form-group-xs">
                                 <label class="control-label col-md-3 col-md-offset-1">等级</label>
                                 <div class="col-md-8">
-                                    <input type="text" value="" class="form-control " />
+                                       <input type="text" value="" class="form-control " />
                                 </div>
                             </div>
                         </div>
@@ -59,7 +60,9 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                             <div class="form-group form-group-xs">
                                 <label class="control-label col-md-3 col-md-offset-1">QQ等级</label>
                                 <div class="col-md-8">
-                                    <input type="text" value="" class="form-control " />
+                                     <select v-model="item.Value" style="width:100px" class="form-control" @change="GetServers(subMitObj.GroupSelected)">
+                                         <option v-for="item in QQlvs" :value="item.key">{{item.Value}}</option>
+                                     </select>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +85,7 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
                         </div>
                         <div class="form-group form-group-xs">
                             <label class="col-md-2 control-label">卖多少钱：</label>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <div class="input-group">
                                     <input type="text" value="" class="form-control" />
                                     <span class="input-group-addon">元</span>
@@ -180,14 +183,16 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
     </div>`;
 
    var data={
-       GameInfo: { },
+       GameInfo: {//step1选择完成后已经获取职业和区服信息了。
+
+       },
        good_info_com: "UniversalGoodInfo",
        GoodExtProps: [],
+       QQlvs:[],//QQ等级选择
        BackGoodExtProps: [],
        tip: `为保障您的商品的成交速率，请完整填写商品信息；<br>
             私下交易有风险，涉及钱财莫大意，谨防诈骗，官方客服咨询QQ：4001877881`,
-       SecurityQuestion: [],
-
+       SecurityQuestion: []
    }
     var SecurityCode=[{ Flag: "string", Name: "安全交易码", Key: "securitycode", Length: 50, Need: 1 }];
     var components={
@@ -197,7 +202,8 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             return data
         },
         created() {
-            var self=this;
+            var self = this;
+            self.GetAllDefaults();//获取默认下拉数据。
             API.Setting.GetListByType("密保问题", function (data) {
                 self.SecurityQuestion=data.content;
             });
@@ -226,6 +232,15 @@ define(['vue', 'jquery', 'common', 'Scripts/app/GoodPublish/GoodInfo/Gold', 'Scr
             //点击下一步
             Next: function (to) {
                 this.$parent.Next(to);
+            },
+            GetAllDefaults() {//获取默认的下拉
+                var self = this;
+                //获取默认的下拉框
+                $.post("/api/Publish/GetAllDefaults", JSON.stringify(self.$parent.GameInfo), function (data) {
+                    if (data) {
+                        alert("获取到了数据!");
+                    }
+                });
             },
             //加载商品信息模块
             LoadGoodInfo: function () {

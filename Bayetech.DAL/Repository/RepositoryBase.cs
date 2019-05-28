@@ -238,7 +238,7 @@ namespace Bayetech.DAL
         /// 查询集合带分页对象（最常用，page=null为不分页）
         /// </summary>
         /// <param name="page">分页对象</param>
-        /// <param name="predicate">lamad表达式</param>
+         /// <param name="predicate">lamad表达式</param>
         /// <returns></returns>
         public JObject GetList<TEntity>(Expression<Func<TEntity, bool>> predicate=null, Pagination page = null) where TEntity : class, new()
         {

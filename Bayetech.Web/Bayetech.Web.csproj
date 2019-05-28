@@ -273,6 +273,7 @@
     <Compile Include="Common\HttpResponseExtension.cs" />
     <Compile Include="Controllers\NoFollowController.cs" />
     <Compile Include="Controllers\PayController.cs" />
+    <Compile Include="Controllers\PublishController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
