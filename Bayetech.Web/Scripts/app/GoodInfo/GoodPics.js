@@ -30,16 +30,10 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
                                 </div>
                             </div>
                         </div>
-                        <div class="mod18">
+                        <div class="swiper-picbox">
                             <div class="preloading" style="display: none;"><img src="../../Content/Images/loading-2.gif" /></div>
-                            <span  class="swiper-button-prev"></span>
-                            <span  class="swiper-button-next"></span>
-
-
-                            <span class="swiper-button-prev"></span> 
-                            <span class="swiper-button-next"></span>
-
-
+                           
+                           
                             <!--div id="picBox" class="picBox">
                                 <div id="picgd" class="cf demo-gallery" data-pswp-uid="1" style="left: 0px; width: 2040px;">
                                     <a href="./账号查看_files/b123f30809434931a6e623fad7b166cf(1).png" data-size="800x600">
@@ -51,37 +45,59 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
                                 </div>
                             </div-->
 
-                            <div class="swiper-container index-banner swiper-container-horizontal swiper-container-autoheight">
-                                  <div class="swiper-wrapper">
+                            <div class="swiper-container gallery-top swiper-container-horizontal" id="certify">
+                                <div class="swiper-wrapper">
                                     <!--<div class="swiper-slide" v-for="item in imgList">
-                                        <img :src="item"/>
+                                      <img :src="item"/>
                                     </div>-->
                                     <div class="swiper-slide">
-                                      <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" alt="Alternate Text"/>
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
                                     </div>
                                     <div class="swiper-slide">
-                                      <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png" alt="Alternate Text"/>
+                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png">
                                     </div>
                                     <div class="swiper-slide">
-                                       <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" alt="Alternate Text"/>
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
                                     </div>
                                     <div class="swiper-slide">
-                                      <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png" alt="Alternate Text"/>
+                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png">
                                     </div>
                                     <div class="swiper-slide">
-                                      <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" alt="Alternate Text"/>
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
                                     </div>
-                                  </div>
-                                  <div class="swiper-pagination"></div>
-
+                                    
+                                    <!--<div class="swiper-slide" style="background-image:url('../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png')"></div>
+                                    <div class="swiper-slide" style="background-image:url('../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png')"></div>
+                                    <div class="swiper-slide" style="background-image:url('../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png')"></div>
+                                    <div class="swiper-slide" style="background-image:url('../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png')"></div>-->
                                 </div>
+                                <span  class="swiper-button-prev"></span>
+                                <span  class="swiper-button-next"></span>
+                            </div>
+                            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-thumbs gallery-thumbs">
+                                <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png">
+                                    </div>
+                                </div>
+                                <span  class="swiper-thumbs-prev"></span>
+                                <span  class="swiper-thumbs-next"></span>
+                            </div> 
 
-
-                            <div id="listBox" class="listBox">
+                            <!--<div id="listBox" class="listBox">
                                 <ul class="cf" style="left: 0px; width: 230px;">
-
-
-
                                     <li class="on">
                                         <i class="arr2"></i>
                                         <img src="../../Content/Images/b123f30809434931a6e623fad7b166cf(1).png" />
@@ -90,11 +106,8 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
                                         <i class="arr2"></i>
                                         <img src="../../Content/Images/b50c668b1a0549cc84dbeaeac6003826.png" />
                                     </li>
-
-
-
                                 </ul>
-                            </div>
+                            </div>-->
                         </div>
                         <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="pswp__bg"></div>
@@ -150,26 +163,57 @@ define(jsconfig.baseArr, function (Vue, $, common, swiper) {
             //        el: '.swiper-pagination'
             //    },
             //})
-
-            var swiper = new Swiper('.swiper-container', {
-                autoplay: 3000,
-                speed: 1000,
-                autoplayDisableOnInteraction: false,
+            var galleryThumbs = new Swiper('.gallery-thumbs', {
+                spaceBetween: 10,
+                slidesPerView: 4,              
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
                 loop: true,
+                navigation: {
+                    nextEl: '.swiper-thumbs-next',
+                    prevEl: '.swiper-thumbs-prev',
+                },
+            });
+            var galleryTop = new Swiper('.gallery-top', {
+                watchSlidesProgress: true,
+                slidesPerView: 'auto',
                 centeredSlides: true,
-                slidesPerView: 2,
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
+                speed:500,
+                loop: true,
+                loopedSlides: 5,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
-                onInit: function (swiper) {
-                    swiper.slides[2].className = "swiper-slide swiper-slide-active";//第一次打开不要动画
+                thumbs: {
+                    swiper: galleryThumbs
                 },
-                breakpoints: {
-                    668: {
-                        slidesPerView: 1,
+                on: {
+                    progress: function (progress) {
+                        for (i = 0; i < this.slides.length; i++) {
+                            var slide = this.slides.eq(i);
+                            var slideProgress = this.slides[i].progress;
+                            modify = 1;
+                            if (Math.abs(slideProgress) > 1) {
+                                modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                            }
+                            translate = slideProgress * modify * 260 + 'px';
+                            scale = 1 - Math.abs(slideProgress) / 5;
+                            zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                            slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                            slide.css('zIndex', zIndex);
+                            slide.css('opacity', 1);
+                            if (Math.abs(slideProgress) > 3) {
+                                slide.css('opacity', 0);
+                            }
+                        }
+                    },
+                    setTransition: function (transition) {
+                        for (var i = 0; i < this.slides.length; i++) {
+                            var slide = this.slides.eq(i)
+                            slide.transition(transition);
+                        }
+
                     }
                 }
             });

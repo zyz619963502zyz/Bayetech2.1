@@ -1,28 +1,34 @@
 ﻿//注册模块
 define(jsconfig.baseArr, function (Vue, $, common) {
     //模板
-    var surebuyhtml = `<div class="center">
-            <div class="qrgmxx">
-                <h1>确认购买信息</h1>
-                <div class="kuang">
-                    <ul>
-                        <li class="cpbt"><span>商品标题</span></li>
-                        <li class="dj">价格</li>
-                    </ul>
-                    <ul>
-                        <li class="cpbt">
-                            <img src="http://pic.ofcard.com/7881/market/images/buy/buy_zhang.png" />
-                            <em style="color:#0099FF">
-                                {{SureBuyModel.GoodTitle}}
-                            </em><br />
-                            物品类型： {{SureBuyModel.GoodTypeName}}<br/>
-                            游戏区服： {{SureBuyModel.GameName}} /{{SureBuyModel.GroupName}} /{{SureBuyModel.ServerName}}
-                        </li>
-                        <li class ="dj"><strong style="color:#F90">{{SureBuyModel.GoodPrice.toFixed(2)}}</strong>元</li>
-                    </ul>
-                </div>
-            </div>
-        </div>`;
+    var surebuyhtml = `<div class="panel panel-default goods-info">
+
+                        <div class="panel-heading clearfix">
+                            <div class="col-md-10 f16">确认商品信息</div>
+                            <div class="col-md-2 f16"> 价格</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-10">
+                                <ul class="list-group f14">
+                                          <li>
+                                            商品标题：
+                                           <em style="color:#0099FF">
+                                            {{SureBuyModel.GoodTitle}}
+                                        </em>
+                                            </li>
+                                          <li>
+                                            物品类型： {{SureBuyModel.GoodTypeName}}
+                                           </li>
+                                          <li>
+                                            游戏区服： {{SureBuyModel.GameName}} /{{SureBuyModel.GroupName}} /{{SureBuyModel.ServerName}}
+                                        </li>
+                               </ul>
+                            </div>
+                          <div class="col-md-2">
+                                <strong style="color:#F90">{{SureBuyModel.GoodPrice.toFixed(2)}}</strong>元
+                            </div>   
+                        </div>
+                    </div>`;
 
     //Api
     var _GetGoodInfoUrl="/api/GoodInfo/GetGoodInfo";
