@@ -54,7 +54,9 @@ img{display:inline-block;}
 .fb600{font-weight:600;}
 .fb700{font-weight:700;}
 .fb800{font-weight:800;}
-
+.bg-white {
+    background-color:#fff;
+}
 .pointer{cursor:pointer;}
 /*border 
  *base-color:#ccc

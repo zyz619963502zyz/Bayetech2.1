@@ -1,12 +1,179 @@
 ﻿//注册模块
 define(jsconfig.baseArr, function (Vue, $, common) {
     //模板
-    var OrderHtml=`<div>
-                    <form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
+    var OrderHtml =`<div class="panel panel-default">
+
+                        <div class="panel-heading f16">
+                            填写商品订单
+                        </div>
+                        <div class="panel-body">
+                            <form class="el-form" id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
+                                <!-- 金币 -->
+                                <div class="el-form-group"  id="BuyGold" v-if="GoodTypeId==1">
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">购买数量</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">交易方式</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">所在区服</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-text">{{GameName}}/{{GroupName}}/{{ServerName}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">电话号码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="BuyerPhone"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">联系QQ</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="BuyerQQ"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">交易暗码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="Signal"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">推广码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="PromoNum"></div>
+                                      </div>
+                                    </div>
+                                </div>
+                               <!-- 账号 -->
+                                <div class="el-form-group" id="BuyAccount" v-else-if="GoodTypeId==3">
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">购买数量</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text" :value="BuyNum" readonly="readonly"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">收货方式</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-text">{{GoodTypeName}}交易</div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">所在区服</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-text">{{GameName}}/{{GroupName}}/{{ServerName}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">电话号码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="BuyerPhone"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">联系QQ</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text" :value="BuyerQQ"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">推广码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text" :value="PromoNum"></div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- 点券 -->
+                                <div class="el-form-group" id="BuyAccount" v-else-if="GoodTypeId==4">
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">购买数量</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text" :value="BuyNum" readonly="readonly"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">收货方式</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-text">邮寄 交易</div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">所在区服</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-text">{{GameName}}/{{GroupName}}/{{ServerName}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">游戏账号</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="GameAccount"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">确认游戏账号</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="GameAccountAgain"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">电话号码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="BuyerPhone"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">联系QQ</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" type="text":value="BuyerQQ"></div>
+                                      </div>
+                                    </div>
+                                    <div class="el-form-item">
+                                      <label class="el-form-item_label" style="width: 80px;">推广码</label>
+                                      <div class="el-form-item_content" style="margin-left: 80px;">
+                                        <div class="el-input"><input class="el-input_inner" :value="PromoNum"></div>
+                                      </div>
+                                    </div>
+                                </div>
+
+                             </form>
+
+
+                        </div>
+                        <div class="panel-footer bg-white">
+                            <div class ="qdtjdd">
+                                    <h1>确认提交订单</h1>
+                                    <ul>
+                                        <li>游戏联盟官方任何工作人员，都<b>不会</b>通过 QQ、电话或游戏内等方式，您索要您的登陆密码、手机号码或手机验证码！如有人冒充游戏联盟工作人员向您索要，请千万不要提供！并第一时间联系游戏联盟官方客服，电话：400-187-游戏联盟（此号码无外拨功能）。</li>
+                                        <li>
+                                            需支付总价：{{GoodPrice}}<strong style="color:#F90;">
+                                                <input type="text" id="text_goodsprice" style="color:#F90; font-size:16px; border:0px;width:70px;" readonly="readonly" />
+                                            </strong>&nbsp;元
+                                        </li>
+                                        <li>
+                                            <input type="button" @click="SureBuy" id="hlkOK" class ="buy_gm_qdww" />
+                                            <span style="padding-left: 20px;" class ="jf_detail hide">购买可获得<em id="nowJf" style="padding: 0 2px; color: #ff6700;">0</em>积分</span><s class ="hide" style="color: silver;margin-left: 5px;">(<em id="oldJf">0</em>积分) </s>
+                                        </li>
+                                        <li><input type="checkbox" id="agreem ent" style="height:12px;" checked="checked" />&nbsp; 我已阅读并同意<a href="/account_pro.html" target="_blank" class ="ls">《游戏联盟网游交易协议》</a></li>
+                                    </ul>
+                                </div>
+                        </div>
+                          
+                        
+                    
+                    <!--<form id="goodsForm" action="/procurement/purchaseGoods.action" method="post" autocomplete="off">
                     <div class ="center">
                         <div class ="txcpdd">
                         <h1>填写商品订单</h1>
-                        <ul id="BuyGold" v-if="GoodTypeId==1"><!--金币-->
+                        <ul id="BuyGold" v-if="GoodTypeId==1">金币
                             <li class ="buyNum">
                                 <span>购买数量：<strong style="color:#F00">* </strong></span><input type="hidden"/>{{BuyNum}}
                                 <p class ="txcpdd_default"> (可购1件) </p>
@@ -25,7 +192,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
                         </ul>
 
-                        <ul id="BuyAccount" v-else-if="GoodTypeId==3"><!--账号-->
+                        <ul id="BuyAccount" v-else-if="GoodTypeId==3">账号
                             <li><span>购买数量：<strong style="color:#F00">* </strong></span><input type="text":value="BuyNum" readonly="readonly" /> (可购1件) </li>
                             <li><span>收货方式：<strong style="color:#F00">* </strong></span> {{GoodTypeName}}交易</li>
                             <li><span>所在区服：<strong style="color:#F00">* </strong></span>{{GameName}}/{{GroupName}}/{{ServerName}}</li>
@@ -34,7 +201,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum" /></li>
                         </ul>
 
-                        <ul v-else-if="GoodTypeId==4"><!--点券-->
+                        <ul v-else-if="GoodTypeId==4">点券
                             <li class ="buyNum">
                                     <span>购买数量：<strong style="color:#F00">* </strong></span><input type="text":value="BuyNum"><p class ="zq">&nbsp; </p>
                                 </li>
@@ -55,12 +222,12 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><span>电话号码：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerPhone"></li>
                             <li><span>联系QQ：<strong style="color:#F00">* </strong></span><input type="text":value="BuyerQQ"></li>
                             <li><span>推广码：<strong style="color:#F00">&nbsp; &nbsp; </strong></span><input type="text":value="PromoNum"></li>
-                            </ul>
+                        </ul>
                     </div>
                 </div>
-                    <div class ="clear"></div>
+                    
                 </form>
-                <div class ="clear"></div>
+                
                 <div class ="center">
                     <div class ="qdtjdd">
                         <h1>确认提交订单</h1>
@@ -78,7 +245,7 @@ define(jsconfig.baseArr, function (Vue, $, common) {
                             <li><input type="checkbox" id="agreem ent" style="height:12px;" checked="checked" />&nbsp; 我已阅读并同意<a href="/account_pro.html" target="_blank" class ="ls">《游戏联盟网游交易协议》</a></li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
             </div>`;
 
         //Api

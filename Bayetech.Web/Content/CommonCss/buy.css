@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 .buy_lm{ margin:10px auto; position:relative;}
 .buy_lm .near{ position:absolute; padding-left:20px; top:0; right:5px;background:url(http://pic.ofcard.com/7881/market/images/buy/near.png) no-repeat left center;}
 .buy_yxsx{ border:#dfdfdf solid 1px;}
@@ -157,7 +157,6 @@ border-bottom:#dfdfdf solid 1px;
 #dxk dl dd span{ width:80px;display:block; float:left; text-align:right; padding-right:5px;}
 
 .qdtjdd h1{ font-size:14px; padding-bottom:10px; padding-top:10px; border-bottom:solid #dfdfdf 1px;}
-.qdtjdd ul{ padding-left:135px;}
 .qdtjdd ul li{ margin-bottom:20px; margin-top:20px;}
 .qdtjdd input{vertical-align:middle}
 
